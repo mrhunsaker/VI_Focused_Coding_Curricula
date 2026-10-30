@@ -547,7 +547,7 @@
         "mdBook build and GitHub Actions validation are pending.",
         "Python setup now documents the Theia Open Folder workflow and explains why the project root containing pyproject.toml must be opened for .venv discovery.",
         "Python setup explicitly identifies JetBrains IDEs such as PyCharm as advanced options for experienced coders.",
-        "Static audit passed across all four modified setup units: 94 fenced code blocks are balanced, 20 Bash-family command blocks have immediate Windows PowerShell counterparts, and each language setup documents VS Code, Theia, and JetBrains IDEs as advanced options.",
+        "Static audit passed across all four modified setup units: 77 fenced code blocks are balanced, 20 Bash-family command blocks have immediate Windows PowerShell counterparts, and each language setup documents VS Code, Theia, and JetBrains IDEs as advanced options.",
         "convert_to_mdbook.json parses successfully. GitHub Actions mdBook build/deployment is queued and not yet confirmed."
       ]
     }
