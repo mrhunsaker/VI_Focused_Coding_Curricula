@@ -18,7 +18,7 @@
     ]
   },
   "immutable_constraints": [
-    "Never modify, rename, move, delete, or generate any file under cs_curriculum_final/. Use it only as an organizational reference.",
+    "Treat cs_curriculum_final/ as reference-only. Do not modify it unless the user explicitly authorizes a defined exception. For the cross-platform command pass, the user explicitly requested all Markdown files; the only archived-folder changes were PowerShell equivalents immediately following existing Bash-family command blocks. Do not alter other archived content.",
     "Preserve the established curriculum scope and learning progression. Make user-authorized modernization and expansion edits to active materials while retaining the original teaching intent, examples, and exercises where appropriate.",
     "Record every implementation change in CHANGES.md.",
     "At the end of EACH numbered implementation step, update this JSON progress, append results to CHANGES.md, and commit the step before starting the next step.",
@@ -401,11 +401,56 @@
       ],
       "workflow_run": "https://github.com/mrhunsaker/VI_Focused_Coding_Curricula/actions/runs/41084997810",
       "checkpoint": "Update CHANGES.md and this plan, commit the checkpoint, and verify main. Keep the normal-browser smoke test as the only outstanding publication check."
+    },
+    {
+      "id": 9,
+      "name": "Pair every Bash-family command example with Windows PowerShell",
+      "status": "all Bash-family command examples have Windows PowerShell counterparts; build and deployment succeeded; live-site browser smoke test remains pending",
+      "tasks": [
+        "Audit every Markdown file in the repository, not only the active curriculum pages, for executable fenced Bash-family command blocks.",
+        "Place a matching PowerShell command block immediately after every executable bash, sh, shell, or zsh fence, with a clear Windows 11 label.",
+        "Translate Linux-only installation commands into Windows-native winget commands; use Windows paths, Python launcher/pip syntax, PowerShell file commands, the Gradle batch wrapper, and Git restore syntax where appropriate.",
+        "Cover interactive Node.js and JShell sessions, Python virtual-environment activation, Java/Kotlin compilation, npm workflows, mdBook, VS Code, and Git.",
+        "Add a project-wide authoring requirement to CODE_STYLE.md and contribution instructions, and describe OS-specific command guidance in OVERALL_README.md.",
+        "Preserve archived/reference content except for the explicitly authorized PowerShell counterparts in cs_curriculum_final/."
+      ],
+      "validation": [
+        "Enumerated and audited all 63 Markdown files in the repository.",
+        "Found 127 executable Bash-family fenced command blocks in 29 Markdown files and added 127 immediately following Windows PowerShell blocks.",
+        "Automated pair check: all 127 Bash-family fences have the required Windows PowerShell label and a powershell fence immediately following.",
+        "Balanced fenced-code audit passed for all 29 changed Markdown files.",
+        "Reviewed Windows alternatives for Python installation, py launcher, pip, virtual environments and process-scoped activation policy; Node.js LTS and historical Node 18 installation; JDK 25 and archived JDK 17; npm, Node REPL, JShell, javac/java, Maven, Gradle; VS Code; mdBook; and Git.",
+        "Removed duplicate winget installation commands caused by converting multi-line Linux package-manager sequences.",
+        "Added a pinned Node.js 18.20.8 MSI installation path for archived lesson material that explicitly targets Node 18, rather than silently substituting current Node LTS.",
+        "Updated CODE_STYLE.md, CONTRIBUTING.md, and OVERALL_README.md to require and explain paired command examples.",
+        "GitHub Actions run 41088527780 for commit 6f421e4b1d5c0b5b8a8251b1751c78082c8ec741 completed successfully, including mdBook build, Pages configuration, artifact upload, and deployment."
+      ],
+      "implementation_commits": [
+        "84040c66eb196231f365375d529bfe7dadc6dcaf",
+        "49707f3725b0841d63706dfd530e43e14b4f89bf",
+        "e2df42fb7df0348779751cae75ffdcb7bcfc8501",
+        "1b45d6df5509409cd601fbb88b6998ba05fec905",
+        "883c71b60c4ef6497cd1ad35079b535d92308791",
+        "7a159a360bf1c7a683a591cd6e8966da0ec842de",
+        "a50665ff803e4507468683a625fba250f8958637",
+        "f1bf41ebca8592e1fd5ad459c66826853324756c",
+        "b6feb659fac70e4612fd3abc0c0d8d52181ee142",
+        "ad5ef4fd931cb969c3985fd8df73c5d78600b15b",
+        "23191bd243a8a47cac377683d40e02b62728321d",
+        "f7eb9a362d29b3877d2afb8a6acb2e6bb139067a",
+        "50a4584af92f691b75991c518b173975a1daa61a",
+        "36681803f5036ea2f094cdacd1d83593d11322c2",
+        "8944436bc778d0a9f10e44cf20037599eef4132b",
+        "6f421e4b1d5c0b5b8a8251b1751c78082c8ec741"
+      ],
+      "workflow_run": "https://github.com/mrhunsaker/VI_Focused_Coding_Curricula/actions/runs/41088527780",
+      "head_commit": "6f421e4b1d5c0b5b8a8251b1751c78082c8ec741",
+      "conclusion": "success"
     }
   ],
   "progress": {
-    "current_step": 4,
-    "status": "content_modernization_complete_build_and_deployment_succeeded_live_site_browser_smoke_test_pending",
+    "current_step": 9,
+    "status": "cross_platform_command_examples_complete_build_and_deployment_succeeded_live_site_browser_smoke_test_pending",
     "completed_steps": [
       0,
       1,
@@ -414,16 +459,17 @@
       5,
       6,
       7,
-      8
+      8,
+      9
     ],
     "pending_steps": [
       4
     ],
     "next_step": "Open the published site in a normal browser and verify the overview, all four language landing pages, all 19 unit documents, all four teacher guides, and the optional Kotlin supplement. Check representative internal navigation and links. The available web viewer could not retrieve the home page or TypeScript landing page; this is not evidence that the site is down.",
-    "last_commit": "5f39ff02411ca20e889c70b3aa74b2478c35b673",
-    "last_validation": "GitHub Actions run 41084997810 for commit 5f39ff02411ca20e889c70b3aa74b2478c35b673 completed successfully: mdBook install, mdbook build, Pages configuration, artifact upload, and deployment all succeeded. A 32-file Markdown audit found balanced fenced-code markers and reviewed local links. GitHub compare from the prior checkpoint reports no changed paths under cs_curriculum_final/. Automated web-viewer retrieval of the published home page and TypeScript page was unavailable, so normal-browser smoke testing remains pending.",
+    "last_commit": "6f421e4b1d5c0b5b8a8251b1751c78082c8ec741",
+    "last_validation": "Audited all 63 Markdown files in the repository. Identified 127 executable Bash-family fenced blocks across 29 files and placed a Windows PowerShell block immediately after every one. A second automated pass verified every pair has the Windows PowerShell label and powershell fence; all 29 changed files passed a balanced-fence audit. Reviewed Windows-specific equivalents for Python/venv/pip, Node.js installation and REPL, JDK installation/JShell, npm, Gradle wrapper, VS Code, mdBook, and Git. Used winget for Windows-native installs, PowerShell path and content commands, the Windows Gradle wrapper, and a pinned Node 18.20.8 MSI for historical Node 18 examples. Updated CODE_STYLE.md, CONTRIBUTING.md, and OVERALL_README.md with the cross-platform rule. GitHub Actions run 41088527780 for commit 6f421e4b1d5c0b5b8a8251b1751c78082c8ec741 completed successfully: mdBook build and GitHub Pages deployment passed. A normal-browser published-page smoke test remains pending from earlier work.",
     "updated_at": "2026-10-30",
-    "current_step_commit": "5f39ff02411ca20e889c70b3aa74b2478c35b673"
+    "current_step_commit": "6f421e4b1d5c0b5b8a8251b1751c78082c8ec741"
   },
   "future_llm_instructions": [
     "Read this JSON and CHANGES.md before every task; fetch current main and verify latest commits before acting.",
@@ -432,15 +478,16 @@
     "Append a dated CHANGES.md entry listing files, validation, outcome, and commit SHA.",
     "Commit implementation files, CHANGES.md, and this updated JSON together as one step checkpoint.",
     "Wait for successful commit and verify its SHA before proceeding.",
-    "Inspect changed paths before commit and reject every change under cs_curriculum_final/.",
+    "Inspect changed paths before commit. Treat cs_curriculum_final/ as immutable unless the user explicitly authorizes a defined exception; the 2026-10-30 cross-platform pass was an explicit one-time exception limited to adding PowerShell equivalents after existing Bash-family command blocks.",
     "Do not claim publication until the Pages workflow succeeds and the target URL is verified.",
     "Keep project README badges pointed at this repository and its deployed mdBook, not example repositories.",
     "README.md is repository-facing project documentation and is not a chapter in SUMMARY.md; OVERALL_README.md remains the mdBook curriculum overview.",
     "For content revisions, preserve the distinction between the repository README and OVERALL_README.md, which is the mdBook's curriculum overview.",
-    "Keep cs_curriculum_final/ immutable. The active curriculum sources are PYTHON/, JAVASCRIPT/, TYPESCRIPT/, and JAVA/; JAVA/kotlin.md is an optional post-capstone supplement.",
+    "Treat cs_curriculum_final/ as reference-only unless the user explicitly authorizes a defined exception. The 2026-10-30 cross-platform pass changed archived Markdown only to add immediately following PowerShell equivalents for existing Bash-family command examples.",
     "For AI guidance, cover both instructor preparation and student use; require human verification, privacy protection, accessibility review, disclosure where required, and a non-AI route.",
     "The version baseline last checked on 2026-10-30 is Python 3.12 minimum (examples remain 3.12-compatible), Node.js 26 LTS, TypeScript 7.0.2, JDK 25 LTS, and optional Kotlin 2.4.21. Recheck official release pages before future version upgrades.",
-    "TypeScript compiles to JavaScript; do not describe TypeScript source as directly executed by Node.js or as having automatic runtime validation. Keep strict compiler guidance and runtime validation at external-data boundaries."
+    "TypeScript compiles to JavaScript; do not describe TypeScript source as directly executed by Node.js or as having automatic runtime validation. Keep strict compiler guidance and runtime validation at external-data boundaries.",
+    "Cross-platform documentation rule: every executable fenced bash, sh, shell, or zsh command block must be followed immediately by a functionally equivalent fenced powershell block labeled for Windows 11. Keep Bash-family examples first for macOS/Linux, use Windows-native commands (including winget where appropriate), and update both blocks together whenever commands change."
   ],
   "instructions_for_commit_sha": "A commit cannot include its own SHA. When creating a later checkpoint, record the immediately preceding verified checkpoint SHA in progress.last_commit.",
   "commit_history": [
@@ -546,6 +593,32 @@
       "head_commit": "5f39ff02411ca20e889c70b3aa74b2478c35b673",
       "conclusion": "success",
       "status": "content and deployment validation succeeded; live-site browser smoke test pending"
+    },
+    {
+      "step": 9,
+      "name": "Pair every Bash-family command example with Windows PowerShell",
+      "implementation_commits": [
+        "84040c66eb196231f365375d529bfe7dadc6dcaf",
+        "49707f3725b0841d63706dfd530e43e14b4f89bf",
+        "e2df42fb7df0348779751cae75ffdcb7bcfc8501",
+        "1b45d6df5509409cd601fbb88b6998ba05fec905",
+        "883c71b60c4ef6497cd1ad35079b535d92308791",
+        "7a159a360bf1c7a683a591cd6e8966da0ec842de",
+        "a50665ff803e4507468683a625fba250f8958637",
+        "f1bf41ebca8592e1fd5ad459c66826853324756c",
+        "b6feb659fac70e4612fd3abc0c0d8d52181ee142",
+        "ad5ef4fd931cb969c3985fd8df73c5d78600b15b",
+        "23191bd243a8a47cac377683d40e02b62728321d",
+        "f7eb9a362d29b3877d2afb8a6acb2e6bb139067a",
+        "50a4584af92f691b75991c518b173975a1daa61a",
+        "36681803f5036ea2f094cdacd1d83593d11322c2",
+        "8944436bc778d0a9f10e44cf20037599eef4132b",
+        "6f421e4b1d5c0b5b8a8251b1751c78082c8ec741"
+      ],
+      "workflow_run": "41088527780",
+      "head_commit": "6f421e4b1d5c0b5b8a8251b1751c78082c8ec741",
+      "conclusion": "success",
+      "status": "complete; all 127 shell blocks paired; build and deployment succeeded"
     }
   ]
 }
