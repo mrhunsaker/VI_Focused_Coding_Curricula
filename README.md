@@ -1,6 +1,6 @@
 # Accessible Introduction to Computer Science
 
-[![License](https://img.shields.io/badge/license-CC0%201.0-blue.svg)](LICENSE)
+[![License](https://img.shields.io/badge/license-Apache%202.0-blue.svg)](LICENSE)
 ![GitHub top language](https://img.shields.io/github/languages/top/mrhunsaker/VI_Focused_Coding_Curricula)
 [![Documentation](https://img.shields.io/badge/docs-mdBook-blue)](https://mrhunsaker.github.io/VI_Focused_Coding_Curricula/)
 [![Last commit](https://img.shields.io/github/last-commit/mrhunsaker/VI_Focused_Coding_Curricula)](https://github.com/mrhunsaker/VI_Focused_Coding_Curricula/commits/main)
@@ -9,7 +9,7 @@
 [![PRs welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg)](CONTRIBUTING.md)
 [![Build and deploy mdBook](https://github.com/mrhunsaker/VI_Focused_Coding_Curricula/actions/workflows/mdbook.yml/badge.svg)](https://github.com/mrhunsaker/VI_Focused_Coding_Curricula/actions/workflows/mdbook.yml)
 
-An accessibility-first, open educational resource for learning introductory computer science through **Python, JavaScript, and Java**. It is designed especially for learners who are blind or visually impaired and use screen readers, while remaining useful to anyone who prefers keyboard-first, text-based instruction.
+An accessibility-first, open educational resource for learning introductory computer science through **Python, JavaScript, TypeScript, and Java**. It is designed especially for learners who are blind or visually impaired and use screen readers, while remaining useful to anyone who prefers keyboard-first, text-based instruction.
 
 **Read the living textbook:** [https://mrhunsaker.github.io/VI_Focused_Coding_Curricula/](https://mrhunsaker.github.io/VI_Focused_Coding_Curricula/)
 
@@ -22,7 +22,7 @@ The textbook is intended to evolve continuously. Explanations, examples, exercis
 ## Purpose and principles
 
 - **Accessible by design:** prioritize screen-reader compatibility, semantic structure, descriptive links, keyboard operation, and text-based workflows.
-- **Teach transferable computer science:** introduce core programming concepts through three widely used languages.
+- **Teach transferable computer science:** introduce core programming concepts through four widely used languages.
 - **Practice-first learning:** support concepts with runnable examples, guided exercises, projects, and capstone work.
 - **Keep it living:** welcome corrections, clearer explanations, new examples, improved exercises, and updates as tools and language ecosystems change.
 - **Build in the open:** invite learners, educators, developers, and accessibility practitioners to participate.
@@ -36,19 +36,22 @@ The lessons emphasize keyboard-first development, accessible editor and terminal
 
 ## What's in the textbook
 
-The current book includes an overview and three language curricula, organized into 15 unit documents.
+The current book includes an overview and four language curricula, organized into 19 unit documents, plus an optional post-capstone Kotlin supplement for Java learners.
 
 | Curriculum | Coverage |
 | --- | --- |
 | [Python](PYTHON/PYTHON_README.md) | Accessible setup; computing foundations; numeric programs; control flow; data structures; input and functions; object-oriented programming; files, exceptions, and testing; projects and capstone |
 | [JavaScript](JAVASCRIPT/JAVASCRIPT_README.md) | Setup and foundations; numbers and input; control flow; arrays and objects; functions; classes; files and errors; modules, collections, testing, projects, and capstone |
+| [TypeScript](TYPESCRIPT/TYPESCRIPT_README.md) | Node.js and TypeScript setup; type annotations and inference; input; control flow; data structures; functions; classes; files; modules; collections; testing; projects and capstone |
 | [Java](JAVA/JAVA_README.md) | Setup and foundations; numeric programs; control flow; arrays and collections; input and strings; methods; object-oriented programming; files and exceptions; projects and capstone |
 
 Start with the [curriculum overview](OVERALL_README.md), then choose a language:
 
 - [Python curriculum and units](PYTHON/PYTHON_README.md)
 - [JavaScript curriculum and units](JAVASCRIPT/JAVASCRIPT_README.md)
+- [TypeScript curriculum and units](TYPESCRIPT/TYPESCRIPT_README.md)
 - [Java curriculum and units](JAVA/JAVA_README.md)
+- [Optional Kotlin post-capstone supplement](JAVA/kotlin.md)
 
 The [mdBook table of contents](SUMMARY.md) defines the published book's navigation.
 
@@ -71,7 +74,7 @@ Accessibility is an ongoing quality goal, not a claim that every page or third-p
 - **Content:** Markdown files in this repository
 - **Hosting:** GitHub Pages
 - **Automation:** GitHub Actions
-- **Curriculum languages:** Python, JavaScript (Node.js), and Java
+- **Curriculum languages:** Python, JavaScript (Node.js), TypeScript (compiled to JavaScript and run with Node.js), and Java
 
 To build locally:
 
@@ -89,7 +92,7 @@ The generated `book/` directory is build output and is intentionally ignored by 
 
 ## Contribute to the living textbook
 
-Contributions are welcome. You do not need to be an expert in all three languages. A focused correction to one explanation, a reproducible example, a screen-reader usability report, or a better exercise can make the book more useful.
+Contributions are welcome. You do not need to be an expert in all four curricula. A focused correction to one explanation, a reproducible example, a screen-reader usability report, or a better exercise can make the book more useful.
 
 - **Discussions:** ask questions, propose ideas, compare learning approaches, and discuss the textbook's direction in [GitHub Discussions](https://github.com/mrhunsaker/VI_Focused_Coding_Curricula/discussions).
 - **Issues:** report errors, broken links, outdated setup instructions, unclear explanations, missing topics, or accessibility barriers in [GitHub Issues](https://github.com/mrhunsaker/VI_Focused_Coding_Curricula/issues).
@@ -106,7 +109,8 @@ Read [CONTRIBUTING.md](CONTRIBUTING.md), [CODE_STYLE.md](CODE_STYLE.md), and [CO
 ├── book.toml               # mdBook configuration
 ├── PYTHON/                 # Python curriculum and units
 ├── JAVASCRIPT/             # JavaScript curriculum and units
-├── JAVA/                   # Java curriculum and units
+├── JAVA/                   # Java curriculum, units, and Kotlin supplement
+├── TYPESCRIPT/             # TypeScript curriculum and units
 ├── .github/workflows/      # mdBook build and GitHub Pages deployment
 ├── CHANGES.md              # Project change log
 ├── CONTRIBUTING.md         # Contribution process

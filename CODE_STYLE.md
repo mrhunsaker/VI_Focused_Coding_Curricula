@@ -10,7 +10,7 @@ These conventions apply to Markdown, explanations, examples, and project code. T
 - Use descriptive link text. Avoid "click here", unexplained raw URLs, and links whose purpose is conveyed only by color.
 - Use tables only when they clarify relationships. Keep them simple, with header rows; do not use tables for layout.
 - Provide meaningful alt text for informative images. Never put essential instructions only in an image.
-- Use fenced code blocks with language identifiers such as ```python, ```javascript, ```java, or ```sh.
+- Use fenced code blocks with language identifiers such as ```python, ```javascript, ```typescript, ```java, or ```sh.
 - Use inline code for identifiers, commands, filenames, shortcuts, and literal values.
 - Keep internal links relative to the source Markdown file and verify their targets.
 
@@ -39,9 +39,11 @@ These conventions apply to Markdown, explanations, examples, and project code. T
 
 ## Language conventions
 
-- **Python:** follow standard Python conventions (PEP 8) unless a lesson explicitly teaches a contrast. Use four spaces for indentation.
-- **JavaScript:** use modern, broadly supported syntax compatible with the curriculum's stated Node.js baseline. Use consistent braces and indentation; explain asynchronous behavior when introduced.
-- **Java:** use conventional naming (UpperCamelCase for classes, lowerCamelCase for methods and variables), explicit types, and consistent indentation. Identify the required JDK version.
+- **Python:** target Python 3.12 or newer; keep examples compatible with 3.12. Follow PEP 8, use four spaces for indentation, prefer built-in collection type annotations, pathlib, context managers, and python -m pip.
+- **JavaScript:** target Node.js 26 LTS. Use const by default, let when reassignment is required, strict equality, explicit input conversion, node: built-in module specifiers, and an explicitly declared CommonJS or ES module format. Use consistent braces and indentation; explain asynchronous behavior when introduced.
+- **TypeScript:** compile with the current stable TypeScript compiler and target Node.js 26 LTS. Enable strict checking, annotate function parameters and public contracts, prefer inference for obvious local values, use unknown and type guards for untrusted data, and avoid routine any or unsafe type assertions. Remember that TypeScript types are erased and do not validate runtime input.
+- **Kotlin (supplement only):** Kotlin material is optional post-capstone extension for Java learners. Follow current Kotlin conventions and clearly distinguish Kotlin syntax from Java interoperability details.
+- **Java:** target JDK 25 LTS and avoid preview features. Use conventional naming (UpperCamelCase for classes, lowerCamelCase for methods and variables), explicit imports and types, generics, try-with-resources, and consistent indentation.
 - **Shell:** identify the intended shell or operating system if commands are not portable.
 
 ## Editorial consistency
