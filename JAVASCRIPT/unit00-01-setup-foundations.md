@@ -25,8 +25,22 @@ curl -fsSL https://deb.nodesource.com/setup_26.x | sudo -E bash -
 sudo apt install nodejs
 ```
 
+**Windows PowerShell (Windows 11):**
+
+```powershell
+winget install --id OpenJS.NodeJS.LTS -e
+winget install --id OpenJS.NodeJS.LTS -e
+```
+
 ### Verify Installation
 ```bash
+node --version     # Should show v26.x.x (26.13.0 or a newer 26.x maintenance release)
+npm --version      # Should show npm version
+```
+
+**Windows PowerShell (Windows 11):**
+
+```powershell
 node --version     # Should show v26.x.x (26.13.0 or a newer 26.x maintenance release)
 npm --version      # Should show npm version
 ```
@@ -75,10 +89,22 @@ Run it:
 node hello.js
 ```
 
+**Windows PowerShell (Windows 11):**
+
+```powershell
+node hello.js
+```
+
 ### The Node.js REPL
 
 For quick experiments, open an interactive session:
 ```bash
+node
+```
+
+**Windows PowerShell (Windows 11):**
+
+```powershell
 node
 ```
 Type JavaScript directly and press Enter to execute. Type `.exit` to quit.

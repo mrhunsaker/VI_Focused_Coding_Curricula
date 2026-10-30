@@ -81,6 +81,13 @@ python3 --version
 python3 -m venv .venv
 ```
 
+**Windows PowerShell (Windows 11):**
+
+```powershell
+py -3 --version
+py -3 -m venv .venv
+```
+
 Activation commands differ by operating system and shell. Follow Unit 0 rather than assuming one command works everywhere.
 
 ## Python version and coding conventions
