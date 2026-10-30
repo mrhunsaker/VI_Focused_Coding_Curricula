@@ -450,7 +450,7 @@
     {
       "id": 10,
       "name": "Create comprehensive student glossary and per-language indexes",
-      "status": "implementation_complete_validation_pending",
+      "status": "completed",
       "files": [
         "backmatter/GLOSSARY.md",
         "backmatter/indexing_setup.json",
@@ -463,12 +463,22 @@
         "OVERALL_README.md",
         "CHANGES.md"
       ],
-      "validation_status": "pending"
+      "validation_status": "passed",
+      "validation": [
+        "Glossary contains 148 term headings across shared vocabulary and five language-specific sections (Python, JavaScript, TypeScript, Java, Kotlin).",
+        "All four per-language indexes map course concepts and practical search terms to lesson pages.",
+        "Automated relative-link audit: 135 local links across four indexes; zero missing targets.",
+        "backmatter/indexing_setup.json parsed successfully and contains the four configured language index definitions, schema, prompt, maintenance triggers, and quality checks.",
+        "SUMMARY.md includes each language index and the Backmatter glossary entry.",
+        "GitHub Actions run 41091043060 succeeded, including mdBook build and GitHub Pages deployment."
+      ],
+      "workflow_run": "https://github.com/mrhunsaker/VI_Focused_Coding_Curricula/actions/runs/41091043060",
+      "implementation_commit": "b50ed5ea4e53ef72cc2fc3be80d29361c7c4ea75"
     }
   ],
   "progress": {
     "current_step": 10,
-    "status": "glossary_and_language_indexes_added_validation_pending",
+    "status": "glossary_and_language_indexes_complete_build_and_deployment_succeeded_live_site_browser_smoke_test_pending",
     "completed_steps": [
       0,
       1,
@@ -478,16 +488,17 @@
       6,
       7,
       8,
-      9
+      9,
+      10
     ],
     "pending_steps": [
       4
     ],
     "next_step": "Open the published site in a normal browser and verify the overview, all four language landing pages, all 19 unit documents, all four teacher guides, and the optional Kotlin supplement. Check representative internal navigation and links. The available web viewer could not retrieve the home page or TypeScript landing page; this is not evidence that the site is down.",
-    "last_commit": "3f01570e425f01339cfc341067d8688b5f68158a",
-    "last_validation": "Audited all 63 Markdown files in the repository. Identified 127 executable Bash-family fenced blocks across 29 files and placed a Windows PowerShell block immediately after every one. A second automated pass verified every pair has the Windows PowerShell label and powershell fence; all 29 changed files passed a balanced-fence audit. Reviewed Windows-specific equivalents for Python/venv/pip, Node.js installation and REPL, JDK installation/JShell, npm, Gradle wrapper, VS Code, mdBook, and Git. Used winget for Windows-native installs, PowerShell path and content commands, the Windows Gradle wrapper, and a pinned Node 18.20.8 MSI for historical Node 18 examples. Updated CODE_STYLE.md, CONTRIBUTING.md, and OVERALL_README.md with the cross-platform rule. GitHub Actions run 41088527780 for commit 6f421e4b1d5c0b5b8a8251b1751c78082c8ec741 completed successfully: mdBook build and GitHub Pages deployment passed. A normal-browser published-page smoke test remains pending from earlier work.",
+    "last_commit": "b50ed5ea4e53ef72cc2fc3be80d29361c7c4ea75",
+    "last_validation": "Created a 20,007-character student glossary with 148 term headings across shared CS vocabulary and Python, JavaScript, TypeScript, Java, and Kotlin sections. Added four per-language indexes mapping setup, syntax, APIs, data structures, functions, OOP, files, testing, projects, and Kotlin supplement topics to lesson pages. Added backmatter/indexing_setup.json with a reusable prompt, index schema, maintenance triggers, and quality checks. JSON parses successfully. Automated relative-link audit of the four indexes found 135 local links and zero missing targets. SUMMARY.md exposes all four indexes and the glossary. GitHub Actions run 41091043060 for commit b50ed5ea4e53ef72cc2fc3be80d29361c7c4ea75 completed successfully: mdBook build, Pages configuration, artifact upload, and deployment all passed. Normal-browser visual smoke test remains pending.",
     "updated_at": "2026-10-30",
-    "current_step_commit": "3f01570e425f01339cfc341067d8688b5f68158a"
+    "current_step_commit": "b50ed5ea4e53ef72cc2fc3be80d29361c7c4ea75"
   },
   "future_llm_instructions": [
     "Read this JSON and CHANGES.md before every task; fetch current main and verify latest commits before acting.",
@@ -637,6 +648,13 @@
       "head_commit": "6f421e4b1d5c0b5b8a8251b1751c78082c8ec741",
       "conclusion": "success",
       "status": "complete; all 127 shell blocks paired; build and deployment succeeded"
+    },
+    {
+      "step": 10,
+      "name": "Student glossary and per-language indexes",
+      "implementation_commit": "b50ed5ea4e53ef72cc2fc3be80d29361c7c4ea75",
+      "workflow_run": "41091043060",
+      "status": "complete; build and deployment succeeded"
     }
   ]
 }

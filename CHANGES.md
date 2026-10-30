@@ -140,3 +140,7 @@ All implementation changes are recorded here. Each numbered step is committed se
 - Added topic-to-lesson indexes in PYTHON/INDEX.md, JAVASCRIPT/INDEX.md, TYPESCRIPT/INDEX.md, and JAVA/INDEX.md. The Java index includes the optional Kotlin supplement.
 - Added backmatter/indexing_setup.json, a reusable maintenance prompt and schema for future index creation and updates.
 - Updated SUMMARY.md, README.md, and OVERALL_README.md. mdBook full-text search remains enabled; curated indexes supplement it with organized topic navigation.
+
+- Validation: glossary has 148 term headings; four language indexes contain 135 relative links, all resolving to existing files. The JSON indexing prompt parsed successfully.
+- GitHub Actions run [41091043060](https://github.com/mrhunsaker/VI_Focused_Coding_Curricula/actions/runs/41091043060) for commit `b50ed5ea4e53ef72cc2fc3be80d29361c7c4ea75` succeeded, including mdBook build and GitHub Pages deployment.
+- Normal-browser visual smoke test remains pending; successful build/deployment is not a substitute for that check.
