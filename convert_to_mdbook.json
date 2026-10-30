@@ -3,23 +3,28 @@
     "name": "VI_Focused_Coding_Curricula",
     "repository": "mrhunsaker/VI_Focused_Coding_Curricula",
     "branch": "main",
-    "purpose": "Publish the existing PYTHON, JAVASCRIPT, and JAVA folders as one accessible mdBook on GitHub Pages.",
+    "purpose": "Publish four accessible introductory programming curricula (Python, JavaScript, TypeScript, and Java) as one mdBook on GitHub Pages, with an optional post-capstone Kotlin supplement for Java learners.",
     "target_site": "https://mrhunsaker.github.io/VI_Focused_Coding_Curricula/",
     "target_site_note": "The request contained 'VI)Focused_Coding_Curricula'; the repository name indicates /VI_Focused_Coding_Curricula/. Verify the final URL after deployment.",
     "reference_only": "cs_curriculum_final/",
     "curriculum_sources": [
       "PYTHON/",
       "JAVASCRIPT/",
+      "TYPESCRIPT/",
       "JAVA/"
+    ],
+    "supplementary_sources": [
+      "JAVA/kotlin.md"
     ]
   },
   "immutable_constraints": [
     "Never modify, rename, move, delete, or generate any file under cs_curriculum_final/. Use it only as an organizational reference.",
-    "Preserve existing curriculum lesson content. Only make necessary mdBook integration, navigation, and link corrections.",
+    "Preserve the established curriculum scope and learning progression. Make user-authorized modernization and expansion edits to active materials while retaining the original teaching intent, examples, and exercises where appropriate.",
     "Record every implementation change in CHANGES.md.",
     "At the end of EACH numbered implementation step, update this JSON progress, append results to CHANGES.md, and commit the step before starting the next step.",
     "Do not proceed until the previous step's commit succeeds and its SHA is recorded here.",
-    "If validation fails, record evidence, commit a checkpoint if possible, and stop. Never force-push or rewrite history."
+    "If validation fails, record evidence, commit a checkpoint if possible, and stop. Never force-push or rewrite history.",
+    "Keep TypeScript as a full parallel curriculum in TYPESCRIPT/ and Kotlin as an optional post-capstone supplement in JAVA/kotlin.md; do not present Kotlin as a fifth core curriculum."
   ],
   "reference_findings": {
     "organization": "The reference package has an overview, language-specific directories, language READMEs, and ordered unit Markdown files.",
@@ -46,6 +51,17 @@
         "unit02-04-io-control-arrays.md",
         "unit05-08-strings-methods-oop-files.md",
         "unit09-11-collections-projects.md"
+      ],
+      "TYPESCRIPT": [
+        "TYPESCRIPT_README.md",
+        "unit00-01-setup-foundations.md",
+        "unit02-04-io-control-data.md",
+        "unit05-08-strings-functions-oop-files.md",
+        "unit09-11-modules-collections-projects.md",
+        "teachers-guide.md"
+      ],
+      "JAVA_SUPPLEMENTARY": [
+        "kotlin.md"
       ]
     },
     "python_landing_page": "PYTHON/PYTHON_README.md does not currently exist; create a concise language landing page from existing Python material and OVERALL_README.md.",
@@ -86,6 +102,13 @@
         "JAVA/unit02-04-io-control-arrays.md",
         "JAVA/unit05-08-strings-methods-oop-files.md",
         "JAVA/unit09-11-collections-projects.md"
+      ],
+      "TypeScript": [
+        "TYPESCRIPT/TYPESCRIPT_README.md",
+        "TYPESCRIPT/unit00-01-setup-foundations.md",
+        "TYPESCRIPT/unit02-04-io-control-data.md",
+        "TYPESCRIPT/unit05-08-strings-functions-oop-files.md",
+        "TYPESCRIPT/unit09-11-modules-collections-projects.md"
       ]
     },
     "hosting": {
@@ -95,6 +118,38 @@
       "project_base_url": "/VI_Focused_Coding_Curricula/",
       "deployment": "GitHub Actions Pages artifact and deployment; do not use a gh-pages branch unless later evidence requires it.",
       "setting": "Pages source must be GitHub Actions. Inspect current setting if supported; otherwise document any manual owner action."
+    },
+    "supplementary_materials": {
+      "Kotlin": {
+        "file": "JAVA/kotlin.md",
+        "placement": "After the Java teacher guide and capstone in SUMMARY.md",
+        "scope": "Optional post-capstone supplement for Java learners; not a required core curriculum"
+      }
+    },
+    "version_policy": {
+      "checked_on": "2026-10-30",
+      "Python": {
+        "minimum": "3.12",
+        "current_stable": "3.15.2",
+        "compatibility": "All course examples target Python 3.12-compatible syntax and APIs."
+      },
+      "Node.js": {
+        "current_LTS": "26.13.0",
+        "line": "26.x LTS",
+        "JavaScript_and_TypeScript_runtime": "Use the latest security/maintenance patch in the Node.js 26 LTS line."
+      },
+      "TypeScript": {
+        "current_stable": "7.0.2",
+        "runtime": "Compile TypeScript to JavaScript; Node.js executes the emitted JavaScript."
+      },
+      "Java": {
+        "current_LTS": "JDK 25",
+        "compatibility": "Standard Java SE 25; no preview features required."
+      },
+      "Kotlin": {
+        "current_stable": "2.4.21",
+        "scope": "Optional JVM supplement; Kotlin does not use the JDK LTS designation."
+      }
     }
   },
   "steps": [
@@ -204,7 +259,7 @@
     {
       "id": 4,
       "name": "Build and deployment verification",
-      "status": "deployment_succeeded_live_site_verification_pending",
+      "status": "deployment_succeeded_live_site_browser_smoke_test_pending",
       "tasks": [
         "Run mdbook build and resolve errors without touching reference directory.",
         "Verify navigation, links, and all three curricula.",
@@ -218,7 +273,9 @@
         "Upload Pages artifact succeeded.",
         "Deploy to GitHub Pages succeeded; workflow run 41072733650 concluded success.",
         "The intended URL is https://mrhunsaker.github.io/VI_Focused_Coding_Curricula/. Automated page retrieval could not be completed in this environment, so the live page's HTTP response and rendered navigation have not been independently verified.",
-        "The remaining final check is a browser smoke test of the published home page, language navigation, all 15 unit pages, and internal links."
+        "The remaining final check is a browser smoke test of the published home page, language navigation, all 15 unit pages, and internal links.",
+        "After the four-curriculum expansion, workflow run 41084997810 completed successfully for commit 5f39ff02411ca20e889c70b3aa74b2478c35b673. mdBook build, Pages configuration, artifact upload, and deployment all succeeded.",
+        "The available web viewer still cannot retrieve the published home page or the TypeScript landing page. This tool limitation is not evidence that the site is down; verify the rendered site in a normal browser."
       ],
       "checkpoint": "Update this JSON and CHANGES.md, commit final verification, and mark completed only when publication checks pass.",
       "blocker": {
@@ -287,11 +344,68 @@
         "Independent browser retrieval through the available web viewer was unsuccessful (URL reported not accessible to that viewer); this is not evidence that the site is unavailable. Final rendered-page smoke test remains pending."
       ],
       "checkpoint": "Record successful build and deployment in CHANGES.md and this progress file. Keep the separate live-site browser smoke test pending."
+    },
+    {
+      "id": 8,
+      "name": "Modernize language baselines and add TypeScript and Kotlin learning materials",
+      "status": "completed",
+      "tasks": [
+        "Set the Python curriculum minimum to Python 3.12+, record Python 3.15.2 as current stable, and ensure examples remain compatible with Python 3.12. Update interpreter, virtual-environment, and package-management commands and document modern Python conventions.",
+        "Update JavaScript to the current Node.js 26 LTS line, use explicit module modes, node: built-in module specifiers, current ESLint flat configuration, strict equality, and modern JavaScript conventions.",
+        "Update Java to JDK 25 LTS, standard Java SE 25 without preview features, and modern Java conventions; correct invalid file API examples and wildcard imports.",
+        "Add a full TypeScript curriculum parallel to JavaScript, including an introductory landing page, four unit documents, and a teacher guide. Preserve the JavaScript curriculum sequence and projects while using TypeScript examples and strict type-checking guidance.",
+        "Add an optional post-capstone Kotlin supplement for Java learners, covering the JVM relationship, syntax differences, null safety, classes, collections, Java interoperability, setup, and learning progression.",
+        "Update SUMMARY.md, OVERALL_README.md, README.md, CODE_STYLE.md, JAVA/JAVA_README.md, CHANGES.md, and this plan.",
+        "Keep cs_curriculum_final/ reference-only."
+      ],
+      "validation": [
+        "Python landing page, teacher guide, setup page, and all six remaining lesson documents state the Python 3.12+ baseline; package commands use python -m pip and the style guidance follows PEP 8, modern built-in generics, pathlib, context managers, and type annotations.",
+        "JavaScript uses Node.js 26.13.0 LTS; current unit pages state the Node 26 LTS baseline. The teacher guide uses ESLint flat configuration, module formats are explicit, and Node built-ins use node: specifiers.",
+        "Java uses JDK 25 LTS across setup, landing page, teacher guide, and all unit pages. Preview features are excluded; explicit imports, String.equals, try-with-resources, and standard Java 25 APIs are documented and examples reviewed.",
+        "Added TYPESCRIPT/TYPESCRIPT_README.md, four TypeScript unit documents, and TYPESCRIPT/teachers-guide.md. The introduction explains TypeScript's growing adoption and compile-time safety while clearly distinguishing type checking from JavaScript runtime validation. The setup uses Node.js 26 LTS and TypeScript 7.0.2 with strict compiler options.",
+        "Added JAVA/kotlin.md as an optional post-capstone supplement and linked it from the Java landing page and SUMMARY.md.",
+        "Updated book navigation and repository documentation to describe four core curricula and the optional Kotlin supplement.",
+        "Audited 32 active Markdown documents: fenced-code markers are balanced; local Markdown links were reviewed and their targets resolve. The root LICENSE is an extensionless file.",
+        "GitHub compare from the prior checkpoint to this content head reports no changed paths under cs_curriculum_final/.",
+        "GitHub Actions run 41084997810 for commit 5f39ff02411ca20e889c70b3aa74b2478c35b673 completed successfully, including mdbook build, Pages configuration, artifact upload, and deployment.",
+        "Automated web-viewer retrieval of the published home page and TypeScript page was unavailable. A normal-browser smoke test remains pending."
+      ],
+      "implementation_commits": [
+        "483713539b52fc6ce548a7744f2640d06ea78da6",
+        "b9713e33e49e7acd073494040857aa69b2afe044",
+        "008fce857632adcdedc7e0b8745b2e1856c4ffbd",
+        "34f692eef10b5d9704a06bd288bd3476975ea5ad",
+        "49f54096e8d0127ea6d8fc40c807e55d2d392545",
+        "0a6be9f3aff2195e463a0ea7ed41b78a9ab690fb",
+        "40e94b515e036731223f7623e0d05684ede56e09",
+        "f4b4825a422e9a13575977e73590a9801f502b00",
+        "202989dc5eaed8562215741bde6ccb692acf8483",
+        "f7245a7820672761ad4c76709974685faeb30c64",
+        "5212592e523fb9f72f57639dbbda0ade72f88fd7",
+        "cc698f86774e807c94880045f10df9ee307b667d",
+        "f6ea6613da152ce999ddf77ba0484aaa07f36fd5",
+        "3ca4e6745fa9ee9ec83147a2b81944952eb585db",
+        "27749ed6f249b6227678eaced8871bf04eec0974",
+        "14077ea7ff465a84d791a329d20ca734e33921ef",
+        "fc83a263cdaf482ef6095af488fcf0a5bff6d818",
+        "2026a6b2206985441807dc8a2826d6cf1cae83c4",
+        "7e0b55872609e4f4105cf06af4ab5f352d4f17b5",
+        "b764a8772ed5b8eeb4faef9177e023f2f233d7fc",
+        "98106a48e2a9ae11055b14a8dcd52dc0ec1b83d7",
+        "2ce9e0452c1a6fb56643aa14c26b9559091ea19d",
+        "10c2988c3d729b72f56ab184ced06cd6e6aad220",
+        "8cdd4fe0a23044012b31a4848d25999dc138f203",
+        "51982b396627bd2626f476c158a3466a7d2f35ef",
+        "7871f5618d08f6fa5e60ceceb8fbba2ce1e50210",
+        "5f39ff02411ca20e889c70b3aa74b2478c35b673"
+      ],
+      "workflow_run": "https://github.com/mrhunsaker/VI_Focused_Coding_Curricula/actions/runs/41084997810",
+      "checkpoint": "Update CHANGES.md and this plan, commit the checkpoint, and verify main. Keep the normal-browser smoke test as the only outstanding publication check."
     }
   ],
   "progress": {
     "current_step": 4,
-    "status": "deployment_succeeded_live_site_browser_smoke_test_pending",
+    "status": "content_modernization_complete_build_and_deployment_succeeded_live_site_browser_smoke_test_pending",
     "completed_steps": [
       0,
       1,
@@ -299,16 +413,17 @@
       3,
       5,
       6,
-      7
+      7,
+      8
     ],
     "pending_steps": [
       4
     ],
-    "next_step": "Open the published site in a normal browser and verify the overview, Python/JavaScript/Java landing pages, all 15 unit pages, and all three teacher guides. Check representative internal navigation and links. Then record the result and mark step 4 complete.",
-    "last_commit": "ec51d5b99f998493979ae3c5a9f03b38efd16376",
-    "last_validation": "GitHub Actions run 41080845202 completed successfully for commit ec51d5b99f998493979ae3c5a9f03b38efd16376: mdbook build, Pages configuration, artifact upload, and deploy all succeeded. Automated web-viewer retrieval of the site was unavailable, so rendered-page smoke testing remains outstanding.",
+    "next_step": "Open the published site in a normal browser and verify the overview, all four language landing pages, all 19 unit documents, all four teacher guides, and the optional Kotlin supplement. Check representative internal navigation and links. The available web viewer could not retrieve the home page or TypeScript landing page; this is not evidence that the site is down.",
+    "last_commit": "5f39ff02411ca20e889c70b3aa74b2478c35b673",
+    "last_validation": "GitHub Actions run 41084997810 for commit 5f39ff02411ca20e889c70b3aa74b2478c35b673 completed successfully: mdBook install, mdbook build, Pages configuration, artifact upload, and deployment all succeeded. A 32-file Markdown audit found balanced fenced-code markers and reviewed local links. GitHub compare from the prior checkpoint reports no changed paths under cs_curriculum_final/. Automated web-viewer retrieval of the published home page and TypeScript page was unavailable, so normal-browser smoke testing remains pending.",
     "updated_at": "2026-10-30",
-    "current_step_commit": "ec51d5b99f998493979ae3c5a9f03b38efd16376"
+    "current_step_commit": "5f39ff02411ca20e889c70b3aa74b2478c35b673"
   },
   "future_llm_instructions": [
     "Read this JSON and CHANGES.md before every task; fetch current main and verify latest commits before acting.",
@@ -322,8 +437,10 @@
     "Keep project README badges pointed at this repository and its deployed mdBook, not example repositories.",
     "README.md is repository-facing project documentation and is not a chapter in SUMMARY.md; OVERALL_README.md remains the mdBook curriculum overview.",
     "For content revisions, preserve the distinction between the repository README and OVERALL_README.md, which is the mdBook's curriculum overview.",
-    "Keep all paths under cs_curriculum_final/ immutable; only revise the active PYTHON/, JAVASCRIPT/, and JAVA/ source directories.",
-    "For AI guidance, cover both instructor preparation and student use; require human verification, privacy protection, accessibility review, disclosure where required, and a non-AI route."
+    "Keep cs_curriculum_final/ immutable. The active curriculum sources are PYTHON/, JAVASCRIPT/, TYPESCRIPT/, and JAVA/; JAVA/kotlin.md is an optional post-capstone supplement.",
+    "For AI guidance, cover both instructor preparation and student use; require human verification, privacy protection, accessibility review, disclosure where required, and a non-AI route.",
+    "The version baseline last checked on 2026-10-30 is Python 3.12 minimum (examples remain 3.12-compatible), Node.js 26 LTS, TypeScript 7.0.2, JDK 25 LTS, and optional Kotlin 2.4.21. Recheck official release pages before future version upgrades.",
+    "TypeScript compiles to JavaScript; do not describe TypeScript source as directly executed by Node.js or as having automatic runtime validation. Keep strict compiler guidance and runtime validation at external-data boundaries."
   ],
   "instructions_for_commit_sha": "A commit cannot include its own SHA. When creating a later checkpoint, record the immediately preceding verified checkpoint SHA in progress.last_commit.",
   "commit_history": [
@@ -392,6 +509,43 @@
       "head_commit": "ec51d5b99f998493979ae3c5a9f03b38efd16376",
       "conclusion": "success",
       "status": "build and deployment succeeded; browser smoke test pending"
+    },
+    {
+      "step": 8,
+      "name": "Modernize language baselines and add TypeScript and Kotlin materials",
+      "implementation_commits": [
+        "483713539b52fc6ce548a7744f2640d06ea78da6",
+        "b9713e33e49e7acd073494040857aa69b2afe044",
+        "008fce857632adcdedc7e0b8745b2e1856c4ffbd",
+        "34f692eef10b5d9704a06bd288bd3476975ea5ad",
+        "49f54096e8d0127ea6d8fc40c807e55d2d392545",
+        "0a6be9f3aff2195e463a0ea7ed41b78a9ab690fb",
+        "40e94b515e036731223f7623e0d05684ede56e09",
+        "f4b4825a422e9a13575977e73590a9801f502b00",
+        "202989dc5eaed8562215741bde6ccb692acf8483",
+        "f7245a7820672761ad4c76709974685faeb30c64",
+        "5212592e523fb9f72f57639dbbda0ade72f88fd7",
+        "cc698f86774e807c94880045f10df9ee307b667d",
+        "f6ea6613da152ce999ddf77ba0484aaa07f36fd5",
+        "3ca4e6745fa9ee9ec83147a2b81944952eb585db",
+        "27749ed6f249b6227678eaced8871bf04eec0974",
+        "14077ea7ff465a84d791a329d20ca734e33921ef",
+        "fc83a263cdaf482ef6095af488fcf0a5bff6d818",
+        "2026a6b2206985441807dc8a2826d6cf1cae83c4",
+        "7e0b55872609e4f4105cf06af4ab5f352d4f17b5",
+        "b764a8772ed5b8eeb4faef9177e023f2f233d7fc",
+        "98106a48e2a9ae11055b14a8dcd52dc0ec1b83d7",
+        "2ce9e0452c1a6fb56643aa14c26b9559091ea19d",
+        "10c2988c3d729b72f56ab184ced06cd6e6aad220",
+        "8cdd4fe0a23044012b31a4848d25999dc138f203",
+        "51982b396627bd2626f476c158a3466a7d2f35ef",
+        "7871f5618d08f6fa5e60ceceb8fbba2ce1e50210",
+        "5f39ff02411ca20e889c70b3aa74b2478c35b673"
+      ],
+      "workflow_run": "41084997810",
+      "head_commit": "5f39ff02411ca20e889c70b3aa74b2478c35b673",
+      "conclusion": "success",
+      "status": "content and deployment validation succeeded; live-site browser smoke test pending"
     }
   ]
 }
