@@ -246,7 +246,7 @@ code .
 
 ### Advanced editor options
 
-Experienced coders may prefer a JetBrains IDE, such as PyCharm. These are advanced alternatives, not the recommended starting point for this beginner curriculum. This course does not provide JetBrains installation or usage instructions.
+Experienced coders may prefer JetBrains IDEs such as PyCharm. These are advanced alternatives, not the recommended starting point for this beginner curriculum. This course does not provide JetBrains installation or usage instructions.
 
 ### Skills Checklist
 - [ ] I can open the Extensions view in my selected editor.
