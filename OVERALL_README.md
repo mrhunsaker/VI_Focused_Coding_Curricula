@@ -4,6 +4,8 @@
 
 This book is a structured introduction to programming and core computer science concepts. It is designed with blind and visually impaired learners who use screen readers, braille displays, magnification, keyboard navigation, or combinations of access technologies in mind. It is also intended for sighted beginners, educators, and anyone who benefits from explicit, text-first instruction.
 
+Command-line instructions are cross-platform: macOS and Linux learners use the Bash-family examples (also suitable for typical zsh workflows), and each executable Bash-family block is immediately followed by a Windows 11 PowerShell equivalent. Windows alternatives use native PowerShell commands and tools such as `winget` where Linux package managers are not available.
+
 The textbook is published with **mdBook**. It is not a GitBook project. Markdown files in this repository are the maintained source; mdBook builds them into the navigable online textbook hosted on GitHub Pages. The book is intended to remain a living resource: lessons, examples, exercises, accessibility notes, and teaching materials can be reviewed and improved as learners and educators use them.
 
 **Start learning:** choose a curriculum below, or read this overview to understand the sequence and how to use the materials.

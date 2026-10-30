@@ -16,7 +16,7 @@ For substantial changes, open an issue or discussion first so the scope and lear
 2. Describe the problem and learner impact. For accessibility reports, include the operating system, screen reader, editor, language/runtime version, and reproduction steps when possible. Do not include private or sensitive information.
 3. Fork the repository and create a branch for your change.
 4. Edit Markdown source or project configuration. Do not edit generated files in `book/`.
-5. Follow [CODE_STYLE.md](CODE_STYLE.md), including accessibility and code-example requirements.
+5. Follow [CODE_STYLE.md](CODE_STYLE.md), including accessibility and code-example requirements. Every executable Bash-family command block must be immediately followed by a functionally equivalent Windows 11 PowerShell block.
 6. Validate links and navigation. If mdBook is installed, run `mdbook build` from the repository root.
 7. Review the rendered result where possible, including headings, code blocks, link text, and keyboard/screen-reader usability.
 8. Submit a pull request describing the change, why it helps learners, affected files, and checks performed. Link a related issue or discussion when applicable.

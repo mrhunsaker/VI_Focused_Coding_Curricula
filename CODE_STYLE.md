@@ -14,6 +14,16 @@ These conventions apply to Markdown, explanations, examples, and project code. T
 - Use inline code for identifiers, commands, filenames, shortcuts, and literal values.
 - Keep internal links relative to the source Markdown file and verify their targets.
 
+## Cross-platform command examples
+
+- Every executable fenced `bash`, `sh`, or `shell` command block must be followed immediately by a matching fenced `powershell` block for Windows 11.
+- Keep the Bash-family block first for macOS and Linux. Place the PowerShell block directly after it, with a clear **Windows PowerShell (Windows 11)** label.
+- The two blocks must perform the same task, use the same project paths and filenames, and preserve the same learning objective. Do not translate Linux-only commands literally: provide a Windows-native alternative such as `winget`, `py -m pip`, `Set-Location`, or the Gradle `.bat` wrapper as appropriate.
+- Use PowerShell syntax in the Windows block, not Command Prompt syntax. Prefer commands compatible with the Windows PowerShell shipped with Windows 11.
+- For Python virtual environments, use `.venv\\Scripts\\Activate.ps1` in PowerShell. If script execution is blocked, explain how to set a temporary process-scoped execution policy rather than changing the machine-wide policy.
+- For interactive REPL examples, make clear which commands are entered in the shell and which are entered after the REPL starts.
+- Keep output-only examples, source-code examples, configuration files, and syntax demonstrations unpaired unless they actually instruct the learner to execute shell commands.
+
 ## Accessible instructional writing
 
 - Write explicit instructions that can be followed without visual interpretation.
