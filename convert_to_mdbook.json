@@ -246,23 +246,50 @@
         "Full Apache License 2.0 text is present in LICENSE; the prior repository license was CC0 1.0 and was changed at the user's explicit request. Confirm rights/authority for all included material."
       ],
       "checkpoint": "Commit project documentation and progress records; verify the resulting main branch SHA."
+    },
+    {
+      "id": 6,
+      "name": "Expand curriculum overviews, language landing pages, and instructor guides",
+      "status": "completed",
+      "tasks": [
+        "Rewrite OVERALL_README.md as a comprehensive entry point for the accessible three-language living textbook.",
+        "Expand Python, JavaScript, and Java landing pages with outcomes, prerequisites, sequence maps, environment guidance, accessibility practices, study routines, assessment, AI notes, and references.",
+        "Review all active teachers-guide.md files; expand their opening guidance and add comprehensive course-planning, lesson-design, differentiation, assessment, debugging, project, collaboration, and quality-assurance guidance.",
+        "Strengthen Teaching AI Tools Responsibly in the Python guide and add corresponding detailed sections to JavaScript and Java, including instructor preparation use, learner use, language-specific risks, accessibility review, privacy, security, equity, verification, and assessment policies.",
+        "Keep cs_curriculum_final/ reference-only and record all changes."
+      ],
+      "validation": [
+        "Updated OVERALL_README.md and all three language landing pages; all local Markdown links in these four files resolve to tracked files.",
+        "Updated all three active teachers-guide.md files; added an instructor-use introduction, language-specific Teaching AI Tools Responsibly guidance, and a comprehensive instructional planning and implementation section.",
+        "AI guidance covers teacher preparation and student use, verification, assessment boundaries, accessibility, privacy, security, copyright, and equitable access.",
+        "Teacher guides remain included in SUMMARY.md; no navigation changes were necessary.",
+        "Markdown fenced-code markers are balanced in all three teacher guides.",
+        "The only apparent relative-link issue in Python teacher guide was a Markdown-looking placeholder inside a fenced example, not a real link.",
+        "No paths under cs_curriculum_final/ were modified."
+      ],
+      "checkpoint": "Commit all curriculum and teacher-guide revisions together with CHANGES.md and this progress record."
     }
   ],
   "progress": {
-    "current_step": 4,
-    "status": "live_site_smoke_test_pending_after_project_documentation",
+    "current_step": 7,
+    "status": "step_6_completed_mdbook_build_and_deployment_validation_pending",
     "completed_steps": [
       0,
       1,
       2,
       3,
-      5
+      5,
+      6
     ],
-    "next_step": "Perform the outstanding browser smoke test of the deployed mdBook URL. Confirm the overview, Python/JavaScript/Java sections, all 15 unit pages, and internal links; then record the result in CHANGES.md and convert_to_mdbook.json.",
-    "last_commit": "fd1c4f1510a5b1e4c8992acd9e96e2bd0ef9e477",
-    "last_validation": "Step 5 project documentation is committed in 2bffb36b30e499fee17d4feb3086ef4bd838e668; full Apache License 2.0 text follow-up is committed in fd1c4f1510a5b1e4c8992acd9e96e2bd0ef9e477. Prior Pages workflow run 41072733650 attempt 2 succeeded. Live-site browser verification remains pending.",
+    "pending_steps": [
+      4,
+      7
+    ],
+    "next_step": "Verify the current GitHub Actions build for the expanded content. Confirm mdbook build succeeds, then perform a browser smoke test of the published overview, all three language landing pages, all 15 unit pages, and all three teacher guides. Keep step 4 marked pending until the live site is independently verified.",
+    "last_commit": "615fcf5b5472a22663366d4b720e96b89a98817c",
+    "last_validation": "Step 6 content expansion is committed in curriculum commit eef517751d763025ae183e2d7c0561e2b1a44dd2, teacher-guide commit 53a94aa9e415f5bec788ab8648f21461a9088a0d, and AI instructor guidance commit 615fcf5b5472a22663366d4b720e96b89a98817c. Local-link and balanced-code-fence checks passed for the changed content; GitHub Actions build is pending.",
     "updated_at": "2026-10-30",
-    "current_step_commit": "fd1c4f1510a5b1e4c8992acd9e96e2bd0ef9e477"
+    "current_step_commit": "615fcf5b5472a22663366d4b720e96b89a98817c"
   },
   "future_llm_instructions": [
     "Read this JSON and CHANGES.md before every task; fetch current main and verify latest commits before acting.",
@@ -274,7 +301,10 @@
     "Inspect changed paths before commit and reject every change under cs_curriculum_final/.",
     "Do not claim publication until the Pages workflow succeeds and the target URL is verified.",
     "Keep project README badges pointed at this repository and its deployed mdBook, not example repositories.",
-    "README.md is repository-facing project documentation and is not a chapter in SUMMARY.md; OVERALL_README.md remains the mdBook curriculum overview."
+    "README.md is repository-facing project documentation and is not a chapter in SUMMARY.md; OVERALL_README.md remains the mdBook curriculum overview.",
+    "For content revisions, preserve the distinction between the repository README and OVERALL_README.md, which is the mdBook's curriculum overview.",
+    "Keep all paths under cs_curriculum_final/ immutable; only revise the active PYTHON/, JAVASCRIPT/, and JAVA/ source directories.",
+    "For AI guidance, cover both instructor preparation and student use; require human verification, privacy protection, accessibility review, disclosure where required, and a non-AI route."
   ],
   "instructions_for_commit_sha": "A commit cannot include its own SHA. When creating a later checkpoint, record the immediately preceding verified checkpoint SHA in progress.last_commit.",
   "commit_history": [
@@ -325,6 +355,16 @@
       "commit": "2bffb36b30e499fee17d4feb3086ef4bd838e668",
       "license_text_followup": "fd1c4f1510a5b1e4c8992acd9e96e2bd0ef9e477",
       "status": "completed"
+    },
+    {
+      "step": 6,
+      "name": "Expand curriculum overview, language landing pages, and teacher guides",
+      "implementation_commits": [
+        "eef517751d763025ae183e2d7c0561e2b1a44dd2",
+        "53a94aa9e415f5bec788ab8648f21461a9088a0d",
+        "615fcf5b5472a22663366d4b720e96b89a98817c"
+      ],
+      "status": "content revisions complete; mdBook validation pending"
     }
   ]
 }

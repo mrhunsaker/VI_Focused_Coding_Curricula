@@ -81,3 +81,14 @@ All implementation changes are recorded here. Each numbered step is committed se
 - Added the complete Apache License 2.0 text to `LICENSE` in a follow-up commit.
 - Documentation commit: `2bffb36b30e499fee17d4feb3086ef4bd838e668`; full-license follow-up: `fd1c4f1510a5b1e4c8992acd9e96e2bd0ef9e477`.
 - The repository's prior license file was CC0 1.0; it was changed to Apache 2.0 as explicitly requested. Confirm that the project maintainer has authority to apply the new license to all included material before relying on the relicense.
+
+## 2026-10-30 — Step 6: Expanded curriculum overviews and teacher guides
+
+- Rewrote `OVERALL_README.md` as a comprehensive book entry point covering purpose, audience, learning outcomes, language selection, course pathways, study routine, accessibility approach, assessment, AI use, contribution routes, and references.
+- Expanded `PYTHON/PYTHON_README.md`, `JAVASCRIPT/JAVASCRIPT_README.md`, and `JAVA/JAVA_README.md` with course outcomes, prerequisites, sequenced topic maps, evidence of progress, environment guidance, accessibility practices, study methods, assessment, AI guidance, and further learning.
+- Reviewed all three active `teachers-guide.md` files. Added guidance for using the guides, expanded the Python AI section, and added AI teaching sections to JavaScript and Java. All three now address both instructor preparation and student use, language-specific risks, accessibility, privacy, security, equity, verification, and assessment boundaries.
+- Added a comprehensive instructional-planning section to each teacher guide covering course alignment, learner readiness, lesson architecture, accessible navigation, language-specific emphasis, misconceptions, differentiation, assessment and feedback, debugging, pair programming, projects, collaboration, instructor preparation, and continuous improvement.
+- Verified local links in the four overview/landing pages; teacher-guide links resolve through the existing book navigation. Checked that teacher-guide fenced-code markers are balanced. The only apparent relative-link match in the Python teacher guide occurs inside a fenced example and is not a real Markdown link.
+- No files under `cs_curriculum_final/` were modified.
+- Implementation commits: `eef517751d763025ae183e2d7c0561e2b1a44dd2`, `53a94aa9e415f5bec788ab8648f21461a9088a0d`, and `615fcf5b5472a22663366d4b720e96b89a98817c`.
+- mdBook CI and live-site smoke testing are pending; do not mark publication verification complete until the current workflow succeeds and the rendered site is checked.
