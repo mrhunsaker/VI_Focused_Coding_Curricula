@@ -13,4 +13,5 @@ All implementation changes are recorded here. Each numbered step is committed se
 - Added root mdBook configuration and navigation.
 - Added a Python landing page to complement existing Java and JavaScript landing pages.
 - Added this change log and ignored generated mdBook output.
-- Validation and commit details will be recorded when this step is finalized.
+- Validation: parsed convert_to_mdbook.json; confirmed all 19 Markdown targets in SUMMARY.md resolve to tracked files; reviewed the commit diff and confirmed no changes under cs_curriculum_final/. mdBook executable build is deferred to CI/final verification.
+- Implementation commit: `7bfa28d7043bd94ac1fc1101c7832b2a90f27107`.

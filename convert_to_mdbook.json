@@ -112,7 +112,7 @@
     {
       "id": 1,
       "name": "mdBook foundation",
-      "status": "pending",
+      "status": "completed",
       "tasks": [
         "Create CHANGES.md; record the plan-file commit.",
         "Create root book.toml with source '.', English metadata, book title/description, and project base URL.",
@@ -181,15 +181,16 @@
   ],
   "progress": {
     "current_step": 1,
-    "status": "step_1_in_progress",
+    "status": "step_1_completed",
     "completed_steps": [
-      0
+      0,
+      1
     ],
-    "next_step": "Finish mdBook foundation, validate navigation targets, update CHANGES.md and this JSON, then commit step 1 before step 2.",
-    "last_commit": "6240f1fdd052f4f3b9f41d80e9f83df686a71f4b",
-    "last_validation": "Step 0 commit fetched from main; JSON.parse validation passed.",
+    "next_step": "Begin step 2: review the 17 existing unit Markdown files, validate their links and mdBook compatibility, and preserve their instructional content.",
+    "last_commit": "7bfa28d7043bd94ac1fc1101c7832b2a90f27107",
+    "last_validation": "Verified 19 Markdown links in SUMMARY.md all resolve to tracked files; reviewed step diff and confirmed no path under cs_curriculum_final/ changed. mdBook executable build is deferred to CI/final validation.",
     "updated_at": "2026-10-30",
-    "current_step_commit": null
+    "current_step_commit": "7bfa28d7043bd94ac1fc1101c7832b2a90f27107"
   },
   "future_llm_instructions": [
     "Read this JSON and CHANGES.md before every task; fetch current main and verify latest commits before acting.",
