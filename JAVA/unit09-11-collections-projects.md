@@ -102,7 +102,15 @@ for (Map.Entry<String, Integer> e : sorted.entrySet()) {
 ### Sorting with Collections
 
 ```java
-import java.util.*;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Collections;
+import java.util.HashMap;
+import java.util.HashSet;
+import java.util.List;
+import java.util.Map;
+import java.util.Set;
+import java.util.TreeMap;
 
 List<Integer> numbers = new ArrayList<>(Arrays.asList(5, 2, 9, 1, 7));
 Collections.sort(numbers);
@@ -120,7 +128,15 @@ int min = Collections.min(numbers);
 ## Lesson 9.2: Word Frequency Analysis
 
 ```java
-import java.util.*;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Collections;
+import java.util.HashMap;
+import java.util.HashSet;
+import java.util.List;
+import java.util.Map;
+import java.util.Set;
+import java.util.TreeMap;
 
 public class WordFrequency {
     public static Map<String, Integer> countWords(String text) {
@@ -157,8 +173,22 @@ public class WordFrequency {
 ## Lesson 9.3: Working with CSV Files
 
 ```java
-import java.io.*;
-import java.util.*;
+import java.io.BufferedReader;
+import java.io.BufferedWriter;
+import java.io.File;
+import java.io.FileReader;
+import java.io.FileWriter;
+import java.io.IOException;
+import java.io.PrintWriter;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Collections;
+import java.util.HashMap;
+import java.util.HashSet;
+import java.util.List;
+import java.util.Map;
+import java.util.Set;
+import java.util.TreeMap;
 
 public class CSVReader {
     public static void main(String[] args) {
@@ -291,7 +321,15 @@ This unit guides students through building text-based Java applications.
 ### Room and Player Structure
 
 ```java
-import java.util.*;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Collections;
+import java.util.HashMap;
+import java.util.HashSet;
+import java.util.List;
+import java.util.Map;
+import java.util.Set;
+import java.util.TreeMap;
 
 public class Room {
     private String name;
@@ -335,7 +373,15 @@ public class Room {
 ```
 
 ```java
-import java.util.*;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Collections;
+import java.util.HashMap;
+import java.util.HashSet;
+import java.util.List;
+import java.util.Map;
+import java.util.Set;
+import java.util.TreeMap;
 
 public class Player {
     private String name;
@@ -453,9 +499,24 @@ public class AdventureGame {
 ## Lesson 10.2: Command-Line To-Do Manager
 
 ```java
-import java.util.*;
-import java.io.*;
-import com.google.gson.*;   // Add Gson library for JSON support
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Collections;
+import java.util.HashMap;
+import java.util.HashSet;
+import java.util.List;
+import java.util.Map;
+import java.util.Set;
+import java.util.TreeMap;
+import java.io.BufferedReader;
+import java.io.BufferedWriter;
+import java.io.File;
+import java.io.FileReader;
+import java.io.FileWriter;
+import java.io.IOException;
+import java.io.PrintWriter;
+import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;   // Add Gson library for JSON support
 
 public class TodoManager {
     private List<Map<String, Object>> todos = new ArrayList<>();

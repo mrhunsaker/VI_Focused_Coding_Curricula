@@ -140,26 +140,27 @@ Teach `async`/`await` from the start and avoid callback patterns entirely in thi
 
 **Recommended TypeScript ESLint flat configuration** (`eslint.config.mjs`; install eslint, @eslint/js, typescript-eslint, and globals as local development dependencies):
 
-```json
+```javascript
 import js from "@eslint/js";
+import tseslint from "typescript-eslint";
 import globals from "globals";
 
-export default [
+export default tseslint.config(
+  js.configs.recommended,
+  ...tseslint.configs.recommended,
   {
     files: ["**/*.ts"],
     languageOptions: {
-      ecmaVersion: "latest",
       sourceType: "commonjs",
       globals: globals.node
     },
     rules: {
-      ...ts.configs.recommended.rules,
       eqeqeq: "error",
-      "no-unused-vars": "warn",
-      "no-console": "off"
+      "no-console": "off",
+      "@typescript-eslint/no-explicit-any": "error"
     }
   }
-];
+);
 ```
 
 The `eqeqeq: error` rule makes `==` a linting error --- it must be `===`. This is an automated enforcement of the rule that prevents the most common silent bugs.
@@ -285,7 +286,7 @@ cat package.json   # or type package.json on Windows
 
 #### Non-Obvious Accessibility Strategies
 
-- **Node.js version managers:** `nvm` (Node Version Manager) allows multiple Node.js versions. For a student who may work on multiple machines or projects, `nvm install 26 and nvm use 26` is a consistent way to set the Node.js version. `nvm` is command-line-only and fully accessible.
+- **Node.js version managers:** `nvm` (Node Version Manager) allows multiple Node.js versions. For a student who may work on multiple machines or projects, `nvm install 26 followed by nvm use 26` is a consistent way to set the Node.js version. `nvm` is command-line-only and fully accessible.
 - **Global vs. local packages:** `npm install -g` installs globally; `npm install` installs locally (in `node_modules`). Teach local installation as the default. Global packages can interfere across projects.
 
 #### Thought Experiments

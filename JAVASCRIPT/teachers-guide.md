@@ -134,7 +134,7 @@ Teach `async`/`await` from the start and avoid callback patterns entirely in thi
 
 **Recommended ESLint flat configuration** (`eslint.config.mjs` in project root; install the current ESLint, `@eslint/js`, and `globals` packages as local development dependencies):
 
-```json
+```javascript
 import js from "@eslint/js";
 import globals from "globals";
 
@@ -279,7 +279,7 @@ cat package.json   # or type package.json on Windows
 
 #### Non-Obvious Accessibility Strategies
 
-- **Node.js version managers:** `nvm` (Node Version Manager) allows multiple Node.js versions. For a student who may work on multiple machines or projects, `nvm use 18` is a consistent way to set the Node.js version. `nvm` is command-line-only and fully accessible.
+- **Node.js version managers:** `nvm` (Node Version Manager) allows multiple Node.js versions. For a student who may work on multiple machines or projects, `nvm install 26 followed by nvm use 26` is a consistent way to set the Node.js version. `nvm` is command-line-only and fully accessible.
 - **Global vs. local packages:** `npm install -g` installs globally; `npm install` installs locally (in `node_modules`). Teach local installation as the default. Global packages can interfere across projects.
 
 #### Thought Experiments
@@ -1039,7 +1039,7 @@ my-data-manager/
 |   |   +--- contact.test.js
 |   +--- storage/
 |       +--- dataManager.test.js
-|--- .eslintrc.json
+|--- eslint.config.mjs
 |--- package.json
 +--- index.js
 ```
