@@ -226,7 +226,9 @@ code .
 code .
 ```
 
-**Method 2:** In VS Code, press `Ctrl + K, Ctrl + O` to "Open Folder".
+**Method 2 (VS Code):** Press `Ctrl + K, Ctrl + O` to open a folder.
+
+**Theia IDE:** Use the File → Open Folder command (or the equivalent workspace-opening command in your Theia distribution) and select the project folder. Confirm that the folder containing `pyproject.toml` is the workspace root; opening only `hello.py` can prevent the editor from discovering the project's `.venv` and configuration.
 
 ### VS Code Navigation Shortcuts
 
