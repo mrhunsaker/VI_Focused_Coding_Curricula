@@ -48,6 +48,7 @@ Create a tsconfig.json with strict checking:
     "rootDir": "src",
     "outDir": "dist",
     "strict": true,
+    "noEmitOnError": true,
     "exactOptionalPropertyTypes": true,
     "esModuleInterop": true,
     "forceConsistentCasingInFileNames": true,

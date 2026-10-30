@@ -161,6 +161,7 @@ const fs = require('node:fs');
 type CsvRecord = Record<string, string>;
 
 function parseCSV(content: string): CsvRecord[] {
+    if (content.trim() === '') return [];
     const lines = content.trim().split('\n');
     const headers = lines[0].split(',').map(h => h.trim());
 
@@ -321,7 +322,7 @@ npm test
 class Room {
     name: string;
     description: string;
-    exits: Record<string, Room>;
+    exits: Partial<Record<string, Room>>;
     items: string[];
     constructor(name: string, description: string) {
         this.name = name;
@@ -470,10 +471,26 @@ interface Todo {
     createdAt: string;
 }
 
+function isTodo(value: unknown): value is Todo {
+    if (typeof value !== 'object' || value === null) return false;
+    const candidate = value as Record<string, unknown>;
+    return typeof candidate.description === 'string'
+        && typeof candidate.completed === 'boolean'
+        && typeof candidate.createdAt === 'string';
+}
+
+function isTodoArray(value: unknown): value is Todo[] {
+    return Array.isArray(value) && value.every(isTodo);
+}
+
 function loadTodos(): Todo[] {
     try {
         const data = fs.readFileSync(FILE_PATH, 'utf8');
-        return JSON.parse(data);
+        const parsed: unknown = JSON.parse(data);
+        if (!isTodoArray(parsed)) {
+            throw new TypeError('The saved to-do file has an invalid structure.');
+        }
+        return parsed;
     } catch (err) {
         if (typeof err === 'object' && err !== null && 'code' in err && err.code === 'ENOENT') {
             return [];   // File doesn't exist yet
