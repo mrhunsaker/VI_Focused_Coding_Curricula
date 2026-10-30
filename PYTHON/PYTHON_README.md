@@ -67,28 +67,32 @@ Return to the [curriculum overview](../OVERALL_README.md) to compare the three l
 The setup unit contains the authoritative instructions. In general, learners need:
 
 - A currently supported Python 3 release compatible with the course examples.
-- Visual Studio Code or another keyboard-accessible editor that supports Python.
+- Visual Studio Code or [Theia IDE](https://theia-ide.org/#theiaide), or another keyboard-accessible editor that supports Python and the learner's screen reader.
 - Python language tooling for the selected editor.
 - A screen reader such as NVDA, JAWS, VoiceOver, or Narrator, a braille display, magnification, or the access technology used by the learner.
 - A terminal for running programs and reading text output.
 
 Use a project-specific virtual environment for packages. Keep dependencies limited in the introductory sequence; when a third-party package is necessary, explain why it is needed, how it is installed, and how to verify it.
 
-Typical commands where `python3` is available:
+Install `uv` using its [official installation instructions](https://docs.astral.sh/uv/getting-started/installation/). In a new project folder, use the same project workflow on macOS, Linux, and Windows:
 
 ```sh
-python3 --version
-python3 -m venv .venv
+uv init --python 3.12
+uv add requests
+uv run python main.py
+uv tree
 ```
 
 **Windows PowerShell (Windows 11):**
 
 ```powershell
-py -3 --version
-py -3 -m venv .venv
+uv init --python 3.12
+uv add requests
+uv run python main.py
+uv tree
 ```
 
-Activation commands differ by operating system and shell. Follow Unit 0 rather than assuming one command works everywhere.
+`uv` creates and manages the project-local `.venv`, records dependencies in `pyproject.toml` and `uv.lock`, and runs commands in that environment. Students do not need to activate the environment manually. Use `uv add package` rather than global `pip install package`.
 
 ## Python version and coding conventions
 
@@ -101,7 +105,7 @@ Use current, readable Python conventions:
 - Use pathlib.Path for filesystem paths, with statements for files and other managed resources, and if __name__ == "__main__" for runnable module entry points.
 - Add type annotations to function parameters and return values as concepts become appropriate. Built-in generics such as list[str], dict[str, int], and tuple[float, float] are supported by the 3.12 baseline; avoid legacy typing.List/typing.Dict forms in new examples.
 - Catch specific exceptions, keep try blocks narrow, and do not silently ignore errors. Use None for an intentional absence of a value and compare it with is None.
-- Use a project virtual environment and invoke package tools through the selected interpreter, for example: python -m pip install package.
+- Use `uv` to manage project dependencies: `uv add package` records a dependency in `pyproject.toml`; `uv run` executes in the managed project environment. Do not use global pip installs.
 - Keep dependencies minimal. Optional quality tools such as Ruff and pytest can be introduced after learners understand the standard-library workflow.
 
 The curriculum favors clarity and compatibility over novelty. It does not require Python 3.13–3.15-only syntax or APIs.

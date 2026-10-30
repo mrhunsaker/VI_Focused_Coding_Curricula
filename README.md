@@ -36,7 +36,7 @@ Each language curriculum has a topic index mapping terms, APIs, setup tasks, and
 
 The primary audience is beginning programmers, including students who are blind or visually impaired and use screen readers such as NVDA, JAWS, VoiceOver, or Narrator. Educators adapting introductory computer science instruction and self-directed learners may also use the material.
 
-The lessons emphasize keyboard-first development, accessible editor and terminal workflows, text output, explicit instructions, and interpreting error messages. Accessibility support varies across operating systems, editor versions, screen readers, and language tooling; consult the relevant tool documentation when your environment differs from the examples.
+The lessons emphasize keyboard-first development, accessible editor and terminal workflows, text output, explicit instructions, and interpreting error messages. Visual Studio Code is the primary editor in many examples; [Theia IDE](https://theia-ide.org/#theiaide) is another option and supports the keyboard- and screen-reader-oriented workflows used in this course. Verify the specific language extensions and screen-reader behavior in your environment. JetBrains IDEs are intentionally not recommended for this introductory course because their feature depth can overwhelm beginning learners. Accessibility support varies across operating systems, editor versions, screen readers, and language tooling; consult the relevant tool documentation when your environment differs from the examples.
 
 ## What's in the textbook
 
@@ -63,7 +63,7 @@ The [mdBook table of contents](SUMMARY.md) defines the published book's navigati
 
 The curricula share these practical principles:
 
-1. Use editor accessibility features such as Visual Studio Code's Screen Reader Optimized Mode where available.
+1. Use editor accessibility features such as Visual Studio Code's Screen Reader Optimized Mode or the corresponding accessibility settings in Theia IDE where available.
 2. Prefer keyboard navigation and document relevant commands where they are part of a lesson.
 3. Explain indentation, braces, punctuation, and other code structure that assistive technologies may announce differently.
 4. Keep core exercises runnable in a terminal and make program output text-based.

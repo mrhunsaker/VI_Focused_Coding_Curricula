@@ -131,9 +131,13 @@ Keep a learning journal or portfolio. Include the problem statement, approach, s
 
 ### Recommended working approach
 
-The curricula use a keyboard-first editor and a text-based terminal. Visual Studio Code is the primary editor in the setup material, but another accessible editor or IDE may be used if it supports the required language features and equivalent instructions are available.
+The curricula use a keyboard-first editor and a text-based terminal. Visual Studio Code is the primary editor in the setup material. [Theia IDE](https://theia-ide.org/#theiaide) is another supported option; it provides the keyboard- and screen-reader-oriented accessibility workflows expected in this course and supports many VS Code extensions through Open VSX. Extension availability and individual screen-reader behavior can differ, so verify the required language tools with the learner's setup. JetBrains IDEs are intentionally excluded from the recommended beginner setup: although capable, their breadth and complexity are unnecessary overhead for introductory learners.
 
 Access configurations vary by operating system, screen reader, braille display, editor version, and individual preference. Treat shortcuts and settings in the lessons as starting points; verify them in the learner's environment.
+
+### Dependency and environment management
+
+For Python, use [uv](https://docs.astral.sh/uv/) to manage Python versions, project environments, and dependencies. Install project packages with `uv add package` and run commands with `uv run`; do not use global `pip install` or `python -m pip install` for course dependencies. For JavaScript and TypeScript, install dependencies into the project with `npm install`/`npm install --save-dev` and run project tools through `npx` or npm scripts; do not use global npm installs for course tools. For Java, use the project's Maven Wrapper (`mvnw`/`mvnw.cmd`) or Gradle Wrapper (`gradlew`/`gradlew.bat`) so build tooling and dependencies are reproducible.
 
 ### Shared accessibility practices
 

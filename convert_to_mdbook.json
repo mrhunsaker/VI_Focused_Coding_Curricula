@@ -474,11 +474,40 @@
       ],
       "workflow_run": "https://github.com/mrhunsaker/VI_Focused_Coding_Curricula/actions/runs/41091043060",
       "implementation_commit": "b50ed5ea4e53ef72cc2fc3be80d29361c7c4ea75"
+    },
+    {
+      "id": 11,
+      "name": "Standardize project-scoped environment management and document Theia IDE as an accessible editor alternative",
+      "status": "implementation_complete_validation_pending",
+      "files": [
+        "CODE_STYLE.md",
+        "CONTRIBUTING.md",
+        "README.md",
+        "OVERALL_README.md",
+        "PYTHON/PYTHON_README.md",
+        "PYTHON/unit00-setup.md",
+        "PYTHON/teachers-guide.md",
+        "PYTHON/unit10-11-projects-capstone.md",
+        "JAVASCRIPT/JAVASCRIPT_README.md",
+        "JAVASCRIPT/unit00-01-setup-foundations.md",
+        "JAVASCRIPT/teachers-guide.md",
+        "TYPESCRIPT/TYPESCRIPT_README.md",
+        "TYPESCRIPT/unit00-01-setup-foundations.md",
+        "TYPESCRIPT/teachers-guide.md",
+        "JAVA/JAVA_README.md",
+        "JAVA/unit00-01-setup-foundations.md",
+        "JAVA/teachers-guide.md",
+        "JAVA/kotlin.md",
+        "backmatter/indexing_setup.json",
+        "convert_to_mdbook.json",
+        "CHANGES.md"
+      ],
+      "validation_status": "pending"
     }
   ],
   "progress": {
-    "current_step": 10,
-    "status": "glossary_and_language_indexes_complete_build_and_deployment_succeeded_live_site_browser_smoke_test_pending",
+    "current_step": 11,
+    "status": "environment_management_and_editor_choices_complete_build_validation_pending",
     "completed_steps": [
       0,
       1,
@@ -495,10 +524,10 @@
       4
     ],
     "next_step": "Open the published site in a normal browser and verify the overview, all four language landing pages, all 19 unit documents, all four teacher guides, and the optional Kotlin supplement. Check representative internal navigation and links. The available web viewer could not retrieve the home page or TypeScript landing page; this is not evidence that the site is down.",
-    "last_commit": "b50ed5ea4e53ef72cc2fc3be80d29361c7c4ea75",
-    "last_validation": "Created a 20,007-character student glossary with 148 term headings across shared CS vocabulary and Python, JavaScript, TypeScript, Java, and Kotlin sections. Added four per-language indexes mapping setup, syntax, APIs, data structures, functions, OOP, files, testing, projects, and Kotlin supplement topics to lesson pages. Added backmatter/indexing_setup.json with a reusable prompt, index schema, maintenance triggers, and quality checks. JSON parses successfully. Automated relative-link audit of the four indexes found 135 local links and zero missing targets. SUMMARY.md exposes all four indexes and the glossary. GitHub Actions run 41091043060 for commit b50ed5ea4e53ef72cc2fc3be80d29361c7c4ea75 completed successfully: mdBook build, Pages configuration, artifact upload, and deployment all passed. Normal-browser visual smoke test remains pending.",
+    "last_commit": "c18742216198efcfc71ca1b1371a08c864414fc7",
+    "last_validation": "Updated Python setup and dependency guidance to use uv-managed interpreters, project-local .venv environments, uv add, uv run, uv sync, and uv tree instead of global pip. JavaScript and TypeScript guidance emphasizes project-local npm dependencies and npx/npm scripts. Java uses project wrappers. Added Theia IDE as a supported VS Code alternative across the overview, all language setup pages and guides, with extension and screen-reader verification guidance. Removed JetBrains IDE recommendations from Java and Kotlin setup guidance. No Volta recommendation. Validation and build pending.",
     "updated_at": "2026-10-30",
-    "current_step_commit": "b50ed5ea4e53ef72cc2fc3be80d29361c7c4ea75"
+    "current_step_commit": "c18742216198efcfc71ca1b1371a08c864414fc7"
   },
   "future_llm_instructions": [
     "Read this JSON and CHANGES.md before every task; fetch current main and verify latest commits before acting.",
@@ -516,7 +545,9 @@
     "For AI guidance, cover both instructor preparation and student use; require human verification, privacy protection, accessibility review, disclosure where required, and a non-AI route.",
     "The version baseline last checked on 2026-10-30 is Python 3.12 minimum (examples remain 3.12-compatible), Node.js 26 LTS, TypeScript 7.0.2, JDK 25 LTS, and optional Kotlin 2.4.21. Recheck official release pages before future version upgrades.",
     "TypeScript compiles to JavaScript; do not describe TypeScript source as directly executed by Node.js or as having automatic runtime validation. Keep strict compiler guidance and runtime validation at external-data boundaries.",
-    "Cross-platform documentation rule: every executable fenced bash, sh, shell, or zsh command block must be followed immediately by a functionally equivalent fenced powershell block labeled for Windows 11. Keep Bash-family examples first for macOS/Linux, use Windows-native commands (including winget where appropriate), and update both blocks together whenever commands change."
+    "Cross-platform documentation rule: every executable fenced bash, sh, shell, or zsh command block must be followed immediately by a functionally equivalent fenced powershell block labeled for Windows 11. Keep Bash-family examples first for macOS/Linux, use Windows-native commands (including winget where appropriate), and update both blocks together whenever commands change.",
+    "Environment management rule: Python projects must use uv for managed interpreters, project environments, and dependencies (uv init, uv add, uv run, uv sync, uv tree). Never recommend bare/global pip install or python -m pip install for course dependencies. JavaScript and TypeScript packages must be installed locally in the project with npm install or npm install --save-dev and run with npx/npm scripts; avoid global npm installs. Java projects should use Maven or Gradle wrappers. Do not recommend Volta.",
+    "Editor choice rule: list Theia IDE (https://theia-ide.org/#theiaide) as an alternative to VS Code for all relevant language setups. Verify language extension availability through Open VSX and test the learner's screen-reader workflow. JetBrains IDEs are intentionally not recommended for introductory learners because their extensive feature set adds unnecessary complexity."
   ],
   "instructions_for_commit_sha": "A commit cannot include its own SHA. When creating a later checkpoint, record the immediately preceding verified checkpoint SHA in progress.last_commit.",
   "commit_history": [

@@ -66,9 +66,9 @@ The reported major version must be **25** (for example, openjdk 25.0.x). If your
 
 ---
 
-## Lesson 0.2: Installing VS Code and the Java Extension Pack
+## Lesson 0.2: Installing VS Code or Theia IDE and Java Language Tools
 
-1. Install VS Code from [https://code.visualstudio.com/](https://code.visualstudio.com/).
+1. Install [Visual Studio Code](https://code.visualstudio.com/) or [Theia IDE](https://theia-ide.org/#theiaide). Theia supports many VS Code extensions through Open VSX; verify that the Java language support, debugger, and test tools required for the course are available and accessible.
 2. Open VS Code and press `Ctrl + Shift + X` to open Extensions.
 3. Search for **"Extension Pack for Java"** by Microsoft. Install it.
    This installs: Language Support for Java, Debugger for Java, Java Test Runner, and Maven support.
@@ -76,7 +76,7 @@ The reported major version must be **25** (for example, openjdk 25.0.x). If your
 ### Configure Screen Reader Mode
 - Press `Ctrl + Shift + P` → type "Toggle Screen Reader Optimized" → press Enter.
 
-### VS Code Keyboard Shortcuts for Java
+### VS Code Keyboard Shortcuts for Java (Theia keybindings may differ)
 
 | Action | Shortcut |
 |--------|----------|

@@ -337,13 +337,13 @@ Students will develop a fully functional, screen-reader-accessible graphical app
 ## Setup
 
 ```bash
-python -m pip install nicegui
+uv add nicegui
 ```
 
 **Windows PowerShell (Windows 11):**
 
 ```powershell
-py -3 -m pip install nicegui
+uv add nicegui
 ```
 
 ---

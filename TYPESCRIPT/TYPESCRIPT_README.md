@@ -96,7 +96,7 @@ Use **Node.js 26.13.0 LTS** (current LTS as of October 30, 2026) and the current
 
 Follow Unit 0 for detailed installation and verification. Use the latest security/maintenance patch in the Node.js 26 LTS line. Check the official [Node.js download page](https://nodejs.org/en/download) before installing or upgrading.
 
-Recommended tools include Node.js and npm, Visual Studio Code or another keyboard-accessible editor, a terminal, and the learner's preferred access technology. Use project-local package configuration. Explain each third-party dependency and review its provenance and maintenance before adding it.
+Recommended tools include Node.js and npm, Visual Studio Code or [Theia IDE](https://theia-ide.org/#theiaide), a terminal, and the learner's preferred access technology. Theia is an alternative with similar keyboard- and screen-reader-oriented workflows; verify language extensions through Open VSX and test the learner's screen reader. Use project-local npm dependencies and `npx`/npm scripts; avoid global installs. Explain each third-party dependency and review its provenance and maintenance before adding it.
 
 Typical verification commands:
 

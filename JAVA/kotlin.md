@@ -35,8 +35,7 @@ Use a current stable Kotlin compiler or Kotlin Gradle plugin. For JVM developmen
 
 Recommended options:
 
-- **IntelliJ IDEA:** Kotlin support is integrated and provides project templates, navigation, and compiler diagnostics.
-- **Visual Studio Code:** Use a Kotlin language server/extension supported by its maintainers. Verify keyboard and screen-reader workflows before adopting it for a course.
+- **Visual Studio Code or Theia IDE:** Use a Kotlin language server/extension supported by its maintainers. Verify extension availability, keyboard navigation, and screen-reader workflows before adopting it for a course. JetBrains IDEs are intentionally not recommended for this introductory sequence because their extensive feature set is unnecessary overhead for learners.
 - **Command line:** Install the Kotlin compiler using the official Kotlin documentation and verify it with `kotlinc -version`.
 
 Save this as `Hello.kt`:

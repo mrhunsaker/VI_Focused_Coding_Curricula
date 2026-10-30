@@ -122,20 +122,12 @@ This is silent --- there is no error or warning. A blind student may not catch a
 
 ### IDE Configuration
 
-**VS Code with Extension Pack for Java:**
-This is the recommended setup. The Extension Pack includes Language Support for Java (Red Hat), Debugger for Java, Java Test Runner, Maven for Java, and Project Manager for Java.
+**Visual Studio Code with Extension Pack for Java:**
+This is the primary documented setup. The Extension Pack includes Language Support for Java (Red Hat), Debugger for Java, Java Test Runner, Maven for Java, and Project Manager for Java.
 
-Alternative IDEs to consider:
+**Theia IDE:** [Theia IDE](https://theia-ide.org/#theiaide) is an alternative with the keyboard- and screen-reader-oriented accessibility workflows expected in this course. Check the Open VSX registry for compatible Java language support, debugging, and test extensions. Not every VS Code extension is available or behaves identically, so verify the student's actual workflow.
 
-| IDE                          | Accessibility | Notes                                                                                         |
-| ---------------------------- | ------------- | --------------------------------------------------------------------------------------------- |
-| **VS Code + Extension Pack** | High          | Recommended. Full accessibility via keyboard.                                                 |
-| **IntelliJ IDEA Community**  | Medium--High  | Powerful but complex. More keyboard shortcuts to learn. JetBrains has an accessibility guide. |
-| **Eclipse**                  | Medium        | Older UI; can be navigated but more complex accessibility model.                              |
-| **BlueJ**                    | Low--Medium   | Designed for teaching; visual design features may impede accessibility.                       |
-| **DrJava**                   | Low--Medium   | Simple; not actively maintained.                                                              |
-| **jGRASP**                   | Low           | Visualization-focused; primarily visual.                                                      |
-| **Greenfoot**                | Low           | Visual/game-focused; not accessible for screen reader use.                                    |
+**Other tools:** BlueJ, DrJava, and Eclipse may be considered only when their accessibility and feature set fit the learner and the lesson. JetBrains IDEs (including IntelliJ IDEA) are intentionally not recommended for this introductory course. They are capable products, but their extensive feature set and complexity add unnecessary overhead for beginning programmers.
 
 **VS Code Java Specific Settings:**
 
@@ -827,7 +819,7 @@ Navigating packages in VS Code: `Ctrl+Shift+E` for Explorer (shows package tree)
 
 ### IDE-Generated Code Accessibility
 
-VS Code and IntelliJ can generate getters, setters, constructors, and toString. Teach these as time-savers, but require students to read and understand all generated code:
+VS Code and compatible Java IDE extensions can generate getters, setters, constructors, and toString. Teach these as time-savers, but require students to read and understand all generated code:
 
 - `Ctrl+Shift+P` -> "Java: Generate Getters and Setters"
 - `Ctrl+Shift+P` -> "Java: Override/Implement Methods"
@@ -899,7 +891,7 @@ Java's verbose syntax can be particularly burdensome on a braille display with l
 
 - Keep lines under 79 characters (PEP 8 applies to style; the Java equivalent is generally under 100).
 - Use shorter variable names for very long class hierarchies where the full name is unwieldy.
-- Encourage use of IntelliJ IDEA, which has better braille display integration than VS Code in some configurations.
+- Test the learner's chosen editor with their braille display and screen reader. Prefer the documented VS Code or Theia workflows and avoid adding IDE complexity before it is needed.
 
 ### For Students New to Screen Readers
 

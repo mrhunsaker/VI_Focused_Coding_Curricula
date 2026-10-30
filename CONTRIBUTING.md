@@ -32,6 +32,8 @@ Keep pull requests focused. If a change affects more than one language, explain 
 - Do not make visual inspection, color distinction, mouse-only actions, or screenshots a requirement for core activities.
 - Do not introduce uncredited third-party content. Respect copyright and cite sources.
 - Identify operating-system, language/runtime, and tool-version assumptions.
+- Manage Python dependencies with `uv` rather than global pip. Keep npm dependencies project-local and use `npx` or npm scripts for local tools. Prefer Maven/Gradle wrappers for Java projects.
+- Offer Theia IDE as an alternative to VS Code, and do not recommend JetBrains IDEs as the default for introductory learners. Verify screen-reader and extension behavior for the learner's setup.
 
 ## Review
 

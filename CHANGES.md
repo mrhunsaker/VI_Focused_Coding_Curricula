@@ -144,3 +144,12 @@ All implementation changes are recorded here. Each numbered step is committed se
 - Validation: glossary has 148 term headings; four language indexes contain 135 relative links, all resolving to existing files. The JSON indexing prompt parsed successfully.
 - GitHub Actions run [41091043060](https://github.com/mrhunsaker/VI_Focused_Coding_Curricula/actions/runs/41091043060) for commit `b50ed5ea4e53ef72cc2fc3be80d29361c7c4ea75` succeeded, including mdBook build and GitHub Pages deployment.
 - Normal-browser visual smoke test remains pending; successful build/deployment is not a substitute for that check.
+
+
+## 2026-10-30 — Project-scoped environment management and Theia IDE option
+
+- Standardized Python package installation guidance on Astral uv: `uv init --python 3.12`, `uv add`, `uv run`, `uv sync`, and `uv tree`. The Python setup now documents installing uv with the official standalone installers and using uv to manage the interpreter and project-local `.venv`. Removed global pip installation instructions from active Python setup and capstone materials.
+- Confirmed JavaScript and TypeScript setup uses project-local npm dependencies and `npx`/npm scripts; updated teacher guidance to explicitly avoid global npm installs for course tools. No Volta recommendations were introduced.
+- Added [Theia IDE](https://theia-ide.org/#theiaide) as an alternative to Visual Studio Code in the overview, README, Python/JavaScript/TypeScript/Java landing pages, setup lessons, and teacher guidance. Instructions advise checking Open VSX extension availability and testing screen-reader workflows in the learner's environment.
+- Explicitly excluded JetBrains IDEs from the recommended introductory setup because their breadth and complexity create unnecessary overhead for beginners. Removed IntelliJ IDEA recommendations from Java and Kotlin setup guidance.
+- Updated CODE_STYLE.md, CONTRIBUTING.md, and backmatter/indexing_setup.json so future contributors and indexing passes preserve these environment-management and editor-choice conventions.

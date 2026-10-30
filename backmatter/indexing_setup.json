@@ -78,13 +78,16 @@
     "Do not alter lesson content merely to create an index. Propose glossary additions separately when needed.",
     "Validate every relative link and anchor. Build mdBook and resolve malformed Markdown or broken links before committing.",
     "Preserve the cross-platform shell convention: every executable Bash-family block must be followed immediately by an equivalent Windows 11 PowerShell block.",
-    "Update CHANGES.md and convert_to_mdbook.json with files, validation, status, and commit details. Never claim live browser smoke testing without actually checking the site."
+    "Update CHANGES.md and convert_to_mdbook.json with files, validation, status, and commit details. Never claim live browser smoke testing without actually checking the site.",
+    "Apply the repository's environment-management policy in all setup instructions: Python projects use uv (uv init, uv add, uv run, uv sync, uv tree) rather than bare/global pip or python -m pip installs. Node.js and TypeScript dependencies belong in the project and should be installed with npm install/npm install --save-dev; run local tools with npx or npm scripts. Java projects should use Maven or Gradle project wrappers. Never recommend Volta.",
+    "List Theia IDE (https://theia-ide.org/#theiaide) as an alternative to Visual Studio Code in relevant language setup pages. It is intended to support the same keyboard- and screen-reader-oriented course workflows; verify language extensions in Open VSX and test with the learner's actual assistive technology. Do not recommend JetBrains IDEs for introductory students because their feature depth is unnecessary at this stage."
   ],
   "maintenance_triggers": [
     "Lesson added or removed",
     "Lesson heading or subject changed",
     "Runtime, API, or convention updated",
-    "New setup workflow, exercise, project, or accessibility practice introduced"
+    "New setup workflow, exercise, project, or accessibility practice introduced",
+    "Python package-management workflow or recommended editor options changed"
   ],
   "quality_checks": [
     "Every unit appears in at least one index entry.",

@@ -130,7 +130,9 @@ Teach `async`/`await` from the start and avoid callback patterns entirely in thi
 
 ## 3. Classroom Setup and Configuration
 
-### VS Code for TypeScript
+### VS Code or Theia IDE for TypeScript
+
+Theia IDE is an alternative editor with keyboard- and screen-reader-oriented workflows suitable for this course. It supports many VS Code extensions through Open VSX; check availability of ESLint, Prettier, and TypeScript language support, and verify each workflow with the learner's screen reader. VS Code-specific settings and shortcuts may differ.
 
 **Required extensions:**
 
@@ -310,7 +312,7 @@ Get-Content package.json
 #### Non-Obvious Accessibility Strategies
 
 - **Node.js version managers:** `nvm` (Node Version Manager) allows multiple Node.js versions. For a student who may work on multiple machines or projects, `nvm install 26`, then `nvm use 26` is a consistent way to set the Node.js version. `nvm` is command-line-only and fully accessible.
-- **Global vs. local packages:** `npm install -g` installs globally; `npm install` installs locally (in `node_modules`). Teach local installation as the default. Global packages can interfere across projects.
+- **Project-local dependencies:** install course tools with `npm install` or `npm install --save-dev` from the project folder. Run local executables with `npx` or npm scripts. Avoid `npm install -g` for course tools; global installations can conflict across projects.
 
 #### Thought Experiments
 

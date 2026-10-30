@@ -18,7 +18,9 @@ These conventions apply to Markdown, explanations, examples, and project code. T
 
 - Every executable fenced `bash`, `sh`, or `shell` command block must be followed immediately by a matching fenced `powershell` block for Windows 11.
 - Keep the Bash-family block first for macOS and Linux. Place the PowerShell block directly after it, with a clear **Windows PowerShell (Windows 11)** label.
-- The two blocks must perform the same task, use the same project paths and filenames, and preserve the same learning objective. Do not translate Linux-only commands literally: provide a Windows-native alternative such as `winget`, `py -m pip`, `Set-Location`, or the Gradle `.bat` wrapper as appropriate.
+- The two blocks must perform the same task, use the same project paths and filenames, and preserve the same learning objective. Do not translate Linux-only commands literally: provide a Windows-native alternative such as `winget`, `Set-Location`, or the Gradle `.bat` wrapper as appropriate.
+- Do not install Python course dependencies with bare/global `pip` or `python -m pip`. Prefer `uv` project environments and dependency declarations (`uv init`, `uv add`, `uv run`, `uv sync`). For Node.js/TypeScript, use project-local npm dependencies and `npx`/npm scripts; avoid global package installs. For Java, prefer the project Maven/Gradle wrapper so build tools and dependencies are project-scoped.
+- Do not recommend Volta for Node.js version management. Use the Node.js LTS installer or another actively maintained, documented version manager.
 - Use PowerShell syntax in the Windows block, not Command Prompt syntax. Prefer commands compatible with the Windows PowerShell shipped with Windows 11.
 - For Python virtual environments, use `.venv\\Scripts\\Activate.ps1` in PowerShell. If script execution is blocked, explain how to set a temporary process-scoped execution policy rather than changing the machine-wide policy.
 - For interactive REPL examples, make clear which commands are entered in the shell and which are entered after the REPL starts.
@@ -49,7 +51,7 @@ These conventions apply to Markdown, explanations, examples, and project code. T
 
 ## Language conventions
 
-- **Python:** target Python 3.12 or newer; keep examples compatible with 3.12. Follow PEP 8, use four spaces for indentation, prefer built-in collection type annotations, pathlib, context managers, and python -m pip.
+- **Python:** target Python 3.12 or newer; keep examples compatible with 3.12. Follow PEP 8, use four spaces for indentation, prefer built-in collection type annotations, pathlib, context managers, and `uv` for project environments and dependencies. Avoid global pip installs.
 - **JavaScript:** target Node.js 26 LTS. Use const by default, let when reassignment is required, strict equality, explicit input conversion, node: built-in module specifiers, and an explicitly declared CommonJS or ES module format. Use consistent braces and indentation; explain asynchronous behavior when introduced.
 - **TypeScript:** compile with the current stable TypeScript compiler and target Node.js 26 LTS. Enable strict checking, annotate function parameters and public contracts, prefer inference for obvious local values, use unknown and type guards for untrusted data, and avoid routine any or unsafe type assertions. Remember that TypeScript types are erased and do not validate runtime input.
 - **Kotlin (supplement only):** Kotlin material is optional post-capstone extension for Java learners. Follow current Kotlin conventions and clearly distinguish Kotlin syntax from Java interoperability details.

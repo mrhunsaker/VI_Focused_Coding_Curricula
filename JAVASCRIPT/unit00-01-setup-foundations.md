@@ -50,17 +50,17 @@ npm --version      # Should show npm version
 
 ---
 
-## Lesson 0.2: Setting Up VS Code
+## Lesson 0.2: Setting Up VS Code or Theia IDE
 
 For a new project, create a package manifest with npm init -y. Choose one module system and declare it explicitly: set package.json to { "type": "commonjs" } for the CommonJS examples in the early lessons, or { "type": "module" } for the ES module examples later in the course. Do not combine the two syntaxes in one file.
 
-1. Install VS Code from [https://code.visualstudio.com/](https://code.visualstudio.com/).
+1. Install [Visual Studio Code](https://code.visualstudio.com/) or [Theia IDE](https://theia-ide.org/#theiaide). Theia supports many VS Code extensions through Open VSX, but check that the required extensions are available and test them with the learner's screen reader.
 2. Press `Ctrl + Shift + X` to open Extensions. Install:
    - **JavaScript (ES6) code snippets** — Handy code shortcuts.
    - **ESLint** — Catches common errors.
 3. Enable Screen Reader Mode: `Ctrl + Shift + P` → "Toggle Screen Reader Optimized".
 
-### VS Code Shortcuts for JavaScript
+### VS Code Shortcuts for JavaScript (Theia keybindings may differ)
 
 | Action | Shortcut |
 |--------|----------|

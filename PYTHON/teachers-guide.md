@@ -21,7 +21,7 @@ Model current conventions consistently:
 - Prefer built-in collection annotations (list[str], dict[str, int]) over legacy typing.List/Dict in new Python 3.12+ examples. Annotate function inputs and return values when it clarifies the contract; explain that annotations do not enforce runtime types by themselves.
 - Use f-strings for interpolation, pathlib.Path for paths, context managers (with) for files, and explicit main guards for runnable modules.
 - Use specific exception types, avoid bare except, avoid mutable default arguments, and compare absence with is None.
-- Create isolated environments with python -m venv .venv and install packages with python -m pip. Prefer a lockfile or documented dependency versions for shared projects.
+- Use uv to create project environments and manage dependencies: uv init --python 3.12, uv add package, and uv run command. Commit uv.lock for shared projects. Do not install course dependencies with global pip.
 - Introduce Ruff for linting/formatting and pytest for tests only after learners understand the underlying Python and standard-library workflow. Do not make either tool a prerequisite for basic lessons.
 
 ### Table of Contents
@@ -127,9 +127,9 @@ Students who are deaf-blind rely exclusively on braille for all information. Aud
 - Position the workstation so the teacher can sit beside (not in front of) the student, allowing them to listen to the screen reader output together.
 - If a classroom assistant or orientation and mobility specialist is present, coordinate roles in advance. The programming teacher leads on programming content; the VI specialist leads on accessibility tool configuration.
 
-### VS Code Configuration Checklist
+### VS Code / Theia IDE Configuration Checklist
 
-Work through this checklist with the student on day one:
+Work through the equivalent accessibility and language-support settings with the student on day one. VS Code-specific setting names and shortcuts may differ in Theia; confirm each workflow with the learner's screen reader.
 
 **Screen Reader**
 
@@ -183,36 +183,31 @@ Work through this checklist with the student on day one:
 - **Orca + Linux terminal:** Orca reads terminal output well. Use `Orca+T` (flat review) to re-read recent output.
 - Configure the terminal font to a monospace font at a size comfortable for any residual vision.
 
-### Python Virtual Environment Setup for Accessibility
+### Python Project Environment Setup with uv
+
+Use `uv` as the standard environment and dependency manager. It creates a project-local `.venv`, resolves dependencies, and runs commands in that environment. Manual activation is not required; use `uv run` so the correct interpreter and dependencies are selected.
+
+macOS and Linux:
 
 ```bash
-# Create environment with a consistent name the student will always type
-python3 -m venv .venv
-
-# Activation --- save this as a text file the student can open and copy from
-# Windows: .venv\Scripts\activate
-# macOS/Linux: source .venv/bin/activate
-
-# Verify with a spoken command
-python3 --version
-python -m pip list
+uv init --python 3.12
+uv add requests
+uv run python --version
+uv tree
 ```
 
 **Windows PowerShell (Windows 11):**
 
 ```powershell
-# Create environment with a consistent name the student will always type
-py -3 -m venv .venv
-# Activation --- save this as a text file the student can open and copy from
-# If activation is blocked, allow local scripts for this PowerShell session only.
-Set-ExecutionPolicy -Scope Process -ExecutionPolicy RemoteSigned
-.\.venv\Scripts\Activate.ps1
-# Verify with a spoken command
-py -3 --version
-py -3 -m pip list
+uv init --python 3.12
+uv add requests
+uv run python --version
+uv tree
 ```
 
-Consider creating a startup script (`start.bat` on Windows, `start.sh` on macOS/Linux) that activates the environment and opens VS Code. Students can run one command to get their environment ready, reducing setup cognitive load.
+For an existing project, use `uv sync` to install the dependencies recorded in `pyproject.toml` and `uv.lock`. Do not install course packages with global pip.
+
+Consider creating a startup script (`start.bat` on Windows, `start.sh` on macOS/Linux) that opens VS Code or Theia IDE in the project folder. Use uv run for Python commands. Students can run one command to get their environment ready, reducing setup cognitive load.
 
 ---
 
@@ -303,7 +298,7 @@ After installation, before anything else: `python3 --version`. If this fails, st
 
 - **Windows Defender SmartScreen:** On Windows, running a downloaded `.exe` from Python.org may trigger a SmartScreen dialog. This dialog can be navigated with Tab and Enter but is not always announced immediately by NVDA. Tell the student what to expect before they run the installer.
 - **macOS Gatekeeper:** Downloaded packages may require right-click -> Open to bypass security. On a screen reader, right-click is VO+Shift+M (VoiceOver) or App Key (NVDA with keyboard access).
-- **Linux package managers as an alternative:** For Linux students, `sudo apt install python3 python3-pip python3-venv` is often more reliable than the Python.org download and is fully scriptable.
+- **Linux package managers as an alternative:** For Linux students, `sudo apt install python3 curl` is often more reliable than the Python.org download and is fully scriptable.
 - **Portable Python for school computers:** Some schools restrict software installation. Python.org offers portable/embeddable distributions. Replit.com is a web-based Python IDE that requires no installation and is reasonably accessible.
 
 #### Alternative Installation Methods
@@ -315,9 +310,10 @@ After installation, before anything else: `python3 --version`. If this fails, st
 | Homebrew (macOS)       | High --- command-line                         | macOS users comfortable with terminal |
 | apt/dnf/pacman (Linux) | High --- command-line                         | Linux users                           |
 | Replit.com             | Medium --- web-based, some accessibility gaps | No local install possible             |
+| Theia IDE              | Verify with learner's screen reader            | VS Code alternative with similar keyboard workflows |
 | Thonny IDE             | Medium --- simpler UI, bundled Python         | Beginners who struggle with VS Code   |
 
-**On Thonny:** Thonny is a Python IDE specifically designed for beginners. It has a simpler interface than VS Code and is sometimes more accessible for students who are new to both screen readers and programming. The trade-off is fewer advanced accessibility features long-term. Consider Thonny for the first 2--3 lessons to reduce setup burden, then migrate to VS Code.
+**On Thonny:** Thonny is a Python IDE specifically designed for beginners. It has a simpler interface than VS Code and is sometimes more accessible for students who are new to both screen readers and programming. The trade-off is fewer advanced accessibility features long-term. Consider Thonny for the first 2--3 lessons to reduce setup burden, then migrate to VS Code or Theia IDE.
 
 #### Thought Experiments
 
@@ -335,7 +331,7 @@ After installation, before anything else: `python3 --version`. If this fails, st
 
 #### Instructional Cues
 
-Before showing any configuration screens, do an unguided exploration: "Open VS Code, navigate around with only your keyboard and screen reader, and come back in ten minutes. Tell me what you found, what worked, what was confusing." This builds genuine familiarity and identifies that student's specific challenges.
+Before showing any configuration screens, do an unguided exploration: "Open VS Code or Theia IDE, navigate around with only your keyboard and screen reader, and come back in ten minutes. Tell me what you found, what worked, what was confusing." This builds genuine familiarity and identifies that student's specific challenges.
 
 Map each configuration step to a problem the student already identified. This makes the configuration feel purposeful rather than arbitrary.
 
@@ -462,7 +458,7 @@ If these are not automatic, spend additional time on terminal basics. Terminal f
 
 2. _"When you type `python3 hello.py` and press Enter, what is the operating system doing? What is Python doing? Walk through it step by step as if explaining to someone who has never used a computer."_
 
-3. _"`python -m pip install requests` downloads and installs code written by other people. What are the risks of running code written by strangers? What does PyPI (the Python Package Index) do to reduce these risks?"_
+3. _"`uv add requests` downloads and adds a dependency to the current Python project. What are the risks of running code written by strangers? What does PyPI (the Python Package Index) do to reduce these risks?"_
 
 ---
 

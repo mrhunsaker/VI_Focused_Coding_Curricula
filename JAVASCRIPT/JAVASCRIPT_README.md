@@ -88,7 +88,7 @@ The course follows modern JavaScript practices:
 
 Follow Unit 0 for detailed installation and verification. For a new setup, use a currently supported Node.js Long-Term Support (LTS) release unless course materials specify a different compatible version. Check the official [Node.js download page](https://nodejs.org/en/download) rather than relying on an old version number.
 
-Recommended tools include Node.js and npm, Visual Studio Code or another keyboard-accessible editor, a terminal, and the learner's preferred access technology. Use project-local package configuration. Explain each third-party dependency and review its provenance and maintenance before adding it.
+Recommended tools include Node.js and npm, Visual Studio Code or [Theia IDE](https://theia-ide.org/#theiaide), a terminal, and the learner's preferred access technology. Theia is an alternative with similar keyboard- and screen-reader-oriented workflows; verify language extensions through Open VSX and test the learner's screen reader. Use project-local npm dependencies and `npx`/npm scripts; avoid global installs. Explain each third-party dependency and review its provenance and maintenance before adding it.
 
 Typical verification commands:
 

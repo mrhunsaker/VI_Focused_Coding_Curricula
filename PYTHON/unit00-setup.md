@@ -16,7 +16,7 @@ A detailed environment setup is not merely a technical prerequisite; it empowers
 
 ### Installing Python 3
 
-Python is not always installed on a computer by default. Install **Python 3.12 or newer** from [the official Python downloads page](https://www.python.org/downloads/). Python 3.15.2 is the current stable release as of October 30, 2026; use the latest maintenance release available for your operating system. All course examples remain compatible with Python 3.12.
+Python is not always installed on a computer by default. You may install **Python 3.12 or newer** from [the official Python downloads page](https://www.python.org/downloads/), or let `uv` install and manage the course interpreter after you install uv. All course examples remain compatible with Python 3.12.
 
 #### Windows
 1. Locate the downloaded `.exe` file (usually in your Downloads folder). Activate it.
@@ -45,7 +45,7 @@ py -3 --version
 If not installed (Debian/Ubuntu):
 ```bash
 sudo apt update
-sudo apt install python3 python3-venv python3-pip
+sudo apt install python3 curl
 python3 --version  # Confirm this is 3.12 or newer
 ```
 
@@ -57,27 +57,29 @@ winget install --id Python.Python.3.12 -e
 py -3 --version  # Confirm this is 3.12 or newer
 ```
 
-### Verifying Python Installation
-Open a terminal and verify the interpreter you will use for this course. On Windows, use the Python launcher; on macOS/Linux, use python3:
+### Installing uv and a managed Python interpreter
 
-```powershell
-py -3.12 --version
-py -3.12 -m pip --version
-```
+`uv` is the recommended Python project and environment manager. It installs and manages Python interpreters, creates a project-local `.venv`, records dependencies, and runs commands in the correct environment. Install uv using the official standalone installer; this does not require Python or pip to be installed first.
+
+macOS and Linux:
 
 ```bash
-python3 --version
-python3 -m pip --version
+curl -LsSf https://astral.sh/uv/install.sh | sh
+uv --version
+uv python install 3.12
+uv python list
 ```
 
 **Windows PowerShell (Windows 11):**
 
 ```powershell
-py -3 --version
-py -3 -m pip --version
+powershell -ExecutionPolicy ByPass -c "irm https://astral.sh/uv/install.ps1 | iex"
+uv --version
+uv python install 3.12
+uv python list
 ```
 
-The reported major/minor version must be **3.12 or newer**. If it is older, install a supported interpreter before continuing. Always run pip through the same interpreter that runs your programs.
+If the `uv` command is not found immediately after installation, open a new terminal as instructed by the installer. The managed interpreter must be Python 3.12 or newer for this course.
 
 ### Installing Visual Studio Code
 1. Navigate to [https://code.visualstudio.com/download](https://code.visualstudio.com/download).
@@ -125,7 +127,11 @@ code --version
 
 ---
 
-## Lesson 0.2: Configuring Your Screen Reader for VS Code
+### Editor alternative: Theia IDE
+
+[Theia IDE](https://theia-ide.org/#theiaide) is another option instead of Visual Studio Code. It supports the keyboard- and screen-reader-oriented accessibility workflows used in this course. Its interface is similar in many respects and it supports many VS Code extensions through the Open VSX registry, but not every extension or shortcut is identical. Install the Python and language-support extensions available for Theia, then test navigation, diagnostics, terminal access, and screen-reader announcements with the learner's access technology.
+
+## Lesson 0.2: Configuring Your Screen Reader for VS Code or Theia IDE
 
 ### Reading References
 - Matthes: Appendix B, pages 469–476
@@ -272,58 +278,38 @@ py -3 hello.py
 2. The terminal opens in your project folder automatically.
 3. Run: `python3 hello.py`
 
-### Python Virtual Environments
+### Project environments and dependencies with uv
 
-Use the Python 3.12+ interpreter to create the environment. On Windows, use py -3.12 -m venv .venv if the Python launcher is installed; on macOS/Linux, use python3 -m venv .venv. Activate the environment before installing packages, and use python -m pip so packages are installed for the active interpreter.
+Use one isolated environment per Python project. The recommended course workflow uses `uv`; it creates and manages the project's `.venv` automatically, so learners do not need to activate it manually. Run these commands from the project folder. If the folder does not yet contain a project, initialize it first.
 
-Virtual environments keep project dependencies separate, preventing conflicts.
+**Create the project environment, add a dependency, and run the program:**
 
-**Create a virtual environment:**
 ```bash
-python3 -m venv .venv
+uv init --python 3.12
+uv add requests
+uv run python hello.py
+uv tree
 ```
 
 **Windows PowerShell (Windows 11):**
 
 ```powershell
-py -3 -m venv .venv
+uv init --python 3.12
+uv add requests
+uv run python hello.py
+uv tree
 ```
 
-**Activate:**
-- Windows (Command Prompt): `.venv\Scripts\activate.bat`
-- Windows (PowerShell): `.venv\Scripts\Activate.ps1`
-- macOS/Linux: `source ./.venv/bin/activate`
+- `uv init` creates the project configuration.
+- `uv add requests` installs the package into the project environment and records it in `pyproject.toml` and `uv.lock`.
+- `uv run python hello.py` runs the program with the project's managed interpreter and dependencies.
+- `uv tree` lists the dependency tree.
 
-You will hear `(.venv)` at the beginning of your prompt when active.
+**Run without installing a project dependency:** for a one-off tool or script dependency, use `uv run --with package command` or `uvx tool-name`. Do not use bare/global `pip install` or `python -m pip install` for course packages.
 
-**Deactivate:**
-```bash
-deactivate
-```
+**Select the project interpreter in VS Code or Theia IDE:** choose the Python interpreter inside the project's `.venv` directory. If the IDE does not detect it, reopen the project folder and use the interpreter-selection command or setting provided by that IDE.
 
-**Windows PowerShell (Windows 11):**
-
-```powershell
-deactivate
-```
-
-**Select Interpreter in VS Code:**
-1. Press `Ctrl + Shift + P`.
-2. Type "Python: Select Interpreter" and press Enter.
-3. Select the one that says "Python 3.x.x (.venv)".
-
-**Install packages:**
-```bash
-python -m pip install requests
-python -m pip list
-```
-
-**Windows PowerShell (Windows 11):**
-
-```powershell
-py -3 -m pip install requests
-py -3 -m pip list
-```
+**Optional venv concepts:** `uv` uses the standard `.venv` directory. Students may inspect it and learn that it isolates project dependencies, but routine manual activation is not required when commands are run with `uv run`.
 
 ### Skills Checklist
 - [ ] I can create a new Python file (.py) in VS Code.
@@ -331,9 +317,9 @@ py -3 -m pip list
 - [ ] I can run a Python script from the system terminal.
 - [ ] I can run a Python script from the integrated terminal in VS Code.
 - [ ] I understand why virtual environments are useful.
-- [ ] I can create, activate, and deactivate a virtual environment.
-- [ ] I can select the correct Python interpreter in VS Code.
-- [ ] I can install Python packages using pip.
+- [ ] I can initialize a Python project with `uv init`.
+- [ ] I can add a project dependency with `uv add` and inspect it with `uv tree`.
+- [ ] I can run a program with `uv run` and select the project's `.venv` interpreter in my editor.
 
 ---
 
@@ -352,10 +338,10 @@ The official Python documentation is well-structured and accessible: [https://do
 
 ### Unit 0 Completion Checklist
 - [ ] Python 3 is installed and `python3 --version` works in your system terminal.
-- [ ] VS Code is installed and `code --version` works in your system terminal.
+- [ ] VS Code or Theia IDE is installed and I can open the course project.
 - [ ] Your screen reader is configured to announce indentation changes in VS Code.
 - [ ] You can open your PythonProjects folder in VS Code.
-- [ ] You have installed the official "Python" VS Code extension.
+- [ ] You have installed Python language support in your chosen editor (the Python extension in VS Code or its compatible Theia alternative).
 - [ ] You can create a new .py file, write `print("Hello!")`, and save it.
 - [ ] You can run your hello.py file from both terminals.
 - [ ] You can create and activate a virtual environment (.venv).

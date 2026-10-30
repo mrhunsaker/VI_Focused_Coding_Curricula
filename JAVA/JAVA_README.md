@@ -64,7 +64,7 @@ Return to the [curriculum overview](../OVERALL_README.md) to compare Python, Jav
 
 Use Unit 0 for detailed installation steps. Use **JDK 25 LTS** as the course baseline. JDK 25 is the latest long-term-support release as of October 30, 2026; later non-LTS feature releases are not required. Keep the course examples within the Java SE 25 language and API level, without preview features. Check [Adoptium](https://adoptium.net/) or the official [Oracle Java documentation](https://docs.oracle.com/en/java/) for current distributions and versions.
 
-Recommended tools include a JDK, Visual Studio Code with the Extension Pack for Java or another keyboard-accessible Java IDE, a terminal, and the learner's preferred access technology.
+Recommended tools include a JDK, Visual Studio Code with the Extension Pack for Java or [Theia IDE](https://theia-ide.org/#theiaide), a terminal, and the learner's preferred access technology. Theia is an alternative with keyboard- and screen-reader-oriented workflows; verify Java language support, debugger, test runner, and extension compatibility through Open VSX before using it in class.
 
 Useful verification commands:
 
