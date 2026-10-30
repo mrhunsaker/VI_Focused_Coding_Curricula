@@ -2,6 +2,13 @@
 
 ## For Students with Visual Impairments --- Complete Instructor Edition
 
+
+## How to use this teacher's guide
+
+This guide is a companion for instructors, not a script that must be followed word for word. Read the philosophy, learner-context, and technology sections before the first lesson; use the unit notes while planning; and return to the assessment, differentiation, AI, and quick-reference sections throughout the course. Adapt procedures to the learner's actual assistive technology, operating system, course goals, and prior experience. Confirm tool-specific instructions in current official documentation because editor, screen-reader, and runtime behavior changes over time.
+
+Plan for both programming learning and access to the programming environment. Establish what the student can already do independently, what access skills need instruction, what supports are already in place, and how the learner prefers to receive feedback. Never assume a diagnosis predicts a student's preferred tools or level of independence.
+
 ---
 
 ## Table of Contents
@@ -25,6 +32,8 @@
 17. [Supporting Diverse Needs](#17-supporting-diverse-needs)
 18. [Alternative and Supplementary Resources](#18-alternative-and-supplementary-resources)
 19. [Quick Reference Sheets](#19-quick-reference-sheets)
+20. [Teaching AI Tools Responsibly](#20-teaching-ai-tools-responsibly)
+21. [Comprehensive Instructional Planning and Course Implementation](#21-comprehensive-instructional-planning-and-course-implementation)
 
 ---
 
@@ -1335,3 +1344,192 @@ function close() {
 
 module.exports = { askQuestion, askNumber, close };
 ```
+
+## 20. Teaching AI Tools Responsibly
+
+AI coding assistants can provide explanations, hints, test ideas, and alternative examples. They can also produce incorrect JavaScript, misunderstand Node.js module configuration, recommend untrusted npm packages, or conceal asynchronous behavior. Treat every response as an unverified proposal. The course must remain accessible without paid AI access or a personal account.
+
+### Learning goals and appropriate uses
+
+Students should describe the limitations of code generation, ask focused questions, verify JavaScript behavior using the runtime and official documentation, identify generated code beyond their current level, and disclose assistance when required. When permitted, AI may explain a diagnostic, rephrase a concept, suggest edge cases, critique an algorithm, or generate test inputs. Prefer hint-based prompts and have the learner describe their own understanding first.
+
+### JavaScript and Node.js risks
+
+Review AI output for:
+
+- Confusion between CommonJS `require()` and ES module `import`, including package `type`, file extensions, and runtime version.
+- Incorrect claims about semicolon insertion, equality, coercion, truthy/falsy values, `undefined`, `null`, or `NaN`.
+- Missing `await`, unhandled promise rejections, callbacks that do not complete, or incorrect execution-order assumptions.
+- Browser-only APIs used in a Node.js lesson or incorrect Node.js APIs.
+- Unsafe file paths, command execution, network requests, or untrusted input handling.
+- Unnecessary npm dependencies, typo-squatted or abandoned packages, or packages with excessive permissions.
+- Dense chaining, nested callbacks, clever one-liners, and output difficult to review sequentially.
+
+Run examples in the course's declared Node.js environment, inspect values and types, and test success, boundary, and failure cases. Verify API claims in official Node.js documentation or MDN.
+
+### Screen-reader and output review
+
+Review whether braces, nested callbacks, and asynchronous control flow are navigable and explainable; identifiers are descriptive; prompts and output provide context; results arrive in a predictable order; module style is consistent; and the AI interface itself is accessible. Prefer named functions and intermediate variables when they improve understanding. Make asynchronous behavior explicit.
+
+### Privacy, security, and equity
+
+Do not submit student records, credentials, private code, API keys, or confidential school information to public AI systems. Follow institutional policies, age requirements, and approved-tool lists. Treat terminal commands and package recommendations as untrusted. Verify package names and provenance before installation. Provide a non-AI path and never make a paid account a prerequisite. Discuss how generated examples may assume mouse use, visual browser interaction, graphical output, or a particular operating system.
+
+### Verification protocol: Ask – Inspect – Verify – Adapt – Explain – Disclose
+
+1. **Ask:** state the problem and what has already been tried.
+2. **Inspect:** read the response and flag unfamiliar APIs, packages, syntax, and assumptions.
+3. **Verify:** check MDN or Node.js documentation; run a minimal example; test normal, boundary, and invalid input.
+4. **Adapt:** simplify, secure, format, and make code accessible to sequential reading.
+5. **Explain:** have the student explain control flow and make a new change without AI.
+6. **Disclose:** record the tool and assistance when required.
+
+### Activity-specific policy
+
+- **Practice:** hints and explanations may be allowed; request complete solutions only for code-review activities.
+- **Homework/projects:** define permitted assistance and require disclosure and verification.
+- **Individual assessments:** do not permit AI to perform the skill being measured unless explicitly included in the assessment or an accommodation.
+- **Accessibility tools:** screen-reader, braille, magnification, and keyboard access tools are not prohibited answer-generation tools.
+
+### Discussion prompts
+
+- An AI answer mixes CommonJS and ES module syntax. How would you diagnose the mismatch?
+- A suggested npm package has a plausible name but few trustworthy details. What should you check?
+- A promise-based program prints results in an unexpected order. How can you reason about `await`?
+- What must a student understand if AI generated most of a function?
+
+---
+
+## 21. Comprehensive Instructional Planning and Course Implementation
+
+This section consolidates practices that apply across the philosophy, learner-context, classroom setup, spoken-code, unit, assessment, differentiation, and resource sections above. Use it as a course-planning reference from intake through capstone evaluation.
+
+### 21.1 Course planning and alignment
+
+Map each unit to prerequisites, learning objectives, practice opportunities, and evidence of mastery. Do not assume every unit needs equal time.
+
+- Identify outcomes: problem decomposition, code reading and writing, data representation, control flow, functions or methods, debugging, testing, and communication.
+- Separate programming prerequisites from access-tool prerequisites.
+- Record the operating system, editor/IDE, runtime, terminal, screen reader, braille display, magnification, and adaptive input technology used.
+- Identify essential concepts, enrichment topics, and material that can be deferred without breaking later lessons.
+- Plan checkpoints after each major concept group and adjust pacing using student evidence.
+- Maintain a map linking each lesson to objectives, practice, assessment, accessibility considerations, and likely misconceptions.
+
+A suggested progression is environment and navigation; computing foundations; expressions and data; input/output; decisions and loops; collections; functions or methods; object-oriented concepts; files and errors; testing; projects; capstone. Preserve prerequisites when reordering.
+
+### 21.2 Readiness and learner partnership
+
+Ask about preferred access methods, prior programming experience, keyboard navigation, file management, and what makes technical instruction usable. Ask about functional access requirements rather than requesting unnecessary diagnostic details.
+
+Use a low-stakes baseline activity to observe how the learner opens and navigates a source file, moves by line/word/character/symbol, creates and saves a file, runs a command, locates output, and reads a diagnostic. Record strengths and supports, not just deficits. Revisit the baseline to recognize growth. Keep the learner central to decisions about tools and workflow.
+
+### 21.3 Repeatable lesson architecture
+
+1. **Purpose:** state the problem the lesson addresses.
+2. **Prerequisite retrieval:** revisit the prior concept needed today.
+3. **Vocabulary:** define technical terms and spoken symbol conventions.
+4. **Explicit model:** demonstrate a small runnable example and narrate navigation and code changes.
+5. **Trace:** read the code structurally and predict behavior.
+6. **Guided practice:** solve a similar problem with prompts and fading support.
+7. **Independent transfer:** apply the concept to a new requirement.
+8. **Debug and reflect:** examine an intentional error or unexpected result.
+9. **Exit check:** collect an explanation, prediction, code change, or test.
+
+State one navigation action at a time, allow the learner to complete it, and confirm the result before continuing. Provide source files and commands in advance when possible. Narrate all actions in shared-screen demonstrations and provide an equivalent text-based route.
+
+### 21.4 Explicit instruction for accessible code navigation
+
+Teach file structure before reading every line. Identify current focus and how to return to a known location. Teach line, word, character, symbol, selection, search, and go-to-line navigation, plus navigation to functions, methods, classes, and diagnostics. Explain indentation and block boundaries. Use manageable line lengths and avoid unnecessarily nested expressions. Give students time to read diagnostics and output independently. Do not take over the keyboard without explaining the action and obtaining the learner's agreement.
+
+### 21.5 Language-specific instructional emphasis: JavaScript
+
+JavaScript's dynamic type system and runtime should be made explicit:
+- Teach `let`, `const`, and scope before elaborate function patterns.
+- Contrast `===` and `==` with concrete values; make coercion visible in REPL experiments.
+- Treat `undefined`, `null`, empty strings, zero, false, and `NaN` as distinct values.
+- Distinguish arrays from objects and explain property access, index ranges, mutation, and iteration.
+- Introduce asynchronous input deliberately. Explain promises, `async`, `await`, and output order.
+- Teach CommonJS and ES modules as separate systems. State module mode and Node.js version before troubleshooting imports.
+- Make error handling and file paths explicit; distinguish syntax errors, runtime exceptions, rejected promises, and logic errors.
+- Use ESLint and formatting tools as feedback aids, but explain each diagnostic.
+
+### 21.6 Misconceptions and diagnostic teaching
+
+Ask learners to predict behavior, explain their prediction, run a small experiment, and revise their mental model.
+
+| Common issue | Instructional response |
+| --- | --- |
+| Confusing assignment with comparison | Contrast operators and trace values before and after execution. |
+| Treating input as already numeric | Identify input type, convert explicitly, and test valid and invalid values. |
+| Off-by-one loop or index errors | Trace first, typical, and final iterations; state the valid index range. |
+| Choosing an unsuitable collection | Describe access patterns and required operations before choosing a structure. |
+| Writing one large function or method | Decompose the task by responsibility and test each part. |
+| Treating a running program as necessarily correct | Define expected behavior and test normal, boundary, and invalid inputs. |
+| Copying code without tracing it | Ask the learner to predict a new case and make a modification. |
+| Misreading an error message | Locate the useful diagnostic, identify file and line, and inspect surrounding code. |
+
+Language-specific pitfalls include: coercion and equality; `undefined` versus `null`; truthy and falsy values; array mutation; callback and promise ordering; CommonJS versus ES modules; and browser APIs versus Node.js APIs.
+
+### 21.7 Differentiation without lowering the learning objective
+
+Adjust the path, not the intellectual goal. Supports may include smaller task increments, additional practice, explicit worked examples, alternative information formats, extra navigation time, starter code with gradually faded scaffolding, oral explanation or accessible demonstration, pair programming with rotating roles, predictable routines, and enrichment tasks that deepen the same concept.
+
+Do not assume all blind students need the same support or that all low-vision students prefer magnification. Ask, document, and review supports with the learner.
+
+### 21.8 Formative assessment, feedback, and grading
+
+Collect evidence frequently: explain a concept, predict output, trace a loop, justify a data structure, find and fix a bug, write a boundary test, refactor code, or demonstrate an accessible workflow.
+
+A practical rubric can score each dimension from 1 (beginning) to 4 (independent and consistent):
+
+| Dimension | Evidence |
+| --- | --- |
+| Conceptual reasoning | Explains the problem, algorithm, and language concepts |
+| Implementation | Produces a solution that meets requirements |
+| Code comprehension | Reads, traces, explains, and modifies code |
+| Testing and debugging | Uses test cases and interprets diagnostics |
+| Accessibility and communication | Produces understandable interaction and operates the workflow with access tools |
+| Independence and reflection | Describes decisions, limitations, and next steps |
+
+Share criteria before assessment. Feedback should name observed behavior, explain its impact, and identify an actionable next step. Do not grade screen-reader speed, typing speed, or visual formatting as proxies for programming competence.
+
+### 21.9 Debugging and classroom support protocol
+
+1. Ask the learner to describe expected behavior.
+2. Ask what actually happened.
+3. Read the complete error or diagnostic, including source and location.
+4. Identify the smallest relevant code section.
+5. Form one hypothesis.
+6. Change one thing and rerun the program or test.
+7. Record what the result taught the learner.
+
+Distinguish environment failures, tool-access failures, syntax/compile errors, runtime errors, and logic errors. Maintain a troubleshooting record with environment, exact command, error text, attempted correction, and outcome. Remove credentials and private information before sharing logs.
+
+### 21.10 Pair programming and collaboration
+
+Use explicit roles: the **driver** controls the keyboard and implements the agreed step; the **navigator** reasons about the algorithm, checks requirements, proposes tests, and reviews the result. Rotate roles. Do not automatically assign a blind student the navigator role. Both learners should have opportunities to operate tools and write code. Provide shared source files and task instructions in accessible formats.
+
+### 21.11 Project and capstone supervision
+
+Require a proposal that includes the problem and intended user, functional requirements, out-of-scope features, input/output design, data representation, major functions/methods/classes, accessibility requirements, milestones, tests, and any libraries or AI assistance used.
+
+Review milestones: requirements, design, first working slice, feature completion, tests, documentation, and final explanation. Encourage a modest, complete, well-tested project over an ambitious unfinished one.
+
+### 21.12 Collaboration with families and support professionals
+
+When appropriate and with learner consent, coordinate with special educators, teachers of students with visual impairments, assistive-technology specialists, interpreters, and families. Agree on who supports access technology, who teaches programming, and how the student obtains help. Keep the learner's agency central, share only necessary information, and follow school privacy policies. Do not make aides the default operators of the student's computer.
+
+### 21.13 Instructor preparation checklist
+
+Before each unit, complete the learner-facing activities; verify commands and versions on the classroom platform; test keyboard and assistive-technology workflows; prepare expected output and common error examples; identify vocabulary, symbols, misconceptions, and prerequisites; provide accessible instructions and assessment criteria; and decide how understanding will be observed.
+
+After each unit, review student work and feedback, note barriers, adjust pacing and scaffolds, and record reproducible corrections. Document agreed accommodations rather than silently changing expectations.
+
+### 21.14 Quality assurance and continuous improvement
+
+Review links, software versions, commands, APIs, package recommendations, and assessment assumptions periodically. Test with actual screen readers and braille displays where possible; a successful build or visual inspection alone does not establish accessibility.
+
+When reporting a barrier, include the page, reproduction steps, operating system, editor/runtime version, assistive technology and version, expected behavior, and actual behavior. Exclude personally identifying or sensitive student information. Submit corrections through the project contribution process.
+
+---
+

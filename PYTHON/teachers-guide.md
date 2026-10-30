@@ -2,6 +2,13 @@
 
 ## For Students with Visual Impairments --- Complete Instructor Edition
 
+
+## How to use this teacher's guide
+
+This guide is a companion for instructors, not a script that must be followed word for word. Read the philosophy, learner-context, and technology sections before the first lesson; use the unit notes while planning; and return to the assessment, differentiation, AI, and quick-reference sections throughout the course. Adapt procedures to the learner's actual assistive technology, operating system, course goals, and prior experience. Confirm tool-specific instructions in current official documentation because editor, screen-reader, and runtime behavior changes over time.
+
+Plan for both programming learning and access to the programming environment. Establish what the student can already do independently, what access skills need instruction, what supports are already in place, and how the learner prefers to receive feedback. Never assume a diagnosis predicts a student's preferred tools or level of independence.
+
 ---
 
 ## Table of Contents
@@ -27,6 +34,7 @@
 19. [Teaching AI Tools Responsibly](#19-teaching-ai-tools-responsibly)
 20. [Alternative and Supplementary Resources](#20-alternative-and-supplementary-resources)
 21. [Quick Reference Sheets](#21-quick-reference-sheets)
+22. [Comprehensive Instructional Planning and Course Implementation](#22-comprehensive-instructional-planning-and-course-implementation)
 
 ---
 
@@ -1106,38 +1114,74 @@ Traditional programming assessments (written tests, timed coding) create unneces
 
 ## 19. Teaching AI Tools Responsibly
 
-### Framing AI for the Classroom
+AI-assisted coding is an optional source of explanation and critique, not an authority, substitute teacher, or replacement for learning to program. The course should remain fully teachable without paid AI access or a student account.
 
-Establish a clear classroom policy before students begin using AI tools:
+### Learning outcomes
 
-**Permitted:** Using AI to explain error messages, generate a first draft for the student to critique and improve, explain a concept a different way, suggest test cases to consider.
+Students should be able to explain what an AI coding assistant can and cannot reliably do; write a bounded prompt without exposing private information; verify generated explanations and code against documentation, tests, and course concepts; identify code they cannot understand or navigate; and disclose assistance when required.
 
-**Not permitted:** Submitting AI-generated code as completed work without reading and understanding every line, using AI to complete assessments that are meant to evaluate individual skill.
+### Appropriate uses
 
-**Required when AI is used:** The student must be able to explain any AI-generated code they submit as if they wrote it themselves. Inability to explain code is evidence it was not understood.
+When an activity permits it, students may ask AI to explain a Python concept in another way, interpret a traceback after reading it themselves, suggest edge cases, compare short implementations, or provide hints that preserve the learner's problem-solving role. Model these uses. Ask students to state their own understanding before requesting a suggestion.
 
-### AI Tools and Blind Students --- Specific Considerations
+### Uses that undermine learning or assessment
 
-**Potential accessibility benefit:** AI tools like GitHub Copilot are text-based --- suggestions appear as text that a screen reader can read. Copilot's Accessible View integration in VS Code is improving.
+Do not permit AI to complete an individual assessment when the purpose is to measure independent design, implementation, code reading, or debugging. Do not accept generated code as evidence of mastery merely because it runs or passes one test. If an assignment permits AI, define the scope in advance and require a process record.
 
-**Potential accessibility risk:** AI may generate code that is visually clear but auditorily confusing --- complex nested structures, long lines, or dense comprehensions that are harder to navigate with a screen reader than to read with eyes.
+A student must be able to explain every submitted statement, identify dependencies, predict behavior for new inputs, modify the code, and debug a failure. Inability to do so is a learning need to address instructionally.
 
-**Teaching point:** Ask students to evaluate AI-generated code for screen-reader accessibility:
+### Python-specific failure modes
 
-- Are variable names descriptive?
-- Are long lines split into readable pieces?
-- Are print statements and prompts clear and complete?
-- Does the code have docstrings?
+AI-generated Python may invent or misname APIs, recommend unnecessary packages, produce advanced syntax beyond the course level, use mutable default arguments, broad exception handling, unsafe deserialization, or fragile file paths. It may omit validation, resource cleanup, tests, and meaningful errors. It may also generate long lines, deeply nested indentation, unclear identifiers, or output difficult to review with speech or braille.
 
-If not, the AI-generated code needs to be modified before use --- regardless of whether it runs correctly.
+Teach students to consult official Python documentation, inspect package provenance, use a virtual environment, and test small examples. Simplify generated code into constructs the learner can explain. Prefer explicit loops and intermediate variables over compressed expressions when they improve comprehension and navigation.
 
-### Thought Experiments on AI
+### Accessibility review
 
-1. _"An AI writes code that solves your problem but you don't understand it. You submit it. It passes tests. Have you learned anything? What is the difference between 'having a solution' and 'knowing how to solve problems'?"_
+Before accepting AI-generated material, review it with the learner:
 
-2. _"AI code generators are trained on billions of lines of code written mostly by sighted programmers. What biases might this introduce in the code they generate? Think specifically about: variable names, output design, prompts, error messages, documentation."_
+1. Can the learner navigate by line and indentation level?
+2. Are nested blocks easy to identify through speech or braille?
+3. Are identifiers descriptive and consistent?
+4. Are lines and function bodies manageable?
+5. Are prompts, labels, errors, and results understandable when read sequentially?
+6. Does the program avoid conveying essential information only through color, layout, graphics, or timing?
+7. Can the learner inspect output and errors without visual-only panels?
 
-3. _"If AI can write most code, which skills become more valuable for future programmers? Consider: understanding requirements, debugging, testing, communicating about code, evaluating solutions, and accessibility design."_
+AI tools may themselves have inaccessible suggestion popups, chat panes, or completion workflows. Test the interface and offer an equivalent documentation- or teacher-supported route.
+
+### Privacy, security, copyright, and equity
+
+- Never enter student records, individualized education program details, disability or medical information, passwords, API keys, private repository contents, or confidential school data into a public AI service.
+- Follow district, school, institutional, and applicable data-protection policies; verify age requirements and account terms.
+- Treat generated shell commands, installation steps, file operations, and network code as untrusted until reviewed.
+- Verify a suggested package's name, maintainer, source, permissions, and necessity before installing it.
+- Do not assume generated content is original or correctly licensed. Attribute sources and avoid submitting copied material.
+- Provide a non-AI path. Do not grade students on access to a paid model, faster hardware, or a personal account.
+- Discuss bias: generated examples may assume visual interaction, mouse use, graphical output, or a narrow range of users.
+
+### Verification protocol: Ask – Inspect – Verify – Adapt – Explain – Disclose
+
+1. **Ask:** formulate a narrow question and state the student's current understanding.
+2. **Inspect:** read the entire response; identify assumptions, unfamiliar syntax, dependencies, and claims.
+3. **Verify:** consult official documentation; run the smallest safe experiment; test normal, boundary, and invalid inputs.
+4. **Adapt:** simplify and revise for course level, security, maintainability, and assistive-technology access.
+5. **Explain:** have the student explain the revised result and make a small change independently.
+6. **Disclose:** record the tool and assistance when required by the assignment.
+
+### Activity-specific policy
+
+- **Practice:** hints, explanations, and test suggestions may be allowed; complete solutions should be reserved for explicit code-review activities.
+- **Homework/projects:** define allowed assistance in advance and require disclosure, verification, and explanation of the learner's contribution.
+- **Quizzes/individual assessments:** do not permit AI to perform the skill being measured unless the assessment explicitly includes AI use or an accommodation requires it.
+- **Accessibility support:** screen readers, braille, magnification, and approved access tools are not prohibited answer-generation assistance.
+
+### Discussion prompts
+
+1. A generated program works on sample input but fails on an empty file. What should have been tested?
+2. An assistant proposes a one-line comprehension that is difficult to navigate. Is shorter always clearer?
+3. An assistant invents a package with a plausible name. How can the student verify it?
+4. If AI can generate code, why do problem decomposition, testing, debugging, and explanation remain essential?
 
 ---
 
@@ -1314,3 +1358,56 @@ SCREEN READER
   Ctrl+Shift+P -> "Toggle Screen Reader Optimized"
   Shift+Alt+F1    Accessibility help
 ```
+
+## 22. Comprehensive Instructional Planning and Course Implementation
+
+This section supplements the unit-by-unit notes with a full course implementation framework. Use it alongside Sections 1–21.
+
+### 22.1 Course alignment and pacing
+
+Map each unit to prerequisites, learning objectives, practice opportunities, and evidence of mastery. The sequence builds from environment setup and computing foundations through expressions and input/output, control flow, collections, functions, object-oriented programming, files, exceptions, testing, data analysis, and projects. Do not rush the transition from collections to functions or from functions to classes; learners need to trace and explain smaller programs first.
+
+Plan time to learn the tools. Editor navigation, terminal use, indentation awareness, virtual environments, and reading tracebacks are course skills, not unrelated overhead.
+
+### 22.2 Lesson planning template
+
+For every lesson, prepare measurable objectives, a plain-language explanation, new vocabulary and spoken symbol conventions, a small example with expected output, a prediction question, guided and independent practice, a likely misconception or intentional bug, a formative check, and an optional extension.
+
+Use a consistent rhythm: orient, retrieve prior knowledge, model, trace, predict, run, practice, debug, explain, and reflect.
+
+### 22.3 Python-specific instructional checkpoints
+
+- **Indentation:** teach indentation as syntax and structure. Identify the suite belonging to each `if`, loop, function, and class. Distinguish tabs from spaces and inspect whitespace.
+- **Names and types:** ask learners to state the type and current value of important variables. Use `type()` for targeted experiments, not as a substitute for explanation.
+- **Input conversion:** reinforce that `input()` returns a string. Require explicit conversion and validation before arithmetic.
+- **Loops and collections:** trace index ranges, iteration variables, mutation, and empty collections. Distinguish iterating over values from indexing by position.
+- **Functions:** identify parameters, arguments, local variables, return values, and side effects. Test functions with multiple inputs.
+- **Classes:** connect each instance to its own state and distinguish class definitions from object creation and method calls.
+- **Files and exceptions:** teach working directories, relative paths, context managers, expected exceptions, and meaningful recovery messages.
+- **Testing:** begin with expected results and simple assertions; introduce a framework after learners understand what a test checks.
+
+### 22.4 Accessibility and independence checkpoints
+
+Ask the learner to demonstrate how to locate a function, identify the active indentation level, read a traceback, move to a reported line, run a program, and review output. If a step is inaccessible, troubleshoot the tool configuration and provide an alternate route before concluding that the programming concept is not understood.
+
+Do not prescribe one screen-reader verbosity setting. Work with the learner to balance punctuation, indentation announcements, and speech rate. Ensure braille users can inspect symbols and line structure and low-vision students can adjust font, contrast, and magnification without losing keyboard access.
+
+### 22.5 Assessment and feedback
+
+Use low-stakes checks: predict output, explain a branch, trace a loop, select a collection, write a function with a clear contract, find and fix an exception or logic error, add a boundary test, or explain a design decision. Assess reasoning, correctness, code comprehension, testing, accessible interaction, and reflection. Do not grade speech, typing, or navigation speed as proxies for programming competence.
+
+### 22.6 Differentiation and enrichment
+
+Use starter code, worked examples, vocabulary previews, smaller practice sets, additional time, or alternative explanation modes where appropriate. Fade scaffolds to build independence. Enrichment can compare algorithms, improve validation, add tests, refactor repeated logic, or document trade-offs.
+
+### 22.7 Project checkpoints
+
+Require a problem statement, user needs, feature list, input/output plan, data model, and test plan before implementation. Review one working feature at a time. For a text adventure, test movement, inventory, invalid commands, and save/load behavior separately. For command-line tools and capstones, review persistence, validation, error handling, and the clarity of prompts and confirmations.
+
+### 22.8 Collaboration and safeguarding
+
+Coordinate with assistive-technology specialists and other professionals with the learner's participation. Keep confidential student information out of shared examples, public issue trackers, AI prompts, and source-control history. Use synthetic data and remove credentials from logs before sharing them.
+
+### 22.9 Continuous improvement
+
+At the end of each unit, record outdated setup steps, unclear directions, inaccessible output, and concepts needing another example. Verify software instructions against official documentation. Report reproducible issues with operating system, Python version, editor, screen reader, and steps—without sharing personal student information.
