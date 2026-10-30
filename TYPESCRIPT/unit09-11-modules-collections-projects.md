@@ -460,7 +460,7 @@ playGame();
 ## Lesson 10.2: Command-Line To-Do Manager
 
 ```typescript
-const fs = require('fs');
+const fs = require('node:fs');
 const { askQuestion, close } = require('./input');
 
 const FILE_PATH = 'todos.json';

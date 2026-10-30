@@ -372,7 +372,7 @@ Provide the `input.ts` module in every project skeleton. Students should not nee
 
 ```typescript
 // input.ts
-const readline = require("readline");
+const readline = require("node:readline");
 const rl = readline.createInterface({
   input: process.stdin,
   output: process.stdout,
@@ -883,8 +883,8 @@ _"Private fields starting with `#` are truly private --- not just conventional p
 **`__dirname` and path construction:**
 
 ```typescript
-const path = require("path");
-const fs = require("fs");
+const path = require("node:path");
+const fs = require("node:fs");
 
 // __dirname is the directory of the current file
 const dataFile = path.join(__dirname, "data", "contacts.json");
@@ -917,8 +917,8 @@ A well-designed module has a clear exports interface. Teach students to think of
 
 ```typescript
 // contacts.ts --- exports only what other files need
-const path = require("path");
-const fs = require("fs");
+const path = require("node:path");
+const fs = require("node:fs");
 
 const DATA_FILE = path.join(__dirname, "..", "data", "contacts.json");
 
@@ -1131,7 +1131,7 @@ function confirmAction(action, details) {
 | `my_list`                    | `myList`                                  | TypeScript uses camelCase         |
 | `len(x)`                     | `x.length`                                | Property, not function            |
 | `x is None`                  | `x === null` or `x === undefined`         | Different null checks             |
-| `import json`                | `const fs = require('fs')`                | Built-in `JSON` object, no import |
+| `import json`                | `const fs = require('node:fs')`                | Built-in `JSON` object, no import |
 | `if __name__ == '__main__':` | No direct equivalent (just call `main()`) |                                   |
 
 **Thought experiments for Python->JS students:**
@@ -1324,7 +1324,7 @@ console.log(`Error: Task number must be between 1 and ${count}.`);
 
 ```typescript
 // utils/input.ts
-const readline = require("readline");
+const readline = require("node:readline");
 
 const rl = readline.createInterface({
   input: process.stdin,

@@ -567,7 +567,7 @@ try {
 ## Lesson 8.3: JSON in Node.js
 
 ```typescript
-const fs = require('fs');
+const fs = require('node:fs');
 
 // TypeScript object to JSON string
 const settings = {
