@@ -202,7 +202,7 @@
     {
       "id": 4,
       "name": "Build and deployment verification",
-      "status": "in_progress",
+      "status": "blocked_manual_pages_setup_required",
       "tasks": [
         "Run mdbook build and resolve errors without touching reference directory.",
         "Verify navigation, links, and all three curricula.",
@@ -211,33 +211,34 @@
         "Move the mdBook build before the Pages configuration step so the book build can be validated even when the repository Pages setting blocks deployment."
       ],
       "validation": [
-        "Workflow run 41072285741 reached the Pages configuration step but failed before mdBook installation/build; logs show GitHub token could not create the Pages site ('Resource not accessible by integration').",
-        "Reorder the workflow so mdBook installation and build run before Pages configuration; the next push will validate the book build independently.",
-        "Owner action required: enable GitHub Pages in repository Settings > Pages and choose 'GitHub Actions' as the build/deployment source.",
-        "After Pages is enabled, rerun the workflow and verify the published project-site URL."
+        "mdBook v0.5.4 installed successfully in workflow run 41072475503.",
+        "The mdbook build step completed successfully in workflow run 41072475503.",
+        "The Configure GitHub Pages step failed because the repository has no Pages site and GITHUB_TOKEN cannot create it; upload and deployment steps were skipped.",
+        "Repository metadata still reports has_pages=false.",
+        "No live site URL can be confirmed. After the owner sets repository Settings > Pages > Build and deployment > Source to GitHub Actions, rerun the workflow and verify the deployment."
       ],
       "checkpoint": "Update this JSON and CHANGES.md, commit final verification, and mark completed only when publication checks pass.",
       "blocker": {
-        "reason": "GitHub Actions GITHUB_TOKEN cannot create the repository Pages site through actions/configure-pages@v5.",
-        "evidence": "Workflow run 41072285741, job 124119201783. Log: 'Create Pages site failed. Error: Resource not accessible by integration'. Repository API metadata reports has_pages=false.",
-        "required_owner_action": "Repository Settings > Pages > Build and deployment > Source: GitHub Actions. Save, then rerun the Build and deploy mdBook workflow."
+        "reason": "The GitHub Actions token cannot create a Pages site for this repository.",
+        "evidence": "Run 41072475503; job 124119849238. mdBook build succeeded; Configure GitHub Pages failed with 'Resource not accessible by integration'. Repository API metadata: has_pages=false.",
+        "required_owner_action": "In https://github.com/mrhunsaker/VI_Focused_Coding_Curricula/settings/pages, set Build and deployment > Source to GitHub Actions and save. Then rerun the 'Build and deploy mdBook' workflow from the Actions tab."
       }
     }
   ],
   "progress": {
     "current_step": 4,
-    "status": "step_4_in_progress_manual_pages_setup_required",
+    "status": "blocked_waiting_for_manual_pages_setup",
     "completed_steps": [
       0,
       1,
       2,
       3
     ],
-    "next_step": "Validate mdBook build with the reordered workflow. The repository owner must enable Pages using Settings > Pages > Source: GitHub Actions, then rerun the workflow to complete publication.",
-    "last_commit": "e1972d6355011a3c6ee7039d6fb3cfe21343a766",
-    "last_validation": "Workflow run 41072285741 failed at Pages site creation due GITHUB_TOKEN permission limits; mdBook build was skipped. Workflow will be reordered so build runs before Pages configuration.",
+    "next_step": "Owner action required: set repository Settings > Pages > Build and deployment > Source to GitHub Actions, save, and rerun the Build and deploy mdBook workflow. Then verify the deployment URL and update this JSON/CHANGES.md.",
+    "last_commit": "80af75ec1c4aa33c6b55b8518de80e4170ec162b",
+    "last_validation": "Workflow run 41072475503 installed mdBook v0.5.4 and completed mdbook build successfully. Pages configuration failed because GITHUB_TOKEN cannot create a Pages site; repository metadata still reports has_pages=false.",
     "updated_at": "2026-10-30",
-    "current_step_commit": null
+    "current_step_commit": "80af75ec1c4aa33c6b55b8518de80e4170ec162b"
   },
   "future_llm_instructions": [
     "Read this JSON and CHANGES.md before every task; fetch current main and verify latest commits before acting.",
@@ -249,5 +250,5 @@
     "Inspect changed paths before commit and reject every change under cs_curriculum_final/.",
     "Do not claim publication until the Pages workflow succeeds and the target URL is verified."
   ],
-  "instructions_for_commit_sha": "A commit cannot contain its own SHA. Record the completed step's commit SHA in last_commit during the next step's checkpoint, after verifying the commit exists."
+  "instructions_for_commit_sha": "A commit cannot include its own SHA. When creating a later checkpoint, record the immediately preceding verified checkpoint SHA in progress.last_commit."
 }
