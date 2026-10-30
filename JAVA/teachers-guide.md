@@ -152,7 +152,7 @@ javac --version     # Compiler version
 jshell              # Start REPL (Ctrl+D or /exit to quit)
 ```
 
-**Windows PowerShell (Windows 11):**
+Windows Powershell
 
 ```powershell
 java --version      # Runtime version
@@ -968,7 +968,7 @@ jshell                   # Interactive REPL
 ./gradlew test
 ```
 
-**Windows PowerShell (Windows 11):**
+Windows Powershell
 
 ```powershell
 # Compile a single file

@@ -213,7 +213,7 @@ npm init -y
 npm install --save-dev jest
 ```
 
-**Windows PowerShell (Windows 11):**
+Windows Powershell
 
 ```powershell
 npm init -y
@@ -292,7 +292,7 @@ Run tests:
 npm test
 ```
 
-**Windows PowerShell (Windows 11):**
+Windows Powershell
 
 ```powershell
 npm test

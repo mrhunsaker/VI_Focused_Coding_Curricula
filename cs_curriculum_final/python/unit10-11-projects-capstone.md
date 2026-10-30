@@ -349,7 +349,7 @@ Students will develop a fully functional, screen-reader-accessible graphical app
 pip install nicegui
 ```
 
-**Windows PowerShell (Windows 11):**
+Windows Powershell
 
 ```powershell
 py -3 -m pip install nicegui
@@ -505,7 +505,7 @@ git diff                    # See what changed
 git checkout -- file.py     # Discard changes to a file
 ```
 
-**Windows PowerShell (Windows 11):**
+Windows Powershell
 
 ```powershell
 git init                    # Initialize a repository

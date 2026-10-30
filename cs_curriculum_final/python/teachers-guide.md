@@ -177,7 +177,7 @@ python3 --version
 pip list
 ```
 
-**Windows PowerShell (Windows 11):**
+Windows Powershell
 
 ```powershell
 # Create environment with a consistent name the student will always type

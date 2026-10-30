@@ -74,7 +74,7 @@ javac --version
 jshell
 ```
 
-**Windows PowerShell (Windows 11):**
+Windows Powershell
 
 ```powershell
 java --version

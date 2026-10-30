@@ -83,7 +83,7 @@ uv run python main.py
 uv tree
 ```
 
-**Windows PowerShell (Windows 11):**
+Windows Powershell
 
 ```powershell
 uv init --python 3.12

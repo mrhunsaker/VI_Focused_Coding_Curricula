@@ -178,7 +178,7 @@ python3 --version
 pip list
 ```
 
-**Windows PowerShell (Windows 11):**
+Windows Powershell
 
 ```powershell
 # Create environment with a consistent name the student will always type
@@ -1378,7 +1378,7 @@ Python 3 is often pre-installed. Verify in a terminal:
 python3 --version
 ```
 
-**Windows PowerShell (Windows 11):**
+Windows Powershell
 
 ```powershell
 py -3 --version
@@ -1392,7 +1392,7 @@ sudo apt install python3
 sudo apt install python3-pip
 ```
 
-**Windows PowerShell (Windows 11):**
+Windows Powershell
 
 ```powershell
 # Windows uses winget; no apt package-index update is needed.
@@ -1408,7 +1408,7 @@ Open a terminal and type:
 python3 --version
 ```
 
-**Windows PowerShell (Windows 11):**
+Windows Powershell
 
 ```powershell
 py -3 --version
@@ -1420,7 +1420,7 @@ You should hear the version number (e.g., "Python 3.10.12"). Also check pip:
 pip3 --version
 ```
 
-**Windows PowerShell (Windows 11):**
+Windows Powershell
 
 ```powershell
 py -3 -m pip --version
@@ -1447,7 +1447,7 @@ cd Downloads
 sudo dpkg -i code_*.deb
 ```
 
-**Windows PowerShell (Windows 11):**
+Windows Powershell
 
 ```powershell
 Set-Location "$HOME\Downloads"
@@ -1460,7 +1460,7 @@ winget install --id Microsoft.VisualStudioCode -e
 code --version
 ```
 
-**Windows PowerShell (Windows 11):**
+Windows Powershell
 
 ```powershell
 code --version
@@ -1566,7 +1566,7 @@ VoiceOver generally handles indentation well by default, announcing "4 spaces" o
 code .
 ```
 
-**Windows PowerShell (Windows 11):**
+Windows Powershell
 
 ```powershell
 code .
@@ -1628,7 +1628,7 @@ cd ~/Documents/PythonProjects
 python3 hello.py
 ```
 
-**Windows PowerShell (Windows 11):**
+Windows Powershell
 
 ```powershell
 Set-Location "$HOME\Documents\PythonProjects"
@@ -1651,7 +1651,7 @@ Virtual environments keep project dependencies separate, preventing conflicts.
 python3 -m venv .venv
 ```
 
-**Windows PowerShell (Windows 11):**
+Windows Powershell
 
 ```powershell
 py -3 -m venv .venv
@@ -1671,7 +1671,7 @@ You will hear `(.venv)` at the beginning of your prompt when active.
 deactivate
 ```
 
-**Windows PowerShell (Windows 11):**
+Windows Powershell
 
 ```powershell
 deactivate
@@ -1690,7 +1690,7 @@ pip install requests
 pip list
 ```
 
-**Windows PowerShell (Windows 11):**
+Windows Powershell
 
 ```powershell
 py -3 -m pip install requests
@@ -4300,7 +4300,7 @@ Students will develop a fully functional, screen-reader-accessible graphical app
 pip install nicegui
 ```
 
-**Windows PowerShell (Windows 11):**
+Windows Powershell
 
 ```powershell
 py -3 -m pip install nicegui
@@ -4456,7 +4456,7 @@ git diff                    # See what changed
 git checkout -- file.py     # Discard changes to a file
 ```
 
-**Windows PowerShell (Windows 11):**
+Windows Powershell
 
 ```powershell
 git init                    # Initialize a repository

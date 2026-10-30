@@ -37,7 +37,7 @@ Python 3 is often pre-installed. Verify in a terminal:
 python3 --version
 ```
 
-**Windows PowerShell (Windows 11):**
+Windows Powershell
 
 ```powershell
 py -3 --version
@@ -49,7 +49,7 @@ sudo apt install python3 curl
 python3 --version  # Confirm this is 3.12 or newer
 ```
 
-**Windows PowerShell (Windows 11):**
+Windows Powershell
 
 ```powershell
 # Windows uses winget; no apt package-index update is needed.
@@ -70,7 +70,7 @@ uv python install 3.12
 uv python list
 ```
 
-**Windows PowerShell (Windows 11):**
+Windows Powershell
 
 ```powershell
 powershell -ExecutionPolicy ByPass -c "irm https://astral.sh/uv/install.ps1 | iex"
@@ -98,7 +98,7 @@ cd Downloads
 sudo dpkg -i code_*.deb
 ```
 
-**Windows PowerShell (Windows 11):**
+Windows Powershell
 
 ```powershell
 Set-Location "$HOME\Downloads"
@@ -110,7 +110,7 @@ winget install --id Microsoft.VisualStudioCode -e
 code --version
 ```
 
-**Windows PowerShell (Windows 11):**
+Windows Powershell
 
 ```powershell
 code --version
@@ -220,7 +220,7 @@ In either editor, install only extensions needed for the course, keep them enabl
 code .
 ```
 
-**Windows PowerShell (Windows 11):**
+Windows Powershell
 
 ```powershell
 code .
@@ -282,7 +282,7 @@ cd ~/Documents/PythonProjects
 python3 hello.py
 ```
 
-**Windows PowerShell (Windows 11):**
+Windows Powershell
 
 ```powershell
 Set-Location "$HOME\Documents\PythonProjects"
@@ -307,7 +307,7 @@ uv run python hello.py
 uv tree
 ```
 
-**Windows PowerShell (Windows 11):**
+Windows Powershell
 
 ```powershell
 uv init --python 3.12

@@ -188,7 +188,7 @@ python3 --version
 pip list
 ```
 
-**Windows PowerShell (Windows 11):**
+Windows Powershell
 
 ```powershell
 # Create environment with a consistent name the student will always type
@@ -1388,7 +1388,7 @@ Python 3 is often pre-installed. Verify in a terminal:
 python3 --version
 ```
 
-**Windows PowerShell (Windows 11):**
+Windows Powershell
 
 ```powershell
 py -3 --version
@@ -1402,7 +1402,7 @@ sudo apt install python3
 sudo apt install python3-pip
 ```
 
-**Windows PowerShell (Windows 11):**
+Windows Powershell
 
 ```powershell
 # Windows uses winget; no apt package-index update is needed.
@@ -1418,7 +1418,7 @@ Open a terminal and type:
 python3 --version
 ```
 
-**Windows PowerShell (Windows 11):**
+Windows Powershell
 
 ```powershell
 py -3 --version
@@ -1430,7 +1430,7 @@ You should hear the version number (e.g., "Python 3.10.12"). Also check pip:
 pip3 --version
 ```
 
-**Windows PowerShell (Windows 11):**
+Windows Powershell
 
 ```powershell
 py -3 -m pip --version
@@ -1457,7 +1457,7 @@ cd Downloads
 sudo dpkg -i code_*.deb
 ```
 
-**Windows PowerShell (Windows 11):**
+Windows Powershell
 
 ```powershell
 Set-Location "$HOME\Downloads"
@@ -1470,7 +1470,7 @@ winget install --id Microsoft.VisualStudioCode -e
 code --version
 ```
 
-**Windows PowerShell (Windows 11):**
+Windows Powershell
 
 ```powershell
 code --version
@@ -1576,7 +1576,7 @@ VoiceOver generally handles indentation well by default, announcing "4 spaces" o
 code .
 ```
 
-**Windows PowerShell (Windows 11):**
+Windows Powershell
 
 ```powershell
 code .
@@ -1638,7 +1638,7 @@ cd ~/Documents/PythonProjects
 python3 hello.py
 ```
 
-**Windows PowerShell (Windows 11):**
+Windows Powershell
 
 ```powershell
 Set-Location "$HOME\Documents\PythonProjects"
@@ -1661,7 +1661,7 @@ Virtual environments keep project dependencies separate, preventing conflicts.
 python3 -m venv .venv
 ```
 
-**Windows PowerShell (Windows 11):**
+Windows Powershell
 
 ```powershell
 py -3 -m venv .venv
@@ -1681,7 +1681,7 @@ You will hear `(.venv)` at the beginning of your prompt when active.
 deactivate
 ```
 
-**Windows PowerShell (Windows 11):**
+Windows Powershell
 
 ```powershell
 deactivate
@@ -1700,7 +1700,7 @@ pip install requests
 pip list
 ```
 
-**Windows PowerShell (Windows 11):**
+Windows Powershell
 
 ```powershell
 py -3 -m pip install requests
@@ -4310,7 +4310,7 @@ Students will develop a fully functional, screen-reader-accessible graphical app
 pip install nicegui
 ```
 
-**Windows PowerShell (Windows 11):**
+Windows Powershell
 
 ```powershell
 py -3 -m pip install nicegui
@@ -4466,7 +4466,7 @@ git diff                    # See what changed
 git checkout -- file.py     # Discard changes to a file
 ```
 
-**Windows PowerShell (Windows 11):**
+Windows Powershell
 
 ```powershell
 git init                    # Initialize a repository
@@ -4709,7 +4709,7 @@ node                      # Start REPL
 .exit                     # Quit (or Ctrl+D)
 ```
 
-**Windows PowerShell (Windows 11):**
+Windows Powershell
 
 ```powershell
 node                      # Start REPL
@@ -4794,7 +4794,7 @@ npm --version     # Should print a version number
 npx --version     # Should print a version number (npx is bundled with npm)
 ```
 
-**Windows PowerShell (Windows 11):**
+Windows Powershell
 
 ```powershell
 node --version    # Should print v18.x.x or later
@@ -4828,7 +4828,7 @@ npm init -y
 cat package.json   # or type package.json on Windows
 ```
 
-**Windows PowerShell (Windows 11):**
+Windows Powershell
 
 ```powershell
 npm init -y
@@ -5953,7 +5953,7 @@ curl -fsSL https://deb.nodesource.com/setup_18.x | sudo -E bash -
 sudo apt install nodejs
 ```
 
-**Windows PowerShell (Windows 11):**
+Windows Powershell
 
 ```powershell
 winget install --id OpenJS.NodeJS.LTS -e
@@ -5967,7 +5967,7 @@ node --version     # Should show v18.x.x or later
 npm --version      # Should show npm version
 ```
 
-**Windows PowerShell (Windows 11):**
+Windows Powershell
 
 ```powershell
 node --version     # Should show v18.x.x or later
@@ -6019,7 +6019,7 @@ Run it:
 node hello.js
 ```
 
-**Windows PowerShell (Windows 11):**
+Windows Powershell
 
 ```powershell
 node hello.js
@@ -6033,7 +6033,7 @@ For quick experiments, open an interactive session:
 node
 ```
 
-**Windows PowerShell (Windows 11):**
+Windows Powershell
 
 ```powershell
 node
@@ -7753,7 +7753,7 @@ npm init -y
 npm install --save-dev jest
 ```
 
-**Windows PowerShell (Windows 11):**
+Windows Powershell
 
 ```powershell
 npm init -y
@@ -7832,7 +7832,7 @@ Run tests:
 npm test
 ```
 
-**Windows PowerShell (Windows 11):**
+Windows Powershell
 
 ```powershell
 npm test
@@ -8423,7 +8423,7 @@ javac --version     # Compiler version
 jshell              # Start REPL (Ctrl+D or /exit to quit)
 ```
 
-**Windows PowerShell (Windows 11):**
+Windows Powershell
 
 ```powershell
 java --version      # Runtime version
@@ -9239,7 +9239,7 @@ mvn test
 ./gradlew test
 ```
 
-**Windows PowerShell (Windows 11):**
+Windows Powershell
 
 ```powershell
 # Compile a single file
@@ -9372,7 +9372,7 @@ sudo apt update
 sudo apt install openjdk-17-jdk
 ```
 
-**Windows PowerShell (Windows 11):**
+Windows Powershell
 
 ```powershell
 # Windows uses winget; no apt package-index update is needed.
@@ -9388,7 +9388,7 @@ java --version
 javac --version
 ```
 
-**Windows PowerShell (Windows 11):**
+Windows Powershell
 
 ```powershell
 java --version
@@ -9467,7 +9467,7 @@ javac HelloWorld.java
 java HelloWorld
 ```
 
-**Windows PowerShell (Windows 11):**
+Windows Powershell
 
 ```powershell
 javac HelloWorld.java

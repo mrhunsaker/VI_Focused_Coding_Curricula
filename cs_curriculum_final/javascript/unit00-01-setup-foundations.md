@@ -28,7 +28,7 @@ curl -fsSL https://deb.nodesource.com/setup_18.x | sudo -E bash -
 sudo apt install nodejs
 ```
 
-**Windows PowerShell (Windows 11):**
+Windows Powershell
 
 ```powershell
 $installerPath = Join-Path $env:TEMP 'node-v18.20.8-x64.msi'
@@ -44,7 +44,7 @@ node --version     # Should show v18.x.x or later
 npm --version      # Should show npm version
 ```
 
-**Windows PowerShell (Windows 11):**
+Windows Powershell
 
 ```powershell
 node --version     # Should show v18.x.x or later
@@ -96,7 +96,7 @@ Run it:
 node hello.js
 ```
 
-**Windows PowerShell (Windows 11):**
+Windows Powershell
 
 ```powershell
 node hello.js
@@ -110,7 +110,7 @@ For quick experiments, open an interactive session:
 node
 ```
 
-**Windows PowerShell (Windows 11):**
+Windows Powershell
 
 ```powershell
 node

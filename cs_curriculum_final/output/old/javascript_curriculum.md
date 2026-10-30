@@ -224,7 +224,7 @@ node                      # Start REPL
 .exit                     # Quit (or Ctrl+D)
 ```
 
-**Windows PowerShell (Windows 11):**
+Windows Powershell
 
 ```powershell
 node                      # Start REPL
@@ -309,7 +309,7 @@ npm --version     # Should print a version number
 npx --version     # Should print a version number (npx is bundled with npm)
 ```
 
-**Windows PowerShell (Windows 11):**
+Windows Powershell
 
 ```powershell
 node --version    # Should print v18.x.x or later
@@ -343,7 +343,7 @@ npm init -y
 cat package.json   # or type package.json on Windows
 ```
 
-**Windows PowerShell (Windows 11):**
+Windows Powershell
 
 ```powershell
 npm init -y
@@ -1468,7 +1468,7 @@ curl -fsSL https://deb.nodesource.com/setup_18.x | sudo -E bash -
 sudo apt install nodejs
 ```
 
-**Windows PowerShell (Windows 11):**
+Windows Powershell
 
 ```powershell
 $installerPath = Join-Path $env:TEMP 'node-v18.20.8-x64.msi'
@@ -1484,7 +1484,7 @@ node --version     # Should show v18.x.x or later
 npm --version      # Should show npm version
 ```
 
-**Windows PowerShell (Windows 11):**
+Windows Powershell
 
 ```powershell
 node --version     # Should show v18.x.x or later
@@ -1536,7 +1536,7 @@ Run it:
 node hello.js
 ```
 
-**Windows PowerShell (Windows 11):**
+Windows Powershell
 
 ```powershell
 node hello.js
@@ -1550,7 +1550,7 @@ For quick experiments, open an interactive session:
 node
 ```
 
-**Windows PowerShell (Windows 11):**
+Windows Powershell
 
 ```powershell
 node
@@ -3270,7 +3270,7 @@ npm init -y
 npm install --save-dev jest
 ```
 
-**Windows PowerShell (Windows 11):**
+Windows Powershell
 
 ```powershell
 npm init -y
@@ -3349,7 +3349,7 @@ Run tests:
 npm test
 ```
 
-**Windows PowerShell (Windows 11):**
+Windows Powershell
 
 ```powershell
 npm test

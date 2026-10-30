@@ -168,7 +168,7 @@ node                      # Start REPL
 .exit                     # Quit (or Ctrl+D)
 ```
 
-**Windows PowerShell (Windows 11):**
+Windows Powershell
 
 ```powershell
 node                      # Start REPL
@@ -259,7 +259,7 @@ npm --version     # Should print a version number
 npx --version     # Should print a version number (npx is bundled with npm)
 ```
 
-**Windows PowerShell (Windows 11):**
+Windows Powershell
 
 ```powershell
 node --version    # Should print v26.x.x (26.13.0 or a newer 26.x maintenance release)
@@ -293,7 +293,7 @@ npm init -y
 cat package.json   # or type package.json on Windows
 ```
 
-**Windows PowerShell (Windows 11):**
+Windows Powershell
 
 ```powershell
 npm init -y

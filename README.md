@@ -90,7 +90,7 @@ To build locally:
 mdbook build
 ```
 
-**Windows PowerShell (Windows 11):**
+Windows Powershell
 
 ```powershell
 mdbook build

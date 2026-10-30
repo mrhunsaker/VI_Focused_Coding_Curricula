@@ -37,7 +37,7 @@ sudo apt update
 sudo apt install openjdk-25-jdk  # If JDK 25 is available in your distribution repository
 ```
 
-**Windows PowerShell (Windows 11):**
+Windows Powershell
 
 ```powershell
 # Windows uses winget; no apt package-index update is needed.
@@ -51,7 +51,7 @@ java --version
 javac --version
 ```
 
-**Windows PowerShell (Windows 11):**
+Windows Powershell
 
 ```powershell
 java --version
@@ -145,7 +145,7 @@ javac HelloWorld.java
 java HelloWorld
 ```
 
-**Windows PowerShell (Windows 11):**
+Windows Powershell
 
 ```powershell
 javac HelloWorld.java

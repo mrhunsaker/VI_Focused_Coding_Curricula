@@ -53,7 +53,7 @@ kotlinc Hello.kt -include-runtime -d hello.jar
 java -jar hello.jar
 ```
 
-**Windows PowerShell (Windows 11):**
+Windows Powershell
 
 ```powershell
 kotlinc Hello.kt -include-runtime -d hello.jar

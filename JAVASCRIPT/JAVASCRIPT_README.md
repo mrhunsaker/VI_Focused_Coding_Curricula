@@ -98,7 +98,7 @@ npm --version
 node
 ```
 
-**Windows PowerShell (Windows 11):**
+Windows Powershell
 
 ```powershell
 node --version
