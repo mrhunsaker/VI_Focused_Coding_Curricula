@@ -94,6 +94,27 @@ The reported major version must be **25** (for example, openjdk 25.0.x). If your
 - [ ] I can toggle Screen Reader Optimized Mode.
 - [ ] I can navigate errors using `F8`.
 
+### Verify Java tooling and the active JDK
+
+**Visual Studio Code**
+- Confirm that **Extension Pack for Java** is installed and enabled for the workspace. Its components provide Java language support, debugging, testing, and Maven integration.
+- Open the Command Palette and use **Java: Configure Java Runtime**. Confirm that the project uses a full **JDK 25** (not only a JRE) and that the Java language server is using a compatible JDK.
+- Open the project root as the workspace, not only an individual `.java` file.
+
+**Theia IDE**
+- Open the Extensions view and inspect the configured Open VSX registry for Java language support (Java language server/JDT Language Server), debugger, test runner, and Maven tooling.
+- Verify that each required extension is available for the installed Theia release. The VS Code Extension Pack for Java may not be available as one installable package through Open VSX; confirm the individual capabilities instead.
+- Configure the Java language server and project runtime to use JDK 25. Test diagnostics, completion, navigation, build/run behavior, and screen-reader announcements before using Theia for course work.
+
+**Keep the IDE and terminal on the same JDK**
+- A JDK includes both the Java runtime (`java`) and compiler (`javac`). Verify that `java --version` and `javac --version` in the editor's integrated terminal report JDK 25, and compare them with the system terminal.
+- If the IDE detects a different JDK from the terminal, correct the IDE's Java runtime configuration or the terminal PATH before compiling. Do not accept a successful editor run as proof that the command-line environment is configured correctly.
+- Begin with the JDK's compiler and runtime so you understand the source-to-bytecode-to-runtime cycle. When later lessons introduce Maven or Gradle, use the project's committed Maven or Gradle Wrapper rather than a globally installed build tool.
+
+### Advanced editor options
+
+Experienced coders may prefer JetBrains IDEs, such as IntelliJ IDEA. They are advanced alternatives, not the recommended starting point for this beginner curriculum. This course does not provide JetBrains installation or usage instructions.
+
 ---
 
 ## Lesson 0.3: Your First Java Project
