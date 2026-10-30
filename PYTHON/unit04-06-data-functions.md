@@ -2,6 +2,8 @@
 
 ## Overview
 
+**Compatibility:** All examples target Python 3.12 and newer; they avoid syntax and standard-library APIs introduced after Python 3.12.
+
 This unit deepens understanding of lists and introduces dictionaries as powerful mechanisms for organizing data.
 
 **Objectives:**

@@ -2,6 +2,8 @@
 
 ## Overview
 
+**Compatibility:** All examples target Python 3.12 and newer; they avoid syntax and standard-library APIs introduced after Python 3.12.
+
 This unit introduces how programs make decisions using `if` statements and perform repetitive tasks with `for` loops, along with fundamental string manipulation techniques.
 
 **Objectives:**

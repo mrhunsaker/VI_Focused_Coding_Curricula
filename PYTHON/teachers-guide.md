@@ -11,7 +11,20 @@ Plan for both programming learning and access to the programming environment. Es
 
 ---
 
-## Table of Contents
+## Python 3.12+ baseline and current conventions
+
+The learner materials target **Python 3.12 and newer**. Python 3.15.2 is the current stable release as of October 30, 2026, while 3.12 is the minimum compatibility floor. Teach and assess against 3.12-compatible syntax and standard-library APIs unless a lesson explicitly identifies a newer feature. Do not require prerelease builds or features introduced after 3.12.
+
+Model current conventions consistently:
+
+- Follow PEP 8 naming and layout: four-space indentation, snake_case functions/variables, PascalCase classes, UPPER_SNAKE_CASE constants, readable imports, and short logical lines. A strict 79-character limit is a guideline, not a reason to create awkward wrapping; preserve clarity and accessible reading order.
+- Prefer built-in collection annotations (list[str], dict[str, int]) over legacy typing.List/Dict in new Python 3.12+ examples. Annotate function inputs and return values when it clarifies the contract; explain that annotations do not enforce runtime types by themselves.
+- Use f-strings for interpolation, pathlib.Path for paths, context managers (with) for files, and explicit main guards for runnable modules.
+- Use specific exception types, avoid bare except, avoid mutable default arguments, and compare absence with is None.
+- Create isolated environments with python -m venv .venv and install packages with python -m pip. Prefer a lockfile or documented dependency versions for shared projects.
+- Introduce Ruff for linting/formatting and pytest for tests only after learners understand the underlying Python and standard-library workflow. Do not make either tool a prerequisite for basic lessons.
+
+### Table of Contents
 
 1. [Philosophy and Foundational Principles](#1-philosophy-and-foundational-principles)
 2. [Understanding Your Students](#2-understanding-your-students)
@@ -435,7 +448,7 @@ If these are not automatic, spend additional time on terminal basics. Terminal f
 
 2. _"When you type `python3 hello.py` and press Enter, what is the operating system doing? What is Python doing? Walk through it step by step as if explaining to someone who has never used a computer."_
 
-3. _"`pip install requests` downloads and installs code written by other people. What are the risks of running code written by strangers? What does PyPI (the Python Package Index) do to reduce these risks?"_
+3. _"`python -m pip install requests` downloads and installs code written by other people. What are the risks of running code written by strangers? What does PyPI (the Python Package Index) do to reduce these risks?"_
 
 ---
 
