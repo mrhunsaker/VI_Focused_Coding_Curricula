@@ -2,7 +2,7 @@
 title = "Accessible Introduction to Computer Science"
 authors = ["Michael Ryan Hunsaker, M.Ed., Ph.D."]
 language = "en"
-dessription = "Introductory programming curricula, each adapted for visually impaired students who use screen readers"
+description = "Introductory programming curricula, each adapted for visually impaired students who use screen readers"
 src = "."
 
 [build]
