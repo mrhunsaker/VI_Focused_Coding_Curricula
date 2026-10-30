@@ -2,6 +2,8 @@
 
 ## Overview
 
+**Compatibility:** All code examples in this curriculum target Python 3.12 and newer. The course avoids syntax and APIs introduced after Python 3.12.
+
 This unit explores the software development process, more complex numeric operations, and how to obtain and use input from users.
 
 **Objectives:**

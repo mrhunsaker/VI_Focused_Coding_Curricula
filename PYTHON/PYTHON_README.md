@@ -83,6 +83,22 @@ python3 -m venv .venv
 
 Activation commands differ by operating system and shell. Follow Unit 0 rather than assuming one command works everywhere.
 
+## Python version and coding conventions
+
+All examples target **Python 3.12+**. The course uses syntax and standard-library APIs available in Python 3.12; learners may use a newer stable interpreter without changing the lessons. Do not assume that a feature available in the newest Python release is available to every learner.
+
+Use current, readable Python conventions:
+
+- Follow [PEP 8](https://peps.python.org/pep-0008/) for naming, four-space indentation, whitespace, imports, and readable line length. Use snake_case for variables and functions, PascalCase for classes, and UPPER_SNAKE_CASE for constants.
+- Prefer descriptive names, f-strings, and explicit intermediate steps over dense one-liners.
+- Use pathlib.Path for filesystem paths, with statements for files and other managed resources, and if __name__ == "__main__" for runnable module entry points.
+- Add type annotations to function parameters and return values as concepts become appropriate. Built-in generics such as list[str], dict[str, int], and tuple[float, float] are supported by the 3.12 baseline; avoid legacy typing.List/typing.Dict forms in new examples.
+- Catch specific exceptions, keep try blocks narrow, and do not silently ignore errors. Use None for an intentional absence of a value and compare it with is None.
+- Use a project virtual environment and invoke package tools through the selected interpreter, for example: python -m pip install package.
+- Keep dependencies minimal. Optional quality tools such as Ruff and pytest can be introduced after learners understand the standard-library workflow.
+
+The curriculum favors clarity and compatibility over novelty. It does not require Python 3.13–3.15-only syntax or APIs.
+
 ## Accessibility and instructional design
 
 Python uses indentation to define code blocks. Consistent indentation, whitespace navigation, and screen-reader announcement settings are especially important. Learners should practice reading a block's start and end, identifying which statements belong to a condition or loop, and moving between indentation levels.

@@ -2,6 +2,8 @@
 
 ## Overview
 
+**Compatibility:** All code examples in this curriculum target Python 3.12 and newer. The course avoids syntax and APIs introduced after Python 3.12.
+
 This unit covers basic computer science concepts, setting up the Python environment, and writing and executing simple Python programs.
 
 **Objectives:**

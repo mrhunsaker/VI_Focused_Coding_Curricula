@@ -16,7 +16,7 @@ A detailed environment setup is not merely a technical prerequisite; it empowers
 
 ### Installing Python 3
 
-Python is not always installed on a computer by default. Download the latest version from [https://www.python.org/downloads/](https://www.python.org/downloads/).
+Python is not always installed on a computer by default. Install **Python 3.12 or newer** from [the official Python downloads page](https://www.python.org/downloads/). Python 3.15.2 is the current stable release as of October 30, 2026; use the latest maintenance release available for your operating system. All course examples remain compatible with Python 3.12.
 
 #### Windows
 1. Locate the downloaded `.exe` file (usually in your Downloads folder). Activate it.
@@ -39,8 +39,8 @@ python3 --version
 If not installed (Debian/Ubuntu):
 ```bash
 sudo apt update
-sudo apt install python3
-sudo apt install python3-pip
+sudo apt install python3 python3-venv python3-pip
+python3 --version  # Confirm this is 3.12 or newer
 ```
 
 ### Verifying Python Installation
@@ -48,9 +48,9 @@ Open a terminal and type:
 ```bash
 python3 --version
 ```
-You should hear the version number (e.g., "Python 3.10.12"). Also check pip:
+The reported version must be **3.12 or newer**. If it is older, install a supported interpreter before continuing. Also check pip:
 ```bash
-pip3 --version
+python3 -m pip --version
 ```
 
 ### Installing Visual Studio Code
@@ -222,6 +222,8 @@ python3 hello.py
 
 ### Python Virtual Environments
 
+Use the Python 3.12+ interpreter to create the environment. On Windows, use py -3.12 -m venv .venv if the Python launcher is installed; on macOS/Linux, use python3 -m venv .venv. Activate the environment before installing packages, and use python -m pip so packages are installed for the active interpreter.
+
 Virtual environments keep project dependencies separate, preventing conflicts.
 
 **Create a virtual environment:**
@@ -248,7 +250,7 @@ deactivate
 
 **Install packages:**
 ```bash
-pip install requests
+python -m pip install requests
 pip list
 ```
 
