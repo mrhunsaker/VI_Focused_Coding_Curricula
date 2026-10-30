@@ -176,6 +176,7 @@ All implementation changes are recorded here. Each numbered step is committed se
   - TypeScript: use the workspace TypeScript compiler, run `npx tsc`, compile to JavaScript, and execute the emitted JavaScript with Node.js.
   - Java: configure the IDE and terminal to use the same full JDK 25, verify both `java` and `javac`, and introduce Maven/Gradle wrappers only when the curriculum reaches build tools.
 - Added JetBrains IDEs as advanced options for experienced coders in each setup, without download or usage instructions. They remain outside the recommended beginner workflow.
+- Clarified the Theia-specific workspace-opening workflow in the Python setup so the project root containing `pyproject.toml` is opened and `.venv` discovery works.
 - No lesson topics or language baselines were changed. No files under `cs_curriculum_final/` were modified.
 - Static validation and mdBook build/CI verification are pending.
 - Implementation commits: `19a091e7b15683e4446307c9d8ecf72e85b8cb79`, `3018ffc98ec455de06ab106cd00b303c225a1930`, `249ec412cf2e20a2ec96b2adb3916a4e4ca92808`, `c8b35f54fbc7b38d364eef40fe15bf379aa7d9b5`.
