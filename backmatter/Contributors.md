@@ -20,7 +20,7 @@ His specialization in teaching blind and visually impaired students, particularl
 
 ### Creator of Accessible Educational Resources
 
-Motivated by observing persistent gaps in affordable, practical, and culturally responsive accessible educational materials, Dr. Hunsaker created TVI Resources, a collection of free, openly licensed instructional materials designed to meet the real needs of educators and students. This commitment to accessible education informed his development of this curriculum: a comprehensive, text-based approach to {{hi:3D design}}3D design and digital fabrication specifically engineered for blind and visually impaired learners, emphasizing independence, technical mastery, and real-world application.
+Motivated by observing persistent gaps in affordable, practical, and culturally responsive accessible educational materials, Dr. Hunsaker created TVI Resources, a collection of free, openly licensed instructional materials designed to meet the real needs of educators and students. This commitment to accessible education informed his development of this curriculum: a screenreader accessible computer science curriculum designed explicitly for blind and visually impaired learners, emphasizing independence, technical mastery, and real-world application.
 
 ## Acknowledgements
 
