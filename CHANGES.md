@@ -153,3 +153,5 @@ All implementation changes are recorded here. Each numbered step is committed se
 - Added [Theia IDE](https://theia-ide.org/#theiaide) as an alternative to Visual Studio Code in the overview, README, Python/JavaScript/TypeScript/Java landing pages, setup lessons, and teacher guidance. Instructions advise checking Open VSX extension availability and testing screen-reader workflows in the learner's environment.
 - Explicitly excluded JetBrains IDEs from the recommended introductory setup because their breadth and complexity create unnecessary overhead for beginners. Removed IntelliJ IDEA recommendations from Java and Kotlin setup guidance.
 - Updated CODE_STYLE.md, CONTRIBUTING.md, and backmatter/indexing_setup.json so future contributors and indexing passes preserve these environment-management and editor-choice conventions.
+
+- The Python, JavaScript, TypeScript, and Java setup lessons now give Theia-specific extension-view and screen-reader configuration guidance instead of assuming every VS Code command or shortcut is identical.

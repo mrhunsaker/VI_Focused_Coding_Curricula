@@ -325,7 +325,9 @@ uv tree
 
 ## Lesson 0.5: General Accessibility Tools and Strategies
 
-### VS Code Accessibility Features
+### VS Code and Theia IDE Accessibility Features
+
+The following shortcuts are VS Code defaults. Theia provides comparable keyboard and screen-reader workflows, but verify command names and keybindings in the installed version.
 
 - **Accessible View** (`Shift+Alt+F2`): Reveals hover information and error details.
 - **Focus on Errors** (`F8` / `Shift+F8`): Jump between errors without visual scanning.
@@ -339,14 +341,13 @@ The official Python documentation is well-structured and accessible: [https://do
 ### Unit 0 Completion Checklist
 - [ ] Python 3 is installed and `python3 --version` works in your system terminal.
 - [ ] VS Code or Theia IDE is installed and I can open the course project.
-- [ ] Your screen reader is configured to announce indentation changes in VS Code.
-- [ ] You can open your PythonProjects folder in VS Code.
+- [ ] Your screen reader is configured to announce indentation changes in your chosen editor.
+- [ ] You can open your PythonProjects folder in VS Code or Theia IDE.
 - [ ] You have installed Python language support in your chosen editor (the Python extension in VS Code or its compatible Theia alternative).
 - [ ] You can create a new .py file, write `print("Hello!")`, and save it.
 - [ ] You can run your hello.py file from both terminals.
-- [ ] You can create and activate a virtual environment (.venv).
-- [ ] You can select the virtual environment interpreter in VS Code.
-- [ ] You can install a package using pip.
+- [ ] You can create a project environment with `uv init` and add dependencies with `uv add`.
+- [ ] You can run project code with `uv run` and select the project's `.venv` interpreter in your editor.
 - [ ] You know how to use `Ctrl + Shift + P` (Command Palette) and `F8` (Go to next error).
 
 **Congratulations! You now have a powerful and accessible development environment ready for your Python journey.**

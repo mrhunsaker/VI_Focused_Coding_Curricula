@@ -524,10 +524,10 @@
       4
     ],
     "next_step": "Open the published site in a normal browser and verify the overview, all four language landing pages, all 19 unit documents, all four teacher guides, and the optional Kotlin supplement. Check representative internal navigation and links. The available web viewer could not retrieve the home page or TypeScript landing page; this is not evidence that the site is down.",
-    "last_commit": "c18742216198efcfc71ca1b1371a08c864414fc7",
-    "last_validation": "Updated Python setup and dependency guidance to use uv-managed interpreters, project-local .venv environments, uv add, uv run, uv sync, and uv tree instead of global pip. JavaScript and TypeScript guidance emphasizes project-local npm dependencies and npx/npm scripts. Java uses project wrappers. Added Theia IDE as a supported VS Code alternative across the overview, all language setup pages and guides, with extension and screen-reader verification guidance. Removed JetBrains IDE recommendations from Java and Kotlin setup guidance. No Volta recommendation. Validation and build pending.",
+    "last_commit": "0adbf191194c8e6bc86715f35e447d3b7e45c650",
+    "last_validation": "Implemented uv-managed Python interpreter and project dependency workflows, project-local npm/npx practices, Maven/Gradle wrapper guidance, and Theia IDE as an alternative editor across language setup material. Updated Python, JavaScript, TypeScript, Java, and Kotlin guidance. Follow-up refinement makes extension installation and screen-reader configuration paths explicit for Theia as well as VS Code. Automated source audit found no executable global pip or npm -g install commands in the updated active setup files. Build validation pending.",
     "updated_at": "2026-10-30",
-    "current_step_commit": "c18742216198efcfc71ca1b1371a08c864414fc7"
+    "current_step_commit": "0adbf191194c8e6bc86715f35e447d3b7e45c650"
   },
   "future_llm_instructions": [
     "Read this JSON and CHANGES.md before every task; fetch current main and verify latest commits before acting.",

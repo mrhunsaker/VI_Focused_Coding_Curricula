@@ -99,10 +99,10 @@ VS Code includes TypeScript language support. Ensure the workspace uses the proj
 For a new project, create a package manifest with npm init -y. Choose one module system and declare it explicitly: set package.json to { "type": "commonjs" } for the CommonJS examples in the early lessons, or { "type": "module" } for the ES module examples later in the course. Do not combine the two syntaxes in one file.
 
 1. Install [Visual Studio Code](https://code.visualstudio.com/) or [Theia IDE](https://theia-ide.org/#theiaide). Theia supports many VS Code extensions through Open VSX, but check that the required extensions are available and test them with the learner's screen reader.
-2. Press `Ctrl + Shift + X` to open Extensions. Install:
+2. In VS Code, press `Ctrl + Shift + X` to open Extensions. In Theia, open View → Extensions or run Toggle Extensions View. Install:
    - **TypeScript (ES6) code snippets** — Handy code shortcuts.
    - **ESLint** — Catches common errors.
-3. Enable Screen Reader Mode: `Ctrl + Shift + P` → "Toggle Screen Reader Optimized".
+3. In VS Code, enable Screen Reader Mode: `Ctrl + Shift + P` → "Toggle Screen Reader Optimized". In Theia, enable its corresponding screen-reader setting and verify editor, terminal, diagnostics, and extension announcements.
 
 ### VS Code Shortcuts for TypeScript (Theia keybindings may differ)
 
