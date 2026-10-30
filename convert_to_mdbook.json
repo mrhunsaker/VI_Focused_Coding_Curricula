@@ -515,11 +515,40 @@
         "Glossary now defines uv, npx, and Maven/Gradle wrappers. JSON indexing prompt and project plan parse successfully.",
         "GitHub Actions run 41101871104 for implementation commit 534af1ac73ec9d0a45c2ff1bc0559eb5f25513df remains queued; build and deployment are not yet confirmed."
       ]
+    },
+    {
+      "id": 12,
+      "name": "Strengthen language-specific IDE and environment setup",
+      "status": "implementation_complete_static_validation_pending_ci",
+      "files": [
+        "PYTHON/unit00-setup.md",
+        "JAVASCRIPT/unit00-01-setup-foundations.md",
+        "TYPESCRIPT/unit00-01-setup-foundations.md",
+        "JAVA/unit00-01-setup-foundations.md",
+        "CHANGES.md",
+        "convert_to_mdbook.json"
+      ],
+      "implementation_commits": [
+        "19a091e7b15683e4446307c9d8ecf72e85b8cb79",
+        "3018ffc98ec455de06ab106cd00b303c225a1930",
+        "249ec412cf2e20a2ec96b2adb3916a4e4ca92808",
+        "c8b35f54fbc7b38d364eef40fe15bf379aa7d9b5"
+      ],
+      "validation_status": "pending",
+      "validation": [
+        "All four language setup units now document VS Code and Theia separately, including extension availability and compatibility checks.",
+        "Python instructions align the editor-selected interpreter with the project-local uv-managed .venv and uv run workflow.",
+        "JavaScript and TypeScript instructions emphasize project-local npm tooling, the Node.js runtime, the workspace TypeScript compiler, and compiling TypeScript before execution.",
+        "Java instructions align the IDE and terminal to the same full JDK 25 and defer build wrappers until introduced by the course.",
+        "JetBrains IDEs are identified only as advanced options for experienced coders; no installation or usage instructions are included.",
+        "No new executable shell code fences were added; existing Bash/PowerShell pairing remains unchanged.",
+        "mdBook build and GitHub Actions validation are pending."
+      ]
     }
   ],
   "progress": {
-    "current_step": 11,
-    "status": "environment_management_and_editor_choices_complete_static_audits_passed_build_workflow_queued",
+    "current_step": 12,
+    "status": "ide_environment_setup_expanded_static_validation_and_ci_pending",
     "completed_steps": [
       0,
       1,
@@ -535,11 +564,11 @@
     "pending_steps": [
       4
     ],
-    "next_step": "Open the published site in a normal browser and verify the overview, all four language landing pages, all 19 unit documents, all four teacher guides, and the optional Kotlin supplement. Check representative internal navigation and links. The available web viewer could not retrieve the home page or TypeScript landing page; this is not evidence that the site is down.",
-    "last_commit": "56d34dfb6d26d42da8c3cf1392c1ca8a1a88e9e8",
-    "last_validation": "Expanded all four curriculum indexes from the configured indexing specification and verified index lesson targets against the maintained lesson inventory and headings. Moved each index to the final position within its language section in SUMMARY.md. Preserved mdBook full-text search. Static navigation review completed; full mdBook build and link validation remain pending CI.",
+    "next_step": "Fetch and review all four updated setup units, verify Markdown fences and shell-pairing invariants, parse convert_to_mdbook.json, then inspect the GitHub Actions build/deployment run.",
+    "last_commit": "c8b35f54fbc7b38d364eef40fe15bf379aa7d9b5",
+    "last_validation": "Expanded all four language setup units with separate VS Code and Theia extension guidance, project-local environment verification, consistent IDE/terminal runtime configuration, and JetBrains as advanced-only options. Static validation and CI build pending.",
     "updated_at": "2026-10-30",
-    "current_step_commit": "56d34dfb6d26d42da8c3cf1392c1ca8a1a88e9e8"
+    "current_step_commit": "7ef19286d8363a60739751645d0e99f5a4828eaa"
   },
   "future_llm_instructions": [
     "Read this JSON and CHANGES.md before every task; fetch current main and verify latest commits before acting.",
@@ -698,6 +727,18 @@
       "implementation_commit": "b50ed5ea4e53ef72cc2fc3be80d29361c7c4ea75",
       "workflow_run": "41091043060",
       "status": "complete; build and deployment succeeded"
+    },
+    {
+      "step": 12,
+      "name": "Language-specific IDE and environment setup",
+      "implementation_commits": [
+        "19a091e7b15683e4446307c9d8ecf72e85b8cb79",
+        "3018ffc98ec455de06ab106cd00b303c225a1930",
+        "249ec412cf2e20a2ec96b2adb3916a4e4ca92808",
+        "c8b35f54fbc7b38d364eef40fe15bf379aa7d9b5"
+      ],
+      "checkpoint_before": "c8b35f54fbc7b38d364eef40fe15bf379aa7d9b5",
+      "status": "implementation complete; static validation and CI pending"
     }
   ]
 }
