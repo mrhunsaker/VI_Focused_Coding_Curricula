@@ -163,7 +163,7 @@
     {
       "id": 3,
       "name": "GitHub Pages automation",
-      "status": "pending",
+      "status": "completed",
       "tasks": [
         "Add .github/workflows/mdbook.yml.",
         "Install mdBook, build, upload Pages artifact, and deploy on pushes to main.",
@@ -171,10 +171,32 @@
         "Do not commit generated output unless required."
       ],
       "validation": [
-        "A successful mdBook build.",
-        "All 15 existing unit pages are accessible through navigation."
+        "Added a push-to-main and manual-dispatch workflow using mdBook, upload-pages-artifact, and deploy-pages.",
+        "Workflow uses least-privilege contents: read, pages: write, and id-token: write permissions.",
+        "The repository metadata currently reports has_pages=false. The workflow invokes actions/configure-pages@v5 with enablement: true to enable Pages for this public repository on its first run.",
+        "Project base URL is configured as /VI_Focused_Coding_Curricula/ in book.toml.",
+        "Workflow execution and published URL must be verified in step 4."
       ],
-      "checkpoint": "Update this JSON and CHANGES.md, then commit the complete step before step 4."
+      "checkpoint": "Update this JSON and CHANGES.md, then commit the complete step before step 4.",
+      "workflow_details": {
+        "file": ".github/workflows/mdbook.yml",
+        "triggers": [
+          "push to main",
+          "workflow_dispatch"
+        ],
+        "actions": [
+          "actions/checkout@v4",
+          "actions/configure-pages@v5 (enablement: true)",
+          "peaceiris/actions-mdbook@v2",
+          "actions/upload-pages-artifact@v3",
+          "actions/deploy-pages@v4"
+        ],
+        "permissions": {
+          "contents": "read",
+          "pages": "write",
+          "id_token": "write"
+        }
+      }
     },
     {
       "id": 4,
@@ -196,18 +218,19 @@
     }
   ],
   "progress": {
-    "current_step": 2,
-    "status": "step_2_completed",
+    "current_step": 3,
+    "status": "step_3_completed_deployment_verification_pending",
     "completed_steps": [
       0,
       1,
-      2
+      2,
+      3
     ],
-    "next_step": "Begin step 3: add GitHub Actions workflow to build mdBook and deploy the Pages artifact; commit the workflow and updated checkpoint before step 4.",
-    "last_commit": "3b4234b238646d174d8a82340330b19841f4a492",
-    "last_validation": "Audited all 15 unit Markdown files: 262 fenced code blocks are balanced; all 19 SUMMARY targets resolve; no broken relative links or required lesson-content edits; no reference-directory changes.",
+    "next_step": "Begin step 4: inspect the workflow run, verify mdBook build and Pages deployment, and confirm the published site URL.",
+    "last_commit": "2be38ddc08fa67563840b45bddc2fb88c5de32dc",
+    "last_validation": "Workflow YAML authored for push/manual deployment, with least-privilege permissions and Pages auto-enablement. Repo metadata showed Pages disabled before workflow execution; deployment verification remains outstanding.",
     "updated_at": "2026-10-30",
-    "current_step_commit": "step 2 checkpoint commit will be recorded in the next checkpoint"
+    "current_step_commit": "step 3 workflow commit will be recorded in the next checkpoint"
   },
   "future_llm_instructions": [
     "Read this JSON and CHANGES.md before every task; fetch current main and verify latest commits before acting.",

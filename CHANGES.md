@@ -27,3 +27,13 @@ All implementation changes are recorded here. Each numbered step is committed se
 - mdBook executable build is deferred to CI/final verification because mdBook is not installed in the available execution environment.
 - Validation correction: the repository contains 15 unit files (Python 7, JavaScript 4, Java 4), not 17. The plan's validation counts have been corrected.
 - Step 2 review completed; checkpoint commit SHA will be recorded after the commit succeeds.
+
+## 2026-10-30 — Step 3: GitHub Pages deployment automation
+
+- Added `.github/workflows/mdbook.yml`.
+- Workflow runs on pushes to `main` and manual dispatch, installs mdBook, builds the book, uploads the Pages artifact, and deploys it.
+- Uses `actions/configure-pages@v5` with `enablement: true` because repository metadata reported that Pages was not enabled before this workflow was added.
+- Uses least-privilege workflow permissions: `contents: read`, `pages: write`, and `id-token: write`.
+- Uses project-site base URL `/VI_Focused_Coding_Curricula/` from `book.toml`.
+- Workflow run and live URL verification are pending step 4.
+- Step 3 workflow commit SHA will be recorded after the commit succeeds.
