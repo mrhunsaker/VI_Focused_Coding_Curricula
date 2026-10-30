@@ -111,7 +111,7 @@ for (const item of uniqueWords) {
 ## Lesson 9.3: Word Frequency Analysis
 
 ```javascript
-const fs = require('fs');
+const fs = require('node:fs');
 
 function countWords(text) {
     const words = text
@@ -152,7 +152,7 @@ sorted.slice(0, 5).forEach(([word, count]) => {
 ## Lesson 9.4: Working with CSV Files
 
 ```javascript
-const fs = require('fs');
+const fs = require('node:fs');
 
 function parseCSV(content) {
     const lines = content.trim().split('\n');
@@ -445,7 +445,7 @@ playGame();
 ## Lesson 10.2: Command-Line To-Do Manager
 
 ```javascript
-const fs = require('fs');
+const fs = require('node:fs');
 const { askQuestion, close } = require('./input');
 
 const FILE_PATH = 'todos.json';

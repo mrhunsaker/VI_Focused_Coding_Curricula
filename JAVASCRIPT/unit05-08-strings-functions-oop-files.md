@@ -418,8 +418,8 @@ myEV.describeBattery();                    // Defined in ElectricCar
 ## Lesson 8.1: Reading and Writing Files
 
 ```javascript
-const fs = require('fs');
-const path = require('path');
+const fs = require('node:fs');
+const path = require('node:path');
 
 // Synchronous reading (simple but blocks execution)
 try {
@@ -460,7 +460,7 @@ if (fs.existsSync('my_notes.txt')) {
 ### Asynchronous File I/O (Modern Approach)
 
 ```javascript
-const fs = require('fs').promises;  // Promise-based fs
+const fs = require('node:fs/promises');  // Promise-based fs
 
 async function readFile() {
     try {
@@ -552,7 +552,7 @@ try {
 ## Lesson 8.3: JSON in Node.js
 
 ```javascript
-const fs = require('fs');
+const fs = require('node:fs');
 
 // JavaScript object to JSON string
 const settings = {

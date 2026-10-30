@@ -44,7 +44,7 @@ Getting user input in Node.js requires the built-in `readline` module.
 ### Using `readline` (Standard Library)
 
 ```javascript
-const readline = require('readline');
+const readline = require('node:readline');
 
 const rl = readline.createInterface({
     input: process.stdin,
@@ -60,7 +60,7 @@ rl.question("What is your name? ", (name) => {
 ### Promisified Input (Modern Approach)
 
 ```javascript
-const readline = require('readline');
+const readline = require('node:readline');
 
 const rl = readline.createInterface({
     input: process.stdin,
@@ -95,7 +95,7 @@ Create `input.js` once and reuse across projects:
 
 ```javascript
 // input.js — save this file in your project
-const readline = require('readline');
+const readline = require('node:readline');
 
 const rl = readline.createInterface({
     input: process.stdin,
