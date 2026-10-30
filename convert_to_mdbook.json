@@ -533,7 +533,8 @@
         "3018ffc98ec455de06ab106cd00b303c225a1930",
         "249ec412cf2e20a2ec96b2adb3916a4e4ca92808",
         "c8b35f54fbc7b38d364eef40fe15bf379aa7d9b5",
-        "fb6494122ce42a6c3b7fda7b8c615c4db9fdea2f"
+        "fb6494122ce42a6c3b7fda7b8c615c4db9fdea2f",
+        "20f383da7e4e8861465de7b21ef1d5cd85527de4"
       ],
       "validation_status": "pending",
       "validation": [
@@ -544,7 +545,8 @@
         "JetBrains IDEs are identified only as advanced options for experienced coders; no installation or usage instructions are included.",
         "No new executable shell code fences were added; existing Bash/PowerShell pairing remains unchanged.",
         "mdBook build and GitHub Actions validation are pending.",
-        "Python setup now documents the Theia Open Folder workflow and explains why the project root containing pyproject.toml must be opened for .venv discovery."
+        "Python setup now documents the Theia Open Folder workflow and explains why the project root containing pyproject.toml must be opened for .venv discovery.",
+        "Python setup explicitly identifies JetBrains IDEs such as PyCharm as advanced options for experienced coders."
       ]
     }
   ],
@@ -567,10 +569,10 @@
       4
     ],
     "next_step": "Fetch and review all four updated setup units, verify Markdown fences and shell-pairing invariants, parse convert_to_mdbook.json, then inspect the GitHub Actions build/deployment run.",
-    "last_commit": "fb6494122ce42a6c3b7fda7b8c615c4db9fdea2f",
-    "last_validation": "Expanded all four language setup units with separate VS Code and Theia extension guidance, project-local environment verification, consistent IDE/terminal runtime configuration, and JetBrains as advanced-only options. Clarified Theia workspace opening in Python. Static validation and CI build pending.",
+    "last_commit": "20f383da7e4e8861465de7b21ef1d5cd85527de4",
+    "last_validation": "All four language setup units now include VS Code and Theia IDE, language-specific extension verification, project-local runtime/toolchain alignment, and JetBrains IDEs as advanced-only options. Markdown fence pairing and JSON parsing passed; CI build pending.",
     "updated_at": "2026-10-30",
-    "current_step_commit": "ef77433597dd015a4b5763d94ffe5975e30491a6"
+    "current_step_commit": "383de2f6e7275f0e1ceaf7f0b01da1bd6401db84"
   },
   "future_llm_instructions": [
     "Read this JSON and CHANGES.md before every task; fetch current main and verify latest commits before acting.",
