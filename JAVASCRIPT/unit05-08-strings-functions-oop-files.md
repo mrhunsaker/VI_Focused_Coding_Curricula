@@ -1,5 +1,8 @@
 # Unit 5: Strings and String Methods
 
+**Runtime baseline:** Examples target the current Node.js 26 LTS line (26.13.0 or a newer 26.x security/maintenance patch) and standard ECMAScript features supported by that runtime. Use explicit module mode in package.json and do not mix CommonJS and ES module syntax in one file.
+
+
 ---
 
 ## Lesson 5.1: Working with Strings

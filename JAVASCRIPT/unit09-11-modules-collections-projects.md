@@ -4,7 +4,7 @@
 
 ## Lesson 9.1: JavaScript Modules
 
-### CommonJS (Node.js default)
+### CommonJS (explicit `type: commonjs` in package.json)
 
 ```javascript
 // math.js — exporting
@@ -555,6 +555,9 @@ main();
 # Unit 11: Capstone Project — Personal Data Manager in JavaScript
 
 ## Overview
+
+**Runtime baseline:** Examples target the current Node.js 26 LTS line (26.13.0 or a newer 26.x security/maintenance patch) and standard ECMAScript features supported by that runtime. Use explicit module mode in package.json and do not mix CommonJS and ES module syntax in one file.
+
 
 Build a fully functional, accessible command-line personal data manager using Node.js.
 
