@@ -318,14 +318,14 @@ class BankAccount {
         this.#balance = initialBalance;
     }
 
-    deposit(amount: number) {
+    deposit(amount: number): void {
         if (amount > 0) {
             this.#balance += amount;
             console.log(`Deposited $${amount}. New balance: $${this.#balance}`);
         }
     }
 
-    withdraw(amount: number) {
+    withdraw(amount: number): void {
         if (amount > this.#balance) {
             console.log("Insufficient funds!");
         } else {

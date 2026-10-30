@@ -8,7 +8,7 @@ Use interfaces and type aliases to describe records, and use generic collection 
 
 ## Lesson 9.1: TypeScript Modules
 
-### CommonJS (Node.js default)
+### CommonJS (explicit `type: commonjs` in package.json)
 
 ```typescript
 // math.ts — exporting

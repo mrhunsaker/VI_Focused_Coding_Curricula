@@ -57,7 +57,7 @@ TypeScript has a unique profile of benefits and challenges for visually impaired
 
 **The npm ecosystem.** Over 2 million packages on npm provide pre-built solutions for almost any problem. This is a double-edged concern for beginners (dependency complexity), but the ability to say `npm install` and gain powerful functionality is professionally relevant.
 
-**JSON is native.** `JSON.parse()` and `JSON.stringify()` are built into TypeScript with no import required. For data persistence projects, this reduces friction.
+**JSON is part of the JavaScript runtime.** `JSON.parse()` and `JSON.stringify()` are available without an import; TypeScript can type the values around these calls, but `JSON.parse()` returns untrusted data that should be validated. For data persistence projects, this reduces friction.
 
 ### An Honest Account of Challenges
 
@@ -65,7 +65,7 @@ TypeScript has a unique profile of benefits and challenges for visually impaired
 
 **Asynchronous programming is conceptually hard.** The `async`/`await` pattern required for user input is a genuine hurdle for beginners. There is no way to eliminate it from a Node.js input-based curriculum. The approach in this guide is to scaffold it carefully and defer full explanation of the event loop to later units.
 
-**Multiple valid syntaxes.** Function declarations, function expressions, arrow functions, methods --- all do essentially the same thing. `var`, `let`, `const` --- three variable declarations. `==` and `===` --- two equality operators. This variety, which professionals call "TypeScript fatigue," creates unnecessary cognitive overhead for beginners. The approach in this curriculum is to teach one style consistently (`const`/`let`, arrow functions, `===`) and acknowledge alternatives exist without teaching them in parallel.
+**Multiple valid syntaxes.** Function declarations, function expressions, arrow functions, methods --- all do essentially the same thing. `var`, `let`, `const` --- three variable declarations. `==` and `===` --- two equality operators. This variety can create unnecessary cognitive overhead for beginners. The approach in this curriculum is to teach one style consistently (`const`/`let`, arrow functions, `===`) and acknowledge alternatives exist without teaching them in parallel.
 
 ---
 
@@ -488,11 +488,11 @@ Teach it but establish this rule: "If the ternary is easy to read aloud in one b
 
 1. _"JavaScript's `==` performs type coercion before comparing. TypeScript adds compile-time checks but preserves JavaScript runtime semantics. What does TypeScript's adoption tell you about the value of static analysis in large JavaScript codebases?"_
 
-2. _"Consider: `if (userName)` vs. `if (userName !== '' && userName !== null && userName !== undefined)`. The first uses TypeScript's truthiness; the second is explicit. In a code review, which would you prefer seeing? What are the readability and correctness tradeoffs?"_
+2. _"Consider: `if (userName)` vs. `if (userName !== '' && userName !== null && userName !== undefined)`. The first uses JavaScript's runtime truthiness; the second is explicit. In a code review, which would you prefer seeing? What are the readability and correctness tradeoffs?"_
 
-3. _"TypeScript's optional chaining (`?.`) and nullish coalescing (`??`) were added to the language to handle null/undefined more gracefully. `user?.address?.city` returns `undefined` instead of throwing if `user` or `address` is null. Why did this feature take decades to add to a language created in 1995?"_
+3. _"JavaScript's optional chaining (`?.`) and nullish coalescing (`??`) were added to the language to handle null/undefined more gracefully. `user?.address?.city` returns `undefined` instead of throwing if `user` or `address` is null. Why did this feature take decades to add to a language created in 1995?"_
 
-4. _"The `switch` statement falls through by default in TypeScript. Modern TypeScript has been moving away from `switch` toward mapping objects for dispatch tables. `const actions = { 'add': addFunc, 'delete': deleteFunc }; actions[command]?.();`. What are the accessibility implications of this pattern vs. a `switch` statement when read with a screen reader?"_
+4. _"The JavaScript `switch` statement falls through by default, and TypeScript preserves that runtime behavior. Modern TypeScript has been moving away from `switch` toward mapping objects for dispatch tables. `const actions = { 'add': addFunc, 'delete': deleteFunc }; actions[command]?.();`. What are the accessibility implications of this pattern vs. a `switch` statement when read with a screen reader?"_
 
 ---
 

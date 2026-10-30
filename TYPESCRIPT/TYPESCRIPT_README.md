@@ -67,7 +67,7 @@ TypeScript adds static checking, but its emitted JavaScript still has JavaScript
 - [Units 9–11: Modules, Collections, Testing, and Projects](unit09-11-modules-collections-projects.md)
 - [Teacher's guide: instructor planning, accessible instruction, assessment, and AI guidance](teachers-guide.md)
 
-Return to the [curriculum overview](../OVERALL_README.md) to compare Python, TypeScript, and Java.
+Return to the [curriculum overview](../OVERALL_README.md) to compare Python, JavaScript, TypeScript, and Java.
 
 ## Runtime version and modern TypeScript conventions
 
