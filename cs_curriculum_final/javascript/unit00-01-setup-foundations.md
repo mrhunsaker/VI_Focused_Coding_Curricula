@@ -28,9 +28,23 @@ curl -fsSL https://deb.nodesource.com/setup_18.x | sudo -E bash -
 sudo apt install nodejs
 ```
 
+**Windows PowerShell (Windows 11):**
+
+```powershell
+winget install --id OpenJS.NodeJS.LTS -e
+winget install --id OpenJS.NodeJS.LTS -e
+```
+
 ### Verify Installation
 
 ```bash
+node --version     # Should show v18.x.x or later
+npm --version      # Should show npm version
+```
+
+**Windows PowerShell (Windows 11):**
+
+```powershell
 node --version     # Should show v18.x.x or later
 npm --version      # Should show npm version
 ```
@@ -80,11 +94,23 @@ Run it:
 node hello.js
 ```
 
+**Windows PowerShell (Windows 11):**
+
+```powershell
+node hello.js
+```
+
 ### The Node.js REPL
 
 For quick experiments, open an interactive session:
 
 ```bash
+node
+```
+
+**Windows PowerShell (Windows 11):**
+
+```powershell
 node
 ```
 
