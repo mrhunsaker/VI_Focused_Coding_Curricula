@@ -1,0 +1,6 @@
+PDF Warning Summary
+Generated: 2026-03-28 14:29:29
+
+58x [WARNING] Missing character: There is no - [ ] (U+25A1) (U+25A1) in font TeX Gyre Pagella/OT:script=la
+4x [WARNING] [makePDF] LaTeX Warning: Package "xcolor" has already been loaded:
+2x [WARNING] Missing character: There is no<->(U+2194) (U+2194) in font TeX Gyre Pagella Italic/OT:sc

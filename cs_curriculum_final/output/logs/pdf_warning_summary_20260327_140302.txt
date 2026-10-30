@@ -1,0 +1,31 @@
+PDF Warning Summary
+Generated: 2026-03-27 14:03:16
+
+489x [WARNING] Missing character: There is no ” (U+201D) ("201D) in font ec-lmr10!
+489x [WARNING] Missing character: There is no “ (U+201C) ("201C) in font ec-lmr10!
+436x [WARNING] Missing character: There is no — (U+2014) ("2014) in font ec-lmr10!
+378x [WARNING] Missing character: There is no “ (U+201C) ("201C) in font ec-lmri10!
+374x [WARNING] Missing character: There is no ” (U+201D) ("201D) in font ec-lmri10!
+268x [WARNING] Missing character: There is no ’ (U+2019) ("2019) in font ec-lmri10!
+245x [WARNING] Missing character: There is no ’ (U+2019) ("2019) in font ec-lmr10!
+211x [WARNING] Missing character: There is no — (U+2014) ("2014) in font ec-lmri10!
+148x [WARNING] Missing character: There is no – (U+2013) ("2013) in font ec-lmr10!
+114x [WARNING] Missing character: There is no ‘ (U+2018) ("2018) in font ec-lmri10!
+104x [WARNING] Missing character: There is no ’ (U+2019) ("2019) in font ec-lmcsc10!
+90x [WARNING] Missing character: There is no — (U+2014) ("2014) in font ec-lmbx10!
+66x [WARNING] Missing character: There is no ” (U+201D) ("201D) in font ec-lmbx10!
+66x [WARNING] Missing character: There is no “ (U+201C) ("201C) in font ec-lmbx10!
+58x [WARNING] Missing character: There is no - [ ] (U+25A1) ("25A1) in font ec-lmr10!
+48x [WARNING] Missing character: There is no — (U+2014) ("2014) in font ec-lmcsc10!
+26x [WARNING] Missing character: There is no ‘ (U+2018) ("2018) in font ec-lmr10!
+22x [WARNING] Missing character: There is no — (U+2014) ("2014) in font ec-lmri12!
+20x [WARNING] Missing character: There is no – (U+2013) ("2013) in font ec-lmri10!
+8x [WARNING] Missing character: There is no … (U+2026) ("2026) in font ec-lmr10!
+8x [WARNING] Missing character: There is no ’ (U+2019) ("2019) in font ec-lmbx10!
+6x [WARNING] Missing character: There is no ’ (U+2019) ("2019) in font ec-lmri12!
+4x [WARNING] [makePDF] LaTeX Warning: Package "xcolor" has already been loaded:
+4x [WARNING] Missing character: There is no ≈ (U+2248) ("2248) in font ec-lmr10!
+2x [WARNING] Missing character: There is no<->(U+2194) ("2194) in font ec-lmri10!
+2x [WARNING] Missing character: There is no … (U+2026) ("2026) in font ec-lmri10!
+2x [WARNING] Missing character: There is no – (U+2013) ("2013) in font ec-lmbx10!
+2x [WARNING] Missing character: There is no π (U+03C0) ("3C0) in font ec-lmr10!
