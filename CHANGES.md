@@ -132,3 +132,11 @@ All implementation changes are recorded here. Each numbered step is committed se
 - The normal-browser published-site smoke test remains pending from the prior deployment-validation step.
 - Implementation commits: `84040c66eb196231f365375d529bfe7dadc6dcaf`, `49707f3725b0841d63706dfd530e43e14b4f89bf`, `e2df42fb7df0348779751cae75ffdcb7bcfc8501`, `1b45d6df5509409cd601fbb88b6998ba05fec905`, `883c71b60c4ef6497cd1ad35079b535d92308791`, `7a159a360bf1c7a683a591cd6e8966da0ec842de`, `a50665ff803e4507468683a625fba250f8958637`, `f1bf41ebca8592e1fd5ad459c66826853324756c`, `b6feb659fac70e4612fd3abc0c0d8d52181ee142`, `ad5ef4fd931cb969c3985fd8df73c5d78600b15b`, `23191bd243a8a47cac377683d40e02b62728321d`, `f7eb9a362d29b3877d2afb8a6acb2e6bb139067a`, `50a4584af92f691b75991c518b173975a1daa61a`, `36681803f5036ea2f094cdacd1d83593d11322c2`, `8944436bc778d0a9f10e44cf20037599eef4132b`, and `6f421e4b1d5c0b5b8a8251b1751c78082c8ec741`.
 - Implementation head validated by Actions: `6f421e4b1d5c0b5b8a8251b1751c78082c8ec741`.
+
+
+## 2026-10-30 — Student glossary and language indexes
+
+- Added backmatter/GLOSSARY.md, an explicit glossary of shared concepts and language-specific terminology for Python, JavaScript, TypeScript, Java, and Kotlin.
+- Added topic-to-lesson indexes in PYTHON/INDEX.md, JAVASCRIPT/INDEX.md, TYPESCRIPT/INDEX.md, and JAVA/INDEX.md. The Java index includes the optional Kotlin supplement.
+- Added backmatter/indexing_setup.json, a reusable maintenance prompt and schema for future index creation and updates.
+- Updated SUMMARY.md, README.md, and OVERALL_README.md. mdBook full-text search remains enabled; curated indexes supplement it with organized topic navigation.

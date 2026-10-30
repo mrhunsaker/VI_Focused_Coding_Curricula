@@ -8,7 +8,7 @@ Command-line instructions are cross-platform: macOS and Linux learners use the B
 
 The textbook is published with **mdBook**. It is not a GitBook project. Markdown files in this repository are the maintained source; mdBook builds them into the navigable online textbook hosted on GitHub Pages. The book is intended to remain a living resource: lessons, examples, exercises, accessibility notes, and teaching materials can be reviewed and improved as learners and educators use them.
 
-**Start learning:** choose a curriculum below, or read this overview to understand the sequence and how to use the materials.
+**Start learning:** choose a curriculum below, or read this overview to understand the sequence and how to use the materials. Each language curriculum includes its own topic index. The shared [Programming Code Glossary](backmatter/GLOSSARY.md) defines common and language-specific terminology explicitly.
 
 ## Purpose and learning philosophy
 

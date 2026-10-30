@@ -19,6 +19,10 @@ This repository is a **living textbook published with mdBook**. It is intentiona
 
 The textbook is intended to evolve continuously. Explanations, examples, exercises, accessibility guidance, references, and learning paths can be corrected and extended over time. The Markdown files and configuration in this repository are the source of truth; the published site is the rendered reading experience. Contributions should improve the source materials and their accessibility, not edit generated website output.
 
+## Student reference tools
+
+Each language curriculum has a topic index mapping terms, APIs, setup tasks, and concepts to the lessons where they are taught. The shared [Programming Code Glossary](backmatter/GLOSSARY.md) provides explicit definitions organized by language, with cross-language distinctions. These references are intended for use throughout the course.
+
 ## Purpose and principles
 
 - **Accessible by design:** prioritize screen-reader compatibility, semantic structure, descriptive links, keyboard operation, and text-based workflows.

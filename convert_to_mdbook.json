@@ -446,11 +446,29 @@
       "workflow_run": "https://github.com/mrhunsaker/VI_Focused_Coding_Curricula/actions/runs/41088527780",
       "head_commit": "6f421e4b1d5c0b5b8a8251b1751c78082c8ec741",
       "conclusion": "success"
+    },
+    {
+      "id": 10,
+      "name": "Create comprehensive student glossary and per-language indexes",
+      "status": "implementation_complete_validation_pending",
+      "files": [
+        "backmatter/GLOSSARY.md",
+        "backmatter/indexing_setup.json",
+        "PYTHON/INDEX.md",
+        "JAVASCRIPT/INDEX.md",
+        "TYPESCRIPT/INDEX.md",
+        "JAVA/INDEX.md",
+        "SUMMARY.md",
+        "README.md",
+        "OVERALL_README.md",
+        "CHANGES.md"
+      ],
+      "validation_status": "pending"
     }
   ],
   "progress": {
-    "current_step": 9,
-    "status": "cross_platform_command_examples_complete_build_and_deployment_succeeded_live_site_browser_smoke_test_pending",
+    "current_step": 10,
+    "status": "glossary_and_language_indexes_added_validation_pending",
     "completed_steps": [
       0,
       1,
@@ -466,10 +484,10 @@
       4
     ],
     "next_step": "Open the published site in a normal browser and verify the overview, all four language landing pages, all 19 unit documents, all four teacher guides, and the optional Kotlin supplement. Check representative internal navigation and links. The available web viewer could not retrieve the home page or TypeScript landing page; this is not evidence that the site is down.",
-    "last_commit": "6f421e4b1d5c0b5b8a8251b1751c78082c8ec741",
+    "last_commit": "3f01570e425f01339cfc341067d8688b5f68158a",
     "last_validation": "Audited all 63 Markdown files in the repository. Identified 127 executable Bash-family fenced blocks across 29 files and placed a Windows PowerShell block immediately after every one. A second automated pass verified every pair has the Windows PowerShell label and powershell fence; all 29 changed files passed a balanced-fence audit. Reviewed Windows-specific equivalents for Python/venv/pip, Node.js installation and REPL, JDK installation/JShell, npm, Gradle wrapper, VS Code, mdBook, and Git. Used winget for Windows-native installs, PowerShell path and content commands, the Windows Gradle wrapper, and a pinned Node 18.20.8 MSI for historical Node 18 examples. Updated CODE_STYLE.md, CONTRIBUTING.md, and OVERALL_README.md with the cross-platform rule. GitHub Actions run 41088527780 for commit 6f421e4b1d5c0b5b8a8251b1751c78082c8ec741 completed successfully: mdBook build and GitHub Pages deployment passed. A normal-browser published-page smoke test remains pending from earlier work.",
     "updated_at": "2026-10-30",
-    "current_step_commit": "6f421e4b1d5c0b5b8a8251b1751c78082c8ec741"
+    "current_step_commit": "3f01570e425f01339cfc341067d8688b5f68158a"
   },
   "future_llm_instructions": [
     "Read this JSON and CHANGES.md before every task; fetch current main and verify latest commits before acting.",
