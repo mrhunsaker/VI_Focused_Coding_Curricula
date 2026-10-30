@@ -62,7 +62,7 @@ Return to the [curriculum overview](../OVERALL_README.md) to compare Python, Jav
 
 ## Recommended environment
 
-Use Unit 0 for detailed installation steps. For new installations, use a currently supported JDK release compatible with the course examples and required build tools. Prefer a supported long-term-support release and check [Adoptium](https://adoptium.net/) or the official [Oracle Java documentation](https://docs.oracle.com/en/java/) for current distributions and versions.
+Use Unit 0 for detailed installation steps. Use **JDK 25 LTS** as the course baseline. JDK 25 is the latest long-term-support release as of October 30, 2026; later non-LTS feature releases are not required. Keep the course examples within the Java SE 25 language and API level, without preview features. Check [Adoptium](https://adoptium.net/) or the official [Oracle Java documentation](https://docs.oracle.com/en/java/) for current distributions and versions.
 
 Recommended tools include a JDK, Visual Studio Code with the Extension Pack for Java or another keyboard-accessible Java IDE, a terminal, and the learner's preferred access technology.
 
@@ -75,6 +75,12 @@ jshell
 ```
 
 The JDK provides JShell for interactive experiments. Complete programs are compiled and run as described in Unit 0. Build systems such as Maven or Gradle may be introduced when required; they should not be added before learners understand the basic compile/run cycle.
+
+## Java 25 baseline and current conventions
+
+The course targets **JDK 25 LTS**. Use the latest security update in the JDK 25 line. The examples use standard Java 25 features and avoid preview features so learners can compile them with an ordinary JDK installation.
+
+Follow standard Java conventions: PascalCase class and interface names; camelCase variables, methods, and parameters; UPPER_SNAKE_CASE constants; one public top-level class per matching source file; four-space indentation; explicit imports rather than wildcard imports; braces for all control-flow blocks; and meaningful method names. Prefer interfaces such as List and Map for variable declarations, use generics rather than raw collections, compare String content with equals/equalsIgnoreCase rather than ==, and use try-with-resources for closeable resources. Use var only for local variables when the initializer makes the type immediately obvious; keep explicit types in beginner examples. Avoid preview features and do not adopt a new syntax feature until the course objective requires it.
 
 ## Accessibility and instructional design
 

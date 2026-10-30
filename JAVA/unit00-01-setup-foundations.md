@@ -19,7 +19,7 @@ The **JDK (Java Development Kit)** includes everything you need to write, compil
 
 **Recommended:** Download Eclipse Temurin (OpenJDK) from [https://adoptium.net/](https://adoptium.net/).
 
-Choose **JDK 17 LTS** (Long Term Support) for stability.
+Choose **JDK 25 LTS** (Long Term Support). JDK 25 is the latest LTS release as of October 30, 2026. Use the latest JDK 25 security update; do not select a preview build.
 
 #### Windows
 1. Download the `.msi` installer.
@@ -34,7 +34,7 @@ Choose **JDK 17 LTS** (Long Term Support) for stability.
 #### Linux (Debian/Ubuntu)
 ```bash
 sudo apt update
-sudo apt install openjdk-17-jdk
+sudo apt install openjdk-25-jdk  # If JDK 25 is available in your distribution repository
 ```
 
 ### Verify Installation
@@ -43,10 +43,10 @@ Open a terminal and run:
 java --version
 javac --version
 ```
-You should hear the version number (e.g., "openjdk 17.0.x").
+The reported major version must be **25** (for example, openjdk 25.0.x). If your distribution repository does not provide JDK 25, install an official JDK 25 build from Adoptium or another trusted JDK distributor.
 
 ### Skills Checklist
-- [ ] I have installed JDK 17 or later.
+- [ ] I have installed JDK 25 LTS.
 - [ ] Running `java --version` in the terminal shows the version number.
 - [ ] Running `javac --version` in the terminal shows the compiler version.
 

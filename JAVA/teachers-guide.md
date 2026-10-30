@@ -11,6 +11,12 @@ Plan for both programming learning and access to the programming environment. Es
 
 ---
 
+## JDK 25 LTS baseline and current Java conventions
+
+Use **JDK 25 LTS** for the learner materials. JDK 25 is the current LTS release as of October 30, 2026; install its latest security update. JDK 27 is newer but is not the LTS baseline. Teach and assess against standard Java 25, not preview features or vendor-specific extensions. Keep classic class-based program structure in the early lessons even though newer Java releases offer more concise launch forms; this keeps the progression explicit and transferable.
+
+Model current Java conventions consistently: PascalCase types; camelCase fields, methods, parameters, and local variables; UPPER_SNAKE_CASE constants; explicit imports; generics instead of raw types; interfaces such as List/Map in declarations; braces for all control-flow blocks; and meaningful method boundaries. Use String.equals for content equality, never ==. Prefer try-with-resources for files and scanners that own resources. Use var only for local variables when the initializer makes the type obvious; keep explicit types in beginner code. Use descriptive exception handling and avoid swallowing exceptions. Avoid preview features unless a lesson explicitly identifies them.
+
 ## Table of Contents
 
 1. [Philosophy and Why Java](#1-philosophy-and-why-java)
