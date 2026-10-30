@@ -961,8 +961,8 @@ javac -d bin src/HelloWorld.java
 jshell                   # Interactive REPL
 /exit                    # Exit JShell
 
-# Run tests (if using Maven)
-mvn test
+# Run tests (if the project includes Maven Wrapper)
+./mvnw test
 
 # Run tests (if using Gradle)
 ./gradlew test
@@ -980,8 +980,8 @@ javac -d bin src/HelloWorld.java
 # Run JShell
 jshell                   # Interactive REPL
 /exit                    # Exit JShell
-# Run tests (if using Maven)
-mvn test
+# Run tests (if the project includes Maven Wrapper)
+.\mvnw.cmd test
 # Run tests (if using Gradle)
 .\gradlew.bat test
 ```

@@ -157,3 +157,5 @@ All implementation changes are recorded here. Each numbered step is committed se
 - The Python, JavaScript, TypeScript, and Java setup lessons now give Theia-specific extension-view and screen-reader configuration guidance instead of assuming every VS Code command or shortcut is identical.
 
 - Final setup review aligned the Python completion checklist with the uv-managed interpreter (`uv run python --version`) rather than assuming a system-wide Python executable.
+
+- Java build/test examples now use Maven and Gradle project wrappers (`./mvnw` / `mvnw.cmd`, `./gradlew` / `gradlew.bat`) rather than requiring globally installed build tools.

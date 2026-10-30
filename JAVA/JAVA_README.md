@@ -82,7 +82,7 @@ javac --version
 jshell
 ```
 
-The JDK provides JShell for interactive experiments. Complete programs are compiled and run as described in Unit 0. Build systems such as Maven or Gradle may be introduced when required; they should not be added before learners understand the basic compile/run cycle.
+The JDK provides JShell for interactive experiments. Complete programs are compiled and run as described in Unit 0. Build systems such as Maven or Gradle may be introduced when required; they should not be added before learners understand the basic compile/run cycle. When a build system is used, commit its Maven or Gradle Wrapper and run the project-local wrapper (`./mvnw` / `mvnw.cmd` or `./gradlew` / `gradlew.bat`) instead of requiring a global build-tool installation.
 
 ## Java 25 baseline and current conventions
 

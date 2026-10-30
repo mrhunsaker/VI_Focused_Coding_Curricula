@@ -524,10 +524,10 @@
       4
     ],
     "next_step": "Open the published site in a normal browser and verify the overview, all four language landing pages, all 19 unit documents, all four teacher guides, and the optional Kotlin supplement. Check representative internal navigation and links. The available web viewer could not retrieve the home page or TypeScript landing page; this is not evidence that the site is down.",
-    "last_commit": "835bbaa074e0b9838e66c84d98d186c9ea086912",
-    "last_validation": "Implemented uv-managed Python project environments and dependencies, local npm/npx workflows, Java build-wrapper guidance, and Theia IDE alternatives across all four language setup pages and teacher guides. Added Theia-specific extension-view and screen-reader setup notes. Active setup files contain no executable global pip or npm -g install commands. A final Python completion checklist now verifies the uv-managed interpreter. GitHub Pages build validation pending.",
+    "last_commit": "07812824fe2f6812cf63f84fe74d928948da1511",
+    "last_validation": "Implemented uv-managed Python project environments and dependencies, local npm/npx workflows, Java build-wrapper guidance, and Theia IDE alternatives across all four language setup pages and teacher guides. Added Theia-specific extension-view and screen-reader setup notes. Active setup files contain no executable global pip or npm -g install commands. A final Python completion checklist now verifies the uv-managed interpreter. GitHub Pages build validation pending. Java teacher guidance now uses Maven and Gradle project wrappers for test commands, and the Java landing page directs learners to committed wrappers rather than global build-tool installs.",
     "updated_at": "2026-10-30",
-    "current_step_commit": "835bbaa074e0b9838e66c84d98d186c9ea086912"
+    "current_step_commit": "07812824fe2f6812cf63f84fe74d928948da1511"
   },
   "future_llm_instructions": [
     "Read this JSON and CHANGES.md before every task; fetch current main and verify latest commits before acting.",
