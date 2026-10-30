@@ -25,11 +25,26 @@ curl -fsSL https://deb.nodesource.com/setup_26.x | sudo -E bash -
 sudo apt install nodejs
 ```
 
+**Windows PowerShell (Windows 11):**
+
+```powershell
+winget install --id OpenJS.NodeJS.LTS -e
+winget install --id OpenJS.NodeJS.LTS -e
+```
+
 ### Install TypeScript in a project
 
 Create a project directory, initialize npm, and install TypeScript and Node.js type declarations locally:
 
 ```bash
+npm init -y
+npm install --save-dev typescript @types/node
+npx tsc --version
+```
+
+**Windows PowerShell (Windows 11):**
+
+```powershell
 npm init -y
 npm install --save-dev typescript @types/node
 npx tsc --version
@@ -61,6 +76,13 @@ Create a tsconfig.json with strict checking:
 For the CommonJS examples in the early units, set type to commonjs in package.json; for ES module examples, set type to module and keep NodeNext module settings. Do not mix CommonJS and ES module syntax in one file.
 ### Verify Installation
 ```bash
+node --version     # Should show v26.x.x (26.13.0 or a newer 26.x maintenance release)
+npm --version      # Should show npm version
+```
+
+**Windows PowerShell (Windows 11):**
+
+```powershell
 node --version     # Should show v26.x.x (26.13.0 or a newer 26.x maintenance release)
 npm --version      # Should show npm version
 ```
@@ -112,10 +134,23 @@ npx tsc
 node dist/hello.js
 ```
 
+**Windows PowerShell (Windows 11):**
+
+```powershell
+npx tsc
+node dist/hello.js
+```
+
 ### The Node.js REPL
 
 For JavaScript runtime experiments, open an interactive session. Type annotations are not available in the Node.js REPL; use a TypeScript playground or the compiler to experiment with types:
 ```bash
+node
+```
+
+**Windows PowerShell (Windows 11):**
+
+```powershell
 node
 ```
 Type TypeScript directly and press Enter to execute. Type `.exit` to quit.

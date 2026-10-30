@@ -219,6 +219,13 @@ npm init -y
 npm install --save-dev jest @types/jest
 ```
 
+**Windows PowerShell (Windows 11):**
+
+```powershell
+npm init -y
+npm install --save-dev jest @types/jest
+```
+
 Add to `package.json`:
 ```json
 {
@@ -286,6 +293,12 @@ describe("circleArea function", () => {
 
 Run tests:
 ```bash
+npm test
+```
+
+**Windows PowerShell (Windows 11):**
+
+```powershell
 npm test
 ```
 
