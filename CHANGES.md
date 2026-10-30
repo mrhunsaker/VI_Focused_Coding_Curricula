@@ -159,3 +159,5 @@ All implementation changes are recorded here. Each numbered step is committed se
 - Final setup review aligned the Python completion checklist with the uv-managed interpreter (`uv run python --version`) rather than assuming a system-wide Python executable.
 
 - Java build/test examples now use Maven and Gradle project wrappers (`./mvnw` / `mvnw.cmd`, `./gradlew` / `gradlew.bat`) rather than requiring globally installed build tools.
+
+- Expanded the student glossary with explicit entries for `uv`, `npx`, project-local npm dependencies, and Maven/Gradle wrappers so the new setup conventions are defined in the student reference.

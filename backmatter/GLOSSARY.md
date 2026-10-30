@@ -268,7 +268,11 @@ Optional syntax describing expected types. Not generally enforced by Python at r
 
 ### Virtual environment
 
-Isolated Python interpreter/package context. Create with python3 -m venv .venv or py -3 -m venv .venv.
+Isolated Python interpreter/package context. The course uses uv to create and manage the project's `.venv`, install dependencies, and run commands without global pip installation.
+
+### uv
+
+A Python version, project, and package manager. `uv init` creates project configuration, `uv add package` installs and records a project dependency, `uv run command` executes inside the managed environment, `uv sync` installs the dependencies recorded in the project files, and `uv tree` displays the dependency tree. uv manages the project-local `.venv` and can install Python interpreters.
 
 ## JavaScript glossary
 
@@ -382,7 +386,11 @@ Text format for objects, arrays, strings, numbers, booleans, and null. Use JSON.
 
 ### Node.js and npm
 
-Node.js runs JavaScript outside browsers. npm manages dependencies, scripts, and lockfiles.
+Node.js runs JavaScript outside browsers. npm manages dependencies, scripts, and lockfiles. Use `npm install` or `npm install --save-dev` in the project directory to keep dependencies local.
+
+### npx
+
+npm's package-execution command. It runs a package binary from the current project's dependencies when available, or can fetch a package into npm's cache for one-off execution. Prefer project-local development dependencies and `npx` or npm scripts over global npm installs.
 
 ### Prototype
 
@@ -567,6 +575,10 @@ Reclaims unreachable heap objects. It does not replace closing files or sockets.
 ### Generics
 
 Type parameters provide compile-time type safety; Java implements generics with type erasure.
+
+### Maven and Gradle wrappers
+
+Project-local scripts that run a declared Maven or Gradle version for a project. Maven commonly uses `./mvnw` on macOS/Linux and `mvnw.cmd` on Windows; Gradle uses `./gradlew` and `gradlew.bat`. The wrapper avoids requiring each learner to install a global build tool.
 
 ### JUnit, overloading, and overriding
 
