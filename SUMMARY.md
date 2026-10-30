@@ -31,4 +31,5 @@
   - [Units 5–8: Strings, Methods, OOP, and Files](JAVA/unit05-08-strings-methods-oop-files.md)
   - [Units 9–11: Collections and Projects](JAVA/unit09-11-collections-projects.md)
   - [Teacher's Guide](JAVA/teachers-guide.md)
+  - [Post-Capstone Supplement: Kotlin for Java Programmers](JAVA/kotlin.md)
   
