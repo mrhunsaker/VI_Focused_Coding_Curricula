@@ -155,3 +155,5 @@ All implementation changes are recorded here. Each numbered step is committed se
 - Updated CODE_STYLE.md, CONTRIBUTING.md, and backmatter/indexing_setup.json so future contributors and indexing passes preserve these environment-management and editor-choice conventions.
 
 - The Python, JavaScript, TypeScript, and Java setup lessons now give Theia-specific extension-view and screen-reader configuration guidance instead of assuming every VS Code command or shortcut is identical.
+
+- Final setup review aligned the Python completion checklist with the uv-managed interpreter (`uv run python --version`) rather than assuming a system-wide Python executable.

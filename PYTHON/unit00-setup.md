@@ -339,7 +339,7 @@ The following shortcuts are VS Code defaults. Theia provides comparable keyboard
 The official Python documentation is well-structured and accessible: [https://docs.python.org/3/](https://docs.python.org/3/)
 
 ### Unit 0 Completion Checklist
-- [ ] Python 3 is installed and `python3 --version` works in your system terminal.
+- [ ] uv is installed and `uv run python --version` reports Python 3.12 or newer.
 - [ ] VS Code or Theia IDE is installed and I can open the course project.
 - [ ] Your screen reader is configured to announce indentation changes in your chosen editor.
 - [ ] You can open your PythonProjects folder in VS Code or Theia IDE.
