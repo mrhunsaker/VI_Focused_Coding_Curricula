@@ -51,7 +51,7 @@ TypeScript has a unique profile of benefits and challenges for visually impaired
 
 **Universal relevance.** JavaScript is the language that runs natively in every major web browser; TypeScript is compiled to JavaScript before browser execution. A student who learns TypeScript can eventually build tools that improve their own accessibility experience --- custom browser extensions, accessible widgets, automation scripts. This self-advocacy potential is meaningful.
 
-**Node.ts enables accessible terminal programs.** While TypeScript began in browsers, Node.ts allows running TypeScript programs in the terminal --- the same accessible text-based environment used for Python. This curriculum focuses on Node.ts to keep all I/O in the terminal where screen readers excel.
+**Node.js enables accessible terminal programs.** JavaScript runs on Node.js outside a browser. TypeScript source is first type-checked and compiled to JavaScript, which Node.js then executes. This curriculum uses Node.js to keep I/O in the terminal where screen readers excel.
 
 **Asynchronous programming is a real-world skill.** TypeScript's `async`/`await` model reflects how most modern software actually works --- programs that wait for I/O, network requests, and user events. Learning this early prepares students for professional development.
 
@@ -63,7 +63,7 @@ TypeScript has a unique profile of benefits and challenges for visually impaired
 
 **TypeScript's permissiveness is a silent-failure risk.** Unlike Python (which raises exceptions for type mismatches) and Java (which rejects them at compile time), TypeScript silently converts types. `"5" + 3` = `"53"`. `"5" - 3` = `2`. `0 == false` = `true`. Without visual scanning of intermediate results, these silent failures can propagate through a program undetected. This must be addressed through defensive programming habits taught from day one.
 
-**Asynchronous programming is conceptually hard.** The `async`/`await` pattern required for user input is a genuine hurdle for beginners. There is no way to eliminate it from a Node.ts input-based curriculum. The approach in this guide is to scaffold it carefully and defer full explanation of the event loop to later units.
+**Asynchronous programming is conceptually hard.** The `async`/`await` pattern required for user input is a genuine hurdle for beginners. There is no way to eliminate it from a Node.js input-based curriculum. The approach in this guide is to scaffold it carefully and defer full explanation of the event loop to later units.
 
 **Multiple valid syntaxes.** Function declarations, function expressions, arrow functions, methods --- all do essentially the same thing. `var`, `let`, `const` --- three variable declarations. `==` and `===` --- two equality operators. This variety, which professionals call "TypeScript fatigue," creates unnecessary cognitive overhead for beginners. The approach in this curriculum is to teach one style consistently (`const`/`let`, arrow functions, `===`) and acknowledge alternatives exist without teaching them in parallel.
 
@@ -101,7 +101,7 @@ This outputs both the value and its type, providing audio context that `console.
 
 ### Callback Hell and Asynchronous Confusion
 
-Before `async`/`await`, Node.ts input used nested callbacks:
+Before `async`/`await`, Node.js input used nested callbacks:
 
 ```typescript
 // Confusing nesting --- avoid in teaching
@@ -164,7 +164,7 @@ export default [
 
 The `eqeqeq: error` rule makes `==` a linting error --- it must be `===`. This is an automated enforcement of the rule that prevents the most common silent bugs.
 
-**Node.ts REPL accessibility:**
+**Node.js REPL accessibility:**
 
 ```bash
 node                      # Start REPL
@@ -172,20 +172,20 @@ node                      # Start REPL
 .exit                     # Quit (or Ctrl+D)
 ```
 
-The Node.ts REPL is excellent for early exploration. Results are printed immediately after each expression, providing audio feedback without the compile-run-read cycle.
+The Node.js REPL is excellent for early exploration. Results are printed immediately after each expression, providing audio feedback without the compile-run-read cycle.
 
 ### Alternative TypeScript Environments
 
 | Environment                 | Platform | Accessibility | Notes                                         |
 | --------------------------- | -------- | ------------- | --------------------------------------------- |
-| **Node.ts + VS Code**       | All      | High          | Recommended setup                             |
-| **Node.ts + terminal only** | All      | High          | For students who prefer minimal UI            |
+| **Node.js + VS Code**       | All      | High          | Recommended setup                             |
+| **Node.js + terminal only** | All      | High          | For students who prefer minimal UI            |
 | **Replit.com**              | Web      | Medium        | No-install; test with student's setup         |
 | **CodeSandbox**             | Web      | Medium        | Cloud editor; variable accessibility          |
 | **GitHub Codespaces**       | Web      | High          | Cloud VS Code; same accessibility as local    |
 | **Glitch.com**              | Web      | Medium        | Project-based; variable accessibility         |
 | **Observable**              | Web      | Low           | Notebook-style; primarily visual              |
-| **Deno**                    | Runtime  | High          | Alternative to Node.ts; similar accessibility |
+| **Deno**                    | Runtime  | High          | Alternative to Node.js; similar accessibility |
 
 ---
 
@@ -235,15 +235,15 @@ _"const doubleIfPositive gets arrow function taking n, returning: if n greater t
 
 ---
 
-## Modern TypeScript and Node.ts conventions
+## Modern TypeScript and Node.js conventions
 
-Teach the curriculum against the current Node.ts 26 LTS line. Node.ts 26.13.0 entered LTS on October 28, 2026; use the latest security patch in the 26.x line rather than pinning students to an old patch. Node.ts 24 remains supported as LTS, but is not the current LTS line.
+Teach the curriculum against the current Node.js 26 LTS line. Node.js 26.13.0 entered LTS on October 28, 2026; use the latest security patch in the 26.x line rather than pinning students to an old patch. Node.js 24 remains supported as LTS, but is not the current LTS line.
 
 For new course examples, consistently use const/let, strict equality, explicit numeric conversion, async/await, and node: built-in module specifiers. Prefer the built-in node:test runner for basic unit tests; Jest is a valid optional framework, not a requirement. Keep the two module systems explicit: use a package.json type field and matching file extensions/configuration, and never mix CommonJS and ES module syntax in one file. Use current ESLint flat configuration (eslint.config.mjs) rather than the deprecated .eslintrc format. Check input and parsed JSON at runtime: JavaScript runtime values remain dynamic, and static types do not validate external data at runtime.
 
 ## 5. Unit 0--1: Setup and Foundations
 
-### Lesson 0.1: Installing Node.ts
+### Lesson 0.1: Installing Node.js
 
 #### Instructional Cues
 
@@ -255,7 +255,7 @@ npm --version     # Should print a version number
 npx --version     # Should print a version number (npx is bundled with npm)
 ```
 
-All three must work. If `npm` is missing, the student may have installed only the Node.ts runtime without npm. Reinstall from nodejs.org (npm is included in the standard installer).
+All three must work. If `npm` is missing, the student may have installed only the Node.js runtime without npm. Reinstall from nodejs.org (npm is included in the standard installer).
 
 **REPL first --- files second:**
 Begin with `node` in the terminal. Let the student type expressions and hear results immediately. This builds confidence before introducing the file -> run -> read cycle:
@@ -285,18 +285,18 @@ cat package.json   # or type package.json on Windows
 
 #### Non-Obvious Accessibility Strategies
 
-- **Node.ts version managers:** `nvm` (Node Version Manager) allows multiple Node.ts versions. For a student who may work on multiple machines or projects, `nvm use 18` is a consistent way to set the Node.ts version. `nvm` is command-line-only and fully accessible.
+- **Node.js version managers:** `nvm` (Node Version Manager) allows multiple Node.js versions. For a student who may work on multiple machines or projects, `nvm install 26 and nvm use 26` is a consistent way to set the Node.js version. `nvm` is command-line-only and fully accessible.
 - **Global vs. local packages:** `npm install -g` installs globally; `npm install` installs locally (in `node_modules`). Teach local installation as the default. Global packages can interfere across projects.
 
 #### Thought Experiments
 
 1. _"TypeScript was created in 10 days in 1995. What marks of that hasty design are still visible in modern TypeScript? (Think about `typeof null === 'object'`, `NaN !== NaN`, `0 == false`.) Why haven't these been fixed?"_
 
-2. _"Node.ts uses a single-threaded event loop to handle many concurrent operations. A traditional multi-threaded approach uses multiple threads running in parallel. For a web server handling thousands of requests, what are the tradeoffs of each approach? Which tends to be more memory efficient?"_
+2. _"Node.js uses a single-threaded event loop to handle many concurrent operations. A traditional multi-threaded approach uses multiple threads running in parallel. For a web server handling thousands of requests, what are the tradeoffs of each approach? Which tends to be more memory efficient?"_
 
-3. _"npm has millions of packages. The average Node.ts project depends on hundreds of packages, many maintained by single developers with no organizational backing. The 'left-pad incident' in 2016 broke thousands of projects when one 11-line package was unpublished. What does this incident reveal about the risks and benefits of the npm ecosystem?"_
+3. _"npm has millions of packages. The average Node.js project depends on hundreds of packages, many maintained by single developers with no organizational backing. The 'left-pad incident' in 2016 broke thousands of projects when one 11-line package was unpublished. What does this incident reveal about the risks and benefits of the npm ecosystem?"_
 
-4. _"TypeScript runs in browsers, in Node.ts servers, in mobile apps via React Native, in desktop apps via Electron, in IoT devices, and even in serverless cloud functions. What does this ubiquity tell you about the relationship between a language's design and its adoption?"_
+4. _"TypeScript compiles to JavaScript for browsers, Node.js servers, in mobile apps via React Native, in desktop apps via Electron, in IoT devices, and even in serverless cloud functions. What does this ubiquity tell you about the relationship between a language's design and its adoption?"_
 
 ---
 
@@ -361,7 +361,7 @@ Read both versions aloud with the student. Ask which is easier to follow aurally
 
 ## 6. Unit 2: Numbers, Input, and Math
 
-### Lesson 2.2: User Input in Node.ts
+### Lesson 2.2: User Input in Node.js
 
 #### Instructional Cues
 
@@ -414,7 +414,7 @@ Ask: "What line is running while the program waits for user input?" (None --- th
 
 #### Non-Obvious Accessibility Strategies
 
-- **`rl.close()` is mandatory:** Without `rl.close()`, the Node.ts process continues running after `main()` finishes. The terminal appears to hang --- cursor blinks but no prompt. For a screen reader user, this is confusing. Teach `close()` as the final step of every program that uses input.
+- **`rl.close()` is mandatory:** Without `rl.close()`, the Node.js process continues running after `main()` finishes. The terminal appears to hang --- cursor blinks but no prompt. For a screen reader user, this is confusing. Teach `close()` as the final step of every program that uses input.
 
 - **Prompt trailing space:** Always include a trailing space in prompt strings: `"Enter your name: "`. Without the space, the cursor appears immediately after the colon with no separation, which some screen readers render as "Enter your name:cursor" --- an awkward audio experience.
 
@@ -437,7 +437,7 @@ Teach this pattern and require students to use it whenever they need numeric inp
 
 1. _"The `readline` module uses an 'event listener' pattern --- `rl.question(prompt, callback)` means 'when the user answers, call this function.' The `async`/`await` pattern wraps this in a Promise. What problem does the Promise solve that the raw callback doesn't? (Think about reading the code linearly.)"_
 
-2. _"Node.ts uses a single-threaded event loop. While your program is waiting for user input (`await askQuestion`), the thread is free. What else could the thread be doing? In a real application, this might mean handling a different request or updating state. What does this tell you about why `async`/`await` is important for scalable programs?"_
+2. _"Node.js uses a single-threaded event loop. While your program is waiting for user input (`await askQuestion`), the thread is free. What else could the thread be doing? In a real application, this might mean handling a different request or updating state. What does this tell you about why `async`/`await` is important for scalable programs?"_
 
 3. _"Synchronous input (blocking until the user responds) and asynchronous input (doing other things while waiting) represent fundamentally different programming models. For a single-user command-line program, which matters? For a server handling 10,000 simultaneous users, which matters more? Why?"_
 
@@ -939,7 +939,7 @@ _"Everything not in `module.exports` is private to this file. Other files can us
 
 #### Thought Experiments
 
-1. _"Node.ts's CommonJS (`require`) and the ES Module standard (`import`) are two different module systems in TypeScript. This creates confusion --- some packages use one, some use the other. TypeScript can use both. Why did two module systems emerge? What does this history say about how standards develop in open-source ecosystems?"_
+1. _"Node.js's CommonJS (`require`) and the ES Module standard (`import`) are two different module systems in TypeScript. This creates confusion --- some packages use one, some use the other. TypeScript can use both. Why did two module systems emerge? What does this history say about how standards develop in open-source ecosystems?"_
 
 2. _"Synchronous file I/O (`readFileSync`) blocks execution until the file is read. Asynchronous file I/O (`readFile` or `fs.promises.readFile`) allows other code to run while waiting. For a startup script that reads configuration before doing anything else, which makes more sense? For a web server that handles thousands of requests, which matters more?"_
 
@@ -1187,7 +1187,7 @@ Async/await is conceptually hard. For students who struggle:
 | **TypeScript: The Good Parts** (Crockford)       | Intermediate           | Print         | Short; focuses on the reliable subset of JS           |
 | **TypeScript: The Definitive Guide** (Flanagan)  | Reference              | Print/ebook   | Comprehensive; good for looking up specifics          |
 | **MDN Web Docs** (developer.mozilla.org)         | Reference              | Free HTML     | Excellent HTML accessibility; definitive JS reference |
-| **Node.ts Documentation** (nodejs.org/docs)      | Reference              | Free HTML     | Official Node.ts API reference                        |
+| **Node.js Documentation** (nodejs.org/docs)      | Reference              | Free HTML     | Official Node.js API reference                        |
 | **TypeScript.info**                              | Beginner--Advanced     | Free HTML     | Very well-organized; plain HTML; comprehensive        |
 
 **typescript.info is especially recommended** --- it's a comprehensive free tutorial organized from basics to advanced topics, all in clean, accessible HTML. It's often more readable than MDN for learning (vs. reference), and screen readers navigate it very well.
@@ -1203,7 +1203,7 @@ Async/await is conceptually hard. For students who struggle:
 | **edX**                   | Various TypeScript courses              | High          | Video transcripts; accessible exercises           |
 | **Scrimba**               | Learn TypeScript                        | Low           | Interactive video; poor screen reader support     |
 | **Khan Academy**          | TypeScript course                       | Medium        | Browser-based editor; variable accessibility      |
-| **NodeSchool.io**         | Node.ts workshops                       | High          | Command-line workshopper format; fully accessible |
+| **NodeSchool.io**         | Node.js workshops                       | High          | Command-line workshopper format; fully accessible |
 
 **NodeSchool.io is especially recommended** --- workshops are run entirely in the terminal via a command-line tool. Students work through exercises, get feedback from the tool, and progress at their own pace. The terminal-first design makes it highly accessible.
 
@@ -1226,15 +1226,15 @@ Async/await is conceptually hard. For students who struggle:
 | **Prettier**     | Consistent code formatting        | Run on save; no screen interaction needed |
 | **Jest**         | Testing framework                 | Accessible output; `--verbose` flag       |
 | **jshint.com**   | Online JS linter                  | Plain HTML; basic linting                 |
-| **node-inspect** | Node.ts debugger                  | Terminal-based debugging                  |
-| **0x**           | Node.ts profiler                  | Terminal output                           |
+| **node-inspect** | Node.js debugger                  | Terminal-based debugging                  |
+| **0x**           | Node.js profiler                  | Terminal output                           |
 | **nvm**          | Node version manager              | Command-line; accessible                  |
 
 ### Communities
 
 | Community                                     | Relevance                                              |
 | --------------------------------------------- | ------------------------------------------------------ |
-| **Node.ts Community** (nodejs.org/community)  | Official Node.ts community resources                   |
+| **Node.js Community** (nodejs.org/community)  | Official Node.js community resources                   |
 | **TypeScript Weekly** (newsletter)            | Weekly digest of JS news; plain HTML email             |
 | **Stack Overflow TypeScript**                 | Q&A community; plain HTML; excellent accessibility     |
 | **Dev.to**                                    | Developer blog platform; reasonable accessibility      |
@@ -1367,30 +1367,30 @@ module.exports = { askQuestion, askNumber, close };
 
 ## 20. Teaching AI Tools Responsibly
 
-AI coding assistants can provide explanations, hints, test ideas, and alternative examples. They can also produce incorrect TypeScript, misunderstand Node.ts module configuration, recommend untrusted npm packages, or conceal asynchronous behavior. Treat every response as an unverified proposal. The course must remain accessible without paid AI access or a personal account.
+AI coding assistants can provide explanations, hints, test ideas, and alternative examples. They can also produce incorrect TypeScript, misunderstand Node.js module configuration, recommend untrusted npm packages, or conceal asynchronous behavior. Treat every response as an unverified proposal. The course must remain accessible without paid AI access or a personal account.
 
 ### Instructor use of AI during preparation
 
-Instructors may use approved AI tools to brainstorm examples, draft alternative explanations, propose test inputs, or identify likely misconceptions. The instructor remains accountable for accuracy and pedagogy. Verify every API and language claim against the target Node.ts release and MDN or Node.ts documentation; run examples and tests; review package recommendations; and test the learning workflow with the intended access technology. Never upload identifiable student work, accommodation plans, credentials, assessment answers, or confidential school information. Do not use AI-generated feedback as the sole basis for grading. Disclose substantive AI assistance when institutional policy or the publication process requires it.
+Instructors may use approved AI tools to brainstorm examples, draft alternative explanations, propose test inputs, or identify likely misconceptions. The instructor remains accountable for accuracy and pedagogy. Verify every API and language claim against the target Node.js release and MDN or Node.js documentation; run examples and tests; review package recommendations; and test the learning workflow with the intended access technology. Never upload identifiable student work, accommodation plans, credentials, assessment answers, or confidential school information. Do not use AI-generated feedback as the sole basis for grading. Disclose substantive AI assistance when institutional policy or the publication process requires it.
 
 
 ### Learning goals and appropriate uses
 
 Students should describe the limitations of code generation, ask focused questions, verify TypeScript behavior using the runtime and official documentation, identify generated code beyond their current level, and disclose assistance when required. When permitted, AI may explain a diagnostic, rephrase a concept, suggest edge cases, critique an algorithm, or generate test inputs. Prefer hint-based prompts and have the learner describe their own understanding first.
 
-### TypeScript and Node.ts risks
+### TypeScript and Node.js risks
 
 Review AI output for:
 
 - Confusion between CommonJS `require()` and ES module `import`, including package `type`, file extensions, and runtime version.
 - Incorrect claims about semicolon insertion, equality, coercion, truthy/falsy values, `undefined`, `null`, or `NaN`.
 - Missing `await`, unhandled promise rejections, callbacks that do not complete, or incorrect execution-order assumptions.
-- Browser-only APIs used in a Node.ts lesson or incorrect Node.ts APIs.
+- Browser-only APIs used in a Node.js lesson or incorrect Node.js APIs.
 - Unsafe file paths, command execution, network requests, or untrusted input handling.
 - Unnecessary npm dependencies, typo-squatted or abandoned packages, or packages with excessive permissions.
 - Dense chaining, nested callbacks, clever one-liners, and output difficult to review sequentially.
 
-Run examples in the course's declared Node.ts environment, inspect values and types, and test success, boundary, and failure cases. Verify API claims in official Node.ts documentation or MDN.
+Run examples in the course's declared Node.js environment, inspect values and types, and test success, boundary, and failure cases. Verify API claims in official Node.js documentation or MDN.
 
 ### Screen-reader and output review
 
@@ -1404,7 +1404,7 @@ Do not submit student records, credentials, private code, API keys, or confident
 
 1. **Ask:** state the problem and what has already been tried.
 2. **Inspect:** read the response and flag unfamiliar APIs, packages, syntax, and assumptions.
-3. **Verify:** check MDN or Node.ts documentation; run a minimal example; test normal, boundary, and invalid input.
+3. **Verify:** check MDN or Node.js documentation; run a minimal example; test normal, boundary, and invalid input.
 4. **Adapt:** simplify, secure, format, and make code accessible to sequential reading.
 5. **Explain:** have the student explain control flow and make a new change without AI.
 6. **Disclose:** record the tool and assistance when required.
@@ -1474,7 +1474,7 @@ TypeScript's dynamic type system and runtime should be made explicit:
 - Treat `undefined`, `null`, empty strings, zero, false, and `NaN` as distinct values.
 - Distinguish arrays from objects and explain property access, index ranges, mutation, and iteration.
 - Introduce asynchronous input deliberately. Explain promises, `async`, `await`, and output order.
-- Teach CommonJS and ES modules as separate systems. State module mode and Node.ts version before troubleshooting imports.
+- Teach CommonJS and ES modules as separate systems. State module mode and Node.js version before troubleshooting imports.
 - Make error handling and file paths explicit; distinguish syntax errors, runtime exceptions, rejected promises, and logic errors.
 - Use ESLint and formatting tools as feedback aids, but explain each diagnostic.
 
@@ -1493,7 +1493,7 @@ Ask learners to predict behavior, explain their prediction, run a small experime
 | Copying code without tracing it | Ask the learner to predict a new case and make a modification. |
 | Misreading an error message | Locate the useful diagnostic, identify file and line, and inspect surrounding code. |
 
-Language-specific pitfalls include: coercion and equality; `undefined` versus `null`; truthy and falsy values; array mutation; callback and promise ordering; CommonJS versus ES modules; and browser APIs versus Node.ts APIs.
+Language-specific pitfalls include: coercion and equality; `undefined` versus `null`; truthy and falsy values; array mutation; callback and promise ordering; CommonJS versus ES modules; and browser APIs versus Node.js APIs.
 
 ### 21.7 Differentiation without lowering the learning objective
 

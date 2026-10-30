@@ -33,7 +33,7 @@ The course is intended primarily for beginning learners, including students usin
 
 ## Why TypeScript and Node.js?
 
-TypeScript connects foundational programming concepts to a large software ecosystem. Node.js makes it possible to run TypeScript outside a browser, supporting a text-first course.
+TypeScript connects foundational programming concepts to a large software ecosystem. The compiler checks TypeScript and emits JavaScript; Node.js executes that output, supporting a text-first course.
 
 - Programs can run in a terminal and provide text output.
 - The Node.js REPL supports short experiments with immediate feedback.

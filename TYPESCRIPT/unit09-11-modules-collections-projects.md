@@ -8,7 +8,7 @@ Use interfaces and type aliases to describe records, and use generic collection 
 
 ## Lesson 9.1: TypeScript Modules
 
-### CommonJS (Node.ts default)
+### CommonJS (Node.js default)
 
 ```typescript
 // math.ts — exporting
@@ -166,7 +166,7 @@ function parseCSV(content: string): CsvRecord[] {
 
     return lines.slice(1).map(line => {
         const values = line.split(',').map(v => v.trim());
-        const record = {};
+        const record: CsvRecord = {};
         headers.forEach((header, index) => {
             record[header] = values[index];
         });
@@ -338,7 +338,7 @@ class Room {
         this.items.push(item);
     }
 
-    describe() {
+    describe(): string {
         let desc = `--- ${this.name} ---\n${this.description}\n`;
         if (this.items.length > 0) {
             desc += `You see: ${this.items.join(', ')}\n`;
@@ -382,7 +382,7 @@ class Player {
         return false;
     }
 
-    getStatus() {
+    getStatus(): string {
         const inv = this.inventory.length > 0
             ? this.inventory.join(', ')
             : 'empty';
@@ -576,7 +576,7 @@ main();
 
 ## Overview
 
-Build a fully functional, accessible command-line personal data manager using Node.ts.
+Build a fully functional, accessible command-line personal data manager using Node.js.
 
 ## Project Options
 
