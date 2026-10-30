@@ -157,7 +157,7 @@ sayHello();
 ### Default Parameters
 
 ```typescript
-function makeShirt(size: string, message: string = "I love TypeScript") {
+function makeShirt(size: string, message: string = "I love TypeScript"): void {
     console.log(`Making a ${size}-sized shirt: '${message}'`);
 }
 
@@ -268,7 +268,7 @@ class Dog {
     name: string;
     age: number;
     // Instance variables declared in constructor
-    constructor(name, age) {
+    constructor(name: string, age: number) {
         this.name = name;
         this.age = age;
     }
@@ -282,7 +282,7 @@ class Dog {
         console.log(`${this.name} rolled over!`);
     }
 
-    getOlder(years) {
+    getOlder(years: number) {
         this.age += years;
         console.log(`${this.name} is now ${this.age} years old.`);
     }
@@ -314,18 +314,18 @@ console.log(myDog.toString());
 class BankAccount {
     #balance: number;   // Private field — only accessible within the class
 
-    constructor(initialBalance) {
+    constructor(initialBalance: number) {
         this.#balance = initialBalance;
     }
 
-    deposit(amount) {
+    deposit(amount: number) {
         if (amount > 0) {
             this.#balance += amount;
             console.log(`Deposited $${amount}. New balance: $${this.#balance}`);
         }
     }
 
-    withdraw(amount) {
+    withdraw(amount: number) {
         if (amount > this.#balance) {
             console.log("Insufficient funds!");
         } else {
@@ -369,7 +369,7 @@ class Vehicle {
     model: string;
     year: number;
     odometer: number;
-    constructor(make, model, year) {
+    constructor(make: string, model: string, year: number) {
         this.make = make;
         this.model = model;
         this.year = year;
@@ -387,7 +387,7 @@ class Vehicle {
 
 class Car extends Vehicle {
     numDoors: number;
-    constructor(make, model, year) {
+    constructor(make: string, model: string, year: number) {
         super(make, model, year);   // Call parent constructor
         this.numDoors = 4;
     }
@@ -400,7 +400,7 @@ class Car extends Vehicle {
 class ElectricCar extends Car {
     #batterySize: number;
 
-    constructor(make, model, year) {
+    constructor(make: string, model: string, year: number) {
         super(make, model, year);
         this.#batterySize = 75;
     }
@@ -476,7 +476,7 @@ if (fs.existsSync('my_notes.txt')) {
 ```typescript
 const fs = require('node:fs/promises');  // Promise-based fs
 
-async async function readFile(): Promise<void> {
+async function readFile(): Promise<void> {
     try {
         const content = await fs.readFile('my_notes.txt', 'utf8');
         console.log(content);
@@ -485,7 +485,7 @@ async async function readFile(): Promise<void> {
     }
 }
 
-async async function writeFile(): Promise<void> {
+async function writeFile(): Promise<void> {
     try {
         await fs.writeFile('output.txt', 'Async write!\n');
         await fs.appendFile('output.txt', 'Appended!\n');
@@ -536,7 +536,7 @@ try {
 ```typescript
 class ValidationError extends Error {
     field: string;
-    constructor(field, message) {
+    constructor(field: string, message: string) {
         super(message);
         this.name = "ValidationError";
         this.field = field;
@@ -544,7 +544,7 @@ class ValidationError extends Error {
 }
 
 class InsufficientFundsError extends Error {
-    constructor(needed) {
+    constructor(needed: number) {
         super(`Insufficient funds. Need $${needed} more.`);
         this.name = "InsufficientFundsError";
         this.needed = needed;

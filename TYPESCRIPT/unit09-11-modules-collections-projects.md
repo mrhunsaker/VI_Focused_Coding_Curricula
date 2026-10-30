@@ -38,7 +38,7 @@ console.log(PI.toFixed(5));     // 3.14159
 export const add = (a: number, b: number): number => a + b;
 export const multiply = (a: number, b: number): number => a * b;
 export const PI = Math.PI;
-export default function greet(name) {
+export default function greet(name: string): string {
     return `Hello, ${name}!`;
 }
 ```
@@ -156,7 +156,7 @@ sorted.slice(0, 5).forEach(([word, count]) => {
 ## Lesson 9.4: Working with CSV Files
 
 ```typescript
-const fs = require('fs');
+const fs = require('node:fs');
 
 type CsvRecord = Record<string, string>;
 
@@ -323,18 +323,18 @@ class Room {
     description: string;
     exits: Record<string, Room>;
     items: string[];
-    constructor(name, description) {
+    constructor(name: string, description: string) {
         this.name = name;
         this.description = description;
         this.exits = {};
         this.items = [];
     }
 
-    addExit(direction, room) {
+    addExit(direction: string, room: Room): void {
         this.exits[direction.toLowerCase()] = room;
     }
 
-    addItem(item) {
+    addItem(item: string): void {
         this.items.push(item);
     }
 
@@ -354,14 +354,14 @@ class Player {
     currentRoom: Room;
     inventory: string[];
     health: number;
-    constructor(name, startRoom) {
+    constructor(name: string, startRoom: Room) {
         this.name = name;
         this.currentRoom = startRoom;
         this.inventory = [];
         this.health = 100;
     }
 
-    move(direction) {
+    move(direction: string): boolean {
         const nextRoom = this.currentRoom.exits[direction.toLowerCase()];
         if (nextRoom) {
             this.currentRoom = nextRoom;
@@ -370,7 +370,7 @@ class Player {
         return false;
     }
 
-    takeItem(itemName) {
+    takeItem(itemName: string): boolean {
         const index = this.currentRoom.items.findIndex(
             item => item.toLowerCase() === itemName.toLowerCase()
         );
@@ -390,7 +390,7 @@ class Player {
     }
 }
 
-async function playGame() {
+async function playGame(): Promise<void> {
     const { askQuestion, close } = require('./input');
 
     // Build world
@@ -528,7 +528,7 @@ function deleteTask(todos: Todo[], taskNumber: string): void {
     }
 }
 
-async function main() {
+async function main(): Promise<void> {
     let todos = loadTodos();
     console.log("=== To-Do Manager ===");
 
@@ -656,7 +656,7 @@ my-data-manager/
 2. `data/` folder with example JSON data.
 3. `README.md` including:
    - Installation steps: `npm install`
-   - Run instructions: `node index.ts`
+   - Run instructions: `npx tsc && node dist/index.js`
    - Available commands list.
    - Screen reader usage tips.
    - Reflection on challenges faced.

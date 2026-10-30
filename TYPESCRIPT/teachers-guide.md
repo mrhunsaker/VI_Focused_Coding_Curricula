@@ -49,7 +49,7 @@ Teach strict type checking progressively. Prefer explicit function parameter and
 
 TypeScript has a unique profile of benefits and challenges for visually impaired learners:
 
-**Universal relevance.** TypeScript is the only language that runs natively in every web browser. A student who learns TypeScript can eventually build tools that improve their own accessibility experience --- custom browser extensions, accessible widgets, automation scripts. This self-advocacy potential is meaningful.
+**Universal relevance.** JavaScript is the language that runs natively in every major web browser; TypeScript is compiled to JavaScript before browser execution. A student who learns TypeScript can eventually build tools that improve their own accessibility experience --- custom browser extensions, accessible widgets, automation scripts. This self-advocacy potential is meaningful.
 
 **Node.ts enables accessible terminal programs.** While TypeScript began in browsers, Node.ts allows running TypeScript programs in the terminal --- the same accessible text-based environment used for Python. This curriculum focuses on Node.ts to keep all I/O in the terminal where screen readers excel.
 
@@ -239,7 +239,7 @@ _"const doubleIfPositive gets arrow function taking n, returning: if n greater t
 
 Teach the curriculum against the current Node.ts 26 LTS line. Node.ts 26.13.0 entered LTS on October 28, 2026; use the latest security patch in the 26.x line rather than pinning students to an old patch. Node.ts 24 remains supported as LTS, but is not the current LTS line.
 
-For new course examples, consistently use const/let, strict equality, explicit numeric conversion, async/await, and node: built-in module specifiers. Prefer the built-in node:test runner for basic unit tests; Jest is a valid optional framework, not a requirement. Keep the two module systems explicit: use a package.json type field and matching file extensions/configuration, and never mix CommonJS and ES module syntax in one file. Use current ESLint flat configuration (eslint.config.mjs) rather than the deprecated .eslintrc format. Check input and parsed JSON at runtime: TypeScript's runtime values remain dynamic even when editor tooling or static analysis is used.
+For new course examples, consistently use const/let, strict equality, explicit numeric conversion, async/await, and node: built-in module specifiers. Prefer the built-in node:test runner for basic unit tests; Jest is a valid optional framework, not a requirement. Keep the two module systems explicit: use a package.json type field and matching file extensions/configuration, and never mix CommonJS and ES module syntax in one file. Use current ESLint flat configuration (eslint.config.mjs) rather than the deprecated .eslintrc format. Check input and parsed JSON at runtime: JavaScript runtime values remain dynamic, and static types do not validate external data at runtime.
 
 ## 5. Unit 0--1: Setup and Foundations
 
@@ -1045,7 +1045,7 @@ my-data-manager/
 |   |   +--- contact.test.ts
 |   +--- storage/
 |       +--- dataManager.test.ts
-|--- .eslintrc.json
+|--- eslint.config.mjs
 |--- package.json
 +--- index.ts
 ```
@@ -1055,7 +1055,7 @@ my-data-manager/
 ```json
 {
   "scripts": {
-    "start": "node index.ts",
+    "start": "npx tsc && node dist/index.js",
     "test": "jest --verbose",
     "test:watch": "jest --verbose --watch",
     "lint": "eslint src/",
