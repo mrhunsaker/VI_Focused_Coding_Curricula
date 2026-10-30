@@ -1,56 +1,70 @@
 # Java Index
 
-Find Java terms and programming tasks here. Definitions are in the [Java glossary](../backmatter/GLOSSARY.md#java-glossary).
+Use this index to locate Java lessons by language feature, API, development tool, or learner task. Java and Kotlin are kept distinct: Kotlin is an optional post-capstone supplement, not a fifth core curriculum. For definitions, see the [Java glossary](../backmatter/GLOSSARY.md#java-glossary) and [Kotlin supplement glossary](../backmatter/GLOSSARY.md#kotlin-supplement-glossary).
 
-## Setup and foundations
+## JDK, editor, project setup, and accessibility
 
-| Search term | Lesson |
+| Topic and learner search terms | Lesson |
 |---|---|
-| JDK, Java version, java -version, javac | [Units 0–1: Setup](unit00-01-setup-foundations.md) |
-| JVM, JRE, bytecode, compilation, VS Code | [Units 0–1: Setup](unit00-01-setup-foundations.md) |
-| Source file, class, main method, entry point | [Units 0–1: First program](unit00-01-setup-foundations.md) |
-| Variables, declarations, assignment, primitive types | [Units 0–1: Variables](unit00-01-setup-foundations.md) |
-| int, long, double, boolean, char, String, final | [Units 0–1: Data types](unit00-01-setup-foundations.md) |
+| JDK; Java installation; `java -version`; `javac -version`; PATH | [Unit 0: JDK installation](unit00-01-setup-foundations.md) |
+| JRE; JVM; bytecode; compiler; runtime; Java execution model | [Unit 0: Java platform](unit00-01-setup-foundations.md) |
+| VS Code; Theia IDE; Java language tools; editor; terminal | [Unit 0: Editor and language tools](unit00-01-setup-foundations.md) |
+| Screen reader mode; keyboard shortcuts; accessible Java workflow | [Unit 0: Accessible development environment](unit00-01-setup-foundations.md) |
+| Java project; source file; class; `main()`; entry point; Hello World | [Unit 0: First Java project](unit00-01-setup-foundations.md) |
+| Primitive types; `int`; `long`; `double`; `boolean`; `char`; `String` | [Unit 1: Variables and data types](unit00-01-setup-foundations.md) |
+| Variable declaration; assignment; `final`; constants; type conversion | [Unit 1: Variables and operators](unit00-01-setup-foundations.md) |
 
-## Input, decisions, loops, and collections
+## Problem solving, input, decisions, and loops
 
-| Search term | Lesson |
+| Topic and learner search terms | Lesson |
 |---|---|
-| Algorithm, problem solving, development process | [Units 2–4: Problem solving](unit02-04-io-control-arrays.md) |
-| Scanner, standard input, nextInt, nextLine | [Units 2–4: Input](unit02-04-io-control-arrays.md) |
-| Math, numeric expressions, conversions | [Units 2–4: Numeric operations](unit02-04-io-control-arrays.md) |
-| Boolean expressions, comparisons, &&, ||, ! | [Units 2–4: Conditions](unit02-04-io-control-arrays.md) |
-| if, else if, switch, String comparison | [Units 2–4: Decisions](unit02-04-io-control-arrays.md) |
-| for, enhanced for, while, do-while, break, continue | [Units 2–4: Loops](unit02-04-io-control-arrays.md) |
-| Arrays, indexes, length, multidimensional arrays | [Units 2–4: Arrays](unit02-04-io-control-arrays.md) |
-| ArrayList, List, generics | [Units 2–4: ArrayLists](unit02-04-io-control-arrays.md) |
+| Computer science; algorithms; problem solving; software development process | [Unit 1: Foundations](unit00-01-setup-foundations.md) and [Unit 2: Development process](unit02-04-io-control-arrays.md) |
+| `Scanner`; standard input; `nextInt()`; `nextLine()`; user prompts | [Unit 2: Input with Scanner](unit02-04-io-control-arrays.md) |
+| Scanner newline issue; mixing token input and line input | [Unit 2: Scanner pitfall](unit02-04-io-control-arrays.md) |
+| `Math`; numeric expressions; arithmetic; conversions | [Unit 2: Math operations](unit02-04-io-control-arrays.md) |
+| Boolean expressions; comparisons; `&&`; `||`; `!` | [Unit 3: Boolean expressions](unit02-04-io-control-arrays.md) |
+| `if`; `else if`; `else`; `switch`; branching | [Unit 3: Decisions](unit02-04-io-control-arrays.md) |
+| String comparison; `equals()`; reference equality; `==` | [Unit 3: String comparison](unit02-04-io-control-arrays.md) |
+| `for`; enhanced for; `while`; `do-while`; iteration | [Unit 3: Loops](unit02-04-io-control-arrays.md) |
+| `break`; `continue`; loop control; nested loops | [Unit 3: Loop control](unit02-04-io-control-arrays.md) |
 
-## Strings, methods, OOP, and files
+## Arrays, strings, methods, and object-oriented programming
 
-| Search term | Lesson |
+| Topic and learner search terms | Lesson |
 |---|---|
-| String, immutability, equals, StringBuilder | [Units 5–8: Strings](unit05-08-strings-methods-oop-files.md) |
-| Method declaration, return type, parameter, argument | [Units 5–8: Methods](unit05-08-strings-methods-oop-files.md) |
-| Overloading, varargs, arrays as arguments | [Units 5–8: Methods](unit05-08-strings-methods-oop-files.md) |
-| Class, object, instance, constructor, this | [Units 5–8: Classes](unit05-08-strings-methods-oop-files.md) |
-| private, public, encapsulation, access modifiers | [Units 5–8: Encapsulation](unit05-08-strings-methods-oop-files.md) |
-| Inheritance, extends, super, overriding, polymorphism | [Units 5–8: Inheritance](unit05-08-strings-methods-oop-files.md) |
-| Abstract class, interface, implements | [Units 5–8: Abstraction](unit05-08-strings-methods-oop-files.md) |
-| Path, Files, reading and writing | [Units 5–8: Files](unit05-08-strings-methods-oop-files.md) |
-| try, catch, finally, throw, throws, checked exceptions | [Units 5–8: Exceptions](unit05-08-strings-methods-oop-files.md) |
-| Try-with-resources, AutoCloseable | [Units 5–8: Resource cleanup](unit05-08-strings-methods-oop-files.md) |
+| Array; fixed length; indexes; `length`; initialization | [Unit 4: Arrays](unit02-04-io-control-arrays.md) |
+| Multidimensional array; rows; columns; nested arrays | [Unit 4: Multidimensional arrays](unit02-04-io-control-arrays.md) |
+| `ArrayList`; `List`; resizable collection; generics | [Unit 4: ArrayLists](unit02-04-io-control-arrays.md) |
+| String; immutability; string methods; `equals()`; `StringBuilder` | [Unit 5: Strings](unit05-08-strings-methods-oop-files.md) |
+| Method; method declaration; return type; parameter; argument; `void` | [Unit 6: Methods](unit05-08-strings-methods-oop-files.md) |
+| Method overloading; varargs; arrays as arguments | [Unit 6: Overloading and arguments](unit05-08-strings-methods-oop-files.md) |
+| Class; object; instance; constructor; `this`; fields; methods | [Unit 7: Classes and objects](unit05-08-strings-methods-oop-files.md) |
+| `private`; `public`; access modifiers; encapsulation | [Unit 7: Encapsulation](unit05-08-strings-methods-oop-files.md) |
+| Inheritance; `extends`; `super`; overriding; polymorphism | [Unit 7: Inheritance](unit05-08-strings-methods-oop-files.md) |
+| Abstract class; interface; `implements`; abstraction | [Unit 7: Abstract classes and interfaces](unit05-08-strings-methods-oop-files.md) |
 
-## Collections, testing, projects, and Kotlin
+## Files, exceptions, collections, and testing
 
-| Search term | Lesson |
+| Topic and learner search terms | Lesson |
 |---|---|
-| Collections Framework, List, Set, Map | [Units 9–11: Collections](unit09-11-collections-projects.md) |
-| HashMap, HashSet, TreeMap, sorting | [Units 9–11: Collections](unit09-11-collections-projects.md) |
-| CSV, word frequency, data analysis | [Units 9–11: Data](unit09-11-collections-projects.md) |
-| JUnit, test method, assertion, test case | [Units 9–11: Testing](unit09-11-collections-projects.md) |
-| Command-line project, text adventure, to-do, capstone | [Units 9–11: Projects](unit09-11-collections-projects.md) |
-| Kotlin/JVM, Java interoperability, setup | [Post-capstone Kotlin supplement](kotlin.md) |
-| val, var, null safety, nullable types, safe calls | [Kotlin supplement](kotlin.md) |
-| fun, when, data classes, extension functions, coroutines | [Kotlin supplement](kotlin.md) |
+| Read file; write file; `Path`; `Files`; `java.nio.file` | [Unit 8: File operations](unit05-08-strings-methods-oop-files.md) |
+| Exception; `try`; `catch`; `finally`; `throw`; `throws` | [Unit 8: Exception handling](unit05-08-strings-methods-oop-files.md) |
+| Checked exception; unchecked exception; custom exception | [Unit 8: Java exceptions](unit05-08-strings-methods-oop-files.md) |
+| Collections Framework; `List`; `Set`; `Map`; interfaces | [Unit 9: Collections](unit09-11-collections-projects.md) |
+| `HashMap`; `HashSet`; `TreeMap`; sorting; key-value storage | [Unit 9: Collection implementations](unit09-11-collections-projects.md) |
+| Word frequency; CSV; data analysis; text processing | [Unit 9: Data analysis](unit09-11-collections-projects.md) |
+| JUnit; test method; assertion; test fixture; unit test | [Unit 9: Testing with JUnit](unit09-11-collections-projects.md) |
+| Maven; Gradle; build wrapper; project dependencies | [Unit 9: JUnit project setup](unit09-11-collections-projects.md) |
 
-[Java curriculum](JAVA_README.md) · [Book overview](../OVERALL_README.md)
+## Projects and Kotlin supplement
+
+| Topic and learner search terms | Lesson |
+|---|---|
+| Requirements; architecture; text adventure; rooms; player; command-line to-do | [Units 10–11: Projects](unit09-11-collections-projects.md) |
+| Personal data manager; capstone; accessibility; documentation; testing | [Unit 11: Capstone](unit09-11-collections-projects.md) |
+| Kotlin/JVM; Java interoperability; Kotlin setup; Java libraries from Kotlin | [Kotlin supplement: Relationship and setup](kotlin.md) |
+| `val`; `var`; type inference; nullable types; null safety; safe call `?.`; Elvis `?:` | [Kotlin supplement: Variables and null safety](kotlin.md) |
+| `fun`; `when`; data classes; properties; extension functions | [Kotlin supplement: Functions and classes](kotlin.md) |
+| Kotlin collections; Java collections; testing; debugging; coroutines; `suspend` | [Kotlin supplement: Collections and further topics](kotlin.md) |
+
+[Java curriculum](JAVA_README.md) · [Book overview](../OVERALL_README.md) · [Programming glossary](../backmatter/GLOSSARY.md)
