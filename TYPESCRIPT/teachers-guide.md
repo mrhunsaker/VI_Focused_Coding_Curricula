@@ -61,7 +61,7 @@ TypeScript has a unique profile of benefits and challenges for visually impaired
 
 ### An Honest Account of Challenges
 
-**TypeScript's permissiveness is a silent-failure risk.** Unlike Python (which raises exceptions for type mismatches) and Java (which rejects them at compile time), TypeScript silently converts types. `"5" + 3` = `"53"`. `"5" - 3` = `2`. `0 == false` = `true`. Without visual scanning of intermediate results, these silent failures can propagate through a program undetected. This must be addressed through defensive programming habits taught from day one.
+**JavaScript runtime permissiveness remains a risk even in TypeScript projects.** TypeScript's compiler catches many statically visible type mismatches before execution, but its types are erased when JavaScript is emitted. Runtime coercion still exists (`"5" + 3` produces `"53"`; `"5" - 3` produces `2`; `0 == false` is `true`). Coercion can reappear at `any`/assertion boundaries and when data arrives from JSON, files, users, or APIs. Teach strict checking, explicit conversion, type guards, and runtime validation together.
 
 **Asynchronous programming is conceptually hard.** The `async`/`await` pattern required for user input is a genuine hurdle for beginners. There is no way to eliminate it from a Node.js input-based curriculum. The approach in this guide is to scaffold it carefully and defer full explanation of the event loop to later units.
 
@@ -297,7 +297,7 @@ cat package.json   # or type package.json on Windows
 
 3. _"npm has millions of packages. The average Node.js project depends on hundreds of packages, many maintained by single developers with no organizational backing. The 'left-pad incident' in 2016 broke thousands of projects when one 11-line package was unpublished. What does this incident reveal about the risks and benefits of the npm ecosystem?"_
 
-4. _"TypeScript compiles to JavaScript for browsers, Node.js servers, in mobile apps via React Native, in desktop apps via Electron, in IoT devices, and even in serverless cloud functions. What does this ubiquity tell you about the relationship between a language's design and its adoption?"_
+4. _"TypeScript compiles to JavaScript for browser applications, Node.js servers, mobile apps via React Native, desktop apps via Electron, IoT devices, and serverless cloud functions. What does this ubiquity tell you about the relationship between a language's design and its adoption?"_
 
 ---
 
@@ -313,12 +313,12 @@ Demonstrate the error:
 
 ```typescript
 const x = 5;
-x = 10; // TypeError: Assignment to constant variable.
+x = 10; // TypeScript compile-time error: cannot assign to a const
 ```
 
 _"This error is helpful. `const` is protecting you from changing something you said was fixed."_
 
-**Dynamic typing with auditory ambiguity:**
+**JavaScript runtime types and auditory ambiguity:**
 
 Run this sequence in the REPL and ask the student to predict each output before pressing Enter:
 
@@ -486,7 +486,7 @@ Teach it but establish this rule: "If the ternary is easy to read aloud in one b
 
 #### Thought Experiments
 
-1. _"TypeScript's `==` performs type coercion before comparing. TypeScript (a typed superset of TypeScript) was partly created to address this. What does TypeScript's existence tell you about the real-world cost of TypeScript's permissiveness? What did developers gain from TypeScript that TypeScript didn't provide?"_
+1. _"JavaScript's `==` performs type coercion before comparing. TypeScript adds compile-time checks but preserves JavaScript runtime semantics. What does TypeScript's adoption tell you about the value of static analysis in large JavaScript codebases?"_
 
 2. _"Consider: `if (userName)` vs. `if (userName !== '' && userName !== null && userName !== undefined)`. The first uses TypeScript's truthiness; the second is explicit. In a code review, which would you prefer seeing? What are the readability and correctness tradeoffs?"_
 
@@ -1140,7 +1140,7 @@ function confirmAction(action, details) {
 
 2. _"Python's `None` and TypeScript's `null`/`undefined` both represent 'nothing,' but they behave differently. Python has one 'nothing'; TypeScript has two. When is `null` appropriate? When is `undefined` appropriate? Under what circumstances would you encounter one vs. the other?"_
 
-3. _"Python's type system and TypeScript's both use dynamic typing, but TypeScript's is more permissive --- it coerces types rather than raising errors. After using both, which approach do you find more helpful for learning? Which is more appropriate for production software?"_
+3. _"Python is dynamically typed, while TypeScript checks declared types before emitting JavaScript. The emitted JavaScript still has dynamic runtime behavior. How do these differences affect debugging, flexibility, and runtime validation?"_
 
 ---
 
@@ -1469,7 +1469,7 @@ Teach file structure before reading every line. Identify current focus and how t
 
 ### 21.5 Language-specific instructional emphasis: TypeScript
 
-TypeScript's dynamic type system and runtime should be made explicit:
+TypeScript's static type system and JavaScript runtime should be distinguished explicitly:
 - Teach `let`, `const`, and scope before elaborate function patterns.
 - Contrast `===` and `==` with concrete values; make coercion visible in REPL experiments.
 - Treat `undefined`, `null`, empty strings, zero, false, and `NaN` as distinct values.

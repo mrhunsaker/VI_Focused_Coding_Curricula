@@ -13,7 +13,7 @@ By the end of this curriculum, learners should be able to:
 - Explain introductory computer science concepts and the software-development cycle.
 - Install and verify Node.js and use an editor, terminal, and Node.js REPL.
 - Write TypeScript programs using variables, primitive values, expressions, and output.
-- Explain dynamic typing, coercion, truthy/falsy values, `undefined`, `null`, and `NaN`.
+- Explain TypeScript's compile-time type checking and JavaScript's runtime coercion, truthy/falsy values, `undefined`, `null`, and `NaN`.
 - Accept and validate terminal input using Node.js input mechanisms.
 - Use decisions, loops, arrays, objects, strings, and common collection operations.
 - Design functions and use parameters, return values, scope, and closures.
@@ -36,11 +36,11 @@ The course is intended primarily for beginning learners, including students usin
 TypeScript connects foundational programming concepts to a large software ecosystem. The compiler checks TypeScript and emits JavaScript; Node.js executes that output, supporting a text-first course.
 
 - Programs can run in a terminal and provide text output.
-- The Node.js REPL supports short experiments with immediate feedback.
+- The Node.js REPL supports short JavaScript runtime experiments; use the TypeScript compiler, editor, or playground to check TypeScript annotations.
 - The same language can later be used for accessible web applications and server-side programs.
 - Learners can encounter real-world concepts such as asynchronous operations and modules in a controlled sequence.
 
-TypeScript also has behaviors that require explicit teaching. Dynamic typing and coercion can produce surprising results; `undefined`, `null`, and `NaN` are distinct; arrays and objects have different semantics; and asynchronous code introduces ordering and error-handling questions.
+TypeScript adds static checking, but its emitted JavaScript still has JavaScript's runtime behavior. Coercion can produce surprising results when values enter through untrusted boundaries or types are bypassed; `undefined`, `null`, and `NaN` are distinct; arrays and objects have different semantics; and asynchronous code introduces ordering and error-handling questions.
 
 ## Learning sequence
 
@@ -107,7 +107,7 @@ npm --version
 node
 ```
 
-At the Node.js prompt, enter a short expression and read the returned value. Use `.exit` or the documented keyboard command to leave the REPL.
+At the Node.js prompt, enter a short JavaScript expression and read the returned value. This does not type-check TypeScript annotations. Use a TypeScript-aware editor, the TypeScript playground, or `npx tsc` to check TypeScript code. Use `.exit` or the documented keyboard command to leave the REPL.
 
 ## TypeScript conventions
 

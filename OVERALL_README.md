@@ -93,7 +93,7 @@ This is a practical orientation, not a ranking. No language is universally easie
 - **Web and interactive application pathway:** start with JavaScript and Node.js, then continue to browser technologies and accessible web development.
 - **Type safety and JavaScript ecosystem:** TypeScript adds static checking to JavaScript and supports incremental adoption in existing projects.
 - **Types and object-oriented design:** Java makes types, classes, compilation, and program structure explicit.
-- **Cross-language comparison:** complete one introductory course first, then study a second language by comparing equivalent concepts rather than learning three syntaxes simultaneously.
+- **Cross-language comparison:** complete one introductory course first, then study a second language by comparing equivalent concepts rather than learning several syntaxes simultaneously.
 - **Educator-led course:** use the matching teacher's guide alongside the learner units.
 
 Kotlin is available as an optional [post-capstone supplement for Java learners](JAVA/kotlin.md); it is not a required core curriculum.
