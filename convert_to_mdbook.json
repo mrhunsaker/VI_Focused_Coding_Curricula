@@ -250,5 +250,34 @@
     "Inspect changed paths before commit and reject every change under cs_curriculum_final/.",
     "Do not claim publication until the Pages workflow succeeds and the target URL is verified."
   ],
-  "instructions_for_commit_sha": "A commit cannot include its own SHA. When creating a later checkpoint, record the immediately preceding verified checkpoint SHA in progress.last_commit."
+  "instructions_for_commit_sha": "A commit cannot include its own SHA. When creating a later checkpoint, record the immediately preceding verified checkpoint SHA in progress.last_commit.",
+  "commit_history": [
+    {
+      "step": 0,
+      "name": "Plan file",
+      "commit": "6240f1fdd052f4f3b9f41d80e9f83df686a71f4b"
+    },
+    {
+      "step": 1,
+      "name": "mdBook foundation",
+      "implementation_commit": "7bfa28d7043bd94ac1fc1101c7832b2a90f27107",
+      "checkpoint_commit": "3b4234b238646d174d8a82340330b19841f4a492"
+    },
+    {
+      "step": 2,
+      "name": "Curriculum navigation and compatibility review",
+      "checkpoint_commit": "2be38ddc08fa67563840b45bddc2fb88c5de32dc"
+    },
+    {
+      "step": 3,
+      "name": "GitHub Pages workflow",
+      "commit": "e1972d6355011a3c6ee7039d6fb3cfe21343a766"
+    },
+    {
+      "step": 4,
+      "name": "Build verification and workflow order correction",
+      "implementation_commit": "80af75ec1c4aa33c6b55b8518de80e4170ec162b",
+      "status": "blocked pending manual Pages enablement"
+    }
+  ]
 }

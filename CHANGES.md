@@ -26,7 +26,7 @@ All implementation changes are recorded here. Each numbered step is committed se
 - Confirmed no changed path is under `cs_curriculum_final/`.
 - mdBook executable build is deferred to CI/final verification because mdBook is not installed in the available execution environment.
 - Validation correction: the repository contains 15 unit files (Python 7, JavaScript 4, Java 4), not 17. The plan's validation counts have been corrected.
-- Step 2 review completed; checkpoint commit SHA will be recorded after the commit succeeds.
+- Step 2 review completed and committed: `2be38ddc08fa67563840b45bddc2fb88c5de32dc`.
 
 ## 2026-10-30 — Step 3: GitHub Pages deployment automation
 
@@ -36,7 +36,7 @@ All implementation changes are recorded here. Each numbered step is committed se
 - Uses least-privilege workflow permissions: `contents: read`, `pages: write`, and `id-token: write`.
 - Uses project-site base URL `/VI_Focused_Coding_Curricula/` from `book.toml`.
 - Workflow run and live URL verification are pending step 4.
-- Step 3 workflow commit SHA will be recorded after the commit succeeds.
+- Step 3 workflow commit: `e1972d6355011a3c6ee7039d6fb3cfe21343a766`.
 
 ## 2026-10-30 — Step 4: Build and deployment verification
 
@@ -51,6 +51,7 @@ All implementation changes are recorded here. Each numbered step is committed se
 
 - Workflow run [41072285741](https://github.com/mrhunsaker/VI_Focused_Coding_Curricula/actions/runs/41072285741) initially failed at Pages configuration before the mdBook build.
 - Reordered the workflow in commit `80af75ec1c4aa33c6b55b8518de80e4170ec162b` so installation and build run before Pages configuration.
+- Step 4 verification/checkpoint record committed separately; current repository checkpoint is `5d1f81b61ff3172f6ed814dfaa59bde46c29b507`.
 - Workflow run [41072475503](https://github.com/mrhunsaker/VI_Focused_Coding_Curricula/actions/runs/41072475503) installed mdBook v0.5.4 successfully and completed `mdbook build` successfully.
 - The same run then failed at `Configure GitHub Pages` with `Resource not accessible by integration`; the Actions token cannot create a Pages site for this repository. Artifact upload and deployment were skipped.
 - Repository metadata still reports `has_pages=false`. The site is not yet published, and its URL has not been verified.
