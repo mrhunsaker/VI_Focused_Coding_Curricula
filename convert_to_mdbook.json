@@ -242,25 +242,27 @@
         "Added README.md, CODE_OF_CONDUCT.md, CONTRIBUTING.md, CODE_STYLE.md, SECURITY.md, and LICENSE.",
         "All badges target VI_Focused_Coding_Curricula and the configured GitHub Pages URL, not the RB_SWITCH example.",
         "No curriculum lesson files or paths under cs_curriculum_final/ were modified.",
-        "Live-site browser smoke test from step 4 remains pending."
+        "Live-site browser smoke test from step 4 remains pending.",
+        "Full Apache License 2.0 text is present in LICENSE; the prior repository license was CC0 1.0 and was changed at the user's explicit request. Confirm rights/authority for all included material."
       ],
       "checkpoint": "Commit project documentation and progress records; verify the resulting main branch SHA."
     }
   ],
   "progress": {
-    "current_step": 5,
-    "status": "step_5_completed_step_4_live_site_verification_pending",
+    "current_step": 4,
+    "status": "live_site_smoke_test_pending_after_project_documentation",
     "completed_steps": [
       0,
       1,
       2,
-      3
+      3,
+      5
     ],
     "next_step": "Perform the outstanding browser smoke test of the deployed mdBook URL. Confirm the overview, Python/JavaScript/Java sections, all 15 unit pages, and internal links; then record the result in CHANGES.md and convert_to_mdbook.json.",
-    "last_commit": "cea489933bb9036a95236b7dab508624e4722ec8",
-    "last_validation": "Step 5 project documentation added. GitHub Actions run 41072733650 attempt 2 previously built and deployed the mdBook successfully; live browser verification remains pending.",
+    "last_commit": "fd1c4f1510a5b1e4c8992acd9e96e2bd0ef9e477",
+    "last_validation": "Step 5 project documentation is committed in 2bffb36b30e499fee17d4feb3086ef4bd838e668; full Apache License 2.0 text follow-up is committed in fd1c4f1510a5b1e4c8992acd9e96e2bd0ef9e477. Prior Pages workflow run 41072733650 attempt 2 succeeded. Live-site browser verification remains pending.",
     "updated_at": "2026-10-30",
-    "current_step_commit": "cea489933bb9036a95236b7dab508624e4722ec8"
+    "current_step_commit": "fd1c4f1510a5b1e4c8992acd9e96e2bd0ef9e477"
   },
   "future_llm_instructions": [
     "Read this JSON and CHANGES.md before every task; fetch current main and verify latest commits before acting.",
@@ -315,6 +317,13 @@
     {
       "step": 5,
       "name": "Project README and community governance",
+      "status": "completed"
+    },
+    {
+      "step": 5,
+      "name": "Project README and community governance",
+      "commit": "2bffb36b30e499fee17d4feb3086ef4bd838e668",
+      "license_text_followup": "fd1c4f1510a5b1e4c8992acd9e96e2bd0ef9e477",
       "status": "completed"
     }
   ]

@@ -78,4 +78,6 @@ All implementation changes are recorded here. Each numbered step is committed se
 - Added `CODE_OF_CONDUCT.md`, `CONTRIBUTING.md`, `CODE_STYLE.md`, `SECURITY.md`, and the Apache 2.0 license notice in `LICENSE`.
 - Updated `convert_to_mdbook.json` with step 5 scope and validation. The outstanding live-site browser smoke test from step 4 remains pending and is not represented as complete.
 - Validation: reviewed badge targets and internal links; confirmed README is separate from mdBook navigation in `SUMMARY.md`; no curriculum source files or paths under `cs_curriculum_final/` were changed.
-- Commit checkpoint: recorded in `convert_to_mdbook.json` after successful commit.
+- Added the complete Apache License 2.0 text to `LICENSE` in a follow-up commit.
+- Documentation commit: `2bffb36b30e499fee17d4feb3086ef4bd838e668`; full-license follow-up: `fd1c4f1510a5b1e4c8992acd9e96e2bd0ef9e477`.
+- The repository's prior license file was CC0 1.0; it was changed to Apache 2.0 as explicitly requested. Confirm that the project maintainer has authority to apply the new license to all included material before relying on the relicense.
