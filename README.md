@@ -1,6 +1,6 @@
 # Accessible Introduction to Computer Science
 
-[![License]((https://img.shields.io/badge/license-CC0%201.0-blue.svg)](LICENSE)
+[![License](https://img.shields.io/badge/license-CC0%201.0-blue.svg)](LICENSE)
 ![GitHub top language](https://img.shields.io/github/languages/top/mrhunsaker/VI_Focused_Coding_Curricula)
 [![Documentation](https://img.shields.io/badge/docs-mdBook-blue)](https://mrhunsaker.github.io/VI_Focused_Coding_Curricula/)
 [![Last commit](https://img.shields.io/github/last-commit/mrhunsaker/VI_Focused_Coding_Curricula)](https://github.com/mrhunsaker/VI_Focused_Coding_Curricula/commits/main)
