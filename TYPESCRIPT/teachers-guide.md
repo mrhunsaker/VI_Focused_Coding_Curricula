@@ -138,7 +138,7 @@ Teach `async`/`await` from the start and avoid callback patterns entirely in thi
 - **Prettier** --- auto-formats code consistently (run on save with `editor.formatOnSave: true`)
 - **TypeScript (ES6) code snippets** --- tab-complete common patterns
 
-**Recommended ESLint flat configuration** (`eslint.config.mjs` in project root; install the current ESLint, `@eslint/js`, and `globals` packages as local development dependencies):
+**Recommended TypeScript ESLint flat configuration** (`eslint.config.mjs`; install eslint, @eslint/js, typescript-eslint, and globals as local development dependencies):
 
 ```json
 import js from "@eslint/js";

@@ -34,7 +34,7 @@ console.log(PI.toFixed(5));     // 3.14159
 ### ES Modules (Modern — requires `"type": "module"` in package.json)
 
 ```typescript
-// math.mjs
+// math.ts
 export const add = (a: number, b: number): number => a + b;
 export const multiply = (a: number, b: number): number => a * b;
 export const PI = Math.PI;
@@ -44,8 +44,8 @@ export default function greet(name: string): string {
 ```
 
 ```typescript
-// main.mjs
-import greet, { add, multiply, PI } from './math.mjs';
+// main.ts
+import greet, { add, multiply, PI } from './math.js';
 
 console.log(greet("Alice"));
 console.log(add(5, 3));
