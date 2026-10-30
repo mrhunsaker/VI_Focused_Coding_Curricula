@@ -184,6 +184,8 @@ pip list
 # Create environment with a consistent name the student will always type
 py -3 -m venv .venv
 # Activation --- save this as a text file the student can open and copy from
+# If activation is blocked, allow local scripts for this PowerShell session only.
+Set-ExecutionPolicy -Scope Process -ExecutionPolicy RemoteSigned
 .\.venv\Scripts\Activate.ps1
 # Verify with a spoken command
 py -3 --version
