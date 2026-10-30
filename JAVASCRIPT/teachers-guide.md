@@ -279,7 +279,7 @@ cat package.json   # or type package.json on Windows
 
 #### Non-Obvious Accessibility Strategies
 
-- **Node.js version managers:** `nvm` (Node Version Manager) allows multiple Node.js versions. For a student who may work on multiple machines or projects, `nvm install 26 followed by nvm use 26` is a consistent way to set the Node.js version. `nvm` is command-line-only and fully accessible.
+- **Node.js version managers:** `nvm` (Node Version Manager) allows multiple Node.js versions. For a student who may work on multiple machines or projects, run `nvm install 26` and then `nvm use 26` to select the Node.js 26 LTS line. `nvm` is command-line-only and fully accessible.
 - **Global vs. local packages:** `npm install -g` installs globally; `npm install` installs locally (in `node_modules`). Teach local installation as the default. Global packages can interfere across projects.
 
 #### Thought Experiments

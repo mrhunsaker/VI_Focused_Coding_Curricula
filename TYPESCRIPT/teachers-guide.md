@@ -13,7 +13,7 @@ Plan for both programming learning and access to the programming environment. Es
 
 ## TypeScript and Node.js version baseline
 
-Use Node.js 26 LTS (26.13.0 or a newer 26.x maintenance release) and the current stable TypeScript compiler. TypeScript is checked at build time and emitted as JavaScript; Node.js executes the emitted JavaScript. Keep the project's module format explicit and use a local compiler version recorded in the package lockfile.
+Use Node.js 26 LTS (26.13.0 or a newer 26.x maintenance release) and TypeScript 7.0.2, the current stable compiler as of October 30, 2026. TypeScript is checked at build time and emitted as JavaScript; Node.js executes the emitted JavaScript. Keep the project's module format explicit and use a local compiler version recorded in the package lockfile.
 
 Teach strict type checking progressively. Prefer explicit function parameter and return types where they clarify contracts; use inference for obvious local values; use interfaces/type aliases for object shapes; prefer unknown over any for untrusted values; and keep strictNullChecks enabled. Explain that type assertions do not validate data and that types are erased from emitted JavaScript. JSON, user input, file contents, and network responses still require runtime validation. TypeScript's compiler catches many classes of mistakes but does not prove program correctness.
 
@@ -71,7 +71,7 @@ TypeScript has a unique profile of benefits and challenges for visually impaired
 
 ## 2. TypeScript-Specific Accessibility Challenges
 
-### Silent Type Coercion
+### JavaScript runtime coercion and static type checking
 
 This is the greatest accessibility risk in TypeScript for blind students. Unlike Python's `TypeError` and Java's compile-time type check, TypeScript silently converts types in ways that can produce wrong answers with no error:
 
@@ -492,7 +492,7 @@ Teach it but establish this rule: "If the ternary is easy to read aloud in one b
 
 3. _"JavaScript's optional chaining (`?.`) and nullish coalescing (`??`) were added to the language to handle null/undefined more gracefully. `user?.address?.city` returns `undefined` instead of throwing if `user` or `address` is null. Why did this feature take decades to add to a language created in 1995?"_
 
-4. _"The JavaScript `switch` statement falls through by default, and TypeScript preserves that runtime behavior. Modern TypeScript has been moving away from `switch` toward mapping objects for dispatch tables. `const actions = { 'add': addFunc, 'delete': deleteFunc }; actions[command]?.();`. What are the accessibility implications of this pattern vs. a `switch` statement when read with a screen reader?"_
+4. _"The JavaScript `switch` statement falls through by default, and TypeScript preserves that runtime behavior. A mapping object can be an alternative to `switch` for dispatch tables. `const actions = { 'add': addFunc, 'delete': deleteFunc }; actions[command]?.();`. What are the accessibility implications of this pattern vs. a `switch` statement when read with a screen reader?"_
 
 ---
 
