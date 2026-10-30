@@ -215,7 +215,7 @@ Charlie,16,A`;
 
 ```bash
 npm init -y
-npm install --save-dev jest
+npm install --save-dev jest @types/jest
 ```
 
 Add to `package.json`:

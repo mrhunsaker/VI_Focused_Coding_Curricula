@@ -94,7 +94,7 @@ TypeScript is safer in important ways, but it is not a proof of correctness. Typ
 
 Use **Node.js 26.13.0 LTS** (current LTS as of October 30, 2026) and the current stable TypeScript compiler, **7.0.2**. TypeScript is a compile-time language layer: Node.js runs the JavaScript output, not TypeScript source in the ordinary compiled workflow.
 
-Follow Unit 0 for detailed installation and verification. For a new setup, use a currently supported Node.js Long-Term Support (LTS) release unless course materials specify a different compatible version. Check the official [Node.js download page](https://nodejs.org/en/download) rather than relying on an old version number.
+Follow Unit 0 for detailed installation and verification. Use the latest security/maintenance patch in the Node.js 26 LTS line. Check the official [Node.js download page](https://nodejs.org/en/download) before installing or upgrading.
 
 Recommended tools include Node.js and npm, Visual Studio Code or another keyboard-accessible editor, a terminal, and the learner's preferred access technology. Use project-local package configuration. Explain each third-party dependency and review its provenance and maintenance before adding it.
 

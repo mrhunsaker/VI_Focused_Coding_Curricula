@@ -124,7 +124,7 @@ greetUser();
 ### Function Expression
 
 ```typescript
-const greetByName = function(name) {
+const greetByName = function(name: string): void {
     console.log(`Hello, ${name}!`);
 };
 
@@ -140,10 +140,10 @@ const add = (a: number, b: number): number => {
 };
 
 // Concise body (implicit return for single expressions)
-const addShort = (a, b) => a + b;
+const addShort = (a: number, b: number): number => a + b;
 
 // Single parameter (no parentheses needed)
-const double = n => n * 2;
+const double = (n: number): number => n * 2;
 
 // No parameters
 const sayHello = () => console.log("Hello!");
