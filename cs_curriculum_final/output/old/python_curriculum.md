@@ -178,6 +178,18 @@ python3 --version
 pip list
 ```
 
+**Windows PowerShell (Windows 11):**
+
+```powershell
+# Create environment with a consistent name the student will always type
+py -3 -m venv .venv
+# Activation --- save this as a text file the student can open and copy from
+.\.venv\Scripts\Activate.ps1
+# Verify with a spoken command
+py -3 --version
+py -3 -m pip list
+```
+
 Consider creating a startup script (`start.bat` on Windows, `start.sh` on macOS/Linux) that activates the environment and opens VS Code. Students can run one command to get their environment ready, reducing setup cognitive load.
 
 ---
@@ -1364,12 +1376,26 @@ Python 3 is often pre-installed. Verify in a terminal:
 python3 --version
 ```
 
+**Windows PowerShell (Windows 11):**
+
+```powershell
+py -3 --version
+```
+
 If not installed (Debian/Ubuntu):
 
 ```bash
 sudo apt update
 sudo apt install python3
 sudo apt install python3-pip
+```
+
+**Windows PowerShell (Windows 11):**
+
+```powershell
+# Windows uses winget; no apt package-index update is needed.
+winget install --id Python.Python.3.12 -e
+winget install --id Python.Python.3.12 -e
 ```
 
 ### Verifying Python Installation
@@ -1380,10 +1406,22 @@ Open a terminal and type:
 python3 --version
 ```
 
+**Windows PowerShell (Windows 11):**
+
+```powershell
+py -3 --version
+```
+
 You should hear the version number (e.g., "Python 3.10.12"). Also check pip:
 
 ```bash
 pip3 --version
+```
+
+**Windows PowerShell (Windows 11):**
+
+```powershell
+py -3 -m pip --version
 ```
 
 ### Installing Visual Studio Code
@@ -1407,9 +1445,22 @@ cd Downloads
 sudo dpkg -i code_*.deb
 ```
 
+**Windows PowerShell (Windows 11):**
+
+```powershell
+Set-Location "$HOME\Downloads"
+winget install --id Microsoft.VisualStudioCode -e
+```
+
 ### Verify VS Code
 
 ```bash
+code --version
+```
+
+**Windows PowerShell (Windows 11):**
+
+```powershell
 code --version
 ```
 
@@ -1513,6 +1564,12 @@ VoiceOver generally handles indentation well by default, announcing "4 spaces" o
 code .
 ```
 
+**Windows PowerShell (Windows 11):**
+
+```powershell
+code .
+```
+
 **Method 2:** In VS Code, press `Ctrl + K, Ctrl + O` to "Open Folder".
 
 ### VS Code Navigation Shortcuts
@@ -1569,6 +1626,13 @@ cd ~/Documents/PythonProjects
 python3 hello.py
 ```
 
+**Windows PowerShell (Windows 11):**
+
+```powershell
+Set-Location "$HOME\Documents\PythonProjects"
+py -3 hello.py
+```
+
 **From VS Code Integrated Terminal:**
 
 1. Open terminal: `Ctrl + \``
@@ -1585,6 +1649,12 @@ Virtual environments keep project dependencies separate, preventing conflicts.
 python3 -m venv .venv
 ```
 
+**Windows PowerShell (Windows 11):**
+
+```powershell
+py -3 -m venv .venv
+```
+
 **Activate:**
 
 - Windows (Command Prompt): `.venv\Scripts\activate.bat`
@@ -1599,6 +1669,12 @@ You will hear `(.venv)` at the beginning of your prompt when active.
 deactivate
 ```
 
+**Windows PowerShell (Windows 11):**
+
+```powershell
+deactivate
+```
+
 **Select Interpreter in VS Code:**
 
 1. Press `Ctrl + Shift + P`.
@@ -1610,6 +1686,13 @@ deactivate
 ```bash
 pip install requests
 pip list
+```
+
+**Windows PowerShell (Windows 11):**
+
+```powershell
+py -3 -m pip install requests
+py -3 -m pip list
 ```
 
 ### Skills Checklist
@@ -4215,6 +4298,12 @@ Students will develop a fully functional, screen-reader-accessible graphical app
 pip install nicegui
 ```
 
+**Windows PowerShell (Windows 11):**
+
+```powershell
+py -3 -m pip install nicegui
+```
+
 ---
 
 ## Guided Implementation
@@ -4363,4 +4452,15 @@ git commit -m "Add feature" # Save a snapshot
 git log                     # View history
 git diff                    # See what changed
 git checkout -- file.py     # Discard changes to a file
+```
+
+**Windows PowerShell (Windows 11):**
+
+```powershell
+git init                    # Initialize a repository
+git add .                   # Stage all changes
+git commit -m "Add feature" # Save a snapshot
+git log                     # View history
+git diff                    # See what changed
+git restore -- file.py     # Discard changes to a file
 ```

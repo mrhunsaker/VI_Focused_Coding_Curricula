@@ -224,6 +224,14 @@ node                      # Start REPL
 .exit                     # Quit (or Ctrl+D)
 ```
 
+**Windows PowerShell (Windows 11):**
+
+```powershell
+node                      # Start REPL
+.help                     # List REPL commands
+.exit                     # Quit (or Ctrl+D)
+```
+
 The Node.js REPL is excellent for early exploration. Results are printed immediately after each expression, providing audio feedback without the compile-run-read cycle.
 
 ### Alternative JavaScript Environments
@@ -301,6 +309,14 @@ npm --version     # Should print a version number
 npx --version     # Should print a version number (npx is bundled with npm)
 ```
 
+**Windows PowerShell (Windows 11):**
+
+```powershell
+node --version    # Should print v18.x.x or later
+npm --version     # Should print a version number
+npx --version     # Should print a version number (npx is bundled with npm)
+```
+
 All three must work. If `npm` is missing, the student may have installed only the Node.js runtime without npm. Reinstall from nodejs.org (npm is included in the standard installer).
 
 **REPL first --- files second:**
@@ -325,6 +341,13 @@ When initializing a project, `npm init -y` generates `package.json` automaticall
 ```bash
 npm init -y
 cat package.json   # or type package.json on Windows
+```
+
+**Windows PowerShell (Windows 11):**
+
+```powershell
+npm init -y
+Get-Content package.json
 ```
 
 `package.json` is plain JSON text --- fully readable with a screen reader. Understanding its structure is important for later lessons about dependencies and scripts.
@@ -1445,9 +1468,23 @@ curl -fsSL https://deb.nodesource.com/setup_18.x | sudo -E bash -
 sudo apt install nodejs
 ```
 
+**Windows PowerShell (Windows 11):**
+
+```powershell
+winget install --id OpenJS.NodeJS.LTS -e
+winget install --id OpenJS.NodeJS.LTS -e
+```
+
 ### Verify Installation
 
 ```bash
+node --version     # Should show v18.x.x or later
+npm --version      # Should show npm version
+```
+
+**Windows PowerShell (Windows 11):**
+
+```powershell
 node --version     # Should show v18.x.x or later
 npm --version      # Should show npm version
 ```
@@ -1497,11 +1534,23 @@ Run it:
 node hello.js
 ```
 
+**Windows PowerShell (Windows 11):**
+
+```powershell
+node hello.js
+```
+
 ### The Node.js REPL
 
 For quick experiments, open an interactive session:
 
 ```bash
+node
+```
+
+**Windows PowerShell (Windows 11):**
+
+```powershell
 node
 ```
 
@@ -3219,6 +3268,13 @@ npm init -y
 npm install --save-dev jest
 ```
 
+**Windows PowerShell (Windows 11):**
+
+```powershell
+npm init -y
+npm install --save-dev jest
+```
+
 Add to `package.json`:
 
 ```json
@@ -3288,6 +3344,12 @@ describe("circleArea function", () => {
 Run tests:
 
 ```bash
+npm test
+```
+
+**Windows PowerShell (Windows 11):**
+
+```powershell
 npm test
 ```
 
