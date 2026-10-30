@@ -478,7 +478,7 @@
     {
       "id": 11,
       "name": "Standardize project-scoped environment management and document Theia IDE as an accessible editor alternative",
-      "status": "implementation_complete_validation_pending",
+      "status": "implementation_complete_static_validation_passed_build_pending",
       "files": [
         "CODE_STYLE.md",
         "CONTRIBUTING.md",
@@ -503,12 +503,23 @@
         "CHANGES.md",
         "backmatter/GLOSSARY.md"
       ],
-      "validation_status": "pending"
+      "validation_status": "static_validation_passed_build_workflow_queued",
+      "validation": [
+        "Audited active curriculum setup and teacher materials for unmanaged global package installation patterns; none remain in the updated course workflows.",
+        "Python uses uv-managed interpreters, project-local environments, uv add, uv run, uv sync, and uv tree.",
+        "JavaScript and TypeScript use project-local npm dependencies and npx/npm scripts.",
+        "Java and Kotlin use Maven/Gradle wrappers rather than requiring global build-tool installs.",
+        "Theia IDE is documented as an alternative to VS Code across all language setup pages and teacher guidance; screen-reader and extension verification is described.",
+        "JetBrains IDEs are explicitly not recommended for introductory learners; Volta is not recommended.",
+        "Cross-platform shell examples in the updated setup/teacher materials retain Bash-family and Windows PowerShell counterparts.",
+        "Glossary now defines uv, npx, and Maven/Gradle wrappers. JSON indexing prompt and project plan parse successfully.",
+        "GitHub Actions run 41101871104 for implementation commit 534af1ac73ec9d0a45c2ff1bc0559eb5f25513df remains queued; build and deployment are not yet confirmed."
+      ]
     }
   ],
   "progress": {
     "current_step": 11,
-    "status": "environment_management_and_editor_choices_implemented_validation_pending",
+    "status": "environment_management_and_editor_choices_complete_static_audits_passed_build_workflow_queued",
     "completed_steps": [
       0,
       1,
@@ -525,10 +536,10 @@
       4
     ],
     "next_step": "Open the published site in a normal browser and verify the overview, all four language landing pages, all 19 unit documents, all four teacher guides, and the optional Kotlin supplement. Check representative internal navigation and links. The available web viewer could not retrieve the home page or TypeScript landing page; this is not evidence that the site is down.",
-    "last_commit": "d8312f845078944e45c6b0a1c529f909d9c2dce1",
-    "last_validation": "Implemented uv-managed Python project environments and dependencies, local npm/npx workflows, Java build-wrapper guidance, and Theia IDE alternatives across all four language setup pages and teacher guides. Added Theia-specific extension-view and screen-reader setup notes. Active setup files contain no executable global pip or npm -g install commands. A final Python completion checklist now verifies the uv-managed interpreter. GitHub Pages build validation pending. Java teacher guidance now uses Maven and Gradle project wrappers for test commands, and the Java landing page directs learners to committed wrappers rather than global build-tool installs. Added glossary definitions for uv, npx, project-local npm dependencies, and Maven/Gradle wrappers.",
+    "last_commit": "534af1ac73ec9d0a45c2ff1bc0559eb5f25513df",
+    "last_validation": "Static validation passed: active course setup workflows now use uv-managed Python projects, project-local npm/npx dependencies, and Maven/Gradle wrappers. Audited the active curriculum material for unmanaged global package installation patterns; none remain in the updated workflows. Verified Theia IDE is documented across all language setups and teacher guidance, JetBrains IDEs are explicitly excluded from beginner recommendations, and Volta is not recommended. Updated setup shell examples retain Windows PowerShell counterparts. Added glossary definitions for uv, npx, and Maven/Gradle wrappers. Both JSON maintenance files parse successfully. GitHub Actions deployment workflow for implementation commit 534af1ac73ec9d0a45c2ff1bc0559eb5f25513df is queued; mdBook build/deployment confirmation is pending.",
     "updated_at": "2026-10-30",
-    "current_step_commit": "d8312f845078944e45c6b0a1c529f909d9c2dce1"
+    "current_step_commit": "534af1ac73ec9d0a45c2ff1bc0559eb5f25513df"
   },
   "future_llm_instructions": [
     "Read this JSON and CHANGES.md before every task; fetch current main and verify latest commits before acting.",
