@@ -183,18 +183,29 @@ VoiceOver generally handles indentation well by default, announcing "4 spaces" o
 
 ---
 
-## Lesson 0.3: Setting Up Your VS Code Workspace
+## Lesson 0.3: Setting Up Your VS Code or Theia IDE Workspace
 
 ### Reading References
 - Matthes: Appendix B, pages 469–476
 - Matthes: Chapter 8, pages 149–152
 
-### Installing VS Code Extensions
+### Install and verify Python language extensions
 
-1. Open the Extensions View: `Ctrl + Shift + X` (Windows/Linux) or `Command + Shift + X` (macOS).
-2. Search and install **"Python"** by Microsoft — the official and most important Python extension.
-3. Search and install **"Pylance"** — provides excellent IntelliSense and type checking.
-4. Optional: **"Code Runner"** — allows running code files with `Ctrl+Alt+N`.
+Choose the extension instructions for the editor you are using. The Python interpreter and project environment are separate from the editor extensions; installing an extension does not install Python or project dependencies.
+
+**Visual Studio Code**
+1. Open the Extensions view with `Ctrl + Shift + X` (Windows/Linux) or `Command + Shift + X` (macOS).
+2. Install **Python** by Microsoft. This provides Python environment discovery, run/debug integration, and interpreter selection.
+3. Install **Pylance** for language intelligence, completion, navigation, and type diagnostics.
+4. Confirm both extensions are enabled for this workspace. Do not use Code Runner for course projects: it can run a file outside the project's managed environment and bypass the standard `uv run` workflow.
+
+**Theia IDE**
+1. Open View → Extensions (or the Extensions view available in your Theia distribution).
+2. Search the configured Open VSX registry for a Python language extension and a compatible Python language server.
+3. Check the extension publisher, supported Theia version, and extension documentation. Do not assume that Microsoft's Python or Pylance extensions are available or interchangeable in Theia.
+4. Confirm that completion, go-to-definition, diagnostics, interpreter discovery, terminal access, and debugging work with the selected Python installation. If a required capability is unavailable, use a verified supported extension or choose VS Code for this course.
+
+In either editor, install only extensions needed for the course, keep them enabled for the project workspace, and test their announcements and keyboard navigation with the learner's screen reader before relying on them.
 
 ### Creating Your First Workspace Folder
 
@@ -231,14 +242,17 @@ code .
 | Previous Error | `Shift + F8` |
 | Integrated Terminal | `Ctrl + \`` |
 
+### Advanced editor options
+
+Experienced coders may prefer a JetBrains IDE, such as PyCharm. These are advanced alternatives, not the recommended starting point for this beginner curriculum. This course does not provide JetBrains installation or usage instructions.
+
 ### Skills Checklist
-- [ ] I can open the Extensions View in VS Code.
-- [ ] I can search for and install the "Python" extension.
-- [ ] I can search for and install the "Pylance" extension.
+- [ ] I can open the Extensions view in my selected editor.
+- [ ] I can verify that Python language support and its language server are installed and enabled.
 - [ ] I can create a new folder for Python projects.
-- [ ] I can open a specific folder as a workspace in VS Code.
-- [ ] I can navigate the Activity Bar, Explorer, Editor, and Panel using keyboard shortcuts.
-- [ ] I can effectively use the Command Palette (`Ctrl + Shift + P`).
+- [ ] I can open the project folder as the editor workspace.
+- [ ] I can navigate the editor, file explorer, terminal, and diagnostics using the keyboard.
+- [ ] I can use the Command Palette or equivalent command interface.
 
 ---
 
@@ -307,7 +321,9 @@ uv tree
 
 **Run without installing a project dependency:** for a one-off tool or script dependency, use `uv run --with package command` or `uvx tool-name`. Do not use bare/global `pip install` or `python -m pip install` for course packages.
 
-**Select the project interpreter in VS Code or Theia IDE:** choose the Python interpreter inside the project's `.venv` directory. If the IDE does not detect it, reopen the project folder and use the interpreter-selection command or setting provided by that IDE.
+**Select and verify the project interpreter in VS Code or Theia IDE:** open the project folder (the folder containing `pyproject.toml`) as the workspace, then choose the interpreter inside that project's `.venv` directory: `.venv/bin/python` on macOS/Linux or `.venv\\Scripts\\python.exe` on Windows. In VS Code, use **Python: Select Interpreter** and select the workspace environment. In Theia, use the Python extension's interpreter-selection command or setting. If the environment is not listed, create it with `uv init --python 3.12`, reopen the project folder, and select it again.
+
+Build the habit of checking the active environment before running or debugging code. The editor's selected interpreter, its integrated terminal, and the command-line workflow must all point to the same project. Run course programs with `uv run python filename.py`; add packages with `uv add package-name`. Do not install course dependencies globally. If an editor's Run or Debug action does not use the project interpreter, correct its interpreter/launch configuration or use the terminal command rather than accepting a run from the wrong environment.
 
 **Optional venv concepts:** `uv` uses the standard `.venv` directory. Students may inspect it and learn that it isolates project dependencies, but routine manual activation is not required when commands are run with `uv run`.
 
