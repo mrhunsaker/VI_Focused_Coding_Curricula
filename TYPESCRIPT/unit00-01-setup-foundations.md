@@ -87,7 +87,7 @@ For a new project, create a package manifest with npm init -y. Choose one module
 
 | Action | Shortcut |
 |--------|----------|
-| Run file (via terminal) | `Ctrl + \`` then `node filename.ts` |
+| Compile and run file (via terminal) | `Ctrl + \`` then `npx tsc` followed by `node dist/filename.js` |
 | Command Palette | `Ctrl + Shift + P` |
 | Problems View | `Ctrl + Shift + M` |
 | Next Error | `F8` |

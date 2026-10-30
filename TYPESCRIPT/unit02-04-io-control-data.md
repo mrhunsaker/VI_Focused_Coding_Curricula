@@ -99,7 +99,7 @@ const rl = readline.createInterface({
     output: process.stdout
 });
 
-function askQuestion(prompt) {
+function askQuestion(prompt: string): Promise<string> {
     return new Promise((resolve) => {
         rl.question(prompt, resolve);
     });

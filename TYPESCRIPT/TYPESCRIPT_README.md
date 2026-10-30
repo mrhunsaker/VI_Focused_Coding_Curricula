@@ -1,20 +1,20 @@
 # Introduction to Computer Science with TypeScript
 
-## Accessible beginner curriculum using Node.ts
+## Accessible beginner curriculum using Node.js
 
-This curriculum teaches introductory programming and computer science through TypeScript, using Node.ts for program execution and text-based input/output. It is designed for blind and visually impaired learners who use screen readers, braille displays, magnification, keyboard navigation, or combinations of access technologies. It is also suitable for sighted beginners and mixed-vision classrooms.
+This curriculum teaches introductory programming and computer science through TypeScript, using Node.js for program execution and text-based input/output. It is designed for blind and visually impaired learners who use screen readers, braille displays, magnification, keyboard navigation, or combinations of access technologies. It is also suitable for sighted beginners and mixed-vision classrooms.
 
-TypeScript is widely used in browser applications, server-side systems, and developer tools. This course deliberately starts with Node.ts and terminal programs so learners can master programming concepts without needing to interpret a visual web page or graphical interface. Browser-based development can be a later extension.
+TypeScript is widely used in browser applications, server-side systems, and developer tools. This course deliberately starts with Node.js and terminal programs so learners can master programming concepts without needing to interpret a visual web page or graphical interface. Browser-based development can be a later extension.
 
 ## Course outcomes
 
 By the end of this curriculum, learners should be able to:
 
 - Explain introductory computer science concepts and the software-development cycle.
-- Install and verify Node.ts and use an editor, terminal, and Node.ts REPL.
+- Install and verify Node.js and use an editor, terminal, and Node.js REPL.
 - Write TypeScript programs using variables, primitive values, expressions, and output.
 - Explain dynamic typing, coercion, truthy/falsy values, `undefined`, `null`, and `NaN`.
-- Accept and validate terminal input using Node.ts input mechanisms.
+- Accept and validate terminal input using Node.js input mechanisms.
 - Use decisions, loops, arrays, objects, strings, and common collection operations.
 - Design functions and use parameters, return values, scope, and closures.
 - Explain classes and object-oriented programming at an introductory level.
@@ -27,16 +27,16 @@ The goal is a strong introductory foundation, not mastery of the entire TypeScri
 
 ## Prerequisites and intended learners
 
-No previous programming experience is required. Learners need a computer on which a supported Node.ts release can be installed, a keyboard-accessible editor, and a terminal. Basic keyboard and file-management skills are useful. Screen-reader proficiency can develop alongside programming.
+No previous programming experience is required. Learners need a computer on which a supported Node.js release can be installed, a keyboard-accessible editor, and a terminal. Basic keyboard and file-management skills are useful. Screen-reader proficiency can develop alongside programming.
 
 The course is intended primarily for beginning learners, including students using NVDA, JAWS, VoiceOver, Narrator, braille displays, or magnification. The [TypeScript teacher's guide](teachers-guide.md) includes strategies for pacing, asynchronous concepts, accessible debugging, and differentiated instruction.
 
-## Why TypeScript and Node.ts?
+## Why TypeScript and Node.js?
 
-TypeScript connects foundational programming concepts to a large software ecosystem. Node.ts makes it possible to run TypeScript outside a browser, supporting a text-first course.
+TypeScript connects foundational programming concepts to a large software ecosystem. Node.js makes it possible to run TypeScript outside a browser, supporting a text-first course.
 
 - Programs can run in a terminal and provide text output.
-- The Node.ts REPL supports short experiments with immediate feedback.
+- The Node.js REPL supports short experiments with immediate feedback.
 - The same language can later be used for accessible web applications and server-side programs.
 - Learners can encounter real-world concepts such as asynchronous operations and modules in a controlled sequence.
 
@@ -46,9 +46,9 @@ TypeScript also has behaviors that require explicit teaching. Dynamic typing and
 
 | Unit | Main topics | Evidence of progress |
 | --- | --- | --- |
-| 0. Environment setup | Node.ts, editor setup, terminal, first file, REPL | Verify Node.ts and run a script |
+| 0. Environment setup | Node.js, editor setup, terminal, first file, REPL | Verify Node.js and run a script |
 | 1. Foundations | Computer science, TypeScript role, variables, output, values and types | Explain a simple script and its values |
-| 2. Numbers and input | Math operations, Node.ts input, conversion, and validation | Build an interactive terminal calculation |
+| 2. Numbers and input | Math operations, Node.js input, conversion, and validation | Build an interactive terminal calculation |
 | 3. Control flow | Boolean logic, conditionals, loops, truthy/falsy behavior | Predict and control program paths |
 | 4. Arrays and objects | Collections, indexed data, properties, and iteration | Organize and process related data |
 | 5. Strings | String methods, formatting, and introductory pattern matching | Process and validate text |
@@ -71,7 +71,7 @@ Return to the [curriculum overview](../OVERALL_README.md) to compare Python, Typ
 
 ## Runtime version and modern TypeScript conventions
 
-Use **Node.ts 26.13.0 LTS** (the current LTS release as of October 30, 2026) for the course. Node.ts 24 is also in LTS maintenance, but new installations should use the current 26.x LTS line. Keep examples compatible with the Node.ts 26 LTS runtime and use the latest security/maintenance patch in that line. Check the [official Node.ts release schedule](https://nodejs.org/en/about/previous-releases) before installing or upgrading.
+Use **Node.js 26.13.0 LTS** (the current LTS release as of October 30, 2026) for the course. Node.js 24 is also in LTS maintenance, but new installations should use the current 26.x LTS line. Keep examples compatible with the Node.js 26 LTS runtime and use the latest security/maintenance patch in that line. Check the [official Node.js release schedule](https://nodejs.org/en/about/previous-releases) before installing or upgrading.
 
 The course follows modern TypeScript practices:
 
@@ -94,9 +94,9 @@ TypeScript is safer in important ways, but it is not a proof of correctness. Typ
 
 Use **Node.js 26.13.0 LTS** (current LTS as of October 30, 2026) and the current stable TypeScript compiler, **7.0.2**. TypeScript is a compile-time language layer: Node.js runs the JavaScript output, not TypeScript source in the ordinary compiled workflow.
 
-Follow Unit 0 for detailed installation and verification. For a new setup, use a currently supported Node.ts Long-Term Support (LTS) release unless course materials specify a different compatible version. Check the official [Node.ts download page](https://nodejs.org/en/download) rather than relying on an old version number.
+Follow Unit 0 for detailed installation and verification. For a new setup, use a currently supported Node.js Long-Term Support (LTS) release unless course materials specify a different compatible version. Check the official [Node.js download page](https://nodejs.org/en/download) rather than relying on an old version number.
 
-Recommended tools include Node.ts and npm, Visual Studio Code or another keyboard-accessible editor, a terminal, and the learner's preferred access technology. Use project-local package configuration. Explain each third-party dependency and review its provenance and maintenance before adding it.
+Recommended tools include Node.js and npm, Visual Studio Code or another keyboard-accessible editor, a terminal, and the learner's preferred access technology. Use project-local package configuration. Explain each third-party dependency and review its provenance and maintenance before adding it.
 
 Typical verification commands:
 
@@ -107,7 +107,7 @@ npm --version
 node
 ```
 
-At the Node.ts prompt, enter a short expression and read the returned value. Use `.exit` or the documented keyboard command to leave the REPL.
+At the Node.js prompt, enter a short expression and read the returned value. Use `.exit` or the documented keyboard command to leave the REPL.
 
 ## TypeScript conventions
 
@@ -131,7 +131,7 @@ Accessibility is not guaranteed merely because an application prints text. Consi
 1. Read the lesson overview and identify the new language features.
 2. Read each example structurally. Identify blocks, expressions, function calls, and data values.
 3. Predict output and note assumptions about types or coercion.
-4. Run the example in Node.ts and compare actual and expected results.
+4. Run the example in Node.js and compare actual and expected results.
 5. Change one variable or expression and observe behavior.
 6. Complete the exercises and record questions.
 7. When a result is unexpected, inspect the value and its type, then trace the relevant control flow.
@@ -148,13 +148,13 @@ The capstone should include a written problem statement, requirements, input/out
 
 ## Teaching with AI
 
-AI tools may offer explanations, sample test cases, or help interpreting a diagnostic. They may also invent APIs, misunderstand Node.ts module mode, mix CommonJS and ES module syntax, omit `await`, mishandle errors, or recommend untrusted npm packages. Treat suggestions as unverified drafts.
+AI tools may offer explanations, sample test cases, or help interpreting a diagnostic. They may also invent APIs, misunderstand Node.js module mode, mix CommonJS and ES module syntax, omit `await`, mishandle errors, or recommend untrusted npm packages. Treat suggestions as unverified drafts.
 
 Follow the instructor's policy. Students must disclose AI assistance where required and explain, test, and modify all code they submit. Never enter personal information, student records, credentials, private code, or confidential data into public AI services. AI should not replace independent work in assessments intended to measure individual skills. The [teacher's guide](teachers-guide.md) provides a detailed classroom protocol.
 
 ## Further learning
 
-Use [MDN's TypeScript Guide](https://developer.mozilla.org/en-US/docs/Web/TypeScript/Guide) for language concepts and the [Node.ts documentation](https://nodejs.org/docs/) for runtime APIs. [Eloquent TypeScript](https://eloquenttypescript.net/) is a further introductory text. Check version-specific documentation when examples depend on newer features.
+Use [MDN's TypeScript Guide](https://developer.mozilla.org/en-US/docs/Web/TypeScript/Guide) for language concepts and the [Node.js documentation](https://nodejs.org/docs/) for runtime APIs. [Eloquent TypeScript](https://eloquenttypescript.net/) is a further introductory text. Check version-specific documentation when examples depend on newer features.
 
 ---
 
