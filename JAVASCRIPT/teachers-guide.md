@@ -1349,6 +1349,11 @@ module.exports = { askQuestion, askNumber, close };
 
 AI coding assistants can provide explanations, hints, test ideas, and alternative examples. They can also produce incorrect JavaScript, misunderstand Node.js module configuration, recommend untrusted npm packages, or conceal asynchronous behavior. Treat every response as an unverified proposal. The course must remain accessible without paid AI access or a personal account.
 
+### Instructor use of AI during preparation
+
+Instructors may use approved AI tools to brainstorm examples, draft alternative explanations, propose test inputs, or identify likely misconceptions. The instructor remains accountable for accuracy and pedagogy. Verify every API and language claim against the target Node.js release and MDN or Node.js documentation; run examples and tests; review package recommendations; and test the learning workflow with the intended access technology. Never upload identifiable student work, accommodation plans, credentials, assessment answers, or confidential school information. Do not use AI-generated feedback as the sole basis for grading. Disclose substantive AI assistance when institutional policy or the publication process requires it.
+
+
 ### Learning goals and appropriate uses
 
 Students should describe the limitations of code generation, ask focused questions, verify JavaScript behavior using the runtime and official documentation, identify generated code beyond their current level, and disclose assistance when required. When permitted, AI may explain a diagnostic, rephrase a concept, suggest edge cases, critique an algorithm, or generate test inputs. Prefer hint-based prompts and have the learner describe their own understanding first.

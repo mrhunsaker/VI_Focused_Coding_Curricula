@@ -1116,6 +1116,11 @@ Traditional programming assessments (written tests, timed coding) create unneces
 
 AI-assisted coding is an optional source of explanation and critique, not an authority, substitute teacher, or replacement for learning to program. The course should remain fully teachable without paid AI access or a student account.
 
+### Instructor use of AI during preparation
+
+An instructor may use an approved AI tool to brainstorm alternative explanations, generate draft practice inputs, propose misconceptions, or review a lesson outline. The instructor remains responsible for the content. Verify every technical statement against the target Python version and official documentation; execute code examples and tests; inspect accessibility with the intended tools; and check references, licensing, bias, and reading level. Never upload identifiable student work, accommodation plans, assessment answers, or confidential school material. Do not use AI-generated feedback as the sole basis for grading or placement. Keep a record of substantive AI assistance when institutional policy or the publication process requires it.
+
+
 ### Learning outcomes
 
 Students should be able to explain what an AI coding assistant can and cannot reliably do; write a bounded prompt without exposing private information; verify generated explanations and code against documentation, tests, and course concepts; identify code they cannot understand or navigate; and disclose assistance when required.

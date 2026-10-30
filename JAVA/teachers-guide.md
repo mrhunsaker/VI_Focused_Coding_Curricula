@@ -1034,6 +1034,11 @@ System.out.println("Error: Name field cannot be empty. Please try again.");
 
 AI coding assistants can explain compiler messages, offer hints, compare designs, or suggest test cases. They can also invent Java APIs, use language features unsupported by the configured JDK, omit imports, produce incompatible types, mishandle exceptions, or create unnecessary class hierarchies. Treat generated answers as unverified drafts. The course must remain teachable without paid AI access or a personal account.
 
+### Instructor use of AI during preparation
+
+Instructors may use approved AI tools to brainstorm examples, draft alternate explanations, suggest test cases, or identify likely misconceptions. The instructor remains accountable for correctness and accessibility. Verify APIs and language features against the target JDK and official Java documentation; compile and test examples; inspect dependencies and build instructions; and test the workflow with the intended access technology. Never upload identifiable student work, accommodation plans, credentials, assessment answers, or confidential school information. Do not use AI-generated feedback as the sole basis for grading. Disclose substantive AI assistance when institutional policy or the publication process requires it.
+
+
 ### Learning goals and appropriate uses
 
 Students should explain that generated responses can be plausible and incorrect, ask focused questions, verify claims against official Java documentation and compiler feedback, identify unfamiliar APIs and dependencies, review code for accessibility and security, and disclose assistance when required. When permitted, AI may explain a diagnostic, ask guiding questions, rephrase a concept, suggest tests, or critique a proposed class design.
