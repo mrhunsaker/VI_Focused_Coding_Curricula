@@ -163,7 +163,7 @@
     {
       "id": 3,
       "name": "GitHub Pages automation",
-      "status": "completed",
+      "status": "completed_with_manual_pages_setup_required",
       "tasks": [
         "Add .github/workflows/mdbook.yml.",
         "Install mdBook, build, upload Pages artifact, and deploy on pushes to main.",
@@ -175,7 +175,8 @@
         "Workflow uses least-privilege contents: read, pages: write, and id-token: write permissions.",
         "The repository metadata currently reports has_pages=false. The workflow invokes actions/configure-pages@v5 with enablement: true to enable Pages for this public repository on its first run.",
         "Project base URL is configured as /VI_Focused_Coding_Curricula/ in book.toml.",
-        "Workflow execution and published URL must be verified in step 4."
+        "Workflow execution and published URL must be verified in step 4.",
+        "First workflow run (41072285741) failed at Configure GitHub Pages: GitHub rejected site creation with 'Resource not accessible by integration'. The GITHUB_TOKEN has pages: write but cannot create the Pages site for this repository; owner must enable Pages manually in repository Settings > Pages with source 'GitHub Actions'."
       ],
       "checkpoint": "Update this JSON and CHANGES.md, then commit the complete step before step 4.",
       "workflow_details": {
@@ -201,36 +202,42 @@
     {
       "id": 4,
       "name": "Build and deployment verification",
-      "status": "pending",
+      "status": "in_progress",
       "tasks": [
         "Run mdbook build and resolve errors without touching reference directory.",
         "Verify navigation, links, and all three curricula.",
         "Inspect Actions deployment run.",
-        "Verify published URL."
+        "Verify published URL.",
+        "Move the mdBook build before the Pages configuration step so the book build can be validated even when the repository Pages setting blocks deployment."
       ],
       "validation": [
-        "Successful build.",
-        "All 17 units accessible through navigation.",
-        "No changes under cs_curriculum_final/.",
-        "Successful Pages deployment and confirmed URL, or documented external blocker."
+        "Workflow run 41072285741 reached the Pages configuration step but failed before mdBook installation/build; logs show GitHub token could not create the Pages site ('Resource not accessible by integration').",
+        "Reorder the workflow so mdBook installation and build run before Pages configuration; the next push will validate the book build independently.",
+        "Owner action required: enable GitHub Pages in repository Settings > Pages and choose 'GitHub Actions' as the build/deployment source.",
+        "After Pages is enabled, rerun the workflow and verify the published project-site URL."
       ],
-      "checkpoint": "Update this JSON and CHANGES.md, commit final verification, and mark completed only when publication checks pass."
+      "checkpoint": "Update this JSON and CHANGES.md, commit final verification, and mark completed only when publication checks pass.",
+      "blocker": {
+        "reason": "GitHub Actions GITHUB_TOKEN cannot create the repository Pages site through actions/configure-pages@v5.",
+        "evidence": "Workflow run 41072285741, job 124119201783. Log: 'Create Pages site failed. Error: Resource not accessible by integration'. Repository API metadata reports has_pages=false.",
+        "required_owner_action": "Repository Settings > Pages > Build and deployment > Source: GitHub Actions. Save, then rerun the Build and deploy mdBook workflow."
+      }
     }
   ],
   "progress": {
-    "current_step": 3,
-    "status": "step_3_completed_deployment_verification_pending",
+    "current_step": 4,
+    "status": "step_4_in_progress_manual_pages_setup_required",
     "completed_steps": [
       0,
       1,
       2,
       3
     ],
-    "next_step": "Begin step 4: inspect the workflow run, verify mdBook build and Pages deployment, and confirm the published site URL.",
-    "last_commit": "2be38ddc08fa67563840b45bddc2fb88c5de32dc",
-    "last_validation": "Workflow YAML authored for push/manual deployment, with least-privilege permissions and Pages auto-enablement. Repo metadata showed Pages disabled before workflow execution; deployment verification remains outstanding.",
+    "next_step": "Validate mdBook build with the reordered workflow. The repository owner must enable Pages using Settings > Pages > Source: GitHub Actions, then rerun the workflow to complete publication.",
+    "last_commit": "e1972d6355011a3c6ee7039d6fb3cfe21343a766",
+    "last_validation": "Workflow run 41072285741 failed at Pages site creation due GITHUB_TOKEN permission limits; mdBook build was skipped. Workflow will be reordered so build runs before Pages configuration.",
     "updated_at": "2026-10-30",
-    "current_step_commit": "step 3 workflow commit will be recorded in the next checkpoint"
+    "current_step_commit": null
   },
   "future_llm_instructions": [
     "Read this JSON and CHANGES.md before every task; fetch current main and verify latest commits before acting.",

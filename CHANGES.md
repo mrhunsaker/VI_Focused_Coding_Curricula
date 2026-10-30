@@ -37,3 +37,12 @@ All implementation changes are recorded here. Each numbered step is committed se
 - Uses project-site base URL `/VI_Focused_Coding_Curricula/` from `book.toml`.
 - Workflow run and live URL verification are pending step 4.
 - Step 3 workflow commit SHA will be recorded after the commit succeeds.
+
+## 2026-10-30 — Step 4: Build and deployment verification
+
+- Inspected workflow run [41072285741](https://github.com/mrhunsaker/VI_Focused_Coding_Curricula/actions/runs/41072285741).
+- Checkout succeeded. The `Configure GitHub Pages` step failed before mdBook installation/build.
+- Runner log evidence: `Create Pages site failed. Error: Resource not accessible by integration`. The repository currently reports `has_pages=false`; the workflow's `GITHUB_TOKEN` cannot create the Pages site.
+- Required owner action: open repository **Settings → Pages**, set **Build and deployment → Source** to **GitHub Actions**, and save. Then rerun the workflow.
+- Reordered the workflow so mdBook installation and `mdbook build` execute before Pages configuration. This allows build validation to complete even while the Pages setting is awaiting owner action.
+- Step 4 remains in progress until a successful build and Pages deployment are verified.
