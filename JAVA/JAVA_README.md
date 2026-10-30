@@ -116,6 +116,10 @@ AI assistants may explain compiler messages, suggest test cases, compare method 
 
 Follow the instructor's policy. Students must disclose AI assistance where required and explain, test, and modify every submitted line. Do not share student records, credentials, private source code, or confidential data with public AI services. AI must not replace independent work in assessments intended to measure individual skills. The [teacher's guide](teachers-guide.md) contains a fuller protocol.
 
+## Optional post-capstone extension: Kotlin
+
+After completing the Java capstone, learners who want to explore a modern JVM language can continue with the [Kotlin for Java Programmers supplement](kotlin.md). It introduces Kotlin syntax, null safety, concise data classes, collections, Java interoperability, and a practical migration path. This is supplementary material, not a required Java unit.
+
 ## Further learning
 
 Use the official [Java documentation](https://docs.oracle.com/en/java/) and [Java Language Specification](https://docs.oracle.com/javase/specs/) as authoritative references. David J. Eck's *Introduction to Programming Using Java* is an additional introductory text at [math.hws.edu/javanotes](https://math.hws.edu/javanotes/).

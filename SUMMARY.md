@@ -23,6 +23,15 @@
   - [Units 9–11: Modules, Collections, and Projects](JAVASCRIPT/unit09-11-modules-collections-projects.md)
   - [Teacher's Guide](JAVASCRIPT/teachers-guide.md)
   
+# TypeScript
+
+- [TypeScript Curriculum](TYPESCRIPT/TYPESCRIPT_README.md)
+  - [Units 0–1: Setup and Foundations](TYPESCRIPT/unit00-01-setup-foundations.md)
+  - [Units 2–4: Input, Control Flow, and Data](TYPESCRIPT/unit02-04-io-control-data.md)
+  - [Units 5–8: Strings, Functions, OOP, and Files](TYPESCRIPT/unit05-08-strings-functions-oop-files.md)
+  - [Units 9–11: Modules, Collections, and Projects](TYPESCRIPT/unit09-11-modules-collections-projects.md)
+  - [Teacher's Guide](TYPESCRIPT/teachers-guide.md)
+
 # Java
 
 - [Java Curriculum](JAVA/JAVA_README.md)

@@ -1,6 +1,6 @@
 # Accessible Introduction to Computer Science
 
-## A living, accessibility-first textbook in Python, JavaScript, and Java
+## A living, accessibility-first textbook in Python, JavaScript, TypeScript, and Java
 
 This book is a structured introduction to programming and core computer science concepts. It is designed with blind and visually impaired learners who use screen readers, braille displays, magnification, keyboard navigation, or combinations of access technologies in mind. It is also intended for sighted beginners, educators, and anyone who benefits from explicit, text-first instruction.
 
@@ -62,6 +62,12 @@ Python is a strong starting point for many beginners because its syntax is compa
 
 JavaScript introduces a widely used language with applications in web and server development. This curriculum uses Node.js so the core learning sequence can be completed in a terminal without requiring browser-based visual work. Learners encounter variables, types and coercion, input, control flow, arrays, objects, strings, functions, asynchronous input patterns, classes, files, modules, collections, tests, and projects.
 
+### TypeScript
+
+[Open the TypeScript curriculum](TYPESCRIPT/TYPESCRIPT_README.md)
+
+TypeScript complements JavaScript with a static type system and a compiler-driven workflow. Its growing use in large JavaScript codebases makes it valuable for learning how explicit types, object contracts, strict null checks, and editor diagnostics can prevent many errors before runtime. TypeScript still compiles to JavaScript and requires runtime validation for untrusted data.
+
 ### Java
 
 [Open the Java curriculum](JAVA/JAVA_README.md)
@@ -70,14 +76,14 @@ Java offers an explicit, statically typed introduction to programming and object
 
 ## Comparing the language paths
 
-| Dimension | Python | JavaScript | Java |
+| Dimension | Python | JavaScript | TypeScript | Java |
 | --- | --- | --- | --- |
-| Typing model | Dynamic | Dynamic, with coercion rules | Static, explicit types |
+| Typing model | Dynamic | Dynamic, with coercion rules | Static, structural, erased at runtime | Static, explicit types |
 | Block structure | Indentation | Braces | Braces |
-| Typical execution | Python interpreter | Node.js | JDK compiler and JVM |
-| Interactive experimentation | Python REPL | Node.js REPL | JShell |
-| Beginner emphasis | Concise syntax and problem solving | Data, control flow, and runtime behavior | Types, program structure, and object-oriented design |
-| Common next steps | Automation, data work, scripting, APIs | Browser programming, web services, tooling | Larger applications, APIs, typed software design |
+| Typical execution | Python interpreter | Node.js | TypeScript compiler, then Node.js/JavaScript runtime | JDK compiler and JVM |
+| Interactive experimentation | Python REPL | Node.js REPL | TypeScript playground/editor plus Node.js REPL for runtime JavaScript | JShell |
+| Beginner emphasis | Concise syntax and problem solving | Data, control flow, and runtime behavior | Explicit contracts, static analysis, and JavaScript interoperability | Types, program structure, and object-oriented design |
+| Common next steps | Automation, data work, scripting, APIs | Browser programming, web services, tooling | Typed web applications, large JavaScript codebases, shared libraries | Larger applications, APIs, typed software design |
 
 This is a practical orientation, not a ranking. No language is universally easiest or best. The suitable starting point depends on learner goals, course context, available tools, and instructor expertise. Core concepts transfer across languages; syntax and runtime behavior do not always transfer directly.
 
@@ -85,11 +91,14 @@ This is a practical orientation, not a ranking. No language is universally easie
 
 - **First programming course:** choose one language and complete its units in order. Python is often a comfortable starting point, but goals or course requirements may make JavaScript or Java the better choice.
 - **Web and interactive application pathway:** start with JavaScript and Node.js, then continue to browser technologies and accessible web development.
+- **Type safety and JavaScript ecosystem:** TypeScript adds static checking to JavaScript and supports incremental adoption in existing projects.
 - **Types and object-oriented design:** Java makes types, classes, compilation, and program structure explicit.
 - **Cross-language comparison:** complete one introductory course first, then study a second language by comparing equivalent concepts rather than learning three syntaxes simultaneously.
 - **Educator-led course:** use the matching teacher's guide alongside the learner units.
 
-Avoid requiring students to learn all three languages at once. Depth in one language provides a stronger foundation for transfer.
+Kotlin is available as an optional [post-capstone supplement for Java learners](JAVA/kotlin.md); it is not a required core curriculum.
+
+Avoid requiring students to learn all four curricula at once. Depth in one language provides a stronger foundation for transfer.
 
 ## How the curriculum is organized
 
@@ -99,6 +108,7 @@ Each language has an opening page, a sequence of unit documents, and a teacher's
 | --- | --- | --- |
 | Python | [Python overview and units](PYTHON/PYTHON_README.md) | [Python teacher's guide](PYTHON/teachers-guide.md) |
 | JavaScript | [JavaScript overview and units](JAVASCRIPT/JAVASCRIPT_README.md) | [JavaScript teacher's guide](JAVASCRIPT/teachers-guide.md) |
+| TypeScript | [TypeScript overview and units](TYPESCRIPT/TYPESCRIPT_README.md) | [TypeScript teacher's guide](TYPESCRIPT/teachers-guide.md) |
 | Java | [Java overview and units](JAVA/JAVA_README.md) | [Java teacher's guide](JAVA/teachers-guide.md) |
 
 ## A practical study routine
@@ -170,7 +180,7 @@ Read [CONTRIBUTING.md](CONTRIBUTING.md), follow [CODE_STYLE.md](CODE_STYLE.md), 
 
 ## References and acknowledgments
 
-The curriculum draws on established introductory programming texts and official language documentation, including *Python Crash Course* by Eric Matthes, *Python Programming: An Introduction to Computer Science* by John Zelle, *Introduction to Programming Using Java* by David J. Eck, MDN Web Docs, and official Python, Node.js, and Java documentation. Language-specific pages and lessons provide further references.
+The curriculum draws on established introductory programming texts and official language documentation, including *Python Crash Course* by Eric Matthes, *Python Programming: An Introduction to Computer Science* by John Zelle, *Introduction to Programming Using Java* by David J. Eck, MDN Web Docs, and official Python, Node.js, TypeScript, and Java documentation. Language-specific pages and lessons provide further references.
 
 Use official documentation to confirm version-sensitive installation and API details. External resources may change or have different accessibility characteristics over time; evaluate them in the learner's actual environment.
 
