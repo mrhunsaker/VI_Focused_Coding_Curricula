@@ -15,3 +15,15 @@ All implementation changes are recorded here. Each numbered step is committed se
 - Added this change log and ignored generated mdBook output.
 - Validation: parsed convert_to_mdbook.json; confirmed all 19 Markdown targets in SUMMARY.md resolve to tracked files; reviewed the commit diff and confirmed no changes under cs_curriculum_final/. mdBook executable build is deferred to CI/final verification.
 - Implementation commit: `7bfa28d7043bd94ac1fc1101c7832b2a90f27107`.
+
+## 2026-10-30 — Step 2: Curriculum navigation and compatibility review
+
+- Reviewed all 15 existing unit Markdown files: Python 7, JavaScript 4, and Java 4.
+- Confirmed all 15 unit pages are included in `SUMMARY.md`; all 19 navigation targets resolve to tracked Markdown files.
+- Checked fenced code blocks: 262 code blocks across the 15 unit files, with balanced opening and closing fence markers in every file.
+- Reviewed Markdown links. Existing unit-page links are external references; no broken relative links were found. The Python landing page's relative links resolve.
+- Retained grouped multi-unit files in their original form. No lesson-content edits or wording changes were necessary.
+- Confirmed no changed path is under `cs_curriculum_final/`.
+- mdBook executable build is deferred to CI/final verification because mdBook is not installed in the available execution environment.
+- Validation correction: the repository contains 15 unit files (Python 7, JavaScript 4, Java 4), not 17. The plan's validation counts have been corrected.
+- Step 2 review completed; checkpoint commit SHA will be recorded after the commit succeeds.
