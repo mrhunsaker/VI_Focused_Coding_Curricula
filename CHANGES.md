@@ -92,3 +92,11 @@ All implementation changes are recorded here. Each numbered step is committed se
 - No files under `cs_curriculum_final/` were modified.
 - Implementation commits: `eef517751d763025ae183e2d7c0561e2b1a44dd2`, `53a94aa9e415f5bec788ab8648f21461a9088a0d`, and `615fcf5b5472a22663366d4b720e96b89a98817c`.
 - mdBook CI and live-site smoke testing are pending; do not mark publication verification complete until the current workflow succeeds and the rendered site is checked.
+
+## 2026-10-30 — Step 7: mdBook build and Pages deployment after curriculum expansion
+
+- GitHub Actions run [41080845202](https://github.com/mrhunsaker/VI_Focused_Coding_Curricula/actions/runs/41080845202) completed successfully for commit `ec51d5b99f998493979ae3c5a9f03b38efd16376`.
+- mdBook installation and `mdbook build` succeeded; GitHub Pages configuration, artifact upload, and deployment also succeeded.
+- Published target: [Accessible Introduction to Computer Science](https://mrhunsaker.github.io/VI_Focused_Coding_Curricula/).
+- The available web viewer could not independently retrieve the published URL. This is a limitation of that viewer, not evidence that the website is unavailable. A normal-browser smoke test of the overview, three language pages, 15 unit pages, three teacher guides, and representative internal links remains outstanding.
+- Updated `convert_to_mdbook.json` to mark the content expansion and build/deployment validation complete while keeping live-site browser verification explicitly pending.

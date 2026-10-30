@@ -265,31 +265,50 @@
         "Teacher guides remain included in SUMMARY.md; no navigation changes were necessary.",
         "Markdown fenced-code markers are balanced in all three teacher guides.",
         "The only apparent relative-link issue in Python teacher guide was a Markdown-looking placeholder inside a fenced example, not a real link.",
-        "No paths under cs_curriculum_final/ were modified."
+        "No paths under cs_curriculum_final/ were modified.",
+        "GitHub Actions run 41080845202 completed successfully for the current content and progress commit: mdbook build, Pages configuration, artifact upload, and deployment all succeeded."
       ],
       "checkpoint": "Commit all curriculum and teacher-guide revisions together with CHANGES.md and this progress record."
+    },
+    {
+      "id": 7,
+      "name": "Build and deployment validation after curriculum expansion",
+      "status": "completed",
+      "tasks": [
+        "Build the revised mdBook content using GitHub Actions.",
+        "Confirm Pages configuration, artifact upload, and deployment for the revised textbook.",
+        "Attempt independent retrieval of the published site and record limitations."
+      ],
+      "validation": [
+        "Workflow run 41080845202 for commit ec51d5b99f998493979ae3c5a9f03b38efd16376 completed successfully.",
+        "mdBook installation and mdbook build succeeded.",
+        "GitHub Pages configuration, Pages artifact upload, and deployment all succeeded.",
+        "The intended published URL is https://mrhunsaker.github.io/VI_Focused_Coding_Curricula/.",
+        "Independent browser retrieval through the available web viewer was unsuccessful (URL reported not accessible to that viewer); this is not evidence that the site is unavailable. Final rendered-page smoke test remains pending."
+      ],
+      "checkpoint": "Record successful build and deployment in CHANGES.md and this progress file. Keep the separate live-site browser smoke test pending."
     }
   ],
   "progress": {
-    "current_step": 7,
-    "status": "step_6_completed_mdbook_build_and_deployment_validation_pending",
+    "current_step": 4,
+    "status": "deployment_succeeded_live_site_browser_smoke_test_pending",
     "completed_steps": [
       0,
       1,
       2,
       3,
       5,
-      6
-    ],
-    "pending_steps": [
-      4,
+      6,
       7
     ],
-    "next_step": "Verify the current GitHub Actions build for the expanded content. Confirm mdbook build succeeds, then perform a browser smoke test of the published overview, all three language landing pages, all 15 unit pages, and all three teacher guides. Keep step 4 marked pending until the live site is independently verified.",
-    "last_commit": "615fcf5b5472a22663366d4b720e96b89a98817c",
-    "last_validation": "Step 6 content expansion is committed in curriculum commit eef517751d763025ae183e2d7c0561e2b1a44dd2, teacher-guide commit 53a94aa9e415f5bec788ab8648f21461a9088a0d, and AI instructor guidance commit 615fcf5b5472a22663366d4b720e96b89a98817c. Local-link and balanced-code-fence checks passed for the changed content; GitHub Actions build is pending.",
+    "pending_steps": [
+      4
+    ],
+    "next_step": "Open the published site in a normal browser and verify the overview, Python/JavaScript/Java landing pages, all 15 unit pages, and all three teacher guides. Check representative internal navigation and links. Then record the result and mark step 4 complete.",
+    "last_commit": "ec51d5b99f998493979ae3c5a9f03b38efd16376",
+    "last_validation": "GitHub Actions run 41080845202 completed successfully for commit ec51d5b99f998493979ae3c5a9f03b38efd16376: mdbook build, Pages configuration, artifact upload, and deploy all succeeded. Automated web-viewer retrieval of the site was unavailable, so rendered-page smoke testing remains outstanding.",
     "updated_at": "2026-10-30",
-    "current_step_commit": "615fcf5b5472a22663366d4b720e96b89a98817c"
+    "current_step_commit": "ec51d5b99f998493979ae3c5a9f03b38efd16376"
   },
   "future_llm_instructions": [
     "Read this JSON and CHANGES.md before every task; fetch current main and verify latest commits before acting.",
@@ -365,6 +384,14 @@
         "615fcf5b5472a22663366d4b720e96b89a98817c"
       ],
       "status": "content revisions complete; mdBook validation pending"
+    },
+    {
+      "step": 7,
+      "name": "Build and deployment validation after curriculum expansion",
+      "workflow_run": "https://github.com/mrhunsaker/VI_Focused_Coding_Curricula/actions/runs/41080845202",
+      "head_commit": "ec51d5b99f998493979ae3c5a9f03b38efd16376",
+      "conclusion": "success",
+      "status": "build and deployment succeeded; browser smoke test pending"
     }
   ]
 }
