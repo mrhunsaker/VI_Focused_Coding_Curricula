@@ -68,3 +68,14 @@ All implementation changes are recorded here. Each numbered step is committed se
 - Intended site URL: https://mrhunsaker.github.io/VI_Focused_Coding_Curricula/.
 - Live-site HTTP/rendered-page verification is not yet independently confirmed in this environment. Final smoke test remains: load the home page, traverse Python/JavaScript/Java navigation, inspect all 15 unit pages, and test internal links.
 - Project status: deployment succeeded; final browser verification pending.
+
+## 2026-10-30 — Step 5: Project README and community governance
+
+- Added a comprehensive root `README.md` defining the project as an accessibility-first, evolving introductory computer science textbook for Python, JavaScript, and Java.
+- Explicitly documented that the published textbook is built with **mdBook, not GitBook**; repository Markdown is the source of truth and GitHub Pages hosts the generated book.
+- Documented the audience, accessibility principles, curriculum coverage, local mdBook build, repository structure, and contribution pathways through GitHub Discussions, Issues, and Pull Requests.
+- Added repository-specific shields.io badges for Apache 2.0 licensing, top language, documentation, last commit, releases, contributors, welcome PRs, and GitHub Actions build status.
+- Added `CODE_OF_CONDUCT.md`, `CONTRIBUTING.md`, `CODE_STYLE.md`, `SECURITY.md`, and the Apache 2.0 license notice in `LICENSE`.
+- Updated `convert_to_mdbook.json` with step 5 scope and validation. The outstanding live-site browser smoke test from step 4 remains pending and is not represented as complete.
+- Validation: reviewed badge targets and internal links; confirmed README is separate from mdBook navigation in `SUMMARY.md`; no curriculum source files or paths under `cs_curriculum_final/` were changed.
+- Commit checkpoint: recorded in `convert_to_mdbook.json` after successful commit.

@@ -226,22 +226,41 @@
         "evidence": "Workflow run 41072733650, attempt 2, conclusion success; deploy job 124123160228 completed successfully, including Configure GitHub Pages, Upload Pages artifact, and Deploy to GitHub Pages.",
         "required_owner_action": "Open the published URL in a browser and confirm the landing page and navigation render correctly; report any broken links or rendering errors."
       }
+    },
+    {
+      "id": 5,
+      "name": "Project README and community governance",
+      "status": "completed",
+      "tasks": [
+        "Add a comprehensive project README defining the accessible introductory computer science living textbook and mdBook (not GitBook) publishing model.",
+        "Add Apache License 2.0, Code of Conduct, contribution guide, code/editorial style guide, and security reporting policy.",
+        "Adapt requested shields.io badges to this repository and include a GitHub Actions build badge.",
+        "Record changes and validation in CHANGES.md and commit the step."
+      ],
+      "validation": [
+        "README covers purpose, audience, three language curricula, accessibility, mdBook architecture, local build, hosting, project structure, and community participation via Discussions, Issues, and Pull Requests.",
+        "Added README.md, CODE_OF_CONDUCT.md, CONTRIBUTING.md, CODE_STYLE.md, SECURITY.md, and LICENSE.",
+        "All badges target VI_Focused_Coding_Curricula and the configured GitHub Pages URL, not the RB_SWITCH example.",
+        "No curriculum lesson files or paths under cs_curriculum_final/ were modified.",
+        "Live-site browser smoke test from step 4 remains pending."
+      ],
+      "checkpoint": "Commit project documentation and progress records; verify the resulting main branch SHA."
     }
   ],
   "progress": {
-    "current_step": 4,
-    "status": "deployment_succeeded_live_site_verification_pending",
+    "current_step": 5,
+    "status": "step_5_completed_step_4_live_site_verification_pending",
     "completed_steps": [
       0,
       1,
       2,
       3
     ],
-    "next_step": "Perform a browser smoke test of https://mrhunsaker.github.io/VI_Focused_Coding_Curricula/; confirm the landing page, three language sections, 15 unit pages, and internal links. Then record results and commit the final completion checkpoint.",
-    "last_commit": "15bd88b35c70aea908b025758e2b6b2b4aa03185",
-    "last_validation": "Workflow run 41072733650 attempt 2 completed successfully. mdBook installation/build, Pages configuration, artifact upload, and Pages deployment all succeeded. Live-site browser smoke test remains outstanding.",
+    "next_step": "Perform the outstanding browser smoke test of the deployed mdBook URL. Confirm the overview, Python/JavaScript/Java sections, all 15 unit pages, and internal links; then record the result in CHANGES.md and convert_to_mdbook.json.",
+    "last_commit": "cea489933bb9036a95236b7dab508624e4722ec8",
+    "last_validation": "Step 5 project documentation added. GitHub Actions run 41072733650 attempt 2 previously built and deployed the mdBook successfully; live browser verification remains pending.",
     "updated_at": "2026-10-30",
-    "current_step_commit": "15bd88b35c70aea908b025758e2b6b2b4aa03185"
+    "current_step_commit": "cea489933bb9036a95236b7dab508624e4722ec8"
   },
   "future_llm_instructions": [
     "Read this JSON and CHANGES.md before every task; fetch current main and verify latest commits before acting.",
@@ -251,7 +270,9 @@
     "Commit implementation files, CHANGES.md, and this updated JSON together as one step checkpoint.",
     "Wait for successful commit and verify its SHA before proceeding.",
     "Inspect changed paths before commit and reject every change under cs_curriculum_final/.",
-    "Do not claim publication until the Pages workflow succeeds and the target URL is verified."
+    "Do not claim publication until the Pages workflow succeeds and the target URL is verified.",
+    "Keep project README badges pointed at this repository and its deployed mdBook, not example repositories.",
+    "README.md is repository-facing project documentation and is not a chapter in SUMMARY.md; OVERALL_README.md remains the mdBook curriculum overview."
   ],
   "instructions_for_commit_sha": "A commit cannot include its own SHA. When creating a later checkpoint, record the immediately preceding verified checkpoint SHA in progress.last_commit.",
   "commit_history": [
@@ -290,6 +311,11 @@
       "conclusion": "success",
       "deployment_job": "124123160228",
       "status": "deployment succeeded; live-site smoke test pending"
+    },
+    {
+      "step": 5,
+      "name": "Project README and community governance",
+      "status": "completed"
     }
   ]
 }
