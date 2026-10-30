@@ -188,6 +188,18 @@ python3 --version
 pip list
 ```
 
+**Windows PowerShell (Windows 11):**
+
+```powershell
+# Create environment with a consistent name the student will always type
+py -3 -m venv .venv
+# Activation --- save this as a text file the student can open and copy from
+.\.venv\Scripts\Activate.ps1
+# Verify with a spoken command
+py -3 --version
+py -3 -m pip list
+```
+
 Consider creating a startup script (`start.bat` on Windows, `start.sh` on macOS/Linux) that activates the environment and opens VS Code. Students can run one command to get their environment ready, reducing setup cognitive load.
 
 ---
@@ -1374,12 +1386,26 @@ Python 3 is often pre-installed. Verify in a terminal:
 python3 --version
 ```
 
+**Windows PowerShell (Windows 11):**
+
+```powershell
+py -3 --version
+```
+
 If not installed (Debian/Ubuntu):
 
 ```bash
 sudo apt update
 sudo apt install python3
 sudo apt install python3-pip
+```
+
+**Windows PowerShell (Windows 11):**
+
+```powershell
+# Windows uses winget; no apt package-index update is needed.
+winget install --id Python.Python.3.12 -e
+winget install --id Python.Python.3.12 -e
 ```
 
 ### Verifying Python Installation
@@ -1390,10 +1416,22 @@ Open a terminal and type:
 python3 --version
 ```
 
+**Windows PowerShell (Windows 11):**
+
+```powershell
+py -3 --version
+```
+
 You should hear the version number (e.g., "Python 3.10.12"). Also check pip:
 
 ```bash
 pip3 --version
+```
+
+**Windows PowerShell (Windows 11):**
+
+```powershell
+py -3 -m pip --version
 ```
 
 ### Installing Visual Studio Code
@@ -1417,9 +1455,22 @@ cd Downloads
 sudo dpkg -i code_*.deb
 ```
 
+**Windows PowerShell (Windows 11):**
+
+```powershell
+Set-Location "$HOME\Downloads"
+winget install --id Microsoft.VisualStudioCode -e
+```
+
 ### Verify VS Code
 
 ```bash
+code --version
+```
+
+**Windows PowerShell (Windows 11):**
+
+```powershell
 code --version
 ```
 
@@ -1523,6 +1574,12 @@ VoiceOver generally handles indentation well by default, announcing "4 spaces" o
 code .
 ```
 
+**Windows PowerShell (Windows 11):**
+
+```powershell
+code .
+```
+
 **Method 2:** In VS Code, press `Ctrl + K, Ctrl + O` to "Open Folder".
 
 ### VS Code Navigation Shortcuts
@@ -1579,6 +1636,13 @@ cd ~/Documents/PythonProjects
 python3 hello.py
 ```
 
+**Windows PowerShell (Windows 11):**
+
+```powershell
+Set-Location "$HOME\Documents\PythonProjects"
+py -3 hello.py
+```
+
 **From VS Code Integrated Terminal:**
 
 1. Open terminal: `Ctrl + \``
@@ -1595,6 +1659,12 @@ Virtual environments keep project dependencies separate, preventing conflicts.
 python3 -m venv .venv
 ```
 
+**Windows PowerShell (Windows 11):**
+
+```powershell
+py -3 -m venv .venv
+```
+
 **Activate:**
 
 - Windows (Command Prompt): `.venv\Scripts\activate.bat`
@@ -1609,6 +1679,12 @@ You will hear `(.venv)` at the beginning of your prompt when active.
 deactivate
 ```
 
+**Windows PowerShell (Windows 11):**
+
+```powershell
+deactivate
+```
+
 **Select Interpreter in VS Code:**
 
 1. Press `Ctrl + Shift + P`.
@@ -1620,6 +1696,13 @@ deactivate
 ```bash
 pip install requests
 pip list
+```
+
+**Windows PowerShell (Windows 11):**
+
+```powershell
+py -3 -m pip install requests
+py -3 -m pip list
 ```
 
 ### Skills Checklist
@@ -4225,6 +4308,12 @@ Students will develop a fully functional, screen-reader-accessible graphical app
 pip install nicegui
 ```
 
+**Windows PowerShell (Windows 11):**
+
+```powershell
+py -3 -m pip install nicegui
+```
+
 ---
 
 ## Guided Implementation
@@ -4373,6 +4462,17 @@ git commit -m "Add feature" # Save a snapshot
 git log                     # View history
 git diff                    # See what changed
 git checkout -- file.py     # Discard changes to a file
+```
+
+**Windows PowerShell (Windows 11):**
+
+```powershell
+git init                    # Initialize a repository
+git add .                   # Stage all changes
+git commit -m "Add feature" # Save a snapshot
+git log                     # View history
+git diff                    # See what changed
+git restore -- file.py     # Discard changes to a file
 ```
 
 
@@ -4607,6 +4707,14 @@ node                      # Start REPL
 .exit                     # Quit (or Ctrl+D)
 ```
 
+**Windows PowerShell (Windows 11):**
+
+```powershell
+node                      # Start REPL
+.help                     # List REPL commands
+.exit                     # Quit (or Ctrl+D)
+```
+
 The Node.js REPL is excellent for early exploration. Results are printed immediately after each expression, providing audio feedback without the compile-run-read cycle.
 
 ### Alternative JavaScript Environments
@@ -4684,6 +4792,14 @@ npm --version     # Should print a version number
 npx --version     # Should print a version number (npx is bundled with npm)
 ```
 
+**Windows PowerShell (Windows 11):**
+
+```powershell
+node --version    # Should print v18.x.x or later
+npm --version     # Should print a version number
+npx --version     # Should print a version number (npx is bundled with npm)
+```
+
 All three must work. If `npm` is missing, the student may have installed only the Node.js runtime without npm. Reinstall from nodejs.org (npm is included in the standard installer).
 
 **REPL first --- files second:**
@@ -4708,6 +4824,13 @@ When initializing a project, `npm init -y` generates `package.json` automaticall
 ```bash
 npm init -y
 cat package.json   # or type package.json on Windows
+```
+
+**Windows PowerShell (Windows 11):**
+
+```powershell
+npm init -y
+Get-Content package.json
 ```
 
 `package.json` is plain JSON text --- fully readable with a screen reader. Understanding its structure is important for later lessons about dependencies and scripts.
@@ -5828,9 +5951,23 @@ curl -fsSL https://deb.nodesource.com/setup_18.x | sudo -E bash -
 sudo apt install nodejs
 ```
 
+**Windows PowerShell (Windows 11):**
+
+```powershell
+winget install --id OpenJS.NodeJS.LTS -e
+winget install --id OpenJS.NodeJS.LTS -e
+```
+
 ### Verify Installation
 
 ```bash
+node --version     # Should show v18.x.x or later
+npm --version      # Should show npm version
+```
+
+**Windows PowerShell (Windows 11):**
+
+```powershell
 node --version     # Should show v18.x.x or later
 npm --version      # Should show npm version
 ```
@@ -5880,11 +6017,23 @@ Run it:
 node hello.js
 ```
 
+**Windows PowerShell (Windows 11):**
+
+```powershell
+node hello.js
+```
+
 ### The Node.js REPL
 
 For quick experiments, open an interactive session:
 
 ```bash
+node
+```
+
+**Windows PowerShell (Windows 11):**
+
+```powershell
 node
 ```
 
@@ -7602,6 +7751,13 @@ npm init -y
 npm install --save-dev jest
 ```
 
+**Windows PowerShell (Windows 11):**
+
+```powershell
+npm init -y
+npm install --save-dev jest
+```
+
 Add to `package.json`:
 
 ```json
@@ -7671,6 +7827,12 @@ describe("circleArea function", () => {
 Run tests:
 
 ```bash
+npm test
+```
+
+**Windows PowerShell (Windows 11):**
+
+```powershell
 npm test
 ```
 
@@ -8254,6 +8416,14 @@ Alternative IDEs to consider:
 ### JDK Installation Verification
 
 ```bash
+java --version      # Runtime version
+javac --version     # Compiler version
+jshell              # Start REPL (Ctrl+D or /exit to quit)
+```
+
+**Windows PowerShell (Windows 11):**
+
+```powershell
 java --version      # Runtime version
 javac --version     # Compiler version
 jshell              # Start REPL (Ctrl+D or /exit to quit)
@@ -9067,6 +9237,24 @@ mvn test
 ./gradlew test
 ```
 
+**Windows PowerShell (Windows 11):**
+
+```powershell
+# Compile a single file
+javac HelloWorld.java    # Creates HelloWorld.class
+# Run compiled program
+java HelloWorld          # No .class extension!
+# Compile with output directory
+javac -d bin src/HelloWorld.java
+# Run JShell
+jshell                   # Interactive REPL
+/exit                    # Exit JShell
+# Run tests (if using Maven)
+mvn test
+# Run tests (if using Gradle)
+.\gradlew.bat test
+```
+
 ### Error Type Quick Reference
 
 | Error Type                                                     | Common Cause                                       | First Check                       |
@@ -9182,11 +9370,25 @@ sudo apt update
 sudo apt install openjdk-17-jdk
 ```
 
+**Windows PowerShell (Windows 11):**
+
+```powershell
+# Windows uses winget; no apt package-index update is needed.
+winget install --id EclipseAdoptium.Temurin.17.JDK -e
+```
+
 ### Verify Installation
 
 Open a terminal and run:
 
 ```bash
+java --version
+javac --version
+```
+
+**Windows PowerShell (Windows 11):**
+
+```powershell
 java --version
 javac --version
 ```
@@ -9259,6 +9461,13 @@ public class HelloWorld {
 - Or open the terminal (`Ctrl + \``) and type:
 
 ```bash
+javac HelloWorld.java
+java HelloWorld
+```
+
+**Windows PowerShell (Windows 11):**
+
+```powershell
 javac HelloWorld.java
 java HelloWorld
 ```
