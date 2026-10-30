@@ -163,7 +163,7 @@
     {
       "id": 3,
       "name": "GitHub Pages automation",
-      "status": "completed_with_manual_pages_setup_required",
+      "status": "completed",
       "tasks": [
         "Add .github/workflows/mdbook.yml.",
         "Install mdBook, build, upload Pages artifact, and deploy on pushes to main.",
@@ -176,7 +176,9 @@
         "The repository metadata currently reports has_pages=false. The workflow invokes actions/configure-pages@v5 with enablement: true to enable Pages for this public repository on its first run.",
         "Project base URL is configured as /VI_Focused_Coding_Curricula/ in book.toml.",
         "Workflow execution and published URL must be verified in step 4.",
-        "First workflow run (41072285741) failed at Configure GitHub Pages: GitHub rejected site creation with 'Resource not accessible by integration'. The GITHUB_TOKEN has pages: write but cannot create the Pages site for this repository; owner must enable Pages manually in repository Settings > Pages with source 'GitHub Actions'."
+        "First workflow run (41072285741) failed at Configure GitHub Pages: GitHub rejected site creation with 'Resource not accessible by integration'. The GITHUB_TOKEN has pages: write but cannot create the Pages site for this repository; owner must enable Pages manually in repository Settings > Pages with source 'GitHub Actions'.",
+        "Owner Pages configuration was completed outside the workflow; the retry no longer encounters the previous site-creation permission error.",
+        "Workflow run 41072733650, attempt 2, completed with conclusion success. All seven deploy job steps succeeded: checkout, mdBook install, mdbook build, Pages configuration, Pages artifact upload, and Pages deployment (plus setup/cleanup)."
       ],
       "checkpoint": "Update this JSON and CHANGES.md, then commit the complete step before step 4.",
       "workflow_details": {
@@ -202,7 +204,7 @@
     {
       "id": 4,
       "name": "Build and deployment verification",
-      "status": "blocked_manual_pages_setup_required",
+      "status": "deployment_succeeded_live_site_verification_pending",
       "tasks": [
         "Run mdbook build and resolve errors without touching reference directory.",
         "Verify navigation, links, and all three curricula.",
@@ -211,34 +213,35 @@
         "Move the mdBook build before the Pages configuration step so the book build can be validated even when the repository Pages setting blocks deployment."
       ],
       "validation": [
-        "mdBook v0.5.4 installed successfully in workflow run 41072475503.",
-        "The mdbook build step completed successfully in workflow run 41072475503.",
-        "The Configure GitHub Pages step failed because the repository has no Pages site and GITHUB_TOKEN cannot create it; upload and deployment steps were skipped.",
-        "Repository metadata still reports has_pages=false.",
-        "No live site URL can be confirmed. After the owner sets repository Settings > Pages > Build and deployment > Source to GitHub Actions, rerun the workflow and verify the deployment."
+        "mdBook v0.5.4 installed successfully and mdbook build succeeded in workflow run 41072733650, attempt 2.",
+        "Configure GitHub Pages succeeded.",
+        "Upload Pages artifact succeeded.",
+        "Deploy to GitHub Pages succeeded; workflow run 41072733650 concluded success.",
+        "The intended URL is https://mrhunsaker.github.io/VI_Focused_Coding_Curricula/. Automated page retrieval could not be completed in this environment, so the live page's HTTP response and rendered navigation have not been independently verified.",
+        "The remaining final check is a browser smoke test of the published home page, language navigation, all 15 unit pages, and internal links."
       ],
       "checkpoint": "Update this JSON and CHANGES.md, commit final verification, and mark completed only when publication checks pass.",
       "blocker": {
-        "reason": "The GitHub Actions token cannot create a Pages site for this repository.",
-        "evidence": "Run 41072475503; job 124119849238. mdBook build succeeded; Configure GitHub Pages failed with 'Resource not accessible by integration'. Repository API metadata: has_pages=false.",
-        "required_owner_action": "In https://github.com/mrhunsaker/VI_Focused_Coding_Curricula/settings/pages, set Build and deployment > Source to GitHub Actions and save. Then rerun the 'Build and deploy mdBook' workflow from the Actions tab."
+        "reason": "No remaining workflow/deployment blocker. Live-site browser verification is still outstanding.",
+        "evidence": "Workflow run 41072733650, attempt 2, conclusion success; deploy job 124123160228 completed successfully, including Configure GitHub Pages, Upload Pages artifact, and Deploy to GitHub Pages.",
+        "required_owner_action": "Open the published URL in a browser and confirm the landing page and navigation render correctly; report any broken links or rendering errors."
       }
     }
   ],
   "progress": {
     "current_step": 4,
-    "status": "blocked_waiting_for_manual_pages_setup",
+    "status": "deployment_succeeded_live_site_verification_pending",
     "completed_steps": [
       0,
       1,
       2,
       3
     ],
-    "next_step": "Owner action required: set repository Settings > Pages > Build and deployment > Source to GitHub Actions, save, and rerun the Build and deploy mdBook workflow. Then verify the deployment URL and update this JSON/CHANGES.md.",
-    "last_commit": "80af75ec1c4aa33c6b55b8518de80e4170ec162b",
-    "last_validation": "Workflow run 41072475503 installed mdBook v0.5.4 and completed mdbook build successfully. Pages configuration failed because GITHUB_TOKEN cannot create a Pages site; repository metadata still reports has_pages=false.",
+    "next_step": "Perform a browser smoke test of https://mrhunsaker.github.io/VI_Focused_Coding_Curricula/; confirm the landing page, three language sections, 15 unit pages, and internal links. Then record results and commit the final completion checkpoint.",
+    "last_commit": "15bd88b35c70aea908b025758e2b6b2b4aa03185",
+    "last_validation": "Workflow run 41072733650 attempt 2 completed successfully. mdBook installation/build, Pages configuration, artifact upload, and Pages deployment all succeeded. Live-site browser smoke test remains outstanding.",
     "updated_at": "2026-10-30",
-    "current_step_commit": "80af75ec1c4aa33c6b55b8518de80e4170ec162b"
+    "current_step_commit": "15bd88b35c70aea908b025758e2b6b2b4aa03185"
   },
   "future_llm_instructions": [
     "Read this JSON and CHANGES.md before every task; fetch current main and verify latest commits before acting.",
@@ -278,6 +281,15 @@
       "name": "Build verification and workflow order correction",
       "implementation_commit": "80af75ec1c4aa33c6b55b8518de80e4170ec162b",
       "status": "blocked pending manual Pages enablement"
+    },
+    {
+      "step": 4,
+      "name": "Successful GitHub Pages deployment",
+      "workflow_run": "https://github.com/mrhunsaker/VI_Focused_Coding_Curricula/actions/runs/41072733650",
+      "attempt": 2,
+      "conclusion": "success",
+      "deployment_job": "124123160228",
+      "status": "deployment succeeded; live-site smoke test pending"
     }
   ]
 }

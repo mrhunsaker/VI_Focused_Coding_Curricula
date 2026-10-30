@@ -57,3 +57,14 @@ All implementation changes are recorded here. Each numbered step is committed se
 - Repository metadata still reports `has_pages=false`. The site is not yet published, and its URL has not been verified.
 - **Required owner action:** open [Repository Settings → Pages](https://github.com/mrhunsaker/VI_Focused_Coding_Curricula/settings/pages), set **Build and deployment → Source** to **GitHub Actions**, and save. Then open Actions and rerun **Build and deploy mdBook**.
 - Step 4 is blocked pending that repository-owner setting. The mdBook build itself is verified successful.
+
+
+## 2026-10-30 — Step 4: Successful GitHub Pages deployment
+
+- Reran failed jobs for workflow run [41072733650](https://github.com/mrhunsaker/VI_Focused_Coding_Curricula/actions/runs/41072733650); GitHub accepted retry attempt 2.
+- Attempt 2 completed with overall conclusion **success**. The deploy job (ID `124123160228`) succeeded.
+- Confirmed successful steps: checkout, mdBook v0.5.4 installation, `mdbook build`, GitHub Pages configuration, Pages artifact upload, and deployment to GitHub Pages.
+- The previous `Resource not accessible by integration` Pages-creation blocker is resolved; the retry configured Pages and deployed successfully.
+- Intended site URL: https://mrhunsaker.github.io/VI_Focused_Coding_Curricula/.
+- Live-site HTTP/rendered-page verification is not yet independently confirmed in this environment. Final smoke test remains: load the home page, traverse Python/JavaScript/Java navigation, inspect all 15 unit pages, and test internal links.
+- Project status: deployment succeeded; final browser verification pending.
