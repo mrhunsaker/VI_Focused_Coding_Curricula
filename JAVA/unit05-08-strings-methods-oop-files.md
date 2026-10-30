@@ -465,8 +465,15 @@ This unit covers reading and writing files in Java and handling exceptions.
 ## Lesson 8.1: Reading from Files
 
 ```java
-import java.io.*;
-import java.util.*;
+import java.io.BufferedReader;
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.FileReader;
+import java.io.FileWriter;
+import java.io.IOException;
+import java.io.PrintWriter;
+import java.util.List;
+import java.util.Scanner
 
 public class FileReaderDemo {
     public static void main(String[] args) {
@@ -492,7 +499,7 @@ public class FileReaderDemo {
 
         // Reading all lines into a List
         try {
-            List<String> lines = new java.nio.file.Files.readAllLines(
+            List<String> lines = java.nio.file.Files.readAllLines(
                 java.nio.file.Paths.get("my_notes.txt")
             );
             for (String line : lines) {
@@ -508,7 +515,10 @@ public class FileReaderDemo {
 ### Simpler approach using `java.nio.file`
 
 ```java
-import java.nio.file.*;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
+import java.nio.file.StandardOpenOption;
 import java.io.IOException;
 import java.util.List;
 
@@ -539,8 +549,17 @@ public class ModernFileReader {
 ## Lesson 8.2: Writing to Files
 
 ```java
-import java.io.*;
-import java.nio.file.*;
+import java.io.BufferedReader;
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.FileReader;
+import java.io.FileWriter;
+import java.io.IOException;
+import java.io.PrintWriter;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
+import java.nio.file.StandardOpenOption;
 
 public class FileWriterDemo {
     public static void main(String[] args) {

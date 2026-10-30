@@ -75,7 +75,7 @@ application {
 }
 ```
 
-Place the entry-point file in the project's configured source directory. Gradle wrapper commands are `./gradlew run` on macOS/Linux and `gradlew.bat run` on Windows. Use the wrapper committed with the project so everyone runs the same Gradle version.
+For the Gradle example, create src/main/kotlin/Main.kt with the main function; Gradle derives the JVM entry-point name MainKt from that file. Place it in the project's configured source directory. Gradle wrapper commands are `./gradlew run` on macOS/Linux and `gradlew.bat run` on Windows. Use the wrapper committed with the project so everyone runs the same Gradle version.
 
 ## 2. Variables, types, and inference
 

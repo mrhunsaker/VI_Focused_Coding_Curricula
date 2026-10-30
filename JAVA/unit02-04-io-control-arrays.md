@@ -166,7 +166,7 @@ This unit introduces conditional statements and loops in Java.
 
 | Operator | Meaning | Example |
 |----------|---------|---------|
-| `&&` | AND (both true) | `age >= 18 && hasId == true` |
+| `&&` | AND (both true) | `age >= 18 && hasId` |
 | `\|\|` | OR (at least one true) | `day.equals("Sat") \|\| day.equals("Sun")` |
 | `!` | NOT (negates) | `!isRaining` |
 
