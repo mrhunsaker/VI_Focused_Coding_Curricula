@@ -44,14 +44,19 @@ python3 --version  # Confirm this is 3.12 or newer
 ```
 
 ### Verifying Python Installation
-Open a terminal and type:
+Open a terminal and verify the interpreter you will use for this course. On Windows, use the Python launcher; on macOS/Linux, use python3:
+
+```powershell
+py -3.12 --version
+py -3.12 -m pip --version
+```
+
 ```bash
 python3 --version
-```
-The reported version must be **3.12 or newer**. If it is older, install a supported interpreter before continuing. Also check pip:
-```bash
 python3 -m pip --version
 ```
+
+The reported major/minor version must be **3.12 or newer**. If it is older, install a supported interpreter before continuing. Always run pip through the same interpreter that runs your programs.
 
 ### Installing Visual Studio Code
 1. Navigate to [https://code.visualstudio.com/download](https://code.visualstudio.com/download).
@@ -251,7 +256,7 @@ deactivate
 **Install packages:**
 ```bash
 python -m pip install requests
-pip list
+python -m pip list
 ```
 
 ### Skills Checklist

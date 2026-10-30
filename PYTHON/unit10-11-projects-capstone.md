@@ -337,7 +337,7 @@ Students will develop a fully functional, screen-reader-accessible graphical app
 ## Setup
 
 ```bash
-pip install nicegui
+python -m pip install nicegui
 ```
 
 ---

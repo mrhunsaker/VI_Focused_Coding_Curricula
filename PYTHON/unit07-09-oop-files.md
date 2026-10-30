@@ -357,6 +357,8 @@ else:
 ### `finally` Block — Always runs (cleanup)
 
 ```python
+# For file I/O, prefer a with statement. This example demonstrates
+# finally for cleanup of a resource managed manually.
 file_handle = None
 try:
     file_handle = open('data.txt', 'w')

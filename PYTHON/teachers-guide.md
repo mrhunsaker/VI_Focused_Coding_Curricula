@@ -195,7 +195,7 @@ python3 -m venv .venv
 
 # Verify with a spoken command
 python3 --version
-pip list
+python -m pip list
 ```
 
 Consider creating a startup script (`start.bat` on Windows, `start.sh` on macOS/Linux) that activates the environment and opens VS Code. Students can run one command to get their environment ready, reducing setup cognitive load.
