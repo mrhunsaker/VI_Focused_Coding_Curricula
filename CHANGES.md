@@ -179,6 +179,6 @@ All implementation changes are recorded here. Each numbered step is committed se
 - Clarified the Theia-specific workspace-opening workflow in the Python setup so the project root containing `pyproject.toml` is opened and `.venv` discovery works.
 - Standardized the Python advanced-editor wording to explicitly name JetBrains IDEs (PyCharm) as an experienced-coder option.
 - No lesson topics or language baselines were changed. No files under `cs_curriculum_final/` were modified.
-- Static validation and mdBook build/CI verification are pending.
+- Static validation passed: all four setup documents have balanced Markdown fences; all 20 Bash-family blocks are immediately paired with Windows PowerShell blocks; each setup contains VS Code, Theia, and JetBrains advanced-option guidance; `convert_to_mdbook.json` parses successfully. mdBook build/CI verification is pending.
 - Implementation commits: `19a091e7b15683e4446307c9d8ecf72e85b8cb79`, `3018ffc98ec455de06ab106cd00b303c225a1930`, `249ec412cf2e20a2ec96b2adb3916a4e4ca92808`, `c8b35f54fbc7b38d364eef40fe15bf379aa7d9b5`.
 - Pre-checkpoint HEAD: `c8b35f54fbc7b38d364eef40fe15bf379aa7d9b5`.
