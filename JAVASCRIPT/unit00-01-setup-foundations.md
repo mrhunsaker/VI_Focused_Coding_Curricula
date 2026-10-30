@@ -71,6 +71,28 @@ For a new project, create a package manifest with npm init -y. Choose one module
 | Format Code | `Shift + Alt + F` |
 | Go to Definition | `F12` |
 
+### Verify editor tooling and the Node.js project environment
+
+**Visual Studio Code**
+- JavaScript language support is built in. Confirm that the built-in JavaScript and TypeScript language features are enabled for the workspace.
+- Install **ESLint** from the Extensions view when the project uses ESLint. The JavaScript snippets extension is optional and is not required to compile or run JavaScript.
+- Open the project root (the folder containing `package.json`) as the workspace. Open the integrated terminal from that folder and verify that `node --version` and `npm --version` report the expected Node.js 26 LTS and npm versions.
+
+**Theia IDE**
+- Open the Extensions view and use the configured Open VSX registry to find JavaScript/TypeScript language tooling, ESLint integration, and (if needed) Node.js debugging support.
+- Verify availability and compatibility with the installed Theia release before depending on an extension. Do not assume every Visual Studio Marketplace extension is available through Open VSX.
+- Test syntax diagnostics, completion, navigation, terminal operation, debugging (if used), and screen-reader announcements. The editor extension supplies language tooling; Node.js remains the runtime and must be installed and available to the terminal.
+
+**Use the project's local toolchain consistently**
+- Keep `package.json`, `package-lock.json`, and `node_modules` in the project root. Install project dependencies locally with `npm install` or `npm install --save-dev package-name`; do not install course tools globally.
+- Run project tools with `npm run script-name` or `npx tool-name`. Use the integrated terminal opened at the project root so npm resolves the local dependencies.
+- Check that the editor's integrated terminal and the system terminal resolve the same Node.js installation and version. If they differ, correct the terminal PATH or runtime configuration before continuing.
+- For these terminal-first lessons, run programs with `node filename.js` from the project root. Do not rely on an editor's generic Run button until you have verified that it invokes the same Node.js runtime and working directory.
+
+### Advanced editor options
+
+Experienced coders may prefer JetBrains IDEs, such as WebStorm. They are advanced alternatives, not the recommended starting point for this beginner curriculum. This course does not provide JetBrains installation or usage instructions.
+
 ---
 
 ## Lesson 0.3: Your First JavaScript File
