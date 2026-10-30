@@ -1,0 +1,109 @@
+{
+  "project": {
+    "name": "VI_Focused_Coding_Curricula",
+    "repository": "mrhunsaker/VI_Focused_Coding_Curricula",
+    "branch": "main",
+    "purpose": "Publish the existing PYTHON, JAVASCRIPT, and JAVA folders as one accessible mdBook on GitHub Pages.",
+    "target_site": "https://mrhunsaker.github.io/VI_Focused_Coding_Curricula/",
+    "target_site_note": "The request contained 'VI)Focused_Coding_Curricula'; the repository name indicates /VI_Focused_Coding_Curricula/. Verify the final URL after deployment.",
+    "reference_only": "cs_curriculum_final/",
+    "curriculum_sources": ["PYTHON/", "JAVASCRIPT/", "JAVA/"]
+  },
+  "immutable_constraints": [
+    "Never modify, rename, move, delete, or generate any file under cs_curriculum_final/. Use it only as an organizational reference.",
+    "Preserve existing curriculum lesson content. Only make necessary mdBook integration, navigation, and link corrections.",
+    "Record every implementation change in CHANGES.md.",
+    "At the end of EACH numbered implementation step, update this JSON progress, append results to CHANGES.md, and commit the step before starting the next step.",
+    "Do not proceed until the previous step's commit succeeds and its SHA is recorded here.",
+    "If validation fails, record evidence, commit a checkpoint if possible, and stop. Never force-push or rewrite history."
+  ],
+  "reference_findings": {
+    "organization": "The reference package has an overview, language-specific directories, language READMEs, and ordered unit Markdown files.",
+    "target_inventory": {
+      "PYTHON": ["unit00-setup.md", "unit01-foundations.md", "unit02-numeric-computations.md", "unit03-control-flow.md", "unit04-06-data-functions.md", "unit07-09-oop-files.md", "unit10-11-projects-capstone.md"],
+      "JAVASCRIPT": ["JAVASCRIPT_README.md", "unit00-01-setup-foundations.md", "unit02-04-io-control-data.md", "unit05-08-strings-functions-oop-files.md", "unit09-11-modules-collections-projects.md"],
+      "JAVA": ["JAVA_README.md", "unit00-01-setup-foundations.md", "unit02-04-io-control-arrays.md", "unit05-08-strings-methods-oop-files.md", "unit09-11-collections-projects.md"]
+    },
+    "python_landing_page": "PYTHON/PYTHON_README.md does not currently exist; create a concise language landing page from existing Python material and OVERALL_README.md.",
+    "accessibility": ["Text-first navigation", "Semantic heading hierarchy", "Descriptive links", "Preserve code examples and checklists", "No visual-only instructions or navigation"]
+  },
+  "book_design": {
+    "config": "book.toml at repository root",
+    "source_directory": ".",
+    "navigation": "SUMMARY.md at repository root",
+    "home_page": "OVERALL_README.md",
+    "language_sections": {
+      "Python": ["PYTHON/PYTHON_README.md", "PYTHON/unit00-setup.md", "PYTHON/unit01-foundations.md", "PYTHON/unit02-numeric-computations.md", "PYTHON/unit03-control-flow.md", "PYTHON/unit04-06-data-functions.md", "PYTHON/unit07-09-oop-files.md", "PYTHON/unit10-11-projects-capstone.md"],
+      "JavaScript": ["JAVASCRIPT/JAVASCRIPT_README.md", "JAVASCRIPT/unit00-01-setup-foundations.md", "JAVASCRIPT/unit02-04-io-control-data.md", "JAVASCRIPT/unit05-08-strings-functions-oop-files.md", "JAVASCRIPT/unit09-11-modules-collections-projects.md"],
+      "Java": ["JAVA/JAVA_README.md", "JAVA/unit00-01-setup-foundations.md", "JAVA/unit02-04-io-control-arrays.md", "JAVA/unit05-08-strings-methods-oop-files.md", "JAVA/unit09-11-collections-projects.md"]
+    },
+    "hosting": {
+      "provider": "GitHub Pages",
+      "workflow": ".github/workflows/mdbook.yml",
+      "build_output": "book/",
+      "project_base_url": "/VI_Focused_Coding_Curricula/",
+      "deployment": "GitHub Actions Pages artifact and deployment; do not use a gh-pages branch unless later evidence requires it.",
+      "setting": "Pages source must be GitHub Actions. Inspect current setting if supported; otherwise document any manual owner action."
+    }
+  },
+  "steps": [
+    {
+      "id": 0,
+      "name": "Create and commit plan",
+      "status": "in_progress",
+      "tasks": ["Create this JSON before all implementation edits.", "Commit it to main.", "Fetch it back and validate JSON."],
+      "checkpoint": "Record commit SHA in progress.last_commit."
+    },
+    {
+      "id": 1,
+      "name": "mdBook foundation",
+      "status": "pending",
+      "tasks": ["Create CHANGES.md; record the plan-file commit.", "Create root book.toml with source '.', English metadata, book title/description, and project base URL.", "Create root SUMMARY.md with overview and ordered Python, JavaScript, and Java sections.", "Create PYTHON/PYTHON_README.md using existing curriculum information.", "Do not edit existing lesson files."],
+      "validation": ["All SUMMARY links resolve.", "No path under cs_curriculum_final/ changed.", "Run mdbook build if available; otherwise defer build to CI."],
+      "checkpoint": "Update this JSON and CHANGES.md, then commit the complete step before step 2."
+    },
+    {
+      "id": 2,
+      "name": "Curriculum navigation and compatibility",
+      "status": "pending",
+      "tasks": ["Review all Markdown files in the three target folders.", "Include every existing unit file in SUMMARY.md in teaching order.", "Make only necessary mdBook-compatible relative-link or anchor corrections.", "Preserve lesson wording, examples, and exercises."],
+      "validation": ["All 17 existing unit files are navigable: Python 7, JavaScript 5, Java 5.", "Internal links and code fences checked where practical.", "cs_curriculum_final/ remains untouched."],
+      "checkpoint": "Update this JSON and CHANGES.md, then commit the complete step before step 3."
+    },
+    {
+      "id": 3,
+      "name": "GitHub Pages automation",
+      "status": "pending",
+      "tasks": ["Add .github/workflows/mdbook.yml.", "Install mdBook, build, upload Pages artifact, and deploy on pushes to main.", "Use official Pages actions, least-privilege permissions, and base URL /VI_Focused_Coding_Curricula/.", "Do not commit generated output unless required."],
+      "validation": ["Review workflow syntax, triggers, action versions, and permissions.", "Inspect Pages configuration if available; otherwise record manual setup requirement."],
+      "checkpoint": "Update this JSON and CHANGES.md, then commit the complete step before step 4."
+    },
+    {
+      "id": 4,
+      "name": "Build and deployment verification",
+      "status": "pending",
+      "tasks": ["Run mdbook build and resolve errors without touching reference directory.", "Verify navigation, links, and all three curricula.", "Inspect Actions deployment run.", "Verify published URL."],
+      "validation": ["Successful build.", "All 17 units accessible through navigation.", "No changes under cs_curriculum_final/.", "Successful Pages deployment and confirmed URL, or documented external blocker."],
+      "checkpoint": "Update this JSON and CHANGES.md, commit final verification, and mark completed only when publication checks pass."
+    }
+  ],
+  "progress": {
+    "current_step": 0,
+    "status": "plan_commit_pending",
+    "completed_steps": [],
+    "next_step": "Commit and verify step 0; then execute step 1 only.",
+    "last_commit": null,
+    "last_validation": "Repository structure inspected; no repository files edited before creation of this plan.",
+    "updated_at": "2026-10-30"
+  },
+  "future_llm_instructions": [
+    "Read this JSON and CHANGES.md before every task; fetch current main and verify latest commits before acting.",
+    "Execute only the next pending step unless the user authorizes a scope change.",
+    "After each step, update current_step, status, completed_steps, next_step, last_commit, last_validation, and updated_at.",
+    "Append a dated CHANGES.md entry listing files, validation, outcome, and commit SHA.",
+    "Commit implementation files, CHANGES.md, and this updated JSON together as one step checkpoint.",
+    "Wait for successful commit and verify its SHA before proceeding.",
+    "Inspect changed paths before commit and reject every change under cs_curriculum_final/.",
+    "Do not claim publication until the Pages workflow succeeds and the target URL is verified."
+  ]
+}
