@@ -1,0 +1,13 @@
+[book]
+title = "Accessible Introduction to Computer Science"
+authors = ["Michael Ryan Hunsaker"]
+language = "en"
+src = "."
+
+[build]
+build-dir = "book"
+create-missing = false
+
+[output.html]
+site-url = "/VI_Focused_Coding_Curricula/"
+git-repository-url = "https://github.com/mrhunsaker/VI_Focused_Coding_Curricula"
