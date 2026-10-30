@@ -34,9 +34,9 @@ console.log(randomInt(1, 6));  // Simulates a dice roll
 
 ---
 
-## Lesson 2.2: Getting User Input in Node.ts
+## Lesson 2.2: Getting User Input in Node.js
 
-Getting user input in Node.ts requires the built-in `readline` module.
+Getting user input in Node.js requires the built-in `readline` module.
 
 ### Using `readline` (Standard Library)
 

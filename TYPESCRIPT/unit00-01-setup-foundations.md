@@ -2,13 +2,13 @@
 
 ---
 
-## Lesson 0.1: Installing Node.ts
+## Lesson 0.1: Installing Node.js
 
-Node.ts 26 LTS lets you run TypeScript on your computer (outside a browser) using the terminal. Install the current LTS line, not an obsolete tutorial version or an experimental prerelease.
+TypeScript is compiled to JavaScript; Node.js 26 LTS runs the emitted JavaScript in the terminal. Install the current LTS line, not an obsolete tutorial version or an experimental prerelease.
 
-### Installing Node.ts
+### Installing Node.js
 
-Download **Node.ts 26 LTS** from [https://nodejs.org/](https://nodejs.org/).
+Download **Node.js 26 LTS** from [https://nodejs.org/](https://nodejs.org/).
 
 #### Windows
 1. Download the `.msi` installer.
@@ -112,7 +112,7 @@ npx tsc
 node dist/hello.js
 ```
 
-### The Node.ts REPL
+### The Node.js REPL
 
 For JavaScript runtime experiments, open an interactive session. Type annotations are not available in the Node.js REPL; use a TypeScript playground or the compiler to experiment with types:
 ```bash
@@ -135,7 +135,7 @@ Type TypeScript directly and press Enter to execute. Type `.exit` to quit.
 
 ### Skills Checklist
 - [ ] I can create a `.ts` file, compile it with `npx tsc`, and run the emitted `.js` file with Node.js.
-- [ ] I can use the Node.ts REPL for quick experiments.
+- [ ] I can use the Node.js REPL for quick experiments.
 
 ---
 
@@ -153,7 +153,7 @@ This unit covers TypeScript fundamentals: variables, data types, and basic outpu
 
 ### TypeScript's Role
 
-TypeScript was created by Brendan Eich at Netscape in 1995. Originally just for web browsers, it now runs everywhere thanks to Node.ts (2009).
+JavaScript was created by Brendan Eich at Netscape in 1995. TypeScript was developed later as a statically typed superset of JavaScript and is compiled to JavaScript before execution.
 
 ---
 

@@ -376,11 +376,11 @@ class Vehicle {
         this.odometer = 0;
     }
 
-    getDescriptiveName() {
+    getDescriptiveName(): string {
         return `${this.year} ${this.make} ${this.model}`;
     }
 
-    readOdometer() {
+    readOdometer(): void {
         console.log(`This vehicle has ${this.odometer} miles on it.`);
     }
 }
@@ -405,7 +405,7 @@ class ElectricCar extends Car {
         this.#batterySize = 75;
     }
 
-    describeBattery() {
+    describeBattery(): void {
         console.log(`This car has a ${this.#batterySize}-kWh battery.`);
     }
 }
@@ -451,7 +451,7 @@ lines.forEach((line, index) => {
 
 // Writing (overwrites existing content)
 try {
-    fs.writeFileSync('output.txt', 'Hello, Node.ts file I/O!\n');
+    fs.writeFileSync('output.txt', 'Hello, Node.js file I/O!\n');
     console.log("File written successfully.");
 } catch (err) {
     console.log(`Error writing file: ${err.message}`);
@@ -564,7 +564,7 @@ try {
 
 ---
 
-## Lesson 8.3: JSON in Node.ts
+## Lesson 8.3: JSON in Node.js
 
 ```typescript
 const fs = require('fs');
