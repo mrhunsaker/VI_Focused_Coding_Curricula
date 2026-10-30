@@ -163,3 +163,20 @@ All implementation changes are recorded here. Each numbered step is committed se
 - Expanded the student glossary with explicit entries for `uv`, `npx`, project-local npm dependencies, and Maven/Gradle wrappers so the new setup conventions are defined in the student reference.
 
 - Static validation passed for the updated environment-management and editor guidance. JSON validation passed for the indexing setup prompt and project plan. GitHub Actions run [41101871104](https://github.com/mrhunsaker/VI_Focused_Coding_Curricula/actions/runs/41101871104) remains queued for the implementation commit; mdBook build and deployment confirmation are pending.
+
+
+## 2026-10-30 — Step 12: Strengthen language-specific IDE and environment setup
+
+- Updated all four language setup units: Python, JavaScript, TypeScript, and Java.
+- Made VS Code and Theia IDE explicit parallel editor options in each setup, with separate extension guidance and a reminder that Visual Studio Marketplace extensions are not automatically available through Open VSX.
+- Added verification expectations for language services, diagnostics, completion, navigation, terminal access, debugging/testing where relevant, and screen-reader announcements.
+- Strengthened environment alignment habits:
+  - Python: select the project-local `.venv` interpreter and use `uv add` / `uv run`; avoid global package installs and editor run actions that bypass the environment.
+  - JavaScript: open the npm project root, use local `node_modules` tools, and verify that the IDE terminal and system terminal resolve the same Node.js runtime.
+  - TypeScript: use the workspace TypeScript compiler, run `npx tsc`, compile to JavaScript, and execute the emitted JavaScript with Node.js.
+  - Java: configure the IDE and terminal to use the same full JDK 25, verify both `java` and `javac`, and introduce Maven/Gradle wrappers only when the curriculum reaches build tools.
+- Added JetBrains IDEs as advanced options for experienced coders in each setup, without download or usage instructions. They remain outside the recommended beginner workflow.
+- No lesson topics or language baselines were changed. No files under `cs_curriculum_final/` were modified.
+- Static validation and mdBook build/CI verification are pending.
+- Implementation commits: `19a091e7b15683e4446307c9d8ecf72e85b8cb79`, `3018ffc98ec455de06ab106cd00b303c225a1930`, `249ec412cf2e20a2ec96b2adb3916a4e4ca92808`, `c8b35f54fbc7b38d364eef40fe15bf379aa7d9b5`.
+- Pre-checkpoint HEAD: `c8b35f54fbc7b38d364eef40fe15bf379aa7d9b5`.
