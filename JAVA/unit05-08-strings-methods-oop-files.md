@@ -2,6 +2,9 @@
 
 ## Overview
 
+**JDK baseline:** Examples target standard Java SE 25 using JDK 25 LTS. They do not require preview features or vendor-specific APIs. Use the latest security update in the JDK 25 line.
+
+
 Java's `String` class is rich with methods for text manipulation.
 
 ---

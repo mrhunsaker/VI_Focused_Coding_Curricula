@@ -2,6 +2,9 @@
 
 ## Overview
 
+**JDK baseline:** Examples target standard Java SE 25 using JDK 25 LTS. They do not require preview features or vendor-specific APIs. Use the latest security update in the JDK 25 line.
+
+
 This unit covers getting user input, type conversions, and working with the Math library in Java.
 
 ---
