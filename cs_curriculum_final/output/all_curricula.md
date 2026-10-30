@@ -1405,7 +1405,7 @@ sudo apt install python3-pip
 ```powershell
 # Windows uses winget; no apt package-index update is needed.
 winget install --id Python.Python.3.12 -e
-winget install --id Python.Python.3.12 -e
+# pip is included with the official Windows Python installer.
 ```
 
 ### Verifying Python Installation
