@@ -37,9 +37,23 @@ sudo apt update
 sudo apt install openjdk-25-jdk  # If JDK 25 is available in your distribution repository
 ```
 
+**Windows PowerShell (Windows 11):**
+
+```powershell
+# Windows uses winget; no apt package-index update is needed.
+winget install --id EclipseAdoptium.Temurin.25.JDK -e
+```
+
 ### Verify Installation
 Open a terminal and run:
 ```bash
+java --version
+javac --version
+```
+
+**Windows PowerShell (Windows 11):**
+
+```powershell
 java --version
 javac --version
 ```
@@ -105,6 +119,13 @@ public class HelloWorld {
 - Press `Ctrl + F5` to run without debugging.
 - Or open the terminal (`Ctrl + \``) and type:
 ```bash
+javac HelloWorld.java
+java HelloWorld
+```
+
+**Windows PowerShell (Windows 11):**
+
+```powershell
 javac HelloWorld.java
 java HelloWorld
 ```

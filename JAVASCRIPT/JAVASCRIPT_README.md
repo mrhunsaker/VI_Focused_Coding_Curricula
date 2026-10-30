@@ -98,6 +98,14 @@ npm --version
 node
 ```
 
+**Windows PowerShell (Windows 11):**
+
+```powershell
+node --version
+npm --version
+node
+```
+
 At the Node.js prompt, enter a short expression and read the returned value. Use `.exit` or the documented keyboard command to leave the REPL.
 
 ## Accessibility and instructional design
