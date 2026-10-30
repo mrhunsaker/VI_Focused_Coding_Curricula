@@ -8,7 +8,7 @@ A detailed environment setup is not merely a technical prerequisite; it empowers
 
 ---
 
-## Lesson 0.1: Installing Python and Visual Studio Code
+## Lesson 0.1: Installing Python and uv
 
 ### Reading References
 - Matthes: Chapter 1, pages 3–14
@@ -37,7 +37,7 @@ Python 3 is often pre-installed. Verify in a terminal:
 python3 --version
 ```
 
-Windows Powershell
+**Windows PowerShell (Windows 11):**
 
 ```powershell
 py -3 --version
@@ -49,7 +49,7 @@ sudo apt install python3 curl
 python3 --version  # Confirm this is 3.12 or newer
 ```
 
-Windows Powershell
+**Windows PowerShell (Windows 11):**
 
 ```powershell
 # Windows uses winget; no apt package-index update is needed.
@@ -70,7 +70,7 @@ uv python install 3.12
 uv python list
 ```
 
-Windows Powershell
+**Windows PowerShell (Windows 11):**
 
 ```powershell
 powershell -ExecutionPolicy ByPass -c "irm https://astral.sh/uv/install.ps1 | iex"
@@ -81,9 +81,8 @@ uv python list
 
 If the `uv` command is not found immediately after installation, open a new terminal as instructed by the installer. The managed interpreter must be Python 3.12 or newer for this course.
 
-### Installing Visual Studio Code
-1. Navigate to [https://code.visualstudio.com/download](https://code.visualstudio.com/download).
-2. Download the installer for your OS.
+### Installing Visual Studio Code or Theia IDE
+1. Install [Visual Studio Code](https://code.visualstudio.com/) or [Theia IDE](https://theia-ide.org/#theiaide). Theia supports many VS Code extensions through Open VSX, but check that the required extensions are available and test them with the learner's screen reader.
 
 #### Windows
 - **CRUCIAL STEP:** On the "Select Additional Tasks" screen, check **"Add to PATH"**.
@@ -98,7 +97,7 @@ cd Downloads
 sudo dpkg -i code_*.deb
 ```
 
-Windows Powershell
+**Windows PowerShell (Windows 11):**
 
 ```powershell
 Set-Location "$HOME\Downloads"
@@ -110,7 +109,7 @@ winget install --id Microsoft.VisualStudioCode -e
 code --version
 ```
 
-Windows Powershell
+**Windows PowerShell (Windows 11):**
 
 ```powershell
 code --version
@@ -220,7 +219,7 @@ In either editor, install only extensions needed for the course, keep them enabl
 code .
 ```
 
-Windows Powershell
+**Windows PowerShell (Windows 11):**
 
 ```powershell
 code .
@@ -282,7 +281,7 @@ cd ~/Documents/PythonProjects
 python3 hello.py
 ```
 
-Windows Powershell
+**Windows PowerShell (Windows 11):**
 
 ```powershell
 Set-Location "$HOME\Documents\PythonProjects"
@@ -307,7 +306,7 @@ uv run python hello.py
 uv tree
 ```
 
-Windows Powershell
+**Windows PowerShell (Windows 11):**
 
 ```powershell
 uv init --python 3.12
