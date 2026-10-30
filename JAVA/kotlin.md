@@ -54,6 +54,13 @@ kotlinc Hello.kt -include-runtime -d hello.jar
 java -jar hello.jar
 ```
 
+**Windows PowerShell (Windows 11):**
+
+```powershell
+kotlinc Hello.kt -include-runtime -d hello.jar
+java -jar hello.jar
+```
+
 For a maintained project, use Gradle with the Kotlin JVM plugin. A minimal Kotlin DSL build file (`build.gradle.kts`) can look like this:
 
 ```kotlin

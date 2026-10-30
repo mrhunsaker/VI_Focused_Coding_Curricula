@@ -74,6 +74,14 @@ javac --version
 jshell
 ```
 
+**Windows PowerShell (Windows 11):**
+
+```powershell
+java --version
+javac --version
+jshell
+```
+
 The JDK provides JShell for interactive experiments. Complete programs are compiled and run as described in Unit 0. Build systems such as Maven or Gradle may be introduced when required; they should not be added before learners understand the basic compile/run cycle.
 
 ## Java 25 baseline and current conventions

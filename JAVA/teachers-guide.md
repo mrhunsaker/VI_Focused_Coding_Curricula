@@ -160,6 +160,14 @@ javac --version     # Compiler version
 jshell              # Start REPL (Ctrl+D or /exit to quit)
 ```
 
+**Windows PowerShell (Windows 11):**
+
+```powershell
+java --version      # Runtime version
+javac --version     # Compiler version
+jshell              # Start REPL (Ctrl+D or /exit to quit)
+```
+
 All three must work before proceeding. If `jshell` is not found, the student may have installed only the JRE (runtime), not the full JDK. The JDK must be installed.
 
 ---
@@ -966,6 +974,24 @@ mvn test
 
 # Run tests (if using Gradle)
 ./gradlew test
+```
+
+**Windows PowerShell (Windows 11):**
+
+```powershell
+# Compile a single file
+javac HelloWorld.java    # Creates HelloWorld.class
+# Run compiled program
+java HelloWorld          # No .class extension!
+# Compile with output directory
+javac -d bin src/HelloWorld.java
+# Run JShell
+jshell                   # Interactive REPL
+/exit                    # Exit JShell
+# Run tests (if using Maven)
+mvn test
+# Run tests (if using Gradle)
+.\gradlew.bat test
 ```
 
 ### Error Type Quick Reference
