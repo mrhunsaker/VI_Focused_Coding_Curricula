@@ -39,7 +39,7 @@
   - [Post-Capstone Supplement: Kotlin for Java Programmers](JAVA/kotlin.md)
 
 # Backmatter
-- [Instrucor's Guides](backmatter/Teachers-Guides.md)
+- [Teacher's Guides](backmatter/Teachers-Guides.md)
   - [Teacher's Guide](PYTHON/teachers-guide.md)
   - [Teacher's Guide](JAVASCRIPT/teachers-guide.md)
   - [Teacher's Guide](TYPESCRIPT/teachers-guide.md)
