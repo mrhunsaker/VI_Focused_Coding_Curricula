@@ -198,6 +198,18 @@ python3 --version
 python -m pip list
 ```
 
+**Windows PowerShell (Windows 11):**
+
+```powershell
+# Create environment with a consistent name the student will always type
+py -3 -m venv .venv
+# Activation --- save this as a text file the student can open and copy from
+.\.venv\Scripts\Activate.ps1
+# Verify with a spoken command
+py -3 --version
+py -3 -m pip list
+```
+
 Consider creating a startup script (`start.bat` on Windows, `start.sh` on macOS/Linux) that activates the environment and opens VS Code. Students can run one command to get their environment ready, reducing setup cognitive load.
 
 ---

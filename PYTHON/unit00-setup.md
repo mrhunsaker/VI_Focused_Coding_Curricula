@@ -36,11 +36,25 @@ Python 3 is often pre-installed. Verify in a terminal:
 ```bash
 python3 --version
 ```
+
+**Windows PowerShell (Windows 11):**
+
+```powershell
+py -3 --version
+```
 If not installed (Debian/Ubuntu):
 ```bash
 sudo apt update
 sudo apt install python3 python3-venv python3-pip
 python3 --version  # Confirm this is 3.12 or newer
+```
+
+**Windows PowerShell (Windows 11):**
+
+```powershell
+# Windows uses winget; no apt package-index update is needed.
+winget install --id Python.Python.3.12 -e
+py -3 --version  # Confirm this is 3.12 or newer
 ```
 
 ### Verifying Python Installation
@@ -54,6 +68,13 @@ py -3.12 -m pip --version
 ```bash
 python3 --version
 python3 -m pip --version
+```
+
+**Windows PowerShell (Windows 11):**
+
+```powershell
+py -3 --version
+py -3 -m pip --version
 ```
 
 The reported major/minor version must be **3.12 or newer**. If it is older, install a supported interpreter before continuing. Always run pip through the same interpreter that runs your programs.
@@ -75,8 +96,21 @@ cd Downloads
 sudo dpkg -i code_*.deb
 ```
 
+**Windows PowerShell (Windows 11):**
+
+```powershell
+Set-Location "$HOME\Downloads"
+winget install --id Microsoft.VisualStudioCode -e
+```
+
 ### Verify VS Code
 ```bash
+code --version
+```
+
+**Windows PowerShell (Windows 11):**
+
+```powershell
 code --version
 ```
 
@@ -169,6 +203,12 @@ VoiceOver generally handles indentation well by default, announcing "4 spaces" o
 code .
 ```
 
+**Windows PowerShell (Windows 11):**
+
+```powershell
+code .
+```
+
 **Method 2:** In VS Code, press `Ctrl + K, Ctrl + O` to "Open Folder".
 
 ### VS Code Navigation Shortcuts
@@ -220,6 +260,13 @@ cd ~/Documents/PythonProjects
 python3 hello.py
 ```
 
+**Windows PowerShell (Windows 11):**
+
+```powershell
+Set-Location "$HOME\Documents\PythonProjects"
+py -3 hello.py
+```
+
 **From VS Code Integrated Terminal:**
 1. Open terminal: `Ctrl + \``
 2. The terminal opens in your project folder automatically.
@@ -236,6 +283,12 @@ Virtual environments keep project dependencies separate, preventing conflicts.
 python3 -m venv .venv
 ```
 
+**Windows PowerShell (Windows 11):**
+
+```powershell
+py -3 -m venv .venv
+```
+
 **Activate:**
 - Windows (Command Prompt): `.venv\Scripts\activate.bat`
 - Windows (PowerShell): `.venv\Scripts\Activate.ps1`
@@ -248,6 +301,12 @@ You will hear `(.venv)` at the beginning of your prompt when active.
 deactivate
 ```
 
+**Windows PowerShell (Windows 11):**
+
+```powershell
+deactivate
+```
+
 **Select Interpreter in VS Code:**
 1. Press `Ctrl + Shift + P`.
 2. Type "Python: Select Interpreter" and press Enter.
@@ -257,6 +316,13 @@ deactivate
 ```bash
 python -m pip install requests
 python -m pip list
+```
+
+**Windows PowerShell (Windows 11):**
+
+```powershell
+py -3 -m pip install requests
+py -3 -m pip list
 ```
 
 ### Skills Checklist
