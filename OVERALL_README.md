@@ -77,7 +77,7 @@ Java offers an explicit, statically typed introduction to programming and object
 ## Comparing the language paths
 
 | Dimension | Python | JavaScript | TypeScript | Java |
-| --- | --- | --- | --- |
+| --------- | ------ | ---------- | ---------- | ---- |
 | Typing model | Dynamic | Dynamic, with coercion rules | Static, structural, erased at runtime | Static, explicit types |
 | Block structure | Indentation | Braces | Braces |
 | Typical execution | Python interpreter | Node.js | TypeScript compiler, then Node.js/JavaScript runtime | JDK compiler and JVM |
