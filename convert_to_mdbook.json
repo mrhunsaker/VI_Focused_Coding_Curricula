@@ -519,7 +519,7 @@
     {
       "id": 12,
       "name": "Strengthen language-specific IDE and environment setup",
-      "status": "implementation_complete_static_validation_pending_ci",
+      "status": "implementation_complete_static_validation_passed_build_pending",
       "files": [
         "PYTHON/unit00-setup.md",
         "JAVASCRIPT/unit00-01-setup-foundations.md",
@@ -536,7 +536,7 @@
         "fb6494122ce42a6c3b7fda7b8c615c4db9fdea2f",
         "20f383da7e4e8861465de7b21ef1d5cd85527de4"
       ],
-      "validation_status": "pending",
+      "validation_status": "static_validation_passed_ci_pending",
       "validation": [
         "All four language setup units now document VS Code and Theia separately, including extension availability and compatibility checks.",
         "Python instructions align the editor-selected interpreter with the project-local uv-managed .venv and uv run workflow.",
@@ -546,13 +546,15 @@
         "No new executable shell code fences were added; existing Bash/PowerShell pairing remains unchanged.",
         "mdBook build and GitHub Actions validation are pending.",
         "Python setup now documents the Theia Open Folder workflow and explains why the project root containing pyproject.toml must be opened for .venv discovery.",
-        "Python setup explicitly identifies JetBrains IDEs such as PyCharm as advanced options for experienced coders."
+        "Python setup explicitly identifies JetBrains IDEs such as PyCharm as advanced options for experienced coders.",
+        "Static audit passed across all four modified setup units: 94 fenced code blocks are balanced, 20 Bash-family command blocks have immediate Windows PowerShell counterparts, and each language setup documents VS Code, Theia, and JetBrains IDEs as advanced options.",
+        "convert_to_mdbook.json parses successfully. GitHub Actions mdBook build/deployment is queued and not yet confirmed."
       ]
     }
   ],
   "progress": {
     "current_step": 12,
-    "status": "ide_environment_setup_expanded_static_validation_and_ci_pending",
+    "status": "ide_environment_setup_static_validation_passed_ci_pending",
     "completed_steps": [
       0,
       1,
@@ -568,11 +570,11 @@
     "pending_steps": [
       4
     ],
-    "next_step": "Fetch and review all four updated setup units, verify Markdown fences and shell-pairing invariants, parse convert_to_mdbook.json, then inspect the GitHub Actions build/deployment run.",
+    "next_step": "Inspect the GitHub Actions run for the final main commit and record the mdBook build/deployment result.",
     "last_commit": "20f383da7e4e8861465de7b21ef1d5cd85527de4",
-    "last_validation": "All four language setup units now include VS Code and Theia IDE, language-specific extension verification, project-local runtime/toolchain alignment, and JetBrains IDEs as advanced-only options. Markdown fence pairing and JSON parsing passed; CI build pending.",
+    "last_validation": "Static validation passed: four setup files have balanced Markdown fences; all 20 Bash-family blocks have immediately following Windows PowerShell counterparts; all four setups include VS Code, Theia, and JetBrains advanced-option guidance; convert_to_mdbook.json parses. GitHub Actions build is queued.",
     "updated_at": "2026-10-30",
-    "current_step_commit": "383de2f6e7275f0e1ceaf7f0b01da1bd6401db84"
+    "current_step_commit": "6bd7a63778360373cc8888f96453d1af2529826b"
   },
   "future_llm_instructions": [
     "Read this JSON and CHANGES.md before every task; fetch current main and verify latest commits before acting.",
