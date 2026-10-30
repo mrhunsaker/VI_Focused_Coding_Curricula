@@ -536,10 +536,10 @@
       4
     ],
     "next_step": "Open the published site in a normal browser and verify the overview, all four language landing pages, all 19 unit documents, all four teacher guides, and the optional Kotlin supplement. Check representative internal navigation and links. The available web viewer could not retrieve the home page or TypeScript landing page; this is not evidence that the site is down.",
-    "last_commit": "534af1ac73ec9d0a45c2ff1bc0559eb5f25513df",
+    "last_commit": "ad05edf8e4623be8584988e7a729a31e0709e785",
     "last_validation": "Static validation passed: active course setup workflows now use uv-managed Python projects, project-local npm/npx dependencies, and Maven/Gradle wrappers. Audited the active curriculum material for unmanaged global package installation patterns; none remain in the updated workflows. Verified Theia IDE is documented across all language setups and teacher guidance, JetBrains IDEs are explicitly excluded from beginner recommendations, and Volta is not recommended. Updated setup shell examples retain Windows PowerShell counterparts. Added glossary definitions for uv, npx, and Maven/Gradle wrappers. Both JSON maintenance files parse successfully. GitHub Actions deployment workflow for implementation commit 534af1ac73ec9d0a45c2ff1bc0559eb5f25513df is queued; mdBook build/deployment confirmation is pending.",
     "updated_at": "2026-10-30",
-    "current_step_commit": "534af1ac73ec9d0a45c2ff1bc0559eb5f25513df"
+    "current_step_commit": "ad05edf8e4623be8584988e7a729a31e0709e785"
   },
   "future_llm_instructions": [
     "Read this JSON and CHANGES.md before every task; fetch current main and verify latest commits before acting.",
