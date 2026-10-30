@@ -1,11 +1,12 @@
 # Introduction to Computer Science with Java
-### For Visually Impaired Students
 
-## Course Overview
+## Accessible, Screen-Reader-Friendly Curriculum
 
-This curriculum introduces computer science concepts using Java, adapted for students who rely on screen readers. All exercises are text-based and terminal-focused. No graphical output is required.
+This curriculum introduces programming and computer science using Java. It is designed for learners who use screen readers and emphasizes text-based interaction, keyboard-first development, and explicit navigation.
 
-**Target Audience:** Students with no prior programming experience using screen readers (NVDA, JAWS, VoiceOver, or Windows Narrator).
+**Target audience:** Beginning programmers who rely on screen readers, including NVDA, JAWS, VoiceOver, or Windows Narrator.
+
+## Course sequence
 
 ---
 

@@ -1,4 +1,8 @@
-# Accessible Introduction to Computer Science
+{
+	"settings": {
+		"workbench.iconTheme": "none"
+	}
+}# Accessible Introduction to Computer Science
 
 ## Curriculum Package --- Python, Java, and JavaScript
 
