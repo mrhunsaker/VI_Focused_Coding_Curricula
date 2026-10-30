@@ -115,6 +115,29 @@ For a new project, create a package manifest with npm init -y. Choose one module
 | Format Code | `Shift + Alt + F` |
 | Go to Definition | `F12` |
 
+### Verify editor tooling and the TypeScript project environment
+
+**Visual Studio Code**
+- TypeScript language support is built in. Confirm that the built-in TypeScript and JavaScript language features are enabled for the workspace.
+- Install **ESLint** from the Extensions view when the project uses ESLint. Code snippets are optional; they are not a substitute for the compiler.
+- In the Command Palette, use **TypeScript: Select TypeScript Version** and choose **Use Workspace Version** so editor diagnostics match the TypeScript compiler installed in this project's `node_modules`.
+- Open the project root (the folder containing `package.json` and `tsconfig.json`) as the workspace.
+
+**Theia IDE**
+- Open the Extensions view and use the configured Open VSX registry to find TypeScript/JavaScript language tooling, ESLint integration, and (if needed) Node.js debugging support.
+- Verify that the editor can use the project's local TypeScript installation for language services. If it only uses a bundled or global TypeScript version, be aware that editor diagnostics may differ from the project's compiler; use `npx tsc` as the authoritative project check.
+- Test TypeScript diagnostics, completion, navigation, terminal operation, and screen-reader announcements. Do not assume every Visual Studio Marketplace extension is available through Open VSX.
+
+**Use the project's local toolchain consistently**
+- Keep `package.json`, `package-lock.json`, `tsconfig.json`, and `node_modules` in the project root. Install TypeScript and project tools locally with `npm install --save-dev typescript @types/node`; do not depend on a global `tsc`.
+- Run compiler checks with `npx tsc --noEmit` and compile with `npx tsc`. Run the emitted JavaScript with `node dist/filename.js`. Node.js executes JavaScript, not TypeScript source; TypeScript annotations are removed during compilation.
+- Use the integrated terminal opened at the project root so `npx` resolves the local compiler. Confirm the integrated terminal and system terminal resolve the same Node.js 26 LTS runtime.
+- Keep the editor's selected TypeScript project and the terminal's `tsconfig.json` aligned. Do not treat editor-only diagnostics as a substitute for a clean local compiler run.
+
+### Advanced editor options
+
+Experienced coders may prefer JetBrains IDEs, such as WebStorm or IntelliJ IDEA. They are advanced alternatives, not the recommended starting point for this beginner curriculum. This course does not provide JetBrains installation or usage instructions.
+
 ---
 
 ## Lesson 0.3: Your First TypeScript File
