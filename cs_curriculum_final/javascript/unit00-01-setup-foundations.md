@@ -31,8 +31,10 @@ sudo apt install nodejs
 **Windows PowerShell (Windows 11):**
 
 ```powershell
-winget install --id OpenJS.NodeJS.LTS -e
-winget install --id OpenJS.NodeJS.LTS -e
+$installerPath = Join-Path $env:TEMP 'node-v18.20.8-x64.msi'
+Invoke-WebRequest -Uri 'https://nodejs.org/dist/v18.20.8/node-v18.20.8-x64.msi' -OutFile $installerPath -UseBasicParsing
+Start-Process -FilePath msiexec.exe -Verb RunAs -Wait -ArgumentList @('/i', $installerPath)
+Remove-Item $installerPath
 ```
 
 ### Verify Installation

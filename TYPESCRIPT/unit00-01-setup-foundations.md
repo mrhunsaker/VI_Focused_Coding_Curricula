@@ -29,7 +29,6 @@ sudo apt install nodejs
 
 ```powershell
 winget install --id OpenJS.NodeJS.LTS -e
-winget install --id OpenJS.NodeJS.LTS -e
 ```
 
 ### Install TypeScript in a project
