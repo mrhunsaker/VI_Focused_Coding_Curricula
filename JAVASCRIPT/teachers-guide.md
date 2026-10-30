@@ -132,20 +132,28 @@ Teach `async`/`await` from the start and avoid callback patterns entirely in thi
 - **Prettier** --- auto-formats code consistently (run on save with `editor.formatOnSave: true`)
 - **JavaScript (ES6) code snippets** --- tab-complete common patterns
 
-**Recommended ESLint configuration** (`.eslintrc.json` in project root):
+**Recommended ESLint flat configuration** (`eslint.config.mjs` in project root; install the current ESLint, `@eslint/js`, and `globals` packages as local development dependencies):
 
 ```json
-{
-  "env": { "node": true, "es2021": true },
-  "extends": "eslint:recommended",
-  "rules": {
-    "eqeqeq": "error",
-    "no-unused-vars": "warn",
-    "no-undef": "error",
-    "prefer-const": "warn",
-    "no-console": "off"
+import js from "@eslint/js";
+import globals from "globals";
+
+export default [
+  {
+    files: ["**/*.js"],
+    languageOptions: {
+      ecmaVersion: "latest",
+      sourceType: "commonjs",
+      globals: globals.node
+    },
+    rules: {
+      ...js.configs.recommended.rules,
+      eqeqeq: "error",
+      "no-unused-vars": "warn",
+      "no-console": "off"
+    }
   }
-}
+];
 ```
 
 The `eqeqeq: error` rule makes `==` a linting error --- it must be `===`. This is an automated enforcement of the rule that prevents the most common silent bugs.
@@ -221,6 +229,12 @@ _"const doubleIfPositive gets arrow function taking n, returning: if n greater t
 
 ---
 
+## Modern JavaScript and Node.js conventions
+
+Teach the curriculum against the current Node.js 26 LTS line. Node.js 26.13.0 entered LTS on October 28, 2026; use the latest security patch in the 26.x line rather than pinning students to an old patch. Node.js 24 remains supported as LTS, but is not the current LTS line.
+
+For new course examples, consistently use const/let, strict equality, explicit numeric conversion, async/await, and node: built-in module specifiers. Prefer the built-in node:test runner for basic unit tests; Jest is a valid optional framework, not a requirement. Keep the two module systems explicit: use a package.json type field and matching file extensions/configuration, and never mix CommonJS and ES module syntax in one file. Use current ESLint flat configuration (eslint.config.mjs) rather than the deprecated .eslintrc format. Check input and parsed JSON at runtime: JavaScript's runtime values remain dynamic even when editor tooling or static analysis is used.
+
 ## 5. Unit 0--1: Setup and Foundations
 
 ### Lesson 0.1: Installing Node.js
@@ -230,7 +244,7 @@ _"const doubleIfPositive gets arrow function taking n, returning: if n greater t
 **Verify installation at every step:**
 
 ```bash
-node --version    # Should print v18.x.x or later
+node --version    # Should print v26.x.x (26.13.0 or a newer 26.x maintenance release)
 npm --version     # Should print a version number
 npx --version     # Should print a version number (npx is bundled with npm)
 ```

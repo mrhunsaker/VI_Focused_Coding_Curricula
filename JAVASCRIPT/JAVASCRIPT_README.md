@@ -69,6 +69,21 @@ JavaScript also has behaviors that require explicit teaching. Dynamic typing and
 
 Return to the [curriculum overview](../OVERALL_README.md) to compare Python, JavaScript, and Java.
 
+## Runtime version and modern JavaScript conventions
+
+Use **Node.js 26.13.0 LTS** (the current LTS release as of October 30, 2026) for the course. Node.js 24 is also in LTS maintenance, but new installations should use the current 26.x LTS line. Keep examples compatible with the Node.js 26 LTS runtime and use the latest security/maintenance patch in that line. Check the [official Node.js release schedule](https://nodejs.org/en/about/previous-releases) before installing or upgrading.
+
+The course follows modern JavaScript practices:
+
+- Use const by default and let only when reassignment is required; avoid var in new code.
+- Use === and !== for comparisons; convert user input explicitly with Number, String, or other deliberate parsing.
+- Prefer descriptive names, small functions, template literals, array methods where they improve clarity, and async/await for asynchronous work.
+- Use node: specifiers for built-in modules (for example, node:fs and node:readline/promises).
+- Declare module format explicitly in package.json. Use type: commonjs for CommonJS examples and type: module for ES module examples; do not mix require/module.exports with import/export in the same module.
+- Handle rejected promises and file-system errors explicitly. Do not assume parsed JSON or external input has the expected shape.
+- Use the built-in node:test and node:assert/strict modules for dependency-free introductory tests; Jest remains an optional framework when a project specifically needs it.
+- Keep dependencies local to a project, review package provenance, and commit a lockfile for reproducible installations.
+
 ## Recommended environment
 
 Follow Unit 0 for detailed installation and verification. For a new setup, use a currently supported Node.js Long-Term Support (LTS) release unless course materials specify a different compatible version. Check the official [Node.js download page](https://nodejs.org/en/download) rather than relying on an old version number.

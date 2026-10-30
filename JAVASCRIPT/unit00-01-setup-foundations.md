@@ -4,11 +4,11 @@
 
 ## Lesson 0.1: Installing Node.js
 
-Node.js lets you run JavaScript on your computer (outside a browser) using the terminal.
+Node.js 26 LTS lets you run JavaScript on your computer (outside a browser) using the terminal. Install the current LTS line, not an obsolete tutorial version or an experimental prerelease.
 
 ### Installing Node.js
 
-Download **Node.js 18 LTS** from [https://nodejs.org/](https://nodejs.org/).
+Download **Node.js 26 LTS** from [https://nodejs.org/](https://nodejs.org/).
 
 #### Windows
 1. Download the `.msi` installer.
@@ -21,13 +21,13 @@ Download **Node.js 18 LTS** from [https://nodejs.org/](https://nodejs.org/).
 
 #### Linux (Debian/Ubuntu)
 ```bash
-curl -fsSL https://deb.nodesource.com/setup_18.x | sudo -E bash -
+curl -fsSL https://deb.nodesource.com/setup_26.x | sudo -E bash -
 sudo apt install nodejs
 ```
 
 ### Verify Installation
 ```bash
-node --version     # Should show v18.x.x or later
+node --version     # Should show v26.x.x (26.13.0 or a newer 26.x maintenance release)
 npm --version      # Should show npm version
 ```
 
@@ -38,6 +38,8 @@ npm --version      # Should show npm version
 ---
 
 ## Lesson 0.2: Setting Up VS Code
+
+For a new project, create a package manifest with npm init -y. Choose one module system and declare it explicitly: set package.json to { "type": "commonjs" } for the CommonJS examples in the early lessons, or { "type": "module" } for the ES module examples later in the course. Do not combine the two syntaxes in one file.
 
 1. Install VS Code from [https://code.visualstudio.com/](https://code.visualstudio.com/).
 2. Press `Ctrl + Shift + X` to open Extensions. Install:
