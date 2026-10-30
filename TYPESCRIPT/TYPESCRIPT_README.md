@@ -107,6 +107,15 @@ npm --version
 node
 ```
 
+**Windows PowerShell (Windows 11):**
+
+```powershell
+node --version
+npx tsc --version
+npm --version
+node
+```
+
 At the Node.js prompt, enter a short JavaScript expression and read the returned value. This does not type-check TypeScript annotations. Use a TypeScript-aware editor, the TypeScript playground, or `npx tsc` to check TypeScript code. Use `.exit` or the documented keyboard command to leave the REPL.
 
 ## TypeScript conventions

@@ -86,6 +86,12 @@ To build locally:
 mdbook build
 ```
 
+**Windows PowerShell (Windows 11):**
+
+```powershell
+mdbook build
+```
+
 4. Open `book/index.html` in a browser, or run `mdbook serve` and open the local address printed by mdBook.
 
 The generated `book/` directory is build output and is intentionally ignored by Git. Edit the Markdown source, `SUMMARY.md`, or `book.toml`, then rebuild. Pushes to `main` trigger the workflow that builds and deploys the site.
