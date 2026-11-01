@@ -467,25 +467,31 @@
         ],
         "mapped_python_lessons": 55,
         "target_course_lesson_sections": 53,
-        "status": "content_alignment_pass_complete_pending_runtime_and_full_accessibility_verification",
+        "status": "lesson_content_quality_pass_complete_pending_runtime_and_full_accessibility_verification",
         "completed_work": [
           "Expanded Unit 0 to four explicit C compiler, editor, workspace, compile/run, and project-environment lessons.",
           "Replaced generic worked examples and repeated concept text with lesson-specific C examples across Units 1–11.",
           "Aligned the shared Avery profile, calculator, grade thresholds, scores, inventory, coordinates, text sample, CSV fields, to-do project, and capstone record schema.",
           "Documented C-specific adaptations for arrays/structs, input parsing, manual resource lifetime, error returns, no built-in JSON library, and the terminal-based capstone interface.",
-          "Added the missing C counterpart for Python Lesson 2.5."
+          "Added the missing C counterpart for Python Lesson 2.5.",
+          "Rewrote common-mistake lists, independent activities, and mastery checklists for all 53 Unit 1–11 lesson sections with C-specific failure modes and tests tied to canonical examples.",
+          "Expanded all four Unit 0 setup lessons into the full lesson structure, including toolchain, workspace, editor accessibility, dependency management, terminal workflow, activities, and checklists."
         ],
         "validation": [
           "52 C lesson sections in Units 1–11; four Unit 0 setup lessons.",
           "52 worked-example sections and required lesson scaffolding present.",
           "No generic repeated C boilerplate or placeholder project examples remain in the lesson sections.",
-          "Code fence markers are balanced."
+          "Code fence markers are balanced.",
+          "All 53 Unit 1–11 lesson sections have exactly one Common Mistakes section, four lesson-specific Activities, and one Skills Checklist.",
+          "All four Unit 0 setup lessons have structured objectives, concept explanations, worked instructions, common mistakes, activities, accessibility practice, and checklists.",
+          "Activities and common-mistake content are lesson-specific rather than the repeated generic prompts from the first pass."
         ],
         "not_yet_verified": [
           "Compile and execute every C example on GCC and Clang.",
           "Run a complete Markdown link crawl and mdBook build after this update.",
           "Test screen-reader and braille workflows with learners.",
-          "Review external JSON and CSV library choices and pin versions for any implementation project."
+          "Review external JSON and CSV library choices and pin versions for any implementation project.",
+          "Compile and execute the extracted code examples. The current connector environment cannot clone the repository or expose a local GCC/Clang execution environment; the clone attempt failed because github.com could not be resolved."
         ]
       }
     },
