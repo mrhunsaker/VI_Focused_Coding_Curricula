@@ -46,6 +46,9 @@ Tip: $3.67
 Total: $28.18
 ```
 
+### Expected Behavior or Output
+The canonical bill of $24.50 at a 0.15 rate produces a displayed tip of $3.67 and total of $28.18 with JavaScript's binary floating-point and `toFixed(2)` behavior.
+
 ### Common Mistakes
 - Coding before deciding what the program should accept and display.
 - Treating 15 as equivalent to 0.15 for a percentage rate.
@@ -103,6 +106,9 @@ Subtotal: 14
 Grouped: 18
 Is score 15? true
 ```
+
+### Expected Behavior or Output
+The program prints score 15, subtotal 14, grouped result 18, and strict comparison result true.
 
 ### Common Mistakes
 - Using `=` when a comparison with `===` is intended.
@@ -182,6 +188,9 @@ Hello, Avery!
 Sum: 20
 ```
 
+### Expected Behavior or Output
+For inputs Avery, 12, and 8, the program prints `Hello, Avery!` and `Sum: 20`. Blank or nonnumeric input produces the validation message.
+
 ### Common Mistakes
 - Adding two input strings and getting concatenation instead of numeric addition.
 - Treating `Number("")` as invalid even though it evaluates to zero; validate blank text explicitly.
@@ -239,6 +248,9 @@ Height in centimeters: 172
 Is age valid? true
 Is 'sixteen' valid? false
 ```
+
+### Expected Behavior or Output
+The program prints age next year 17, height 172 centimetres, a valid age result of true, and an invalid numeric-text result of false.
 
 ### Common Mistakes
 - Assuming JavaScript separates integers and floats into different primitive types.
@@ -303,6 +315,9 @@ Ceiling of 4.2: 5
 Floor of 4.8: 4
 ```
 
+### Expected Behavior or Output
+For radius 5 and coordinates (3, 4), the program prints area 78.54, circumference 31.42, distance 5.00, ceiling 5, and floor 4.
+
 ### Common Mistakes
 - Writing `Math.pi` instead of the case-sensitive `Math.PI`.
 - Calling `Math.sqrt` without parentheses.
@@ -361,6 +376,9 @@ Expected output:
 Valid passing score.
 ```
 
+### Expected Behavior or Output
+With score 82, the program prints `Valid passing score.` because the score is between 0 and 100 and at least 60.
+
 ### Common Mistakes
 - Using `=` instead of `===` in a comparison.
 - Confusing `&&` with `||`.
@@ -382,6 +400,9 @@ Print the score and decision as a complete sentence. Do not use color alone to i
 - [ ] I can explain strict equality.
 
 ## Lesson 3.2: Chained Conditionals (`else if`, `else`)
+### Concept Explanation
+A chained conditional evaluates branches in order and runs the first matching branch. JavaScript uses `else if` for intermediate alternatives. The shared thresholds are A at 90, B at 80, C at 70, D at 60, and F below 60.
+
 
 ### Reading References
 - Python source counterpart: Unit 3, Lesson 3.2.
@@ -414,6 +435,9 @@ Score 91: A
 Score 76: C
 Score 88: B
 ```
+
+### Expected Behavior or Output
+The canonical scores are classified as 82:B, 91:A, 76:C, and 88:B.
 
 ### Common Mistakes
 - Testing lower thresholds before higher ones.
@@ -465,6 +489,9 @@ Number of scores: 4
 Updated third score: 80
 ```
 
+### Expected Behavior or Output
+The initial array has four values. The first score is 82; after assigning index 2 to 80, the third score is 80.
+
 ### Common Mistakes
 - Using index 1 for the first element.
 - Assuming `const` freezes array contents.
@@ -486,6 +513,9 @@ Identify values by both position and meaning. Print one score per line.
 - [ ] I can use the length property.
 
 ## Lesson 3.4: Iterating with `for` Loops
+### Concept Explanation
+A `for...of` loop visits each value in an iterable collection. The loop variable holds the current score, not its array index.
+
 
 ### Reading References
 - Python source counterpart: Unit 3, Lesson 3.4.
@@ -515,6 +545,9 @@ Total: 337
 Average: 84.25
 ```
 
+### Expected Behavior or Output
+The canonical score list totals 337 and has an average of 84.25.
+
 ### Common Mistakes
 - Confusing an array index with an array value.
 - Modifying the collection while iterating without understanding the effect.
@@ -536,6 +569,9 @@ Use one output line per score and include a meaningful label. Do not rely on vis
 - [ ] I can choose an appropriate loop form.
 
 ## Lesson 3.5: Basic String Operations
+### Concept Explanation
+JavaScript strings are immutable. Methods such as `trim()`, `toUpperCase()`, and `toLowerCase()` return new strings. Template literals use backticks and `${expression}` interpolation.
+
 
 ### Reading References
 - Python source counterpart: Unit 3, Lesson 3.5.
@@ -567,6 +603,9 @@ Contains programming: true
 Characters in name: 13
 ```
 
+### Expected Behavior or Output
+The example prints `Avery Student`, its uppercase form, true for the programming search, and a character count of 13.
+
 ### Common Mistakes
 - Assuming string methods mutate the original string.
 - Forgetting to save the result of `trim()` or case conversion.
@@ -593,6 +632,9 @@ Use complete labels for string length and search results. Explain punctuation an
 This unit maps Python lists, tuples, and dictionaries to idiomatic JavaScript. JavaScript arrays are mutable sequences; a frozen array can express fixed-sequence intent; plain objects represent records; and `Map` represents a dynamic key-value collection.
 
 ## Lesson 4.1: More on Arrays
+### Concept Explanation
+Array methods such as `push()`, `pop()`, and `splice()` mutate an array. Methods such as `slice()` return a new array. Numeric sorting requires a comparator because the default sort is lexicographic.
+
 
 ### Reading References
 - Python source counterpart: Unit 4, Lesson 4.1.
@@ -619,6 +661,9 @@ Removed: 95
 Scores: 82, 85, 91, 76, 88
 ```
 
+### Expected Behavior or Output
+The example removes 95 and prints the remaining scores in the order 82, 85, 91, 76, 88.
+
 ### Common Mistakes
 - Confusing `splice()` (mutates) with `slice()` (returns a copy).
 - Assuming `pop()` returns the updated array rather than the removed element.
@@ -640,6 +685,9 @@ Announce whether an operation mutates the original array or returns a new one. R
 - [ ] I can sort numeric arrays correctly.
 
 ## Lesson 4.2: Organizing Arrays
+### Concept Explanation
+Sorting and reversing can mutate their receiver. Spread syntax creates a shallow copy, allowing a separate primitive-value array to be sorted or reversed without changing the original.
+
 
 ### Reading References
 - Python source counterpart: Unit 4, Lesson 4.2.
@@ -666,6 +714,9 @@ Original: 82, 91, 76, 88
 Sorted: 76, 82, 88, 91
 Reversed: 91, 88, 82, 76
 ```
+
+### Expected Behavior or Output
+The original order remains 82, 91, 76, 88; the sorted copy is 76, 82, 88, 91; the reversed copy is 91, 88, 82, 76.
 
 ### Common Mistakes
 - Calling `sort()` without a comparator for numeric data.
