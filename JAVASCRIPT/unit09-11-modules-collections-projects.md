@@ -644,43 +644,128 @@ Use human-readable JSON during development. Provide explicit save/load confirmat
 - [ ] I can preserve timestamps and identifiers.
 - [ ] I can handle missing and malformed data.
 
-## Lesson 11.3: Displaying and Managing Items
+## Lesson 11.3: Displaying Items
+
+### Reading References
+- Python source counterpart: Unit 11, Lesson 11.3.
+- Node.js documentation: console output and Array iteration.
+
+### Learning Objectives
+- Display every record with a one-based number.
+- Print each field with an explicit label.
+- Handle an empty collection.
+
+### Worked Example
+```javascript
+function displayItems(items) {
+  if (items.length === 0) {
+    console.log("No items have been saved.");
+    return;
+  }
+  items.forEach((item, index) => {
+    console.log(`Item ${index + 1}:`);
+    console.log(`  Title: ${item.title}`);
+    console.log(`  Category: ${item.category}`);
+    console.log(`  Description: ${item.description}`);
+  });
+}
+```
+
+### Activities
+1. Display three sample records in order.
+2. Display an empty list and confirm the message is clear.
+3. Include the record identifier and timestamps in the output.
+4. Review output using sequential screen-reader navigation.
+
+### Accessibility Practice
+Use labels, stable ordering, and one record at a time. Do not rely on columns, color, or icons to convey record fields.
+
+### Skills Checklist
+- [ ] I can display all records.
+- [ ] I can number records for selection.
+- [ ] I can handle an empty collection.
+- [ ] I can label every displayed field.
+
+## Lesson 11.4: Searching, Adding, and Editing Items
 
 ### Reading References
 - Python source counterpart: Unit 11, Lessons 11.3–11.5.
-- Node.js documentation: readline/promises and Array methods.
+- Node.js documentation: Array methods and Date.
 
 ### Learning Objectives
-- Implement create, read, update, and delete operations.
-- Search or filter records by keyword.
-- Validate input and preserve data integrity.
+- Add validated records with unique identifiers.
+- Search records by keyword.
+- Edit selected fields and update timestamps.
 
-### Required Features
-1. Add item — prompt for all required attributes and save.
-2. View all items — display each record clearly with a number.
-3. Search/filter — find records by keyword.
-4. Edit item — select a record and modify specific fields.
-5. Delete item — remove a record by number.
-6. Persistence — save and load JSON between program runs.
-7. Help — list available commands and expected input.
+### Worked Example
+```javascript
+function searchItems(items, keyword) {
+  const query = keyword.trim().toLowerCase();
+  return items.filter(item =>
+    item.title.toLowerCase().includes(query) ||
+    item.description.toLowerCase().includes(query)
+  );
+}
+
+function updateItem(item, changes) {
+  const allowed = ["title", "description", "category"];
+  for (const field of allowed) {
+    if (Object.hasOwn(changes, field)) item[field] = changes[field];
+  }
+  item.updated_at = new Date().toISOString();
+}
+```
 
 ### Activities
-1. Add at least three records.
-2. View all records and verify numbering.
-3. Search by title or description.
-4. Edit one field and confirm `updated_at` changes.
-5. Delete a record and verify it remains deleted after restart.
-6. Test invalid menu choices and invalid record numbers.
+1. Search records by a word in the title.
+2. Search by a word in the description.
+3. Edit a title and verify that updated_at changes.
+4. Reject an edit that contains only blank required fields.
 
 ### Accessibility Practice
-Print field names with values, number every listed record, confirm every state-changing operation, and provide clear error messages. Avoid color-only status and mouse-only controls.
+Report the number of matches and identify each result by its title and record number. Confirm every successful edit.
 
 ### Skills Checklist
-- [ ] I can implement all CRUD operations.
 - [ ] I can search records by keyword.
-- [ ] I can persist changes to JSON.
-- [ ] I can validate invalid input without crashing.
-- [ ] I can provide help and clear confirmations.
+- [ ] I can add a validated record.
+- [ ] I can update selected fields.
+- [ ] I can maintain the updated_at timestamp.
+
+## Lesson 11.5: Deleting Items, Persistence, and Final Verification
+
+### Reading References
+- Python source counterpart: Unit 11, Lessons 11.3–11.5.
+- Node.js documentation: fs/promises and JSON.
+
+### Learning Objectives
+- Delete a record by its identifier or displayed number.
+- Save changes and reload them between program runs.
+- Verify the full CRUD workflow and error handling.
+
+### Worked Example
+```javascript
+function deleteItem(items, id) {
+  const index = items.findIndex(item => item.id === id);
+  if (index < 0) return false;
+  items.splice(index, 1);
+  return true;
+}
+```
+
+### Activities
+1. Delete one record and confirm the title of the deleted item.
+2. Save the remaining records to JSON.
+3. Restart the application and verify the deleted record is still absent.
+4. Run the full acceptance checklist: add, view, search, edit, delete, invalid input, missing file, malformed JSON, and help.
+
+### Accessibility Practice
+Ask for confirmation before irreversible deletion. Announce success or failure in text and preserve predictable menu navigation.
+
+### Skills Checklist
+- [ ] I can delete a record safely.
+- [ ] I can persist and reload records.
+- [ ] I can verify the complete CRUD workflow.
+- [ ] I can test invalid input and storage failures.
 
 ## Assessment Criteria
 
