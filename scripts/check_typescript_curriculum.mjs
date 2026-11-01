@@ -1,7 +1,5 @@
 import fs from "node:fs";
-import os from "node:os";
 import path from "node:path";
-import { pathToFileURL } from "node:url";
 import { execFileSync } from "node:child_process";
 
 const files = [
@@ -20,6 +18,7 @@ let lessonCount = 0;
 let exampleCount = 0;
 const temp = fs.mkdtempSync(path.join(process.cwd(), ".ts-curriculum-"));
 fs.writeFileSync(path.join(temp, "package.json"), JSON.stringify({ type: "module" }));
+fs.symlinkSync(path.join(process.cwd(), "node_modules"), path.join(temp, "node_modules"), "dir");
 
 try {
   for (const file of files) {
