@@ -1,34 +1,14 @@
-# Introduction to Rust
+# Rust Curriculum
 
-## Standalone beginner curriculum
+Rust is used for systems software, command-line tools, networking, embedded development, WebAssembly, and performance-sensitive services.
 
-Rust is a statically typed, compiled language built around ownership, borrowing, and traits. It is used for systems programming, command-line tools, network services, WebAssembly, embedded development, and performance-sensitive software where memory safety is a priority.
+A complete introductory course aligned to Python Units 0–11. Familiar problem contexts recur so learners focus on Rust's ownership, borrowing, types, collections, error handling, traits, and idioms.
 
-## What information is a good fit?
+## Environment
 
-Rust suits owned values, borrowed views, structured records, byte buffers, collections, and concurrent data with explicit lifetime and mutation rules. Ownership and borrowing help prevent many memory-safety errors, but they do not replace validation of external input or logical correctness.
+Install Rust using rustup. Verify `rustc --version` and `cargo --version`. Create a project with `cargo new course_app`, then run `cargo run`.
 
-## Lessons
+Complete the shared [IDE setup lesson](../DEVELOPMENT/IDE_SETUP.md) and [terminal prerequisite](../TERMINAL/TERMINAL_README.md).
 
-1. rustup, Cargo, and project structure.
-2. Bindings, scalar types, and expressions.
-3. Ownership, moves, and borrowing.
-4. Control flow, functions, and modules.
-5. Structs, enums, and pattern matching.
-6. Collections, strings, and error handling.
-7. Traits, generics, and lifetimes.
-8. Files, iterators, and testing.
-9. Threads and safe concurrency.
-10. Systems-oriented capstone.
-
-## First program
-
-~~~rust
-fn main() {
-    let name = "Avery";
-    let count: i32 = 3;
-    println!("{name}: {count}");
-}
-~~~
-
-Toolchain: rustup, rustc, and Cargo. Use stable Rust and Cargo-managed projects. See [Rust lessons](lessons.md).
+- [Complete lessons](lessons.md)
+- [Topic index](INDEX.md)
