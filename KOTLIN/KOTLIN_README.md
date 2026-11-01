@@ -7,7 +7,7 @@ This course is a Kotlin/JVM parallel track aligned to the shared 12-unit, 57-les
 ## Toolchain
 
 - Use a supported JDK; the course Java pathway baseline is JDK 25 LTS.
-- Use Kotlin compiler/plugin 2.4.21 for the documented course baseline; check the [Kotlin release process](https://kotlinlang.org/docs/releases.html) before changing versions.
+- Use Kotlin compiler and Gradle plugin 1.9.24 (the version used by the example-validation workflow) for the documented course baseline; check the [Kotlin release process](https://kotlinlang.org/docs/releases.html) before changing versions.
 - Verify the compiler with `kotlinc -version` and the runtime with `java -version`.
 - For a single file: `kotlinc Hello.kt -include-runtime -d hello.jar`, then `java -jar hello.jar`.
 - For multi-file work, use the Gradle wrapper and Kotlin/JVM plugin. Commit the wrapper so the build version is reproducible.
