@@ -1,0 +1,22 @@
+name: Julia examples
+
+on:
+  push:
+    branches:
+      - 2026-11-01-curriculum-expansion
+    paths:
+      - "JULIA/lessons.md"
+      - "scripts/check_julia_examples.py"
+      - ".github/workflows/julia-examples.yml"
+  workflow_dispatch:
+
+jobs:
+  julia-examples:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: julia-actions/setup-julia@v2
+        with:
+          version: "1.12"
+      - name: Execute every fenced Julia example
+        run: python3 scripts/check_julia_examples.py
