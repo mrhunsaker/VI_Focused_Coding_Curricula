@@ -90,6 +90,26 @@
   - [Rust Lessons](RUST/lessons.md)
   - [Rust Topic Index](RUST/INDEX.md)
 
+# New full courses
+
+- [Go Curriculum](GO/GO_README.md)
+  - [Go Lessons](GO/lessons.md)
+  - [Go Topic Index](GO/INDEX.md)
+- [Lua Curriculum](LUA/LUA_README.md)
+  - [Lua Lessons](LUA/lessons.md)
+  - [Lua Topic Index](LUA/INDEX.md)
+
+# Introductory modules
+
+- [HTML and CSS](MODULES/HTML_CSS.md)
+- [R: Statistical Computing](MODULES/R.md)
+- [SQL: Relational Databases](MODULES/SQL.md)
+- [Module Index](MODULES/INDEX.md)
+
+# Course standardization
+
+- [Lesson standardization specification and refinement prompt](lesson_standardization.json)
+
 # Backmatter
 - [Teacher's Guides](backmatter/Teachers-Guides.md)
   - [Teacher's Guide](PYTHON/teachers-guide.md)
