@@ -66,6 +66,7 @@ JavaScript also has behaviors that require explicit teaching. Dynamic typing and
 - [Units 5–8: Strings, Functions, OOP, and Files](unit05-08-strings-functions-oop-files.md)
 - [Units 9–11: Modules, Collections, Testing, and Projects](unit09-11-modules-collections-projects.md)
 - [Teacher's guide: instructor planning, accessible instruction, assessment, and AI guidance](teachers-guide.md)
+- [Standardization audit: Python-to-JavaScript alignment and validation status](standardization-audit.md)
 
 Return to the [curriculum overview](../OVERALL_README.md) to compare Python, JavaScript, and Java.
 
