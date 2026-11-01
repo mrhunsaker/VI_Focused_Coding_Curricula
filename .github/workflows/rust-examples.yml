@@ -1,0 +1,21 @@
+name: Rust examples
+on:
+  push:
+    branches: [2026-11-01-curriculum-expansion]
+    paths:
+      - "RUST/lessons.md"
+      - "scripts/check_rust_examples.py"
+      - ".github/workflows/rust-examples.yml"
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  rust-examples:
+    runs-on: ubuntu-24.04
+    steps:
+      - uses: actions/checkout@v4
+      - uses: dtolnay/rust-toolchain@stable
+      - name: Verify toolchain
+        run: rustc --version && cargo --version
+      - name: Compile and smoke-run lesson examples
+        run: python3 scripts/check_rust_examples.py
