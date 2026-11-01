@@ -3582,19 +3582,17 @@ Go's testing package discovers TestXxx functions in _test.go files; run go test 
 ### Worked Example
 ```go
 package main
-import (
-	"fmt"
-)
+import "fmt"
+
+type Counter struct { Value int }
+func (c *Counter) Increment() { c.Value++ }
+
 func main() {
-	type Counter struct { Value int }
-	func (c *Counter) Increment() { c.Value++ }
-	func main() {
-	 c := Counter{}
-	 c.Increment()
-	 c.Increment()
-	 if c.Value != 2 { panic("counter test failed") }
-	 fmt.Println("counter state verified:", c.Value)
-	}
+ c := Counter{}
+ c.Increment()
+ c.Increment()
+ if c.Value != 2 { panic("counter test failed") }
+ fmt.Println("counter state verified:", c.Value)
 }
 ```
 
