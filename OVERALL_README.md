@@ -1,6 +1,6 @@
 # Accessible Introduction to Computer Science
 
-## A living, accessibility-first textbook in Python, JavaScript, TypeScript, and Java
+## A living, accessibility-first textbook in Python, JavaScript, TypeScript, Java, Kotlin, C, C++, C#, Julia, Swift, and Rust
 
 This book is a structured introduction to programming and core computer science concepts. It is designed with blind and visually impaired learners who use screen readers, braille displays, magnification, keyboard navigation, or combinations of access technologies in mind. It is also intended for sighted beginners, educators, and anyone who benefits from explicit, text-first instruction.
 
@@ -98,9 +98,25 @@ This is a practical orientation, not a ranking. No language is universally easie
 - **Cross-language comparison:** complete one introductory course first, then study a second language by comparing equivalent concepts rather than learning several syntaxes simultaneously.
 - **Educator-led course:** use the matching teacher's guide alongside the learner units.
 
-Kotlin is available as an optional [post-capstone supplement for Java learners](JAVA/kotlin.md); it is not a required core curriculum.
+Kotlin is a standalone curriculum and does not require completion of Java. C, C++, C#, Julia, Swift, and Rust are also independent learning paths.
 
-Avoid requiring students to learn all four curricula at once. Depth in one language provides a stronger foundation for transfer.
+Avoid requiring students to learn multiple curricula at once. Complete one language path before comparing syntax and design trade-offs across languages. Depth in one language provides a stronger foundation for transfer.
+
+## Additional standalone language curricula
+
+All language tracks share the [preliminary Bash and PowerShell terminal course](TERMINAL/TERMINAL_README.md). Complete it first so learners can navigate projects, run tools, and interpret command output independently.
+
+| Language | Primary uses | Typical information and workloads | Curriculum |
+| --- | --- | --- | --- |
+| Kotlin | Android, JVM services, command-line tools, multiplatform software | Typed application models, API payloads, structured records, nullable data, asynchronous state | [Kotlin](KOTLIN/KOTLIN_README.md) |
+| C | Operating systems, embedded firmware, drivers, networking, runtimes | Bytes, fixed-width values, memory buffers, binary records, low-level structures | [C](C/c_README.md) |
+| C++ | Game engines, simulation, real-time and high-performance software | Numerical arrays, large objects, resource-owning structures, performance-sensitive streams | [C++](CPP/cpp_README.md) |
+| C# | Business software, web APIs, cloud services, desktop apps, Unity | Business entities, typed models, JSON/API payloads, database records | [C#](CSHARP/csharp_README.md) |
+| Julia | Scientific computing, numerical analysis, optimization, statistics, machine learning | Vectors, matrices, tensors, measurements, simulation outputs, statistical datasets | [Julia](JULIA/julia_README.md) |
+| Swift | Apple-platform apps, server-side Swift, cross-platform libraries | Strongly typed app models, settings, structured records, JSON, asynchronous results | [Swift](SWIFT/swift_README.md) |
+| Rust | Systems software, CLI tools, network services, WebAssembly, embedded software | Owned values, borrowed views, byte buffers, structured records, concurrent data | [Rust](RUST/rust_README.md) |
+
+These are common application patterns, not hard limits. Choose a language by considering target platform, ecosystem, performance, safety, interoperability, available libraries, and maintainability. Data suitability depends on the data model and validation practices, not simply the language. Treat external input as untrusted and protect sensitive information.
 
 ## How the curriculum is organized
 
