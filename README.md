@@ -9,7 +9,7 @@
 [![PRs welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg)](CONTRIBUTING.md)
 [![Build and deploy mdBook](https://github.com/mrhunsaker/VI_Focused_Coding_Curricula/actions/workflows/mdbook.yml/badge.svg)](https://github.com/mrhunsaker/VI_Focused_Coding_Curricula/actions/workflows/mdbook.yml)
 
-An accessibility-first, open educational resource for learning introductory computer science through **Python, JavaScript, TypeScript, and Java**. It is designed especially for learners who are blind or visually impaired and use screen readers, while remaining useful to anyone who prefers keyboard-first, text-based instruction.
+An accessibility-first, open educational resource for learning introductory computer science through **Python, JavaScript, TypeScript, Java, Kotlin, C, C++, C#, Julia, Swift, and Rust**. It is designed especially for learners who are blind or visually impaired and use screen readers, while remaining useful to anyone who prefers keyboard-first, text-based instruction.
 
 **Read the living textbook:** [https://mrhunsaker.github.io/VI_Focused_Coding_Curricula/](https://mrhunsaker.github.io/VI_Focused_Coding_Curricula/)
 
@@ -26,7 +26,7 @@ Each language curriculum has a topic index mapping terms, APIs, setup tasks, and
 ## Purpose and principles
 
 - **Accessible by design:** prioritize screen-reader compatibility, semantic structure, descriptive links, keyboard operation, and text-based workflows.
-- **Teach transferable computer science:** introduce core programming concepts through four widely used languages.
+- **Teach transferable computer science:** introduce core programming concepts through eleven independent language pathways.
 - **Practice-first learning:** support concepts with runnable examples, guided exercises, projects, and capstone work.
 - **Keep it living:** welcome corrections, clearer explanations, new examples, improved exercises, and updates as tools and language ecosystems change.
 - **Build in the open:** invite learners, educators, developers, and accessibility practitioners to participate.
@@ -40,7 +40,7 @@ The lessons emphasize keyboard-first development, accessible editor and terminal
 
 ## What's in the textbook
 
-The current book includes an overview and four language curricula, organized into 19 unit documents, plus an optional post-capstone Kotlin supplement for Java learners.
+The current book includes an overview and eleven independent language curricula, each with a landing page and guided lessons, plus a shared Bash and PowerShell terminal prerequisite.
 
 | Curriculum | Coverage |
 | --- | --- |
@@ -48,6 +48,13 @@ The current book includes an overview and four language curricula, organized int
 | [JavaScript](JAVASCRIPT/JAVASCRIPT_README.md) | Setup and foundations; numbers and input; control flow; arrays and objects; functions; classes; files and errors; modules, collections, testing, projects, and capstone |
 | [TypeScript](TYPESCRIPT/TYPESCRIPT_README.md) | Node.js and TypeScript setup; type annotations and inference; input; control flow; data structures; functions; classes; files; modules; collections; testing; projects and capstone |
 | [Java](JAVA/JAVA_README.md) | Setup and foundations; numeric programs; control flow; arrays and collections; input and strings; methods; object-oriented programming; files and exceptions; projects and capstone |
+| [Kotlin](KOTLIN/KOTLIN_README.md) | Standalone Kotlin fundamentals, null safety, functions, data classes, collections, files, coroutines, and testing |
+| [C](C/c_README.md) | Procedural programming, memory, pointers, structs, files, and testing |
+| [C++](CPP/cpp_README.md) | Modern C++, objects, RAII, templates, containers, and performance |
+| [C#](CSHARP/csharp_README.md) | .NET, types, objects, collections, LINQ, files, and testing |
+| [Julia](JULIA/julia_README.md) | Numerical computing, multiple dispatch, arrays, packages, performance, and reproducibility |
+| [Swift](SWIFT/swift_README.md) | Swift types, optionals, value semantics, protocols, concurrency, and testing |
+| [Rust](RUST/rust_README.md) | Ownership, borrowing, traits, lifetimes, error handling, and safe concurrency |
 
 Start with the [curriculum overview](OVERALL_README.md), then choose a language:
 
@@ -55,7 +62,8 @@ Start with the [curriculum overview](OVERALL_README.md), then choose a language:
 - [JavaScript curriculum and units](JAVASCRIPT/JAVASCRIPT_README.md)
 - [TypeScript curriculum and units](TYPESCRIPT/TYPESCRIPT_README.md)
 - [Java curriculum and units](JAVA/JAVA_README.md)
-- [Optional Kotlin post-capstone supplement](JAVA/kotlin.md)
+- [Standalone Kotlin curriculum and lessons](KOTLIN/KOTLIN_README.md)
+- [Preliminary Bash and PowerShell terminal course](TERMINAL/TERMINAL_README.md)
 
 The [mdBook table of contents](SUMMARY.md) defines the published book's navigation.
 
@@ -78,7 +86,7 @@ Accessibility is an ongoing quality goal, not a claim that every page or third-p
 - **Content:** Markdown files in this repository
 - **Hosting:** GitHub Pages
 - **Automation:** GitHub Actions
-- **Curriculum languages:** Python, JavaScript (Node.js), TypeScript (compiled to JavaScript and run with Node.js), and Java
+- **Curriculum languages:** Python, JavaScript, TypeScript, Java, Kotlin, C, C++, C#, Julia, Swift, and Rust
 
 To build locally:
 
@@ -121,6 +129,14 @@ Read [CONTRIBUTING.md](CONTRIBUTING.md), [CODE_STYLE.md](CODE_STYLE.md), and [CO
 ├── JAVASCRIPT/             # JavaScript curriculum and units
 ├── JAVA/                   # Java curriculum, units, and Kotlin supplement
 ├── TYPESCRIPT/             # TypeScript curriculum and units
+├── KOTLIN/                 # Standalone Kotlin curriculum
+├── C/                      # C curriculum
+├── CPP/                    # C++ curriculum
+├── CSHARP/                 # C# curriculum
+├── JULIA/                  # Julia curriculum
+├── SWIFT/                  # Swift curriculum
+├── RUST/                   # Rust curriculum
+├── TERMINAL/               # Bash and PowerShell prerequisite
 ├── .github/workflows/      # mdBook build and GitHub Pages deployment
 ├── CHANGES.md              # Project change log
 ├── CONTRIBUTING.md         # Contribution process
