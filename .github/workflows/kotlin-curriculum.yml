@@ -4,6 +4,8 @@ on:
   push:
     paths:
       - "KOTLIN/**"
+      - "SUMMARY.md"
+      - "book.toml"
       - "scripts/check_kotlin_curriculum.mjs"
       - "scripts/check_kotlin_examples.py"
       - ".github/workflows/kotlin-curriculum.yml"
