@@ -2,38 +2,87 @@
 
 ## Course Overview
 
-Julia targets numerical and scientific computing, simulation, optimization, statistics, and data-intensive research.
+Julia is a high-level, dynamically typed, JIT-compiled language for numerical and scientific computing, simulation, optimization, statistics, and data-intensive research. Multiple dispatch, expressive types, array operations, and performance-oriented compilation support interactive development and high-performance numerical kernels.
 
-This course intentionally parallels the original Python curriculum. It reuses problem contexts—greetings, profiles, a calculator, grade decisions, score collections, inventory, functions, text files, tests, text analysis, CSV, a to-do list, and a personal-data manager—so the principal new learning target is the Julia language. The syntax and implementation remain idiomatic, not a mechanical translation.
+This course follows the Python curriculum's unit sequence and shared problem contexts: Avery's profile, calculator values, grade thresholds, scores, inventory, coordinates, text sample, CSV columns, task fields, text-adventure requirements, and personal-data-manager record model. Julia idioms are taught directly rather than mechanically translated.
+
+**Version baseline:** Julia 1.12. Run project scripts with `julia --project=. filename.jl`. Examples use the language and standard libraries unless a dependency is identified.
 
 ## Unit 0: Accessible Environment and Toolchain
 
 ### Overview
-Install and verify the compiler or interpreter, create a project, and test keyboard and screen-reader access.
+Install Julia, configure an accessible editor and terminal workflow, create a reproducible project environment, and verify source files from the project root. Julia is JIT-compiled; learners run source files with the Julia executable or experiment in the REPL.
 
 ### Lesson 0.1: Install and Verify Julia
 
-Install Julia from julialang.org. Verify `julia --version`; run a script with `julia main.jl` or experiment in the REPL.
+Install Julia 1.12 from [the official download page](https://julialang.org/downloads/) or use juliaup. Open a new terminal and run `julia --version`. Start the REPL with `julia`, enter `println("Hello, Julia!")`, then exit with `exit()` or Ctrl+D. Run saved source with `julia main.jl`.
+
+```jl
+println("Julia version: ", VERSION)
+println("Hello, Julia!")
+```
+
+**Common mistakes:** stale PATH in an existing terminal; confusing the REPL with the shell; running from the wrong directory.
+
+**Activities:** record `julia --version` and `VERSION`; run Hello World in the REPL and a file; deliberately use an incorrect filename and read the diagnostic; restart the terminal and verify Julia remains available.
+
+**Accessibility Practice:** navigate installer controls and terminal output by keyboard; verify REPL prompts, punctuation, and errors with the learner's access technology.
+
+**Skills Checklist:** I can install and identify Julia; distinguish the REPL and shell; run a saved `.jl` file.
 
 ### Lesson 0.2: Workspace and First Run
-Create a course folder, save a source file named `main.jl`, run it from the terminal, and read standard output and errors. Distinguish source code, compiler/interpreter, and executable/runtime.
+
+Create a course directory and save `main.jl` in its root. Use `pwd` (or `Get-Location` in PowerShell) to confirm the current directory. Julia resolves relative paths from the process working directory, not automatically from the source file's directory.
+
+```jl
+println("Project: Julia course workspace")
+println("Working directory: ", pwd())
+```
+
+**Common mistakes:** opening a parent folder; assuming paths are relative to the source file; saving `main.jl.txt` unintentionally.
+
+**Activities:** create and verify the project folder; save and run `main.jl`; change working directory and observe path behavior; return to the root and rerun.
+
+**Accessibility Practice:** use terminal history and directory commands without drag-and-drop; confirm file names, indentation, and diagnostics are read linearly.
+
+**Skills Checklist:** I can identify the project root and working directory; create and run `main.jl`; explain relative paths.
 
 ### Lesson 0.3: Editor and Accessibility Workflow
-Complete the shared [IDE setup lesson](../DEVELOPMENT/IDE_SETUP.md). Test editor navigation, punctuation announcement, indentation, terminal focus, diagnostics, and project navigation. Install only the language tooling needed for this course.
 
-### Skills Checklist
-- [ ] I can verify the Julia toolchain.
-- [ ] I can create and run a source file from the terminal.
-- [ ] I can navigate the editor and read output accessibly.
+Complete [the shared IDE setup lesson](../DEVELOPMENT/IDE_SETUP.md). Install the Julia extension available in the chosen editor, select the same Julia executable as the terminal, and open the project root. Check diagnostics, symbol navigation, terminal focus, and file navigation. Marketplace extensions are not automatically available in VSCodium or Theia.
+
+```jl
+function greet(name::AbstractString)
+    return "Hello, $(name)!"
+end
+println(greet("Avery"))
+```
+
+**Common mistakes:** selecting a different Julia installation in the editor; treating syntax coloring as proof the language server works; depending on mouse-only controls.
+
+**Activities:** open the project root; navigate the example by line, word, and character; introduce and correct a syntax error; run from integrated and system terminals.
+
+**Accessibility Practice:** test punctuation verbosity, indentation, completion, diagnostics, terminal focus, and editor panels. Keep terminal-first execution available.
+
+**Skills Checklist:** I can configure the project and Julia executable; navigate source by keyboard; locate diagnostics; run without mouse-dependent actions.
 
 ### Lesson 0.4: Project Environments, Dependencies, and Terminal Usage
 
-Use the terminal from the project root and understand the current working directory. Keep each project in its own folder and distinguish source files, build output, and dependency metadata. Use Julia's project environment for reproducibility. Create or activate a project environment with `julia --project`, then use `import Pkg; Pkg.activate("."); Pkg.add("PackageName")`. Explain Project.toml and Manifest.toml and run scripts with `julia --project main.jl`.
+Run `julia --project=.` from the project root. At the REPL use `using Pkg; Pkg.activate(".")`. Add JSON3 with `Pkg.add("JSON3")`; direct dependencies are recorded in `Project.toml` and the resolved graph in `Manifest.toml`. Reproduce an environment with `Pkg.instantiate()`. Run scripts with `julia --project=. main.jl` and tests with `julia --project=. test/runtests.jl`.
 
-### Skills Checklist
-- [ ] I can identify the project root and run commands from it.
-- [ ] I can explain where project dependencies are recorded, if applicable.
-- [ ] I can run the program or test command from the terminal and read its output.
+```jl
+using Pkg
+Pkg.activate(".")
+println("Active project: ", Base.active_project())
+```
+
+**Common mistakes:** adding a package before activating the intended project; omitting `--project=.` when importing dependencies; deleting the manifest when reproducibility is required.
+
+**Activities:** activate the course directory; add JSON3 and inspect TOML files; start a fresh process and instantiate; compare execution with and without the project flag.
+
+**Accessibility Practice:** inspect TOML files as text and read package-manager output sequentially. Document commands rather than relying on transient editor notifications.
+
+**Skills Checklist:** I can activate a local environment; explain project and manifest files; add and instantiate dependencies; run scripts and tests from the terminal.
 
 # Unit 1: Foundations of Computing
 
@@ -44,131 +93,141 @@ This unit covers computer science, hardware/software, algorithms, first program,
 ## Lesson 1.1: Computer science and problem solving
 
 ### Reading References
-- Official Julia language guide and standard-library documentation.
-- Corresponding Python course lesson for the shared problem context and learning objective.
+- [Julia Documentation](https://docs.julialang.org/en/v1/)
+- Julia Base and standard-library reference.
+- Corresponding Python curriculum lesson for the shared problem and data.
 
 ### Learning Objectives
-- Explain this concept using Julia terminology.
-- Trace a short program and predict its behavior before execution.
-- Modify and test the example independently.
+- Explain computer science and problem solving using Julia terminology.
+- Apply the relevant syntax and standard-library facilities.
+- Test normal, boundary, and invalid cases using shared course data.
 
 ### Concept Explanation
-Computer science and problem solving. Julia targets numerical and scientific computing, simulation, optimization, statistics, and data-intensive research. The Python course provides the sequence and problem contexts; this lesson teaches the idiomatic Julia syntax and semantics. Pay particular attention to static or dynamic typing, mutability, indexing, parameter passing, errors, and resource lifetime where they differ from Python.
+Julia is a high-level, dynamically typed, JIT-compiled language. Values have concrete types and variables are bindings. Define inputs and outputs, choose a finite algorithm, and test ordinary and boundary cases.
+
+**Lesson focus:** Computer science and problem solving. The worked example is self-contained unless a standard-library import is shown.
 
 ### Worked Example
 ```jl
-println("Hello, World!")
+println("Computer science turns a problem into a finite sequence of precise steps.")
 ```
 
-**Trace:** identify declarations, expressions, control flow, and observable output. Predict the result, run the example, and compare the actual output with the prediction.
+### Expected Behavior or Output
+The program prints a result based on the stated inputs. Predict the result before running it, then compare the observed output. File examples use temporary paths and close resources within the callback.
 
 ### Common Mistakes
-- Copying Python syntax or assumptions instead of using idiomatic Julia constructs.
-- Confusing assignment with equality or declaration with initialization.
-- Assuming strings, arrays, slices, tables, maps, or records have the same indexing and mutation rules as Python.
-- Ignoring compiler/interpreter diagnostics, return values, or resource errors.
+- Inspect values with `typeof` rather than assuming a static declaration.
+- Do not confuse a variable binding with a `const` binding.
+- Read `UndefVarError` and `MethodError` diagnostics before changing code.
 
 ### Activities
-1. Reproduce and run the example in a new file.
-2. Change one value and predict the result before running.
-3. Add a boundary case and an invalid-input case; describe the outcome.
-4. Explain each statement and its effect without relying on syntax coloring.
+1. Run the example and explain each expression in execution order.
+2. Change a canonical profile value and predict the output.
+3. Inspect each value with `typeof` and explain the result.
+4. Introduce and correct an undefined-name error.
 
 ### Accessibility Practice
-Navigate the complete source file by line, word, and character using the learner's access technology. Read punctuation and indentation, run from the terminal, and inspect standard output and errors sequentially.
+Navigate source by line, word, and character. Inspect operators, punctuation, mutation markers, and block-ending `end` keywords. Run from the terminal and read output and diagnostics sequentially. Do not rely on syntax color or mouse-only controls.
 
 ### Skills Checklist
-- [ ] I can explain the concept in Julia terminology.
-- [ ] I can trace and predict the example.
-- [ ] I can modify and run the code independently.
-- [ ] I can identify and correct a common error.
-- [ ] I can read source and output accessibly.
+- [ ] I can explain computer science and problem solving in Julia terminology.
+- [ ] I can trace the example and predict its output.
+- [ ] I can adapt the example to canonical shared data.
+- [ ] I can identify and correct a Julia-specific error or edge case.
+- [ ] I can run and inspect the program using keyboard-accessible tools.
 
 ## Lesson 1.2: Your first program
 
 ### Reading References
-- Official Julia language guide and standard-library documentation.
-- Corresponding Python course lesson for the shared problem context and learning objective.
+- [Julia Documentation](https://docs.julialang.org/en/v1/)
+- Julia Base and standard-library reference.
+- Corresponding Python curriculum lesson for the shared problem and data.
 
 ### Learning Objectives
-- Explain this concept using Julia terminology.
-- Trace a short program and predict its behavior before execution.
-- Modify and test the example independently.
+- Explain your first program using Julia terminology.
+- Apply the relevant syntax and standard-library facilities.
+- Test normal, boundary, and invalid cases using shared course data.
 
 ### Concept Explanation
-Your first program. Julia targets numerical and scientific computing, simulation, optimization, statistics, and data-intensive research. The Python course provides the sequence and problem contexts; this lesson teaches the idiomatic Julia syntax and semantics. Pay particular attention to static or dynamic typing, mutability, indexing, parameter passing, errors, and resource lifetime where they differ from Python.
+Julia is a high-level, dynamically typed, JIT-compiled language. Values have concrete types and variables are bindings. Define inputs and outputs, choose a finite algorithm, and test ordinary and boundary cases.
+
+**Lesson focus:** Your first program. The worked example is self-contained unless a standard-library import is shown.
 
 ### Worked Example
 ```jl
 println("Hello, World!")
 ```
 
-**Trace:** identify declarations, expressions, control flow, and observable output. Predict the result, run the example, and compare the actual output with the prediction.
+### Expected Behavior or Output
+The program prints a result based on the stated inputs. Predict the result before running it, then compare the observed output. File examples use temporary paths and close resources within the callback.
 
 ### Common Mistakes
-- Copying Python syntax or assumptions instead of using idiomatic Julia constructs.
-- Confusing assignment with equality or declaration with initialization.
-- Assuming strings, arrays, slices, tables, maps, or records have the same indexing and mutation rules as Python.
-- Ignoring compiler/interpreter diagnostics, return values, or resource errors.
+- Inspect values with `typeof` rather than assuming a static declaration.
+- Do not confuse a variable binding with a `const` binding.
+- Read `UndefVarError` and `MethodError` diagnostics before changing code.
 
 ### Activities
-1. Reproduce and run the example in a new file.
-2. Change one value and predict the result before running.
-3. Add a boundary case and an invalid-input case; describe the outcome.
-4. Explain each statement and its effect without relying on syntax coloring.
+1. Run the example and explain each expression in execution order.
+2. Change a canonical profile value and predict the output.
+3. Inspect each value with `typeof` and explain the result.
+4. Introduce and correct an undefined-name error.
 
 ### Accessibility Practice
-Navigate the complete source file by line, word, and character using the learner's access technology. Read punctuation and indentation, run from the terminal, and inspect standard output and errors sequentially.
+Navigate source by line, word, and character. Inspect operators, punctuation, mutation markers, and block-ending `end` keywords. Run from the terminal and read output and diagnostics sequentially. Do not rely on syntax color or mouse-only controls.
 
 ### Skills Checklist
-- [ ] I can explain the concept in Julia terminology.
-- [ ] I can trace and predict the example.
-- [ ] I can modify and run the code independently.
-- [ ] I can identify and correct a common error.
-- [ ] I can read source and output accessibly.
+- [ ] I can explain your first program in Julia terminology.
+- [ ] I can trace the example and predict its output.
+- [ ] I can adapt the example to canonical shared data.
+- [ ] I can identify and correct a Julia-specific error or edge case.
+- [ ] I can run and inspect the program using keyboard-accessible tools.
 
 ## Lesson 1.3: Variables and data types
 
 ### Reading References
-- Official Julia language guide and standard-library documentation.
-- Corresponding Python course lesson for the shared problem context and learning objective.
+- [Julia Documentation](https://docs.julialang.org/en/v1/)
+- Julia Base and standard-library reference.
+- Corresponding Python curriculum lesson for the shared problem and data.
 
 ### Learning Objectives
-- Explain this concept using Julia terminology.
-- Trace a short program and predict its behavior before execution.
-- Modify and test the example independently.
+- Explain variables and data types using Julia terminology.
+- Apply the relevant syntax and standard-library facilities.
+- Test normal, boundary, and invalid cases using shared course data.
 
 ### Concept Explanation
-Variables and data types. Julia targets numerical and scientific computing, simulation, optimization, statistics, and data-intensive research. The Python course provides the sequence and problem contexts; this lesson teaches the idiomatic Julia syntax and semantics. Pay particular attention to static or dynamic typing, mutability, indexing, parameter passing, errors, and resource lifetime where they differ from Python.
+Julia is a high-level, dynamically typed, JIT-compiled language. Values have concrete types and variables are bindings. Define inputs and outputs, choose a finite algorithm, and test ordinary and boundary cases.
+
+**Lesson focus:** Variables and data types. The worked example is self-contained unless a standard-library import is shown.
 
 ### Worked Example
 ```jl
-println("Hello, World!")
+profile = (name="Avery", age=16, height_m=1.72, favorite_subject="Computer Science")
+println(profile)
 ```
 
-**Trace:** identify declarations, expressions, control flow, and observable output. Predict the result, run the example, and compare the actual output with the prediction.
+### Expected Behavior or Output
+The program prints a result based on the stated inputs. Predict the result before running it, then compare the observed output. File examples use temporary paths and close resources within the callback.
 
 ### Common Mistakes
-- Copying Python syntax or assumptions instead of using idiomatic Julia constructs.
-- Confusing assignment with equality or declaration with initialization.
-- Assuming strings, arrays, slices, tables, maps, or records have the same indexing and mutation rules as Python.
-- Ignoring compiler/interpreter diagnostics, return values, or resource errors.
+- Inspect values with `typeof` rather than assuming a static declaration.
+- Do not confuse a variable binding with a `const` binding.
+- Read `UndefVarError` and `MethodError` diagnostics before changing code.
 
 ### Activities
-1. Reproduce and run the example in a new file.
-2. Change one value and predict the result before running.
-3. Add a boundary case and an invalid-input case; describe the outcome.
-4. Explain each statement and its effect without relying on syntax coloring.
+1. Run the example and explain each expression in execution order.
+2. Change a canonical profile value and predict the output.
+3. Inspect each value with `typeof` and explain the result.
+4. Introduce and correct an undefined-name error.
 
 ### Accessibility Practice
-Navigate the complete source file by line, word, and character using the learner's access technology. Read punctuation and indentation, run from the terminal, and inspect standard output and errors sequentially.
+Navigate source by line, word, and character. Inspect operators, punctuation, mutation markers, and block-ending `end` keywords. Run from the terminal and read output and diagnostics sequentially. Do not rely on syntax color or mouse-only controls.
 
 ### Skills Checklist
-- [ ] I can explain the concept in Julia terminology.
-- [ ] I can trace and predict the example.
-- [ ] I can modify and run the code independently.
-- [ ] I can identify and correct a common error.
-- [ ] I can read source and output accessibly.
+- [ ] I can explain variables and data types in Julia terminology.
+- [ ] I can trace the example and predict its output.
+- [ ] I can adapt the example to canonical shared data.
+- [ ] I can identify and correct a Julia-specific error or edge case.
+- [ ] I can run and inspect the program using keyboard-accessible tools.
 
 # Unit 2: Numeric Computations
 
@@ -179,178 +238,237 @@ This unit covers development process, expressions, assignment, input/output, con
 ## Lesson 2.1: Design and tracing
 
 ### Reading References
-- Official Julia language guide and standard-library documentation.
-- Corresponding Python course lesson for the shared problem context and learning objective.
+- [Julia Documentation](https://docs.julialang.org/en/v1/)
+- Julia Base and standard-library reference.
+- Corresponding Python curriculum lesson for the shared problem and data.
 
 ### Learning Objectives
-- Explain this concept using Julia terminology.
-- Trace a short program and predict its behavior before execution.
-- Modify and test the example independently.
+- Explain design and tracing using Julia terminology.
+- Apply the relevant syntax and standard-library facilities.
+- Test normal, boundary, and invalid cases using shared course data.
 
 ### Concept Explanation
-Design and tracing. Julia targets numerical and scientific computing, simulation, optimization, statistics, and data-intensive research. The Python course provides the sequence and problem contexts; this lesson teaches the idiomatic Julia syntax and semantics. Pay particular attention to static or dynamic typing, mutability, indexing, parameter passing, errors, and resource lifetime where they differ from Python.
+Julia evaluates expressions and binds names with `=`. Numeric text must be converted before arithmetic; use `parse` for trusted input and `tryparse` when conversion may fail. `π`, `hypot`, exponentiation with `^`, and `round(...; digits=...)` support common calculations.
+
+**Lesson focus:** Design and tracing. The worked example is self-contained unless a standard-library import is shown.
 
 ### Worked Example
 ```jl
-bill = 24.50; tip = bill * 0.15
-println("Tip: $(round(tip, digits=2)); total: $(round(bill+tip, digits=2))")
+bill = 24.50; rate = 0.15
+println("Tip: ", bill * rate, "; total: ", bill * (1 + rate))
 ```
 
-**Trace:** identify declarations, expressions, control flow, and observable output. Predict the result, run the example, and compare the actual output with the prediction.
+### Expected Behavior or Output
+The program prints a result based on the stated inputs. Predict the result before running it, then compare the observed output. File examples use temporary paths and close resources within the callback.
 
 ### Common Mistakes
-- Copying Python syntax or assumptions instead of using idiomatic Julia constructs.
-- Confusing assignment with equality or declaration with initialization.
-- Assuming strings, arrays, slices, tables, maps, or records have the same indexing and mutation rules as Python.
-- Ignoring compiler/interpreter diagnostics, return values, or resource errors.
+- Use `==` for equality; `=` binds a value.
+- Validate uncertain text with `tryparse` before arithmetic.
+- Avoid rounding intermediate values before the final result.
 
 ### Activities
-1. Reproduce and run the example in a new file.
-2. Change one value and predict the result before running.
-3. Add a boundary case and an invalid-input case; describe the outcome.
-4. Explain each statement and its effect without relying on syntax coloring.
+1. Trace each expression and record intermediate values.
+2. Calculate the canonical $24.50 bill with a 15% tip.
+3. Test a boundary and invalid input; state the intended behavior.
+4. Refactor the calculation into a function without changing its result.
 
 ### Accessibility Practice
-Navigate the complete source file by line, word, and character using the learner's access technology. Read punctuation and indentation, run from the terminal, and inspect standard output and errors sequentially.
+Navigate source by line, word, and character. Inspect operators, punctuation, mutation markers, and block-ending `end` keywords. Run from the terminal and read output and diagnostics sequentially. Do not rely on syntax color or mouse-only controls.
 
 ### Skills Checklist
-- [ ] I can explain the concept in Julia terminology.
-- [ ] I can trace and predict the example.
-- [ ] I can modify and run the code independently.
-- [ ] I can identify and correct a common error.
-- [ ] I can read source and output accessibly.
+- [ ] I can explain design and tracing in Julia terminology.
+- [ ] I can trace the example and predict its output.
+- [ ] I can adapt the example to canonical shared data.
+- [ ] I can identify and correct a Julia-specific error or edge case.
+- [ ] I can run and inspect the program using keyboard-accessible tools.
 
 ## Lesson 2.2: Expressions and assignment
 
 ### Reading References
-- Official Julia language guide and standard-library documentation.
-- Corresponding Python course lesson for the shared problem context and learning objective.
+- [Julia Documentation](https://docs.julialang.org/en/v1/)
+- Julia Base and standard-library reference.
+- Corresponding Python curriculum lesson for the shared problem and data.
 
 ### Learning Objectives
-- Explain this concept using Julia terminology.
-- Trace a short program and predict its behavior before execution.
-- Modify and test the example independently.
+- Explain expressions and assignment using Julia terminology.
+- Apply the relevant syntax and standard-library facilities.
+- Test normal, boundary, and invalid cases using shared course data.
 
 ### Concept Explanation
-Expressions and assignment. Julia targets numerical and scientific computing, simulation, optimization, statistics, and data-intensive research. The Python course provides the sequence and problem contexts; this lesson teaches the idiomatic Julia syntax and semantics. Pay particular attention to static or dynamic typing, mutability, indexing, parameter passing, errors, and resource lifetime where they differ from Python.
+Julia evaluates expressions and binds names with `=`. Numeric text must be converted before arithmetic; use `parse` for trusted input and `tryparse` when conversion may fail. `π`, `hypot`, exponentiation with `^`, and `round(...; digits=...)` support common calculations.
+
+**Lesson focus:** Expressions and assignment. The worked example is self-contained unless a standard-library import is shown.
 
 ### Worked Example
 ```jl
-bill = 24.50; tip = bill * 0.15
-println("Tip: $(round(tip, digits=2)); total: $(round(bill+tip, digits=2))")
+subtotal = 18.00 + 6.50
+println("Subtotal: ", subtotal, "; tax: ", subtotal * 0.08)
 ```
 
-**Trace:** identify declarations, expressions, control flow, and observable output. Predict the result, run the example, and compare the actual output with the prediction.
+### Expected Behavior or Output
+The program prints a result based on the stated inputs. Predict the result before running it, then compare the observed output. File examples use temporary paths and close resources within the callback.
 
 ### Common Mistakes
-- Copying Python syntax or assumptions instead of using idiomatic Julia constructs.
-- Confusing assignment with equality or declaration with initialization.
-- Assuming strings, arrays, slices, tables, maps, or records have the same indexing and mutation rules as Python.
-- Ignoring compiler/interpreter diagnostics, return values, or resource errors.
+- Use `==` for equality; `=` binds a value.
+- Validate uncertain text with `tryparse` before arithmetic.
+- Avoid rounding intermediate values before the final result.
 
 ### Activities
-1. Reproduce and run the example in a new file.
-2. Change one value and predict the result before running.
-3. Add a boundary case and an invalid-input case; describe the outcome.
-4. Explain each statement and its effect without relying on syntax coloring.
+1. Trace each expression and record intermediate values.
+2. Calculate the canonical $24.50 bill with a 15% tip.
+3. Test a boundary and invalid input; state the intended behavior.
+4. Refactor the calculation into a function without changing its result.
 
 ### Accessibility Practice
-Navigate the complete source file by line, word, and character using the learner's access technology. Read punctuation and indentation, run from the terminal, and inspect standard output and errors sequentially.
+Navigate source by line, word, and character. Inspect operators, punctuation, mutation markers, and block-ending `end` keywords. Run from the terminal and read output and diagnostics sequentially. Do not rely on syntax color or mouse-only controls.
 
 ### Skills Checklist
-- [ ] I can explain the concept in Julia terminology.
-- [ ] I can trace and predict the example.
-- [ ] I can modify and run the code independently.
-- [ ] I can identify and correct a common error.
-- [ ] I can read source and output accessibly.
+- [ ] I can explain expressions and assignment in Julia terminology.
+- [ ] I can trace the example and predict its output.
+- [ ] I can adapt the example to canonical shared data.
+- [ ] I can identify and correct a Julia-specific error or edge case.
+- [ ] I can run and inspect the program using keyboard-accessible tools.
 
 ## Lesson 2.3: Input and output
 
 ### Reading References
-- Official Julia language guide and standard-library documentation.
-- Corresponding Python course lesson for the shared problem context and learning objective.
+- [Julia Documentation](https://docs.julialang.org/en/v1/)
+- Julia Base and standard-library reference.
+- Corresponding Python curriculum lesson for the shared problem and data.
 
 ### Learning Objectives
-- Explain this concept using Julia terminology.
-- Trace a short program and predict its behavior before execution.
-- Modify and test the example independently.
+- Explain input and output using Julia terminology.
+- Apply the relevant syntax and standard-library facilities.
+- Test normal, boundary, and invalid cases using shared course data.
 
 ### Concept Explanation
-Input and output. Julia targets numerical and scientific computing, simulation, optimization, statistics, and data-intensive research. The Python course provides the sequence and problem contexts; this lesson teaches the idiomatic Julia syntax and semantics. Pay particular attention to static or dynamic typing, mutability, indexing, parameter passing, errors, and resource lifetime where they differ from Python.
+Julia evaluates expressions and binds names with `=`. Numeric text must be converted before arithmetic; use `parse` for trusted input and `tryparse` when conversion may fail. `π`, `hypot`, exponentiation with `^`, and `round(...; digits=...)` support common calculations.
+
+**Lesson focus:** Input and output. The worked example is self-contained unless a standard-library import is shown.
 
 ### Worked Example
 ```jl
-bill = 24.50; tip = bill * 0.15
-println("Tip: $(round(tip, digits=2)); total: $(round(bill+tip, digits=2))")
+print("Name: "); name = readline()
+println("Hello, ", name)
 ```
 
-**Trace:** identify declarations, expressions, control flow, and observable output. Predict the result, run the example, and compare the actual output with the prediction.
+### Expected Behavior or Output
+The program prints a result based on the stated inputs. Predict the result before running it, then compare the observed output. File examples use temporary paths and close resources within the callback.
 
 ### Common Mistakes
-- Copying Python syntax or assumptions instead of using idiomatic Julia constructs.
-- Confusing assignment with equality or declaration with initialization.
-- Assuming strings, arrays, slices, tables, maps, or records have the same indexing and mutation rules as Python.
-- Ignoring compiler/interpreter diagnostics, return values, or resource errors.
+- Use `==` for equality; `=` binds a value.
+- Validate uncertain text with `tryparse` before arithmetic.
+- Avoid rounding intermediate values before the final result.
 
 ### Activities
-1. Reproduce and run the example in a new file.
-2. Change one value and predict the result before running.
-3. Add a boundary case and an invalid-input case; describe the outcome.
-4. Explain each statement and its effect without relying on syntax coloring.
+1. Trace each expression and record intermediate values.
+2. Calculate the canonical $24.50 bill with a 15% tip.
+3. Test a boundary and invalid input; state the intended behavior.
+4. Refactor the calculation into a function without changing its result.
 
 ### Accessibility Practice
-Navigate the complete source file by line, word, and character using the learner's access technology. Read punctuation and indentation, run from the terminal, and inspect standard output and errors sequentially.
+Navigate source by line, word, and character. Inspect operators, punctuation, mutation markers, and block-ending `end` keywords. Run from the terminal and read output and diagnostics sequentially. Do not rely on syntax color or mouse-only controls.
 
 ### Skills Checklist
-- [ ] I can explain the concept in Julia terminology.
-- [ ] I can trace and predict the example.
-- [ ] I can modify and run the code independently.
-- [ ] I can identify and correct a common error.
-- [ ] I can read source and output accessibly.
+- [ ] I can explain input and output in Julia terminology.
+- [ ] I can trace the example and predict its output.
+- [ ] I can adapt the example to canonical shared data.
+- [ ] I can identify and correct a Julia-specific error or edge case.
+- [ ] I can run and inspect the program using keyboard-accessible tools.
 
 ## Lesson 2.4: Numeric conversions and mathematics
 
 ### Reading References
-- Official Julia language guide and standard-library documentation.
-- Corresponding Python course lesson for the shared problem context and learning objective.
+- [Julia Documentation](https://docs.julialang.org/en/v1/)
+- Julia Base and standard-library reference.
+- Corresponding Python curriculum lesson for the shared problem and data.
 
 ### Learning Objectives
-- Explain this concept using Julia terminology.
-- Trace a short program and predict its behavior before execution.
-- Modify and test the example independently.
+- Explain numeric conversions and mathematics using Julia terminology.
+- Apply the relevant syntax and standard-library facilities.
+- Test normal, boundary, and invalid cases using shared course data.
 
 ### Concept Explanation
-Numeric conversions and mathematics. Julia targets numerical and scientific computing, simulation, optimization, statistics, and data-intensive research. The Python course provides the sequence and problem contexts; this lesson teaches the idiomatic Julia syntax and semantics. Pay particular attention to static or dynamic typing, mutability, indexing, parameter passing, errors, and resource lifetime where they differ from Python.
+Julia evaluates expressions and binds names with `=`. Numeric text must be converted before arithmetic; use `parse` for trusted input and `tryparse` when conversion may fail. `π`, `hypot`, exponentiation with `^`, and `round(...; digits=...)` support common calculations.
+
+**Lesson focus:** Numeric conversions and mathematics. The worked example is self-contained unless a standard-library import is shown.
 
 ### Worked Example
 ```jl
-bill = 24.50; tip = bill * 0.15
-println("Tip: $(round(tip, digits=2)); total: $(round(bill+tip, digits=2))")
+weight_kg = parse(Float64, "68.5")
+println("Weight in grams: ", weight_kg * 1000)
 ```
 
-**Trace:** identify declarations, expressions, control flow, and observable output. Predict the result, run the example, and compare the actual output with the prediction.
+### Expected Behavior or Output
+The program prints a result based on the stated inputs. Predict the result before running it, then compare the observed output. File examples use temporary paths and close resources within the callback.
 
 ### Common Mistakes
-- Copying Python syntax or assumptions instead of using idiomatic Julia constructs.
-- Confusing assignment with equality or declaration with initialization.
-- Assuming strings, arrays, slices, tables, maps, or records have the same indexing and mutation rules as Python.
-- Ignoring compiler/interpreter diagnostics, return values, or resource errors.
+- Use `==` for equality; `=` binds a value.
+- Validate uncertain text with `tryparse` before arithmetic.
+- Avoid rounding intermediate values before the final result.
 
 ### Activities
-1. Reproduce and run the example in a new file.
-2. Change one value and predict the result before running.
-3. Add a boundary case and an invalid-input case; describe the outcome.
-4. Explain each statement and its effect without relying on syntax coloring.
+1. Trace each expression and record intermediate values.
+2. Calculate the canonical $24.50 bill with a 15% tip.
+3. Test a boundary and invalid input; state the intended behavior.
+4. Refactor the calculation into a function without changing its result.
 
 ### Accessibility Practice
-Navigate the complete source file by line, word, and character using the learner's access technology. Read punctuation and indentation, run from the terminal, and inspect standard output and errors sequentially.
+Navigate source by line, word, and character. Inspect operators, punctuation, mutation markers, and block-ending `end` keywords. Run from the terminal and read output and diagnostics sequentially. Do not rely on syntax color or mouse-only controls.
 
 ### Skills Checklist
-- [ ] I can explain the concept in Julia terminology.
-- [ ] I can trace and predict the example.
-- [ ] I can modify and run the code independently.
-- [ ] I can identify and correct a common error.
-- [ ] I can read source and output accessibly.
+- [ ] I can explain numeric conversions and mathematics in Julia terminology.
+- [ ] I can trace the example and predict its output.
+- [ ] I can adapt the example to canonical shared data.
+- [ ] I can identify and correct a Julia-specific error or edge case.
+- [ ] I can run and inspect the program using keyboard-accessible tools.
+
+## Lesson 2.5: Using the Math Library
+
+### Reading References
+- [Julia Documentation](https://docs.julialang.org/en/v1/)
+- Julia Base and standard-library reference.
+- Corresponding Python curriculum lesson for the shared problem and data.
+
+### Learning Objectives
+- Explain using the math library using Julia terminology.
+- Apply the relevant syntax and standard-library facilities.
+- Test normal, boundary, and invalid cases using shared course data.
+
+### Concept Explanation
+Julia evaluates expressions and binds names with `=`. Numeric text must be converted before arithmetic; use `parse` for trusted input and `tryparse` when conversion may fail. `π`, `hypot`, exponentiation with `^`, and `round(...; digits=...)` support common calculations.
+
+**Lesson focus:** Using the Math Library. The worked example is self-contained unless a standard-library import is shown.
+
+### Worked Example
+```jl
+radius = 3.0
+println("Area: ", π * radius^2, "; circumference: ", 2π * radius, "; distance: ", hypot(3,4))
+```
+
+### Expected Behavior or Output
+The program prints a result based on the stated inputs. Predict the result before running it, then compare the observed output. File examples use temporary paths and close resources within the callback.
+
+### Common Mistakes
+- Use `==` for equality; `=` binds a value.
+- Validate uncertain text with `tryparse` before arithmetic.
+- Avoid rounding intermediate values before the final result.
+
+### Activities
+1. Trace each expression and record intermediate values.
+2. Calculate the canonical $24.50 bill with a 15% tip.
+3. Test a boundary and invalid input; state the intended behavior.
+4. Refactor the calculation into a function without changing its result.
+
+### Accessibility Practice
+Navigate source by line, word, and character. Inspect operators, punctuation, mutation markers, and block-ending `end` keywords. Run from the terminal and read output and diagnostics sequentially. Do not rely on syntax color or mouse-only controls.
+
+### Skills Checklist
+- [ ] I can explain using the math library in Julia terminology.
+- [ ] I can trace the example and predict its output.
+- [ ] I can adapt the example to canonical shared data.
+- [ ] I can identify and correct a Julia-specific error or edge case.
+- [ ] I can run and inspect the program using keyboard-accessible tools.
 
 # Unit 3: Control Flow
 
@@ -361,222 +479,241 @@ This unit covers Boolean expressions, conditionals, lists or arrays, iteration, 
 ## Lesson 3.1: Boolean expressions
 
 ### Reading References
-- Official Julia language guide and standard-library documentation.
-- Corresponding Python course lesson for the shared problem context and learning objective.
+- [Julia Documentation](https://docs.julialang.org/en/v1/)
+- Julia Base and standard-library reference.
+- Corresponding Python curriculum lesson for the shared problem and data.
 
 ### Learning Objectives
-- Explain this concept using Julia terminology.
-- Trace a short program and predict its behavior before execution.
-- Modify and test the example independently.
+- Explain boolean expressions using Julia terminology.
+- Apply the relevant syntax and standard-library facilities.
+- Test normal, boundary, and invalid cases using shared course data.
 
 ### Concept Explanation
-Boolean expressions. Julia targets numerical and scientific computing, simulation, optimization, statistics, and data-intensive research. The Python course provides the sequence and problem contexts; this lesson teaches the idiomatic Julia syntax and semantics. Pay particular attention to static or dynamic typing, mutability, indexing, parameter passing, errors, and resource lifetime where they differ from Python.
+Julia uses `if`/`elseif`/`else`/`end`, short-circuit Boolean operators, and one-based indexing. `for` iterates over values, `enumerate` supplies indices, and dotted operators broadcast. Strings are UTF-8, so character count and byte indexing differ.
+
+**Lesson focus:** Boolean expressions. The worked example is self-contained unless a standard-library import is shown.
 
 ### Worked Example
 ```jl
 score = 82
-if score >= 90 println("A") elseif score >= 80 println("B") else println("Keep practicing") end
+println(score >= 80 && score <= 100)
 ```
 
-**Trace:** identify declarations, expressions, control flow, and observable output. Predict the result, run the example, and compare the actual output with the prediction.
+### Expected Behavior or Output
+The program prints a result based on the stated inputs. Predict the result before running it, then compare the observed output. File examples use temporary paths and close resources within the callback.
 
 ### Common Mistakes
-- Copying Python syntax or assumptions instead of using idiomatic Julia constructs.
-- Confusing assignment with equality or declaration with initialization.
-- Assuming strings, arrays, slices, tables, maps, or records have the same indexing and mutation rules as Python.
-- Ignoring compiler/interpreter diagnostics, return values, or resource errors.
+- Standard Julia arrays are one-based, not zero-based.
+- Use `&&` and `||` for scalar conditions; dotted operators broadcast.
+- Do not structurally mutate a collection while iterating over it.
 
 ### Activities
-1. Reproduce and run the example in a new file.
-2. Change one value and predict the result before running.
-3. Add a boundary case and an invalid-input case; describe the outcome.
-4. Explain each statement and its effect without relying on syntax coloring.
+1. Test scores 82, 91, 76, and 88, including grade boundaries.
+2. Test empty and single-element arrays.
+3. Trace each loop iteration and collection state.
+4. Modify a string and test indexing, normalization, and search.
 
 ### Accessibility Practice
-Navigate the complete source file by line, word, and character using the learner's access technology. Read punctuation and indentation, run from the terminal, and inspect standard output and errors sequentially.
+Navigate source by line, word, and character. Inspect operators, punctuation, mutation markers, and block-ending `end` keywords. Run from the terminal and read output and diagnostics sequentially. Do not rely on syntax color or mouse-only controls.
 
 ### Skills Checklist
-- [ ] I can explain the concept in Julia terminology.
-- [ ] I can trace and predict the example.
-- [ ] I can modify and run the code independently.
-- [ ] I can identify and correct a common error.
-- [ ] I can read source and output accessibly.
+- [ ] I can explain boolean expressions in Julia terminology.
+- [ ] I can trace the example and predict its output.
+- [ ] I can adapt the example to canonical shared data.
+- [ ] I can identify and correct a Julia-specific error or edge case.
+- [ ] I can run and inspect the program using keyboard-accessible tools.
 
 ## Lesson 3.2: Chained conditionals
 
 ### Reading References
-- Official Julia language guide and standard-library documentation.
-- Corresponding Python course lesson for the shared problem context and learning objective.
+- [Julia Documentation](https://docs.julialang.org/en/v1/)
+- Julia Base and standard-library reference.
+- Corresponding Python curriculum lesson for the shared problem and data.
 
 ### Learning Objectives
-- Explain this concept using Julia terminology.
-- Trace a short program and predict its behavior before execution.
-- Modify and test the example independently.
+- Explain chained conditionals using Julia terminology.
+- Apply the relevant syntax and standard-library facilities.
+- Test normal, boundary, and invalid cases using shared course data.
 
 ### Concept Explanation
-Chained conditionals. Julia targets numerical and scientific computing, simulation, optimization, statistics, and data-intensive research. The Python course provides the sequence and problem contexts; this lesson teaches the idiomatic Julia syntax and semantics. Pay particular attention to static or dynamic typing, mutability, indexing, parameter passing, errors, and resource lifetime where they differ from Python.
+Julia uses `if`/`elseif`/`else`/`end`, short-circuit Boolean operators, and one-based indexing. `for` iterates over values, `enumerate` supplies indices, and dotted operators broadcast. Strings are UTF-8, so character count and byte indexing differ.
+
+**Lesson focus:** Chained conditionals. The worked example is self-contained unless a standard-library import is shown.
 
 ### Worked Example
 ```jl
 score = 82
-if score >= 90 println("A") elseif score >= 80 println("B") else println("Keep practicing") end
+grade = score >= 90 ? "A" : score >= 80 ? "B" : score >= 70 ? "C" : score >= 60 ? "D" : "F"
+println(grade)
 ```
 
-**Trace:** identify declarations, expressions, control flow, and observable output. Predict the result, run the example, and compare the actual output with the prediction.
+### Expected Behavior or Output
+The program prints a result based on the stated inputs. Predict the result before running it, then compare the observed output. File examples use temporary paths and close resources within the callback.
 
 ### Common Mistakes
-- Copying Python syntax or assumptions instead of using idiomatic Julia constructs.
-- Confusing assignment with equality or declaration with initialization.
-- Assuming strings, arrays, slices, tables, maps, or records have the same indexing and mutation rules as Python.
-- Ignoring compiler/interpreter diagnostics, return values, or resource errors.
+- Standard Julia arrays are one-based, not zero-based.
+- Use `&&` and `||` for scalar conditions; dotted operators broadcast.
+- Do not structurally mutate a collection while iterating over it.
 
 ### Activities
-1. Reproduce and run the example in a new file.
-2. Change one value and predict the result before running.
-3. Add a boundary case and an invalid-input case; describe the outcome.
-4. Explain each statement and its effect without relying on syntax coloring.
+1. Test scores 82, 91, 76, and 88, including grade boundaries.
+2. Test empty and single-element arrays.
+3. Trace each loop iteration and collection state.
+4. Modify a string and test indexing, normalization, and search.
 
 ### Accessibility Practice
-Navigate the complete source file by line, word, and character using the learner's access technology. Read punctuation and indentation, run from the terminal, and inspect standard output and errors sequentially.
+Navigate source by line, word, and character. Inspect operators, punctuation, mutation markers, and block-ending `end` keywords. Run from the terminal and read output and diagnostics sequentially. Do not rely on syntax color or mouse-only controls.
 
 ### Skills Checklist
-- [ ] I can explain the concept in Julia terminology.
-- [ ] I can trace and predict the example.
-- [ ] I can modify and run the code independently.
-- [ ] I can identify and correct a common error.
-- [ ] I can read source and output accessibly.
+- [ ] I can explain chained conditionals in Julia terminology.
+- [ ] I can trace the example and predict its output.
+- [ ] I can adapt the example to canonical shared data.
+- [ ] I can identify and correct a Julia-specific error or edge case.
+- [ ] I can run and inspect the program using keyboard-accessible tools.
 
 ## Lesson 3.3: Sequences and indexing
 
 ### Reading References
-- Official Julia language guide and standard-library documentation.
-- Corresponding Python course lesson for the shared problem context and learning objective.
+- [Julia Documentation](https://docs.julialang.org/en/v1/)
+- Julia Base and standard-library reference.
+- Corresponding Python curriculum lesson for the shared problem and data.
 
 ### Learning Objectives
-- Explain this concept using Julia terminology.
-- Trace a short program and predict its behavior before execution.
-- Modify and test the example independently.
+- Explain sequences and indexing using Julia terminology.
+- Apply the relevant syntax and standard-library facilities.
+- Test normal, boundary, and invalid cases using shared course data.
 
 ### Concept Explanation
-Sequences and indexing. Julia targets numerical and scientific computing, simulation, optimization, statistics, and data-intensive research. The Python course provides the sequence and problem contexts; this lesson teaches the idiomatic Julia syntax and semantics. Pay particular attention to static or dynamic typing, mutability, indexing, parameter passing, errors, and resource lifetime where they differ from Python.
+Julia uses `if`/`elseif`/`else`/`end`, short-circuit Boolean operators, and one-based indexing. `for` iterates over values, `enumerate` supplies indices, and dotted operators broadcast. Strings are UTF-8, so character count and byte indexing differ.
+
+**Lesson focus:** Sequences and indexing. The worked example is self-contained unless a standard-library import is shown.
 
 ### Worked Example
 ```jl
-score = 82
-if score >= 90 println("A") elseif score >= 80 println("B") else println("Keep practicing") end
+scores = [82, 91, 76, 88]
+println(scores[1], "; ", scores[4])
 ```
 
-**Trace:** identify declarations, expressions, control flow, and observable output. Predict the result, run the example, and compare the actual output with the prediction.
+### Expected Behavior or Output
+The program prints a result based on the stated inputs. Predict the result before running it, then compare the observed output. File examples use temporary paths and close resources within the callback.
 
 ### Common Mistakes
-- Copying Python syntax or assumptions instead of using idiomatic Julia constructs.
-- Confusing assignment with equality or declaration with initialization.
-- Assuming strings, arrays, slices, tables, maps, or records have the same indexing and mutation rules as Python.
-- Ignoring compiler/interpreter diagnostics, return values, or resource errors.
+- Standard Julia arrays are one-based, not zero-based.
+- Use `&&` and `||` for scalar conditions; dotted operators broadcast.
+- Do not structurally mutate a collection while iterating over it.
 
 ### Activities
-1. Reproduce and run the example in a new file.
-2. Change one value and predict the result before running.
-3. Add a boundary case and an invalid-input case; describe the outcome.
-4. Explain each statement and its effect without relying on syntax coloring.
+1. Test scores 82, 91, 76, and 88, including grade boundaries.
+2. Test empty and single-element arrays.
+3. Trace each loop iteration and collection state.
+4. Modify a string and test indexing, normalization, and search.
 
 ### Accessibility Practice
-Navigate the complete source file by line, word, and character using the learner's access technology. Read punctuation and indentation, run from the terminal, and inspect standard output and errors sequentially.
+Navigate source by line, word, and character. Inspect operators, punctuation, mutation markers, and block-ending `end` keywords. Run from the terminal and read output and diagnostics sequentially. Do not rely on syntax color or mouse-only controls.
 
 ### Skills Checklist
-- [ ] I can explain the concept in Julia terminology.
-- [ ] I can trace and predict the example.
-- [ ] I can modify and run the code independently.
-- [ ] I can identify and correct a common error.
-- [ ] I can read source and output accessibly.
+- [ ] I can explain sequences and indexing in Julia terminology.
+- [ ] I can trace the example and predict its output.
+- [ ] I can adapt the example to canonical shared data.
+- [ ] I can identify and correct a Julia-specific error or edge case.
+- [ ] I can run and inspect the program using keyboard-accessible tools.
 
 ## Lesson 3.4: For loops and iteration
 
 ### Reading References
-- Official Julia language guide and standard-library documentation.
-- Corresponding Python course lesson for the shared problem context and learning objective.
+- [Julia Documentation](https://docs.julialang.org/en/v1/)
+- Julia Base and standard-library reference.
+- Corresponding Python curriculum lesson for the shared problem and data.
 
 ### Learning Objectives
-- Explain this concept using Julia terminology.
-- Trace a short program and predict its behavior before execution.
-- Modify and test the example independently.
+- Explain for loops and iteration using Julia terminology.
+- Apply the relevant syntax and standard-library facilities.
+- Test normal, boundary, and invalid cases using shared course data.
 
 ### Concept Explanation
-For loops and iteration. Julia targets numerical and scientific computing, simulation, optimization, statistics, and data-intensive research. The Python course provides the sequence and problem contexts; this lesson teaches the idiomatic Julia syntax and semantics. Pay particular attention to static or dynamic typing, mutability, indexing, parameter passing, errors, and resource lifetime where they differ from Python.
+Julia uses `if`/`elseif`/`else`/`end`, short-circuit Boolean operators, and one-based indexing. `for` iterates over values, `enumerate` supplies indices, and dotted operators broadcast. Strings are UTF-8, so character count and byte indexing differ.
+
+**Lesson focus:** For loops and iteration. The worked example is self-contained unless a standard-library import is shown.
 
 ### Worked Example
 ```jl
-score = 82
-if score >= 90 println("A") elseif score >= 80 println("B") else println("Keep practicing") end
+scores = [82, 91, 76, 88]
+for (i, score) in enumerate(scores)
+    println("Score $i: $score")
+end
 ```
 
-**Trace:** identify declarations, expressions, control flow, and observable output. Predict the result, run the example, and compare the actual output with the prediction.
+### Expected Behavior or Output
+The program prints a result based on the stated inputs. Predict the result before running it, then compare the observed output. File examples use temporary paths and close resources within the callback.
 
 ### Common Mistakes
-- Copying Python syntax or assumptions instead of using idiomatic Julia constructs.
-- Confusing assignment with equality or declaration with initialization.
-- Assuming strings, arrays, slices, tables, maps, or records have the same indexing and mutation rules as Python.
-- Ignoring compiler/interpreter diagnostics, return values, or resource errors.
+- Standard Julia arrays are one-based, not zero-based.
+- Use `&&` and `||` for scalar conditions; dotted operators broadcast.
+- Do not structurally mutate a collection while iterating over it.
 
 ### Activities
-1. Reproduce and run the example in a new file.
-2. Change one value and predict the result before running.
-3. Add a boundary case and an invalid-input case; describe the outcome.
-4. Explain each statement and its effect without relying on syntax coloring.
+1. Test scores 82, 91, 76, and 88, including grade boundaries.
+2. Test empty and single-element arrays.
+3. Trace each loop iteration and collection state.
+4. Modify a string and test indexing, normalization, and search.
 
 ### Accessibility Practice
-Navigate the complete source file by line, word, and character using the learner's access technology. Read punctuation and indentation, run from the terminal, and inspect standard output and errors sequentially.
+Navigate source by line, word, and character. Inspect operators, punctuation, mutation markers, and block-ending `end` keywords. Run from the terminal and read output and diagnostics sequentially. Do not rely on syntax color or mouse-only controls.
 
 ### Skills Checklist
-- [ ] I can explain the concept in Julia terminology.
-- [ ] I can trace and predict the example.
-- [ ] I can modify and run the code independently.
-- [ ] I can identify and correct a common error.
-- [ ] I can read source and output accessibly.
+- [ ] I can explain for loops and iteration in Julia terminology.
+- [ ] I can trace the example and predict its output.
+- [ ] I can adapt the example to canonical shared data.
+- [ ] I can identify and correct a Julia-specific error or edge case.
+- [ ] I can run and inspect the program using keyboard-accessible tools.
 
 ## Lesson 3.5: String operations
 
 ### Reading References
-- Official Julia language guide and standard-library documentation.
-- Corresponding Python course lesson for the shared problem context and learning objective.
+- [Julia Documentation](https://docs.julialang.org/en/v1/)
+- Julia Base and standard-library reference.
+- Corresponding Python curriculum lesson for the shared problem and data.
 
 ### Learning Objectives
-- Explain this concept using Julia terminology.
-- Trace a short program and predict its behavior before execution.
-- Modify and test the example independently.
+- Explain string operations using Julia terminology.
+- Apply the relevant syntax and standard-library facilities.
+- Test normal, boundary, and invalid cases using shared course data.
 
 ### Concept Explanation
-String operations. Julia targets numerical and scientific computing, simulation, optimization, statistics, and data-intensive research. The Python course provides the sequence and problem contexts; this lesson teaches the idiomatic Julia syntax and semantics. Pay particular attention to static or dynamic typing, mutability, indexing, parameter passing, errors, and resource lifetime where they differ from Python.
+Julia uses `if`/`elseif`/`else`/`end`, short-circuit Boolean operators, and one-based indexing. `for` iterates over values, `enumerate` supplies indices, and dotted operators broadcast. Strings are UTF-8, so character count and byte indexing differ.
+
+**Lesson focus:** String operations. The worked example is self-contained unless a standard-library import is shown.
 
 ### Worked Example
 ```jl
-score = 82
-if score >= 90 println("A") elseif score >= 80 println("B") else println("Keep practicing") end
+text = "Avery studies Julia programming."
+println(lowercase(strip(text)))
+println(occursin("Julia", text))
 ```
 
-**Trace:** identify declarations, expressions, control flow, and observable output. Predict the result, run the example, and compare the actual output with the prediction.
+### Expected Behavior or Output
+The program prints a result based on the stated inputs. Predict the result before running it, then compare the observed output. File examples use temporary paths and close resources within the callback.
 
 ### Common Mistakes
-- Copying Python syntax or assumptions instead of using idiomatic Julia constructs.
-- Confusing assignment with equality or declaration with initialization.
-- Assuming strings, arrays, slices, tables, maps, or records have the same indexing and mutation rules as Python.
-- Ignoring compiler/interpreter diagnostics, return values, or resource errors.
+- Standard Julia arrays are one-based, not zero-based.
+- Use `&&` and `||` for scalar conditions; dotted operators broadcast.
+- Do not structurally mutate a collection while iterating over it.
 
 ### Activities
-1. Reproduce and run the example in a new file.
-2. Change one value and predict the result before running.
-3. Add a boundary case and an invalid-input case; describe the outcome.
-4. Explain each statement and its effect without relying on syntax coloring.
+1. Test scores 82, 91, 76, and 88, including grade boundaries.
+2. Test empty and single-element arrays.
+3. Trace each loop iteration and collection state.
+4. Modify a string and test indexing, normalization, and search.
 
 ### Accessibility Practice
-Navigate the complete source file by line, word, and character using the learner's access technology. Read punctuation and indentation, run from the terminal, and inspect standard output and errors sequentially.
+Navigate source by line, word, and character. Inspect operators, punctuation, mutation markers, and block-ending `end` keywords. Run from the terminal and read output and diagnostics sequentially. Do not rely on syntax color or mouse-only controls.
 
 ### Skills Checklist
-- [ ] I can explain the concept in Julia terminology.
-- [ ] I can trace and predict the example.
-- [ ] I can modify and run the code independently.
-- [ ] I can identify and correct a common error.
-- [ ] I can read source and output accessibly.
+- [ ] I can explain string operations in Julia terminology.
+- [ ] I can trace the example and predict its output.
+- [ ] I can adapt the example to canonical shared data.
+- [ ] I can identify and correct a Julia-specific error or edge case.
+- [ ] I can run and inspect the program using keyboard-accessible tools.
 
 # Unit 4: Data Structures
 
@@ -587,222 +724,240 @@ This unit covers sequence mutation, sorting, immutable records, maps, dictionari
 ## Lesson 4.1: Mutable sequences
 
 ### Reading References
-- Official Julia language guide and standard-library documentation.
-- Corresponding Python course lesson for the shared problem context and learning objective.
+- [Julia Documentation](https://docs.julialang.org/en/v1/)
+- Julia Base and standard-library reference.
+- Corresponding Python curriculum lesson for the shared problem and data.
 
 ### Learning Objectives
-- Explain this concept using Julia terminology.
-- Trace a short program and predict its behavior before execution.
-- Modify and test the example independently.
+- Explain mutable sequences using Julia terminology.
+- Apply the relevant syntax and standard-library facilities.
+- Test normal, boundary, and invalid cases using shared course data.
 
 ### Concept Explanation
-Mutable sequences. Julia targets numerical and scientific computing, simulation, optimization, statistics, and data-intensive research. The Python course provides the sequence and problem contexts; this lesson teaches the idiomatic Julia syntax and semantics. Pay particular attention to static or dynamic typing, mutability, indexing, parameter passing, errors, and resource lifetime where they differ from Python.
+Julia provides mutable arrays, immutable tuples and named tuples, and dictionaries for key-value data. Mutating functions conventionally end in `!`. Sort keys or entries when deterministic report order matters.
+
+**Lesson focus:** Mutable sequences. The worked example is self-contained unless a standard-library import is shown.
 
 ### Worked Example
 ```jl
-item = (name="Notebook", quantity=3)
-println("$(item.name): $(item.quantity)")
+scores = [82, 91, 76, 88]
+push!(scores, 95); insert!(scores, 2, 85)
+println(scores)
 ```
 
-**Trace:** identify declarations, expressions, control flow, and observable output. Predict the result, run the example, and compare the actual output with the prediction.
+### Expected Behavior or Output
+The program prints a result based on the stated inputs. Predict the result before running it, then compare the observed output. File examples use temporary paths and close resources within the callback.
 
 ### Common Mistakes
-- Copying Python syntax or assumptions instead of using idiomatic Julia constructs.
-- Confusing assignment with equality or declaration with initialization.
-- Assuming strings, arrays, slices, tables, maps, or records have the same indexing and mutation rules as Python.
-- Ignoring compiler/interpreter diagnostics, return values, or resource errors.
+- Tuples and named tuples are immutable; arrays and dictionaries are mutable.
+- Use `get` or `haskey` for possibly absent dictionary keys.
+- A shallow copy does not duplicate nested mutable values.
 
 ### Activities
-1. Reproduce and run the example in a new file.
-2. Change one value and predict the result before running.
-3. Add a boundary case and an invalid-input case; describe the outcome.
-4. Explain each statement and its effect without relying on syntax coloring.
+1. Represent the canonical inventory using a dictionary.
+2. Add, update, and remove an entry, checking each state.
+3. Compare tuple, named tuple, vector, and dictionary semantics.
+4. Test a missing key and implement an explicit fallback.
 
 ### Accessibility Practice
-Navigate the complete source file by line, word, and character using the learner's access technology. Read punctuation and indentation, run from the terminal, and inspect standard output and errors sequentially.
+Navigate source by line, word, and character. Inspect operators, punctuation, mutation markers, and block-ending `end` keywords. Run from the terminal and read output and diagnostics sequentially. Do not rely on syntax color or mouse-only controls.
 
 ### Skills Checklist
-- [ ] I can explain the concept in Julia terminology.
-- [ ] I can trace and predict the example.
-- [ ] I can modify and run the code independently.
-- [ ] I can identify and correct a common error.
-- [ ] I can read source and output accessibly.
+- [ ] I can explain mutable sequences in Julia terminology.
+- [ ] I can trace the example and predict its output.
+- [ ] I can adapt the example to canonical shared data.
+- [ ] I can identify and correct a Julia-specific error or edge case.
+- [ ] I can run and inspect the program using keyboard-accessible tools.
 
 ## Lesson 4.2: Sorting and organizing data
 
 ### Reading References
-- Official Julia language guide and standard-library documentation.
-- Corresponding Python course lesson for the shared problem context and learning objective.
+- [Julia Documentation](https://docs.julialang.org/en/v1/)
+- Julia Base and standard-library reference.
+- Corresponding Python curriculum lesson for the shared problem and data.
 
 ### Learning Objectives
-- Explain this concept using Julia terminology.
-- Trace a short program and predict its behavior before execution.
-- Modify and test the example independently.
+- Explain sorting and organizing data using Julia terminology.
+- Apply the relevant syntax and standard-library facilities.
+- Test normal, boundary, and invalid cases using shared course data.
 
 ### Concept Explanation
-Sorting and organizing data. Julia targets numerical and scientific computing, simulation, optimization, statistics, and data-intensive research. The Python course provides the sequence and problem contexts; this lesson teaches the idiomatic Julia syntax and semantics. Pay particular attention to static or dynamic typing, mutability, indexing, parameter passing, errors, and resource lifetime where they differ from Python.
+Julia provides mutable arrays, immutable tuples and named tuples, and dictionaries for key-value data. Mutating functions conventionally end in `!`. Sort keys or entries when deterministic report order matters.
+
+**Lesson focus:** Sorting and organizing data. The worked example is self-contained unless a standard-library import is shown.
 
 ### Worked Example
 ```jl
-item = (name="Notebook", quantity=3)
-println("$(item.name): $(item.quantity)")
+scores = [82, 91, 76, 88]
+println(sort(scores)); println(sort(scores, rev=true))
 ```
 
-**Trace:** identify declarations, expressions, control flow, and observable output. Predict the result, run the example, and compare the actual output with the prediction.
+### Expected Behavior or Output
+The program prints a result based on the stated inputs. Predict the result before running it, then compare the observed output. File examples use temporary paths and close resources within the callback.
 
 ### Common Mistakes
-- Copying Python syntax or assumptions instead of using idiomatic Julia constructs.
-- Confusing assignment with equality or declaration with initialization.
-- Assuming strings, arrays, slices, tables, maps, or records have the same indexing and mutation rules as Python.
-- Ignoring compiler/interpreter diagnostics, return values, or resource errors.
+- Tuples and named tuples are immutable; arrays and dictionaries are mutable.
+- Use `get` or `haskey` for possibly absent dictionary keys.
+- A shallow copy does not duplicate nested mutable values.
 
 ### Activities
-1. Reproduce and run the example in a new file.
-2. Change one value and predict the result before running.
-3. Add a boundary case and an invalid-input case; describe the outcome.
-4. Explain each statement and its effect without relying on syntax coloring.
+1. Represent the canonical inventory using a dictionary.
+2. Add, update, and remove an entry, checking each state.
+3. Compare tuple, named tuple, vector, and dictionary semantics.
+4. Test a missing key and implement an explicit fallback.
 
 ### Accessibility Practice
-Navigate the complete source file by line, word, and character using the learner's access technology. Read punctuation and indentation, run from the terminal, and inspect standard output and errors sequentially.
+Navigate source by line, word, and character. Inspect operators, punctuation, mutation markers, and block-ending `end` keywords. Run from the terminal and read output and diagnostics sequentially. Do not rely on syntax color or mouse-only controls.
 
 ### Skills Checklist
-- [ ] I can explain the concept in Julia terminology.
-- [ ] I can trace and predict the example.
-- [ ] I can modify and run the code independently.
-- [ ] I can identify and correct a common error.
-- [ ] I can read source and output accessibly.
+- [ ] I can explain sorting and organizing data in Julia terminology.
+- [ ] I can trace the example and predict its output.
+- [ ] I can adapt the example to canonical shared data.
+- [ ] I can identify and correct a Julia-specific error or edge case.
+- [ ] I can run and inspect the program using keyboard-accessible tools.
 
 ## Lesson 4.3: Immutable records
 
 ### Reading References
-- Official Julia language guide and standard-library documentation.
-- Corresponding Python course lesson for the shared problem context and learning objective.
+- [Julia Documentation](https://docs.julialang.org/en/v1/)
+- Julia Base and standard-library reference.
+- Corresponding Python curriculum lesson for the shared problem and data.
 
 ### Learning Objectives
-- Explain this concept using Julia terminology.
-- Trace a short program and predict its behavior before execution.
-- Modify and test the example independently.
+- Explain immutable records using Julia terminology.
+- Apply the relevant syntax and standard-library facilities.
+- Test normal, boundary, and invalid cases using shared course data.
 
 ### Concept Explanation
-Immutable records. Julia targets numerical and scientific computing, simulation, optimization, statistics, and data-intensive research. The Python course provides the sequence and problem contexts; this lesson teaches the idiomatic Julia syntax and semantics. Pay particular attention to static or dynamic typing, mutability, indexing, parameter passing, errors, and resource lifetime where they differ from Python.
+Julia provides mutable arrays, immutable tuples and named tuples, and dictionaries for key-value data. Mutating functions conventionally end in `!`. Sort keys or entries when deterministic report order matters.
+
+**Lesson focus:** Immutable records. The worked example is self-contained unless a standard-library import is shown.
 
 ### Worked Example
 ```jl
-item = (name="Notebook", quantity=3)
-println("$(item.name): $(item.quantity)")
+point = (x=3, y=4)
+println(hypot(point.x, point.y))
 ```
 
-**Trace:** identify declarations, expressions, control flow, and observable output. Predict the result, run the example, and compare the actual output with the prediction.
+### Expected Behavior or Output
+The program prints a result based on the stated inputs. Predict the result before running it, then compare the observed output. File examples use temporary paths and close resources within the callback.
 
 ### Common Mistakes
-- Copying Python syntax or assumptions instead of using idiomatic Julia constructs.
-- Confusing assignment with equality or declaration with initialization.
-- Assuming strings, arrays, slices, tables, maps, or records have the same indexing and mutation rules as Python.
-- Ignoring compiler/interpreter diagnostics, return values, or resource errors.
+- Tuples and named tuples are immutable; arrays and dictionaries are mutable.
+- Use `get` or `haskey` for possibly absent dictionary keys.
+- A shallow copy does not duplicate nested mutable values.
 
 ### Activities
-1. Reproduce and run the example in a new file.
-2. Change one value and predict the result before running.
-3. Add a boundary case and an invalid-input case; describe the outcome.
-4. Explain each statement and its effect without relying on syntax coloring.
+1. Represent the canonical inventory using a dictionary.
+2. Add, update, and remove an entry, checking each state.
+3. Compare tuple, named tuple, vector, and dictionary semantics.
+4. Test a missing key and implement an explicit fallback.
 
 ### Accessibility Practice
-Navigate the complete source file by line, word, and character using the learner's access technology. Read punctuation and indentation, run from the terminal, and inspect standard output and errors sequentially.
+Navigate source by line, word, and character. Inspect operators, punctuation, mutation markers, and block-ending `end` keywords. Run from the terminal and read output and diagnostics sequentially. Do not rely on syntax color or mouse-only controls.
 
 ### Skills Checklist
-- [ ] I can explain the concept in Julia terminology.
-- [ ] I can trace and predict the example.
-- [ ] I can modify and run the code independently.
-- [ ] I can identify and correct a common error.
-- [ ] I can read source and output accessibly.
+- [ ] I can explain immutable records in Julia terminology.
+- [ ] I can trace the example and predict its output.
+- [ ] I can adapt the example to canonical shared data.
+- [ ] I can identify and correct a Julia-specific error or edge case.
+- [ ] I can run and inspect the program using keyboard-accessible tools.
 
 ## Lesson 4.4: Maps and key-value data
 
 ### Reading References
-- Official Julia language guide and standard-library documentation.
-- Corresponding Python course lesson for the shared problem context and learning objective.
+- [Julia Documentation](https://docs.julialang.org/en/v1/)
+- Julia Base and standard-library reference.
+- Corresponding Python curriculum lesson for the shared problem and data.
 
 ### Learning Objectives
-- Explain this concept using Julia terminology.
-- Trace a short program and predict its behavior before execution.
-- Modify and test the example independently.
+- Explain maps and key-value data using Julia terminology.
+- Apply the relevant syntax and standard-library facilities.
+- Test normal, boundary, and invalid cases using shared course data.
 
 ### Concept Explanation
-Maps and key-value data. Julia targets numerical and scientific computing, simulation, optimization, statistics, and data-intensive research. The Python course provides the sequence and problem contexts; this lesson teaches the idiomatic Julia syntax and semantics. Pay particular attention to static or dynamic typing, mutability, indexing, parameter passing, errors, and resource lifetime where they differ from Python.
+Julia provides mutable arrays, immutable tuples and named tuples, and dictionaries for key-value data. Mutating functions conventionally end in `!`. Sort keys or entries when deterministic report order matters.
+
+**Lesson focus:** Maps and key-value data. The worked example is self-contained unless a standard-library import is shown.
 
 ### Worked Example
 ```jl
-item = (name="Notebook", quantity=3)
-println("$(item.name): $(item.quantity)")
+item = Dict("name" => "Notebook", "quantity" => 3, "price" => 2.50)
+println(item["name"], ": ", item["quantity"])
 ```
 
-**Trace:** identify declarations, expressions, control flow, and observable output. Predict the result, run the example, and compare the actual output with the prediction.
+### Expected Behavior or Output
+The program prints a result based on the stated inputs. Predict the result before running it, then compare the observed output. File examples use temporary paths and close resources within the callback.
 
 ### Common Mistakes
-- Copying Python syntax or assumptions instead of using idiomatic Julia constructs.
-- Confusing assignment with equality or declaration with initialization.
-- Assuming strings, arrays, slices, tables, maps, or records have the same indexing and mutation rules as Python.
-- Ignoring compiler/interpreter diagnostics, return values, or resource errors.
+- Tuples and named tuples are immutable; arrays and dictionaries are mutable.
+- Use `get` or `haskey` for possibly absent dictionary keys.
+- A shallow copy does not duplicate nested mutable values.
 
 ### Activities
-1. Reproduce and run the example in a new file.
-2. Change one value and predict the result before running.
-3. Add a boundary case and an invalid-input case; describe the outcome.
-4. Explain each statement and its effect without relying on syntax coloring.
+1. Represent the canonical inventory using a dictionary.
+2. Add, update, and remove an entry, checking each state.
+3. Compare tuple, named tuple, vector, and dictionary semantics.
+4. Test a missing key and implement an explicit fallback.
 
 ### Accessibility Practice
-Navigate the complete source file by line, word, and character using the learner's access technology. Read punctuation and indentation, run from the terminal, and inspect standard output and errors sequentially.
+Navigate source by line, word, and character. Inspect operators, punctuation, mutation markers, and block-ending `end` keywords. Run from the terminal and read output and diagnostics sequentially. Do not rely on syntax color or mouse-only controls.
 
 ### Skills Checklist
-- [ ] I can explain the concept in Julia terminology.
-- [ ] I can trace and predict the example.
-- [ ] I can modify and run the code independently.
-- [ ] I can identify and correct a common error.
-- [ ] I can read source and output accessibly.
+- [ ] I can explain maps and key-value data in Julia terminology.
+- [ ] I can trace the example and predict its output.
+- [ ] I can adapt the example to canonical shared data.
+- [ ] I can identify and correct a Julia-specific error or edge case.
+- [ ] I can run and inspect the program using keyboard-accessible tools.
 
 ## Lesson 4.5: Collection traversal
 
 ### Reading References
-- Official Julia language guide and standard-library documentation.
-- Corresponding Python course lesson for the shared problem context and learning objective.
+- [Julia Documentation](https://docs.julialang.org/en/v1/)
+- Julia Base and standard-library reference.
+- Corresponding Python curriculum lesson for the shared problem and data.
 
 ### Learning Objectives
-- Explain this concept using Julia terminology.
-- Trace a short program and predict its behavior before execution.
-- Modify and test the example independently.
+- Explain collection traversal using Julia terminology.
+- Apply the relevant syntax and standard-library facilities.
+- Test normal, boundary, and invalid cases using shared course data.
 
 ### Concept Explanation
-Collection traversal. Julia targets numerical and scientific computing, simulation, optimization, statistics, and data-intensive research. The Python course provides the sequence and problem contexts; this lesson teaches the idiomatic Julia syntax and semantics. Pay particular attention to static or dynamic typing, mutability, indexing, parameter passing, errors, and resource lifetime where they differ from Python.
+Julia provides mutable arrays, immutable tuples and named tuples, and dictionaries for key-value data. Mutating functions conventionally end in `!`. Sort keys or entries when deterministic report order matters.
+
+**Lesson focus:** Collection traversal. The worked example is self-contained unless a standard-library import is shown.
 
 ### Worked Example
 ```jl
-item = (name="Notebook", quantity=3)
-println("$(item.name): $(item.quantity)")
+stock = Dict("Notebook"=>3, "Pencil"=>10, "Folder"=>4)
+for key in sort(collect(keys(stock)))
+    println(key, ": ", stock[key])
+end
 ```
 
-**Trace:** identify declarations, expressions, control flow, and observable output. Predict the result, run the example, and compare the actual output with the prediction.
+### Expected Behavior or Output
+The program prints a result based on the stated inputs. Predict the result before running it, then compare the observed output. File examples use temporary paths and close resources within the callback.
 
 ### Common Mistakes
-- Copying Python syntax or assumptions instead of using idiomatic Julia constructs.
-- Confusing assignment with equality or declaration with initialization.
-- Assuming strings, arrays, slices, tables, maps, or records have the same indexing and mutation rules as Python.
-- Ignoring compiler/interpreter diagnostics, return values, or resource errors.
+- Tuples and named tuples are immutable; arrays and dictionaries are mutable.
+- Use `get` or `haskey` for possibly absent dictionary keys.
+- A shallow copy does not duplicate nested mutable values.
 
 ### Activities
-1. Reproduce and run the example in a new file.
-2. Change one value and predict the result before running.
-3. Add a boundary case and an invalid-input case; describe the outcome.
-4. Explain each statement and its effect without relying on syntax coloring.
+1. Represent the canonical inventory using a dictionary.
+2. Add, update, and remove an entry, checking each state.
+3. Compare tuple, named tuple, vector, and dictionary semantics.
+4. Test a missing key and implement an explicit fallback.
 
 ### Accessibility Practice
-Navigate the complete source file by line, word, and character using the learner's access technology. Read punctuation and indentation, run from the terminal, and inspect standard output and errors sequentially.
+Navigate source by line, word, and character. Inspect operators, punctuation, mutation markers, and block-ending `end` keywords. Run from the terminal and read output and diagnostics sequentially. Do not rely on syntax color or mouse-only controls.
 
 ### Skills Checklist
-- [ ] I can explain the concept in Julia terminology.
-- [ ] I can trace and predict the example.
-- [ ] I can modify and run the code independently.
-- [ ] I can identify and correct a common error.
-- [ ] I can read source and output accessibly.
+- [ ] I can explain collection traversal in Julia terminology.
+- [ ] I can trace the example and predict its output.
+- [ ] I can adapt the example to canonical shared data.
+- [ ] I can identify and correct a Julia-specific error or edge case.
+- [ ] I can run and inspect the program using keyboard-accessible tools.
 
 # Unit 5: Input and Iteration
 
@@ -813,222 +968,248 @@ This unit covers input validation, sentinel loops, while loops, flags, break/con
 ## Lesson 5.1: Input and validation
 
 ### Reading References
-- Official Julia language guide and standard-library documentation.
-- Corresponding Python course lesson for the shared problem context and learning objective.
+- [Julia Documentation](https://docs.julialang.org/en/v1/)
+- Julia Base and standard-library reference.
+- Corresponding Python curriculum lesson for the shared problem and data.
 
 ### Learning Objectives
-- Explain this concept using Julia terminology.
-- Trace a short program and predict its behavior before execution.
-- Modify and test the example independently.
+- Explain input and validation using Julia terminology.
+- Apply the relevant syntax and standard-library facilities.
+- Test normal, boundary, and invalid cases using shared course data.
 
 ### Concept Explanation
-Input and validation. Julia targets numerical and scientific computing, simulation, optimization, statistics, and data-intensive research. The Python course provides the sequence and problem contexts; this lesson teaches the idiomatic Julia syntax and semantics. Pay particular attention to static or dynamic typing, mutability, indexing, parameter passing, errors, and resource lifetime where they differ from Python.
+Interactive input arrives as text through `readline`; validate and convert it before use. A `while` loop repeats while its condition is true, `break` exits the nearest loop, and `continue` skips to the next iteration.
+
+**Lesson focus:** Input and validation. The worked example is self-contained unless a standard-library import is shown.
 
 ### Worked Example
 ```jl
-score = 82
-if score >= 90 println("A") elseif score >= 80 println("B") else println("Keep practicing") end
+raw = "82"; score = tryparse(Int, raw)
+println(score === nothing ? "Invalid score" : "Accepted: $score")
 ```
 
-**Trace:** identify declarations, expressions, control flow, and observable output. Predict the result, run the example, and compare the actual output with the prediction.
+### Expected Behavior or Output
+The program prints a result based on the stated inputs. Predict the result before running it, then compare the observed output. File examples use temporary paths and close resources within the callback.
 
 ### Common Mistakes
-- Copying Python syntax or assumptions instead of using idiomatic Julia constructs.
-- Confusing assignment with equality or declaration with initialization.
-- Assuming strings, arrays, slices, tables, maps, or records have the same indexing and mutation rules as Python.
-- Ignoring compiler/interpreter diagnostics, return values, or resource errors.
+- Convert and validate `readline()` input before numeric operations.
+- Every `while` loop needs progress or an explicit exit.
+- Place `break` and `continue` at the intended loop nesting level.
 
 ### Activities
-1. Reproduce and run the example in a new file.
-2. Change one value and predict the result before running.
-3. Add a boundary case and an invalid-input case; describe the outcome.
-4. Explain each statement and its effect without relying on syntax coloring.
+1. Test valid, invalid, and sentinel command input.
+2. Trace loop state and condition on each iteration.
+3. Stop a search at the first matching score.
+4. Prove termination for empty and no-match inputs.
 
 ### Accessibility Practice
-Navigate the complete source file by line, word, and character using the learner's access technology. Read punctuation and indentation, run from the terminal, and inspect standard output and errors sequentially.
+Navigate source by line, word, and character. Inspect operators, punctuation, mutation markers, and block-ending `end` keywords. Run from the terminal and read output and diagnostics sequentially. Do not rely on syntax color or mouse-only controls.
 
 ### Skills Checklist
-- [ ] I can explain the concept in Julia terminology.
-- [ ] I can trace and predict the example.
-- [ ] I can modify and run the code independently.
-- [ ] I can identify and correct a common error.
-- [ ] I can read source and output accessibly.
+- [ ] I can explain input and validation in Julia terminology.
+- [ ] I can trace the example and predict its output.
+- [ ] I can adapt the example to canonical shared data.
+- [ ] I can identify and correct a Julia-specific error or edge case.
+- [ ] I can run and inspect the program using keyboard-accessible tools.
 
 ## Lesson 5.2: While loops
 
 ### Reading References
-- Official Julia language guide and standard-library documentation.
-- Corresponding Python course lesson for the shared problem context and learning objective.
+- [Julia Documentation](https://docs.julialang.org/en/v1/)
+- Julia Base and standard-library reference.
+- Corresponding Python curriculum lesson for the shared problem and data.
 
 ### Learning Objectives
-- Explain this concept using Julia terminology.
-- Trace a short program and predict its behavior before execution.
-- Modify and test the example independently.
+- Explain while loops using Julia terminology.
+- Apply the relevant syntax and standard-library facilities.
+- Test normal, boundary, and invalid cases using shared course data.
 
 ### Concept Explanation
-While loops. Julia targets numerical and scientific computing, simulation, optimization, statistics, and data-intensive research. The Python course provides the sequence and problem contexts; this lesson teaches the idiomatic Julia syntax and semantics. Pay particular attention to static or dynamic typing, mutability, indexing, parameter passing, errors, and resource lifetime where they differ from Python.
+Interactive input arrives as text through `readline`; validate and convert it before use. A `while` loop repeats while its condition is true, `break` exits the nearest loop, and `continue` skips to the next iteration.
+
+**Lesson focus:** While loops. The worked example is self-contained unless a standard-library import is shown.
 
 ### Worked Example
 ```jl
-score = 82
-if score >= 90 println("A") elseif score >= 80 println("B") else println("Keep practicing") end
+commands = ["list", "help", "quit"]
+i = 1
+while i <= length(commands)
+    println(commands[i]); commands[i] == "quit" && break; i += 1
+end
 ```
 
-**Trace:** identify declarations, expressions, control flow, and observable output. Predict the result, run the example, and compare the actual output with the prediction.
+### Expected Behavior or Output
+The program prints a result based on the stated inputs. Predict the result before running it, then compare the observed output. File examples use temporary paths and close resources within the callback.
 
 ### Common Mistakes
-- Copying Python syntax or assumptions instead of using idiomatic Julia constructs.
-- Confusing assignment with equality or declaration with initialization.
-- Assuming strings, arrays, slices, tables, maps, or records have the same indexing and mutation rules as Python.
-- Ignoring compiler/interpreter diagnostics, return values, or resource errors.
+- Convert and validate `readline()` input before numeric operations.
+- Every `while` loop needs progress or an explicit exit.
+- Place `break` and `continue` at the intended loop nesting level.
 
 ### Activities
-1. Reproduce and run the example in a new file.
-2. Change one value and predict the result before running.
-3. Add a boundary case and an invalid-input case; describe the outcome.
-4. Explain each statement and its effect without relying on syntax coloring.
+1. Test valid, invalid, and sentinel command input.
+2. Trace loop state and condition on each iteration.
+3. Stop a search at the first matching score.
+4. Prove termination for empty and no-match inputs.
 
 ### Accessibility Practice
-Navigate the complete source file by line, word, and character using the learner's access technology. Read punctuation and indentation, run from the terminal, and inspect standard output and errors sequentially.
+Navigate source by line, word, and character. Inspect operators, punctuation, mutation markers, and block-ending `end` keywords. Run from the terminal and read output and diagnostics sequentially. Do not rely on syntax color or mouse-only controls.
 
 ### Skills Checklist
-- [ ] I can explain the concept in Julia terminology.
-- [ ] I can trace and predict the example.
-- [ ] I can modify and run the code independently.
-- [ ] I can identify and correct a common error.
-- [ ] I can read source and output accessibly.
+- [ ] I can explain while loops in Julia terminology.
+- [ ] I can trace the example and predict its output.
+- [ ] I can adapt the example to canonical shared data.
+- [ ] I can identify and correct a Julia-specific error or edge case.
+- [ ] I can run and inspect the program using keyboard-accessible tools.
 
 ## Lesson 5.3: Flags and break
 
 ### Reading References
-- Official Julia language guide and standard-library documentation.
-- Corresponding Python course lesson for the shared problem context and learning objective.
+- [Julia Documentation](https://docs.julialang.org/en/v1/)
+- Julia Base and standard-library reference.
+- Corresponding Python curriculum lesson for the shared problem and data.
 
 ### Learning Objectives
-- Explain this concept using Julia terminology.
-- Trace a short program and predict its behavior before execution.
-- Modify and test the example independently.
+- Explain flags and break using Julia terminology.
+- Apply the relevant syntax and standard-library facilities.
+- Test normal, boundary, and invalid cases using shared course data.
 
 ### Concept Explanation
-Flags and break. Julia targets numerical and scientific computing, simulation, optimization, statistics, and data-intensive research. The Python course provides the sequence and problem contexts; this lesson teaches the idiomatic Julia syntax and semantics. Pay particular attention to static or dynamic typing, mutability, indexing, parameter passing, errors, and resource lifetime where they differ from Python.
+Interactive input arrives as text through `readline`; validate and convert it before use. A `while` loop repeats while its condition is true, `break` exits the nearest loop, and `continue` skips to the next iteration.
+
+**Lesson focus:** Flags and break. The worked example is self-contained unless a standard-library import is shown.
 
 ### Worked Example
 ```jl
-score = 82
-if score >= 90 println("A") elseif score >= 80 println("B") else println("Keep practicing") end
+scores = [82, 91, 76, 88]
+for (i, score) in enumerate(scores)
+    if score == 91
+        println("Found at $i"); break
+    end
+end
 ```
 
-**Trace:** identify declarations, expressions, control flow, and observable output. Predict the result, run the example, and compare the actual output with the prediction.
+### Expected Behavior or Output
+The program prints a result based on the stated inputs. Predict the result before running it, then compare the observed output. File examples use temporary paths and close resources within the callback.
 
 ### Common Mistakes
-- Copying Python syntax or assumptions instead of using idiomatic Julia constructs.
-- Confusing assignment with equality or declaration with initialization.
-- Assuming strings, arrays, slices, tables, maps, or records have the same indexing and mutation rules as Python.
-- Ignoring compiler/interpreter diagnostics, return values, or resource errors.
+- Convert and validate `readline()` input before numeric operations.
+- Every `while` loop needs progress or an explicit exit.
+- Place `break` and `continue` at the intended loop nesting level.
 
 ### Activities
-1. Reproduce and run the example in a new file.
-2. Change one value and predict the result before running.
-3. Add a boundary case and an invalid-input case; describe the outcome.
-4. Explain each statement and its effect without relying on syntax coloring.
+1. Test valid, invalid, and sentinel command input.
+2. Trace loop state and condition on each iteration.
+3. Stop a search at the first matching score.
+4. Prove termination for empty and no-match inputs.
 
 ### Accessibility Practice
-Navigate the complete source file by line, word, and character using the learner's access technology. Read punctuation and indentation, run from the terminal, and inspect standard output and errors sequentially.
+Navigate source by line, word, and character. Inspect operators, punctuation, mutation markers, and block-ending `end` keywords. Run from the terminal and read output and diagnostics sequentially. Do not rely on syntax color or mouse-only controls.
 
 ### Skills Checklist
-- [ ] I can explain the concept in Julia terminology.
-- [ ] I can trace and predict the example.
-- [ ] I can modify and run the code independently.
-- [ ] I can identify and correct a common error.
-- [ ] I can read source and output accessibly.
+- [ ] I can explain flags and break in Julia terminology.
+- [ ] I can trace the example and predict its output.
+- [ ] I can adapt the example to canonical shared data.
+- [ ] I can identify and correct a Julia-specific error or edge case.
+- [ ] I can run and inspect the program using keyboard-accessible tools.
 
 ## Lesson 5.4: Continue and filtering
 
 ### Reading References
-- Official Julia language guide and standard-library documentation.
-- Corresponding Python course lesson for the shared problem context and learning objective.
+- [Julia Documentation](https://docs.julialang.org/en/v1/)
+- Julia Base and standard-library reference.
+- Corresponding Python curriculum lesson for the shared problem and data.
 
 ### Learning Objectives
-- Explain this concept using Julia terminology.
-- Trace a short program and predict its behavior before execution.
-- Modify and test the example independently.
+- Explain continue and filtering using Julia terminology.
+- Apply the relevant syntax and standard-library facilities.
+- Test normal, boundary, and invalid cases using shared course data.
 
 ### Concept Explanation
-Continue and filtering. Julia targets numerical and scientific computing, simulation, optimization, statistics, and data-intensive research. The Python course provides the sequence and problem contexts; this lesson teaches the idiomatic Julia syntax and semantics. Pay particular attention to static or dynamic typing, mutability, indexing, parameter passing, errors, and resource lifetime where they differ from Python.
+Interactive input arrives as text through `readline`; validate and convert it before use. A `while` loop repeats while its condition is true, `break` exits the nearest loop, and `continue` skips to the next iteration.
+
+**Lesson focus:** Continue and filtering. The worked example is self-contained unless a standard-library import is shown.
 
 ### Worked Example
 ```jl
-score = 82
-if score >= 90 println("A") elseif score >= 80 println("B") else println("Keep practicing") end
+values = [82, -1, 91]
+for value in values
+    value < 0 && continue
+    println(value)
+end
 ```
 
-**Trace:** identify declarations, expressions, control flow, and observable output. Predict the result, run the example, and compare the actual output with the prediction.
+### Expected Behavior or Output
+The program prints a result based on the stated inputs. Predict the result before running it, then compare the observed output. File examples use temporary paths and close resources within the callback.
 
 ### Common Mistakes
-- Copying Python syntax or assumptions instead of using idiomatic Julia constructs.
-- Confusing assignment with equality or declaration with initialization.
-- Assuming strings, arrays, slices, tables, maps, or records have the same indexing and mutation rules as Python.
-- Ignoring compiler/interpreter diagnostics, return values, or resource errors.
+- Convert and validate `readline()` input before numeric operations.
+- Every `while` loop needs progress or an explicit exit.
+- Place `break` and `continue` at the intended loop nesting level.
 
 ### Activities
-1. Reproduce and run the example in a new file.
-2. Change one value and predict the result before running.
-3. Add a boundary case and an invalid-input case; describe the outcome.
-4. Explain each statement and its effect without relying on syntax coloring.
+1. Test valid, invalid, and sentinel command input.
+2. Trace loop state and condition on each iteration.
+3. Stop a search at the first matching score.
+4. Prove termination for empty and no-match inputs.
 
 ### Accessibility Practice
-Navigate the complete source file by line, word, and character using the learner's access technology. Read punctuation and indentation, run from the terminal, and inspect standard output and errors sequentially.
+Navigate source by line, word, and character. Inspect operators, punctuation, mutation markers, and block-ending `end` keywords. Run from the terminal and read output and diagnostics sequentially. Do not rely on syntax color or mouse-only controls.
 
 ### Skills Checklist
-- [ ] I can explain the concept in Julia terminology.
-- [ ] I can trace and predict the example.
-- [ ] I can modify and run the code independently.
-- [ ] I can identify and correct a common error.
-- [ ] I can read source and output accessibly.
+- [ ] I can explain continue and filtering in Julia terminology.
+- [ ] I can trace the example and predict its output.
+- [ ] I can adapt the example to canonical shared data.
+- [ ] I can identify and correct a Julia-specific error or edge case.
+- [ ] I can run and inspect the program using keyboard-accessible tools.
 
 ## Lesson 5.5: Infinite-loop prevention
 
 ### Reading References
-- Official Julia language guide and standard-library documentation.
-- Corresponding Python course lesson for the shared problem context and learning objective.
+- [Julia Documentation](https://docs.julialang.org/en/v1/)
+- Julia Base and standard-library reference.
+- Corresponding Python curriculum lesson for the shared problem and data.
 
 ### Learning Objectives
-- Explain this concept using Julia terminology.
-- Trace a short program and predict its behavior before execution.
-- Modify and test the example independently.
+- Explain infinite-loop prevention using Julia terminology.
+- Apply the relevant syntax and standard-library facilities.
+- Test normal, boundary, and invalid cases using shared course data.
 
 ### Concept Explanation
-Infinite-loop prevention. Julia targets numerical and scientific computing, simulation, optimization, statistics, and data-intensive research. The Python course provides the sequence and problem contexts; this lesson teaches the idiomatic Julia syntax and semantics. Pay particular attention to static or dynamic typing, mutability, indexing, parameter passing, errors, and resource lifetime where they differ from Python.
+Interactive input arrives as text through `readline`; validate and convert it before use. A `while` loop repeats while its condition is true, `break` exits the nearest loop, and `continue` skips to the next iteration.
+
+**Lesson focus:** Infinite-loop prevention. The worked example is self-contained unless a standard-library import is shown.
 
 ### Worked Example
 ```jl
-score = 82
-if score >= 90 println("A") elseif score >= 80 println("B") else println("Keep practicing") end
+for attempt in 1:3
+    println("Attempt $attempt")
+end
 ```
 
-**Trace:** identify declarations, expressions, control flow, and observable output. Predict the result, run the example, and compare the actual output with the prediction.
+### Expected Behavior or Output
+The program prints a result based on the stated inputs. Predict the result before running it, then compare the observed output. File examples use temporary paths and close resources within the callback.
 
 ### Common Mistakes
-- Copying Python syntax or assumptions instead of using idiomatic Julia constructs.
-- Confusing assignment with equality or declaration with initialization.
-- Assuming strings, arrays, slices, tables, maps, or records have the same indexing and mutation rules as Python.
-- Ignoring compiler/interpreter diagnostics, return values, or resource errors.
+- Convert and validate `readline()` input before numeric operations.
+- Every `while` loop needs progress or an explicit exit.
+- Place `break` and `continue` at the intended loop nesting level.
 
 ### Activities
-1. Reproduce and run the example in a new file.
-2. Change one value and predict the result before running.
-3. Add a boundary case and an invalid-input case; describe the outcome.
-4. Explain each statement and its effect without relying on syntax coloring.
+1. Test valid, invalid, and sentinel command input.
+2. Trace loop state and condition on each iteration.
+3. Stop a search at the first matching score.
+4. Prove termination for empty and no-match inputs.
 
 ### Accessibility Practice
-Navigate the complete source file by line, word, and character using the learner's access technology. Read punctuation and indentation, run from the terminal, and inspect standard output and errors sequentially.
+Navigate source by line, word, and character. Inspect operators, punctuation, mutation markers, and block-ending `end` keywords. Run from the terminal and read output and diagnostics sequentially. Do not rely on syntax color or mouse-only controls.
 
 ### Skills Checklist
-- [ ] I can explain the concept in Julia terminology.
-- [ ] I can trace and predict the example.
-- [ ] I can modify and run the code independently.
-- [ ] I can identify and correct a common error.
-- [ ] I can read source and output accessibly.
+- [ ] I can explain infinite-loop prevention in Julia terminology.
+- [ ] I can trace the example and predict its output.
+- [ ] I can adapt the example to canonical shared data.
+- [ ] I can identify and correct a Julia-specific error or edge case.
+- [ ] I can run and inspect the program using keyboard-accessible tools.
 
 # Unit 6: Functions
 
@@ -1039,222 +1220,244 @@ This unit covers definitions, parameters, arguments, return values, scope, colle
 ## Lesson 6.1: Defining functions
 
 ### Reading References
-- Official Julia language guide and standard-library documentation.
-- Corresponding Python course lesson for the shared problem context and learning objective.
+- [Julia Documentation](https://docs.julialang.org/en/v1/)
+- Julia Base and standard-library reference.
+- Corresponding Python curriculum lesson for the shared problem and data.
 
 ### Learning Objectives
-- Explain this concept using Julia terminology.
-- Trace a short program and predict its behavior before execution.
-- Modify and test the example independently.
+- Explain defining functions using Julia terminology.
+- Apply the relevant syntax and standard-library facilities.
+- Test normal, boundary, and invalid cases using shared course data.
 
 ### Concept Explanation
-Defining functions. Julia targets numerical and scientific computing, simulation, optimization, statistics, and data-intensive research. The Python course provides the sequence and problem contexts; this lesson teaches the idiomatic Julia syntax and semantics. Pay particular attention to static or dynamic typing, mutability, indexing, parameter passing, errors, and resource lifetime where they differ from Python.
+Functions are first-class values. Julia supports positional and keyword arguments, optional defaults, multiple dispatch, and variadic positional arguments with `...`. The final expression is returned implicitly.
+
+**Lesson focus:** Defining functions. The worked example is self-contained unless a standard-library import is shown.
 
 ### Worked Example
 ```jl
-add(a, b) = a + b
-# use: total = add(4, 5)
+tip(bill, rate=0.15) = bill * rate
+println(tip(24.50))
 ```
 
-**Trace:** identify declarations, expressions, control flow, and observable output. Predict the result, run the example, and compare the actual output with the prediction.
+### Expected Behavior or Output
+The program prints a result based on the stated inputs. Predict the result before running it, then compare the observed output. File examples use temporary paths and close resources within the callback.
 
 ### Common Mistakes
-- Copying Python syntax or assumptions instead of using idiomatic Julia constructs.
-- Confusing assignment with equality or declaration with initialization.
-- Assuming strings, arrays, slices, tables, maps, or records have the same indexing and mutation rules as Python.
-- Ignoring compiler/interpreter diagnostics, return values, or resource errors.
+- Printing a value is not the same as returning it.
+- Distinguish positional arguments from keyword arguments after the semicolon.
+- Use `...` deliberately when collecting variadic arguments.
 
 ### Activities
-1. Reproduce and run the example in a new file.
-2. Change one value and predict the result before running.
-3. Add a boundary case and an invalid-input case; describe the outcome.
-4. Explain each statement and its effect without relying on syntax coloring.
+1. Call a function and inspect its return value independently of printing.
+2. Add boundary and invalid-argument tests.
+3. Use keyword or variadic arguments where appropriate.
+4. Compose two functions without duplicating calculations.
 
 ### Accessibility Practice
-Navigate the complete source file by line, word, and character using the learner's access technology. Read punctuation and indentation, run from the terminal, and inspect standard output and errors sequentially.
+Navigate source by line, word, and character. Inspect operators, punctuation, mutation markers, and block-ending `end` keywords. Run from the terminal and read output and diagnostics sequentially. Do not rely on syntax color or mouse-only controls.
 
 ### Skills Checklist
-- [ ] I can explain the concept in Julia terminology.
-- [ ] I can trace and predict the example.
-- [ ] I can modify and run the code independently.
-- [ ] I can identify and correct a common error.
-- [ ] I can read source and output accessibly.
+- [ ] I can explain defining functions in Julia terminology.
+- [ ] I can trace the example and predict its output.
+- [ ] I can adapt the example to canonical shared data.
+- [ ] I can identify and correct a Julia-specific error or edge case.
+- [ ] I can run and inspect the program using keyboard-accessible tools.
 
 ## Lesson 6.2: Parameters and arguments
 
 ### Reading References
-- Official Julia language guide and standard-library documentation.
-- Corresponding Python course lesson for the shared problem context and learning objective.
+- [Julia Documentation](https://docs.julialang.org/en/v1/)
+- Julia Base and standard-library reference.
+- Corresponding Python curriculum lesson for the shared problem and data.
 
 ### Learning Objectives
-- Explain this concept using Julia terminology.
-- Trace a short program and predict its behavior before execution.
-- Modify and test the example independently.
+- Explain parameters and arguments using Julia terminology.
+- Apply the relevant syntax and standard-library facilities.
+- Test normal, boundary, and invalid cases using shared course data.
 
 ### Concept Explanation
-Parameters and arguments. Julia targets numerical and scientific computing, simulation, optimization, statistics, and data-intensive research. The Python course provides the sequence and problem contexts; this lesson teaches the idiomatic Julia syntax and semantics. Pay particular attention to static or dynamic typing, mutability, indexing, parameter passing, errors, and resource lifetime where they differ from Python.
+Functions are first-class values. Julia supports positional and keyword arguments, optional defaults, multiple dispatch, and variadic positional arguments with `...`. The final expression is returned implicitly.
+
+**Lesson focus:** Parameters and arguments. The worked example is self-contained unless a standard-library import is shown.
 
 ### Worked Example
 ```jl
-add(a, b) = a + b
-# use: total = add(4, 5)
+function invoice_total(bill; rate=0.15, tax=0.0)
+    bill + bill * rate + tax
+end
+println(invoice_total(24.50; tax=1.20))
 ```
 
-**Trace:** identify declarations, expressions, control flow, and observable output. Predict the result, run the example, and compare the actual output with the prediction.
+### Expected Behavior or Output
+The program prints a result based on the stated inputs. Predict the result before running it, then compare the observed output. File examples use temporary paths and close resources within the callback.
 
 ### Common Mistakes
-- Copying Python syntax or assumptions instead of using idiomatic Julia constructs.
-- Confusing assignment with equality or declaration with initialization.
-- Assuming strings, arrays, slices, tables, maps, or records have the same indexing and mutation rules as Python.
-- Ignoring compiler/interpreter diagnostics, return values, or resource errors.
+- Printing a value is not the same as returning it.
+- Distinguish positional arguments from keyword arguments after the semicolon.
+- Use `...` deliberately when collecting variadic arguments.
 
 ### Activities
-1. Reproduce and run the example in a new file.
-2. Change one value and predict the result before running.
-3. Add a boundary case and an invalid-input case; describe the outcome.
-4. Explain each statement and its effect without relying on syntax coloring.
+1. Call a function and inspect its return value independently of printing.
+2. Add boundary and invalid-argument tests.
+3. Use keyword or variadic arguments where appropriate.
+4. Compose two functions without duplicating calculations.
 
 ### Accessibility Practice
-Navigate the complete source file by line, word, and character using the learner's access technology. Read punctuation and indentation, run from the terminal, and inspect standard output and errors sequentially.
+Navigate source by line, word, and character. Inspect operators, punctuation, mutation markers, and block-ending `end` keywords. Run from the terminal and read output and diagnostics sequentially. Do not rely on syntax color or mouse-only controls.
 
 ### Skills Checklist
-- [ ] I can explain the concept in Julia terminology.
-- [ ] I can trace and predict the example.
-- [ ] I can modify and run the code independently.
-- [ ] I can identify and correct a common error.
-- [ ] I can read source and output accessibly.
+- [ ] I can explain parameters and arguments in Julia terminology.
+- [ ] I can trace the example and predict its output.
+- [ ] I can adapt the example to canonical shared data.
+- [ ] I can identify and correct a Julia-specific error or edge case.
+- [ ] I can run and inspect the program using keyboard-accessible tools.
 
 ## Lesson 6.3: Return values
 
 ### Reading References
-- Official Julia language guide and standard-library documentation.
-- Corresponding Python course lesson for the shared problem context and learning objective.
+- [Julia Documentation](https://docs.julialang.org/en/v1/)
+- Julia Base and standard-library reference.
+- Corresponding Python curriculum lesson for the shared problem and data.
 
 ### Learning Objectives
-- Explain this concept using Julia terminology.
-- Trace a short program and predict its behavior before execution.
-- Modify and test the example independently.
+- Explain return values using Julia terminology.
+- Apply the relevant syntax and standard-library facilities.
+- Test normal, boundary, and invalid cases using shared course data.
 
 ### Concept Explanation
-Return values. Julia targets numerical and scientific computing, simulation, optimization, statistics, and data-intensive research. The Python course provides the sequence and problem contexts; this lesson teaches the idiomatic Julia syntax and semantics. Pay particular attention to static or dynamic typing, mutability, indexing, parameter passing, errors, and resource lifetime where they differ from Python.
+Functions are first-class values. Julia supports positional and keyword arguments, optional defaults, multiple dispatch, and variadic positional arguments with `...`. The final expression is returned implicitly.
+
+**Lesson focus:** Return values. The worked example is self-contained unless a standard-library import is shown.
 
 ### Worked Example
 ```jl
-add(a, b) = a + b
-# use: total = add(4, 5)
+function grade(score)
+    0 <= score <= 100 || throw(ArgumentError("score out of range"))
+    return score >= 90 ? "A" : score >= 80 ? "B" : "C or below"
+end
+println(grade(82))
 ```
 
-**Trace:** identify declarations, expressions, control flow, and observable output. Predict the result, run the example, and compare the actual output with the prediction.
+### Expected Behavior or Output
+The program prints a result based on the stated inputs. Predict the result before running it, then compare the observed output. File examples use temporary paths and close resources within the callback.
 
 ### Common Mistakes
-- Copying Python syntax or assumptions instead of using idiomatic Julia constructs.
-- Confusing assignment with equality or declaration with initialization.
-- Assuming strings, arrays, slices, tables, maps, or records have the same indexing and mutation rules as Python.
-- Ignoring compiler/interpreter diagnostics, return values, or resource errors.
+- Printing a value is not the same as returning it.
+- Distinguish positional arguments from keyword arguments after the semicolon.
+- Use `...` deliberately when collecting variadic arguments.
 
 ### Activities
-1. Reproduce and run the example in a new file.
-2. Change one value and predict the result before running.
-3. Add a boundary case and an invalid-input case; describe the outcome.
-4. Explain each statement and its effect without relying on syntax coloring.
+1. Call a function and inspect its return value independently of printing.
+2. Add boundary and invalid-argument tests.
+3. Use keyword or variadic arguments where appropriate.
+4. Compose two functions without duplicating calculations.
 
 ### Accessibility Practice
-Navigate the complete source file by line, word, and character using the learner's access technology. Read punctuation and indentation, run from the terminal, and inspect standard output and errors sequentially.
+Navigate source by line, word, and character. Inspect operators, punctuation, mutation markers, and block-ending `end` keywords. Run from the terminal and read output and diagnostics sequentially. Do not rely on syntax color or mouse-only controls.
 
 ### Skills Checklist
-- [ ] I can explain the concept in Julia terminology.
-- [ ] I can trace and predict the example.
-- [ ] I can modify and run the code independently.
-- [ ] I can identify and correct a common error.
-- [ ] I can read source and output accessibly.
+- [ ] I can explain return values in Julia terminology.
+- [ ] I can trace the example and predict its output.
+- [ ] I can adapt the example to canonical shared data.
+- [ ] I can identify and correct a Julia-specific error or edge case.
+- [ ] I can run and inspect the program using keyboard-accessible tools.
 
 ## Lesson 6.4: Functions over collections
 
 ### Reading References
-- Official Julia language guide and standard-library documentation.
-- Corresponding Python course lesson for the shared problem context and learning objective.
+- [Julia Documentation](https://docs.julialang.org/en/v1/)
+- Julia Base and standard-library reference.
+- Corresponding Python curriculum lesson for the shared problem and data.
 
 ### Learning Objectives
-- Explain this concept using Julia terminology.
-- Trace a short program and predict its behavior before execution.
-- Modify and test the example independently.
+- Explain functions over collections using Julia terminology.
+- Apply the relevant syntax and standard-library facilities.
+- Test normal, boundary, and invalid cases using shared course data.
 
 ### Concept Explanation
-Functions over collections. Julia targets numerical and scientific computing, simulation, optimization, statistics, and data-intensive research. The Python course provides the sequence and problem contexts; this lesson teaches the idiomatic Julia syntax and semantics. Pay particular attention to static or dynamic typing, mutability, indexing, parameter passing, errors, and resource lifetime where they differ from Python.
+Functions are first-class values. Julia supports positional and keyword arguments, optional defaults, multiple dispatch, and variadic positional arguments with `...`. The final expression is returned implicitly.
+
+**Lesson focus:** Functions over collections. The worked example is self-contained unless a standard-library import is shown.
 
 ### Worked Example
 ```jl
-add(a, b) = a + b
-# use: total = add(4, 5)
+average(values::AbstractVector{<:Real}) = sum(values) / length(values)
+println(average([82,91,76,88]))
 ```
 
-**Trace:** identify declarations, expressions, control flow, and observable output. Predict the result, run the example, and compare the actual output with the prediction.
+### Expected Behavior or Output
+The program prints a result based on the stated inputs. Predict the result before running it, then compare the observed output. File examples use temporary paths and close resources within the callback.
 
 ### Common Mistakes
-- Copying Python syntax or assumptions instead of using idiomatic Julia constructs.
-- Confusing assignment with equality or declaration with initialization.
-- Assuming strings, arrays, slices, tables, maps, or records have the same indexing and mutation rules as Python.
-- Ignoring compiler/interpreter diagnostics, return values, or resource errors.
+- Printing a value is not the same as returning it.
+- Distinguish positional arguments from keyword arguments after the semicolon.
+- Use `...` deliberately when collecting variadic arguments.
 
 ### Activities
-1. Reproduce and run the example in a new file.
-2. Change one value and predict the result before running.
-3. Add a boundary case and an invalid-input case; describe the outcome.
-4. Explain each statement and its effect without relying on syntax coloring.
+1. Call a function and inspect its return value independently of printing.
+2. Add boundary and invalid-argument tests.
+3. Use keyword or variadic arguments where appropriate.
+4. Compose two functions without duplicating calculations.
 
 ### Accessibility Practice
-Navigate the complete source file by line, word, and character using the learner's access technology. Read punctuation and indentation, run from the terminal, and inspect standard output and errors sequentially.
+Navigate source by line, word, and character. Inspect operators, punctuation, mutation markers, and block-ending `end` keywords. Run from the terminal and read output and diagnostics sequentially. Do not rely on syntax color or mouse-only controls.
 
 ### Skills Checklist
-- [ ] I can explain the concept in Julia terminology.
-- [ ] I can trace and predict the example.
-- [ ] I can modify and run the code independently.
-- [ ] I can identify and correct a common error.
-- [ ] I can read source and output accessibly.
+- [ ] I can explain functions over collections in Julia terminology.
+- [ ] I can trace the example and predict its output.
+- [ ] I can adapt the example to canonical shared data.
+- [ ] I can identify and correct a Julia-specific error or edge case.
+- [ ] I can run and inspect the program using keyboard-accessible tools.
 
 ## Lesson 6.5: Scope and variadic arguments
 
 ### Reading References
-- Official Julia language guide and standard-library documentation.
-- Corresponding Python course lesson for the shared problem context and learning objective.
+- [Julia Documentation](https://docs.julialang.org/en/v1/)
+- Julia Base and standard-library reference.
+- Corresponding Python curriculum lesson for the shared problem and data.
 
 ### Learning Objectives
-- Explain this concept using Julia terminology.
-- Trace a short program and predict its behavior before execution.
-- Modify and test the example independently.
+- Explain scope and variadic arguments using Julia terminology.
+- Apply the relevant syntax and standard-library facilities.
+- Test normal, boundary, and invalid cases using shared course data.
 
 ### Concept Explanation
-Scope and variadic arguments. Julia targets numerical and scientific computing, simulation, optimization, statistics, and data-intensive research. The Python course provides the sequence and problem contexts; this lesson teaches the idiomatic Julia syntax and semantics. Pay particular attention to static or dynamic typing, mutability, indexing, parameter passing, errors, and resource lifetime where they differ from Python.
+Functions are first-class values. Julia supports positional and keyword arguments, optional defaults, multiple dispatch, and variadic positional arguments with `...`. The final expression is returned implicitly.
+
+**Lesson focus:** Scope and variadic arguments. The worked example is self-contained unless a standard-library import is shown.
 
 ### Worked Example
 ```jl
-add(a, b) = a + b
-# use: total = add(4, 5)
+function report(label, scores...)
+    println(label, ": ", join(scores, ", "))
+end
+report("Quiz", 82,91,76,88)
 ```
 
-**Trace:** identify declarations, expressions, control flow, and observable output. Predict the result, run the example, and compare the actual output with the prediction.
+### Expected Behavior or Output
+The program prints a result based on the stated inputs. Predict the result before running it, then compare the observed output. File examples use temporary paths and close resources within the callback.
 
 ### Common Mistakes
-- Copying Python syntax or assumptions instead of using idiomatic Julia constructs.
-- Confusing assignment with equality or declaration with initialization.
-- Assuming strings, arrays, slices, tables, maps, or records have the same indexing and mutation rules as Python.
-- Ignoring compiler/interpreter diagnostics, return values, or resource errors.
+- Printing a value is not the same as returning it.
+- Distinguish positional arguments from keyword arguments after the semicolon.
+- Use `...` deliberately when collecting variadic arguments.
 
 ### Activities
-1. Reproduce and run the example in a new file.
-2. Change one value and predict the result before running.
-3. Add a boundary case and an invalid-input case; describe the outcome.
-4. Explain each statement and its effect without relying on syntax coloring.
+1. Call a function and inspect its return value independently of printing.
+2. Add boundary and invalid-argument tests.
+3. Use keyword or variadic arguments where appropriate.
+4. Compose two functions without duplicating calculations.
 
 ### Accessibility Practice
-Navigate the complete source file by line, word, and character using the learner's access technology. Read punctuation and indentation, run from the terminal, and inspect standard output and errors sequentially.
+Navigate source by line, word, and character. Inspect operators, punctuation, mutation markers, and block-ending `end` keywords. Run from the terminal and read output and diagnostics sequentially. Do not rely on syntax color or mouse-only controls.
 
 ### Skills Checklist
-- [ ] I can explain the concept in Julia terminology.
-- [ ] I can trace and predict the example.
-- [ ] I can modify and run the code independently.
-- [ ] I can identify and correct a common error.
-- [ ] I can read source and output accessibly.
+- [ ] I can explain scope and variadic arguments in Julia terminology.
+- [ ] I can trace the example and predict its output.
+- [ ] I can adapt the example to canonical shared data.
+- [ ] I can identify and correct a Julia-specific error or edge case.
+- [ ] I can run and inspect the program using keyboard-accessible tools.
 
 # Unit 7: Object-Oriented Programming
 
@@ -1265,222 +1468,252 @@ This unit covers types/classes, instances, fields, methods, inheritance or inter
 ## Lesson 7.1: Types and object models
 
 ### Reading References
-- Official Julia language guide and standard-library documentation.
-- Corresponding Python course lesson for the shared problem context and learning objective.
+- [Julia Documentation](https://docs.julialang.org/en/v1/)
+- Julia Base and standard-library reference.
+- Corresponding Python curriculum lesson for the shared problem and data.
 
 ### Learning Objectives
-- Explain this concept using Julia terminology.
-- Trace a short program and predict its behavior before execution.
-- Modify and test the example independently.
+- Explain types and object models using Julia terminology.
+- Apply the relevant syntax and standard-library facilities.
+- Test normal, boundary, and invalid cases using shared course data.
 
 ### Concept Explanation
-Types and object models. Julia targets numerical and scientific computing, simulation, optimization, statistics, and data-intensive research. The Python course provides the sequence and problem contexts; this lesson teaches the idiomatic Julia syntax and semantics. Pay particular attention to static or dynamic typing, mutability, indexing, parameter passing, errors, and resource lifetime where they differ from Python.
+Declare composite types with `struct` or `mutable struct`. Concrete types do not inherit from other concrete types; abstract types define dispatch hierarchies, and methods specialize on argument types. Composition models related data.
+
+**Lesson focus:** Types and object models. The worked example is self-contained unless a standard-library import is shown.
 
 ### Worked Example
 ```jl
-item = (name="Notebook", quantity=3)
-println("$(item.name): $(item.quantity)")
+struct Student
+    name::String
+    age::Int
+end
+println(Student("Avery",16))
 ```
 
-**Trace:** identify declarations, expressions, control flow, and observable output. Predict the result, run the example, and compare the actual output with the prediction.
+### Expected Behavior or Output
+The program prints a result based on the stated inputs. Predict the result before running it, then compare the observed output. File examples use temporary paths and close resources within the callback.
 
 ### Common Mistakes
-- Copying Python syntax or assumptions instead of using idiomatic Julia constructs.
-- Confusing assignment with equality or declaration with initialization.
-- Assuming strings, arrays, slices, tables, maps, or records have the same indexing and mutation rules as Python.
-- Ignoring compiler/interpreter diagnostics, return values, or resource errors.
+- Concrete Julia structs do not inherit from other concrete structs.
+- An immutable `struct` cannot have its fields reassigned.
+- Use abstract supertypes and multiple dispatch for polymorphic behavior.
 
 ### Activities
-1. Reproduce and run the example in a new file.
-2. Change one value and predict the result before running.
-3. Add a boundary case and an invalid-input case; describe the outcome.
-4. Explain each statement and its effect without relying on syntax coloring.
+1. Model Avery or an inventory item with a Julia composite type.
+2. Create multiple instances and inspect their fields.
+3. Add a validation or display method using multiple dispatch.
+4. Explain whether composition, immutability, or mutability fits the model.
 
 ### Accessibility Practice
-Navigate the complete source file by line, word, and character using the learner's access technology. Read punctuation and indentation, run from the terminal, and inspect standard output and errors sequentially.
+Navigate source by line, word, and character. Inspect operators, punctuation, mutation markers, and block-ending `end` keywords. Run from the terminal and read output and diagnostics sequentially. Do not rely on syntax color or mouse-only controls.
 
 ### Skills Checklist
-- [ ] I can explain the concept in Julia terminology.
-- [ ] I can trace and predict the example.
-- [ ] I can modify and run the code independently.
-- [ ] I can identify and correct a common error.
-- [ ] I can read source and output accessibly.
+- [ ] I can explain types and object models in Julia terminology.
+- [ ] I can trace the example and predict its output.
+- [ ] I can adapt the example to canonical shared data.
+- [ ] I can identify and correct a Julia-specific error or edge case.
+- [ ] I can run and inspect the program using keyboard-accessible tools.
 
 ## Lesson 7.2: Creating instances
 
 ### Reading References
-- Official Julia language guide and standard-library documentation.
-- Corresponding Python course lesson for the shared problem context and learning objective.
+- [Julia Documentation](https://docs.julialang.org/en/v1/)
+- Julia Base and standard-library reference.
+- Corresponding Python curriculum lesson for the shared problem and data.
 
 ### Learning Objectives
-- Explain this concept using Julia terminology.
-- Trace a short program and predict its behavior before execution.
-- Modify and test the example independently.
+- Explain creating instances using Julia terminology.
+- Apply the relevant syntax and standard-library facilities.
+- Test normal, boundary, and invalid cases using shared course data.
 
 ### Concept Explanation
-Creating instances. Julia targets numerical and scientific computing, simulation, optimization, statistics, and data-intensive research. The Python course provides the sequence and problem contexts; this lesson teaches the idiomatic Julia syntax and semantics. Pay particular attention to static or dynamic typing, mutability, indexing, parameter passing, errors, and resource lifetime where they differ from Python.
+Declare composite types with `struct` or `mutable struct`. Concrete types do not inherit from other concrete types; abstract types define dispatch hierarchies, and methods specialize on argument types. Composition models related data.
+
+**Lesson focus:** Creating instances. The worked example is self-contained unless a standard-library import is shown.
 
 ### Worked Example
 ```jl
-item = (name="Notebook", quantity=3)
-println("$(item.name): $(item.quantity)")
+struct Learner
+    name::String
+    subject::String
+end
+learners = [Learner("Avery","Computer Science"), Learner("Jordan","Math")]
+foreach(println, learners)
 ```
 
-**Trace:** identify declarations, expressions, control flow, and observable output. Predict the result, run the example, and compare the actual output with the prediction.
+### Expected Behavior or Output
+The program prints a result based on the stated inputs. Predict the result before running it, then compare the observed output. File examples use temporary paths and close resources within the callback.
 
 ### Common Mistakes
-- Copying Python syntax or assumptions instead of using idiomatic Julia constructs.
-- Confusing assignment with equality or declaration with initialization.
-- Assuming strings, arrays, slices, tables, maps, or records have the same indexing and mutation rules as Python.
-- Ignoring compiler/interpreter diagnostics, return values, or resource errors.
+- Concrete Julia structs do not inherit from other concrete structs.
+- An immutable `struct` cannot have its fields reassigned.
+- Use abstract supertypes and multiple dispatch for polymorphic behavior.
 
 ### Activities
-1. Reproduce and run the example in a new file.
-2. Change one value and predict the result before running.
-3. Add a boundary case and an invalid-input case; describe the outcome.
-4. Explain each statement and its effect without relying on syntax coloring.
+1. Model Avery or an inventory item with a Julia composite type.
+2. Create multiple instances and inspect their fields.
+3. Add a validation or display method using multiple dispatch.
+4. Explain whether composition, immutability, or mutability fits the model.
 
 ### Accessibility Practice
-Navigate the complete source file by line, word, and character using the learner's access technology. Read punctuation and indentation, run from the terminal, and inspect standard output and errors sequentially.
+Navigate source by line, word, and character. Inspect operators, punctuation, mutation markers, and block-ending `end` keywords. Run from the terminal and read output and diagnostics sequentially. Do not rely on syntax color or mouse-only controls.
 
 ### Skills Checklist
-- [ ] I can explain the concept in Julia terminology.
-- [ ] I can trace and predict the example.
-- [ ] I can modify and run the code independently.
-- [ ] I can identify and correct a common error.
-- [ ] I can read source and output accessibly.
+- [ ] I can explain creating instances in Julia terminology.
+- [ ] I can trace the example and predict its output.
+- [ ] I can adapt the example to canonical shared data.
+- [ ] I can identify and correct a Julia-specific error or edge case.
+- [ ] I can run and inspect the program using keyboard-accessible tools.
 
 ## Lesson 7.3: Fields and methods
 
 ### Reading References
-- Official Julia language guide and standard-library documentation.
-- Corresponding Python course lesson for the shared problem context and learning objective.
+- [Julia Documentation](https://docs.julialang.org/en/v1/)
+- Julia Base and standard-library reference.
+- Corresponding Python curriculum lesson for the shared problem and data.
 
 ### Learning Objectives
-- Explain this concept using Julia terminology.
-- Trace a short program and predict its behavior before execution.
-- Modify and test the example independently.
+- Explain fields and methods using Julia terminology.
+- Apply the relevant syntax and standard-library facilities.
+- Test normal, boundary, and invalid cases using shared course data.
 
 ### Concept Explanation
-Fields and methods. Julia targets numerical and scientific computing, simulation, optimization, statistics, and data-intensive research. The Python course provides the sequence and problem contexts; this lesson teaches the idiomatic Julia syntax and semantics. Pay particular attention to static or dynamic typing, mutability, indexing, parameter passing, errors, and resource lifetime where they differ from Python.
+Declare composite types with `struct` or `mutable struct`. Concrete types do not inherit from other concrete types; abstract types define dispatch hierarchies, and methods specialize on argument types. Composition models related data.
+
+**Lesson focus:** Fields and methods. The worked example is self-contained unless a standard-library import is shown.
 
 ### Worked Example
 ```jl
-item = (name="Notebook", quantity=3)
-println("$(item.name): $(item.quantity)")
+mutable struct Item
+    name::String
+    quantity::Int
+end
+item=Item("Notebook",3); item.quantity += 1
+println(item.quantity)
 ```
 
-**Trace:** identify declarations, expressions, control flow, and observable output. Predict the result, run the example, and compare the actual output with the prediction.
+### Expected Behavior or Output
+The program prints a result based on the stated inputs. Predict the result before running it, then compare the observed output. File examples use temporary paths and close resources within the callback.
 
 ### Common Mistakes
-- Copying Python syntax or assumptions instead of using idiomatic Julia constructs.
-- Confusing assignment with equality or declaration with initialization.
-- Assuming strings, arrays, slices, tables, maps, or records have the same indexing and mutation rules as Python.
-- Ignoring compiler/interpreter diagnostics, return values, or resource errors.
+- Concrete Julia structs do not inherit from other concrete structs.
+- An immutable `struct` cannot have its fields reassigned.
+- Use abstract supertypes and multiple dispatch for polymorphic behavior.
 
 ### Activities
-1. Reproduce and run the example in a new file.
-2. Change one value and predict the result before running.
-3. Add a boundary case and an invalid-input case; describe the outcome.
-4. Explain each statement and its effect without relying on syntax coloring.
+1. Model Avery or an inventory item with a Julia composite type.
+2. Create multiple instances and inspect their fields.
+3. Add a validation or display method using multiple dispatch.
+4. Explain whether composition, immutability, or mutability fits the model.
 
 ### Accessibility Practice
-Navigate the complete source file by line, word, and character using the learner's access technology. Read punctuation and indentation, run from the terminal, and inspect standard output and errors sequentially.
+Navigate source by line, word, and character. Inspect operators, punctuation, mutation markers, and block-ending `end` keywords. Run from the terminal and read output and diagnostics sequentially. Do not rely on syntax color or mouse-only controls.
 
 ### Skills Checklist
-- [ ] I can explain the concept in Julia terminology.
-- [ ] I can trace and predict the example.
-- [ ] I can modify and run the code independently.
-- [ ] I can identify and correct a common error.
-- [ ] I can read source and output accessibly.
+- [ ] I can explain fields and methods in Julia terminology.
+- [ ] I can trace the example and predict its output.
+- [ ] I can adapt the example to canonical shared data.
+- [ ] I can identify and correct a Julia-specific error or edge case.
+- [ ] I can run and inspect the program using keyboard-accessible tools.
 
 ## Lesson 7.4: Inheritance and interfaces
 
 ### Reading References
-- Official Julia language guide and standard-library documentation.
-- Corresponding Python course lesson for the shared problem context and learning objective.
+- [Julia Documentation](https://docs.julialang.org/en/v1/)
+- Julia Base and standard-library reference.
+- Corresponding Python curriculum lesson for the shared problem and data.
 
 ### Learning Objectives
-- Explain this concept using Julia terminology.
-- Trace a short program and predict its behavior before execution.
-- Modify and test the example independently.
+- Explain inheritance and interfaces using Julia terminology.
+- Apply the relevant syntax and standard-library facilities.
+- Test normal, boundary, and invalid cases using shared course data.
 
 ### Concept Explanation
-Inheritance and interfaces. Julia targets numerical and scientific computing, simulation, optimization, statistics, and data-intensive research. The Python course provides the sequence and problem contexts; this lesson teaches the idiomatic Julia syntax and semantics. Pay particular attention to static or dynamic typing, mutability, indexing, parameter passing, errors, and resource lifetime where they differ from Python.
+Declare composite types with `struct` or `mutable struct`. Concrete types do not inherit from other concrete types; abstract types define dispatch hierarchies, and methods specialize on argument types. Composition models related data.
+
+**Lesson focus:** Inheritance and interfaces. The worked example is self-contained unless a standard-library import is shown.
 
 ### Worked Example
 ```jl
-item = (name="Notebook", quantity=3)
-println("$(item.name): $(item.quantity)")
+abstract type Assessment end
+struct Quiz <: Assessment; score::Int; end
+struct Project <: Assessment; score::Int; end
+score(x::Assessment)=x.score
+println(score(Quiz(82))+score(Project(91)))
 ```
 
-**Trace:** identify declarations, expressions, control flow, and observable output. Predict the result, run the example, and compare the actual output with the prediction.
+### Expected Behavior or Output
+The program prints a result based on the stated inputs. Predict the result before running it, then compare the observed output. File examples use temporary paths and close resources within the callback.
 
 ### Common Mistakes
-- Copying Python syntax or assumptions instead of using idiomatic Julia constructs.
-- Confusing assignment with equality or declaration with initialization.
-- Assuming strings, arrays, slices, tables, maps, or records have the same indexing and mutation rules as Python.
-- Ignoring compiler/interpreter diagnostics, return values, or resource errors.
+- Concrete Julia structs do not inherit from other concrete structs.
+- An immutable `struct` cannot have its fields reassigned.
+- Use abstract supertypes and multiple dispatch for polymorphic behavior.
 
 ### Activities
-1. Reproduce and run the example in a new file.
-2. Change one value and predict the result before running.
-3. Add a boundary case and an invalid-input case; describe the outcome.
-4. Explain each statement and its effect without relying on syntax coloring.
+1. Model Avery or an inventory item with a Julia composite type.
+2. Create multiple instances and inspect their fields.
+3. Add a validation or display method using multiple dispatch.
+4. Explain whether composition, immutability, or mutability fits the model.
 
 ### Accessibility Practice
-Navigate the complete source file by line, word, and character using the learner's access technology. Read punctuation and indentation, run from the terminal, and inspect standard output and errors sequentially.
+Navigate source by line, word, and character. Inspect operators, punctuation, mutation markers, and block-ending `end` keywords. Run from the terminal and read output and diagnostics sequentially. Do not rely on syntax color or mouse-only controls.
 
 ### Skills Checklist
-- [ ] I can explain the concept in Julia terminology.
-- [ ] I can trace and predict the example.
-- [ ] I can modify and run the code independently.
-- [ ] I can identify and correct a common error.
-- [ ] I can read source and output accessibly.
+- [ ] I can explain inheritance and interfaces in Julia terminology.
+- [ ] I can trace the example and predict its output.
+- [ ] I can adapt the example to canonical shared data.
+- [ ] I can identify and correct a Julia-specific error or edge case.
+- [ ] I can run and inspect the program using keyboard-accessible tools.
 
 ## Lesson 7.5: Composition
 
 ### Reading References
-- Official Julia language guide and standard-library documentation.
-- Corresponding Python course lesson for the shared problem context and learning objective.
+- [Julia Documentation](https://docs.julialang.org/en/v1/)
+- Julia Base and standard-library reference.
+- Corresponding Python curriculum lesson for the shared problem and data.
 
 ### Learning Objectives
-- Explain this concept using Julia terminology.
-- Trace a short program and predict its behavior before execution.
-- Modify and test the example independently.
+- Explain composition using Julia terminology.
+- Apply the relevant syntax and standard-library facilities.
+- Test normal, boundary, and invalid cases using shared course data.
 
 ### Concept Explanation
-Composition. Julia targets numerical and scientific computing, simulation, optimization, statistics, and data-intensive research. The Python course provides the sequence and problem contexts; this lesson teaches the idiomatic Julia syntax and semantics. Pay particular attention to static or dynamic typing, mutability, indexing, parameter passing, errors, and resource lifetime where they differ from Python.
+Declare composite types with `struct` or `mutable struct`. Concrete types do not inherit from other concrete types; abstract types define dispatch hierarchies, and methods specialize on argument types. Composition models related data.
+
+**Lesson focus:** Composition. The worked example is self-contained unless a standard-library import is shown.
 
 ### Worked Example
 ```jl
-item = (name="Notebook", quantity=3)
-println("$(item.name): $(item.quantity)")
+struct Address; city::String; end
+struct Person; name::String; address::Address; end
+println(Person("Avery",Address("Farmington")))
 ```
 
-**Trace:** identify declarations, expressions, control flow, and observable output. Predict the result, run the example, and compare the actual output with the prediction.
+### Expected Behavior or Output
+The program prints a result based on the stated inputs. Predict the result before running it, then compare the observed output. File examples use temporary paths and close resources within the callback.
 
 ### Common Mistakes
-- Copying Python syntax or assumptions instead of using idiomatic Julia constructs.
-- Confusing assignment with equality or declaration with initialization.
-- Assuming strings, arrays, slices, tables, maps, or records have the same indexing and mutation rules as Python.
-- Ignoring compiler/interpreter diagnostics, return values, or resource errors.
+- Concrete Julia structs do not inherit from other concrete structs.
+- An immutable `struct` cannot have its fields reassigned.
+- Use abstract supertypes and multiple dispatch for polymorphic behavior.
 
 ### Activities
-1. Reproduce and run the example in a new file.
-2. Change one value and predict the result before running.
-3. Add a boundary case and an invalid-input case; describe the outcome.
-4. Explain each statement and its effect without relying on syntax coloring.
+1. Model Avery or an inventory item with a Julia composite type.
+2. Create multiple instances and inspect their fields.
+3. Add a validation or display method using multiple dispatch.
+4. Explain whether composition, immutability, or mutability fits the model.
 
 ### Accessibility Practice
-Navigate the complete source file by line, word, and character using the learner's access technology. Read punctuation and indentation, run from the terminal, and inspect standard output and errors sequentially.
+Navigate source by line, word, and character. Inspect operators, punctuation, mutation markers, and block-ending `end` keywords. Run from the terminal and read output and diagnostics sequentially. Do not rely on syntax color or mouse-only controls.
 
 ### Skills Checklist
-- [ ] I can explain the concept in Julia terminology.
-- [ ] I can trace and predict the example.
-- [ ] I can modify and run the code independently.
-- [ ] I can identify and correct a common error.
-- [ ] I can read source and output accessibly.
+- [ ] I can explain composition in Julia terminology.
+- [ ] I can trace the example and predict its output.
+- [ ] I can adapt the example to canonical shared data.
+- [ ] I can identify and correct a Julia-specific error or edge case.
+- [ ] I can run and inspect the program using keyboard-accessible tools.
 
 # Unit 8: Files and Exceptions
 
@@ -1491,227 +1724,254 @@ This unit covers read/write text, resource lifetime, error handling, JSON serial
 ## Lesson 8.1: Reading text files
 
 ### Reading References
-- Official Julia language guide and standard-library documentation.
-- Corresponding Python course lesson for the shared problem context and learning objective.
+- [Julia Documentation](https://docs.julialang.org/en/v1/)
+- Julia Base and standard-library reference.
+- Corresponding Python curriculum lesson for the shared problem and data.
 
 ### Learning Objectives
-- Explain this concept using Julia terminology.
-- Trace a short program and predict its behavior before execution.
-- Modify and test the example independently.
+- Explain reading text files using Julia terminology.
+- Apply the relevant syntax and standard-library facilities.
+- Test normal, boundary, and invalid cases using shared course data.
 
 ### Concept Explanation
-Reading text files. Julia targets numerical and scientific computing, simulation, optimization, statistics, and data-intensive research. The Python course provides the sequence and problem contexts; this lesson teaches the idiomatic Julia syntax and semantics. Pay particular attention to static or dynamic typing, mutability, indexing, parameter passing, errors, and resource lifetime where they differ from Python.
+Use `open(path) do io ... end` to close files even when operations fail. `eachline` supports line processing. Julia has TOML in its standard library but no general JSON parser; use JSON3.jl for JSON.
+
+**Lesson focus:** Reading text files. The worked example is self-contained unless a standard-library import is shown.
 
 ### Worked Example
 ```jl
-open("notes.txt", "r") do file
-    for line in eachline(file) println(line) end
+mktemp() do path, io
+    write(io,"Avery studies Julia.\n"); close(io)
+    open(path,"r") do file
+        foreach(println, eachline(file))
+    end
 end
 ```
 
-**Trace:** identify declarations, expressions, control flow, and observable output. Predict the result, run the example, and compare the actual output with the prediction.
+### Expected Behavior or Output
+The program prints a result based on the stated inputs. Predict the result before running it, then compare the observed output. File examples use temporary paths and close resources within the callback.
 
 ### Common Mistakes
-- Copying Python syntax or assumptions instead of using idiomatic Julia constructs.
-- Confusing assignment with equality or declaration with initialization.
-- Assuming strings, arrays, slices, tables, maps, or records have the same indexing and mutation rules as Python.
-- Ignoring compiler/interpreter diagnostics, return values, or resource errors.
+- Relative paths are resolved from the process working directory.
+- Use `open(path) do io` to guarantee resource cleanup.
+- Catch expected exceptions specifically rather than hiding all failures.
 
 ### Activities
-1. Reproduce and run the example in a new file.
-2. Change one value and predict the result before running.
-3. Add a boundary case and an invalid-input case; describe the outcome.
-4. Explain each statement and its effect without relying on syntax coloring.
+1. Create a temporary file fixture and read it line by line.
+2. Test empty, missing, and malformed files.
+3. Verify resources close after successful and exceptional paths.
+4. Document the file format and parser limitations.
 
 ### Accessibility Practice
-Navigate the complete source file by line, word, and character using the learner's access technology. Read punctuation and indentation, run from the terminal, and inspect standard output and errors sequentially.
+Navigate source by line, word, and character. Inspect operators, punctuation, mutation markers, and block-ending `end` keywords. Run from the terminal and read output and diagnostics sequentially. Do not rely on syntax color or mouse-only controls.
 
 ### Skills Checklist
-- [ ] I can explain the concept in Julia terminology.
-- [ ] I can trace and predict the example.
-- [ ] I can modify and run the code independently.
-- [ ] I can identify and correct a common error.
-- [ ] I can read source and output accessibly.
+- [ ] I can explain reading text files in Julia terminology.
+- [ ] I can trace the example and predict its output.
+- [ ] I can adapt the example to canonical shared data.
+- [ ] I can identify and correct a Julia-specific error or edge case.
+- [ ] I can run and inspect the program using keyboard-accessible tools.
 
 ## Lesson 8.2: Writing and appending files
 
 ### Reading References
-- Official Julia language guide and standard-library documentation.
-- Corresponding Python course lesson for the shared problem context and learning objective.
+- [Julia Documentation](https://docs.julialang.org/en/v1/)
+- Julia Base and standard-library reference.
+- Corresponding Python curriculum lesson for the shared problem and data.
 
 ### Learning Objectives
-- Explain this concept using Julia terminology.
-- Trace a short program and predict its behavior before execution.
-- Modify and test the example independently.
+- Explain writing and appending files using Julia terminology.
+- Apply the relevant syntax and standard-library facilities.
+- Test normal, boundary, and invalid cases using shared course data.
 
 ### Concept Explanation
-Writing and appending files. Julia targets numerical and scientific computing, simulation, optimization, statistics, and data-intensive research. The Python course provides the sequence and problem contexts; this lesson teaches the idiomatic Julia syntax and semantics. Pay particular attention to static or dynamic typing, mutability, indexing, parameter passing, errors, and resource lifetime where they differ from Python.
+Use `open(path) do io ... end` to close files even when operations fail. `eachline` supports line processing. Julia has TOML in its standard library but no general JSON parser; use JSON3.jl for JSON.
+
+**Lesson focus:** Writing and appending files. The worked example is self-contained unless a standard-library import is shown.
 
 ### Worked Example
 ```jl
-open("notes.txt", "r") do file
-    for line in eachline(file) println(line) end
+mktemp() do path, io
+    write(io,"First note\n"); close(io)
+    open(path,"a") do file; write(file,"Second note\n"); end
+    println(read(path,String))
 end
 ```
 
-**Trace:** identify declarations, expressions, control flow, and observable output. Predict the result, run the example, and compare the actual output with the prediction.
+### Expected Behavior or Output
+The program prints a result based on the stated inputs. Predict the result before running it, then compare the observed output. File examples use temporary paths and close resources within the callback.
 
 ### Common Mistakes
-- Copying Python syntax or assumptions instead of using idiomatic Julia constructs.
-- Confusing assignment with equality or declaration with initialization.
-- Assuming strings, arrays, slices, tables, maps, or records have the same indexing and mutation rules as Python.
-- Ignoring compiler/interpreter diagnostics, return values, or resource errors.
+- Relative paths are resolved from the process working directory.
+- Use `open(path) do io` to guarantee resource cleanup.
+- Catch expected exceptions specifically rather than hiding all failures.
 
 ### Activities
-1. Reproduce and run the example in a new file.
-2. Change one value and predict the result before running.
-3. Add a boundary case and an invalid-input case; describe the outcome.
-4. Explain each statement and its effect without relying on syntax coloring.
+1. Create a temporary file fixture and read it line by line.
+2. Test empty, missing, and malformed files.
+3. Verify resources close after successful and exceptional paths.
+4. Document the file format and parser limitations.
 
 ### Accessibility Practice
-Navigate the complete source file by line, word, and character using the learner's access technology. Read punctuation and indentation, run from the terminal, and inspect standard output and errors sequentially.
+Navigate source by line, word, and character. Inspect operators, punctuation, mutation markers, and block-ending `end` keywords. Run from the terminal and read output and diagnostics sequentially. Do not rely on syntax color or mouse-only controls.
 
 ### Skills Checklist
-- [ ] I can explain the concept in Julia terminology.
-- [ ] I can trace and predict the example.
-- [ ] I can modify and run the code independently.
-- [ ] I can identify and correct a common error.
-- [ ] I can read source and output accessibly.
+- [ ] I can explain writing and appending files in Julia terminology.
+- [ ] I can trace the example and predict its output.
+- [ ] I can adapt the example to canonical shared data.
+- [ ] I can identify and correct a Julia-specific error or edge case.
+- [ ] I can run and inspect the program using keyboard-accessible tools.
 
 ## Lesson 8.3: Errors and exceptions
 
 ### Reading References
-- Official Julia language guide and standard-library documentation.
-- Corresponding Python course lesson for the shared problem context and learning objective.
+- [Julia Documentation](https://docs.julialang.org/en/v1/)
+- Julia Base and standard-library reference.
+- Corresponding Python curriculum lesson for the shared problem and data.
 
 ### Learning Objectives
-- Explain this concept using Julia terminology.
-- Trace a short program and predict its behavior before execution.
-- Modify and test the example independently.
+- Explain errors and exceptions using Julia terminology.
+- Apply the relevant syntax and standard-library facilities.
+- Test normal, boundary, and invalid cases using shared course data.
 
 ### Concept Explanation
-Errors and exceptions. Julia targets numerical and scientific computing, simulation, optimization, statistics, and data-intensive research. The Python course provides the sequence and problem contexts; this lesson teaches the idiomatic Julia syntax and semantics. Pay particular attention to static or dynamic typing, mutability, indexing, parameter passing, errors, and resource lifetime where they differ from Python.
+Use `open(path) do io ... end` to close files even when operations fail. `eachline` supports line processing. Julia has TOML in its standard library but no general JSON parser; use JSON3.jl for JSON.
+
+**Lesson focus:** Errors and exceptions. The worked example is self-contained unless a standard-library import is shown.
 
 ### Worked Example
 ```jl
-open("notes.txt", "r") do file
-    for line in eachline(file) println(line) end
+for raw in ["42","bad"]
+    try
+        println(parse(Int,raw))
+    catch error
+        error isa ArgumentError || rethrow()
+        println("Invalid integer: $raw")
+    end
 end
 ```
 
-**Trace:** identify declarations, expressions, control flow, and observable output. Predict the result, run the example, and compare the actual output with the prediction.
+### Expected Behavior or Output
+The program prints a result based on the stated inputs. Predict the result before running it, then compare the observed output. File examples use temporary paths and close resources within the callback.
 
 ### Common Mistakes
-- Copying Python syntax or assumptions instead of using idiomatic Julia constructs.
-- Confusing assignment with equality or declaration with initialization.
-- Assuming strings, arrays, slices, tables, maps, or records have the same indexing and mutation rules as Python.
-- Ignoring compiler/interpreter diagnostics, return values, or resource errors.
+- Relative paths are resolved from the process working directory.
+- Use `open(path) do io` to guarantee resource cleanup.
+- Catch expected exceptions specifically rather than hiding all failures.
 
 ### Activities
-1. Reproduce and run the example in a new file.
-2. Change one value and predict the result before running.
-3. Add a boundary case and an invalid-input case; describe the outcome.
-4. Explain each statement and its effect without relying on syntax coloring.
+1. Create a temporary file fixture and read it line by line.
+2. Test empty, missing, and malformed files.
+3. Verify resources close after successful and exceptional paths.
+4. Document the file format and parser limitations.
 
 ### Accessibility Practice
-Navigate the complete source file by line, word, and character using the learner's access technology. Read punctuation and indentation, run from the terminal, and inspect standard output and errors sequentially.
+Navigate source by line, word, and character. Inspect operators, punctuation, mutation markers, and block-ending `end` keywords. Run from the terminal and read output and diagnostics sequentially. Do not rely on syntax color or mouse-only controls.
 
 ### Skills Checklist
-- [ ] I can explain the concept in Julia terminology.
-- [ ] I can trace and predict the example.
-- [ ] I can modify and run the code independently.
-- [ ] I can identify and correct a common error.
-- [ ] I can read source and output accessibly.
+- [ ] I can explain errors and exceptions in Julia terminology.
+- [ ] I can trace the example and predict its output.
+- [ ] I can adapt the example to canonical shared data.
+- [ ] I can identify and correct a Julia-specific error or edge case.
+- [ ] I can run and inspect the program using keyboard-accessible tools.
 
 ## Lesson 8.4: Resource cleanup
 
 ### Reading References
-- Official Julia language guide and standard-library documentation.
-- Corresponding Python course lesson for the shared problem context and learning objective.
+- [Julia Documentation](https://docs.julialang.org/en/v1/)
+- Julia Base and standard-library reference.
+- Corresponding Python curriculum lesson for the shared problem and data.
 
 ### Learning Objectives
-- Explain this concept using Julia terminology.
-- Trace a short program and predict its behavior before execution.
-- Modify and test the example independently.
+- Explain resource cleanup using Julia terminology.
+- Apply the relevant syntax and standard-library facilities.
+- Test normal, boundary, and invalid cases using shared course data.
 
 ### Concept Explanation
-Resource cleanup. Julia targets numerical and scientific computing, simulation, optimization, statistics, and data-intensive research. The Python course provides the sequence and problem contexts; this lesson teaches the idiomatic Julia syntax and semantics. Pay particular attention to static or dynamic typing, mutability, indexing, parameter passing, errors, and resource lifetime where they differ from Python.
+Use `open(path) do io ... end` to close files even when operations fail. `eachline` supports line processing. Julia has TOML in its standard library but no general JSON parser; use JSON3.jl for JSON.
+
+**Lesson focus:** Resource cleanup. The worked example is self-contained unless a standard-library import is shown.
 
 ### Worked Example
 ```jl
-open("notes.txt", "r") do file
-    for line in eachline(file) println(line) end
+mktemp() do path, io
+    write(io,"temporary"); close(io)
+    open(path,"r") do file; println(read(file,String)); end
 end
 ```
 
-**Trace:** identify declarations, expressions, control flow, and observable output. Predict the result, run the example, and compare the actual output with the prediction.
+### Expected Behavior or Output
+The program prints a result based on the stated inputs. Predict the result before running it, then compare the observed output. File examples use temporary paths and close resources within the callback.
 
 ### Common Mistakes
-- Copying Python syntax or assumptions instead of using idiomatic Julia constructs.
-- Confusing assignment with equality or declaration with initialization.
-- Assuming strings, arrays, slices, tables, maps, or records have the same indexing and mutation rules as Python.
-- Ignoring compiler/interpreter diagnostics, return values, or resource errors.
+- Relative paths are resolved from the process working directory.
+- Use `open(path) do io` to guarantee resource cleanup.
+- Catch expected exceptions specifically rather than hiding all failures.
 
 ### Activities
-1. Reproduce and run the example in a new file.
-2. Change one value and predict the result before running.
-3. Add a boundary case and an invalid-input case; describe the outcome.
-4. Explain each statement and its effect without relying on syntax coloring.
+1. Create a temporary file fixture and read it line by line.
+2. Test empty, missing, and malformed files.
+3. Verify resources close after successful and exceptional paths.
+4. Document the file format and parser limitations.
 
 ### Accessibility Practice
-Navigate the complete source file by line, word, and character using the learner's access technology. Read punctuation and indentation, run from the terminal, and inspect standard output and errors sequentially.
+Navigate source by line, word, and character. Inspect operators, punctuation, mutation markers, and block-ending `end` keywords. Run from the terminal and read output and diagnostics sequentially. Do not rely on syntax color or mouse-only controls.
 
 ### Skills Checklist
-- [ ] I can explain the concept in Julia terminology.
-- [ ] I can trace and predict the example.
-- [ ] I can modify and run the code independently.
-- [ ] I can identify and correct a common error.
-- [ ] I can read source and output accessibly.
+- [ ] I can explain resource cleanup in Julia terminology.
+- [ ] I can trace the example and predict its output.
+- [ ] I can adapt the example to canonical shared data.
+- [ ] I can identify and correct a Julia-specific error or edge case.
+- [ ] I can run and inspect the program using keyboard-accessible tools.
 
 ## Lesson 8.5: JSON persistence
 
 ### Reading References
-- Official Julia language guide and standard-library documentation.
-- Corresponding Python course lesson for the shared problem context and learning objective.
+- [Julia Documentation](https://docs.julialang.org/en/v1/)
+- Julia Base and standard-library reference.
+- Corresponding Python curriculum lesson for the shared problem and data.
 
 ### Learning Objectives
-- Explain this concept using Julia terminology.
-- Trace a short program and predict its behavior before execution.
-- Modify and test the example independently.
+- Explain json persistence using Julia terminology.
+- Apply the relevant syntax and standard-library facilities.
+- Test normal, boundary, and invalid cases using shared course data.
 
 ### Concept Explanation
-JSON persistence. Julia targets numerical and scientific computing, simulation, optimization, statistics, and data-intensive research. The Python course provides the sequence and problem contexts; this lesson teaches the idiomatic Julia syntax and semantics. Pay particular attention to static or dynamic typing, mutability, indexing, parameter passing, errors, and resource lifetime where they differ from Python.
+Use `open(path) do io ... end` to close files even when operations fail. `eachline` supports line processing. Julia has TOML in its standard library but no general JSON parser; use JSON3.jl for JSON.
+
+**Lesson focus:** JSON persistence. The worked example is self-contained unless a standard-library import is shown.
 
 ### Worked Example
 ```jl
-open("notes.txt", "r") do file
-    for line in eachline(file) println(line) end
-end
+using TOML
+record=Dict("id"=>1,"title"=>"Study Julia","done"=>false)
+restored=TOML.parse(sprint(TOML.print,record))
+println(restored["title"])
 ```
 
-**Trace:** identify declarations, expressions, control flow, and observable output. Predict the result, run the example, and compare the actual output with the prediction.
+### Expected Behavior or Output
+The program prints a result based on the stated inputs. Predict the result before running it, then compare the observed output. File examples use temporary paths and close resources within the callback.
 
 ### Common Mistakes
-- Copying Python syntax or assumptions instead of using idiomatic Julia constructs.
-- Confusing assignment with equality or declaration with initialization.
-- Assuming strings, arrays, slices, tables, maps, or records have the same indexing and mutation rules as Python.
-- Ignoring compiler/interpreter diagnostics, return values, or resource errors.
+- Relative paths are resolved from the process working directory.
+- Use `open(path) do io` to guarantee resource cleanup.
+- Catch expected exceptions specifically rather than hiding all failures.
 
 ### Activities
-1. Reproduce and run the example in a new file.
-2. Change one value and predict the result before running.
-3. Add a boundary case and an invalid-input case; describe the outcome.
-4. Explain each statement and its effect without relying on syntax coloring.
+1. Create a temporary file fixture and read it line by line.
+2. Test empty, missing, and malformed files.
+3. Verify resources close after successful and exceptional paths.
+4. Document the file format and parser limitations.
 
 ### Accessibility Practice
-Navigate the complete source file by line, word, and character using the learner's access technology. Read punctuation and indentation, run from the terminal, and inspect standard output and errors sequentially.
+Navigate source by line, word, and character. Inspect operators, punctuation, mutation markers, and block-ending `end` keywords. Run from the terminal and read output and diagnostics sequentially. Do not rely on syntax color or mouse-only controls.
 
 ### Skills Checklist
-- [ ] I can explain the concept in Julia terminology.
-- [ ] I can trace and predict the example.
-- [ ] I can modify and run the code independently.
-- [ ] I can identify and correct a common error.
-- [ ] I can read source and output accessibly.
+- [ ] I can explain json persistence in Julia terminology.
+- [ ] I can trace the example and predict its output.
+- [ ] I can adapt the example to canonical shared data.
+- [ ] I can identify and correct a Julia-specific error or edge case.
+- [ ] I can run and inspect the program using keyboard-accessible tools.
 
 # Unit 9: Testing and Data Analysis
 
@@ -1722,222 +1982,245 @@ This unit covers unit tests, testing stateful types, randomness, text analysis, 
 ## Lesson 9.1: Testing functions
 
 ### Reading References
-- Official Julia language guide and standard-library documentation.
-- Corresponding Python course lesson for the shared problem context and learning objective.
+- [Julia Documentation](https://docs.julialang.org/en/v1/)
+- Julia Base and standard-library reference.
+- Corresponding Python curriculum lesson for the shared problem and data.
 
 ### Learning Objectives
-- Explain this concept using Julia terminology.
-- Trace a short program and predict its behavior before execution.
-- Modify and test the example independently.
+- Explain testing functions using Julia terminology.
+- Apply the relevant syntax and standard-library facilities.
+- Test normal, boundary, and invalid cases using shared course data.
 
 ### Concept Explanation
-Testing functions. Julia targets numerical and scientific computing, simulation, optimization, statistics, and data-intensive research. The Python course provides the sequence and problem contexts; this lesson teaches the idiomatic Julia syntax and semantics. Pay particular attention to static or dynamic typing, mutability, indexing, parameter passing, errors, and resource lifetime where they differ from Python.
+The `Test` standard library provides assertions, and `Random` supports seeded sequences. Text analysis uses `split`, regular expressions, and dictionaries. Use CSV.jl for quoted delimiters, escaped quotes, and embedded newlines.
+
+**Lesson focus:** Testing functions. The worked example is self-contained unless a standard-library import is shown.
 
 ### Worked Example
 ```jl
 using Test
 @test 2 + 3 == 5
+println("Arithmetic tests passed")
 ```
 
-**Trace:** identify declarations, expressions, control flow, and observable output. Predict the result, run the example, and compare the actual output with the prediction.
+### Expected Behavior or Output
+The program prints a result based on the stated inputs. Predict the result before running it, then compare the observed output. File examples use temporary paths and close resources within the callback.
 
 ### Common Mistakes
-- Copying Python syntax or assumptions instead of using idiomatic Julia constructs.
-- Confusing assignment with equality or declaration with initialization.
-- Assuming strings, arrays, slices, tables, maps, or records have the same indexing and mutation rules as Python.
-- Ignoring compiler/interpreter diagnostics, return values, or resource errors.
+- Seed random generators when tests require reproducibility.
+- Use approximate comparison for floating-point results where appropriate.
+- A `split`-based CSV demonstration is not a full quoted-field parser.
 
 ### Activities
-1. Reproduce and run the example in a new file.
-2. Change one value and predict the result before running.
-3. Add a boundary case and an invalid-input case; describe the outcome.
-4. Explain each statement and its effect without relying on syntax coloring.
+1. Test normal, boundary, and invalid cases.
+2. Seed random operations and verify reproducibility.
+3. Analyze the canonical text sample and verify word counts.
+4. Process the CSV columns and document unsupported quoting cases.
 
 ### Accessibility Practice
-Navigate the complete source file by line, word, and character using the learner's access technology. Read punctuation and indentation, run from the terminal, and inspect standard output and errors sequentially.
+Navigate source by line, word, and character. Inspect operators, punctuation, mutation markers, and block-ending `end` keywords. Run from the terminal and read output and diagnostics sequentially. Do not rely on syntax color or mouse-only controls.
 
 ### Skills Checklist
-- [ ] I can explain the concept in Julia terminology.
-- [ ] I can trace and predict the example.
-- [ ] I can modify and run the code independently.
-- [ ] I can identify and correct a common error.
-- [ ] I can read source and output accessibly.
+- [ ] I can explain testing functions in Julia terminology.
+- [ ] I can trace the example and predict its output.
+- [ ] I can adapt the example to canonical shared data.
+- [ ] I can identify and correct a Julia-specific error or edge case.
+- [ ] I can run and inspect the program using keyboard-accessible tools.
 
 ## Lesson 9.2: Testing stateful objects
 
 ### Reading References
-- Official Julia language guide and standard-library documentation.
-- Corresponding Python course lesson for the shared problem context and learning objective.
+- [Julia Documentation](https://docs.julialang.org/en/v1/)
+- Julia Base and standard-library reference.
+- Corresponding Python curriculum lesson for the shared problem and data.
 
 ### Learning Objectives
-- Explain this concept using Julia terminology.
-- Trace a short program and predict its behavior before execution.
-- Modify and test the example independently.
+- Explain testing stateful objects using Julia terminology.
+- Apply the relevant syntax and standard-library facilities.
+- Test normal, boundary, and invalid cases using shared course data.
 
 ### Concept Explanation
-Testing stateful objects. Julia targets numerical and scientific computing, simulation, optimization, statistics, and data-intensive research. The Python course provides the sequence and problem contexts; this lesson teaches the idiomatic Julia syntax and semantics. Pay particular attention to static or dynamic typing, mutability, indexing, parameter passing, errors, and resource lifetime where they differ from Python.
+The `Test` standard library provides assertions, and `Random` supports seeded sequences. Text analysis uses `split`, regular expressions, and dictionaries. Use CSV.jl for quoted delimiters, escaped quotes, and embedded newlines.
+
+**Lesson focus:** Testing stateful objects. The worked example is self-contained unless a standard-library import is shown.
 
 ### Worked Example
 ```jl
 using Test
-@test 2 + 3 == 5
+mutable struct TaskState; title::String; done::Bool; end
+t=TaskState("Study",false); @test !t.done
+t.done=true; @test t.done
 ```
 
-**Trace:** identify declarations, expressions, control flow, and observable output. Predict the result, run the example, and compare the actual output with the prediction.
+### Expected Behavior or Output
+The program prints a result based on the stated inputs. Predict the result before running it, then compare the observed output. File examples use temporary paths and close resources within the callback.
 
 ### Common Mistakes
-- Copying Python syntax or assumptions instead of using idiomatic Julia constructs.
-- Confusing assignment with equality or declaration with initialization.
-- Assuming strings, arrays, slices, tables, maps, or records have the same indexing and mutation rules as Python.
-- Ignoring compiler/interpreter diagnostics, return values, or resource errors.
+- Seed random generators when tests require reproducibility.
+- Use approximate comparison for floating-point results where appropriate.
+- A `split`-based CSV demonstration is not a full quoted-field parser.
 
 ### Activities
-1. Reproduce and run the example in a new file.
-2. Change one value and predict the result before running.
-3. Add a boundary case and an invalid-input case; describe the outcome.
-4. Explain each statement and its effect without relying on syntax coloring.
+1. Test normal, boundary, and invalid cases.
+2. Seed random operations and verify reproducibility.
+3. Analyze the canonical text sample and verify word counts.
+4. Process the CSV columns and document unsupported quoting cases.
 
 ### Accessibility Practice
-Navigate the complete source file by line, word, and character using the learner's access technology. Read punctuation and indentation, run from the terminal, and inspect standard output and errors sequentially.
+Navigate source by line, word, and character. Inspect operators, punctuation, mutation markers, and block-ending `end` keywords. Run from the terminal and read output and diagnostics sequentially. Do not rely on syntax color or mouse-only controls.
 
 ### Skills Checklist
-- [ ] I can explain the concept in Julia terminology.
-- [ ] I can trace and predict the example.
-- [ ] I can modify and run the code independently.
-- [ ] I can identify and correct a common error.
-- [ ] I can read source and output accessibly.
+- [ ] I can explain testing stateful objects in Julia terminology.
+- [ ] I can trace the example and predict its output.
+- [ ] I can adapt the example to canonical shared data.
+- [ ] I can identify and correct a Julia-specific error or edge case.
+- [ ] I can run and inspect the program using keyboard-accessible tools.
 
 ## Lesson 9.3: Random values
 
 ### Reading References
-- Official Julia language guide and standard-library documentation.
-- Corresponding Python course lesson for the shared problem context and learning objective.
+- [Julia Documentation](https://docs.julialang.org/en/v1/)
+- Julia Base and standard-library reference.
+- Corresponding Python curriculum lesson for the shared problem and data.
 
 ### Learning Objectives
-- Explain this concept using Julia terminology.
-- Trace a short program and predict its behavior before execution.
-- Modify and test the example independently.
+- Explain random values using Julia terminology.
+- Apply the relevant syntax and standard-library facilities.
+- Test normal, boundary, and invalid cases using shared course data.
 
 ### Concept Explanation
-Random values. Julia targets numerical and scientific computing, simulation, optimization, statistics, and data-intensive research. The Python course provides the sequence and problem contexts; this lesson teaches the idiomatic Julia syntax and semantics. Pay particular attention to static or dynamic typing, mutability, indexing, parameter passing, errors, and resource lifetime where they differ from Python.
+The `Test` standard library provides assertions, and `Random` supports seeded sequences. Text analysis uses `split`, regular expressions, and dictionaries. Use CSV.jl for quoted delimiters, escaped quotes, and embedded newlines.
+
+**Lesson focus:** Random values. The worked example is self-contained unless a standard-library import is shown.
 
 ### Worked Example
 ```jl
-using Test
-@test 2 + 3 == 5
+using Random
+Random.seed!(2026)
+println(rand(1:10)); println(rand())
 ```
 
-**Trace:** identify declarations, expressions, control flow, and observable output. Predict the result, run the example, and compare the actual output with the prediction.
+### Expected Behavior or Output
+The program prints a result based on the stated inputs. Predict the result before running it, then compare the observed output. File examples use temporary paths and close resources within the callback.
 
 ### Common Mistakes
-- Copying Python syntax or assumptions instead of using idiomatic Julia constructs.
-- Confusing assignment with equality or declaration with initialization.
-- Assuming strings, arrays, slices, tables, maps, or records have the same indexing and mutation rules as Python.
-- Ignoring compiler/interpreter diagnostics, return values, or resource errors.
+- Seed random generators when tests require reproducibility.
+- Use approximate comparison for floating-point results where appropriate.
+- A `split`-based CSV demonstration is not a full quoted-field parser.
 
 ### Activities
-1. Reproduce and run the example in a new file.
-2. Change one value and predict the result before running.
-3. Add a boundary case and an invalid-input case; describe the outcome.
-4. Explain each statement and its effect without relying on syntax coloring.
+1. Test normal, boundary, and invalid cases.
+2. Seed random operations and verify reproducibility.
+3. Analyze the canonical text sample and verify word counts.
+4. Process the CSV columns and document unsupported quoting cases.
 
 ### Accessibility Practice
-Navigate the complete source file by line, word, and character using the learner's access technology. Read punctuation and indentation, run from the terminal, and inspect standard output and errors sequentially.
+Navigate source by line, word, and character. Inspect operators, punctuation, mutation markers, and block-ending `end` keywords. Run from the terminal and read output and diagnostics sequentially. Do not rely on syntax color or mouse-only controls.
 
 ### Skills Checklist
-- [ ] I can explain the concept in Julia terminology.
-- [ ] I can trace and predict the example.
-- [ ] I can modify and run the code independently.
-- [ ] I can identify and correct a common error.
-- [ ] I can read source and output accessibly.
+- [ ] I can explain random values in Julia terminology.
+- [ ] I can trace the example and predict its output.
+- [ ] I can adapt the example to canonical shared data.
+- [ ] I can identify and correct a Julia-specific error or edge case.
+- [ ] I can run and inspect the program using keyboard-accessible tools.
 
 ## Lesson 9.4: Text analysis
 
 ### Reading References
-- Official Julia language guide and standard-library documentation.
-- Corresponding Python course lesson for the shared problem context and learning objective.
+- [Julia Documentation](https://docs.julialang.org/en/v1/)
+- Julia Base and standard-library reference.
+- Corresponding Python curriculum lesson for the shared problem and data.
 
 ### Learning Objectives
-- Explain this concept using Julia terminology.
-- Trace a short program and predict its behavior before execution.
-- Modify and test the example independently.
+- Explain text analysis using Julia terminology.
+- Apply the relevant syntax and standard-library facilities.
+- Test normal, boundary, and invalid cases using shared course data.
 
 ### Concept Explanation
-Text analysis. Julia targets numerical and scientific computing, simulation, optimization, statistics, and data-intensive research. The Python course provides the sequence and problem contexts; this lesson teaches the idiomatic Julia syntax and semantics. Pay particular attention to static or dynamic typing, mutability, indexing, parameter passing, errors, and resource lifetime where they differ from Python.
+The `Test` standard library provides assertions, and `Random` supports seeded sequences. Text analysis uses `split`, regular expressions, and dictionaries. Use CSV.jl for quoted delimiters, escaped quotes, and embedded newlines.
+
+**Lesson focus:** Text analysis. The worked example is self-contained unless a standard-library import is shown.
 
 ### Worked Example
 ```jl
-using Test
-@test 2 + 3 == 5
+sample="A student studies programming. Programming builds skills."
+words=split(lowercase(sample),r"[^a-z]+")
+filter!(x -> !isempty(x), words)
+println(length(words))
 ```
 
-**Trace:** identify declarations, expressions, control flow, and observable output. Predict the result, run the example, and compare the actual output with the prediction.
+### Expected Behavior or Output
+The program prints a result based on the stated inputs. Predict the result before running it, then compare the observed output. File examples use temporary paths and close resources within the callback.
 
 ### Common Mistakes
-- Copying Python syntax or assumptions instead of using idiomatic Julia constructs.
-- Confusing assignment with equality or declaration with initialization.
-- Assuming strings, arrays, slices, tables, maps, or records have the same indexing and mutation rules as Python.
-- Ignoring compiler/interpreter diagnostics, return values, or resource errors.
+- Seed random generators when tests require reproducibility.
+- Use approximate comparison for floating-point results where appropriate.
+- A `split`-based CSV demonstration is not a full quoted-field parser.
 
 ### Activities
-1. Reproduce and run the example in a new file.
-2. Change one value and predict the result before running.
-3. Add a boundary case and an invalid-input case; describe the outcome.
-4. Explain each statement and its effect without relying on syntax coloring.
+1. Test normal, boundary, and invalid cases.
+2. Seed random operations and verify reproducibility.
+3. Analyze the canonical text sample and verify word counts.
+4. Process the CSV columns and document unsupported quoting cases.
 
 ### Accessibility Practice
-Navigate the complete source file by line, word, and character using the learner's access technology. Read punctuation and indentation, run from the terminal, and inspect standard output and errors sequentially.
+Navigate source by line, word, and character. Inspect operators, punctuation, mutation markers, and block-ending `end` keywords. Run from the terminal and read output and diagnostics sequentially. Do not rely on syntax color or mouse-only controls.
 
 ### Skills Checklist
-- [ ] I can explain the concept in Julia terminology.
-- [ ] I can trace and predict the example.
-- [ ] I can modify and run the code independently.
-- [ ] I can identify and correct a common error.
-- [ ] I can read source and output accessibly.
+- [ ] I can explain text analysis in Julia terminology.
+- [ ] I can trace the example and predict its output.
+- [ ] I can adapt the example to canonical shared data.
+- [ ] I can identify and correct a Julia-specific error or edge case.
+- [ ] I can run and inspect the program using keyboard-accessible tools.
 
 ## Lesson 9.5: CSV records
 
 ### Reading References
-- Official Julia language guide and standard-library documentation.
-- Corresponding Python course lesson for the shared problem context and learning objective.
+- [Julia Documentation](https://docs.julialang.org/en/v1/)
+- Julia Base and standard-library reference.
+- Corresponding Python curriculum lesson for the shared problem and data.
 
 ### Learning Objectives
-- Explain this concept using Julia terminology.
-- Trace a short program and predict its behavior before execution.
-- Modify and test the example independently.
+- Explain csv records using Julia terminology.
+- Apply the relevant syntax and standard-library facilities.
+- Test normal, boundary, and invalid cases using shared course data.
 
 ### Concept Explanation
-CSV records. Julia targets numerical and scientific computing, simulation, optimization, statistics, and data-intensive research. The Python course provides the sequence and problem contexts; this lesson teaches the idiomatic Julia syntax and semantics. Pay particular attention to static or dynamic typing, mutability, indexing, parameter passing, errors, and resource lifetime where they differ from Python.
+The `Test` standard library provides assertions, and `Random` supports seeded sequences. Text analysis uses `split`, regular expressions, and dictionaries. Use CSV.jl for quoted delimiters, escaped quotes, and embedded newlines.
+
+**Lesson focus:** CSV records. The worked example is self-contained unless a standard-library import is shown.
 
 ### Worked Example
 ```jl
-using Test
-@test 2 + 3 == 5
+csv="id,first_name,score\n1,Avery,91\n2,Jordan,84"
+for row in split.(split(chomp(csv),'\n')[2:end], ',')
+    println(row[2], ": ", parse(Int,row[3]))
+end
 ```
 
-**Trace:** identify declarations, expressions, control flow, and observable output. Predict the result, run the example, and compare the actual output with the prediction.
+### Expected Behavior or Output
+The program prints a result based on the stated inputs. Predict the result before running it, then compare the observed output. File examples use temporary paths and close resources within the callback.
 
 ### Common Mistakes
-- Copying Python syntax or assumptions instead of using idiomatic Julia constructs.
-- Confusing assignment with equality or declaration with initialization.
-- Assuming strings, arrays, slices, tables, maps, or records have the same indexing and mutation rules as Python.
-- Ignoring compiler/interpreter diagnostics, return values, or resource errors.
+- Seed random generators when tests require reproducibility.
+- Use approximate comparison for floating-point results where appropriate.
+- A `split`-based CSV demonstration is not a full quoted-field parser.
 
 ### Activities
-1. Reproduce and run the example in a new file.
-2. Change one value and predict the result before running.
-3. Add a boundary case and an invalid-input case; describe the outcome.
-4. Explain each statement and its effect without relying on syntax coloring.
+1. Test normal, boundary, and invalid cases.
+2. Seed random operations and verify reproducibility.
+3. Analyze the canonical text sample and verify word counts.
+4. Process the CSV columns and document unsupported quoting cases.
 
 ### Accessibility Practice
-Navigate the complete source file by line, word, and character using the learner's access technology. Read punctuation and indentation, run from the terminal, and inspect standard output and errors sequentially.
+Navigate source by line, word, and character. Inspect operators, punctuation, mutation markers, and block-ending `end` keywords. Run from the terminal and read output and diagnostics sequentially. Do not rely on syntax color or mouse-only controls.
 
 ### Skills Checklist
-- [ ] I can explain the concept in Julia terminology.
-- [ ] I can trace and predict the example.
-- [ ] I can modify and run the code independently.
-- [ ] I can identify and correct a common error.
-- [ ] I can read source and output accessibly.
+- [ ] I can explain csv records in Julia terminology.
+- [ ] I can trace the example and predict its output.
+- [ ] I can adapt the example to canonical shared data.
+- [ ] I can identify and correct a Julia-specific error or edge case.
+- [ ] I can run and inspect the program using keyboard-accessible tools.
 
 # Unit 10: Project-Based Learning
 
@@ -1948,217 +2231,240 @@ This unit covers requirements, top-down design, text adventure, command-line to-
 ## Lesson 10.1: Requirements and design
 
 ### Reading References
-- Official Julia language guide and standard-library documentation.
-- Corresponding Python course lesson for the shared problem context and learning objective.
+- [Julia Documentation](https://docs.julialang.org/en/v1/)
+- Julia Base and standard-library reference.
+- Corresponding Python curriculum lesson for the shared problem and data.
 
 ### Learning Objectives
-- Explain this concept using Julia terminology.
-- Trace a short program and predict its behavior before execution.
-- Modify and test the example independently.
+- Explain requirements and design using Julia terminology.
+- Apply the relevant syntax and standard-library facilities.
+- Test normal, boundary, and invalid cases using shared course data.
 
 ### Concept Explanation
-Requirements and design. Julia targets numerical and scientific computing, simulation, optimization, statistics, and data-intensive research. The Python course provides the sequence and problem contexts; this lesson teaches the idiomatic Julia syntax and semantics. Pay particular attention to static or dynamic typing, mutability, indexing, parameter passing, errors, and resource lifetime where they differ from Python.
+Begin projects with requirements, input/output contracts, and acceptance tests. Keep the text adventure and task manager text-based. Reject invalid commands and communicate status through text, not color alone.
+
+**Lesson focus:** Requirements and design. The worked example is self-contained unless a standard-library import is shown.
 
 ### Worked Example
 ```jl
-# Build a text-first personal-data manager; optionally analyze records with arrays and DataFrames.
+requirements=["show location","move through valid exits","list inventory","save tasks"]
+foreach(println,requirements)
 ```
 
-**Trace:** identify declarations, expressions, control flow, and observable output. Predict the result, run the example, and compare the actual output with the prediction.
+### Expected Behavior or Output
+The program prints a result based on the stated inputs. Predict the result before running it, then compare the observed output. File examples use temporary paths and close resources within the callback.
 
 ### Common Mistakes
-- Copying Python syntax or assumptions instead of using idiomatic Julia constructs.
-- Confusing assignment with equality or declaration with initialization.
-- Assuming strings, arrays, slices, tables, maps, or records have the same indexing and mutation rules as Python.
-- Ignoring compiler/interpreter diagnostics, return values, or resource errors.
+- Write input, output, and acceptance criteria before implementation.
+- Reject unknown commands and unavailable room exits explicitly.
+- Make status understandable without color or mouse interaction.
 
 ### Activities
-1. Reproduce and run the example in a new file.
-2. Change one value and predict the result before running.
-3. Add a boundary case and an invalid-input case; describe the outcome.
-4. Explain each statement and its effect without relying on syntax coloring.
+1. Write requirements before implementing a feature.
+2. Test valid movement, unavailable exits, and unknown commands.
+3. Test inventory and puzzle states with and without required items.
+4. Review prompts and errors using keyboard-only, sequential reading.
 
 ### Accessibility Practice
-Navigate the complete source file by line, word, and character using the learner's access technology. Read punctuation and indentation, run from the terminal, and inspect standard output and errors sequentially.
+Navigate source by line, word, and character. Inspect operators, punctuation, mutation markers, and block-ending `end` keywords. Run from the terminal and read output and diagnostics sequentially. Do not rely on syntax color or mouse-only controls.
 
 ### Skills Checklist
-- [ ] I can explain the concept in Julia terminology.
-- [ ] I can trace and predict the example.
-- [ ] I can modify and run the code independently.
-- [ ] I can identify and correct a common error.
-- [ ] I can read source and output accessibly.
+- [ ] I can explain requirements and design in Julia terminology.
+- [ ] I can trace the example and predict its output.
+- [ ] I can adapt the example to canonical shared data.
+- [ ] I can identify and correct a Julia-specific error or edge case.
+- [ ] I can run and inspect the program using keyboard-accessible tools.
 
 ## Lesson 10.2: Text adventure: rooms and movement
 
 ### Reading References
-- Official Julia language guide and standard-library documentation.
-- Corresponding Python course lesson for the shared problem context and learning objective.
+- [Julia Documentation](https://docs.julialang.org/en/v1/)
+- Julia Base and standard-library reference.
+- Corresponding Python curriculum lesson for the shared problem and data.
 
 ### Learning Objectives
-- Explain this concept using Julia terminology.
-- Trace a short program and predict its behavior before execution.
-- Modify and test the example independently.
+- Explain text adventure: rooms and movement using Julia terminology.
+- Apply the relevant syntax and standard-library facilities.
+- Test normal, boundary, and invalid cases using shared course data.
 
 ### Concept Explanation
-Text adventure: rooms and movement. Julia targets numerical and scientific computing, simulation, optimization, statistics, and data-intensive research. The Python course provides the sequence and problem contexts; this lesson teaches the idiomatic Julia syntax and semantics. Pay particular attention to static or dynamic typing, mutability, indexing, parameter passing, errors, and resource lifetime where they differ from Python.
+Begin projects with requirements, input/output contracts, and acceptance tests. Keep the text adventure and task manager text-based. Reject invalid commands and communicate status through text, not color alone.
+
+**Lesson focus:** Text adventure: rooms and movement. The worked example is self-contained unless a standard-library import is shown.
 
 ### Worked Example
 ```jl
-# Build a text-first personal-data manager; optionally analyze records with arrays and DataFrames.
+rooms=Dict("Atrium"=>Dict("north"=>"Lab"),"Lab"=>Dict("south"=>"Atrium"))
+println(get(rooms["Atrium"],"north","No exit"))
 ```
 
-**Trace:** identify declarations, expressions, control flow, and observable output. Predict the result, run the example, and compare the actual output with the prediction.
+### Expected Behavior or Output
+The program prints a result based on the stated inputs. Predict the result before running it, then compare the observed output. File examples use temporary paths and close resources within the callback.
 
 ### Common Mistakes
-- Copying Python syntax or assumptions instead of using idiomatic Julia constructs.
-- Confusing assignment with equality or declaration with initialization.
-- Assuming strings, arrays, slices, tables, maps, or records have the same indexing and mutation rules as Python.
-- Ignoring compiler/interpreter diagnostics, return values, or resource errors.
+- Write input, output, and acceptance criteria before implementation.
+- Reject unknown commands and unavailable room exits explicitly.
+- Make status understandable without color or mouse interaction.
 
 ### Activities
-1. Reproduce and run the example in a new file.
-2. Change one value and predict the result before running.
-3. Add a boundary case and an invalid-input case; describe the outcome.
-4. Explain each statement and its effect without relying on syntax coloring.
+1. Write requirements before implementing a feature.
+2. Test valid movement, unavailable exits, and unknown commands.
+3. Test inventory and puzzle states with and without required items.
+4. Review prompts and errors using keyboard-only, sequential reading.
 
 ### Accessibility Practice
-Navigate the complete source file by line, word, and character using the learner's access technology. Read punctuation and indentation, run from the terminal, and inspect standard output and errors sequentially.
+Navigate source by line, word, and character. Inspect operators, punctuation, mutation markers, and block-ending `end` keywords. Run from the terminal and read output and diagnostics sequentially. Do not rely on syntax color or mouse-only controls.
 
 ### Skills Checklist
-- [ ] I can explain the concept in Julia terminology.
-- [ ] I can trace and predict the example.
-- [ ] I can modify and run the code independently.
-- [ ] I can identify and correct a common error.
-- [ ] I can read source and output accessibly.
+- [ ] I can explain text adventure: rooms and movement in Julia terminology.
+- [ ] I can trace the example and predict its output.
+- [ ] I can adapt the example to canonical shared data.
+- [ ] I can identify and correct a Julia-specific error or edge case.
+- [ ] I can run and inspect the program using keyboard-accessible tools.
 
 ## Lesson 10.3: Text adventure: inventory and puzzles
 
 ### Reading References
-- Official Julia language guide and standard-library documentation.
-- Corresponding Python course lesson for the shared problem context and learning objective.
+- [Julia Documentation](https://docs.julialang.org/en/v1/)
+- Julia Base and standard-library reference.
+- Corresponding Python curriculum lesson for the shared problem and data.
 
 ### Learning Objectives
-- Explain this concept using Julia terminology.
-- Trace a short program and predict its behavior before execution.
-- Modify and test the example independently.
+- Explain text adventure: inventory and puzzles using Julia terminology.
+- Apply the relevant syntax and standard-library facilities.
+- Test normal, boundary, and invalid cases using shared course data.
 
 ### Concept Explanation
-Text adventure: inventory and puzzles. Julia targets numerical and scientific computing, simulation, optimization, statistics, and data-intensive research. The Python course provides the sequence and problem contexts; this lesson teaches the idiomatic Julia syntax and semantics. Pay particular attention to static or dynamic typing, mutability, indexing, parameter passing, errors, and resource lifetime where they differ from Python.
+Begin projects with requirements, input/output contracts, and acceptance tests. Keep the text adventure and task manager text-based. Reject invalid commands and communicate status through text, not color alone.
+
+**Lesson focus:** Text adventure: inventory and puzzles. The worked example is self-contained unless a standard-library import is shown.
 
 ### Worked Example
 ```jl
-# Build a text-first personal-data manager; optionally analyze records with arrays and DataFrames.
+inventory=Set(["key","map"])
+println("The cabinet opens: ", "key" in inventory)
 ```
 
-**Trace:** identify declarations, expressions, control flow, and observable output. Predict the result, run the example, and compare the actual output with the prediction.
+### Expected Behavior or Output
+The program prints a result based on the stated inputs. Predict the result before running it, then compare the observed output. File examples use temporary paths and close resources within the callback.
 
 ### Common Mistakes
-- Copying Python syntax or assumptions instead of using idiomatic Julia constructs.
-- Confusing assignment with equality or declaration with initialization.
-- Assuming strings, arrays, slices, tables, maps, or records have the same indexing and mutation rules as Python.
-- Ignoring compiler/interpreter diagnostics, return values, or resource errors.
+- Write input, output, and acceptance criteria before implementation.
+- Reject unknown commands and unavailable room exits explicitly.
+- Make status understandable without color or mouse interaction.
 
 ### Activities
-1. Reproduce and run the example in a new file.
-2. Change one value and predict the result before running.
-3. Add a boundary case and an invalid-input case; describe the outcome.
-4. Explain each statement and its effect without relying on syntax coloring.
+1. Write requirements before implementing a feature.
+2. Test valid movement, unavailable exits, and unknown commands.
+3. Test inventory and puzzle states with and without required items.
+4. Review prompts and errors using keyboard-only, sequential reading.
 
 ### Accessibility Practice
-Navigate the complete source file by line, word, and character using the learner's access technology. Read punctuation and indentation, run from the terminal, and inspect standard output and errors sequentially.
+Navigate source by line, word, and character. Inspect operators, punctuation, mutation markers, and block-ending `end` keywords. Run from the terminal and read output and diagnostics sequentially. Do not rely on syntax color or mouse-only controls.
 
 ### Skills Checklist
-- [ ] I can explain the concept in Julia terminology.
-- [ ] I can trace and predict the example.
-- [ ] I can modify and run the code independently.
-- [ ] I can identify and correct a common error.
-- [ ] I can read source and output accessibly.
+- [ ] I can explain text adventure: inventory and puzzles in Julia terminology.
+- [ ] I can trace the example and predict its output.
+- [ ] I can adapt the example to canonical shared data.
+- [ ] I can identify and correct a Julia-specific error or edge case.
+- [ ] I can run and inspect the program using keyboard-accessible tools.
 
 ## Lesson 10.4: Command-line to-do manager
 
 ### Reading References
-- Official Julia language guide and standard-library documentation.
-- Corresponding Python course lesson for the shared problem context and learning objective.
+- [Julia Documentation](https://docs.julialang.org/en/v1/)
+- Julia Base and standard-library reference.
+- Corresponding Python curriculum lesson for the shared problem and data.
 
 ### Learning Objectives
-- Explain this concept using Julia terminology.
-- Trace a short program and predict its behavior before execution.
-- Modify and test the example independently.
+- Explain command-line to-do manager using Julia terminology.
+- Apply the relevant syntax and standard-library facilities.
+- Test normal, boundary, and invalid cases using shared course data.
 
 ### Concept Explanation
-Command-line to-do manager. Julia targets numerical and scientific computing, simulation, optimization, statistics, and data-intensive research. The Python course provides the sequence and problem contexts; this lesson teaches the idiomatic Julia syntax and semantics. Pay particular attention to static or dynamic typing, mutability, indexing, parameter passing, errors, and resource lifetime where they differ from Python.
+Begin projects with requirements, input/output contracts, and acceptance tests. Keep the text adventure and task manager text-based. Reject invalid commands and communicate status through text, not color alone.
+
+**Lesson focus:** Command-line to-do manager. The worked example is self-contained unless a standard-library import is shown.
 
 ### Worked Example
 ```jl
-# Build a text-first personal-data manager; optionally analyze records with arrays and DataFrames.
+tasks=[(id=1,title="Read lesson",done=false),(id=2,title="Run example",done=true)]
+foreach(t->println(t.done ? "[x] " : "[ ] ",t.title),tasks)
 ```
 
-**Trace:** identify declarations, expressions, control flow, and observable output. Predict the result, run the example, and compare the actual output with the prediction.
+### Expected Behavior or Output
+The program prints a result based on the stated inputs. Predict the result before running it, then compare the observed output. File examples use temporary paths and close resources within the callback.
 
 ### Common Mistakes
-- Copying Python syntax or assumptions instead of using idiomatic Julia constructs.
-- Confusing assignment with equality or declaration with initialization.
-- Assuming strings, arrays, slices, tables, maps, or records have the same indexing and mutation rules as Python.
-- Ignoring compiler/interpreter diagnostics, return values, or resource errors.
+- Write input, output, and acceptance criteria before implementation.
+- Reject unknown commands and unavailable room exits explicitly.
+- Make status understandable without color or mouse interaction.
 
 ### Activities
-1. Reproduce and run the example in a new file.
-2. Change one value and predict the result before running.
-3. Add a boundary case and an invalid-input case; describe the outcome.
-4. Explain each statement and its effect without relying on syntax coloring.
+1. Write requirements before implementing a feature.
+2. Test valid movement, unavailable exits, and unknown commands.
+3. Test inventory and puzzle states with and without required items.
+4. Review prompts and errors using keyboard-only, sequential reading.
 
 ### Accessibility Practice
-Navigate the complete source file by line, word, and character using the learner's access technology. Read punctuation and indentation, run from the terminal, and inspect standard output and errors sequentially.
+Navigate source by line, word, and character. Inspect operators, punctuation, mutation markers, and block-ending `end` keywords. Run from the terminal and read output and diagnostics sequentially. Do not rely on syntax color or mouse-only controls.
 
 ### Skills Checklist
-- [ ] I can explain the concept in Julia terminology.
-- [ ] I can trace and predict the example.
-- [ ] I can modify and run the code independently.
-- [ ] I can identify and correct a common error.
-- [ ] I can read source and output accessibly.
+- [ ] I can explain command-line to-do manager in Julia terminology.
+- [ ] I can trace the example and predict its output.
+- [ ] I can adapt the example to canonical shared data.
+- [ ] I can identify and correct a Julia-specific error or edge case.
+- [ ] I can run and inspect the program using keyboard-accessible tools.
 
 ## Lesson 10.5: Accessible UX and validation
 
 ### Reading References
-- Official Julia language guide and standard-library documentation.
-- Corresponding Python course lesson for the shared problem context and learning objective.
+- [Julia Documentation](https://docs.julialang.org/en/v1/)
+- Julia Base and standard-library reference.
+- Corresponding Python curriculum lesson for the shared problem and data.
 
 ### Learning Objectives
-- Explain this concept using Julia terminology.
-- Trace a short program and predict its behavior before execution.
-- Modify and test the example independently.
+- Explain accessible ux and validation using Julia terminology.
+- Apply the relevant syntax and standard-library facilities.
+- Test normal, boundary, and invalid cases using shared course data.
 
 ### Concept Explanation
-Accessible UX and validation. Julia targets numerical and scientific computing, simulation, optimization, statistics, and data-intensive research. The Python course provides the sequence and problem contexts; this lesson teaches the idiomatic Julia syntax and semantics. Pay particular attention to static or dynamic typing, mutability, indexing, parameter passing, errors, and resource lifetime where they differ from Python.
+Begin projects with requirements, input/output contracts, and acceptance tests. Keep the text adventure and task manager text-based. Reject invalid commands and communicate status through text, not color alone.
+
+**Lesson focus:** Accessible UX and validation. The worked example is self-contained unless a standard-library import is shown.
 
 ### Worked Example
 ```jl
-# Build a text-first personal-data manager; optionally analyze records with arrays and DataFrames.
+function validate_title(s)
+    t=strip(s); isempty(t) && return (false,"Title cannot be blank")
+    return (true,t)
+end
+println(validate_title("  Study Julia  "))
 ```
 
-**Trace:** identify declarations, expressions, control flow, and observable output. Predict the result, run the example, and compare the actual output with the prediction.
+### Expected Behavior or Output
+The program prints a result based on the stated inputs. Predict the result before running it, then compare the observed output. File examples use temporary paths and close resources within the callback.
 
 ### Common Mistakes
-- Copying Python syntax or assumptions instead of using idiomatic Julia constructs.
-- Confusing assignment with equality or declaration with initialization.
-- Assuming strings, arrays, slices, tables, maps, or records have the same indexing and mutation rules as Python.
-- Ignoring compiler/interpreter diagnostics, return values, or resource errors.
+- Write input, output, and acceptance criteria before implementation.
+- Reject unknown commands and unavailable room exits explicitly.
+- Make status understandable without color or mouse interaction.
 
 ### Activities
-1. Reproduce and run the example in a new file.
-2. Change one value and predict the result before running.
-3. Add a boundary case and an invalid-input case; describe the outcome.
-4. Explain each statement and its effect without relying on syntax coloring.
+1. Write requirements before implementing a feature.
+2. Test valid movement, unavailable exits, and unknown commands.
+3. Test inventory and puzzle states with and without required items.
+4. Review prompts and errors using keyboard-only, sequential reading.
 
 ### Accessibility Practice
-Navigate the complete source file by line, word, and character using the learner's access technology. Read punctuation and indentation, run from the terminal, and inspect standard output and errors sequentially.
+Navigate source by line, word, and character. Inspect operators, punctuation, mutation markers, and block-ending `end` keywords. Run from the terminal and read output and diagnostics sequentially. Do not rely on syntax color or mouse-only controls.
 
 ### Skills Checklist
-- [ ] I can explain the concept in Julia terminology.
-- [ ] I can trace and predict the example.
-- [ ] I can modify and run the code independently.
-- [ ] I can identify and correct a common error.
-- [ ] I can read source and output accessibly.
+- [ ] I can explain accessible ux and validation in Julia terminology.
+- [ ] I can trace the example and predict its output.
+- [ ] I can adapt the example to canonical shared data.
+- [ ] I can identify and correct a Julia-specific error or edge case.
+- [ ] I can run and inspect the program using keyboard-accessible tools.
 
 # Unit 11: Capstone
 
@@ -2169,226 +2475,244 @@ This unit covers accessible personal-data manager, model, persistence, CRUD, tes
 ## Lesson 11.1: Capstone requirements
 
 ### Reading References
-- Official Julia language guide and standard-library documentation.
-- Corresponding Python course lesson for the shared problem context and learning objective.
+- [Julia Documentation](https://docs.julialang.org/en/v1/)
+- Julia Base and standard-library reference.
+- Corresponding Python curriculum lesson for the shared problem and data.
 
 ### Learning Objectives
-- Explain this concept using Julia terminology.
-- Trace a short program and predict its behavior before execution.
-- Modify and test the example independently.
+- Explain capstone requirements using Julia terminology.
+- Apply the relevant syntax and standard-library facilities.
+- Test normal, boundary, and invalid cases using shared course data.
 
 ### Concept Explanation
-Capstone requirements. Julia targets numerical and scientific computing, simulation, optimization, statistics, and data-intensive research. The Python course provides the sequence and problem contexts; this lesson teaches the idiomatic Julia syntax and semantics. Pay particular attention to static or dynamic typing, mutability, indexing, parameter passing, errors, and resource lifetime where they differ from Python.
+The capstone is an accessible personal-data manager with list/add/search/update/delete/complete operations. Separate data model, validation, persistence, and interaction; test save/reload.
+
+**Lesson focus:** Capstone requirements. The worked example is self-contained unless a standard-library import is shown.
 
 ### Worked Example
 ```jl
-# Build a text-first personal-data manager; optionally analyze records with arrays and DataFrames.
+println("Capstone: accessible personal data manager")
 ```
 
-**Trace:** identify declarations, expressions, control flow, and observable output. Predict the result, run the example, and compare the actual output with the prediction.
+### Expected Behavior or Output
+The program prints a result based on the stated inputs. Predict the result before running it, then compare the observed output. File examples use temporary paths and close resources within the callback.
 
 ### Common Mistakes
-- Copying Python syntax or assumptions instead of using idiomatic Julia constructs.
-- Confusing assignment with equality or declaration with initialization.
-- Assuming strings, arrays, slices, tables, maps, or records have the same indexing and mutation rules as Python.
-- Ignoring compiler/interpreter diagnostics, return values, or resource errors.
+- Pass application state explicitly rather than hiding it in mutable globals.
+- Validate updates and preserve stable record identifiers.
+- Do not claim persistence or accessibility without save/reload and keyboard tests.
 
 ### Activities
-1. Reproduce and run the example in a new file.
-2. Change one value and predict the result before running.
-3. Add a boundary case and an invalid-input case; describe the outcome.
-4. Explain each statement and its effect without relying on syntax coloring.
+1. Specify record fields and validation rules before storage.
+2. Test list, add, search, update, delete, and completion.
+3. Test duplicate, missing, empty, and invalid values.
+4. Create a save/reload test and document known limitations.
 
 ### Accessibility Practice
-Navigate the complete source file by line, word, and character using the learner's access technology. Read punctuation and indentation, run from the terminal, and inspect standard output and errors sequentially.
+Navigate source by line, word, and character. Inspect operators, punctuation, mutation markers, and block-ending `end` keywords. Run from the terminal and read output and diagnostics sequentially. Do not rely on syntax color or mouse-only controls.
 
 ### Skills Checklist
-- [ ] I can explain the concept in Julia terminology.
-- [ ] I can trace and predict the example.
-- [ ] I can modify and run the code independently.
-- [ ] I can identify and correct a common error.
-- [ ] I can read source and output accessibly.
+- [ ] I can explain capstone requirements in Julia terminology.
+- [ ] I can trace the example and predict its output.
+- [ ] I can adapt the example to canonical shared data.
+- [ ] I can identify and correct a Julia-specific error or edge case.
+- [ ] I can run and inspect the program using keyboard-accessible tools.
 
 ## Lesson 11.2: Data model and storage
 
 ### Reading References
-- Official Julia language guide and standard-library documentation.
-- Corresponding Python course lesson for the shared problem context and learning objective.
+- [Julia Documentation](https://docs.julialang.org/en/v1/)
+- Julia Base and standard-library reference.
+- Corresponding Python curriculum lesson for the shared problem and data.
 
 ### Learning Objectives
-- Explain this concept using Julia terminology.
-- Trace a short program and predict its behavior before execution.
-- Modify and test the example independently.
+- Explain data model and storage using Julia terminology.
+- Apply the relevant syntax and standard-library facilities.
+- Test normal, boundary, and invalid cases using shared course data.
 
 ### Concept Explanation
-Data model and storage. Julia targets numerical and scientific computing, simulation, optimization, statistics, and data-intensive research. The Python course provides the sequence and problem contexts; this lesson teaches the idiomatic Julia syntax and semantics. Pay particular attention to static or dynamic typing, mutability, indexing, parameter passing, errors, and resource lifetime where they differ from Python.
+The capstone is an accessible personal-data manager with list/add/search/update/delete/complete operations. Separate data model, validation, persistence, and interaction; test save/reload.
+
+**Lesson focus:** Data model and storage. The worked example is self-contained unless a standard-library import is shown.
 
 ### Worked Example
 ```jl
-# Build a text-first personal-data manager; optionally analyze records with arrays and DataFrames.
+struct Record; id::Int; title::String; description::String; category::String; end
+println(Record(1,"Study","Read arrays","learning"))
 ```
 
-**Trace:** identify declarations, expressions, control flow, and observable output. Predict the result, run the example, and compare the actual output with the prediction.
+### Expected Behavior or Output
+The program prints a result based on the stated inputs. Predict the result before running it, then compare the observed output. File examples use temporary paths and close resources within the callback.
 
 ### Common Mistakes
-- Copying Python syntax or assumptions instead of using idiomatic Julia constructs.
-- Confusing assignment with equality or declaration with initialization.
-- Assuming strings, arrays, slices, tables, maps, or records have the same indexing and mutation rules as Python.
-- Ignoring compiler/interpreter diagnostics, return values, or resource errors.
+- Pass application state explicitly rather than hiding it in mutable globals.
+- Validate updates and preserve stable record identifiers.
+- Do not claim persistence or accessibility without save/reload and keyboard tests.
 
 ### Activities
-1. Reproduce and run the example in a new file.
-2. Change one value and predict the result before running.
-3. Add a boundary case and an invalid-input case; describe the outcome.
-4. Explain each statement and its effect without relying on syntax coloring.
+1. Specify record fields and validation rules before storage.
+2. Test list, add, search, update, delete, and completion.
+3. Test duplicate, missing, empty, and invalid values.
+4. Create a save/reload test and document known limitations.
 
 ### Accessibility Practice
-Navigate the complete source file by line, word, and character using the learner's access technology. Read punctuation and indentation, run from the terminal, and inspect standard output and errors sequentially.
+Navigate source by line, word, and character. Inspect operators, punctuation, mutation markers, and block-ending `end` keywords. Run from the terminal and read output and diagnostics sequentially. Do not rely on syntax color or mouse-only controls.
 
 ### Skills Checklist
-- [ ] I can explain the concept in Julia terminology.
-- [ ] I can trace and predict the example.
-- [ ] I can modify and run the code independently.
-- [ ] I can identify and correct a common error.
-- [ ] I can read source and output accessibly.
+- [ ] I can explain data model and storage in Julia terminology.
+- [ ] I can trace the example and predict its output.
+- [ ] I can adapt the example to canonical shared data.
+- [ ] I can identify and correct a Julia-specific error or edge case.
+- [ ] I can run and inspect the program using keyboard-accessible tools.
 
 ## Lesson 11.3: Create/read/update/delete
 
 ### Reading References
-- Official Julia language guide and standard-library documentation.
-- Corresponding Python course lesson for the shared problem context and learning objective.
+- [Julia Documentation](https://docs.julialang.org/en/v1/)
+- Julia Base and standard-library reference.
+- Corresponding Python curriculum lesson for the shared problem and data.
 
 ### Learning Objectives
-- Explain this concept using Julia terminology.
-- Trace a short program and predict its behavior before execution.
-- Modify and test the example independently.
+- Explain create/read/update/delete using Julia terminology.
+- Apply the relevant syntax and standard-library facilities.
+- Test normal, boundary, and invalid cases using shared course data.
 
 ### Concept Explanation
-Create/read/update/delete. Julia targets numerical and scientific computing, simulation, optimization, statistics, and data-intensive research. The Python course provides the sequence and problem contexts; this lesson teaches the idiomatic Julia syntax and semantics. Pay particular attention to static or dynamic typing, mutability, indexing, parameter passing, errors, and resource lifetime where they differ from Python.
+The capstone is an accessible personal-data manager with list/add/search/update/delete/complete operations. Separate data model, validation, persistence, and interaction; test save/reload.
+
+**Lesson focus:** Create/read/update/delete. The worked example is self-contained unless a standard-library import is shown.
 
 ### Worked Example
 ```jl
-# Build a text-first personal-data manager; optionally analyze records with arrays and DataFrames.
+records=[(id=1,title="Study",done=false),(id=2,title="Practice",done=true)]
+println(filter(r->!r.done,records))
 ```
 
-**Trace:** identify declarations, expressions, control flow, and observable output. Predict the result, run the example, and compare the actual output with the prediction.
+### Expected Behavior or Output
+The program prints a result based on the stated inputs. Predict the result before running it, then compare the observed output. File examples use temporary paths and close resources within the callback.
 
 ### Common Mistakes
-- Copying Python syntax or assumptions instead of using idiomatic Julia constructs.
-- Confusing assignment with equality or declaration with initialization.
-- Assuming strings, arrays, slices, tables, maps, or records have the same indexing and mutation rules as Python.
-- Ignoring compiler/interpreter diagnostics, return values, or resource errors.
+- Pass application state explicitly rather than hiding it in mutable globals.
+- Validate updates and preserve stable record identifiers.
+- Do not claim persistence or accessibility without save/reload and keyboard tests.
 
 ### Activities
-1. Reproduce and run the example in a new file.
-2. Change one value and predict the result before running.
-3. Add a boundary case and an invalid-input case; describe the outcome.
-4. Explain each statement and its effect without relying on syntax coloring.
+1. Specify record fields and validation rules before storage.
+2. Test list, add, search, update, delete, and completion.
+3. Test duplicate, missing, empty, and invalid values.
+4. Create a save/reload test and document known limitations.
 
 ### Accessibility Practice
-Navigate the complete source file by line, word, and character using the learner's access technology. Read punctuation and indentation, run from the terminal, and inspect standard output and errors sequentially.
+Navigate source by line, word, and character. Inspect operators, punctuation, mutation markers, and block-ending `end` keywords. Run from the terminal and read output and diagnostics sequentially. Do not rely on syntax color or mouse-only controls.
 
 ### Skills Checklist
-- [ ] I can explain the concept in Julia terminology.
-- [ ] I can trace and predict the example.
-- [ ] I can modify and run the code independently.
-- [ ] I can identify and correct a common error.
-- [ ] I can read source and output accessibly.
+- [ ] I can explain create/read/update/delete in Julia terminology.
+- [ ] I can trace the example and predict its output.
+- [ ] I can adapt the example to canonical shared data.
+- [ ] I can identify and correct a Julia-specific error or edge case.
+- [ ] I can run and inspect the program using keyboard-accessible tools.
 
 ## Lesson 11.4: Validation and testing
 
 ### Reading References
-- Official Julia language guide and standard-library documentation.
-- Corresponding Python course lesson for the shared problem context and learning objective.
+- [Julia Documentation](https://docs.julialang.org/en/v1/)
+- Julia Base and standard-library reference.
+- Corresponding Python curriculum lesson for the shared problem and data.
 
 ### Learning Objectives
-- Explain this concept using Julia terminology.
-- Trace a short program and predict its behavior before execution.
-- Modify and test the example independently.
+- Explain validation and testing using Julia terminology.
+- Apply the relevant syntax and standard-library facilities.
+- Test normal, boundary, and invalid cases using shared course data.
 
 ### Concept Explanation
-Validation and testing. Julia targets numerical and scientific computing, simulation, optimization, statistics, and data-intensive research. The Python course provides the sequence and problem contexts; this lesson teaches the idiomatic Julia syntax and semantics. Pay particular attention to static or dynamic typing, mutability, indexing, parameter passing, errors, and resource lifetime where they differ from Python.
+The capstone is an accessible personal-data manager with list/add/search/update/delete/complete operations. Separate data model, validation, persistence, and interaction; test save/reload.
+
+**Lesson focus:** Validation and testing. The worked example is self-contained unless a standard-library import is shown.
 
 ### Worked Example
 ```jl
-# Build a text-first personal-data manager; optionally analyze records with arrays and DataFrames.
+record=(id=1,title="Study",done=false)
+function rename(r,title)
+    cleaned=strip(title); isempty(cleaned) && throw(ArgumentError("blank title"))
+    merge(r,(title=cleaned,))
+end
+println(rename(record,"Study Julia"))
 ```
 
-**Trace:** identify declarations, expressions, control flow, and observable output. Predict the result, run the example, and compare the actual output with the prediction.
+### Expected Behavior or Output
+The program prints a result based on the stated inputs. Predict the result before running it, then compare the observed output. File examples use temporary paths and close resources within the callback.
 
 ### Common Mistakes
-- Copying Python syntax or assumptions instead of using idiomatic Julia constructs.
-- Confusing assignment with equality or declaration with initialization.
-- Assuming strings, arrays, slices, tables, maps, or records have the same indexing and mutation rules as Python.
-- Ignoring compiler/interpreter diagnostics, return values, or resource errors.
+- Pass application state explicitly rather than hiding it in mutable globals.
+- Validate updates and preserve stable record identifiers.
+- Do not claim persistence or accessibility without save/reload and keyboard tests.
 
 ### Activities
-1. Reproduce and run the example in a new file.
-2. Change one value and predict the result before running.
-3. Add a boundary case and an invalid-input case; describe the outcome.
-4. Explain each statement and its effect without relying on syntax coloring.
+1. Specify record fields and validation rules before storage.
+2. Test list, add, search, update, delete, and completion.
+3. Test duplicate, missing, empty, and invalid values.
+4. Create a save/reload test and document known limitations.
 
 ### Accessibility Practice
-Navigate the complete source file by line, word, and character using the learner's access technology. Read punctuation and indentation, run from the terminal, and inspect standard output and errors sequentially.
+Navigate source by line, word, and character. Inspect operators, punctuation, mutation markers, and block-ending `end` keywords. Run from the terminal and read output and diagnostics sequentially. Do not rely on syntax color or mouse-only controls.
 
 ### Skills Checklist
-- [ ] I can explain the concept in Julia terminology.
-- [ ] I can trace and predict the example.
-- [ ] I can modify and run the code independently.
-- [ ] I can identify and correct a common error.
-- [ ] I can read source and output accessibly.
+- [ ] I can explain validation and testing in Julia terminology.
+- [ ] I can trace the example and predict its output.
+- [ ] I can adapt the example to canonical shared data.
+- [ ] I can identify and correct a Julia-specific error or edge case.
+- [ ] I can run and inspect the program using keyboard-accessible tools.
 
 ## Lesson 11.5: Documentation and presentation
 
 ### Reading References
-- Official Julia language guide and standard-library documentation.
-- Corresponding Python course lesson for the shared problem context and learning objective.
+- [Julia Documentation](https://docs.julialang.org/en/v1/)
+- Julia Base and standard-library reference.
+- Corresponding Python curriculum lesson for the shared problem and data.
 
 ### Learning Objectives
-- Explain this concept using Julia terminology.
-- Trace a short program and predict its behavior before execution.
-- Modify and test the example independently.
+- Explain documentation and presentation using Julia terminology.
+- Apply the relevant syntax and standard-library facilities.
+- Test normal, boundary, and invalid cases using shared course data.
 
 ### Concept Explanation
-Documentation and presentation. Julia targets numerical and scientific computing, simulation, optimization, statistics, and data-intensive research. The Python course provides the sequence and problem contexts; this lesson teaches the idiomatic Julia syntax and semantics. Pay particular attention to static or dynamic typing, mutability, indexing, parameter passing, errors, and resource lifetime where they differ from Python.
+The capstone is an accessible personal-data manager with list/add/search/update/delete/complete operations. Separate data model, validation, persistence, and interaction; test save/reload.
+
+**Lesson focus:** Documentation and presentation. The worked example is self-contained unless a standard-library import is shown.
 
 ### Worked Example
 ```jl
-# Build a text-first personal-data manager; optionally analyze records with arrays and DataFrames.
+println("Acceptance: list, add, search, update, delete, complete; document persistence and keyboard workflow.")
 ```
 
-**Trace:** identify declarations, expressions, control flow, and observable output. Predict the result, run the example, and compare the actual output with the prediction.
+### Expected Behavior or Output
+The program prints a result based on the stated inputs. Predict the result before running it, then compare the observed output. File examples use temporary paths and close resources within the callback.
 
 ### Common Mistakes
-- Copying Python syntax or assumptions instead of using idiomatic Julia constructs.
-- Confusing assignment with equality or declaration with initialization.
-- Assuming strings, arrays, slices, tables, maps, or records have the same indexing and mutation rules as Python.
-- Ignoring compiler/interpreter diagnostics, return values, or resource errors.
+- Pass application state explicitly rather than hiding it in mutable globals.
+- Validate updates and preserve stable record identifiers.
+- Do not claim persistence or accessibility without save/reload and keyboard tests.
 
 ### Activities
-1. Reproduce and run the example in a new file.
-2. Change one value and predict the result before running.
-3. Add a boundary case and an invalid-input case; describe the outcome.
-4. Explain each statement and its effect without relying on syntax coloring.
+1. Specify record fields and validation rules before storage.
+2. Test list, add, search, update, delete, and completion.
+3. Test duplicate, missing, empty, and invalid values.
+4. Create a save/reload test and document known limitations.
 
 ### Accessibility Practice
-Navigate the complete source file by line, word, and character using the learner's access technology. Read punctuation and indentation, run from the terminal, and inspect standard output and errors sequentially.
+Navigate source by line, word, and character. Inspect operators, punctuation, mutation markers, and block-ending `end` keywords. Run from the terminal and read output and diagnostics sequentially. Do not rely on syntax color or mouse-only controls.
 
 ### Skills Checklist
-- [ ] I can explain the concept in Julia terminology.
-- [ ] I can trace and predict the example.
-- [ ] I can modify and run the code independently.
-- [ ] I can identify and correct a common error.
-- [ ] I can read source and output accessibly.
+- [ ] I can explain documentation and presentation in Julia terminology.
+- [ ] I can trace the example and predict its output.
+- [ ] I can adapt the example to canonical shared data.
+- [ ] I can identify and correct a Julia-specific error or edge case.
+- [ ] I can run and inspect the program using keyboard-accessible tools.
 
-## Course-Wide Assessment and Portfolio
+## Julia-specific package and data-format notes
 
-Submit runnable exercises, prediction notes, debugging notes, tests, and the text adventure and personal-data manager projects. Assessment focuses on correctness, idiomatic Julia, code explanation, independent debugging, and accessible interaction—not speed or visual editor use.
-
-## AI and Academic Integrity
-
-AI may be used only for personal conceptual explanations and reinforcement when the instructor permits. Do not use AI to write, complete, autocomplete, repair, or generate course code or assessment solutions. Students must explain every submitted statement independently.
-
-## Further Learning
-
-Use the official Julia language specification, standard-library documentation, and the linked setup resources. Verify APIs against the documentation for the installed toolchain.
+- The standard library includes `Test`, `Random`, and `TOML`.
+- Julia does not include a general JSON parser in its standard library. Use JSON3.jl for JSON serialization and parsing, and record it in the active `Project.toml`.
+- Use CSV.jl for quoted delimiters, escaped quotes, or embedded newlines. The introductory `split` approach is limited to simple sample data.
+- Use DataFrames.jl only when tabular analysis justifies the dependency; begin with arrays, tuples, named tuples, and dictionaries.
+- Standard Julia arrays are one-based. Use `eachindex` or `enumerate` when iteration needs indices.
