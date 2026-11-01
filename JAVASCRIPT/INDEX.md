@@ -58,12 +58,12 @@ Use this topic index to locate the lesson for a JavaScript concept, API, or prog
 
 | Topic and learner search terms | Lesson |
 |---|---|
-| ES modules; `import`; `export`; `type: module`; module resolution | [Unit 9: ES modules](unit09-11-modules-collections-projects.md) |
-| CommonJS; `require()`; `module.exports`; `type: commonjs` | [Unit 9: CommonJS](unit09-11-modules-collections-projects.md) |
-| `package.json`; package type; dependencies; npm scripts; project-local tools | [Unit 9: Node project configuration](unit09-11-modules-collections-projects.md) |
-| `Map`; key-value collection; arbitrary key types; `Set`; unique values | [Unit 9: Maps and sets](unit09-11-modules-collections-projects.md) |
-| Word frequency; text processing; CSV; data parsing | [Unit 9: Data projects](unit09-11-modules-collections-projects.md) |
-| Jest; test suite; test case; matcher; assertion; test setup | [Unit 9: Testing with Jest](unit09-11-modules-collections-projects.md) |
+| ES modules; `import`; `export`; `type: module`; module resolution | [Unit 0: Node.js project configuration](unit00-01-setup-foundations.md) |
+| CommonJS; `require()`; `module.exports`; `type: commonjs` | [Unit 0: Node.js project configuration](unit00-01-setup-foundations.md) |
+| `package.json`; package type; dependencies; npm scripts; project-local tools | [Unit 0: Node.js project configuration](unit00-01-setup-foundations.md) |
+| `Map`; key-value collection; arbitrary key types; `Set`; unique values | [Unit 4: Objects and Map](unit02-04-io-control-data.md) |
+| Word frequency; text processing; CSV; data parsing | [Unit 9: Data analysis](unit09-11-modules-collections-projects.md) |
+| `node:test`; `node:assert/strict`; test suite; test case; assertion | [Unit 9: Testing functions and classes](unit09-11-modules-collections-projects.md) |
 | Text adventure; rooms; exits; inventory; magic key; command-line to-do manager | [Unit 10: Projects](unit09-11-modules-collections-projects.md) |
 | Personal data manager; CRUD; JSON persistence; accessible CLI; capstone | [Unit 11: Capstone](unit09-11-modules-collections-projects.md) |
 
