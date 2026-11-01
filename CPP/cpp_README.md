@@ -8,9 +8,22 @@ A complete introductory sequence aligned to Python Units 0–11: setup; foundati
 
 ## Environment
 
-Install a C++20 compiler; compile with c++ -std=c++20 -Wall -Wextra -pedantic main.cpp -o main.
+Install GCC, Clang, or MSVC with C++20 support. On GCC/Clang, compile with `c++ -std=c++20 -Wall -Wextra -Wpedantic -Werror main.cpp -o main`; run with `./main`.
 
 Complete the shared [IDE setup lesson](../DEVELOPMENT/IDE_SETUP.md) and [terminal prerequisite](../TERMINAL/TERMINAL_README.md). The course supports keyboard-first work with screen readers, braille displays, magnification, or other access technology.
 
 - [Complete lessons](lessons.md)
 - [Topic index](INDEX.md)
+
+
+## Lesson example verification
+
+The course includes 53 numbered lessons across Units 1–11 and four structured setup lessons in Unit 0. The numbered lessons have distinct worked examples, lesson-specific mistakes, four practice activities, and five mastery checks.
+
+- [C++ example validation script](../scripts/check_cpp_examples.py)
+- [GCC/Clang GitHub Actions workflow](../.github/workflows/cpp-examples.yml)
+- [Validation run 41317861416](https://github.com/mrhunsaker/VI_Focused_Coding_Curricula/actions/runs/41317861416)
+
+GCC 13.3.0 and Clang 18.1.3 each compiled and linked all 54 fenced C++ examples in C++20 mode with `-Wall -Wextra -Wpedantic -Werror`. The checker wraps lesson fragments in a minimal program and supplies common standard-library headers where needed.
+
+This verifies compilation and linking only. The examples have not all been executed with representative input or file fixtures. A fresh mdBook build, complete link crawl, and hands-on screen-reader/braille testing remain outstanding.
