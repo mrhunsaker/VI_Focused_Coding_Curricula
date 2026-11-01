@@ -223,3 +223,13 @@ All implementation changes are recorded here. Each numbered step is committed se
 - Updated `C/c_README.md` and recorded refinement status and outstanding verification in `lesson_standardization.json`.
 - Validation: 52 lesson sections in C Units 1–11, four Unit 0 setup lessons, 52 worked-example sections, no generic repeated boilerplate/placeholders, and balanced fenced-code markers.
 - Not yet verified: GCC/Clang compilation and execution of every example, complete link crawl, post-change mdBook build, and hands-on screen-reader/braille testing. No such verification is claimed.
+
+
+## 2026-11-01 — C lesson-level quality pass
+
+- Replaced repeated generic common-mistake lists in all 53 numbered C lessons with C-specific pitfalls tied to each lesson's concepts.
+- Replaced generic activities with four lesson-specific tasks per lesson, using shared course datasets and expected behavior.
+- Reworked all 53 skills checklists into lesson-specific mastery statements and observable tests.
+- Expanded all four C Unit 0 lessons into a complete instructional structure, covering compiler installation, workspace and working directory, editor/accessibility workflow, dependencies, include paths, and linker flags.
+- Updated `lesson_standardization.json` + " and `DEVELOPMENT/LESSON_STRUCTURE_AUDIT.md` + " with progress and verification boundaries.
+- Structural validation is recorded; no claim is made that all C examples have been compiled or executed. A local repository clone could not be completed because github.com DNS resolution failed in the available execution environment. GCC/Clang execution, a fresh mdBook build, complete link crawling, and hands-on screen-reader/braille testing remain outstanding.
