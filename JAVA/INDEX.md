@@ -1,6 +1,6 @@
 # Java Index
 
-Use this index to locate Java lessons by language feature, API, development tool, or learner task. Java and Kotlin are kept distinct: Kotlin is an optional post-capstone supplement, not a fifth core curriculum. For definitions, see the [Java glossary](../backmatter/GLOSSARY.md#java-glossary) and [Kotlin supplement glossary](../backmatter/GLOSSARY.md#kotlin-supplement-glossary).
+Use this index to locate Java lessons by language feature, API, development tool, or learner task. The complete standardized sequence is in [all Java lessons](lessons.md). Java and Kotlin are kept distinct: Kotlin is an optional post-capstone supplement, not a fifth core curriculum. For definitions, see the [Java glossary](../backmatter/GLOSSARY.md#java-glossary) and [Kotlin supplement glossary](../backmatter/GLOSSARY.md#kotlin-supplement-glossary).
 
 ## JDK, editor, project setup, and accessibility
 
