@@ -1439,15 +1439,17 @@ This unit covers types/classes, instances, fields, methods, inheritance or inter
 - Modify and test the example independently.
 
 ### Concept Explanation
-Types and object models. C is a compiled procedural language for operating systems, embedded software, libraries, and performance-sensitive programs. The Python course provides the sequence and problem contexts; this lesson teaches the idiomatic C syntax and semantics. Pay particular attention to static or dynamic typing, mutability, indexing, parameter passing, errors, and resource lifetime where they differ from Python.
+C does not have classes in the C++/Java sense. Use `struct` to group related data and functions that operate on the data to model an object. Encapsulation is a design discipline in C: expose an interface in a header and keep implementation details in a source file. The shared domain is a student or inventory item.
 
 ### Worked Example
 ```c
-struct Item { char name[40]; int quantity; };
-struct Item book = {"Notebook", 3}; printf("%s: %d\n", book.name, book.quantity);
+typedef struct {
+    char name[40];
+    int quantity;
+    double unit_price;
+} Item;
 ```
-
-**Trace:** identify declarations, expressions, control flow, and observable output. Predict the result, run the example, and compare the actual output with the prediction.
+This record models one inventory item with the same fields used throughout the course: name, quantity, and unit price. A C struct stores fields; it does not automatically provide constructors, methods, or memory management.
 
 ### Common Mistakes
 - Copying Python syntax or assumptions instead of using idiomatic C constructs.
@@ -1483,15 +1485,21 @@ Navigate the complete source file by line, word, and character using the learner
 - Modify and test the example independently.
 
 ### Concept Explanation
-Creating instances. C is a compiled procedural language for operating systems, embedded software, libraries, and performance-sensitive programs. The Python course provides the sequence and problem contexts; this lesson teaches the idiomatic C syntax and semantics. Pay particular attention to static or dynamic typing, mutability, indexing, parameter passing, errors, and resource lifetime where they differ from Python.
+Declare a struct variable to create an instance. Initialize each field deliberately; aggregate initialization follows field order unless designated initializers are used. Copying a struct copies its fields, including pointer values, not the memory referenced by those pointers.
 
 ### Worked Example
 ```c
-struct Item { char name[40]; int quantity; };
-struct Item book = {"Notebook", 3}; printf("%s: %d\n", book.name, book.quantity);
+#include <stdio.h>
+typedef struct { const char *name; int quantity; double unit_price; } Item;
+int main(void)
+{
+    Item notebook = {.name = "Notebook", .quantity = 3, .unit_price = 2.50};
+    Item pencil = {.name = "Pencil", .quantity = 10, .unit_price = 0.50};
+    printf("%s: %d; %s: %d\n", notebook.name, notebook.quantity, pencil.name, pencil.quantity);
+    return 0;
+}
 ```
-
-**Trace:** identify declarations, expressions, control flow, and observable output. Predict the result, run the example, and compare the actual output with the prediction.
+Expected output: Notebook: 3; Pencil: 10. The two variables are separate struct instances.
 
 ### Common Mistakes
 - Copying Python syntax or assumptions instead of using idiomatic C constructs.
@@ -1527,15 +1535,24 @@ Navigate the complete source file by line, word, and character using the learner
 - Modify and test the example independently.
 
 ### Concept Explanation
-Fields and methods. C is a compiled procedural language for operating systems, embedded software, libraries, and performance-sensitive programs. The Python course provides the sequence and problem contexts; this lesson teaches the idiomatic C syntax and semantics. Pay particular attention to static or dynamic typing, mutability, indexing, parameter passing, errors, and resource lifetime where they differ from Python.
+Access struct fields with `.` when you have an object and `->` when you have a pointer to an object. Functions that operate on a struct can receive a pointer; use `const` for read-only access. Keep data and operations conceptually together even though C does not have member methods.
 
 ### Worked Example
 ```c
-struct Item { char name[40]; int quantity; };
-struct Item book = {"Notebook", 3}; printf("%s: %d\n", book.name, book.quantity);
+#include <stdio.h>
+typedef struct { const char *name; int quantity; double unit_price; } Item;
+double item_value(const Item *item)
+{
+    return item->quantity * item->unit_price;
+}
+int main(void)
+{
+    Item notebook = {"Notebook", 3, 2.50};
+    printf("%s inventory value: $%.2f\n", notebook.name, item_value(&notebook));
+    return 0;
+}
 ```
-
-**Trace:** identify declarations, expressions, control flow, and observable output. Predict the result, run the example, and compare the actual output with the prediction.
+Expected output: Notebook inventory value: $7.50.
 
 ### Common Mistakes
 - Copying Python syntax or assumptions instead of using idiomatic C constructs.
@@ -1571,15 +1588,26 @@ Navigate the complete source file by line, word, and character using the learner
 - Modify and test the example independently.
 
 ### Concept Explanation
-Inheritance and interfaces. C is a compiled procedural language for operating systems, embedded software, libraries, and performance-sensitive programs. The Python course provides the sequence and problem contexts; this lesson teaches the idiomatic C syntax and semantics. Pay particular attention to static or dynamic typing, mutability, indexing, parameter passing, errors, and resource lifetime where they differ from Python.
+C has no built-in class inheritance. Model shared behavior with composition, function pointers, or tagged unions when appropriate. Do not force an inheritance hierarchy into C. For a simple specialization, use a base record as a field in a larger record and document the relationship explicitly.
 
 ### Worked Example
 ```c
-struct Item { char name[40]; int quantity; };
-struct Item book = {"Notebook", 3}; printf("%s: %d\n", book.name, book.quantity);
+#include <stdio.h>
+typedef struct { const char *name; int quantity; double unit_price; } Item;
+typedef struct { Item item; int reorder_level; } StockedItem;
+int needs_reorder(const StockedItem *stock)
+{
+    return stock->item.quantity <= stock->reorder_level;
+}
+int main(void)
+{
+    StockedItem notebook = {{"Notebook", 3, 2.50}, 3};
+    printf("%s reorder required: %s\n", notebook.item.name,
+           needs_reorder(&notebook) ? "yes" : "no");
+    return 0;
+}
 ```
-
-**Trace:** identify declarations, expressions, control flow, and observable output. Predict the result, run the example, and compare the actual output with the prediction.
+Expected output: Notebook reorder required: yes. This is composition, not language-level inheritance.
 
 ### Common Mistakes
 - Copying Python syntax or assumptions instead of using idiomatic C constructs.
@@ -1615,15 +1643,22 @@ Navigate the complete source file by line, word, and character using the learner
 - Modify and test the example independently.
 
 ### Concept Explanation
-Composition. C is a compiled procedural language for operating systems, embedded software, libraries, and performance-sensitive programs. The Python course provides the sequence and problem contexts; this lesson teaches the idiomatic C syntax and semantics. Pay particular attention to static or dynamic typing, mutability, indexing, parameter passing, errors, and resource lifetime where they differ from Python.
+Composition builds a larger object from smaller related records. For the course's personal data manager, a manager can contain an array of items plus a count and capacity. Define ownership clearly: decide which function allocates and frees any dynamically allocated memory.
 
 ### Worked Example
 ```c
-struct Item { char name[40]; int quantity; };
-struct Item book = {"Notebook", 3}; printf("%s: %d\n", book.name, book.quantity);
+#include <stdio.h>
+typedef struct { const char *title; int done; } Task;
+typedef struct { Task tasks[10]; size_t count; } TaskManager;
+int main(void)
+{
+    TaskManager manager = {.tasks = {{"Review C arrays", 0}, {"Practice functions", 1}}, .count = 2};
+    for (size_t i = 0; i < manager.count; ++i)
+        printf("%s: %s\n", manager.tasks[i].title, manager.tasks[i].done ? "done" : "not done");
+    return 0;
+}
 ```
-
-**Trace:** identify declarations, expressions, control flow, and observable output. Predict the result, run the example, and compare the actual output with the prediction.
+Expected output lists the two tasks and their completion states.
 
 ### Common Mistakes
 - Copying Python syntax or assumptions instead of using idiomatic C constructs.
@@ -1665,17 +1700,23 @@ This unit covers read/write text, resource lifetime, error handling, JSON serial
 - Modify and test the example independently.
 
 ### Concept Explanation
-Reading text files. C is a compiled procedural language for operating systems, embedded software, libraries, and performance-sensitive programs. The Python course provides the sequence and problem contexts; this lesson teaches the idiomatic C syntax and semantics. Pay particular attention to static or dynamic typing, mutability, indexing, parameter passing, errors, and resource lifetime where they differ from Python.
+Open a text file with `fopen` and check for `NULL` before reading. Read lines with `fgets` into a bounded buffer; process each line before reading the next. Always close a successfully opened file. Use a relative path resolved from the program's working directory.
 
 ### Worked Example
 ```c
-FILE *file = fopen("notes.txt", "r");
-if (file == NULL) { perror("notes.txt"); return 1; }
-char line[256]; while (fgets(line, sizeof line, file)) fputs(line, stdout);
-fclose(file);
+#include <stdio.h>
+int main(void)
+{
+    FILE *file = fopen("notes.txt", "r");
+    char line[256];
+    if (file == NULL) { perror("notes.txt"); return 1; }
+    while (fgets(line, sizeof line, file) != NULL) fputs(line, stdout);
+    if (ferror(file)) { perror("Reading notes.txt"); fclose(file); return 1; }
+    fclose(file);
+    return 0;
+}
 ```
-
-**Trace:** identify declarations, expressions, control flow, and observable output. Predict the result, run the example, and compare the actual output with the prediction.
+Create `notes.txt` with two lines before running. The program reproduces those lines. A missing file produces a diagnostic and a nonzero exit status.
 
 ### Common Mistakes
 - Copying Python syntax or assumptions instead of using idiomatic C constructs.
@@ -1711,17 +1752,24 @@ Navigate the complete source file by line, word, and character using the learner
 - Modify and test the example independently.
 
 ### Concept Explanation
-Writing and appending files. C is a compiled procedural language for operating systems, embedded software, libraries, and performance-sensitive programs. The Python course provides the sequence and problem contexts; this lesson teaches the idiomatic C syntax and semantics. Pay particular attention to static or dynamic typing, mutability, indexing, parameter passing, errors, and resource lifetime where they differ from Python.
+Open a file with mode `w` to create or truncate it, and mode `a` to append. Check both the `fopen` result and the return value of write operations. Close the file and check for errors when durability matters. Do not overwrite a user's file without explaining the effect.
 
 ### Worked Example
 ```c
-FILE *file = fopen("notes.txt", "r");
-if (file == NULL) { perror("notes.txt"); return 1; }
-char line[256]; while (fgets(line, sizeof line, file)) fputs(line, stdout);
-fclose(file);
+#include <stdio.h>
+int main(void)
+{
+    FILE *file = fopen("notes.txt", "a");
+    if (file == NULL) { perror("notes.txt"); return 1; }
+    if (fprintf(file, "Practice the C file API.\n") < 0) {
+        perror("Writing notes.txt"); fclose(file); return 1;
+    }
+    if (fclose(file) == EOF) { perror("Closing notes.txt"); return 1; }
+    puts("Note appended.");
+    return 0;
+}
 ```
-
-**Trace:** identify declarations, expressions, control flow, and observable output. Predict the result, run the example, and compare the actual output with the prediction.
+Expected output: `Note appended.` The new line is added to the end of `notes.txt`.
 
 ### Common Mistakes
 - Copying Python syntax or assumptions instead of using idiomatic C constructs.
@@ -1757,17 +1805,23 @@ Navigate the complete source file by line, word, and character using the learner
 - Modify and test the example independently.
 
 ### Concept Explanation
-Errors and exceptions. C is a compiled procedural language for operating systems, embedded software, libraries, and performance-sensitive programs. The Python course provides the sequence and problem contexts; this lesson teaches the idiomatic C syntax and semantics. Pay particular attention to static or dynamic typing, mutability, indexing, parameter passing, errors, and resource lifetime where they differ from Python.
+C does not have language-level exceptions. Standard library functions report errors through return values, error indicators, or `errno`. Check each function's documented failure convention and use `perror` or `strerror` to report system errors. Return status codes from functions so callers can respond.
 
 ### Worked Example
 ```c
-FILE *file = fopen("notes.txt", "r");
-if (file == NULL) { perror("notes.txt"); return 1; }
-char line[256]; while (fgets(line, sizeof line, file)) fputs(line, stdout);
-fclose(file);
+#include <stdio.h>
+int main(void)
+{
+    FILE *file = fopen("missing_notes.txt", "r");
+    if (file == NULL) {
+        perror("Unable to open missing_notes.txt");
+        return 1;
+    }
+    fclose(file);
+    return 0;
+}
 ```
-
-**Trace:** identify declarations, expressions, control flow, and observable output. Predict the result, run the example, and compare the actual output with the prediction.
+If the file is absent, the program prints an operating-system diagnostic and exits with status 1. This is explicit error handling, not a thrown exception.
 
 ### Common Mistakes
 - Copying Python syntax or assumptions instead of using idiomatic C constructs.
@@ -1803,17 +1857,24 @@ Navigate the complete source file by line, word, and character using the learner
 - Modify and test the example independently.
 
 ### Concept Explanation
-Resource cleanup. C is a compiled procedural language for operating systems, embedded software, libraries, and performance-sensitive programs. The Python course provides the sequence and problem contexts; this lesson teaches the idiomatic C syntax and semantics. Pay particular attention to static or dynamic typing, mutability, indexing, parameter passing, errors, and resource lifetime where they differ from Python.
+C resource lifetime is manual for resources such as `FILE *` handles and dynamically allocated memory. Every successful acquisition must have a corresponding release on all control-flow paths. Use a single cleanup section when multiple operations can fail; do not close an uninitialized or already-closed resource.
 
 ### Worked Example
 ```c
-FILE *file = fopen("notes.txt", "r");
-if (file == NULL) { perror("notes.txt"); return 1; }
-char line[256]; while (fgets(line, sizeof line, file)) fputs(line, stdout);
-fclose(file);
+#include <stdio.h>
+int main(void)
+{
+    int status = 1;
+    FILE *file = fopen("notes.txt", "r");
+    if (file == NULL) { perror("notes.txt"); goto cleanup; }
+    puts("File opened successfully.");
+    status = 0;
+cleanup:
+    if (file != NULL && fclose(file) == EOF) { perror("fclose"); status = 1; }
+    return status;
+}
 ```
-
-**Trace:** identify declarations, expressions, control flow, and observable output. Predict the result, run the example, and compare the actual output with the prediction.
+The cleanup path closes the file exactly once if opening succeeded. In larger programs, structure functions so cleanup remains easy to audit.
 
 ### Common Mistakes
 - Copying Python syntax or assumptions instead of using idiomatic C constructs.
@@ -1849,17 +1910,20 @@ Navigate the complete source file by line, word, and character using the learner
 - Modify and test the example independently.
 
 ### Concept Explanation
-JSON persistence. C is a compiled procedural language for operating systems, embedded software, libraries, and performance-sensitive programs. The Python course provides the sequence and problem contexts; this lesson teaches the idiomatic C syntax and semantics. Pay particular attention to static or dynamic typing, mutability, indexing, parameter passing, errors, and resource lifetime where they differ from Python.
+The C standard library does not include a JSON parser or serializer. Choose and document a maintained JSON library for projects that need JSON, and do not hand-parse arbitrary JSON with string operations. Teach the shared record schema independently of the library: `id`, `title`, `description`, `category`, `created_at`, and `updated_at`. Explain how JSON strings, numbers, booleans, arrays, and objects map to C data.
 
 ### Worked Example
 ```c
-FILE *file = fopen("notes.txt", "r");
-if (file == NULL) { perror("notes.txt"); return 1; }
-char line[256]; while (fgets(line, sizeof line, file)) fputs(line, stdout);
-fclose(file);
+typedef struct {
+    int id;
+    char title[80];
+    char description[240];
+    char category[40];
+    char created_at[32];
+    char updated_at[32];
+} DataItem;
 ```
-
-**Trace:** identify declarations, expressions, control flow, and observable output. Predict the result, run the example, and compare the actual output with the prediction.
+This C struct is the in-memory shape of one capstone record. The JSON library layer must serialize every field and validate required fields when loading. Record the selected library and its build/link instructions in the project README.
 
 ### Common Mistakes
 - Copying Python syntax or assumptions instead of using idiomatic C constructs.
@@ -1901,16 +1965,21 @@ This unit covers unit tests, testing stateful types, randomness, text analysis, 
 - Modify and test the example independently.
 
 ### Concept Explanation
-Testing functions. C is a compiled procedural language for operating systems, embedded software, libraries, and performance-sensitive programs. The Python course provides the sequence and problem contexts; this lesson teaches the idiomatic C syntax and semantics. Pay particular attention to static or dynamic typing, mutability, indexing, parameter passing, errors, and resource lifetime where they differ from Python.
+Test deterministic functions with known inputs and expected results. C has no standard unit-test framework; begin with assertions from `assert.h`, then introduce a test framework if a project grows. Compile tests separately from the application and ensure tests cover ordinary values, boundaries, and invalid inputs.
 
 ### Worked Example
 ```c
 #include <assert.h>
-int add(int a, int b) { return a + b; }
-int main(void) { assert(add(2, 3) == 5); }
+int add_two_numbers(int a, int b) { return a + b; }
+int main(void)
+{
+    assert(add_two_numbers(5, 3) == 8);
+    assert(add_two_numbers(-5, -3) == -8);
+    assert(add_two_numbers(10, -4) == 6);
+    return 0;
+}
 ```
-
-**Trace:** identify declarations, expressions, control flow, and observable output. Predict the result, run the example, and compare the actual output with the prediction.
+No output and exit status 0 indicate that all assertions passed. An assertion failure prints a diagnostic and terminates the test executable.
 
 ### Common Mistakes
 - Copying Python syntax or assumptions instead of using idiomatic C constructs.
@@ -1946,16 +2015,24 @@ Navigate the complete source file by line, word, and character using the learner
 - Modify and test the example independently.
 
 ### Concept Explanation
-Testing stateful objects. C is a compiled procedural language for operating systems, embedded software, libraries, and performance-sensitive programs. The Python course provides the sequence and problem contexts; this lesson teaches the idiomatic C syntax and semantics. Pay particular attention to static or dynamic typing, mutability, indexing, parameter passing, errors, and resource lifetime where they differ from Python.
+Test stateful records by creating a fresh instance for each test, changing its state through the public operations, and checking the resulting fields. In C, write explicit setup code in each test or a helper function; there is no built-in `setUp` lifecycle.
 
 ### Worked Example
 ```c
 #include <assert.h>
-int add(int a, int b) { return a + b; }
-int main(void) { assert(add(2, 3) == 5); }
+typedef struct { int quantity; } Item;
+void add_stock(Item *item, int amount) { if (amount > 0) item->quantity += amount; }
+int main(void)
+{
+    Item notebook = {.quantity = 3};
+    add_stock(&notebook, 2);
+    assert(notebook.quantity == 5);
+    add_stock(&notebook, -1);
+    assert(notebook.quantity == 5);
+    return 0;
+}
 ```
-
-**Trace:** identify declarations, expressions, control flow, and observable output. Predict the result, run the example, and compare the actual output with the prediction.
+The assertions verify that a positive restock changes quantity and a negative restock is rejected.
 
 ### Common Mistakes
 - Copying Python syntax or assumptions instead of using idiomatic C constructs.
@@ -1991,16 +2068,21 @@ Navigate the complete source file by line, word, and character using the learner
 - Modify and test the example independently.
 
 ### Concept Explanation
-Random values. C is a compiled procedural language for operating systems, embedded software, libraries, and performance-sensitive programs. The Python course provides the sequence and problem contexts; this lesson teaches the idiomatic C syntax and semantics. Pay particular attention to static or dynamic typing, mutability, indexing, parameter passing, errors, and resource lifetime where they differ from Python.
+Use the pseudo-random number generator in `stdlib.h`. Seed once with `srand`, then obtain values with `rand`. The sequence is deterministic for a given implementation and seed; use a fixed seed in tests. Avoid modulo bias for applications requiring statistically sound sampling or security; `rand` is not cryptographically secure.
 
 ### Worked Example
 ```c
-#include <assert.h>
-int add(int a, int b) { return a + b; }
-int main(void) { assert(add(2, 3) == 5); }
+#include <stdio.h>
+#include <stdlib.h>
+int main(void)
+{
+    srand(42);
+    int die = rand() % 6 + 1;
+    printf("Die roll: %d\n", die);
+    return 0;
+}
 ```
-
-**Trace:** identify declarations, expressions, control flow, and observable output. Predict the result, run the example, and compare the actual output with the prediction.
+The output is reproducible for a given C library implementation and seed, but the exact value may differ across implementations. Do not use `rand` for passwords or security tokens.
 
 ### Common Mistakes
 - Copying Python syntax or assumptions instead of using idiomatic C constructs.
@@ -2036,16 +2118,26 @@ Navigate the complete source file by line, word, and character using the learner
 - Modify and test the example independently.
 
 ### Concept Explanation
-Text analysis. C is a compiled procedural language for operating systems, embedded software, libraries, and performance-sensitive programs. The Python course provides the sequence and problem contexts; this lesson teaches the idiomatic C syntax and semantics. Pay particular attention to static or dynamic typing, mutability, indexing, parameter passing, errors, and resource lifetime where they differ from Python.
+Analyze the same shared text sample by splitting it into words and counting frequencies. C requires explicit tokenization and storage. For a beginner exercise, normalize ASCII letters and count a small fixed set of words; explain that a production tokenizer must handle punctuation, UTF-8, and dynamic word storage correctly.
 
 ### Worked Example
 ```c
-#include <assert.h>
-int add(int a, int b) { return a + b; }
-int main(void) { assert(add(2, 3) == 5); }
+#include <stdio.h>
+#include <string.h>
+#include <ctype.h>
+int main(void)
+{
+    char text[] = "A student studies programming. Programming develops problem-solving skills.";
+    for (size_t i = 0; text[i]; ++i) text[i] = (char)tolower((unsigned char)text[i]);
+    const char *word = "programming";
+    int count = 0;
+    char *p = text;
+    while ((p = strstr(p, word)) != NULL) { ++count; p += strlen(word); }
+    printf("Occurrences of programming: %d\n", count);
+    return 0;
+}
 ```
-
-**Trace:** identify declarations, expressions, control flow, and observable output. Predict the result, run the example, and compare the actual output with the prediction.
+Expected output: 2 occurrences. This counts substring matches, not general word tokens; extend it to tokenize and count all words.
 
 ### Common Mistakes
 - Copying Python syntax or assumptions instead of using idiomatic C constructs.
@@ -2081,16 +2173,24 @@ Navigate the complete source file by line, word, and character using the learner
 - Modify and test the example independently.
 
 ### Concept Explanation
-CSV records. C is a compiled procedural language for operating systems, embedded software, libraries, and performance-sensitive programs. The Python course provides the sequence and problem contexts; this lesson teaches the idiomatic C syntax and semantics. Pay particular attention to static or dynamic typing, mutability, indexing, parameter passing, errors, and resource lifetime where they differ from Python.
+CSV is a delimited text format with quoting rules; splitting every line on commas is not a correct general CSV parser because quoted fields may contain commas, quotes, and newlines. Use a documented CSV library for production data. For the first exercise, read a simple known CSV file and state that the format excludes quoted commas.
 
 ### Worked Example
 ```c
-#include <assert.h>
-int add(int a, int b) { return a + b; }
-int main(void) { assert(add(2, 3) == 5); }
+#include <stdio.h>
+#include <string.h>
+int main(void)
+{
+    FILE *file = fopen("students.csv", "r");
+    char line[256];
+    if (!file) { perror("students.csv"); return 1; }
+    if (fgets(line, sizeof line, file)) printf("Columns: %s", line);
+    while (fgets(line, sizeof line, file)) printf("Record: %s", line);
+    fclose(file);
+    return 0;
+}
 ```
-
-**Trace:** identify declarations, expressions, control flow, and observable output. Predict the result, run the example, and compare the actual output with the prediction.
+Create a header with `student_id,first_name,last_name,score,active` and at least two rows. The program prints the header and each record line. A production parser must handle CSV quoting correctly.
 
 ### Common Mistakes
 - Copying Python syntax or assumptions instead of using idiomatic C constructs.
