@@ -130,5 +130,5 @@ This is compiler and linker verification. The examples have not all been execute
 - Replaced repeated worked examples with distinct lesson-specific C++20 examples across the 53 numbered Unit 1–11 lessons.
 - Rewrote all 53 numbered lessons with three C++-specific common mistakes, four targeted activities, and five observable skills-checklist criteria.
 - Added `scripts/check_cpp_examples.py` and `.github/workflows/cpp-examples.yml`.
-- GitHub Actions run [41318260153](https://github.com/mrhunsaker/VI_Focused_Coding_Curricula/actions/runs/41318260153) passed with GCC 13.3.0 and Clang 18.1.3. All 54 fenced C++ examples compiled and linked as C++20 with strict warning flags.
+- GitHub Actions run [41318426947](https://github.com/mrhunsaker/VI_Focused_Coding_Curricula/actions/runs/41318426947) passed with GCC 13.3.0 and Clang 18.1.3. All 54 fenced C++ examples compiled and linked as C++20 with strict warning flags.
 - Remaining: runtime execution with representative inputs/files, fresh mdBook build, complete local-link crawl, and hands-on screen-reader/braille testing. Compiler success is not runtime or accessibility validation.
