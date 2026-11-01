@@ -650,7 +650,7 @@
         "mapped_python_lessons": 55,
         "target_course_lesson_sections": 57,
         "numbered_unit_lesson_sections": 53,
-        "status": "content_and_example_execution_validation_pending",
+        "status": "content_and_swift_6_example_execution_smoke_verification_complete_pending_full_application_and_accessibility_verification",
         "completed_work": [
           "Expanded all four Unit 0 setup lessons with Swift installation and version verification, workspace/path behavior, accessible editor and SourceKit-LSP setup, and Swift Package Manager guidance.",
           "Added the missing Python Unit 2 Lesson 2.5 counterpart for Foundation mathematical functions, circle area/circumference, and distance using hypot.",
@@ -664,10 +664,11 @@
           "All 53 numbered lessons have exactly three common mistakes, four activities, and five checklist criteria.",
           "All 53 numbered lesson examples are distinct; with four Unit 0 examples, the course contains 57 distinct fenced Swift examples.",
           "All four Unit 0 lessons contain the full nine-section setup lesson structure.",
-          "Markdown fences are balanced."
+          "Markdown fences are balanced.",
+          "GitHub Actions run 41324186133 passed on Swift 6.0; all 57 fenced Swift examples executed successfully as independent scripts."
         ],
         "not_yet_verified": [
-          "GitHub Actions execution of all 57 Swift examples; workflow added but result not yet confirmed.",
+          "Expected-output assertions and broader behavioral tests with invalid input, file fixtures, and package integration; current checker verifies successful process exit, not exact output.",
           "Expected-output assertions and broader behavioral tests with invalid input, file fixtures, and package integration.",
           "A fresh mdBook build and complete Markdown/local-link crawl after the latest edits.",
           "Hands-on screen-reader and braille testing with named operating systems, editors, Swift versions, and access technologies.",
