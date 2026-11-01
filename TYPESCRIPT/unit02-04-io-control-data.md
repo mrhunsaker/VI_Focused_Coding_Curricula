@@ -752,6 +752,30 @@ Print each inventory item as a labeled record rather than a visual table only. A
 ---
 
 ---
+### TypeScript type-system extension
+
+Interfaces describe object shapes; generic types let a function or collection preserve the type of the values it handles. A discriminated union represents a value that can be one of several known states.
+
+```typescript
+type Result<T> =
+  | { ok: true; value: T }
+  | { ok: false; error: string };
+
+function first<T>(values: readonly T[]): T | undefined {
+  return values[0];
+}
+
+function describeResult<T>(result: Result<T>): string {
+  if (result.ok) return `Success: ${String(result.value)}`;
+  return `Failure: ${result.error}`;
+}
+
+console.log(first<number>([82, 91, 76, 88]));
+console.log(describeResult<number>({ ok: false, error: "No score" }));
+```
+
+The `ok` property narrows the union to its success or failure shape. Generic `T` preserves the element type rather than discarding it as `any`.
+
 
 ## Lesson 4.5: Looping through objects and Maps
 
