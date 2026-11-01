@@ -59,25 +59,24 @@ Computer science is the study of representing problems and designing precise alg
 Plan the canonical tip-calculator problem without coding: read a bill amount, calculate 15 percent of it, add the tip to the bill, and display both amounts. For a bill of $24.50, the unrounded tip is $3.675 and the unrounded total is $28.175. Displaying two decimal places yields $3.68 and $28.18.
 
 ### Common Mistakes
-- Using uninitialized automatic variables or mismatched `printf` format specifiers.
-- Treating C strings as managed string objects instead of null-terminated byte sequences.
-- Ignoring compiler warnings, linker errors, or the distinction between source and executable.
+- Confusing an algorithm's logical steps with C syntax or compiler behavior.
+- Omitting an input constraint such as nonnegative bill amount or percentage range.
+- Rounding the tip before adding it to the bill rather than formatting only the displayed result.
 
 ### Activities
-1. Write a short explanation of "Computer science and problem solving" using the C concepts introduced in this lesson.
-2. Relate the example to one shared course context: Avery's student profile or the $24.50 bill with a 15% tip.
-3. Change one input or declaration, predict the output, then compile and compare the result.
-4. Describe one compiler diagnostic or C-specific constraint that a Python learner might not expect.
+1. Write the tip-calculator algorithm as input, processing, and output steps, then calculate the unrounded values for a $24.50 bill.
+2. Identify the input validation rule for a negative bill and an invalid tip rate.
+3. Explain why formatting a monetary result to two decimals is different from rounding every intermediate calculation.
 
 ### Accessibility Practice
 Navigate the complete source file by line, word, and character using the learner's access technology. Read punctuation and indentation, run from the terminal, and inspect standard output and errors sequentially.
 
 ### Skills Checklist
-- [ ] I can explain "Computer science and problem solving" using accurate C terminology.
-- [ ] I can trace the example and predict its observable behavior before compiling.
-- [ ] I can adapt the example to the shared student, calculator, score, or text data without introducing an out-of-bounds access or invalid state.
-- [ ] I can detect and correct at least one C-specific error relevant to this lesson.
-- [ ] I can compile, run, and inspect the source and output using my chosen access technology.
+- [ ] I can explain the C rule demonstrated by "Computer science and problem solving" without relying on Python terminology.
+- [ ] I can predict and verify the exact behavior of this lesson's worked example.
+- [ ] I can complete the lesson-specific boundary or extension tests above and explain the result.
+- [ ] I can recognize the three C-specific failure modes listed in this lesson and apply a correction.
+- [ ] I can navigate, compile, run, and inspect the source and output using my chosen access technology.
 ## Lesson 1.2: Your first program
 
 ### Reading References
@@ -104,25 +103,24 @@ int main(void)
 Expected output: `Hello, World!` followed by a newline. Compile with `cc -std=c17 -Wall -Wextra -Wpedantic hello.c -o hello`.
 
 ### Common Mistakes
-- Using uninitialized automatic variables or mismatched `printf` format specifiers.
-- Treating C strings as managed string objects instead of null-terminated byte sequences.
-- Ignoring compiler warnings, linker errors, or the distinction between source and executable.
+- Using `void main` instead of the standard `int main(void)` form.
+- Omitting `#include <stdio.h>` or a statement terminator.
+- Assuming a successful compile guarantees the executable is being run from the intended directory.
 
 ### Activities
-1. Write a short explanation of "Your first program" using the C concepts introduced in this lesson.
-2. Relate the example to one shared course context: Avery's student profile or the $24.50 bill with a 15% tip.
-3. Change one input or declaration, predict the output, then compile and compare the result.
-4. Describe one compiler diagnostic or C-specific constraint that a Python learner might not expect.
+1. Compile the hello program with C17 and all requested warnings; record every diagnostic.
+2. Change the greeting and add a second output line, predicting the exact line order.
+3. Remove a semicolon in a disposable copy, compile, and use the diagnostic to locate the syntax error.
 
 ### Accessibility Practice
 Navigate the complete source file by line, word, and character using the learner's access technology. Read punctuation and indentation, run from the terminal, and inspect standard output and errors sequentially.
 
 ### Skills Checklist
-- [ ] I can explain "Your first program" using accurate C terminology.
-- [ ] I can trace the example and predict its observable behavior before compiling.
-- [ ] I can adapt the example to the shared student, calculator, score, or text data without introducing an out-of-bounds access or invalid state.
-- [ ] I can detect and correct at least one C-specific error relevant to this lesson.
-- [ ] I can compile, run, and inspect the source and output using my chosen access technology.
+- [ ] I can explain the C rule demonstrated by "Your first program" without relying on Python terminology.
+- [ ] I can predict and verify the exact behavior of this lesson's worked example.
+- [ ] I can complete the lesson-specific boundary or extension tests above and explain the result.
+- [ ] I can recognize the three C-specific failure modes listed in this lesson and apply a correction.
+- [ ] I can navigate, compile, run, and inspect the source and output using my chosen access technology.
 ## Lesson 1.3: Variables and data types
 
 ### Reading References
@@ -154,25 +152,24 @@ int main(void)
 Expected output labels Avery, 16, 1.72 m, and Computer Science on separate lines. `%s`, `%d`, and `%.2f` correspond to string, integer, and floating-point arguments.
 
 ### Common Mistakes
-- Using uninitialized automatic variables or mismatched `printf` format specifiers.
-- Treating C strings as managed string objects instead of null-terminated byte sequences.
-- Ignoring compiler warnings, linker errors, or the distinction between source and executable.
+- Using a format string that does not match the declared type.
+- Forgetting that C strings need a null terminator and sufficient buffer capacity.
+- Using an uninitialized local variable or assuming a variable has Python-like dynamic typing.
 
 ### Activities
-1. Write a short explanation of "Variables and data types" using the C concepts introduced in this lesson.
-2. Relate the example to one shared course context: Avery's student profile or the $24.50 bill with a 15% tip.
-3. Change one input or declaration, predict the output, then compile and compare the result.
-4. Describe one compiler diagnostic or C-specific constraint that a Python learner might not expect.
+1. Add student ID and a middle initial to Avery's profile, selecting appropriate C types.
+2. Print the height using `%.1f`, `%.2f`, and `%.3f` and compare the displayed precision.
+3. Explain why the string buffer size must include the terminating null byte.
 
 ### Accessibility Practice
 Navigate the complete source file by line, word, and character using the learner's access technology. Read punctuation and indentation, run from the terminal, and inspect standard output and errors sequentially.
 
 ### Skills Checklist
-- [ ] I can explain "Variables and data types" using accurate C terminology.
-- [ ] I can trace the example and predict its observable behavior before compiling.
-- [ ] I can adapt the example to the shared student, calculator, score, or text data without introducing an out-of-bounds access or invalid state.
-- [ ] I can detect and correct at least one C-specific error relevant to this lesson.
-- [ ] I can compile, run, and inspect the source and output using my chosen access technology.
+- [ ] I can explain the C rule demonstrated by "Variables and data types" without relying on Python terminology.
+- [ ] I can predict and verify the exact behavior of this lesson's worked example.
+- [ ] I can complete the lesson-specific boundary or extension tests above and explain the result.
+- [ ] I can recognize the three C-specific failure modes listed in this lesson and apply a correction.
+- [ ] I can navigate, compile, run, and inspect the source and output using my chosen access technology.
 ## Lesson 2.1: Design and tracing
 
 ### Reading References
@@ -191,25 +188,24 @@ Use the design–implement–test cycle. Design identifies inputs, outputs, cons
 For the canonical calculator, input is bill = 24.50 and rate = 0.15. Calculate tip = bill * rate and total = bill + tip. Expected unrounded values are 3.675 and 28.175; formatted to cents they appear as 3.68 and 28.18. Test zero, typical, and large bills.
 
 ### Common Mistakes
-- Using integer division when a fractional result is required.
-- Confusing assignment (`=`) with equality (`==`) or relying on implicit conversions.
-- Failing to validate parsed input, check conversion range, or use the correct math-library link option.
+- Coding before writing down the bill, rate, tip, and total as separate inputs/intermediate/output values.
+- Testing only $24.50 and missing zero, negative, or unusually large bill values.
+- Rounding intermediate arithmetic and then obtaining a different displayed total.
 
 ### Activities
-1. Trace the "Design and tracing" example line by line and record each variable's value before and after the key operation.
-2. Apply the concept to the $24.50 bill and 15% tip, keeping unrounded calculation separate from two-decimal display.
-3. Test a normal input, a boundary input, and an invalid input; write the expected behavior before running.
-4. Change one expression or input value and explain how C's type rules affect the result.
+1. Write pseudocode for the $24.50 bill and 15% tip, naming each input and intermediate result.
+2. Create acceptance cases for bills 0.00, 24.50, and -1.00.
+3. Trace the values 24.50, 0.15, 3.675, and 28.175 in order.
 
 ### Accessibility Practice
 Navigate the complete source file by line, word, and character using the learner's access technology. Read punctuation and indentation, run from the terminal, and inspect standard output and errors sequentially.
 
 ### Skills Checklist
-- [ ] I can explain "Design and tracing" using accurate C terminology.
-- [ ] I can trace the example and predict its observable behavior before compiling.
-- [ ] I can adapt the example to the shared student, calculator, score, or text data without introducing an out-of-bounds access or invalid state.
-- [ ] I can detect and correct at least one C-specific error relevant to this lesson.
-- [ ] I can compile, run, and inspect the source and output using my chosen access technology.
+- [ ] I can explain the C rule demonstrated by "Design and tracing" without relying on Python terminology.
+- [ ] I can predict and verify the exact behavior of this lesson's worked example.
+- [ ] I can complete the lesson-specific boundary or extension tests above and explain the result.
+- [ ] I can recognize the three C-specific failure modes listed in this lesson and apply a correction.
+- [ ] I can navigate, compile, run, and inspect the source and output using my chosen access technology.
 ## Lesson 2.2: Expressions and assignment
 
 ### Reading References
@@ -241,25 +237,24 @@ int main(void)
 Expected score values are 50 and 70. The integer expression is 6; the floating expression is approximately 6.33.
 
 ### Common Mistakes
-- Using integer division when a fractional result is required.
-- Confusing assignment (`=`) with equality (`==`) or relying on implicit conversions.
-- Failing to validate parsed input, check conversion range, or use the correct math-library link option.
+- Using integer division in a calculation that requires cents or a fractional average.
+- Using `=` in a condition where `==` is intended.
+- Depending on implicit precedence rather than making the intended grouping explicit.
 
 ### Activities
-1. Trace the "Expressions and assignment" example line by line and record each variable's value before and after the key operation.
-2. Apply the concept to the $24.50 bill and 15% tip, keeping unrounded calculation separate from two-decimal display.
-3. Test a normal input, a boundary input, and an invalid input; write the expected behavior before running.
-4. Change one expression or input value and explain how C's type rules affect the result.
+1. Predict the results of `10 / 3`, `10.0 / 3`, and `10 / 3.0` before compiling.
+2. Rewrite a compound expression with parentheses to show the intended precedence.
+3. Change the score assignment from 50 to 70 and trace the printed values.
 
 ### Accessibility Practice
 Navigate the complete source file by line, word, and character using the learner's access technology. Read punctuation and indentation, run from the terminal, and inspect standard output and errors sequentially.
 
 ### Skills Checklist
-- [ ] I can explain "Expressions and assignment" using accurate C terminology.
-- [ ] I can trace the example and predict its observable behavior before compiling.
-- [ ] I can adapt the example to the shared student, calculator, score, or text data without introducing an out-of-bounds access or invalid state.
-- [ ] I can detect and correct at least one C-specific error relevant to this lesson.
-- [ ] I can compile, run, and inspect the source and output using my chosen access technology.
+- [ ] I can explain the C rule demonstrated by "Expressions and assignment" without relying on Python terminology.
+- [ ] I can predict and verify the exact behavior of this lesson's worked example.
+- [ ] I can complete the lesson-specific boundary or extension tests above and explain the result.
+- [ ] I can recognize the three C-specific failure modes listed in this lesson and apply a correction.
+- [ ] I can navigate, compile, run, and inspect the source and output using my chosen access technology.
 ## Lesson 2.3: Input and output
 
 ### Reading References
@@ -301,25 +296,24 @@ int main(void)
 For inputs Avery, 12, and 8, output includes `Hello, Avery!` and `Sum: 20`. A production parser should also validate trailing characters and range errors.
 
 ### Common Mistakes
-- Using integer division when a fractional result is required.
-- Confusing assignment (`=`) with equality (`==`) or relying on implicit conversions.
-- Failing to validate parsed input, check conversion range, or use the correct math-library link option.
+- Reading a full name with `%s`, which stops at whitespace.
+- Ignoring the return from `fgets` or accepting a numeric prefix followed by junk.
+- Failing to detect a number outside the destination type's range.
 
 ### Activities
-1. Trace the "Input and output" example line by line and record each variable's value before and after the key operation.
-2. Apply the concept to the $24.50 bill and 15% tip, keeping unrounded calculation separate from two-decimal display.
-3. Test a normal input, a boundary input, and an invalid input; write the expected behavior before running.
-4. Change one expression or input value and explain how C's type rules affect the result.
+1. Enter Avery, 12, and 8; verify the greeting and sum.
+2. Enter a name containing spaces and confirm that the entire line is retained.
+3. Extend the parser to reject `12abc`, blank input, and an out-of-range integer.
 
 ### Accessibility Practice
 Navigate the complete source file by line, word, and character using the learner's access technology. Read punctuation and indentation, run from the terminal, and inspect standard output and errors sequentially.
 
 ### Skills Checklist
-- [ ] I can explain "Input and output" using accurate C terminology.
-- [ ] I can trace the example and predict its observable behavior before compiling.
-- [ ] I can adapt the example to the shared student, calculator, score, or text data without introducing an out-of-bounds access or invalid state.
-- [ ] I can detect and correct at least one C-specific error relevant to this lesson.
-- [ ] I can compile, run, and inspect the source and output using my chosen access technology.
+- [ ] I can explain the C rule demonstrated by "Input and output" without relying on Python terminology.
+- [ ] I can predict and verify the exact behavior of this lesson's worked example.
+- [ ] I can complete the lesson-specific boundary or extension tests above and explain the result.
+- [ ] I can recognize the three C-specific failure modes listed in this lesson and apply a correction.
+- [ ] I can navigate, compile, run, and inspect the source and output using my chosen access technology.
 ## Lesson 2.4: Numeric conversions and mathematics
 
 ### Reading References
@@ -351,25 +345,24 @@ int main(void)
 Expected values: 32, 68.5, 2, and 2.5. Extend the example to reject trailing characters and check `errno` for overflow.
 
 ### Common Mistakes
-- Using integer division when a fractional result is required.
-- Confusing assignment (`=`) with equality (`==`) or relying on implicit conversions.
-- Failing to validate parsed input, check conversion range, or use the correct math-library link option.
+- Assuming a cast rounds rather than truncates toward zero.
+- Passing the wrong type to `printf` or using an incompatible format specifier.
+- Failing to check `strtol`/`strtod` conversion end pointers and range errors.
 
 ### Activities
-1. Trace the "Numeric conversions and mathematics" example line by line and record each variable's value before and after the key operation.
-2. Apply the concept to the $24.50 bill and 15% tip, keeping unrounded calculation separate from two-decimal display.
-3. Test a normal input, a boundary input, and an invalid input; write the expected behavior before running.
-4. Change one expression or input value and explain how C's type rules affect the result.
+1. Predict the results for age 16 and weight 52.5 before running the conversion example.
+2. Convert -2.9 to an integer and explain truncation toward zero.
+3. Add end-pointer and `errno` checks for malformed and out-of-range text.
 
 ### Accessibility Practice
 Navigate the complete source file by line, word, and character using the learner's access technology. Read punctuation and indentation, run from the terminal, and inspect standard output and errors sequentially.
 
 ### Skills Checklist
-- [ ] I can explain "Numeric conversions and mathematics" using accurate C terminology.
-- [ ] I can trace the example and predict its observable behavior before compiling.
-- [ ] I can adapt the example to the shared student, calculator, score, or text data without introducing an out-of-bounds access or invalid state.
-- [ ] I can detect and correct at least one C-specific error relevant to this lesson.
-- [ ] I can compile, run, and inspect the source and output using my chosen access technology.
+- [ ] I can explain the C rule demonstrated by "Numeric conversions and mathematics" without relying on Python terminology.
+- [ ] I can predict and verify the exact behavior of this lesson's worked example.
+- [ ] I can complete the lesson-specific boundary or extension tests above and explain the result.
+- [ ] I can recognize the three C-specific failure modes listed in this lesson and apply a correction.
+- [ ] I can navigate, compile, run, and inspect the source and output using my chosen access technology.
 ## Lesson 2.5: Using the C Math Library
 
 ### Reading References
@@ -410,25 +403,24 @@ int main(void)
 Expected output: area 78.54, circumference 31.42, and distance 5.00. Compile with `cc -std=c17 -Wall -Wextra -Wpedantic math_example.c -o math_example -lm` on systems that require explicit math-library linking.
 
 ### Common Mistakes
-- Using integer division when a fractional result is required.
-- Confusing assignment (`=`) with equality (`==`) or relying on implicit conversions.
-- Failing to validate parsed input, check conversion range, or use the correct math-library link option.
+- Forgetting `math.h` or the `-lm` linker option where needed.
+- Passing degrees to trig functions that expect radians.
+- Assuming `M_PI` is guaranteed by C17 or passing a negative value to `sqrt`.
 
 ### Activities
-1. Trace the "Using the C Math Library" example line by line and record each variable's value before and after the key operation.
-2. Apply the concept to the $24.50 bill and 15% tip, keeping unrounded calculation separate from two-decimal display.
-3. Test a normal input, a boundary input, and an invalid input; write the expected behavior before running.
-4. Change one expression or input value and explain how C's type rules affect the result.
+1. Change the radius to 2.5 and predict area and circumference.
+2. Calculate `sqrt(81.0)`, `ceil(4.2)`, and `floor(4.8)` by hand and verify.
+3. Add validated radius input and reject negative values.
 
 ### Accessibility Practice
 Read the complete source line by line and inspect the punctuation in the function calls and arithmetic expressions. Run the compile command in the terminal and read compiler or linker diagnostics sequentially. Confirm that each output label identifies its value without relying on visual formatting.
 
 ### Skills Checklist
-- [ ] I can explain "Using the C Math Library" using accurate C terminology.
-- [ ] I can trace the example and predict its observable behavior before compiling.
-- [ ] I can adapt the example to the shared student, calculator, score, or text data without introducing an out-of-bounds access or invalid state.
-- [ ] I can detect and correct at least one C-specific error relevant to this lesson.
-- [ ] I can compile, run, and inspect the source and output using my chosen access technology.
+- [ ] I can explain the C rule demonstrated by "Using the C Math Library" without relying on Python terminology.
+- [ ] I can predict and verify the exact behavior of this lesson's worked example.
+- [ ] I can complete the lesson-specific boundary or extension tests above and explain the result.
+- [ ] I can recognize the three C-specific failure modes listed in this lesson and apply a correction.
+- [ ] I can navigate, compile, run, and inspect the source and output using my chosen access technology.
 
 ---
 
@@ -467,25 +459,24 @@ int main(void)
 Expected output: `Meets the course criteria.` and `Score is not negative.`
 
 ### Common Mistakes
-- Using an incorrect boundary in a condition or loop, especially `<= count` for an array index.
-- Assuming C automatically checks array bounds or string capacity.
-- Using `&`/`|` instead of `&&`/`||`, or mishandling null terminators and character conversion.
+- Using bitwise `&`/`|` when short-circuit logical `&&`/`||` is required.
+- Reversing the score and attendance conditions.
+- Assuming true is represented only by integer 1; any nonzero value is true.
 
 ### Activities
-1. Use the "Boolean expressions" example to make a trace table showing the condition, index or string state, and output for each step.
-2. Apply the same operation to scores 82, 91, 76, and 88; explain the result for every value.
-3. Test an empty, first-element, last-element, and out-of-range case where applicable.
-4. Modify the example to handle one additional boundary condition without reading or writing outside an array.
+1. Evaluate the score/attendance condition for (82,95), (69,95), and (82,70).
+2. Create an expression where `&&` short-circuits and explain which operand is skipped.
+3. Add a test for score zero and explain C's truth-value convention.
 
 ### Accessibility Practice
 Navigate the complete source file by line, word, and character using the learner's access technology. Read punctuation and indentation, run from the terminal, and inspect standard output and errors sequentially.
 
 ### Skills Checklist
-- [ ] I can explain "Boolean expressions" using accurate C terminology.
-- [ ] I can trace the example and predict its observable behavior before compiling.
-- [ ] I can adapt the example to the shared student, calculator, score, or text data without introducing an out-of-bounds access or invalid state.
-- [ ] I can detect and correct at least one C-specific error relevant to this lesson.
-- [ ] I can compile, run, and inspect the source and output using my chosen access technology.
+- [ ] I can explain the C rule demonstrated by "Boolean expressions" without relying on Python terminology.
+- [ ] I can predict and verify the exact behavior of this lesson's worked example.
+- [ ] I can complete the lesson-specific boundary or extension tests above and explain the result.
+- [ ] I can recognize the three C-specific failure modes listed in this lesson and apply a correction.
+- [ ] I can navigate, compile, run, and inspect the source and output using my chosen access technology.
 ## Lesson 3.2: Chained conditionals
 
 ### Reading References
@@ -523,25 +514,24 @@ int main(void)
 Expected mapping: 91/A, 90/A, 82/B, 80/B, 76/C, 70/C, 60/D, 0/F; -1 and 101 are invalid (`?`).
 
 ### Common Mistakes
-- Using an incorrect boundary in a condition or loop, especially `<= count` for an array index.
-- Assuming C automatically checks array bounds or string capacity.
-- Using `&`/`|` instead of `&&`/`||`, or mishandling null terminators and character conversion.
+- Checking a lower grade boundary before a higher one and making a branch unreachable.
+- Omitting the 0–100 validity check before assigning a grade.
+- Using independent `if` statements when exactly one grade branch should run.
 
 ### Activities
-1. Use the "Chained conditionals" example to make a trace table showing the condition, index or string state, and output for each step.
-2. Apply the same operation to scores 82, 91, 76, and 88; explain the result for every value.
-3. Test an empty, first-element, last-element, and out-of-range case where applicable.
-4. Modify the example to handle one additional boundary condition without reading or writing outside an array.
+1. Run the grade function for 91, 90, 82, 80, 76, 70, 60, and 0.
+2. Add tests for 89, 79, 69, and 59 and predict the grade at each boundary.
+3. Verify that -1 and 101 are rejected rather than assigned a grade.
 
 ### Accessibility Practice
 Navigate the complete source file by line, word, and character using the learner's access technology. Read punctuation and indentation, run from the terminal, and inspect standard output and errors sequentially.
 
 ### Skills Checklist
-- [ ] I can explain "Chained conditionals" using accurate C terminology.
-- [ ] I can trace the example and predict its observable behavior before compiling.
-- [ ] I can adapt the example to the shared student, calculator, score, or text data without introducing an out-of-bounds access or invalid state.
-- [ ] I can detect and correct at least one C-specific error relevant to this lesson.
-- [ ] I can compile, run, and inspect the source and output using my chosen access technology.
+- [ ] I can explain the C rule demonstrated by "Chained conditionals" without relying on Python terminology.
+- [ ] I can predict and verify the exact behavior of this lesson's worked example.
+- [ ] I can complete the lesson-specific boundary or extension tests above and explain the result.
+- [ ] I can recognize the three C-specific failure modes listed in this lesson and apply a correction.
+- [ ] I can navigate, compile, run, and inspect the source and output using my chosen access technology.
 ## Lesson 3.3: Sequences and indexing
 
 ### Reading References
@@ -572,25 +562,24 @@ int main(void)
 Expected output: first 82, last 88, count 4, updated third score 80.
 
 ### Common Mistakes
-- Using an incorrect boundary in a condition or loop, especially `<= count` for an array index.
-- Assuming C automatically checks array bounds or string capacity.
-- Using `&`/`|` instead of `&&`/`||`, or mishandling null terminators and character conversion.
+- Accessing an array at index `count` instead of `count - 1` for its last element.
+- Assuming C performs bounds checks automatically.
+- Calculating array length after it has decayed to a pointer in a function parameter.
 
 ### Activities
-1. Use the "Sequences and indexing" example to make a trace table showing the condition, index or string state, and output for each step.
-2. Apply the same operation to scores 82, 91, 76, and 88; explain the result for every value.
-3. Test an empty, first-element, last-element, and out-of-range case where applicable.
-4. Modify the example to handle one additional boundary condition without reading or writing outside an array.
+1. Print each score with both its zero-based index and one-based position.
+2. Change the third score from 76 to 80 and verify the updated array.
+3. Explain why the valid indices for four elements are 0 through 3.
 
 ### Accessibility Practice
 Navigate the complete source file by line, word, and character using the learner's access technology. Read punctuation and indentation, run from the terminal, and inspect standard output and errors sequentially.
 
 ### Skills Checklist
-- [ ] I can explain "Sequences and indexing" using accurate C terminology.
-- [ ] I can trace the example and predict its observable behavior before compiling.
-- [ ] I can adapt the example to the shared student, calculator, score, or text data without introducing an out-of-bounds access or invalid state.
-- [ ] I can detect and correct at least one C-specific error relevant to this lesson.
-- [ ] I can compile, run, and inspect the source and output using my chosen access technology.
+- [ ] I can explain the C rule demonstrated by "Sequences and indexing" without relying on Python terminology.
+- [ ] I can predict and verify the exact behavior of this lesson's worked example.
+- [ ] I can complete the lesson-specific boundary or extension tests above and explain the result.
+- [ ] I can recognize the three C-specific failure modes listed in this lesson and apply a correction.
+- [ ] I can navigate, compile, run, and inspect the source and output using my chosen access technology.
 ## Lesson 3.4: For loops and iteration
 
 ### Reading References
@@ -621,25 +610,24 @@ int main(void)
 Expected total: 337; average: 84.25.
 
 ### Common Mistakes
-- Using an incorrect boundary in a condition or loop, especially `<= count` for an array index.
-- Assuming C automatically checks array bounds or string capacity.
-- Using `&`/`|` instead of `&&`/`||`, or mishandling null terminators and character conversion.
+- Using `i <= count` and reading beyond the final score.
+- Forgetting to update the index or updating it twice.
+- Calculating the average with integer division.
 
 ### Activities
-1. Use the "For loops and iteration" example to make a trace table showing the condition, index or string state, and output for each step.
-2. Apply the same operation to scores 82, 91, 76, and 88; explain the result for every value.
-3. Test an empty, first-element, last-element, and out-of-range case where applicable.
-4. Modify the example to handle one additional boundary condition without reading or writing outside an array.
+1. Trace the index, running total, and output for each of the four scores.
+2. Count scores greater than or equal to 80 and report the result.
+3. Calculate the average using integer division and floating-point division; compare.
 
 ### Accessibility Practice
 Navigate the complete source file by line, word, and character using the learner's access technology. Read punctuation and indentation, run from the terminal, and inspect standard output and errors sequentially.
 
 ### Skills Checklist
-- [ ] I can explain "For loops and iteration" using accurate C terminology.
-- [ ] I can trace the example and predict its observable behavior before compiling.
-- [ ] I can adapt the example to the shared student, calculator, score, or text data without introducing an out-of-bounds access or invalid state.
-- [ ] I can detect and correct at least one C-specific error relevant to this lesson.
-- [ ] I can compile, run, and inspect the source and output using my chosen access technology.
+- [ ] I can explain the C rule demonstrated by "For loops and iteration" without relying on Python terminology.
+- [ ] I can predict and verify the exact behavior of this lesson's worked example.
+- [ ] I can complete the lesson-specific boundary or extension tests above and explain the result.
+- [ ] I can recognize the three C-specific failure modes listed in this lesson and apply a correction.
+- [ ] I can navigate, compile, run, and inspect the source and output using my chosen access technology.
 ## Lesson 3.5: String operations
 
 ### Reading References
@@ -674,25 +662,24 @@ int main(void)
 Expected byte length: 75; substring result: yes. The cast to `unsigned char` is required for safe use of `tolower`.
 
 ### Common Mistakes
-- Using an incorrect boundary in a condition or loop, especially `<= count` for an array index.
-- Assuming C automatically checks array bounds or string capacity.
-- Using `&`/`|` instead of `&&`/`||`, or mishandling null terminators and character conversion.
+- Writing a lowercase result into a buffer without space for the null terminator.
+- Passing a negative plain `char` to `tolower` rather than an `unsigned char` value.
+- Assuming byte length from `strlen` equals Unicode character count.
 
 ### Activities
-1. Use the "String operations" example to make a trace table showing the condition, index or string state, and output for each step.
-2. Apply the same operation to scores 82, 91, 76, and 88; explain the result for every value.
-3. Test an empty, first-element, last-element, and out-of-range case where applicable.
-4. Modify the example to handle one additional boundary condition without reading or writing outside an array.
+1. Print the byte length and lowercase form of the canonical text sample.
+2. Count occurrences of `programming` and test a missing substring.
+3. Add a non-ASCII UTF-8 character and explain why byte length is not character count.
 
 ### Accessibility Practice
 Navigate the complete source file by line, word, and character using the learner's access technology. Read punctuation and indentation, run from the terminal, and inspect standard output and errors sequentially.
 
 ### Skills Checklist
-- [ ] I can explain "String operations" using accurate C terminology.
-- [ ] I can trace the example and predict its observable behavior before compiling.
-- [ ] I can adapt the example to the shared student, calculator, score, or text data without introducing an out-of-bounds access or invalid state.
-- [ ] I can detect and correct at least one C-specific error relevant to this lesson.
-- [ ] I can compile, run, and inspect the source and output using my chosen access technology.
+- [ ] I can explain the C rule demonstrated by "String operations" without relying on Python terminology.
+- [ ] I can predict and verify the exact behavior of this lesson's worked example.
+- [ ] I can complete the lesson-specific boundary or extension tests above and explain the result.
+- [ ] I can recognize the three C-specific failure modes listed in this lesson and apply a correction.
+- [ ] I can navigate, compile, run, and inspect the source and output using my chosen access technology.
 ## Lesson 4.1: Mutable sequences
 
 ### Reading References
@@ -723,25 +710,24 @@ int main(void)
 Expected output: `Count: 6; last: 84`. The array has capacity 8 and currently contains 6 values; do not confuse capacity with count.
 
 ### Common Mistakes
-- Confusing an array's capacity with its current element count.
-- Using an unsafe comparator or failing to preserve the association between fields in a record.
-- Assuming C has built-in dictionaries, immutable tuples, or automatic deep copies of pointer members.
+- Treating array capacity as the number of currently valid elements.
+- Appending after capacity is exhausted.
+- Overwriting the original pointer with a failed `realloc` result.
 
 ### Activities
-1. Extend the "Mutable sequences" example with the shared inventory records Notebook, Pencil, and Folder.
-2. Track the number of valid records separately from the array's declared capacity.
-3. Test an empty collection, one record, repeated values, and a missing key or unavailable slot.
-4. Explain what memory is copied, referenced, modified, or owned after each operation.
+1. Append 95 and 84 while tracking count separately from capacity.
+2. Attempt to append beyond capacity and design a safe rejection or growth policy.
+3. Sketch a `realloc` helper that checks failure without losing the original pointer.
 
 ### Accessibility Practice
 Navigate the complete source file by line, word, and character using the learner's access technology. Read punctuation and indentation, run from the terminal, and inspect standard output and errors sequentially.
 
 ### Skills Checklist
-- [ ] I can explain "Mutable sequences" using accurate C terminology.
-- [ ] I can trace the example and predict its observable behavior before compiling.
-- [ ] I can adapt the example to the shared score, inventory, or record data without introducing an out-of-bounds access or invalid state.
-- [ ] I can detect and correct at least one C-specific error relevant to this lesson.
-- [ ] I can compile, run, and inspect the source and output using my chosen access technology.
+- [ ] I can explain the C rule demonstrated by "Mutable sequences" without relying on Python terminology.
+- [ ] I can predict and verify the exact behavior of this lesson's worked example.
+- [ ] I can complete the lesson-specific boundary or extension tests above and explain the result.
+- [ ] I can recognize the three C-specific failure modes listed in this lesson and apply a correction.
+- [ ] I can navigate, compile, run, and inspect the source and output using my chosen access technology.
 ## Lesson 4.2: Sorting and organizing data
 
 ### Reading References
@@ -778,25 +764,24 @@ int main(void)
 Expected ascending order: 76 82 88 91. Reverse traversal prints descending order.
 
 ### Common Mistakes
-- Confusing an array's capacity with its current element count.
-- Using an unsafe comparator or failing to preserve the association between fields in a record.
-- Assuming C has built-in dictionaries, immutable tuples, or automatic deep copies of pointer members.
+- Returning `a - b` from a comparator, which can overflow.
+- Returning inconsistent results for equal values.
+- Sorting only keys and accidentally separating them from their inventory record fields.
 
 ### Activities
-1. Extend the "Sorting and organizing data" example with the shared inventory records Notebook, Pencil, and Folder.
-2. Track the number of valid records separately from the array's declared capacity.
-3. Test an empty collection, one record, repeated values, and a missing key or unavailable slot.
-4. Explain what memory is copied, referenced, modified, or owned after each operation.
+1. Sort scores and verify the order 76, 82, 88, 91.
+2. Change the comparator to descending order and test equal values.
+3. Sort inventory records by quantity without separating fields from their item.
 
 ### Accessibility Practice
 Navigate the complete source file by line, word, and character using the learner's access technology. Read punctuation and indentation, run from the terminal, and inspect standard output and errors sequentially.
 
 ### Skills Checklist
-- [ ] I can explain "Sorting and organizing data" using accurate C terminology.
-- [ ] I can trace the example and predict its observable behavior before compiling.
-- [ ] I can adapt the example to the shared score, inventory, or record data without introducing an out-of-bounds access or invalid state.
-- [ ] I can detect and correct at least one C-specific error relevant to this lesson.
-- [ ] I can compile, run, and inspect the source and output using my chosen access technology.
+- [ ] I can explain the C rule demonstrated by "Sorting and organizing data" without relying on Python terminology.
+- [ ] I can predict and verify the exact behavior of this lesson's worked example.
+- [ ] I can complete the lesson-specific boundary or extension tests above and explain the result.
+- [ ] I can recognize the three C-specific failure modes listed in this lesson and apply a correction.
+- [ ] I can navigate, compile, run, and inspect the source and output using my chosen access technology.
 ## Lesson 4.3: Immutable records
 
 ### Reading References
@@ -825,25 +810,24 @@ int main(void)
 Expected output: x: 3 and y: 4. `const` prevents modifying the fields through this object.
 
 ### Common Mistakes
-- Confusing an array's capacity with its current element count.
-- Using an unsafe comparator or failing to preserve the association between fields in a record.
-- Assuming C has built-in dictionaries, immutable tuples, or automatic deep copies of pointer members.
+- Assuming C structs are immutable without `const`.
+- Assuming copying a struct containing pointers also copies the pointed-to data.
+- Relying on positional initializers when field order is unclear.
 
 ### Activities
-1. Extend the "Immutable records" example with the shared inventory records Notebook, Pencil, and Folder.
-2. Track the number of valid records separately from the array's declared capacity.
-3. Test an empty collection, one record, repeated values, and a missing key or unavailable slot.
-4. Explain what memory is copied, referenced, modified, or owned after each operation.
+1. Create a `Point` record for coordinates (3,4) and calculate its distance.
+2. Compare designated and positional initialization for the same record.
+3. Add a pointer member and explain why a struct copy is not a deep copy.
 
 ### Accessibility Practice
 Navigate the complete source file by line, word, and character using the learner's access technology. Read punctuation and indentation, run from the terminal, and inspect standard output and errors sequentially.
 
 ### Skills Checklist
-- [ ] I can explain "Immutable records" using accurate C terminology.
-- [ ] I can trace the example and predict its observable behavior before compiling.
-- [ ] I can adapt the example to the shared score, inventory, or record data without introducing an out-of-bounds access or invalid state.
-- [ ] I can detect and correct at least one C-specific error relevant to this lesson.
-- [ ] I can compile, run, and inspect the source and output using my chosen access technology.
+- [ ] I can explain the C rule demonstrated by "Immutable records" without relying on Python terminology.
+- [ ] I can predict and verify the exact behavior of this lesson's worked example.
+- [ ] I can complete the lesson-specific boundary or extension tests above and explain the result.
+- [ ] I can recognize the three C-specific failure modes listed in this lesson and apply a correction.
+- [ ] I can navigate, compile, run, and inspect the source and output using my chosen access technology.
 ## Lesson 4.4: Maps and key-value data
 
 ### Reading References
@@ -873,25 +857,24 @@ int main(void)
 Expected records: Notebook 3 at $2.50; Pencil 10 at $0.50; Folder 4 at $1.25.
 
 ### Common Mistakes
-- Confusing an array's capacity with its current element count.
-- Using an unsafe comparator or failing to preserve the association between fields in a record.
-- Assuming C has built-in dictionaries, immutable tuples, or automatic deep copies of pointer members.
+- Expecting a built-in C dictionary or hash map.
+- Comparing string keys with `==` instead of `strcmp`.
+- Using a search result without checking for the not-found case.
 
 ### Activities
-1. Extend the "Maps and key-value data" example with the shared inventory records Notebook, Pencil, and Folder.
-2. Track the number of valid records separately from the array's declared capacity.
-3. Test an empty collection, one record, repeated values, and a missing key or unavailable slot.
-4. Explain what memory is copied, referenced, modified, or owned after each operation.
+1. Search the inventory for `Pencil` and display quantity and unit price.
+2. Search for a missing key and report not found without using an invalid index.
+3. Explain when an array scan becomes inefficient and a hash table is justified.
 
 ### Accessibility Practice
 Navigate the complete source file by line, word, and character using the learner's access technology. Read punctuation and indentation, run from the terminal, and inspect standard output and errors sequentially.
 
 ### Skills Checklist
-- [ ] I can explain "Maps and key-value data" using accurate C terminology.
-- [ ] I can trace the example and predict its observable behavior before compiling.
-- [ ] I can adapt the example to the shared score, inventory, or record data without introducing an out-of-bounds access or invalid state.
-- [ ] I can detect and correct at least one C-specific error relevant to this lesson.
-- [ ] I can compile, run, and inspect the source and output using my chosen access technology.
+- [ ] I can explain the C rule demonstrated by "Maps and key-value data" without relying on Python terminology.
+- [ ] I can predict and verify the exact behavior of this lesson's worked example.
+- [ ] I can complete the lesson-specific boundary or extension tests above and explain the result.
+- [ ] I can recognize the three C-specific failure modes listed in this lesson and apply a correction.
+- [ ] I can navigate, compile, run, and inspect the source and output using my chosen access technology.
 ## Lesson 4.5: Collection traversal
 
 ### Reading References
@@ -924,25 +907,24 @@ int main(void)
 Expected inventory values: $7.50, $5.00, and $5.00.
 
 ### Common Mistakes
-- Confusing an array's capacity with its current element count.
-- Using an unsafe comparator or failing to preserve the association between fields in a record.
-- Assuming C has built-in dictionaries, immutable tuples, or automatic deep copies of pointer members.
+- Passing an array without its count to a function.
+- Using `.` on a pointer or `->` on a non-pointer object.
+- Returning a pointer to a local record that no longer exists.
 
 ### Activities
-1. Extend the "Collection traversal" example with the shared inventory records Notebook, Pencil, and Folder.
-2. Track the number of valid records separately from the array's declared capacity.
-3. Test an empty collection, one record, repeated values, and a missing key or unavailable slot.
-4. Explain what memory is copied, referenced, modified, or owned after each operation.
+1. Print all inventory items and calculate each quantity-times-price value.
+2. Write a helper that receives a `const Item *` and explain the `->` operator.
+3. Test the function with zero items and with all three inventory records.
 
 ### Accessibility Practice
 Navigate the complete source file by line, word, and character using the learner's access technology. Read punctuation and indentation, run from the terminal, and inspect standard output and errors sequentially.
 
 ### Skills Checklist
-- [ ] I can explain "Collection traversal" using accurate C terminology.
-- [ ] I can trace the example and predict its observable behavior before compiling.
-- [ ] I can adapt the example to the shared score, inventory, or record data without introducing an out-of-bounds access or invalid state.
-- [ ] I can detect and correct at least one C-specific error relevant to this lesson.
-- [ ] I can compile, run, and inspect the source and output using my chosen access technology.
+- [ ] I can explain the C rule demonstrated by "Collection traversal" without relying on Python terminology.
+- [ ] I can predict and verify the exact behavior of this lesson's worked example.
+- [ ] I can complete the lesson-specific boundary or extension tests above and explain the result.
+- [ ] I can recognize the three C-specific failure modes listed in this lesson and apply a correction.
+- [ ] I can navigate, compile, run, and inspect the source and output using my chosen access technology.
 ## Lesson 5.1: Input and validation
 
 ### Reading References
@@ -981,25 +963,24 @@ int main(void)
 For input 82, output is `Accepted score: 82`; invalid values cause another prompt.
 
 ### Common Mistakes
-- Accepting partially parsed numeric input without checking trailing characters.
-- Failing to update loop state or handling a sentinel inconsistently.
-- Using `break` or `continue` at the wrong nesting level and changing loop behavior unexpectedly.
+- Accepting `82abc` as a valid score because `strtol` parsed the numeric prefix.
+- Failing to reject values outside 0–100 or detect overflow.
+- Treating blank input or end-of-file as a valid score.
 
 ### Activities
-1. Trace the "Input and validation" example with inputs 82, 91, and -1, recording the loop state after each iteration where relevant.
-2. Add an invalid token, blank line, or boundary value and define how the program recovers.
-3. Test the zero-iteration case and a case that exits through a match, sentinel, or explicit break.
-4. Draw a control-flow outline and identify every path that updates state or terminates the loop.
+1. Verify that 0, 82, and 100 are accepted as scores.
+2. Verify that -1, 101, blank input, and `82abc` are rejected.
+3. Test a value outside the range of `long` and check overflow handling.
 
 ### Accessibility Practice
 Navigate the complete source file by line, word, and character using the learner's access technology. Read punctuation and indentation, run from the terminal, and inspect standard output and errors sequentially.
 
 ### Skills Checklist
-- [ ] I can explain "Input and validation" using accurate C terminology.
-- [ ] I can trace the example and predict its observable behavior before compiling.
-- [ ] I can adapt the example to the shared score, inventory, or record data without introducing an out-of-bounds access or invalid state.
-- [ ] I can detect and correct at least one C-specific error relevant to this lesson.
-- [ ] I can compile, run, and inspect the source and output using my chosen access technology.
+- [ ] I can explain the C rule demonstrated by "Input and validation" without relying on Python terminology.
+- [ ] I can predict and verify the exact behavior of this lesson's worked example.
+- [ ] I can complete the lesson-specific boundary or extension tests above and explain the result.
+- [ ] I can recognize the three C-specific failure modes listed in this lesson and apply a correction.
+- [ ] I can navigate, compile, run, and inspect the source and output using my chosen access technology.
 ## Lesson 5.2: While loops
 
 ### Reading References
@@ -1032,25 +1013,24 @@ int main(void)
 For input 82, 91, -1, the running totals are 82 and 173; final total is 173. This compact example assumes integer tokens; the previous lesson's `fgets` parser is safer for robust input.
 
 ### Common Mistakes
-- Accepting partially parsed numeric input without checking trailing characters.
-- Failing to update loop state or handling a sentinel inconsistently.
-- Using `break` or `continue` at the wrong nesting level and changing loop behavior unexpectedly.
+- Failing to update the sentinel-controlled loop state.
+- Ignoring `scanf`'s return value and repeatedly processing an invalid token.
+- Choosing a sentinel that could also be a legitimate score without documenting the rule.
 
 ### Activities
-1. Trace the "While loops" example with inputs 82, 91, and -1, recording the loop state after each iteration where relevant.
-2. Add an invalid token, blank line, or boundary value and define how the program recovers.
-3. Test the zero-iteration case and a case that exits through a match, sentinel, or explicit break.
-4. Draw a control-flow outline and identify every path that updates state or terminates the loop.
+1. Enter 82, 91, and -1 and trace the running total after each accepted score.
+2. Enter -1 first and verify that the final total is zero.
+3. Enter a nonnumeric token and explain why the unchecked `scanf` loop is not robust.
 
 ### Accessibility Practice
 Navigate the complete source file by line, word, and character using the learner's access technology. Read punctuation and indentation, run from the terminal, and inspect standard output and errors sequentially.
 
 ### Skills Checklist
-- [ ] I can explain "While loops" using accurate C terminology.
-- [ ] I can trace the example and predict its observable behavior before compiling.
-- [ ] I can adapt the example to the shared score, inventory, or record data without introducing an out-of-bounds access or invalid state.
-- [ ] I can detect and correct at least one C-specific error relevant to this lesson.
-- [ ] I can compile, run, and inspect the source and output using my chosen access technology.
+- [ ] I can explain the C rule demonstrated by "While loops" without relying on Python terminology.
+- [ ] I can predict and verify the exact behavior of this lesson's worked example.
+- [ ] I can complete the lesson-specific boundary or extension tests above and explain the result.
+- [ ] I can recognize the three C-specific failure modes listed in this lesson and apply a correction.
+- [ ] I can navigate, compile, run, and inspect the source and output using my chosen access technology.
 ## Lesson 5.3: Flags and break
 
 ### Reading References
@@ -1082,25 +1062,24 @@ int main(void)
 Expected output: `Score found.` Change the search value to 100 to exercise the not-found path.
 
 ### Common Mistakes
-- Accepting partially parsed numeric input without checking trailing characters.
-- Failing to update loop state or handling a sentinel inconsistently.
-- Using `break` or `continue` at the wrong nesting level and changing loop behavior unexpectedly.
+- Setting the found flag before the equality test.
+- Forgetting to set the flag when the target is found.
+- Breaking out of the wrong loop in a nested search.
 
 ### Activities
-1. Trace the "Flags and break" example with inputs 82, 91, and -1, recording the loop state after each iteration where relevant.
-2. Add an invalid token, blank line, or boundary value and define how the program recovers.
-3. Test the zero-iteration case and a case that exits through a match, sentinel, or explicit break.
-4. Draw a control-flow outline and identify every path that updates state or terminates the loop.
+1. Search for 76 and trace when the flag changes and when the loop breaks.
+2. Search for 100 and verify the not-found branch.
+3. Rewrite the search as a function returning the matching index or -1.
 
 ### Accessibility Practice
 Navigate the complete source file by line, word, and character using the learner's access technology. Read punctuation and indentation, run from the terminal, and inspect standard output and errors sequentially.
 
 ### Skills Checklist
-- [ ] I can explain "Flags and break" using accurate C terminology.
-- [ ] I can trace the example and predict its observable behavior before compiling.
-- [ ] I can adapt the example to the shared score, inventory, or record data without introducing an out-of-bounds access or invalid state.
-- [ ] I can detect and correct at least one C-specific error relevant to this lesson.
-- [ ] I can compile, run, and inspect the source and output using my chosen access technology.
+- [ ] I can explain the C rule demonstrated by "Flags and break" without relying on Python terminology.
+- [ ] I can predict and verify the exact behavior of this lesson's worked example.
+- [ ] I can complete the lesson-specific boundary or extension tests above and explain the result.
+- [ ] I can recognize the three C-specific failure modes listed in this lesson and apply a correction.
+- [ ] I can navigate, compile, run, and inspect the source and output using my chosen access technology.
 ## Lesson 5.4: Continue and filtering
 
 ### Reading References
@@ -1131,25 +1110,24 @@ int main(void)
 Expected output: Passing score: 82, 91, and 88, each on its own line.
 
 ### Common Mistakes
-- Accepting partially parsed numeric input without checking trailing characters.
-- Failing to update loop state or handling a sentinel inconsistently.
-- Using `break` or `continue` at the wrong nesting level and changing loop behavior unexpectedly.
+- Printing a score before applying the filter condition.
+- Skipping a required state update with `continue` in a `while` loop.
+- Using `< 80` when the intended filter is `>= 80`.
 
 ### Activities
-1. Trace the "Continue and filtering" example with inputs 82, 91, and -1, recording the loop state after each iteration where relevant.
-2. Add an invalid token, blank line, or boundary value and define how the program recovers.
-3. Test the zero-iteration case and a case that exits through a match, sentinel, or explicit break.
-4. Draw a control-flow outline and identify every path that updates state or terminates the loop.
+1. Filter the scores and print only values greater than or equal to 80.
+2. Change the threshold to 90 and predict the remaining values.
+3. Rewrite the loop without `continue` and compare the trace.
 
 ### Accessibility Practice
 Navigate the complete source file by line, word, and character using the learner's access technology. Read punctuation and indentation, run from the terminal, and inspect standard output and errors sequentially.
 
 ### Skills Checklist
-- [ ] I can explain "Continue and filtering" using accurate C terminology.
-- [ ] I can trace the example and predict its observable behavior before compiling.
-- [ ] I can adapt the example to the shared score, inventory, or record data without introducing an out-of-bounds access or invalid state.
-- [ ] I can detect and correct at least one C-specific error relevant to this lesson.
-- [ ] I can compile, run, and inspect the source and output using my chosen access technology.
+- [ ] I can explain the C rule demonstrated by "Continue and filtering" without relying on Python terminology.
+- [ ] I can predict and verify the exact behavior of this lesson's worked example.
+- [ ] I can complete the lesson-specific boundary or extension tests above and explain the result.
+- [ ] I can recognize the three C-specific failure modes listed in this lesson and apply a correction.
+- [ ] I can navigate, compile, run, and inspect the source and output using my chosen access technology.
 ## Lesson 5.5: Infinite-loop prevention
 
 ### Reading References
@@ -1181,25 +1159,24 @@ int main(void)
 Expected output: 3, 2, 1, then Finished. Removing `--remaining` creates a non-terminating loop; diagnose it by tracing the condition and state.
 
 ### Common Mistakes
-- Accepting partially parsed numeric input without checking trailing characters.
-- Failing to update loop state or handling a sentinel inconsistently.
-- Using `break` or `continue` at the wrong nesting level and changing loop behavior unexpectedly.
+- Leaving the variable in the loop condition unchanged.
+- Moving the counter in the wrong direction or using a condition that cannot become false.
+- Failing to trace early exits, EOF, and break conditions.
 
 ### Activities
-1. Trace the "Infinite-loop prevention" example with inputs 82, 91, and -1, recording the loop state after each iteration where relevant.
-2. Add an invalid token, blank line, or boundary value and define how the program recovers.
-3. Test the zero-iteration case and a case that exits through a match, sentinel, or explicit break.
-4. Draw a control-flow outline and identify every path that updates state or terminates the loop.
+1. Trace `remaining` from 3 to 0 and identify the terminating condition.
+2. Remove the decrement in a disposable copy and explain why it loops indefinitely.
+3. Add a maximum-iteration safeguard to a loop that processes untrusted input.
 
 ### Accessibility Practice
 Navigate the complete source file by line, word, and character using the learner's access technology. Read punctuation and indentation, run from the terminal, and inspect standard output and errors sequentially.
 
 ### Skills Checklist
-- [ ] I can explain "Infinite-loop prevention" using accurate C terminology.
-- [ ] I can trace the example and predict its observable behavior before compiling.
-- [ ] I can adapt the example to the shared score, inventory, or record data without introducing an out-of-bounds access or invalid state.
-- [ ] I can detect and correct at least one C-specific error relevant to this lesson.
-- [ ] I can compile, run, and inspect the source and output using my chosen access technology.
+- [ ] I can explain the C rule demonstrated by "Infinite-loop prevention" without relying on Python terminology.
+- [ ] I can predict and verify the exact behavior of this lesson's worked example.
+- [ ] I can complete the lesson-specific boundary or extension tests above and explain the result.
+- [ ] I can recognize the three C-specific failure modes listed in this lesson and apply a correction.
+- [ ] I can navigate, compile, run, and inspect the source and output using my chosen access technology.
 ## Lesson 6.1: Defining functions
 
 ### Reading References
@@ -1231,25 +1208,24 @@ int main(void)
 Expected tip display: $3.68. The function returns a value and does not print it itself.
 
 ### Common Mistakes
-- Calling a function without a visible prototype or missing a return path.
-- Assuming ordinary C arguments are passed by reference.
-- Passing an array without its count or mismatching variadic argument types.
+- Calling a function before its prototype is visible.
+- Declaring a non-void function but failing to return a value on every path.
+- Combining calculation and printing so the function cannot be reused by another caller.
 
 ### Activities
-1. Refactor part of the "Defining functions" example into a function with a documented parameter and return contract.
-2. Use the shared score array 82, 91, 76, and 88 to test ordinary and empty inputs.
-3. Test a caller that passes valid data and a caller that passes a boundary or invalid count.
-4. Explain which values are copied, which objects can be modified through pointers, and who owns each object.
+1. Write `calculate_tip` and call it for a $24.50 bill at 15%.
+2. Move the function below `main` and add a correct prototype.
+3. Separate calculation from printing so a second caller can reuse the result.
 
 ### Accessibility Practice
 Navigate the complete source file by line, word, and character using the learner's access technology. Read punctuation and indentation, run from the terminal, and inspect standard output and errors sequentially.
 
 ### Skills Checklist
-- [ ] I can explain "Defining functions" using accurate C terminology.
-- [ ] I can trace the example and predict its observable behavior before compiling.
-- [ ] I can adapt the example to the shared score, inventory, or record data without introducing an out-of-bounds access or invalid state.
-- [ ] I can detect and correct at least one C-specific error relevant to this lesson.
-- [ ] I can compile, run, and inspect the source and output using my chosen access technology.
+- [ ] I can explain the C rule demonstrated by "Defining functions" without relying on Python terminology.
+- [ ] I can predict and verify the exact behavior of this lesson's worked example.
+- [ ] I can complete the lesson-specific boundary or extension tests above and explain the result.
+- [ ] I can recognize the three C-specific failure modes listed in this lesson and apply a correction.
+- [ ] I can navigate, compile, run, and inspect the source and output using my chosen access technology.
 ## Lesson 6.2: Parameters and arguments
 
 ### Reading References
@@ -1280,25 +1256,24 @@ int main(void)
 Expected total display: $28.18. Swap the two arguments and explain why the result changes; C uses positional arguments.
 
 ### Common Mistakes
-- Calling a function without a visible prototype or missing a return path.
-- Assuming ordinary C arguments are passed by reference.
-- Passing an array without its count or mismatching variadic argument types.
+- Assuming C passes ordinary arguments by reference.
+- Swapping positional arguments with the same type and expecting the compiler to detect intent.
+- Passing a pointer where the function expects a value or vice versa.
 
 ### Activities
-1. Refactor part of the "Parameters and arguments" example into a function with a documented parameter and return contract.
-2. Use the shared score array 82, 91, 76, and 88 to test ordinary and empty inputs.
-3. Test a caller that passes valid data and a caller that passes a boundary or invalid count.
-4. Explain which values are copied, which objects can be modified through pointers, and who owns each object.
+1. Call `total_with_tip(24.50, 0.15)` and predict the output.
+2. Swap the arguments and explain why C cannot infer their semantic roles when types match.
+3. Write a second function that modifies a caller's integer through a pointer.
 
 ### Accessibility Practice
 Navigate the complete source file by line, word, and character using the learner's access technology. Read punctuation and indentation, run from the terminal, and inspect standard output and errors sequentially.
 
 ### Skills Checklist
-- [ ] I can explain "Parameters and arguments" using accurate C terminology.
-- [ ] I can trace the example and predict its observable behavior before compiling.
-- [ ] I can adapt the example to the shared score, inventory, or record data without introducing an out-of-bounds access or invalid state.
-- [ ] I can detect and correct at least one C-specific error relevant to this lesson.
-- [ ] I can compile, run, and inspect the source and output using my chosen access technology.
+- [ ] I can explain the C rule demonstrated by "Parameters and arguments" without relying on Python terminology.
+- [ ] I can predict and verify the exact behavior of this lesson's worked example.
+- [ ] I can complete the lesson-specific boundary or extension tests above and explain the result.
+- [ ] I can recognize the three C-specific failure modes listed in this lesson and apply a correction.
+- [ ] I can navigate, compile, run, and inspect the source and output using my chosen access technology.
 ## Lesson 6.3: Return values
 
 ### Reading References
@@ -1332,25 +1307,24 @@ int main(void)
 Expected total: 337. The function receives the array pointer and its length separately.
 
 ### Common Mistakes
-- Calling a function without a visible prototype or missing a return path.
-- Assuming ordinary C arguments are passed by reference.
-- Passing an array without its count or mismatching variadic argument types.
+- Omitting a return on one control-flow path.
+- Returning a pointer to a local automatic variable.
+- Returning a value that is silently converted to an unintended type.
 
 ### Activities
-1. Refactor part of the "Return values" example into a function with a documented parameter and return contract.
-2. Use the shared score array 82, 91, 76, and 88 to test ordinary and empty inputs.
-3. Test a caller that passes valid data and a caller that passes a boundary or invalid count.
-4. Explain which values are copied, which objects can be modified through pointers, and who owns each object.
+1. Call the score-summing function with the shared four values and verify 337.
+2. Test a one-element array and an empty collection.
+3. Add an average function and define behavior for count zero.
 
 ### Accessibility Practice
 Navigate the complete source file by line, word, and character using the learner's access technology. Read punctuation and indentation, run from the terminal, and inspect standard output and errors sequentially.
 
 ### Skills Checklist
-- [ ] I can explain "Return values" using accurate C terminology.
-- [ ] I can trace the example and predict its observable behavior before compiling.
-- [ ] I can adapt the example to the shared score, inventory, or record data without introducing an out-of-bounds access or invalid state.
-- [ ] I can detect and correct at least one C-specific error relevant to this lesson.
-- [ ] I can compile, run, and inspect the source and output using my chosen access technology.
+- [ ] I can explain the C rule demonstrated by "Return values" without relying on Python terminology.
+- [ ] I can predict and verify the exact behavior of this lesson's worked example.
+- [ ] I can complete the lesson-specific boundary or extension tests above and explain the result.
+- [ ] I can recognize the three C-specific failure modes listed in this lesson and apply a correction.
+- [ ] I can navigate, compile, run, and inspect the source and output using my chosen access technology.
 ## Lesson 6.4: Functions over collections
 
 ### Reading References
@@ -1384,25 +1358,24 @@ int main(void)
 Expected average: 84.25. Add a separate function that searches the inventory array by item name.
 
 ### Common Mistakes
-- Calling a function without a visible prototype or missing a return path.
-- Assuming ordinary C arguments are passed by reference.
-- Passing an array without its count or mismatching variadic argument types.
+- Assuming an array parameter carries its length.
+- Passing a count larger than the actual array.
+- Dividing by zero for an empty collection without defining a result.
 
 ### Activities
-1. Refactor part of the "Functions over collections" example into a function with a documented parameter and return contract.
-2. Use the shared score array 82, 91, 76, and 88 to test ordinary and empty inputs.
-3. Test a caller that passes valid data and a caller that passes a boundary or invalid count.
-4. Explain which values are copied, which objects can be modified through pointers, and who owns each object.
+1. Calculate the average of the shared scores using the array-plus-count interface.
+2. Test count zero and document the function's defined result.
+3. Add a maximum function and test one-element and repeated-maximum arrays.
 
 ### Accessibility Practice
 Navigate the complete source file by line, word, and character using the learner's access technology. Read punctuation and indentation, run from the terminal, and inspect standard output and errors sequentially.
 
 ### Skills Checklist
-- [ ] I can explain "Functions over collections" using accurate C terminology.
-- [ ] I can trace the example and predict its observable behavior before compiling.
-- [ ] I can adapt the example to the shared score, inventory, or record data without introducing an out-of-bounds access or invalid state.
-- [ ] I can detect and correct at least one C-specific error relevant to this lesson.
-- [ ] I can compile, run, and inspect the source and output using my chosen access technology.
+- [ ] I can explain the C rule demonstrated by "Functions over collections" without relying on Python terminology.
+- [ ] I can predict and verify the exact behavior of this lesson's worked example.
+- [ ] I can complete the lesson-specific boundary or extension tests above and explain the result.
+- [ ] I can recognize the three C-specific failure modes listed in this lesson and apply a correction.
+- [ ] I can navigate, compile, run, and inspect the source and output using my chosen access technology.
 ## Lesson 6.5: Scope and variadic arguments
 
 ### Reading References
@@ -1439,25 +1412,24 @@ int main(void)
 Expected sum: 337. The caller must pass the correct count and types; variadic arguments are not type-checked by the function signature.
 
 ### Common Mistakes
-- Calling a function without a visible prototype or missing a return path.
-- Assuming ordinary C arguments are passed by reference.
-- Passing an array without its count or mismatching variadic argument types.
+- Using a block-local variable outside its scope.
+- Passing the wrong promoted type to `va_arg`.
+- Forgetting `va_end` or passing a variadic count inconsistent with the arguments.
 
 ### Activities
-1. Refactor part of the "Scope and variadic arguments" example into a function with a documented parameter and return contract.
-2. Use the shared score array 82, 91, 76, and 88 to test ordinary and empty inputs.
-3. Test a caller that passes valid data and a caller that passes a boundary or invalid count.
-4. Explain which values are copied, which objects can be modified through pointers, and who owns each object.
+1. Move a variable into a nested block and test its scope.
+2. Call the variadic sum with the four shared scores and verify 337.
+3. Replace the variadic interface with an array-plus-count function and compare type safety.
 
 ### Accessibility Practice
 Navigate the complete source file by line, word, and character using the learner's access technology. Read punctuation and indentation, run from the terminal, and inspect standard output and errors sequentially.
 
 ### Skills Checklist
-- [ ] I can explain "Scope and variadic arguments" using accurate C terminology.
-- [ ] I can trace the example and predict its observable behavior before compiling.
-- [ ] I can adapt the example to the shared score, inventory, or record data without introducing an out-of-bounds access or invalid state.
-- [ ] I can detect and correct at least one C-specific error relevant to this lesson.
-- [ ] I can compile, run, and inspect the source and output using my chosen access technology.
+- [ ] I can explain the C rule demonstrated by "Scope and variadic arguments" without relying on Python terminology.
+- [ ] I can predict and verify the exact behavior of this lesson's worked example.
+- [ ] I can complete the lesson-specific boundary or extension tests above and explain the result.
+- [ ] I can recognize the three C-specific failure modes listed in this lesson and apply a correction.
+- [ ] I can navigate, compile, run, and inspect the source and output using my chosen access technology.
 ## Lesson 7.1: Types and object models
 
 ### Reading References
@@ -1483,25 +1455,24 @@ typedef struct {
 This record models one inventory item with the same fields used throughout the course: name, quantity, and unit price. A C struct stores fields; it does not automatically provide constructors, methods, or memory management.
 
 ### Common Mistakes
-- Treating a C struct as a class with automatic methods, constructors, or inheritance.
-- Confusing `.` and `->` member access.
-- Failing to define pointer ownership, object lifetime, or capacity invariants.
+- Describing a C struct as a class with built-in methods and constructors.
+- Failing to separate public declarations from implementation details in headers and source files.
+- Using pointer fields without documenting ownership and lifetime.
 
 ### Activities
-1. Model one shared inventory item with a struct containing name, quantity, and unit price.
-2. Create two instances and demonstrate how initialization and mutation affect each one.
-3. Add a helper function that accepts a pointer to a record; use `const` if it should only inspect data.
-4. Document whether pointer members are owned or borrowed and how long their referenced data remains valid.
+1. Define an `Item` struct with name, quantity, and unit price.
+2. Move the declaration into a header and include it from a source file.
+3. Explain why C structs group fields but do not supply methods or automatic constructors.
 
 ### Accessibility Practice
 Navigate the complete source file by line, word, and character using the learner's access technology. Read punctuation and indentation, run from the terminal, and inspect standard output and errors sequentially.
 
 ### Skills Checklist
-- [ ] I can explain "Types and object models" using accurate C terminology.
-- [ ] I can trace the example and predict its observable behavior before compiling.
-- [ ] I can adapt the example to the shared score, inventory, or record data without introducing an out-of-bounds access or invalid state.
-- [ ] I can detect and correct at least one C-specific error relevant to this lesson.
-- [ ] I can compile, run, and inspect the source and output using my chosen access technology.
+- [ ] I can explain the C rule demonstrated by "Types and object models" without relying on Python terminology.
+- [ ] I can predict and verify the exact behavior of this lesson's worked example.
+- [ ] I can complete the lesson-specific boundary or extension tests above and explain the result.
+- [ ] I can recognize the three C-specific failure modes listed in this lesson and apply a correction.
+- [ ] I can navigate, compile, run, and inspect the source and output using my chosen access technology.
 ## Lesson 7.2: Creating instances
 
 ### Reading References
@@ -1531,25 +1502,24 @@ int main(void)
 Expected output: Notebook: 3; Pencil: 10. The two variables are separate struct instances.
 
 ### Common Mistakes
-- Treating a C struct as a class with automatic methods, constructors, or inheritance.
-- Confusing `.` and `->` member access.
-- Failing to define pointer ownership, object lifetime, or capacity invariants.
+- Using field-order initialization incorrectly.
+- Leaving a field unintentionally uninitialized in an automatic object.
+- Assuming struct assignment performs a deep copy of pointer members.
 
 ### Activities
-1. Model one shared inventory item with a struct containing name, quantity, and unit price.
-2. Create two instances and demonstrate how initialization and mutation affect each one.
-3. Add a helper function that accepts a pointer to a record; use `const` if it should only inspect data.
-4. Document whether pointer members are owned or borrowed and how long their referenced data remains valid.
+1. Initialize Notebook, Pencil, and Folder with designated initializers.
+2. Copy one record and explain which data is copied when a member is a pointer.
+3. Change one record's quantity and verify the other instance is unchanged.
 
 ### Accessibility Practice
 Navigate the complete source file by line, word, and character using the learner's access technology. Read punctuation and indentation, run from the terminal, and inspect standard output and errors sequentially.
 
 ### Skills Checklist
-- [ ] I can explain "Creating instances" using accurate C terminology.
-- [ ] I can trace the example and predict its observable behavior before compiling.
-- [ ] I can adapt the example to the shared score, inventory, or record data without introducing an out-of-bounds access or invalid state.
-- [ ] I can detect and correct at least one C-specific error relevant to this lesson.
-- [ ] I can compile, run, and inspect the source and output using my chosen access technology.
+- [ ] I can explain the C rule demonstrated by "Creating instances" without relying on Python terminology.
+- [ ] I can predict and verify the exact behavior of this lesson's worked example.
+- [ ] I can complete the lesson-specific boundary or extension tests above and explain the result.
+- [ ] I can recognize the three C-specific failure modes listed in this lesson and apply a correction.
+- [ ] I can navigate, compile, run, and inspect the source and output using my chosen access technology.
 ## Lesson 7.3: Fields and methods
 
 ### Reading References
@@ -1582,25 +1552,24 @@ int main(void)
 Expected output: Notebook inventory value: $7.50.
 
 ### Common Mistakes
-- Treating a C struct as a class with automatic methods, constructors, or inheritance.
 - Confusing `.` and `->` member access.
-- Failing to define pointer ownership, object lifetime, or capacity invariants.
+- Dereferencing a null pointer.
+- Omitting `const` when a function should only inspect an item.
 
 ### Activities
-1. Model one shared inventory item with a struct containing name, quantity, and unit price.
-2. Create two instances and demonstrate how initialization and mutation affect each one.
-3. Add a helper function that accepts a pointer to a record; use `const` if it should only inspect data.
-4. Document whether pointer members are owned or borrowed and how long their referenced data remains valid.
+1. Calculate the value of three notebooks through `item_value`.
+2. Compare `.` member access on an object with `->` on a pointer.
+3. Add a null-pointer check and a `const` parameter.
 
 ### Accessibility Practice
 Navigate the complete source file by line, word, and character using the learner's access technology. Read punctuation and indentation, run from the terminal, and inspect standard output and errors sequentially.
 
 ### Skills Checklist
-- [ ] I can explain "Fields and methods" using accurate C terminology.
-- [ ] I can trace the example and predict its observable behavior before compiling.
-- [ ] I can adapt the example to the shared score, inventory, or record data without introducing an out-of-bounds access or invalid state.
-- [ ] I can detect and correct at least one C-specific error relevant to this lesson.
-- [ ] I can compile, run, and inspect the source and output using my chosen access technology.
+- [ ] I can explain the C rule demonstrated by "Fields and methods" without relying on Python terminology.
+- [ ] I can predict and verify the exact behavior of this lesson's worked example.
+- [ ] I can complete the lesson-specific boundary or extension tests above and explain the result.
+- [ ] I can recognize the three C-specific failure modes listed in this lesson and apply a correction.
+- [ ] I can navigate, compile, run, and inspect the source and output using my chosen access technology.
 ## Lesson 7.4: Inheritance and interfaces
 
 ### Reading References
@@ -1635,25 +1604,24 @@ int main(void)
 Expected output: Notebook reorder required: yes. This is composition, not language-level inheritance.
 
 ### Common Mistakes
-- Treating a C struct as a class with automatic methods, constructors, or inheritance.
-- Confusing `.` and `->` member access.
-- Failing to define pointer ownership, object lifetime, or capacity invariants.
+- Claiming C has native class inheritance or virtual dispatch.
+- Treating an embedded struct as automatically substitutable for its containing type.
+- Using function pointers without a matching declared signature.
 
 ### Activities
-1. Model one shared inventory item with a struct containing name, quantity, and unit price.
-2. Create two instances and demonstrate how initialization and mutation affect each one.
-3. Add a helper function that accepts a pointer to a record; use `const` if it should only inspect data.
-4. Document whether pointer members are owned or borrowed and how long their referenced data remains valid.
+1. Create a `StockedItem` by embedding an `Item` and a reorder threshold.
+2. Test quantities below, equal to, and above the threshold.
+3. Explain why this composition is not C++-style inheritance.
 
 ### Accessibility Practice
 Navigate the complete source file by line, word, and character using the learner's access technology. Read punctuation and indentation, run from the terminal, and inspect standard output and errors sequentially.
 
 ### Skills Checklist
-- [ ] I can explain "Inheritance and interfaces" using accurate C terminology.
-- [ ] I can trace the example and predict its observable behavior before compiling.
-- [ ] I can adapt the example to the shared score, inventory, or record data without introducing an out-of-bounds access or invalid state.
-- [ ] I can detect and correct at least one C-specific error relevant to this lesson.
-- [ ] I can compile, run, and inspect the source and output using my chosen access technology.
+- [ ] I can explain the C rule demonstrated by "Inheritance and interfaces" without relying on Python terminology.
+- [ ] I can predict and verify the exact behavior of this lesson's worked example.
+- [ ] I can complete the lesson-specific boundary or extension tests above and explain the result.
+- [ ] I can recognize the three C-specific failure modes listed in this lesson and apply a correction.
+- [ ] I can navigate, compile, run, and inspect the source and output using my chosen access technology.
 ## Lesson 7.5: Composition
 
 ### Reading References
@@ -1684,25 +1652,24 @@ int main(void)
 Expected output lists the two tasks and their completion states.
 
 ### Common Mistakes
-- Treating a C struct as a class with automatic methods, constructors, or inheritance.
-- Confusing `.` and `->` member access.
-- Failing to define pointer ownership, object lifetime, or capacity invariants.
+- Calling composition inheritance.
+- Allowing the task count to exceed the fixed array capacity.
+- Failing to define whether nested strings are owned or borrowed.
 
 ### Activities
-1. Model one shared inventory item with a struct containing name, quantity, and unit price.
-2. Create two instances and demonstrate how initialization and mutation affect each one.
-3. Add a helper function that accepts a pointer to a record; use `const` if it should only inspect data.
-4. Document whether pointer members are owned or borrowed and how long their referenced data remains valid.
+1. Create a task manager with two tasks and print completion states.
+2. Attempt to add an eleventh task to a ten-slot manager and handle capacity safely.
+3. Document whether the manager owns task strings or borrows pointers.
 
 ### Accessibility Practice
 Navigate the complete source file by line, word, and character using the learner's access technology. Read punctuation and indentation, run from the terminal, and inspect standard output and errors sequentially.
 
 ### Skills Checklist
-- [ ] I can explain "Composition" using accurate C terminology.
-- [ ] I can trace the example and predict its observable behavior before compiling.
-- [ ] I can adapt the example to the shared score, inventory, or record data without introducing an out-of-bounds access or invalid state.
-- [ ] I can detect and correct at least one C-specific error relevant to this lesson.
-- [ ] I can compile, run, and inspect the source and output using my chosen access technology.
+- [ ] I can explain the C rule demonstrated by "Composition" without relying on Python terminology.
+- [ ] I can predict and verify the exact behavior of this lesson's worked example.
+- [ ] I can complete the lesson-specific boundary or extension tests above and explain the result.
+- [ ] I can recognize the three C-specific failure modes listed in this lesson and apply a correction.
+- [ ] I can navigate, compile, run, and inspect the source and output using my chosen access technology.
 ## Lesson 8.1: Reading text files
 
 ### Reading References
@@ -1734,25 +1701,24 @@ int main(void)
 Create `notes.txt` with two lines before running. The program reproduces those lines. A missing file produces a diagnostic and a nonzero exit status.
 
 ### Common Mistakes
-- Failing to check file-open, read, write, or close errors.
-- Using `w` when append mode `a` was intended.
-- Treating C as if it had built-in exceptions or JSON parsing, or releasing a resource more than once.
+- Using a `FILE *` after `fopen` returned `NULL`.
+- Treating every failed `fgets` as normal EOF without checking `ferror`.
+- Assuming a relative path is based on the source file location rather than the current working directory.
 
 ### Activities
-1. Apply "Reading text files" to a file named notes.txt or to the canonical capstone record fields.
-2. Test both the successful path and a missing-file, malformed-data, or failed-operation path.
-3. Identify every acquired resource and show where it is released on all exit paths.
-4. Record the return value or error indicator used to detect each failure.
+1. Create a two-line notes file and verify that both lines are read.
+2. Run with the file missing and inspect the diagnostic and exit status.
+3. Create an overlong line and explain how truncation can be detected.
 
 ### Accessibility Practice
 Navigate the complete source file by line, word, and character using the learner's access technology. Read punctuation and indentation, run from the terminal, and inspect standard output and errors sequentially.
 
 ### Skills Checklist
-- [ ] I can explain "Reading text files" using accurate C terminology.
-- [ ] I can trace the example and predict its observable behavior before compiling.
-- [ ] I can adapt the example to the shared file, test, text, or CSV data without introducing an out-of-bounds access or invalid state.
-- [ ] I can detect and correct at least one C-specific error relevant to this lesson.
-- [ ] I can compile, run, and inspect the source and output using my chosen access technology.
+- [ ] I can explain the C rule demonstrated by "Reading text files" without relying on Python terminology.
+- [ ] I can predict and verify the exact behavior of this lesson's worked example.
+- [ ] I can complete the lesson-specific boundary or extension tests above and explain the result.
+- [ ] I can recognize the three C-specific failure modes listed in this lesson and apply a correction.
+- [ ] I can navigate, compile, run, and inspect the source and output using my chosen access technology.
 ## Lesson 8.2: Writing and appending files
 
 ### Reading References
@@ -1785,25 +1751,24 @@ int main(void)
 Expected output: `Note appended.` The new line is added to the end of `notes.txt`.
 
 ### Common Mistakes
-- Failing to check file-open, read, write, or close errors.
-- Using `w` when append mode `a` was intended.
-- Treating C as if it had built-in exceptions or JSON parsing, or releasing a resource more than once.
+- Opening in `w` mode and truncating a file that should have been appended.
+- Ignoring `fprintf` and `fclose` failure results.
+- Assuming buffered output has necessarily reached durable storage before close.
 
 ### Activities
-1. Apply "Writing and appending files" to a file named notes.txt or to the canonical capstone record fields.
-2. Test both the successful path and a missing-file, malformed-data, or failed-operation path.
-3. Identify every acquired resource and show where it is released on all exit paths.
-4. Record the return value or error indicator used to detect each failure.
+1. Append a second note and verify that the original contents remain.
+2. Run the append program twice and count the resulting lines.
+3. Change append mode to write mode in a disposable copy and observe truncation.
 
 ### Accessibility Practice
 Navigate the complete source file by line, word, and character using the learner's access technology. Read punctuation and indentation, run from the terminal, and inspect standard output and errors sequentially.
 
 ### Skills Checklist
-- [ ] I can explain "Writing and appending files" using accurate C terminology.
-- [ ] I can trace the example and predict its observable behavior before compiling.
-- [ ] I can adapt the example to the shared file, test, text, or CSV data without introducing an out-of-bounds access or invalid state.
-- [ ] I can detect and correct at least one C-specific error relevant to this lesson.
-- [ ] I can compile, run, and inspect the source and output using my chosen access technology.
+- [ ] I can explain the C rule demonstrated by "Writing and appending files" without relying on Python terminology.
+- [ ] I can predict and verify the exact behavior of this lesson's worked example.
+- [ ] I can complete the lesson-specific boundary or extension tests above and explain the result.
+- [ ] I can recognize the three C-specific failure modes listed in this lesson and apply a correction.
+- [ ] I can navigate, compile, run, and inspect the source and output using my chosen access technology.
 ## Lesson 8.3: Errors and exceptions
 
 ### Reading References
@@ -1835,25 +1800,24 @@ int main(void)
 If the file is absent, the program prints an operating-system diagnostic and exits with status 1. This is explicit error handling, not a thrown exception.
 
 ### Common Mistakes
-- Failing to check file-open, read, write, or close errors.
-- Using `w` when append mode `a` was intended.
-- Treating C as if it had built-in exceptions or JSON parsing, or releasing a resource more than once.
+- Expecting C to provide language-level exceptions.
+- Ignoring a function's documented error return convention or `errno`.
+- Continuing with invalid state after reporting an error.
 
 ### Activities
-1. Apply "Errors and exceptions" to a file named notes.txt or to the canonical capstone record fields.
-2. Test both the successful path and a missing-file, malformed-data, or failed-operation path.
-3. Identify every acquired resource and show where it is released on all exit paths.
-4. Record the return value or error indicator used to detect each failure.
+1. Run with a missing file and identify the error return and diagnostic.
+2. Run with an existing file and verify the success path.
+3. Write a helper that returns an error code to its caller rather than printing inside the helper.
 
 ### Accessibility Practice
 Navigate the complete source file by line, word, and character using the learner's access technology. Read punctuation and indentation, run from the terminal, and inspect standard output and errors sequentially.
 
 ### Skills Checklist
-- [ ] I can explain "Errors and exceptions" using accurate C terminology.
-- [ ] I can trace the example and predict its observable behavior before compiling.
-- [ ] I can adapt the example to the shared file, test, text, or CSV data without introducing an out-of-bounds access or invalid state.
-- [ ] I can detect and correct at least one C-specific error relevant to this lesson.
-- [ ] I can compile, run, and inspect the source and output using my chosen access technology.
+- [ ] I can explain the C rule demonstrated by "Errors and exceptions" without relying on Python terminology.
+- [ ] I can predict and verify the exact behavior of this lesson's worked example.
+- [ ] I can complete the lesson-specific boundary or extension tests above and explain the result.
+- [ ] I can recognize the three C-specific failure modes listed in this lesson and apply a correction.
+- [ ] I can navigate, compile, run, and inspect the source and output using my chosen access technology.
 ## Lesson 8.4: Resource cleanup
 
 ### Reading References
@@ -1886,25 +1850,24 @@ cleanup:
 The cleanup path closes the file exactly once if opening succeeded. In larger programs, structure functions so cleanup remains easy to audit.
 
 ### Common Mistakes
-- Failing to check file-open, read, write, or close errors.
-- Using `w` when append mode `a` was intended.
-- Treating C as if it had built-in exceptions or JSON parsing, or releasing a resource more than once.
+- Returning from a function after acquiring a resource without releasing it.
+- Closing a file twice or using it after close.
+- Running cleanup on a resource that was never successfully acquired.
 
 ### Activities
-1. Apply "Resource cleanup" to a file named notes.txt or to the canonical capstone record fields.
-2. Test both the successful path and a missing-file, malformed-data, or failed-operation path.
-3. Identify every acquired resource and show where it is released on all exit paths.
-4. Record the return value or error indicator used to detect each failure.
+1. Trace both the successful and failed `fopen` paths and locate the `fclose`.
+2. Add a second resource and determine the correct cleanup order.
+3. Introduce an early error after opening the file and verify that cleanup still occurs.
 
 ### Accessibility Practice
 Navigate the complete source file by line, word, and character using the learner's access technology. Read punctuation and indentation, run from the terminal, and inspect standard output and errors sequentially.
 
 ### Skills Checklist
-- [ ] I can explain "Resource cleanup" using accurate C terminology.
-- [ ] I can trace the example and predict its observable behavior before compiling.
-- [ ] I can adapt the example to the shared file, test, text, or CSV data without introducing an out-of-bounds access or invalid state.
-- [ ] I can detect and correct at least one C-specific error relevant to this lesson.
-- [ ] I can compile, run, and inspect the source and output using my chosen access technology.
+- [ ] I can explain the C rule demonstrated by "Resource cleanup" without relying on Python terminology.
+- [ ] I can predict and verify the exact behavior of this lesson's worked example.
+- [ ] I can complete the lesson-specific boundary or extension tests above and explain the result.
+- [ ] I can recognize the three C-specific failure modes listed in this lesson and apply a correction.
+- [ ] I can navigate, compile, run, and inspect the source and output using my chosen access technology.
 ## Lesson 8.5: JSON persistence
 
 ### Reading References
@@ -1933,25 +1896,24 @@ typedef struct {
 This C struct is the in-memory shape of one capstone record. The JSON library layer must serialize every field and validate required fields when loading. Record the selected library and its build/link instructions in the project README.
 
 ### Common Mistakes
-- Failing to check file-open, read, write, or close errors.
-- Using `w` when append mode `a` was intended.
-- Treating C as if it had built-in exceptions or JSON parsing, or releasing a resource more than once.
+- Trying to parse arbitrary JSON with comma splitting or substring search.
+- Failing to validate required fields and JSON value types.
+- Leaking parser-owned memory or retaining pointers after the JSON document is freed.
 
 ### Activities
-1. Apply "JSON persistence" to a file named notes.txt or to the canonical capstone record fields.
-2. Test both the successful path and a missing-file, malformed-data, or failed-operation path.
-3. Identify every acquired resource and show where it is released on all exit paths.
-4. Record the return value or error indicator used to detect each failure.
+1. Map each canonical capstone field to a C member and a JSON value type.
+2. Select a maintained C JSON library and document its version and link command.
+3. Test missing required fields, malformed JSON, and a valid round-trip record.
 
 ### Accessibility Practice
 Navigate the complete source file by line, word, and character using the learner's access technology. Read punctuation and indentation, run from the terminal, and inspect standard output and errors sequentially.
 
 ### Skills Checklist
-- [ ] I can explain "JSON persistence" using accurate C terminology.
-- [ ] I can trace the example and predict its observable behavior before compiling.
-- [ ] I can adapt the example to the shared file, test, text, or CSV data without introducing an out-of-bounds access or invalid state.
-- [ ] I can detect and correct at least one C-specific error relevant to this lesson.
-- [ ] I can compile, run, and inspect the source and output using my chosen access technology.
+- [ ] I can explain the C rule demonstrated by "JSON persistence" without relying on Python terminology.
+- [ ] I can predict and verify the exact behavior of this lesson's worked example.
+- [ ] I can complete the lesson-specific boundary or extension tests above and explain the result.
+- [ ] I can recognize the three C-specific failure modes listed in this lesson and apply a correction.
+- [ ] I can navigate, compile, run, and inspect the source and output using my chosen access technology.
 ## Lesson 9.1: Testing functions
 
 ### Reading References
@@ -1981,25 +1943,24 @@ int main(void)
 No output and exit status 0 indicate that all assertions passed. An assertion failure prints a diagnostic and terminates the test executable.
 
 ### Common Mistakes
-- Testing only the happy path and omitting boundary and invalid-input cases.
-- Reusing mutable state between tests or disabling assertions with `NDEBUG`.
-- Assuming `rand()` is secure, or that simple substring counting is full Unicode-aware text analysis.
+- Testing only one ordinary input and omitting boundaries and invalid cases.
+- Writing assertions that duplicate implementation details instead of checking expected behavior.
+- Compiling with `NDEBUG` and assuming assertions still execute.
 
 ### Activities
-1. Write at least three tests for "Testing functions": a normal case, a boundary case, and a failure or invalid case.
-2. Use the canonical scores or text sample and state the expected result before executing the test.
-3. Make one test fail intentionally, read the diagnostic, and correct the underlying issue.
-4. Explain any limits of the approach, including random-sequence portability or ASCII-only processing where relevant.
+1. Test addition with positive, negative, and zero values.
+2. Create one failing assertion and inspect the diagnostic.
+3. Compile with and without `NDEBUG` and explain the effect on assertions.
 
 ### Accessibility Practice
 Navigate the complete source file by line, word, and character using the learner's access technology. Read punctuation and indentation, run from the terminal, and inspect standard output and errors sequentially.
 
 ### Skills Checklist
-- [ ] I can explain "Testing functions" using accurate C terminology.
-- [ ] I can trace the example and predict its observable behavior before compiling.
-- [ ] I can adapt the example to the shared file, test, text, or CSV data without introducing an out-of-bounds access or invalid state.
-- [ ] I can detect and correct at least one C-specific error relevant to this lesson.
-- [ ] I can compile, run, and inspect the source and output using my chosen access technology.
+- [ ] I can explain the C rule demonstrated by "Testing functions" without relying on Python terminology.
+- [ ] I can predict and verify the exact behavior of this lesson's worked example.
+- [ ] I can complete the lesson-specific boundary or extension tests above and explain the result.
+- [ ] I can recognize the three C-specific failure modes listed in this lesson and apply a correction.
+- [ ] I can navigate, compile, run, and inspect the source and output using my chosen access technology.
 ## Lesson 9.2: Testing stateful objects
 
 ### Reading References
@@ -2032,25 +1993,24 @@ int main(void)
 The assertions verify that a positive restock changes quantity and a negative restock is rejected.
 
 ### Common Mistakes
-- Testing only the happy path and omitting boundary and invalid-input cases.
-- Reusing mutable state between tests or disabling assertions with `NDEBUG`.
-- Assuming `rand()` is secure, or that simple substring counting is full Unicode-aware text analysis.
+- Allowing one test's mutation to leak into another test.
+- Checking only the function result rather than the changed item state.
+- Failing to verify that a rejected restock leaves quantity unchanged.
 
 ### Activities
-1. Write at least three tests for "Testing stateful objects": a normal case, a boundary case, and a failure or invalid case.
-2. Use the canonical scores or text sample and state the expected result before executing the test.
-3. Make one test fail intentionally, read the diagnostic, and correct the underlying issue.
-4. Explain any limits of the approach, including random-sequence portability or ASCII-only processing where relevant.
+1. Restock by a positive amount and verify quantity changes.
+2. Try zero and negative restock amounts and verify state remains unchanged.
+3. Create fresh records for each test to prevent test-order dependence.
 
 ### Accessibility Practice
 Navigate the complete source file by line, word, and character using the learner's access technology. Read punctuation and indentation, run from the terminal, and inspect standard output and errors sequentially.
 
 ### Skills Checklist
-- [ ] I can explain "Testing stateful objects" using accurate C terminology.
-- [ ] I can trace the example and predict its observable behavior before compiling.
-- [ ] I can adapt the example to the shared file, test, text, or CSV data without introducing an out-of-bounds access or invalid state.
-- [ ] I can detect and correct at least one C-specific error relevant to this lesson.
-- [ ] I can compile, run, and inspect the source and output using my chosen access technology.
+- [ ] I can explain the C rule demonstrated by "Testing stateful objects" without relying on Python terminology.
+- [ ] I can predict and verify the exact behavior of this lesson's worked example.
+- [ ] I can complete the lesson-specific boundary or extension tests above and explain the result.
+- [ ] I can recognize the three C-specific failure modes listed in this lesson and apply a correction.
+- [ ] I can navigate, compile, run, and inspect the source and output using my chosen access technology.
 ## Lesson 9.3: Random values
 
 ### Reading References
@@ -2080,25 +2040,24 @@ int main(void)
 The output is reproducible for a given C library implementation and seed, but the exact value may differ across implementations. Do not use `rand` for passwords or security tokens.
 
 ### Common Mistakes
-- Testing only the happy path and omitting boundary and invalid-input cases.
-- Reusing mutable state between tests or disabling assertions with `NDEBUG`.
-- Assuming `rand()` is secure, or that simple substring counting is full Unicode-aware text analysis.
+- Treating `rand()` as cryptographically secure.
+- Assuming `% 6` produces perfectly unbiased die rolls.
+- Expecting the exact sequence to be portable across different C library implementations.
 
 ### Activities
-1. Write at least three tests for "Random values": a normal case, a boundary case, and a failure or invalid case.
-2. Use the canonical scores or text sample and state the expected result before executing the test.
-3. Make one test fail intentionally, read the diagnostic, and correct the underlying issue.
-4. Explain any limits of the approach, including random-sequence portability or ASCII-only processing where relevant.
+1. Run twice with the same seed on the same C library and compare results.
+2. Generate 1000 die values and verify each is between 1 and 6.
+3. Explain why modulo reduction may be biased and why `rand` is not for secrets.
 
 ### Accessibility Practice
 Navigate the complete source file by line, word, and character using the learner's access technology. Read punctuation and indentation, run from the terminal, and inspect standard output and errors sequentially.
 
 ### Skills Checklist
-- [ ] I can explain "Random values" using accurate C terminology.
-- [ ] I can trace the example and predict its observable behavior before compiling.
-- [ ] I can adapt the example to the shared file, test, text, or CSV data without introducing an out-of-bounds access or invalid state.
-- [ ] I can detect and correct at least one C-specific error relevant to this lesson.
-- [ ] I can compile, run, and inspect the source and output using my chosen access technology.
+- [ ] I can explain the C rule demonstrated by "Random values" without relying on Python terminology.
+- [ ] I can predict and verify the exact behavior of this lesson's worked example.
+- [ ] I can complete the lesson-specific boundary or extension tests above and explain the result.
+- [ ] I can recognize the three C-specific failure modes listed in this lesson and apply a correction.
+- [ ] I can navigate, compile, run, and inspect the source and output using my chosen access technology.
 ## Lesson 9.4: Text analysis
 
 ### Reading References
@@ -2133,25 +2092,24 @@ int main(void)
 Expected output: 2 occurrences. This counts substring matches, not general word tokens; extend it to tokenize and count all words.
 
 ### Common Mistakes
-- Testing only the happy path and omitting boundary and invalid-input cases.
-- Reusing mutable state between tests or disabling assertions with `NDEBUG`.
-- Assuming `rand()` is secure, or that simple substring counting is full Unicode-aware text analysis.
+- Counting substring matches as whole words.
+- Passing a negative plain `char` to `tolower`.
+- Treating ASCII byte operations as Unicode-aware tokenization.
 
 ### Activities
-1. Write at least three tests for "Text analysis": a normal case, a boundary case, and a failure or invalid case.
-2. Use the canonical scores or text sample and state the expected result before executing the test.
-3. Make one test fail intentionally, read the diagnostic, and correct the underlying issue.
-4. Explain any limits of the approach, including random-sequence portability or ASCII-only processing where relevant.
+1. Count the two `programming` occurrences in the canonical sample.
+2. Change case and punctuation and compare substring count with whole-word count.
+3. Test a UTF-8 input and document the limits of byte-wise lowercase conversion.
 
 ### Accessibility Practice
 Navigate the complete source file by line, word, and character using the learner's access technology. Read punctuation and indentation, run from the terminal, and inspect standard output and errors sequentially.
 
 ### Skills Checklist
-- [ ] I can explain "Text analysis" using accurate C terminology.
-- [ ] I can trace the example and predict its observable behavior before compiling.
-- [ ] I can adapt the example to the shared file, test, text, or CSV data without introducing an out-of-bounds access or invalid state.
-- [ ] I can detect and correct at least one C-specific error relevant to this lesson.
-- [ ] I can compile, run, and inspect the source and output using my chosen access technology.
+- [ ] I can explain the C rule demonstrated by "Text analysis" without relying on Python terminology.
+- [ ] I can predict and verify the exact behavior of this lesson's worked example.
+- [ ] I can complete the lesson-specific boundary or extension tests above and explain the result.
+- [ ] I can recognize the three C-specific failure modes listed in this lesson and apply a correction.
+- [ ] I can navigate, compile, run, and inspect the source and output using my chosen access technology.
 ## Lesson 9.5: CSV records
 
 ### Reading References
@@ -2184,25 +2142,24 @@ int main(void)
 Create a header with `student_id,first_name,last_name,score,active` and at least two rows. The program prints the header and each record line. A production parser must handle CSV quoting correctly.
 
 ### Common Mistakes
-- Testing only the happy path and omitting boundary and invalid-input cases.
-- Reusing mutable state between tests or disabling assertions with `NDEBUG`.
-- Assuming `rand()` is secure, or that simple substring counting is full Unicode-aware text analysis.
+- Splitting every CSV line on commas despite quoted commas and escaped quotes.
+- Ignoring overlong lines or malformed rows.
+- Assuming every row contains the same number of fields without validating it.
 
 ### Activities
-1. Write at least three tests for "CSV records": a normal case, a boundary case, and a failure or invalid case.
-2. Use the canonical scores or text sample and state the expected result before executing the test.
-3. Make one test fail intentionally, read the diagnostic, and correct the underlying issue.
-4. Explain any limits of the approach, including random-sequence portability or ASCII-only processing where relevant.
+1. Create the canonical students.csv header and two data rows.
+2. Test missing file, empty file, and an overlong row.
+3. Add a quoted comma and explain why naive comma splitting is invalid CSV parsing.
 
 ### Accessibility Practice
 Navigate the complete source file by line, word, and character using the learner's access technology. Read punctuation and indentation, run from the terminal, and inspect standard output and errors sequentially.
 
 ### Skills Checklist
-- [ ] I can explain "CSV records" using accurate C terminology.
-- [ ] I can trace the example and predict its observable behavior before compiling.
-- [ ] I can adapt the example to the shared file, test, text, or CSV data without introducing an out-of-bounds access or invalid state.
-- [ ] I can detect and correct at least one C-specific error relevant to this lesson.
-- [ ] I can compile, run, and inspect the source and output using my chosen access technology.
+- [ ] I can explain the C rule demonstrated by "CSV records" without relying on Python terminology.
+- [ ] I can predict and verify the exact behavior of this lesson's worked example.
+- [ ] I can complete the lesson-specific boundary or extension tests above and explain the result.
+- [ ] I can recognize the three C-specific failure modes listed in this lesson and apply a correction.
+- [ ] I can navigate, compile, run, and inspect the source and output using my chosen access technology.
 ## Lesson 10.1: Requirements and design
 
 ### Reading References
@@ -2221,25 +2178,24 @@ Use top-down design to break an application into input, processing, storage, and
 Design the to-do manager around the operations add task, view tasks, mark task complete, save tasks, load tasks, and quit. Define the task fields as `id`, `title`, `description`, `done`, and `created_at`. Specify the behavior for an empty list, an invalid task number, and a missing data file.
 
 ### Common Mistakes
-- Implementing before defining acceptance criteria and invalid-state behavior.
-- Updating room, inventory, or task state before validating the requested operation.
-- Ignoring fixed-capacity limits, malformed input, or keyboard-accessible status messages.
+- Starting implementation without defining acceptance criteria and failure cases.
+- Omitting empty-list, duplicate-ID, invalid-input, and unavailable-storage behavior.
+- Selecting a persistence format without documenting its limitations.
 
 ### Activities
-1. Write acceptance criteria for "Requirements and design" before extending the project code.
-2. Test a successful operation and a rejected operation; verify rejected operations leave state unchanged.
-3. Use the shared cave rooms, key inventory, or to-do task fields to demonstrate the state transition.
-4. Check that prompts, errors, and confirmations are understandable when read sequentially with assistive technology.
+1. Write acceptance criteria for add, view, edit, delete, and save/load operations.
+2. Define behavior for empty data, duplicate IDs, unknown IDs, and unavailable storage.
+3. Draw a module plan separating input, validation, data operations, persistence, and output.
 
 ### Accessibility Practice
 Navigate the complete source file by line, word, and character using the learner's access technology. Read punctuation and indentation, run from the terminal, and inspect standard output and errors sequentially.
 
 ### Skills Checklist
-- [ ] I can explain "Requirements and design" using accurate C terminology.
-- [ ] I can trace the example and predict its observable behavior before compiling.
-- [ ] I can adapt the example to the shared project and capstone record without introducing an out-of-bounds access or invalid state.
-- [ ] I can detect and correct at least one C-specific error relevant to this lesson.
-- [ ] I can compile, run, and inspect the source and output using my chosen access technology.
+- [ ] I can explain the C rule demonstrated by "Requirements and design" without relying on Python terminology.
+- [ ] I can predict and verify the exact behavior of this lesson's worked example.
+- [ ] I can complete the lesson-specific boundary or extension tests above and explain the result.
+- [ ] I can recognize the three C-specific failure modes listed in this lesson and apply a correction.
+- [ ] I can navigate, compile, run, and inspect the source and output using my chosen access technology.
 ## Lesson 10.2: Text adventure: rooms and movement
 
 ### Reading References
@@ -2276,25 +2232,24 @@ int main(void)
 The first room leads north to the tunnel; the tunnel leads east to the clearing and south back to the cave. Extend this model with a command parser and a `quit` command. `-1` means that no exit exists in that direction.
 
 ### Common Mistakes
-- Implementing before defining acceptance criteria and invalid-state behavior.
-- Updating room, inventory, or task state before validating the requested operation.
-- Ignoring fixed-capacity limits, malformed input, or keyboard-accessible status messages.
+- Using a room exit index without checking that it is valid.
+- Changing the current room before confirming the requested exit exists.
+- Giving no feedback when a direction is blocked or unknown.
 
 ### Activities
-1. Write acceptance criteria for "Text adventure: rooms and movement" before extending the project code.
-2. Test a successful operation and a rejected operation; verify rejected operations leave state unchanged.
-3. Use the shared cave rooms, key inventory, or to-do task fields to demonstrate the state transition.
-4. Check that prompts, errors, and confirmations are understandable when read sequentially with assistive technology.
+1. Move north from the start room and verify the tunnel description.
+2. Attempt west from the start room and verify that the room does not change.
+3. Add case-insensitive direction commands and a quit command.
 
 ### Accessibility Practice
 Navigate the complete source file by line, word, and character using the learner's access technology. Read punctuation and indentation, run from the terminal, and inspect standard output and errors sequentially.
 
 ### Skills Checklist
-- [ ] I can explain "Text adventure: rooms and movement" using accurate C terminology.
-- [ ] I can trace the example and predict its observable behavior before compiling.
-- [ ] I can adapt the example to the shared project and capstone record without introducing an out-of-bounds access or invalid state.
-- [ ] I can detect and correct at least one C-specific error relevant to this lesson.
-- [ ] I can compile, run, and inspect the source and output using my chosen access technology.
+- [ ] I can explain the C rule demonstrated by "Text adventure: rooms and movement" without relying on Python terminology.
+- [ ] I can predict and verify the exact behavior of this lesson's worked example.
+- [ ] I can complete the lesson-specific boundary or extension tests above and explain the result.
+- [ ] I can recognize the three C-specific failure modes listed in this lesson and apply a correction.
+- [ ] I can navigate, compile, run, and inspect the source and output using my chosen access technology.
 ## Lesson 10.3: Text adventure: inventory and puzzles
 
 ### Reading References
@@ -2331,25 +2286,24 @@ int main(void)
 This is a small state-transition demonstration, not the complete game. Extend it with the same room movement rules from Lesson 10.2, then test taking the key twice, trying to unlock without the key, and using the key in the wrong room.
 
 ### Common Mistakes
-- Implementing before defining acceptance criteria and invalid-state behavior.
-- Updating room, inventory, or task state before validating the requested operation.
-- Ignoring fixed-capacity limits, malformed input, or keyboard-accessible status messages.
+- Allowing the key to be collected more than once.
+- Unlocking the door without checking both the inventory and the player's room.
+- Updating item location and inventory inconsistently, duplicating or losing the key.
 
 ### Activities
-1. Write acceptance criteria for "Text adventure: inventory and puzzles" before extending the project code.
-2. Test a successful operation and a rejected operation; verify rejected operations leave state unchanged.
-3. Use the shared cave rooms, key inventory, or to-do task fields to demonstrate the state transition.
-4. Check that prompts, errors, and confirmations are understandable when read sequentially with assistive technology.
+1. Take the key and verify it leaves the room and enters inventory.
+2. Try taking the key twice and verify the second attempt is rejected.
+3. Test unlocking without the key and from the wrong room.
 
 ### Accessibility Practice
 Navigate the complete source file by line, word, and character using the learner's access technology. Read punctuation and indentation, run from the terminal, and inspect standard output and errors sequentially.
 
 ### Skills Checklist
-- [ ] I can explain "Text adventure: inventory and puzzles" using accurate C terminology.
-- [ ] I can trace the example and predict its observable behavior before compiling.
-- [ ] I can adapt the example to the shared project and capstone record without introducing an out-of-bounds access or invalid state.
-- [ ] I can detect and correct at least one C-specific error relevant to this lesson.
-- [ ] I can compile, run, and inspect the source and output using my chosen access technology.
+- [ ] I can explain the C rule demonstrated by "Text adventure: inventory and puzzles" without relying on Python terminology.
+- [ ] I can predict and verify the exact behavior of this lesson's worked example.
+- [ ] I can complete the lesson-specific boundary or extension tests above and explain the result.
+- [ ] I can recognize the three C-specific failure modes listed in this lesson and apply a correction.
+- [ ] I can navigate, compile, run, and inspect the source and output using my chosen access technology.
 ## Lesson 10.4: Command-line to-do manager
 
 ### Reading References
@@ -2397,25 +2351,24 @@ int main(void)
 This starter implements add, view, and quit with a fixed capacity of 50 tasks. Extend it with completion and persistence, checking every input and file operation.
 
 ### Common Mistakes
-- Implementing before defining acceptance criteria and invalid-state behavior.
-- Updating room, inventory, or task state before validating the requested operation.
-- Ignoring fixed-capacity limits, malformed input, or keyboard-accessible status messages.
+- Writing beyond the fixed task array's capacity.
+- Treating the first character of a menu line as fully validated input.
+- Completing or deleting a task by index without checking the selected range.
 
 ### Activities
-1. Write acceptance criteria for "Command-line to-do manager" before extending the project code.
-2. Test a successful operation and a rejected operation; verify rejected operations leave state unchanged.
-3. Use the shared cave rooms, key inventory, or to-do task fields to demonstrate the state transition.
-4. Check that prompts, errors, and confirmations are understandable when read sequentially with assistive technology.
+1. Add two tasks and view them in insertion order.
+2. Complete a task by ID and reject an unknown ID.
+3. Implement save/load and verify data remains after restarting.
 
 ### Accessibility Practice
 Navigate the complete source file by line, word, and character using the learner's access technology. Read punctuation and indentation, run from the terminal, and inspect standard output and errors sequentially.
 
 ### Skills Checklist
-- [ ] I can explain "Command-line to-do manager" using accurate C terminology.
-- [ ] I can trace the example and predict its observable behavior before compiling.
-- [ ] I can adapt the example to the shared project and capstone record without introducing an out-of-bounds access or invalid state.
-- [ ] I can detect and correct at least one C-specific error relevant to this lesson.
-- [ ] I can compile, run, and inspect the source and output using my chosen access technology.
+- [ ] I can explain the C rule demonstrated by "Command-line to-do manager" without relying on Python terminology.
+- [ ] I can predict and verify the exact behavior of this lesson's worked example.
+- [ ] I can complete the lesson-specific boundary or extension tests above and explain the result.
+- [ ] I can recognize the three C-specific failure modes listed in this lesson and apply a correction.
+- [ ] I can navigate, compile, run, and inspect the source and output using my chosen access technology.
 ## Lesson 10.5: Accessible UX and validation
 
 ### Reading References
@@ -2452,25 +2405,24 @@ int main(void)
 The program repeats until it receives a positive integer. Improve it by rejecting trailing non-whitespace characters and checking `errno` for overflow.
 
 ### Common Mistakes
-- Implementing before defining acceptance criteria and invalid-state behavior.
-- Updating room, inventory, or task state before validating the requested operation.
-- Ignoring fixed-capacity limits, malformed input, or keyboard-accessible status messages.
+- Using color or a symbol as the only indication of completion.
+- Displaying an error without telling the user how to correct it.
+- Silently truncating an overlong title or failing to announce a successful operation.
 
 ### Activities
-1. Write acceptance criteria for "Accessible UX and validation" before extending the project code.
-2. Test a successful operation and a rejected operation; verify rejected operations leave state unchanged.
-3. Use the shared cave rooms, key inventory, or to-do task fields to demonstrate the state transition.
-4. Check that prompts, errors, and confirmations are understandable when read sequentially with assistive technology.
+1. Complete the menu workflow using keyboard only and read prompts sequentially.
+2. Submit blank, overlong, and invalid menu input and verify corrective instructions.
+3. Test with a named screen reader and OS; record observed results rather than assuming compatibility.
 
 ### Accessibility Practice
 Navigate the complete source file by line, word, and character using the learner's access technology. Read punctuation and indentation, run from the terminal, and inspect standard output and errors sequentially.
 
 ### Skills Checklist
-- [ ] I can explain "Accessible UX and validation" using accurate C terminology.
-- [ ] I can trace the example and predict its observable behavior before compiling.
-- [ ] I can adapt the example to the shared project and capstone record without introducing an out-of-bounds access or invalid state.
-- [ ] I can detect and correct at least one C-specific error relevant to this lesson.
-- [ ] I can compile, run, and inspect the source and output using my chosen access technology.
+- [ ] I can explain the C rule demonstrated by "Accessible UX and validation" without relying on Python terminology.
+- [ ] I can predict and verify the exact behavior of this lesson's worked example.
+- [ ] I can complete the lesson-specific boundary or extension tests above and explain the result.
+- [ ] I can recognize the three C-specific failure modes listed in this lesson and apply a correction.
+- [ ] I can navigate, compile, run, and inspect the source and output using my chosen access technology.
 ## Lesson 11.1: Capstone requirements
 
 ### Reading References
@@ -2489,25 +2441,24 @@ The Python capstone uses NiceGUI, but that framework is Python-specific. The C c
 Choose one collection: contacts, books/movies, to-do tasks, or inventory. Define fields, required values, validation rules, and the five required operations: add, view, edit, delete, save/load. For the to-do option, use `id`, `title`, `description`, `done`, and `created_at`. Document that the reference Python GUI is replaced by an accessible terminal interface in this C implementation.
 
 ### Common Mistakes
-- Omitting one of the required CRUD and persistence operations.
-- Failing to validate record fields, IDs, and serialized data before changing state.
-- Claiming portability or accessibility testing without recording the actual toolchain and test environment.
+- Omitting one of add, view, edit, delete, save, or load from the requirements.
+- Designing a GUI-specific solution despite selecting a terminal interface.
+- Failing to define required fields, validation, and acceptance tests.
 
 ### Activities
-1. Map "Capstone requirements" to one capstone requirement and identify its input, state change, output, and failure cases.
-2. Test the canonical record fields: id, title, description, category, created_at, and updated_at.
-3. Verify the operation with a valid record, an invalid record, an unknown ID, and a persistence failure.
-4. Update the README or test plan with the exact build command, dependency requirements, and observed result.
+1. Choose a capstone domain and list fields, validation rules, and user operations.
+2. Write acceptance tests for add, view, edit, delete, save, and load before implementation.
+3. Document why the C implementation uses a terminal interface rather than the Python-specific NiceGUI framework.
 
 ### Accessibility Practice
 Navigate the complete source file by line, word, and character using the learner's access technology. Read punctuation and indentation, run from the terminal, and inspect standard output and errors sequentially.
 
 ### Skills Checklist
-- [ ] I can explain "Capstone requirements" using accurate C terminology.
-- [ ] I can trace the example and predict its observable behavior before compiling.
-- [ ] I can adapt the example to the shared project and capstone record without introducing an out-of-bounds access or invalid state.
-- [ ] I can detect and correct at least one C-specific error relevant to this lesson.
-- [ ] I can compile, run, and inspect the source and output using my chosen access technology.
+- [ ] I can explain the C rule demonstrated by "Capstone requirements" without relying on Python terminology.
+- [ ] I can predict and verify the exact behavior of this lesson's worked example.
+- [ ] I can complete the lesson-specific boundary or extension tests above and explain the result.
+- [ ] I can recognize the three C-specific failure modes listed in this lesson and apply a correction.
+- [ ] I can navigate, compile, run, and inspect the source and output using my chosen access technology.
 ## Lesson 11.2: Data model and storage
 
 ### Reading References
@@ -2537,25 +2488,24 @@ typedef struct {
 The record contains the exact canonical capstone fields. Define which fields are required, how empty strings are handled, and how IDs and timestamps are generated. The serialization layer must preserve all fields when saving and loading.
 
 ### Common Mistakes
-- Omitting one of the required CRUD and persistence operations.
-- Failing to validate record fields, IDs, and serialized data before changing state.
-- Claiming portability or accessibility testing without recording the actual toolchain and test environment.
+- Using fixed-size fields without documenting maximum lengths and truncation policy.
+- Generating duplicate IDs or inconsistent timestamp formats.
+- Serializing only part of the canonical record or trusting loaded fields without validation.
 
 ### Activities
-1. Map "Data model and storage" to one capstone requirement and identify its input, state change, output, and failure cases.
-2. Test the canonical record fields: id, title, description, category, created_at, and updated_at.
-3. Verify the operation with a valid record, an invalid record, an unknown ID, and a persistence failure.
-4. Update the README or test plan with the exact build command, dependency requirements, and observed result.
+1. Define every C record field and its maximum length or allocation strategy.
+2. Specify ID generation, timestamp format, and string ownership.
+3. Round-trip a record through the chosen JSON library and compare every field.
 
 ### Accessibility Practice
 Navigate the complete source file by line, word, and character using the learner's access technology. Read punctuation and indentation, run from the terminal, and inspect standard output and errors sequentially.
 
 ### Skills Checklist
-- [ ] I can explain "Data model and storage" using accurate C terminology.
-- [ ] I can trace the example and predict its observable behavior before compiling.
-- [ ] I can adapt the example to the shared project and capstone record without introducing an out-of-bounds access or invalid state.
-- [ ] I can detect and correct at least one C-specific error relevant to this lesson.
-- [ ] I can compile, run, and inspect the source and output using my chosen access technology.
+- [ ] I can explain the C rule demonstrated by "Data model and storage" without relying on Python terminology.
+- [ ] I can predict and verify the exact behavior of this lesson's worked example.
+- [ ] I can complete the lesson-specific boundary or extension tests above and explain the result.
+- [ ] I can recognize the three C-specific failure modes listed in this lesson and apply a correction.
+- [ ] I can navigate, compile, run, and inspect the source and output using my chosen access technology.
 ## Lesson 11.3: Create/read/update/delete
 
 ### Reading References
@@ -2594,25 +2544,24 @@ int main(void)
 Expected state: task 1 is renamed to Review C arrays and marked done; task 2 is unchanged. Add bounds-safe input and implement add/delete operations using the same ID lookup.
 
 ### Common Mistakes
-- Omitting one of the required CRUD and persistence operations.
-- Failing to validate record fields, IDs, and serialized data before changing state.
-- Claiming portability or accessibility testing without recording the actual toolchain and test environment.
+- Using an unchecked lookup result as an array index.
+- Copying a title into a fixed-size buffer without checking length.
+- Changing in-memory state before persistence succeeds without a recovery strategy.
 
 ### Activities
-1. Map "Create/read/update/delete" to one capstone requirement and identify its input, state change, output, and failure cases.
-2. Test the canonical record fields: id, title, description, category, created_at, and updated_at.
-3. Verify the operation with a valid record, an invalid record, an unknown ID, and a persistence failure.
-4. Update the README or test plan with the exact build command, dependency requirements, and observed result.
+1. Add two records and verify their stable display order.
+2. Edit one record by ID and confirm unrelated fields remain unchanged.
+3. Delete an existing record, then attempt to delete the same ID again.
 
 ### Accessibility Practice
 Navigate the complete source file by line, word, and character using the learner's access technology. Read punctuation and indentation, run from the terminal, and inspect standard output and errors sequentially.
 
 ### Skills Checklist
-- [ ] I can explain "Create/read/update/delete" using accurate C terminology.
-- [ ] I can trace the example and predict its observable behavior before compiling.
-- [ ] I can adapt the example to the shared project and capstone record without introducing an out-of-bounds access or invalid state.
-- [ ] I can detect and correct at least one C-specific error relevant to this lesson.
-- [ ] I can compile, run, and inspect the source and output using my chosen access technology.
+- [ ] I can explain the C rule demonstrated by "Create/read/update/delete" without relying on Python terminology.
+- [ ] I can predict and verify the exact behavior of this lesson's worked example.
+- [ ] I can complete the lesson-specific boundary or extension tests above and explain the result.
+- [ ] I can recognize the three C-specific failure modes listed in this lesson and apply a correction.
+- [ ] I can navigate, compile, run, and inspect the source and output using my chosen access technology.
 ## Lesson 11.4: Validation and testing
 
 ### Reading References
@@ -2646,25 +2595,24 @@ int main(void)
 All assertions pass with exit status 0. Add tests for the full CRUD functions and compile a debug build with `-fsanitize=address,undefined -fno-omit-frame-pointer` where supported.
 
 ### Common Mistakes
-- Omitting one of the required CRUD and persistence operations.
-- Failing to validate record fields, IDs, and serialized data before changing state.
-- Claiming portability or accessibility testing without recording the actual toolchain and test environment.
+- Testing only successful operations and ignoring malformed input or missing files.
+- Ignoring compiler warnings or sanitizer diagnostics.
+- Using assertions for recoverable user input errors in the release application.
 
 ### Activities
-1. Map "Validation and testing" to one capstone requirement and identify its input, state change, output, and failure cases.
-2. Test the canonical record fields: id, title, description, category, created_at, and updated_at.
-3. Verify the operation with a valid record, an invalid record, an unknown ID, and a persistence failure.
-4. Update the README or test plan with the exact build command, dependency requirements, and observed result.
+1. Create a test matrix for valid, boundary, malformed, missing-file, and unknown-ID cases.
+2. Compile with warnings and address every diagnostic.
+3. Run AddressSanitizer and UndefinedBehaviorSanitizer where available and investigate reports.
 
 ### Accessibility Practice
 Navigate the complete source file by line, word, and character using the learner's access technology. Read punctuation and indentation, run from the terminal, and inspect standard output and errors sequentially.
 
 ### Skills Checklist
-- [ ] I can explain "Validation and testing" using accurate C terminology.
-- [ ] I can trace the example and predict its observable behavior before compiling.
-- [ ] I can adapt the example to the shared project and capstone record without introducing an out-of-bounds access or invalid state.
-- [ ] I can detect and correct at least one C-specific error relevant to this lesson.
-- [ ] I can compile, run, and inspect the source and output using my chosen access technology.
+- [ ] I can explain the C rule demonstrated by "Validation and testing" without relying on Python terminology.
+- [ ] I can predict and verify the exact behavior of this lesson's worked example.
+- [ ] I can complete the lesson-specific boundary or extension tests above and explain the result.
+- [ ] I can recognize the three C-specific failure modes listed in this lesson and apply a correction.
+- [ ] I can navigate, compile, run, and inspect the source and output using my chosen access technology.
 ## Lesson 11.5: Documentation and presentation
 
 ### Reading References
@@ -2683,22 +2631,21 @@ The deliverable includes source code, sample data, a README, build/run instructi
 README acceptance checklist: explain the selected data-manager domain; list the exact fields; document add/view/edit/delete/save/load; provide compile and run commands; describe how to navigate the menu by keyboard; explain how to recover from invalid input; include sample data and known limitations; record the screen reader and operating-system tests actually performed.
 
 ### Common Mistakes
-- Omitting one of the required CRUD and persistence operations.
-- Failing to validate record fields, IDs, and serialized data before changing state.
-- Claiming portability or accessibility testing without recording the actual toolchain and test environment.
+- Omitting compiler version, build command, or dependency setup from the README.
+- Claiming assistive-technology compatibility without testing a named screen reader and OS.
+- Leaving sample data, menu commands, or known limitations undocumented.
 
 ### Activities
-1. Map "Documentation and presentation" to one capstone requirement and identify its input, state change, output, and failure cases.
-2. Test the canonical record fields: id, title, description, category, created_at, and updated_at.
-3. Verify the operation with a valid record, an invalid record, an unknown ID, and a persistence failure.
-4. Update the README or test plan with the exact build command, dependency requirements, and observed result.
+1. Build and run the project from a clean checkout using only the README instructions.
+2. Document compiler, dependency versions, build command, file paths, and menu commands.
+3. Test the documented keyboard workflow with a named access technology and record limitations.
 
 ### Accessibility Practice
 Navigate the complete source file by line, word, and character using the learner's access technology. Read punctuation and indentation, run from the terminal, and inspect standard output and errors sequentially.
 
 ### Skills Checklist
-- [ ] I can explain "Documentation and presentation" using accurate C terminology.
-- [ ] I can trace the example and predict its observable behavior before compiling.
-- [ ] I can adapt the example to the shared project and capstone record without introducing an out-of-bounds access or invalid state.
-- [ ] I can detect and correct at least one C-specific error relevant to this lesson.
-- [ ] I can compile, run, and inspect the source and output using my chosen access technology.
+- [ ] I can explain the C rule demonstrated by "Documentation and presentation" without relying on Python terminology.
+- [ ] I can predict and verify the exact behavior of this lesson's worked example.
+- [ ] I can complete the lesson-specific boundary or extension tests above and explain the result.
+- [ ] I can recognize the three C-specific failure modes listed in this lesson and apply a correction.
+- [ ] I can navigate, compile, run, and inspect the source and output using my chosen access technology.
