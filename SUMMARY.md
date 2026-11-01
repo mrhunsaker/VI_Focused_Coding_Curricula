@@ -2,6 +2,12 @@
 
 [Curriculum Overview](OVERALL_README.md)
 
+# Preliminary prerequisite: Terminal navigation
+
+- [Terminal skills overview](TERMINAL/TERMINAL_README.md)
+  - [Bash navigation and syntax](TERMINAL/bash.md)
+  - [PowerShell navigation and syntax](TERMINAL/powershell.md)
+
 # Python
 
 - [Python Curriculum](PYTHON/PYTHON_README.md)
@@ -36,7 +42,43 @@
   - [Units 2, 3, 4: Input, Control Flow, and Arrays](JAVA/unit02-04-io-control-arrays.md)
   - [Units 5, 6, 7, 8: Strings, Methods, OOP, and Files](JAVA/unit05-08-strings-methods-oop-files.md)
   - [Units 9, 10, 11: Collections and Projects](JAVA/unit09-11-collections-projects.md)
-  - [Post-Capstone Supplement: Kotlin for Java Programmers](JAVA/kotlin.md)
+  
+# Kotlin
+
+- [Kotlin Curriculum](KOTLIN/KOTLIN_README.md)
+  - [Kotlin Lessons](KOTLIN/lessons.md)
+  - [Kotlin Topic Index](KOTLIN/INDEX.md)
+
+# C
+
+- [C Curriculum](C/c_README.md)
+  - [C Lessons](C/lessons.md)
+  - [C Topic Index](C/INDEX.md)
+
+# C++
+
+- [C++ Curriculum](CPP/cpp_README.md)
+  - [C++ Lessons](CPP/lessons.md)
+
+# C#
+
+- [C# Curriculum](CSHARP/csharp_README.md)
+  - [C# Lessons](CSHARP/lessons.md)
+
+# Julia
+
+- [Julia Curriculum](JULIA/julia_README.md)
+  - [Julia Lessons](JULIA/lessons.md)
+
+# Swift
+
+- [Swift Curriculum](SWIFT/swift_README.md)
+  - [Swift Lessons](SWIFT/lessons.md)
+
+# Rust
+
+- [Rust Curriculum](RUST/rust_README.md)
+  - [Rust Lessons](RUST/lessons.md)
 
 # Backmatter
 - [Teacher's Guides](backmatter/Teachers-Guides.md)
