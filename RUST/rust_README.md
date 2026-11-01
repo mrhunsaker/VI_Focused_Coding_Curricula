@@ -12,3 +12,12 @@ Complete the shared [IDE setup lesson](../DEVELOPMENT/IDE_SETUP.md) and [termina
 
 - [Complete lessons](lessons.md)
 - [Topic index](INDEX.md)
+
+
+## Lesson-quality refinement
+
+The Unit 0–11 manuscript now has four complete setup lessons and 53 numbered lessons, including the missing Unit 2 Lesson 2.5 math counterpart. Each numbered lesson includes Rust-specific concepts, a distinct standard-library worked example, three common mistakes, four activities, accessibility practice, and five measurable checklist criteria. The course targets stable Rust with the Rust 2024 edition.
+
+### Validation
+
+scripts/check_rust_examples.py compiles and smoke-runs every fenced Rust example with rustc --edition=2024 -D warnings. The GitHub Actions workflow .github/workflows/rust-examples.yml runs this check on relevant changes. Passing establishes compilation and successful process exit, not expected-output correctness, complete capstone behavior, or assistive-technology certification. See VALIDATION.md for current status.
