@@ -29,9 +29,10 @@ C++ is a compiled language. The compiler translates each translation unit; the l
 ```cpp
 #include <iostream>
 int main() {
-    std::cout << "Hello, C++20!\\n";
+    std::cout << "Hello, C++20!\n";
     return 0;
 }
+
 ```
 Compile with `c++ -std=c++20 -Wall -Wextra -Wpedantic -Werror -g main.cpp -o main`; run with `./main` (or the platform executable form).
 
@@ -197,7 +198,8 @@ Computer science and problem solving is taught through the shared course dataset
 
 ### Worked Example
 ```cpp
-std::cout << "Computer science turns problems into precise, testable steps.\\n";
+std::cout << "Computer science turns problems into precise, testable steps.\n";
+
 ```
 
 **Trace:** predict the output before compiling. Identify declarations, values, control-flow decisions, and state changes in order. Then compile and compare actual output with the prediction. The lesson example is intended to be independently compilable.
@@ -238,7 +240,8 @@ Your first program is taught through the shared course datasets and requirements
 
 ### Worked Example
 ```cpp
-const std::string greeting_name = "Avery"; std::cout << "Hello, " << greeting_name << "!\\n";
+const std::string greeting_name = "Avery"; std::cout << "Hello, " << greeting_name << "!\n";
+
 ```
 
 **Trace:** predict the output before compiling. Identify declarations, values, control-flow decisions, and state changes in order. Then compile and compare actual output with the prediction. The lesson example is intended to be independently compilable.
@@ -279,7 +282,8 @@ Variables and data types is taught through the shared course datasets and requir
 
 ### Worked Example
 ```cpp
-const std::string name = "Avery"; const int age = 16; const double height_m = 1.72; const std::string favorite = "Computer Science"; std::cout << name << ", " << age << ", " << height_m << " m, " << favorite << '\\n';
+const std::string name = "Avery"; const int age = 16; const double height_m = 1.72; const std::string favorite = "Computer Science"; std::cout << name << ", " << age << ", " << height_m << " m, " << favorite << '\n';
+
 ```
 
 **Trace:** predict the output before compiling. Identify declarations, values, control-flow decisions, and state changes in order. Then compile and compare actual output with the prediction. The lesson example is intended to be independently compilable.
@@ -327,7 +331,8 @@ Design and tracing is taught through the shared course datasets and requirements
 
 ### Worked Example
 ```cpp
-const double bill = 24.50; const double tip = bill * 0.15; std::cout << "Tip: $" << tip << "; total: $" << bill + tip << '\\n';
+const double bill = 24.50; const double tip = bill * 0.15; std::cout << "Tip: $" << tip << "; total: $" << bill + tip << '\n';
+
 ```
 
 **Trace:** predict the output before compiling. Identify declarations, values, control-flow decisions, and state changes in order. Then compile and compare actual output with the prediction. The lesson example is intended to be independently compilable.
@@ -368,7 +373,8 @@ Expressions and assignment is taught through the shared course datasets and requ
 
 ### Worked Example
 ```cpp
-double score = 70.0; score += 12.5; score *= 1.1; std::cout << "Adjusted score: " << score << '\\n';
+double score = 70.0; score += 12.5; score *= 1.1; std::cout << "Adjusted score: " << score << '\n';
+
 ```
 
 **Trace:** predict the output before compiling. Identify declarations, values, control-flow decisions, and state changes in order. Then compile and compare actual output with the prediction. The lesson example is intended to be independently compilable.
@@ -410,7 +416,8 @@ Input and output is taught through the shared course datasets and requirements. 
 
 ### Worked Example
 ```cpp
-std::istringstream input("Avery 6 7"); std::string name; int first = 0, second = 0; if (input >> name >> first >> second) std::cout << "Hello, " << name << "; sum: " << first + second << '\\n';
+std::istringstream input("Avery 6 7"); std::string name; int first = 0, second = 0; if (input >> name >> first >> second) std::cout << "Hello, " << name << "; sum: " << first + second << '\n';
+
 ```
 
 **Trace:** predict the output before compiling. Identify declarations, values, control-flow decisions, and state changes in order. Then compile and compare actual output with the prediction. The lesson example is intended to be independently compilable.
@@ -452,7 +459,8 @@ Numeric conversions and mathematics is taught through the shared course datasets
 
 ### Worked Example
 ```cpp
-const int completed = 7, total = 10; const double ratio = static_cast<double>(completed) / total; std::cout << "Percent: " << ratio * 100.0 << "; rounded: " << std::round(ratio * 100.0) << '\\n';
+const int completed = 7, total = 10; const double ratio = static_cast<double>(completed) / total; std::cout << "Percent: " << ratio * 100.0 << "; rounded: " << std::round(ratio * 100.0) << '\n';
+
 ```
 
 **Trace:** predict the output before compiling. Identify declarations, values, control-flow decisions, and state changes in order. Then compile and compare actual output with the prediction. The lesson example is intended to be independently compilable.
@@ -502,10 +510,11 @@ int main() {
     const double area = pi * radius * radius;
     const double circumference = 2.0 * pi * radius;
     const double distance = std::sqrt(3.0 * 3.0 + 4.0 * 4.0);
-    std::cout << "Area: " << area << '\\n';
-    std::cout << "Circumference: " << circumference << '\\n';
-    std::cout << "Distance: " << distance << '\\n';
+    std::cout << "Area: " << area << '\n';
+    std::cout << "Circumference: " << circumference << '\n';
+    std::cout << "Distance: " << distance << '\n';
 }
+
 ```
 
 **Expected behavior:** the circle with radius 3 has area approximately 28.2743 and circumference approximately 18.8496; the point (3, 4) is 5 units from the origin.
@@ -552,7 +561,8 @@ Boolean expressions is taught through the shared course datasets and requirement
 
 ### Worked Example
 ```cpp
-const int score = 82; const bool passed = score >= 60 && score <= 100; std::cout << std::boolalpha << "Valid passing score: " << passed << '\\n';
+const int score = 82; const bool passed = score >= 60 && score <= 100; std::cout << std::boolalpha << "Valid passing score: " << passed << '\n';
+
 ```
 
 **Trace:** predict the output before compiling. Identify declarations, values, control-flow decisions, and state changes in order. Then compile and compare actual output with the prediction. The lesson example is intended to be independently compilable.
@@ -594,7 +604,8 @@ Chained conditionals is taught through the shared course datasets and requiremen
 
 ### Worked Example
 ```cpp
-for (int score : {59, 60, 79, 80, 89, 90, 100}) { const char grade = score >= 90 ? 'A' : score >= 80 ? 'B' : score >= 70 ? 'C' : score >= 60 ? 'D' : 'F'; std::cout << score << ": " << grade << '\\n'; }
+for (int score : {59, 60, 79, 80, 89, 90, 100}) { const char grade = score >= 90 ? 'A' : score >= 80 ? 'B' : score >= 70 ? 'C' : score >= 60 ? 'D' : 'F'; std::cout << score << ": " << grade << '\n'; }
+
 ```
 
 **Trace:** predict the output before compiling. Identify declarations, values, control-flow decisions, and state changes in order. Then compile and compare actual output with the prediction. The lesson example is intended to be independently compilable.
@@ -636,7 +647,8 @@ Sequences and indexing is taught through the shared course datasets and requirem
 
 ### Worked Example
 ```cpp
-std::vector<int> scores{82, 91, 76, 88}; std::cout << "First: " << scores.at(0) << "; fourth: " << scores.at(3) << "; count: " << scores.size() << '\\n';
+std::vector<int> scores{82, 91, 76, 88}; std::cout << "First: " << scores.at(0) << "; fourth: " << scores.at(3) << "; count: " << scores.size() << '\n';
+
 ```
 
 **Trace:** predict the output before compiling. Identify declarations, values, control-flow decisions, and state changes in order. Then compile and compare actual output with the prediction. The lesson example is intended to be independently compilable.
@@ -678,7 +690,8 @@ For loops and iteration is taught through the shared course datasets and require
 
 ### Worked Example
 ```cpp
-const std::vector<int> scores{82, 91, 76, 88}; int sum = 0; for (int score : scores) sum += score; std::cout << "Total: " << sum << "; average: " << static_cast<double>(sum) / scores.size() << '\\n';
+const std::vector<int> scores{82, 91, 76, 88}; int sum = 0; for (int score : scores) sum += score; std::cout << "Total: " << sum << "; average: " << static_cast<double>(sum) / scores.size() << '\n';
+
 ```
 
 **Trace:** predict the output before compiling. Identify declarations, values, control-flow decisions, and state changes in order. Then compile and compare actual output with the prediction. The lesson example is intended to be independently compilable.
@@ -720,7 +733,8 @@ String operations is taught through the shared course datasets and requirements.
 
 ### Worked Example
 ```cpp
-std::string text = "Avery Studies Programming"; std::transform(text.begin(), text.end(), text.begin(), [](unsigned char ch) { return static_cast<char>(std::tolower(ch)); }); std::cout << text << "; length: " << text.size() << '\\n';
+std::string text = "Avery Studies Programming"; std::transform(text.begin(), text.end(), text.begin(), [](unsigned char ch) { return static_cast<char>(std::tolower(ch)); }); std::cout << text << "; length: " << text.size() << '\n';
+
 ```
 
 **Trace:** predict the output before compiling. Identify declarations, values, control-flow decisions, and state changes in order. Then compile and compare actual output with the prediction. The lesson example is intended to be independently compilable.
@@ -768,7 +782,8 @@ Mutable sequences is taught through the shared course datasets and requirements.
 
 ### Worked Example
 ```cpp
-std::vector<std::string> items{"Notebook", "Pencil"}; items.insert(items.begin() + 1, "Folder"); items.push_back("Eraser"); items.erase(items.begin()); for (const auto& item : items) std::cout << item << '\\n';
+std::vector<std::string> items{"Notebook", "Pencil"}; items.insert(items.begin() + 1, "Folder"); items.push_back("Eraser"); items.erase(items.begin()); for (const auto& item : items) std::cout << item << '\n';
+
 ```
 
 **Trace:** predict the output before compiling. Identify declarations, values, control-flow decisions, and state changes in order. Then compile and compare actual output with the prediction. The lesson example is intended to be independently compilable.
@@ -810,7 +825,8 @@ Sorting and organizing data is taught through the shared course datasets and req
 
 ### Worked Example
 ```cpp
-std::vector<int> quantities{10, 3, 4, 1}; std::sort(quantities.begin(), quantities.end()); std::reverse(quantities.begin(), quantities.end()); for (int quantity : quantities) std::cout << quantity << ' '; std::cout << '\\n';
+std::vector<int> quantities{10, 3, 4, 1}; std::sort(quantities.begin(), quantities.end()); std::reverse(quantities.begin(), quantities.end()); for (int quantity : quantities) std::cout << quantity << ' '; std::cout << '\n';
+
 ```
 
 **Trace:** predict the output before compiling. Identify declarations, values, control-flow decisions, and state changes in order. Then compile and compare actual output with the prediction. The lesson example is intended to be independently compilable.
@@ -852,7 +868,8 @@ Immutable records is taught through the shared course datasets and requirements.
 
 ### Worked Example
 ```cpp
-struct Coordinate { const int x; const int y; }; const Coordinate point{3, 4}; std::cout << "Point: (" << point.x << ", " << point.y << ")\\n";
+struct Coordinate { const int x; const int y; }; const Coordinate point{3, 4}; std::cout << "Point: (" << point.x << ", " << point.y << ")\n";
+
 ```
 
 **Trace:** predict the output before compiling. Identify declarations, values, control-flow decisions, and state changes in order. Then compile and compare actual output with the prediction. The lesson example is intended to be independently compilable.
@@ -894,7 +911,8 @@ Maps and key-value data is taught through the shared course datasets and require
 
 ### Worked Example
 ```cpp
-std::map<std::string, int> inventory{{"Notebook", 3}, {"Pencil", 10}, {"Folder", 4}}; inventory["Notebook"] += 1; std::cout << "Notebook count: " << inventory.at("Notebook") << '\\n';
+std::map<std::string, int> inventory{{"Notebook", 3}, {"Pencil", 10}, {"Folder", 4}}; inventory["Notebook"] += 1; std::cout << "Notebook count: " << inventory.at("Notebook") << '\n';
+
 ```
 
 **Trace:** predict the output before compiling. Identify declarations, values, control-flow decisions, and state changes in order. Then compile and compare actual output with the prediction. The lesson example is intended to be independently compilable.
@@ -936,7 +954,8 @@ Collection traversal is taught through the shared course datasets and requiremen
 
 ### Worked Example
 ```cpp
-const std::map<std::string, int> inventory{{"Notebook", 3}, {"Pencil", 10}, {"Folder", 4}}; for (const auto& [name, quantity] : inventory) std::cout << name << " => " << quantity << '\\n';
+const std::map<std::string, int> inventory{{"Notebook", 3}, {"Pencil", 10}, {"Folder", 4}}; for (const auto& [name, quantity] : inventory) std::cout << name << " => " << quantity << '\n';
+
 ```
 
 **Trace:** predict the output before compiling. Identify declarations, values, control-flow decisions, and state changes in order. Then compile and compare actual output with the prediction. The lesson example is intended to be independently compilable.
@@ -984,7 +1003,8 @@ Input and validation is taught through the shared course datasets and requiremen
 
 ### Worked Example
 ```cpp
-std::istringstream input("16"); int age = 0; if (!(input >> age) || age < 0 || age > 130) std::cout << "Enter a valid age from 0 to 130\\n"; else std::cout << "Accepted age: " << age << '\\n';
+std::istringstream input("16"); int age = 0; if (!(input >> age) || age < 0 || age > 130) std::cout << "Enter a valid age from 0 to 130\n"; else std::cout << "Accepted age: " << age << '\n';
+
 ```
 
 **Trace:** predict the output before compiling. Identify declarations, values, control-flow decisions, and state changes in order. Then compile and compare actual output with the prediction. The lesson example is intended to be independently compilable.
@@ -1026,7 +1046,8 @@ While loops is taught through the shared course datasets and requirements. The P
 
 ### Worked Example
 ```cpp
-std::istringstream input("1 2 3 0"); int value = 0, total = 0; while (input >> value && value != 0) total += value; std::cout << "Sum before sentinel: " << total << '\\n';
+std::istringstream input("1 2 3 0"); int value = 0, total = 0; while (input >> value && value != 0) total += value; std::cout << "Sum before sentinel: " << total << '\n';
+
 ```
 
 **Trace:** predict the output before compiling. Identify declarations, values, control-flow decisions, and state changes in order. Then compile and compare actual output with the prediction. The lesson example is intended to be independently compilable.
@@ -1068,7 +1089,8 @@ Flags and break is taught through the shared course datasets and requirements. T
 
 ### Worked Example
 ```cpp
-const std::vector<std::string> names{"Avery", "Jordan", "Sam"}; bool found = false; for (const auto& name : names) { if (name == "Jordan") { found = true; break; } } std::cout << "Jordan found: " << std::boolalpha << found << '\\n';
+const std::vector<std::string> names{"Avery", "Jordan", "Sam"}; bool found = false; for (const auto& name : names) { if (name == "Jordan") { found = true; break; } } std::cout << "Jordan found: " << std::boolalpha << found << '\n';
+
 ```
 
 **Trace:** predict the output before compiling. Identify declarations, values, control-flow decisions, and state changes in order. Then compile and compare actual output with the prediction. The lesson example is intended to be independently compilable.
@@ -1110,7 +1132,8 @@ Continue and filtering is taught through the shared course datasets and requirem
 
 ### Worked Example
 ```cpp
-for (int value : {-2, 3, 0, 5, -1}) { if (value <= 0) continue; std::cout << value << ' '; } std::cout << '\\n';
+for (int value : {-2, 3, 0, 5, -1}) { if (value <= 0) continue; std::cout << value << ' '; } std::cout << '\n';
+
 ```
 
 **Trace:** predict the output before compiling. Identify declarations, values, control-flow decisions, and state changes in order. Then compile and compare actual output with the prediction. The lesson example is intended to be independently compilable.
@@ -1152,7 +1175,8 @@ Infinite-loop prevention is taught through the shared course datasets and requir
 
 ### Worked Example
 ```cpp
-int attempts = 0; bool valid = false; while (!valid && attempts < 3) { ++attempts; valid = attempts == 2; } std::cout << "Attempts: " << attempts << "; valid: " << std::boolalpha << valid << '\\n';
+int attempts = 0; bool valid = false; while (!valid && attempts < 3) { ++attempts; valid = attempts == 2; } std::cout << "Attempts: " << attempts << "; valid: " << std::boolalpha << valid << '\n';
+
 ```
 
 **Trace:** predict the output before compiling. Identify declarations, values, control-flow decisions, and state changes in order. Then compile and compare actual output with the prediction. The lesson example is intended to be independently compilable.
@@ -1200,7 +1224,8 @@ Defining functions is taught through the shared course datasets and requirements
 
 ### Worked Example
 ```cpp
-const auto add = [](int left, int right) { return left + right; }; std::cout << "4 + 5 = " << add(4, 5) << '\\n';
+const auto add = [](int left, int right) { return left + right; }; std::cout << "4 + 5 = " << add(4, 5) << '\n';
+
 ```
 
 **Trace:** predict the output before compiling. Identify declarations, values, control-flow decisions, and state changes in order. Then compile and compare actual output with the prediction. The lesson example is intended to be independently compilable.
@@ -1242,7 +1267,8 @@ Parameters and arguments is taught through the shared course datasets and requir
 
 ### Worked Example
 ```cpp
-const auto label = [](const std::string& name, int score) { return name + ": " + std::to_string(score); }; std::cout << label("Avery", 92) << '\\n';
+const auto label = [](const std::string& name, int score) { return name + ": " + std::to_string(score); }; std::cout << label("Avery", 92) << '\n';
+
 ```
 
 **Trace:** predict the output before compiling. Identify declarations, values, control-flow decisions, and state changes in order. Then compile and compare actual output with the prediction. The lesson example is intended to be independently compilable.
@@ -1284,7 +1310,8 @@ Return values is taught through the shared course datasets and requirements. The
 
 ### Worked Example
 ```cpp
-const auto tip_total = [](double bill, double rate) { return bill * (1.0 + rate); }; const double total = tip_total(24.50, 0.15); std::cout << "Total: $" << total << '\\n';
+const auto tip_total = [](double bill, double rate) { return bill * (1.0 + rate); }; const double total = tip_total(24.50, 0.15); std::cout << "Total: $" << total << '\n';
+
 ```
 
 **Trace:** predict the output before compiling. Identify declarations, values, control-flow decisions, and state changes in order. Then compile and compare actual output with the prediction. The lesson example is intended to be independently compilable.
@@ -1326,7 +1353,8 @@ Functions over collections is taught through the shared course datasets and requ
 
 ### Worked Example
 ```cpp
-const auto average = [](const std::vector<int>& scores) { if (scores.empty()) return 0.0; const int sum = std::accumulate(scores.begin(), scores.end(), 0); return static_cast<double>(sum) / scores.size(); }; std::cout << "Average: " << average({82, 91, 76, 88}) << '\\n';
+const auto average = [](const std::vector<int>& scores) { if (scores.empty()) return 0.0; const int sum = std::accumulate(scores.begin(), scores.end(), 0); return static_cast<double>(sum) / scores.size(); }; std::cout << "Average: " << average({82, 91, 76, 88}) << '\n';
+
 ```
 
 **Trace:** predict the output before compiling. Identify declarations, values, control-flow decisions, and state changes in order. Then compile and compare actual output with the prediction. The lesson example is intended to be independently compilable.
@@ -1368,7 +1396,8 @@ Scope and variadic arguments is taught through the shared course datasets and re
 
 ### Worked Example
 ```cpp
-const auto sum = []<typename... Values>(Values... values) { return (values + ...); }; std::cout << "Sum: " << sum(2, 3, 4) << '\\n';
+const auto sum = []<typename... Values>(Values... values) { return (values + ...); }; std::cout << "Sum: " << sum(2, 3, 4) << '\n';
+
 ```
 
 **Trace:** predict the output before compiling. Identify declarations, values, control-flow decisions, and state changes in order. Then compile and compare actual output with the prediction. The lesson example is intended to be independently compilable.
@@ -1416,7 +1445,8 @@ Types and object models is taught through the shared course datasets and require
 
 ### Worked Example
 ```cpp
-struct Item { std::string name; int quantity; }; const Item notebook{"Notebook", 3}; std::cout << notebook.name << ": " << notebook.quantity << '\\n';
+struct Item { std::string name; int quantity; }; const Item notebook{"Notebook", 3}; std::cout << notebook.name << ": " << notebook.quantity << '\n';
+
 ```
 
 **Trace:** predict the output before compiling. Identify declarations, values, control-flow decisions, and state changes in order. Then compile and compare actual output with the prediction. The lesson example is intended to be independently compilable.
@@ -1458,7 +1488,8 @@ Creating instances is taught through the shared course datasets and requirements
 
 ### Worked Example
 ```cpp
-struct Item { std::string name; int quantity; }; const std::vector<Item> items{{"Notebook", 3}, {"Pencil", 10}, {"Folder", 4}}; for (const auto& item : items) std::cout << item.name << ": " << item.quantity << '\\n';
+struct Item { std::string name; int quantity; }; const std::vector<Item> items{{"Notebook", 3}, {"Pencil", 10}, {"Folder", 4}}; for (const auto& item : items) std::cout << item.name << ": " << item.quantity << '\n';
+
 ```
 
 **Trace:** predict the output before compiling. Identify declarations, values, control-flow decisions, and state changes in order. Then compile and compare actual output with the prediction. The lesson example is intended to be independently compilable.
@@ -1500,7 +1531,8 @@ Fields and methods is taught through the shared course datasets and requirements
 
 ### Worked Example
 ```cpp
-struct Counter { int value{0}; void increment() { ++value; } int current() const { return value; } }; Counter clicks; clicks.increment(); clicks.increment(); std::cout << "Clicks: " << clicks.current() << '\\n';
+struct Counter { int value{0}; void increment() { ++value; } int current() const { return value; } }; Counter clicks; clicks.increment(); clicks.increment(); std::cout << "Clicks: " << clicks.current() << '\n';
+
 ```
 
 **Trace:** predict the output before compiling. Identify declarations, values, control-flow decisions, and state changes in order. Then compile and compare actual output with the prediction. The lesson example is intended to be independently compilable.
@@ -1542,7 +1574,8 @@ Inheritance and interfaces is taught through the shared course datasets and requ
 
 ### Worked Example
 ```cpp
-struct Record { virtual ~Record() = default; virtual std::string kind() const { return "record"; } }; struct StudentRecord : Record { std::string kind() const override { return "student"; } }; StudentRecord student; const Record& view = student; std::cout << view.kind() << '\\n';
+struct Record { virtual ~Record() = default; virtual std::string kind() const { return "record"; } }; struct StudentRecord : Record { std::string kind() const override { return "student"; } }; StudentRecord student; const Record& view = student; std::cout << view.kind() << '\n';
+
 ```
 
 **Trace:** predict the output before compiling. Identify declarations, values, control-flow decisions, and state changes in order. Then compile and compare actual output with the prediction. The lesson example is intended to be independently compilable.
@@ -1584,7 +1617,8 @@ Composition is taught through the shared course datasets and requirements. The P
 
 ### Worked Example
 ```cpp
-struct Address { std::string city; }; struct Student { std::string name; Address address; }; const Student avery{"Avery", {"Farmington"}}; std::cout << avery.name << " lives in " << avery.address.city << '\\n';
+struct Address { std::string city; }; struct Student { std::string name; Address address; }; const Student avery{"Avery", {"Farmington"}}; std::cout << avery.name << " lives in " << avery.address.city << '\n';
+
 ```
 
 **Trace:** predict the output before compiling. Identify declarations, values, control-flow decisions, and state changes in order. Then compile and compare actual output with the prediction. The lesson example is intended to be independently compilable.
@@ -1632,7 +1666,8 @@ Reading text files is taught through the shared course datasets and requirements
 
 ### Worked Example
 ```cpp
-{ std::ofstream out("cpp_notes.txt"); out << "First line\\nSecond line\\n"; } std::ifstream in("cpp_notes.txt"); std::string line; while (std::getline(in, line)) std::cout << line << '\\n';
+{ std::ofstream out("cpp_notes.txt"); out << "First line\nSecond line\n"; } std::ifstream in("cpp_notes.txt"); std::string line; while (std::getline(in, line)) std::cout << line << '\n';
+
 ```
 
 **Trace:** predict the output before compiling. Identify declarations, values, control-flow decisions, and state changes in order. Then compile and compare actual output with the prediction. The lesson example is intended to be independently compilable.
@@ -1674,7 +1709,8 @@ Writing and appending files is taught through the shared course datasets and req
 
 ### Worked Example
 ```cpp
-{ std::ofstream out("cpp_log.txt", std::ios::app); out << "Session complete\\n"; } std::cout << "Appended one record\\n";
+{ std::ofstream out("cpp_log.txt", std::ios::app); out << "Session complete\n"; } std::cout << "Appended one record\n";
+
 ```
 
 **Trace:** predict the output before compiling. Identify declarations, values, control-flow decisions, and state changes in order. Then compile and compare actual output with the prediction. The lesson example is intended to be independently compilable.
@@ -1716,7 +1752,8 @@ Errors and exceptions is taught through the shared course datasets and requireme
 
 ### Worked Example
 ```cpp
-try { throw std::runtime_error("invalid score"); } catch (const std::exception& error) { std::cout << "Handled: " << error.what() << '\\n'; }
+try { throw std::runtime_error("invalid score"); } catch (const std::exception& error) { std::cout << "Handled: " << error.what() << '\n'; }
+
 ```
 
 **Trace:** predict the output before compiling. Identify declarations, values, control-flow decisions, and state changes in order. Then compile and compare actual output with the prediction. The lesson example is intended to be independently compilable.
@@ -1758,7 +1795,8 @@ Resource cleanup is taught through the shared course datasets and requirements. 
 
 ### Worked Example
 ```cpp
-{ std::ofstream output("cpp_raii.txt"); output << "The stream closes automatically at scope exit\\n"; } std::cout << "RAII released the file stream\\n";
+{ std::ofstream output("cpp_raii.txt"); output << "The stream closes automatically at scope exit\n"; } std::cout << "RAII released the file stream\n";
+
 ```
 
 **Trace:** predict the output before compiling. Identify declarations, values, control-flow decisions, and state changes in order. Then compile and compare actual output with the prediction. The lesson example is intended to be independently compilable.
@@ -1800,7 +1838,8 @@ JSON persistence is taught through the shared course datasets and requirements. 
 
 ### Worked Example
 ```cpp
-const std::string json = "{\\\"name\\\":\\\"Avery\\\",\\\"score\\\":92}"; std::cout << json << '\\n';
+const std::string json = "{\"name\":\"Avery\",\"score\":92}"; std::cout << json << '\n';
+
 ```
 
 **Trace:** predict the output before compiling. Identify declarations, values, control-flow decisions, and state changes in order. Then compile and compare actual output with the prediction. The lesson example is intended to be independently compilable.
@@ -1848,7 +1887,8 @@ Testing functions is taught through the shared course datasets and requirements.
 
 ### Worked Example
 ```cpp
-const auto add = [](int a, int b) { return a + b; }; assert(add(2, 3) == 5); assert(add(-2, 2) == 0); std::cout << "Function tests passed\\n";
+const auto add = [](int a, int b) { return a + b; }; assert(add(2, 3) == 5); assert(add(-2, 2) == 0); std::cout << "Function tests passed\n";
+
 ```
 
 **Trace:** predict the output before compiling. Identify declarations, values, control-flow decisions, and state changes in order. Then compile and compare actual output with the prediction. The lesson example is intended to be independently compilable.
@@ -1890,7 +1930,8 @@ Testing stateful objects is taught through the shared course datasets and requir
 
 ### Worked Example
 ```cpp
-struct Inventory { int quantity{0}; void add(int amount) { if (amount > 0) quantity += amount; } }; Inventory stock; stock.add(3); stock.add(-1); assert(stock.quantity == 3); std::cout << "State test passed\\n";
+struct Inventory { int quantity{0}; void add(int amount) { if (amount > 0) quantity += amount; } }; Inventory stock; stock.add(3); stock.add(-1); assert(stock.quantity == 3); std::cout << "State test passed\n";
+
 ```
 
 **Trace:** predict the output before compiling. Identify declarations, values, control-flow decisions, and state changes in order. Then compile and compare actual output with the prediction. The lesson example is intended to be independently compilable.
@@ -1932,7 +1973,8 @@ Random values is taught through the shared course datasets and requirements. The
 
 ### Worked Example
 ```cpp
-std::mt19937 engine(42); std::uniform_int_distribution<int> die(1, 6); for (int i = 0; i < 5; ++i) std::cout << die(engine) << (i == 4 ? '\\n' : ' ');
+std::mt19937 engine(42); std::uniform_int_distribution<int> die(1, 6); for (int i = 0; i < 5; ++i) std::cout << die(engine) << (i == 4 ? '\n' : ' ');
+
 ```
 
 **Trace:** predict the output before compiling. Identify declarations, values, control-flow decisions, and state changes in order. Then compile and compare actual output with the prediction. The lesson example is intended to be independently compilable.
@@ -1974,7 +2016,8 @@ Text analysis is taught through the shared course datasets and requirements. The
 
 ### Worked Example
 ```cpp
-const std::string sample = "A student studies programming."; int letters = 0, spaces = 0; for (unsigned char ch : sample) { if (std::isalpha(ch)) ++letters; if (std::isspace(ch)) ++spaces; } std::cout << "Letters: " << letters << "; spaces: " << spaces << '\\n';
+const std::string sample = "A student studies programming."; int letters = 0, spaces = 0; for (unsigned char ch : sample) { if (std::isalpha(ch)) ++letters; if (std::isspace(ch)) ++spaces; } std::cout << "Letters: " << letters << "; spaces: " << spaces << '\n';
+
 ```
 
 **Trace:** predict the output before compiling. Identify declarations, values, control-flow decisions, and state changes in order. Then compile and compare actual output with the prediction. The lesson example is intended to be independently compilable.
@@ -2016,7 +2059,8 @@ CSV records is taught through the shared course datasets and requirements. The P
 
 ### Worked Example
 ```cpp
-std::istringstream row("Avery,92,active"); std::string name, score_text, status; std::getline(row, name, ','); std::getline(row, score_text, ','); std::getline(row, status); const int score = std::stoi(score_text); std::cout << name << ": " << score << " (" << status << ")\\n";
+std::istringstream row("Avery,92,active"); std::string name, score_text, status; std::getline(row, name, ','); std::getline(row, score_text, ','); std::getline(row, status); const int score = std::stoi(score_text); std::cout << name << ": " << score << " (" << status << ")\n";
+
 ```
 
 **Trace:** predict the output before compiling. Identify declarations, values, control-flow decisions, and state changes in order. Then compile and compare actual output with the prediction. The lesson example is intended to be independently compilable.
@@ -2064,7 +2108,8 @@ Requirements and design is taught through the shared course datasets and require
 
 ### Worked Example
 ```cpp
-const std::vector<std::string> requirements{"create records", "search by ID", "validate input", "save changes"}; for (std::size_t i = 0; i < requirements.size(); ++i) std::cout << i + 1 << ". " << requirements[i] << '\\n';
+const std::vector<std::string> requirements{"create records", "search by ID", "validate input", "save changes"}; for (std::size_t i = 0; i < requirements.size(); ++i) std::cout << i + 1 << ". " << requirements[i] << '\n';
+
 ```
 
 **Trace:** predict the output before compiling. Identify declarations, values, control-flow decisions, and state changes in order. Then compile and compare actual output with the prediction. The lesson example is intended to be independently compilable.
@@ -2106,7 +2151,8 @@ Text adventure: rooms and movement is taught through the shared course datasets 
 
 ### Worked Example
 ```cpp
-const std::map<std::string, std::string> exits{{"north", "Library"}, {"east", "Garden"}}; std::string room = "Atrium"; const std::string direction = "north"; if (exits.contains(direction)) room = exits.at(direction); std::cout << "Current room: " << room << '\\n';
+const std::map<std::string, std::string> exits{{"north", "Library"}, {"east", "Garden"}}; std::string room = "Atrium"; const std::string direction = "north"; if (exits.contains(direction)) room = exits.at(direction); std::cout << "Current room: " << room << '\n';
+
 ```
 
 **Trace:** predict the output before compiling. Identify declarations, values, control-flow decisions, and state changes in order. Then compile and compare actual output with the prediction. The lesson example is intended to be independently compilable.
@@ -2148,7 +2194,8 @@ Text adventure: inventory and puzzles is taught through the shared course datase
 
 ### Worked Example
 ```cpp
-std::vector<std::string> inventory{"key", "map"}; const bool has_key = std::find(inventory.begin(), inventory.end(), "key") != inventory.end(); if (has_key) inventory.push_back("chest reward"); for (const auto& item : inventory) std::cout << item << '\\n';
+std::vector<std::string> inventory{"key", "map"}; const bool has_key = std::find(inventory.begin(), inventory.end(), "key") != inventory.end(); if (has_key) inventory.push_back("chest reward"); for (const auto& item : inventory) std::cout << item << '\n';
+
 ```
 
 **Trace:** predict the output before compiling. Identify declarations, values, control-flow decisions, and state changes in order. Then compile and compare actual output with the prediction. The lesson example is intended to be independently compilable.
@@ -2190,7 +2237,8 @@ Command-line to-do manager is taught through the shared course datasets and requ
 
 ### Worked Example
 ```cpp
-struct Task { int id; std::string title; bool done; }; std::vector<Task> tasks{{1, "Read lesson", false}, {2, "Run tests", true}}; tasks.at(0).done = true; tasks.erase(std::remove_if(tasks.begin(), tasks.end(), [](const Task& task) { return task.id == 2; }), tasks.end()); for (const auto& task : tasks) std::cout << task.id << ": " << task.title << " [" << task.done << "]\\n";
+struct Task { int id; std::string title; bool done; }; std::vector<Task> tasks{{1, "Read lesson", false}, {2, "Run tests", true}}; tasks.at(0).done = true; tasks.erase(std::remove_if(tasks.begin(), tasks.end(), [](const Task& task) { return task.id == 2; }), tasks.end()); for (const auto& task : tasks) std::cout << task.id << ": " << task.title << " [" << task.done << "]\n";
+
 ```
 
 **Trace:** predict the output before compiling. Identify declarations, values, control-flow decisions, and state changes in order. Then compile and compare actual output with the prediction. The lesson example is intended to be independently compilable.
@@ -2232,7 +2280,8 @@ Accessible UX and validation is taught through the shared course datasets and re
 
 ### Worked Example
 ```cpp
-std::istringstream command("add Read chapter"); std::string action; command >> action; std::string title; std::getline(command >> std::ws, title); if (action == "add" && !title.empty()) std::cout << "Added task: " << title << '\\n'; else std::cout << "Usage: add <task title>\\n";
+std::istringstream command("add Read chapter"); std::string action; command >> action; std::string title; std::getline(command >> std::ws, title); if (action == "add" && !title.empty()) std::cout << "Added task: " << title << '\n'; else std::cout << "Usage: add <task title>\n";
+
 ```
 
 **Trace:** predict the output before compiling. Identify declarations, values, control-flow decisions, and state changes in order. Then compile and compare actual output with the prediction. The lesson example is intended to be independently compilable.
@@ -2280,7 +2329,8 @@ Capstone requirements is taught through the shared course datasets and requireme
 
 ### Worked Example
 ```cpp
-std::cout << "Personal data manager requirements: create, list, search, update, delete, validate, persist.\\n";
+std::cout << "Personal data manager requirements: create, list, search, update, delete, validate, persist.\n";
+
 ```
 
 **Trace:** predict the output before compiling. Identify declarations, values, control-flow decisions, and state changes in order. Then compile and compare actual output with the prediction. The lesson example is intended to be independently compilable.
@@ -2322,7 +2372,8 @@ Data model and storage is taught through the shared course datasets and requirem
 
 ### Worked Example
 ```cpp
-struct Person { int id; std::string name; std::string email; }; const std::vector<Person> people{{1, "Avery", "avery@example.test"}}; for (const auto& person : people) std::cout << person.id << "," << person.name << "," << person.email << '\\n';
+struct Person { int id; std::string name; std::string email; }; const std::vector<Person> people{{1, "Avery", "avery@example.test"}}; for (const auto& person : people) std::cout << person.id << "," << person.name << "," << person.email << '\n';
+
 ```
 
 **Trace:** predict the output before compiling. Identify declarations, values, control-flow decisions, and state changes in order. Then compile and compare actual output with the prediction. The lesson example is intended to be independently compilable.
@@ -2364,7 +2415,8 @@ Create/read/update/delete is taught through the shared course datasets and requi
 
 ### Worked Example
 ```cpp
-struct Person { int id; std::string name; }; std::vector<Person> people; people.push_back({1, "Avery"}); people.at(0).name = "Avery H."; people.erase(std::remove_if(people.begin(), people.end(), [](const Person& p) { return p.id == 1; }), people.end()); std::cout << "Records remaining: " << people.size() << '\\n';
+struct Person { int id; std::string name; }; std::vector<Person> people; people.push_back({1, "Avery"}); people.at(0).name = "Avery H."; people.erase(std::remove_if(people.begin(), people.end(), [](const Person& p) { return p.id == 1; }), people.end()); std::cout << "Records remaining: " << people.size() << '\n';
+
 ```
 
 **Trace:** predict the output before compiling. Identify declarations, values, control-flow decisions, and state changes in order. Then compile and compare actual output with the prediction. The lesson example is intended to be independently compilable.
@@ -2406,7 +2458,8 @@ Validation and testing is taught through the shared course datasets and requirem
 
 ### Worked Example
 ```cpp
-const auto valid_email = [](const std::string& email) { const auto at = email.find('@'); return at != std::string::npos && at > 0 && email.find('.', at) != std::string::npos; }; assert(valid_email("avery@example.test")); assert(!valid_email("invalid")); std::cout << "Validation tests passed\\n";
+const auto valid_email = [](const std::string& email) { const auto at = email.find('@'); return at != std::string::npos && at > 0 && email.find('.', at) != std::string::npos; }; assert(valid_email("avery@example.test")); assert(!valid_email("invalid")); std::cout << "Validation tests passed\n";
+
 ```
 
 **Trace:** predict the output before compiling. Identify declarations, values, control-flow decisions, and state changes in order. Then compile and compare actual output with the prediction. The lesson example is intended to be independently compilable.
@@ -2448,7 +2501,8 @@ Documentation and presentation is taught through the shared course datasets and 
 
 ### Worked Example
 ```cpp
-std::cout << "Build: c++ -std=c++20 -Wall -Wextra -Wpedantic -Werror main.cpp -o app\\n"; std::cout << "Document: requirements, data format, tests, limitations, accessibility\\n";
+std::cout << "Build: c++ -std=c++20 -Wall -Wextra -Wpedantic -Werror main.cpp -o app\n"; std::cout << "Document: requirements, data format, tests, limitations, accessibility\n";
+
 ```
 
 **Trace:** predict the output before compiling. Identify declarations, values, control-flow decisions, and state changes in order. Then compile and compare actual output with the prediction. The lesson example is intended to be independently compilable.
