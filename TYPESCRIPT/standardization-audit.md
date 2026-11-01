@@ -36,7 +36,7 @@
 
 The repository includes `scripts/check_typescript_curriculum.mjs` and `.github/workflows/typescript-curriculum.yml`.
 
-GitHub Actions run [41345416186](https://github.com/mrhunsaker/VI_Focused_Coding_Curricula/actions/runs/41345416186) passed on Node.js 26.13.0. It validated all 57 lesson sections and strictly type-checked all 58 fenced TypeScript examples using TypeScript 7.0.2, `@types/node` 26, and `csv-parse` 6.
+GitHub Actions runs [41345416186](https://github.com/mrhunsaker/VI_Focused_Coding_Curricula/actions/runs/41345416186) and [41345735551](https://github.com/mrhunsaker/VI_Focused_Coding_Curricula/actions/runs/41345735551) passed on Node.js 26.13.0. The latest run includes the final teacher-guide update. It validated all 57 lesson sections and strictly type-checked all 58 fenced TypeScript examples using TypeScript 7.0.2, `@types/node` 26, and `csv-parse` 6.
 
 Run the checker after installing those dependencies:
 
