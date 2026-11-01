@@ -908,7 +908,7 @@
     "requested_additions": {
       "project_environment_and_container_guide": {
         "path": "DEVELOPMENT/ENVIRONMENT_ISOLATION.md",
-        "status": "drafted_and_added_to_mdbook_navigation_pending_ci_and_accessibility_review",
+        "status": "guide_and_navigation_committed_ci_workflow_added_awaiting_first_run",
         "completed_work": [
           "Explains local environment isolation, dependency manifests, lockfiles, reproducibility, and the differences between version managers, package managers, virtual environments, application installers, containers, and editor settings.",
           "Covers Python venv/virtualenv, pip, pip-tools, pipx, pyenv, Poetry, uv, and Twine, including their distinct purposes.",
@@ -917,13 +917,15 @@
           "Compares Docker and Podman, specifies Docker for documented VS Code Dev Containers instructions, and treats Podman as an optional compatibility-qualified alternative.",
           "Adds optional VS Code Dev Containers setup and a qualified Theia container workflow.",
           "Clarifies that containers isolate project runtimes/dependencies but do not themselves isolate host screen-reader or OS accessibility settings; recommends editor profiles and workspace settings for editor-level separation.",
-          "Adds the guide to SUMMARY.md and links it from OVERALL_README.md."
+          "Adds the guide to SUMMARY.md and links it from OVERALL_README.md.",
+          "Added a GitHub Actions workflow to validate tracker JSON, build the complete mdBook, and check local Markdown link targets on relevant pushes."
         ],
         "not_yet_verified": [
-          "Run a full mdBook build and repository-wide Markdown/local-link validation after this addition.",
+          "Confirm the first GitHub Actions run of .github/workflows/environment-guide.yml passes its full mdBook build and local-link check.",
           "Review current vendor documentation and exact installation commands for Docker, Podman, Conda, uv, Poetry, npm, Cargo, VS Code Dev Containers, and Theia before treating version-specific instructions as permanent.",
           "Perform hands-on keyboard-only, screen-reader, and braille verification of the guide and optional container workflows."
-        ]
+        ],
+        "validation_workflow": ".github/workflows/environment-guide.yml"
       },
       "instructor_assessment_solutions": {
         "requested_scope": "Create an instructor-only repository section containing assessment solutions for all languages and assignments, excluded from the published student website.",
