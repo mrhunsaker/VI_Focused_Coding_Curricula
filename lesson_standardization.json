@@ -812,7 +812,7 @@
         "validation": [
           "Four grouped files contain 57 mapped lesson sections (4 setup and 53 numbered) across Units 0–11.",
           "All 57 fenced Kotlin examples are distinct and have exact expected stdout fixtures in KOTLIN/examples_expected.json.",
-          "GitHub Actions run 41347714875 passed with Kotlin 1.9.24 and JDK 21: all examples compiled in one package-isolated build, each main function executed independently, and all 57 stdout results matched exactly.",
+          "GitHub Actions run 41347726235 passed with Kotlin 1.9.24 and JDK 21: all examples compiled in one package-isolated build, each main function executed independently, and all 57 stdout results matched exactly.",
           "The same run passed the structural checker for all nine required lesson sections and the complete mdBook build.",
           "SUMMARY.md now includes all four Kotlin unit files, reference lessons, index, audit, and teacher guide; duplicate Kotlin and pre-existing duplicate Java navigation entries were removed so mdBook can build."
         ],
@@ -829,8 +829,8 @@
           "kotlin": "1.9.24",
           "jdk": "21"
         },
-        "ci_run": "41347714875",
-        "ci_url": "https://github.com/mrhunsaker/VI_Focused_Coding_Curricula/actions/runs/41347714875"
+        "ci_run": "41347726235",
+        "ci_url": "https://github.com/mrhunsaker/VI_Focused_Coding_Curricula/actions/runs/41347726235"
       }
     },
     "next_tracks": [],
