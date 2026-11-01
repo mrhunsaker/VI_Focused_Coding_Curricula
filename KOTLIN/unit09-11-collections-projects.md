@@ -18,21 +18,13 @@ This course sequence aligns Kotlin with the shared 12-unit curriculum map. Each 
 Kotlin is statically typed. The compiler may infer a declaration's type, but the type remains fixed. Prefer val for read-only bindings and var only when reassignment is required. Distinguish read-only collection interfaces from mutable interfaces, and validate data received from users, files, networks, or Java APIs. Apply the lesson concept to the shared course datasets and preserve the original problem's inputs and expected behavior.
 
 #### Worked Example
+
 ```kotlin
-data class Record(
-    val id: Int,
-    val title: String,
-    val description: String,
-    val category: String,
-    val createdAt: String,
-    val updatedAt: String
-)
-val record = Record(1, "Plan", "Course work", "School", "2026-11-01", "2026-11-01")
-println(record.title)
+fun main(){ fun grade(s:Int)=if(s>=60)"Pass" else "Retry"; check(grade(60)=="Pass"); check(grade(59)=="Retry"); println("Grade boundary checks passed") }
 ```
 
 #### Expected Behavior or Output
-The program prints Plan. The record retains the six shared capstone fields; full CRUD and persistence behavior must be tested separately.
+Both assertions pass and print Grade boundary checks passed.
 
 #### Common Mistakes
 - Assuming type inference makes Kotlin dynamically typed or that numeric types convert implicitly.
@@ -76,21 +68,13 @@ The program prints Plan. The record retains the six shared capstone fields; full
 Kotlin is statically typed. The compiler may infer a declaration's type, but the type remains fixed. Prefer val for read-only bindings and var only when reassignment is required. Distinguish read-only collection interfaces from mutable interfaces, and validate data received from users, files, networks, or Java APIs. Apply the lesson concept to the shared course datasets and preserve the original problem's inputs and expected behavior.
 
 #### Worked Example
+
 ```kotlin
-data class Record(
-    val id: Int,
-    val title: String,
-    val description: String,
-    val category: String,
-    val createdAt: String,
-    val updatedAt: String
-)
-val record = Record(1, "Plan", "Course work", "School", "2026-11-01", "2026-11-01")
-println(record.title)
+fun main(){ class InventoryItem(var quantity:Int){ fun removeOne(){require(quantity>0);quantity--} }; val item=InventoryItem(2); item.removeOne(); check(item.quantity==1); println("Inventory state test passed") }
 ```
 
 #### Expected Behavior or Output
-The program prints Plan. The record retains the six shared capstone fields; full CRUD and persistence behavior must be tested separately.
+The assertion confirms quantity becomes 1 and prints Inventory state test passed.
 
 #### Common Mistakes
 - Assuming type inference makes Kotlin dynamically typed or that numeric types convert implicitly.
@@ -134,21 +118,13 @@ The program prints Plan. The record retains the six shared capstone fields; full
 Kotlin is statically typed. The compiler may infer a declaration's type, but the type remains fixed. Prefer val for read-only bindings and var only when reassignment is required. Distinguish read-only collection interfaces from mutable interfaces, and validate data received from users, files, networks, or Java APIs. Apply the lesson concept to the shared course datasets and preserve the original problem's inputs and expected behavior.
 
 #### Worked Example
+
 ```kotlin
-data class Record(
-    val id: Int,
-    val title: String,
-    val description: String,
-    val category: String,
-    val createdAt: String,
-    val updatedAt: String
-)
-val record = Record(1, "Plan", "Course work", "School", "2026-11-01", "2026-11-01")
-println(record.title)
+fun main(){ val roll=kotlin.random.Random(42).nextInt(1,7); check(roll in 1..6); println("Roll is within 1..6: "+(roll in 1..6)) }
 ```
 
 #### Expected Behavior or Output
-The program prints Plan. The record retains the six shared capstone fields; full CRUD and persistence behavior must be tested separately.
+The seeded value is checked to be within 1 through 6; prints Roll is within 1..6: true.
 
 #### Common Mistakes
 - Assuming type inference makes Kotlin dynamically typed or that numeric types convert implicitly.
@@ -192,21 +168,13 @@ The program prints Plan. The record retains the six shared capstone fields; full
 Kotlin is statically typed. The compiler may infer a declaration's type, but the type remains fixed. Prefer val for read-only bindings and var only when reassignment is required. Distinguish read-only collection interfaces from mutable interfaces, and validate data received from users, files, networks, or Java APIs. Apply the lesson concept to the shared course datasets and preserve the original problem's inputs and expected behavior.
 
 #### Worked Example
+
 ```kotlin
-data class Record(
-    val id: Int,
-    val title: String,
-    val description: String,
-    val category: String,
-    val createdAt: String,
-    val updatedAt: String
-)
-val record = Record(1, "Plan", "Course work", "School", "2026-11-01", "2026-11-01")
-println(record.title)
+fun main(){ val text="A student studies programming. Programming develops skills."; val counts=text.lowercase().split(Regex("[^a-z]+")).filter(String::isNotBlank).groupingBy{it}.eachCount(); println("programming="+counts["programming"]+"; student="+counts["student"]) }
 ```
 
 #### Expected Behavior or Output
-The program prints Plan. The record retains the six shared capstone fields; full CRUD and persistence behavior must be tested separately.
+Prints programming=2; student=1; tokens are lowercase alphabetic sequences.
 
 #### Common Mistakes
 - Assuming type inference makes Kotlin dynamically typed or that numeric types convert implicitly.
@@ -250,21 +218,13 @@ The program prints Plan. The record retains the six shared capstone fields; full
 Kotlin is statically typed. The compiler may infer a declaration's type, but the type remains fixed. Prefer val for read-only bindings and var only when reassignment is required. Distinguish read-only collection interfaces from mutable interfaces, and validate data received from users, files, networks, or Java APIs. Apply the lesson concept to the shared course datasets and preserve the original problem's inputs and expected behavior.
 
 #### Worked Example
+
 ```kotlin
-data class Record(
-    val id: Int,
-    val title: String,
-    val description: String,
-    val category: String,
-    val createdAt: String,
-    val updatedAt: String
-)
-val record = Record(1, "Plan", "Course work", "School", "2026-11-01", "2026-11-01")
-println(record.title)
+fun main(){ val header="id,title,done"; val row="1,Read chapter,false"; val names=header.split(','); val fields=row.split(','); check(names.size==fields.size); println(names.zip(fields).toMap()) }
 ```
 
 #### Expected Behavior or Output
-The program prints Plan. The record retains the six shared capstone fields; full CRUD and persistence behavior must be tested separately.
+Prints {id=1, title=Read chapter, done=false}. This simple row has no quoted commas; use a CSV library for general files.
 
 #### Common Mistakes
 - Assuming type inference makes Kotlin dynamically typed or that numeric types convert implicitly.
@@ -308,21 +268,13 @@ The program prints Plan. The record retains the six shared capstone fields; full
 Kotlin is statically typed. The compiler may infer a declaration's type, but the type remains fixed. Prefer val for read-only bindings and var only when reassignment is required. Distinguish read-only collection interfaces from mutable interfaces, and validate data received from users, files, networks, or Java APIs. Apply the lesson concept to the shared course datasets and preserve the original problem's inputs and expected behavior.
 
 #### Worked Example
+
 ```kotlin
-data class Record(
-    val id: Int,
-    val title: String,
-    val description: String,
-    val category: String,
-    val createdAt: String,
-    val updatedAt: String
-)
-val record = Record(1, "Plan", "Course work", "School", "2026-11-01", "2026-11-01")
-println(record.title)
+fun main(){ data class Requirement(val id:String,val acceptance:String); val plan=listOf(Requirement("R1","List records"),Requirement("R2","Add a record"),Requirement("R3","Persist changes")); plan.forEach{println(it.id+": "+it.acceptance)} }
 ```
 
 #### Expected Behavior or Output
-The program prints Plan. The record retains the six shared capstone fields; full CRUD and persistence behavior must be tested separately.
+Prints three ordered requirements: list records, add a record, and persist changes.
 
 #### Common Mistakes
 - Assuming type inference makes Kotlin dynamically typed or that numeric types convert implicitly.
@@ -366,21 +318,13 @@ The program prints Plan. The record retains the six shared capstone fields; full
 Kotlin is statically typed. The compiler may infer a declaration's type, but the type remains fixed. Prefer val for read-only bindings and var only when reassignment is required. Distinguish read-only collection interfaces from mutable interfaces, and validate data received from users, files, networks, or Java APIs. Apply the lesson concept to the shared course datasets and preserve the original problem's inputs and expected behavior.
 
 #### Worked Example
+
 ```kotlin
-data class Record(
-    val id: Int,
-    val title: String,
-    val description: String,
-    val category: String,
-    val createdAt: String,
-    val updatedAt: String
-)
-val record = Record(1, "Plan", "Course work", "School", "2026-11-01", "2026-11-01")
-println(record.title)
+fun main(){ val exits=mapOf("Hall" to mapOf("north" to "Library"),"Library" to mapOf("south" to "Hall")); val room="Hall"; val direction="north"; println(exits[room]?.get(direction)?:"You cannot go that way.") }
 ```
 
 #### Expected Behavior or Output
-The program prints Plan. The record retains the six shared capstone fields; full CRUD and persistence behavior must be tested separately.
+Prints Library; an absent exit produces the blocked-movement message.
 
 #### Common Mistakes
 - Assuming type inference makes Kotlin dynamically typed or that numeric types convert implicitly.
@@ -424,21 +368,13 @@ The program prints Plan. The record retains the six shared capstone fields; full
 Kotlin is statically typed. The compiler may infer a declaration's type, but the type remains fixed. Prefer val for read-only bindings and var only when reassignment is required. Distinguish read-only collection interfaces from mutable interfaces, and validate data received from users, files, networks, or Java APIs. Apply the lesson concept to the shared course datasets and preserve the original problem's inputs and expected behavior.
 
 #### Worked Example
+
 ```kotlin
-data class Record(
-    val id: Int,
-    val title: String,
-    val description: String,
-    val category: String,
-    val createdAt: String,
-    val updatedAt: String
-)
-val record = Record(1, "Plan", "Course work", "School", "2026-11-01", "2026-11-01")
-println(record.title)
+fun main(){ val inventory=setOf("torch","magic key"); val canOpen="torch" in inventory && "magic key" in inventory; println(if(canOpen)"The door opens." else "The puzzle remains locked.") }
 ```
 
 #### Expected Behavior or Output
-The program prints Plan. The record retains the six shared capstone fields; full CRUD and persistence behavior must be tested separately.
+Prints The door opens. because both required items are present; removing either item leaves the puzzle locked.
 
 #### Common Mistakes
 - Assuming type inference makes Kotlin dynamically typed or that numeric types convert implicitly.
@@ -482,21 +418,13 @@ The program prints Plan. The record retains the six shared capstone fields; full
 Kotlin is statically typed. The compiler may infer a declaration's type, but the type remains fixed. Prefer val for read-only bindings and var only when reassignment is required. Distinguish read-only collection interfaces from mutable interfaces, and validate data received from users, files, networks, or Java APIs. Apply the lesson concept to the shared course datasets and preserve the original problem's inputs and expected behavior.
 
 #### Worked Example
+
 ```kotlin
-data class Record(
-    val id: Int,
-    val title: String,
-    val description: String,
-    val category: String,
-    val createdAt: String,
-    val updatedAt: String
-)
-val record = Record(1, "Plan", "Course work", "School", "2026-11-01", "2026-11-01")
-println(record.title)
+fun main(){ data class Task(val id:Int,val title:String,val description:String,val done:Boolean,val createdAt:String); val tasks=mutableListOf(Task(1,"Study","Review Kotlin",false,"2026-11-01")); tasks+=Task(2,"Practice","Trace a loop",false,"2026-11-01"); println(tasks.joinToString{it.id.toString()+":"+it.title}) }
 ```
 
 #### Expected Behavior or Output
-The program prints Plan. The record retains the six shared capstone fields; full CRUD and persistence behavior must be tested separately.
+Prints 1:Study, 2:Practice; each task preserves id, title, description, completion state, and creation date.
 
 #### Common Mistakes
 - Assuming type inference makes Kotlin dynamically typed or that numeric types convert implicitly.
@@ -540,21 +468,13 @@ The program prints Plan. The record retains the six shared capstone fields; full
 Kotlin is statically typed. The compiler may infer a declaration's type, but the type remains fixed. Prefer val for read-only bindings and var only when reassignment is required. Distinguish read-only collection interfaces from mutable interfaces, and validate data received from users, files, networks, or Java APIs. Apply the lesson concept to the shared course datasets and preserve the original problem's inputs and expected behavior.
 
 #### Worked Example
+
 ```kotlin
-data class Record(
-    val id: Int,
-    val title: String,
-    val description: String,
-    val category: String,
-    val createdAt: String,
-    val updatedAt: String
-)
-val record = Record(1, "Plan", "Course work", "School", "2026-11-01", "2026-11-01")
-println(record.title)
+fun main(){ fun response(command:String)=when(command.lowercase()){ "list"->"Showing tasks"; "add"->"Enter a task title"; "quit"->"Goodbye"; else->"Unknown command; enter list, add, or quit" }; println(response("ADD")); println(response("remove")) }
 ```
 
 #### Expected Behavior or Output
-The program prints Plan. The record retains the six shared capstone fields; full CRUD and persistence behavior must be tested separately.
+Prints Enter a task title and then Unknown command; enter list, add, or quit.
 
 #### Common Mistakes
 - Assuming type inference makes Kotlin dynamically typed or that numeric types convert implicitly.
@@ -598,21 +518,13 @@ The program prints Plan. The record retains the six shared capstone fields; full
 Kotlin is statically typed. The compiler may infer a declaration's type, but the type remains fixed. Prefer val for read-only bindings and var only when reassignment is required. Distinguish read-only collection interfaces from mutable interfaces, and validate data received from users, files, networks, or Java APIs. Apply the lesson concept to the shared course datasets and preserve the original problem's inputs and expected behavior.
 
 #### Worked Example
+
 ```kotlin
-data class Record(
-    val id: Int,
-    val title: String,
-    val description: String,
-    val category: String,
-    val createdAt: String,
-    val updatedAt: String
-)
-val record = Record(1, "Plan", "Course work", "School", "2026-11-01", "2026-11-01")
-println(record.title)
+fun main(){ data class Record(val id:Int,val title:String,val description:String,val category:String,val createdAt:String,val updatedAt:String); val r=Record(1,"Plan","Course work","School","2026-11-01","2026-11-01"); println("Record "+r.id+": "+r.title+" ("+r.category+")") }
 ```
 
 #### Expected Behavior or Output
-The program prints Plan. The record retains the six shared capstone fields; full CRUD and persistence behavior must be tested separately.
+Prints Record 1: Plan (School); the model contains all six shared capstone fields.
 
 #### Common Mistakes
 - Assuming type inference makes Kotlin dynamically typed or that numeric types convert implicitly.
@@ -656,21 +568,13 @@ The program prints Plan. The record retains the six shared capstone fields; full
 Kotlin is statically typed. The compiler may infer a declaration's type, but the type remains fixed. Prefer val for read-only bindings and var only when reassignment is required. Distinguish read-only collection interfaces from mutable interfaces, and validate data received from users, files, networks, or Java APIs. Apply the lesson concept to the shared course datasets and preserve the original problem's inputs and expected behavior.
 
 #### Worked Example
+
 ```kotlin
-data class Record(
-    val id: Int,
-    val title: String,
-    val description: String,
-    val category: String,
-    val createdAt: String,
-    val updatedAt: String
-)
-val record = Record(1, "Plan", "Course work", "School", "2026-11-01", "2026-11-01")
-println(record.title)
+fun main(){ fun validTitle(s:String)=s.isNotBlank(); fun validCategory(s:String,allowed:Set<String>)=s in allowed; println(validTitle("Plan")); println(validTitle("   ")); println(validCategory("School",setOf("School","Personal"))) }
 ```
 
 #### Expected Behavior or Output
-The program prints Plan. The record retains the six shared capstone fields; full CRUD and persistence behavior must be tested separately.
+Prints true, false, true; whitespace-only titles and unknown categories are rejected.
 
 #### Common Mistakes
 - Assuming type inference makes Kotlin dynamically typed or that numeric types convert implicitly.
@@ -714,21 +618,13 @@ The program prints Plan. The record retains the six shared capstone fields; full
 Kotlin is statically typed. The compiler may infer a declaration's type, but the type remains fixed. Prefer val for read-only bindings and var only when reassignment is required. Distinguish read-only collection interfaces from mutable interfaces, and validate data received from users, files, networks, or Java APIs. Apply the lesson concept to the shared course datasets and preserve the original problem's inputs and expected behavior.
 
 #### Worked Example
+
 ```kotlin
-data class Record(
-    val id: Int,
-    val title: String,
-    val description: String,
-    val category: String,
-    val createdAt: String,
-    val updatedAt: String
-)
-val record = Record(1, "Plan", "Course work", "School", "2026-11-01", "2026-11-01")
-println(record.title)
+fun main(){ data class Record(val id:Int,val title:String,val category:String); val records=listOf(Record(1,"Plan","School"),Record(2,"Call","Personal")); records.sortedBy{it.id}.forEach{println(it.id.toString()+": "+it.title+" ["+it.category+"]")} }
 ```
 
 #### Expected Behavior or Output
-The program prints Plan. The record retains the six shared capstone fields; full CRUD and persistence behavior must be tested separately.
+Prints records in identifier order with title and category; production interface should also define empty-state behavior.
 
 #### Common Mistakes
 - Assuming type inference makes Kotlin dynamically typed or that numeric types convert implicitly.
@@ -772,17 +668,13 @@ The program prints Plan. The record retains the six shared capstone fields; full
 Treat each operation as a defined state transition. Validate input before changing stored data, preserve identifiers, update timestamps consistently, and report success or failure in text. A terminal menu is an appropriate Kotlin/JVM implementation; a visual interface is not required.
 
 #### Worked Example
+
 ```kotlin
-data class Record(val id: Int, val title: String, val done: Boolean)
-val records = mutableListOf(Record(1, "Plan", false))
-val updated = records.map { record ->
-    if (record.id == 1) record.copy(done = true) else record
-}
-println(updated)
+fun main(){ data class Record(val id:Int,val title:String); val records=listOf(Record(1,"Plan"),Record(2,"Read"),Record(3,"Plan review")); val matches=records.filter{it.title.contains("plan",ignoreCase=true)}; println(matches.map{it.id}); val updated=records.map{if(it.id==2)it.copy(title="Read chapter") else it}; val remaining=updated.filterNot{it.id==1}; println(remaining) }
 ```
 
 #### Expected Behavior or Output
-The record with identifier 1 is returned with done=true; unrelated records remain unchanged.
+Search returns identifiers [1, 3]. Update changes record 2; delete removes record 1 and leaves records 2 and 3.
 
 #### Common Mistakes
 - Updating the wrong record when identifiers are duplicated or missing.
@@ -822,17 +714,13 @@ Use explicit menu labels, predictable result messages, and keyboard-operable com
 Treat each operation as a defined state transition. Validate input before changing stored data, preserve identifiers, update timestamps consistently, and report success or failure in text. A terminal menu is an appropriate Kotlin/JVM implementation; a visual interface is not required.
 
 #### Worked Example
+
 ```kotlin
-data class Record(val id: Int, val title: String, val done: Boolean)
-val records = mutableListOf(Record(1, "Plan", false))
-val updated = records.map { record ->
-    if (record.id == 1) record.copy(done = true) else record
-}
-println(updated)
+fun main(){ data class Record(val id:Int,val title:String,val done:Boolean); val original=listOf(Record(1,"Plan",false),Record(2,"Read",true)); val completed=original.map{if(it.id==1)it.copy(done=true) else it}; check(completed.count{it.done}==2); check(completed.first{it.id==1}.title=="Plan"); println("Completion and preservation checks passed") }
 ```
 
 #### Expected Behavior or Output
-The record with identifier 1 is returned with done=true; unrelated records remain unchanged.
+Both assertions pass; record 1 becomes complete, its title is unchanged, and record 2 is preserved.
 
 #### Common Mistakes
 - Updating the wrong record when identifiers are duplicated or missing.
