@@ -315,3 +315,12 @@ All implementation changes are recorded here. Each numbered step is committed se
 - Rewrote all 53 numbered lessons with Go-specific explanations, three common mistakes, four activities, accessibility practice, and five measurable checklist criteria.
 - Added scripts/check_go_examples.py, .github/workflows/go-examples.yml, and GO/VALIDATION.md. GitHub Actions run [41326670760](https://github.com/mrhunsaker/VI_Focused_Coding_Curricula/actions/runs/41326670760) passed on Go 1.27.3; all 53 fenced examples were formatted with gofmt, built independently, and smoke-executed successfully.
 - Full output assertions, application-level tests, mdBook/link checks, and hands-on screen-reader/braille testing remain outstanding.
+
+
+## 2026-11-01 — Lua lesson alignment and example validation
+
+- Added Lua Unit 2 Lesson 2.5 for math-library operations, circle area/circumference, and distance from the origin.
+- Replaced repeated worked-example code with 53 distinct standalone Lua snippets aligned to the 53 numbered lessons.
+- Added `scripts/check_lua_examples.py`, a Lua 5.4 GitHub Actions workflow, `LUA/README.md`, and `LUA/VALIDATION.md`.
+- Structural verification confirms 53 numbered lessons, 53 distinct fenced Lua examples, and balanced Markdown fences. CI has been triggered; runtime success is not claimed until the workflow completes.
+- Editorial refinement of repeated lesson explanations, common mistakes, and activities remains outstanding, along with expected-output and invalid-input testing, capstone persistence, mdBook/link checks, and hands-on screen-reader/braille testing.
