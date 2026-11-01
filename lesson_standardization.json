@@ -935,8 +935,8 @@
       },
       "instructor_assessment_solutions": {
         "requested_scope": "Create an instructor-only repository section containing assessment solutions for all languages and assignments, excluded from the published student website.",
-        "status": "blocked_pending_private_storage_decision",
-        "reason": "The target GitHub repository is public. Excluding a directory from SUMMARY.md or mdBook does not make files private; students can still browse or clone repository source.",
+        "status": "schema_and_manifest_created_solution_authoring_deferred_until_repository_is_private",
+        "reason": "The dedicated solutions repository is public temporarily so the current LLM workflow can work with it. Only non-answer schema, manifest, and workflow documentation have been committed. Actual instructor solutions, tests containing expected answers, and grading keys must wait until repository visibility is changed to private and access is verified.",
         "safe_implementation_requirements": [
           "Create a separate private instructor repository and store assessment solutions there, or change this repository's visibility to private before adding solutions.",
           "Do not add answer files or a discoverable solution directory to this public repository.",
@@ -944,9 +944,25 @@
           "Keep student-facing prompts and assessment specifications separate from solution artifacts; preserve the course policy that AI must not generate or complete student assessment work."
         ],
         "not_yet_verified": [
-          "A private repository or private target has been selected and access permissions confirmed.",
-          "Complete inventory of assessed items across all language tracks and specialist modules.",
-          "Instructor solutions and tests have been authored, reviewed, and validated."
+          "Change the dedicated solutions repository visibility to private and verify access before creating any answer content.",
+          "Validate generate_solutions.json against schemas/solution-manifest.schema.json using a Draft 2020-12 validator.",
+          "Discover and manually review the complete assessment inventory across all 13 language tracks and 3 specialist modules.",
+          "Generate, test, review, and record instructor solutions only after the repository is private and the inventory is approved."
+        ],
+        "schema_repository": "mrhunsaker/VI_Focused_Coding_Curricula_Solutions",
+        "schema_path": "schemas/solution-manifest.schema.json",
+        "manifest_path": "generate_solutions.json",
+        "completed_work": [
+          "Created a strict JSON Schema Draft 2020-12 definition for the instructor solution generation manifest.",
+          "Created generate_solutions.json covering all 13 general-purpose language tracks and the HTML/CSS, R, and SQL specialist modules.",
+          "Defined inventory-first discovery, stable assessment IDs, source traceability, manual review/approval gate, instructor solution output layout, test expectations, and student-integrity constraints.",
+          "Set generation.enabled to false so answer content is not generated before inventory approval and private storage readiness.",
+          "Added repository README documenting the temporary public status and the required private-repository workflow."
+        ],
+        "safe_public_contents": [
+          "schemas/solution-manifest.schema.json",
+          "generate_solutions.json",
+          "README.md"
         ]
       }
     }
