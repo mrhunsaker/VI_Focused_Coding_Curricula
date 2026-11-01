@@ -48,6 +48,9 @@ Enter your favorite subject: Computer Science
 Favorite subject: Computer Science
 ```
 
+### Expected Behavior or Output
+For the input Computer Science, the program prints `Favorite subject: Computer Science`. Blank input prints the required-field error.
+
 ### Common Mistakes
 - Forgetting `await` before `question()`.
 - Treating the response as a number without converting it.
@@ -104,6 +107,9 @@ Total: 337
 Average: 84.25
 ```
 
+### Expected Behavior or Output
+The canonical score list produces total 337 and average 84.25.
+
 ### Common Mistakes
 - Forgetting to increment the index.
 - Using a condition that is already false before the first iteration.
@@ -135,6 +141,9 @@ State the loop condition and termination rule before running the program. Provid
 - Stop a loop early with `break`.
 - Distinguish normal loop completion from early termination.
 
+### Concept Explanation
+A flag stores whether a condition has been found or satisfied. `break` exits the nearest loop immediately; code after the loop can then report the final result.
+
 ### Worked Example
 ```javascript
 const scores = [82, 91, 76, 88];
@@ -157,6 +166,9 @@ Expected output:
 ```text
 First score above 90: 91
 ```
+
+### Expected Behavior or Output
+The canonical scores produce `First score above 90: 91`; if no value matches, the fallback message is printed.
 
 ### Common Mistakes
 - Using a string such as "false" instead of the Boolean value `false`.
@@ -189,6 +201,9 @@ Report both the search result and whether a match was found. Do not rely on colo
 - Validate data before processing it.
 - Explain the difference between `continue` and `break`.
 
+### Concept Explanation
+The `continue` statement skips the remainder of the current iteration and starts the next one. It does not end the loop.
+
 ### Worked Example
 ```javascript
 const entries = ["82", "", "91", "invalid", "76", "88"];
@@ -216,6 +231,9 @@ Skipping invalid score.
 Valid scores: 4
 Total: 337
 ```
+
+### Expected Behavior or Output
+The invalid blank and nonnumeric entries are skipped; four valid scores remain and their total is 337.
 
 ### Common Mistakes
 - Using `continue` when the entire loop should end.
@@ -269,6 +287,9 @@ Count: 3
 Loop finished.
 ```
 
+### Expected Behavior or Output
+The loop prints Count 1, Count 2, Count 3, then Loop finished. It terminates after exactly three iterations.
+
 ### Common Mistakes
 - Never changing a variable used in the condition.
 - Incrementing in the wrong direction.
@@ -306,6 +327,9 @@ Functions support decomposition, reuse, and testing. JavaScript supports declara
 - Explain parameters and function bodies.
 - Choose a function declaration or expression.
 
+### Concept Explanation
+A function is a reusable block of code. Parameters receive input values, and `return` sends a result back to the caller.
+
 ### Worked Example
 ```javascript
 function calculateTip(bill, rate) {
@@ -320,6 +344,9 @@ Expected output:
 ```text
 Tip: $3.68
 ```
+
+### Expected Behavior or Output
+The canonical bill and tip rate produce a displayed tip of $3.67.
 
 ### Common Mistakes
 - Calling a function before understanding its parameter order.
@@ -381,6 +408,9 @@ Expected output:
 Avery, age 16, studies Computer Science.
 ```
 
+### Expected Behavior or Output
+The default tip rate produces 28.18; the 0.20 rate produces 29.40; the student description names Avery and Computer Science.
+
 ### Common Mistakes
 - Swapping positional arguments that have the same primitive type.
 - Assuming JavaScript supports Python keyword arguments.
@@ -412,6 +442,9 @@ Prefer clear property names over unexplained positional values when a function a
 - Distinguish returning from printing.
 - Handle early returns for invalid inputs.
 
+### Concept Explanation
+A return value is data supplied to the caller. Printing is a side effect and does not substitute for returning a value.
+
 ### Worked Example
 ```javascript
 function average(scores) {
@@ -432,6 +465,9 @@ Expected output:
 Average: 84.25
 Empty input: null
 ```
+
+### Expected Behavior or Output
+The canonical score average is 84.25 and an empty array returns null.
 
 ### Common Mistakes
 - Expecting a function that only calls `console.log()` to return a useful value.
@@ -464,6 +500,9 @@ Keep calculation results and explanatory output distinct. Use explicit labels wh
 - Process the canonical score and inventory data.
 - Explain that object and array values are passed by sharing their references.
 
+### Concept Explanation
+Arrays and objects are passed as values that refer to the same underlying object. A function can therefore mutate caller-visible state unless it works on a copy.
+
 ### Worked Example
 ```javascript
 function inventoryValue(items) {
@@ -486,6 +525,9 @@ Expected output:
 ```text
 Inventory value: $17.50
 ```
+
+### Expected Behavior or Output
+The canonical inventory value is $17.50.
 
 ### Common Mistakes
 - Mutating an array or object inside a function without documenting the side effect.
@@ -518,6 +560,9 @@ Use named object properties and label each returned total. Explain whether a fun
 - Use spread syntax to pass array elements as arguments.
 - Explain the difference between rest and spread syntax.
 
+### Concept Explanation
+A rest parameter gathers remaining positional arguments into an array. Spread syntax expands an iterable into individual arguments at a call site.
+
 ### Worked Example
 ```javascript
 function sumScores(...scores) {
@@ -534,6 +579,9 @@ Expected output:
 337
 60
 ```
+
+### Expected Behavior or Output
+The four canonical scores sum to 337; the values 10, 20, and 30 sum to 60.
 
 ### Common Mistakes
 - Confusing rest parameters in a function definition with spread syntax in a call.
@@ -597,6 +645,9 @@ Expected output:
 Notebook: $7.50
 ```
 
+### Expected Behavior or Output
+An InventoryItem for three Notebooks at $2.50 each prints `Notebook: $7.50`.
+
 ### Common Mistakes
 - Confusing the class with an instance.
 - Omitting `this` when accessing instance properties.
@@ -628,6 +679,9 @@ Use descriptive property and method names. Announce object values by property na
 - Instantiate multiple objects.
 - Validate constructor arguments.
 
+### Concept Explanation
+A class constructor initializes each new instance. The `new` operator creates an object and calls the class constructor with the supplied arguments.
+
 ### Worked Example
 ```javascript
 class Student {
@@ -650,6 +704,9 @@ Expected output:
 ```text
 Avery, age 16
 ```
+
+### Expected Behavior or Output
+The canonical Student instance prints `Avery, age 16`.
 
 ### Common Mistakes
 - Forgetting the `new` keyword.
@@ -681,6 +738,9 @@ Make validation errors specific and textual. Keep constructor parameters in a co
 - Read and update object properties.
 - Define methods that validate or transform state.
 - Use a private field for encapsulated state.
+
+### Concept Explanation
+Methods define behavior associated with an instance. Private fields beginning with `#` can be accessed only from within the declaring class.
 
 ### Worked Example
 ```javascript
@@ -715,6 +775,9 @@ Expected output:
 Pencil: quantity 12
 ```
 
+### Expected Behavior or Output
+After updating the Pencil quantity to 12, the method prints `Pencil: quantity 12`.
+
 ### Common Mistakes
 - Accessing a private field from outside its class.
 - Updating state without validating it.
@@ -745,6 +808,9 @@ Use methods that return clear text or values. State the validation rule before a
 - Define a subclass with `extends`.
 - Call a parent constructor with `super()`.
 - Override a method when specialized behavior is required.
+
+### Concept Explanation
+Inheritance models an is-a relationship. A subclass uses `extends` and calls its parent constructor with `super()` before accessing `this`.
 
 ### Worked Example
 ```javascript
@@ -779,6 +845,9 @@ Expected output:
 Milk: 2 in stock, expires 2026-11-10
 ```
 
+### Expected Behavior or Output
+The PerishableItem example prints `Milk: 2 in stock, expires 2026-11-10`.
+
 ### Common Mistakes
 - Calling `this` before `super()` in a derived constructor.
 - Forgetting to pass required parent arguments.
@@ -809,6 +878,9 @@ Describe the parent/child relationship explicitly. Keep overridden method behavi
 - Model a has-a relationship.
 - Store one object inside another object.
 - Explain composition as an alternative to inheritance.
+
+### Concept Explanation
+Composition models a has-a relationship by storing one object as a property of another. It often provides a simpler alternative to inheritance.
 
 ### Worked Example
 ```javascript
@@ -841,6 +913,9 @@ Expected output:
 ```text
 Avery studies Computer Science.
 ```
+
+### Expected Behavior or Output
+The StudentRecord example prints `Avery studies Computer Science.`.
 
 ### Common Mistakes
 - Copying an object's fields when a related object should be retained.
@@ -878,6 +953,9 @@ This unit uses the same `notes.txt` and structured task/student records as the P
 - Distinguish whole-file reads from line-by-line processing.
 - Handle a missing file with a clear error.
 
+### Concept Explanation
+The `node:fs/promises` API returns promises for file operations. UTF-8 decoding returns a string; omitting the encoding returns a Buffer.
+
 ### Worked Example
 Create `notes.txt` containing:
 ```text
@@ -913,6 +991,9 @@ Practice JavaScript.
 Review arrays and functions.
 ```
 
+### Expected Behavior or Output
+With the sample notes.txt file present, both note lines are printed under the File contents label.
+
 ### Common Mistakes
 - Omitting the encoding and receiving a Buffer.
 - Using the wrong working directory for a relative path.
@@ -944,6 +1025,9 @@ Report the file name and each line in reading order. Use textual errors that ide
 - Append content without replacing existing content.
 - Confirm successful file operations.
 
+### Concept Explanation
+`writeFile()` creates or replaces file content; `appendFile()` adds content. Await each operation before relying on its result.
+
 ### Worked Example
 ```javascript
 const fs = require("node:fs/promises");
@@ -968,6 +1052,9 @@ Practice JavaScript.
 Review arrays and functions.
 Notes saved.
 ```
+
+### Expected Behavior or Output
+The two note lines are printed, followed by `Notes saved.`.
 
 ### Common Mistakes
 - Using write mode when the intention is to append.
@@ -999,6 +1086,9 @@ Print a confirmation that identifies the file and operation. Do not rely on a fi
 - Handle exceptions with `try/catch`.
 - Distinguish expected errors from unexpected errors.
 - Define a custom error class.
+
+### Concept Explanation
+An exception interrupts normal control flow. `try/catch` handles expected failures, and custom Error subclasses can carry additional context.
 
 ### Worked Example
 ```javascript
@@ -1034,6 +1124,9 @@ Expected output:
 16
 Validation failed for age: Age must be a nonnegative integer.
 ```
+
+### Expected Behavior or Output
+The valid age 16 is printed; invalid age -1 produces the field-specific validation message.
 
 ### Common Mistakes
 - Catching every error and silently ignoring it.
@@ -1089,6 +1182,9 @@ async function loadNotes() {
 loadNotes();
 ```
 
+### Expected Behavior or Output
+The final status message is printed whether the read succeeds or fails. The success message and file contents appear only when the read succeeds.
+
 ### Common Mistakes
 - Assuming JavaScript supports Python's `try/except/else` syntax.
 - Placing success-only code in `finally`.
@@ -1120,6 +1216,9 @@ Use separate success and failure messages. Ensure the final status is announced 
 - Parse JSON text into JavaScript values.
 - Save and reload structured records.
 
+### Concept Explanation
+JSON is a text representation of structured data. `JSON.stringify()` serializes supported JavaScript values; `JSON.parse()` reconstructs values from valid JSON text.
+
 ### Worked Example
 ```javascript
 const fs = require("node:fs/promises");
@@ -1150,6 +1249,9 @@ Expected output:
 Loaded 2 tasks.
 First task: Review arrays
 ```
+
+### Expected Behavior or Output
+The example prints `Loaded 2 tasks.` and `First task: Review arrays` after saving and reloading the data.
 
 ### Common Mistakes
 - Passing an already serialized string to `JSON.stringify()` and double-encoding it.
