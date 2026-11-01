@@ -925,7 +925,13 @@
           "Review current vendor documentation and exact installation commands for Docker, Podman, Conda, uv, Poetry, npm, Cargo, VS Code Dev Containers, and Theia before treating version-specific instructions as permanent.",
           "Perform hands-on keyboard-only, screen-reader, and braille verification of the guide and optional container workflows."
         ],
-        "validation_workflow": ".github/workflows/environment-guide.yml"
+        "validation_workflow": ".github/workflows/environment-guide.yml",
+        "validation": [
+          "lesson_standardization.json parses successfully as JSON after the new request records were added.",
+          "SUMMARY.md contains the environment guide navigation entry.",
+          "OVERALL_README.md links to the environment guide.",
+          "The guide file is present on the target branch; the Windows PowerShell venv activation command was reviewed and corrected to use native single backslashes."
+        ]
       },
       "instructor_assessment_solutions": {
         "requested_scope": "Create an instructor-only repository section containing assessment solutions for all languages and assignments, excluded from the published student website.",
