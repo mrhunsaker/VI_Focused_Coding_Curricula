@@ -560,7 +560,7 @@
         "mapped_python_lessons": 55,
         "target_course_lesson_sections": 57,
         "numbered_unit_lesson_sections": 53,
-        "status": "content_complete_pending_dotnet_compile_runtime_and_full_accessibility_verification",
+        "status": "content_and_compile_link_verification_complete_pending_runtime_and_full_accessibility_verification",
         "completed_work": [
           "Expanded all four Unit 0 setup lessons into complete .NET SDK, workspace, editor/accessibility, dependency, restore, build, test, and run workflows.",
           "Added the missing C# equivalent of Python Unit 2 Lesson 2.5 for System.Math, circle area/circumference, and distance from the origin.",
@@ -572,16 +572,16 @@
         ],
         "validation": [
           "Four Unit 0 setup lessons and all 53 numbered Unit 1–11 lesson sections are present.",
-          "All 53 numbered lessons have exactly three common mistakes, four activities, and five skills checklist criteria.",
+          "All 53 numbered lessons have exactly three C#-specific common mistakes, four practice activities, and five skills checklist criteria.",
           "All 53 worked examples are distinct C# code blocks.",
-          "The checker and workflow were added; the first GitHub Actions run is pending."
+          "GitHub Actions run 41319979071 passed using .NET SDK 10.0.403.",
+          "All 53 fenced C# examples compiled and linked as independent .NET 10 / C# 14 console programs with nullable analysis enabled and warnings treated as errors."
         ],
         "not_yet_verified": [
-          "Complete the first GitHub Actions run and confirm all 53 C# examples build and link using .NET 10/C# 14.",
-          "Execute examples with representative input and file fixtures; build success does not establish runtime behavior.",
+          "Execute examples with representative input and file fixtures; successful builds do not establish runtime behavior.",
           "Run a fresh mdBook build and a complete Markdown/local-link crawl after the latest edits.",
           "Perform hands-on screen-reader and braille testing with named operating systems, editors, SDKs, and access technologies.",
-          "Review the simple CSV Split example's documented limitation and use a standards-aware parser for production CSV files."
+          "Use a standards-aware CSV parser rather than string splitting for production CSV files with quoted commas, escaped quotes, or embedded newlines."
         ]
       }
     },
