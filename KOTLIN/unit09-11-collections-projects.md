@@ -471,7 +471,8 @@ Kotlin is statically typed. The compiler may infer a declaration's type, but the
 #### Worked Example
 
 ```kotlin
-fun main(){ fun response(command:String)=when(command.lowercase()){ "list"->"Showing tasks"; "add"->"Enter a task title"; "quit"->"Goodbye"; else->"Unknown command; enter list, add, or quit" }; println(response("ADD")); println(response("remove")) }
+fun response(command:String)=when(command.lowercase()){ "list"->"Showing tasks"; "add"->"Enter a task title"; "quit"->"Goodbye"; else->"Unknown command; enter list, add, or quit" }
+fun main(){ println(response("ADD")); println(response("remove")) }
 ```
 
 #### Expected Behavior or Output
@@ -571,7 +572,9 @@ Kotlin is statically typed. The compiler may infer a declaration's type, but the
 #### Worked Example
 
 ```kotlin
-fun main(){ fun validTitle(s:String)=s.isNotBlank(); fun validCategory(s:String,allowed:Set<String>)=s in allowed; println(validTitle("Plan")); println(validTitle("   ")); println(validCategory("School",setOf("School","Personal"))) }
+fun validTitle(s:String)=s.isNotBlank()
+fun validCategory(s:String,allowed:Set<String>)=s in allowed
+fun main(){ println(validTitle("Plan")); println(validTitle("   ")); println(validCategory("School",setOf("School","Personal"))) }
 ```
 
 #### Expected Behavior or Output
