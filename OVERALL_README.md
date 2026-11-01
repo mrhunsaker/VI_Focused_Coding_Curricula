@@ -244,3 +244,7 @@ Use official documentation to confirm version-sensitive installation and API det
 ---
 
 Select one language, open its curriculum page, and work through the units in sequence. The goal is to become an independent problem solver who can read, write, test, explain, and improve programs using accessible tools.
+
+## GUI, visualization, and workbench accessibility
+
+See the shared [GUI, visualization, and workbench accessibility reference](DEVELOPMENT/GUI_VISUALIZATION_ACCESSIBILITY.md) for screen-reader support by toolkit, platform-specific activation settings, recommended alternatives, and interfaces that must not be required without an equivalent accessible route.
