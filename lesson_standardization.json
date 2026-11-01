@@ -678,13 +678,17 @@
       }
     },
     "next_tracks": [
-      "Rust",
-      "Go",
-      "Lua",
       "Java",
       "JavaScript",
       "TypeScript",
-      "Kotlin"
+      "Kotlin",
+      "C",
+      "C++",
+      "C#",
+      "Julia",
+      "Swift",
+      "Rust",
+      "Go"
     ],
     "note": "Content alignment is not a claim that every code example has been compiled or runtime-tested. Preserve explicit language-specific deviations and record verification evidence.",
     "rust": {
@@ -720,6 +724,23 @@
       "ci_run": "41326670760",
       "go_version": "1.27.3",
       "examples_formatted_built_and_executed": 53
+    },
+    "lua": {
+      "status": "distinct_examples_and_lesson_2_5_added_ci_pending",
+      "lua_version": "5.4",
+      "unit_0_setup_lessons": 4,
+      "numbered_lessons": 53,
+      "unique_examples": 53,
+      "automated_check": "scripts/check_lua_examples.py",
+      "workflow": ".github/workflows/lua-examples.yml",
+      "pending": [
+        "run Lua 5.4 CI and resolve any syntax/runtime failures",
+        "replace repeated generic concept explanations, mistakes, and activities with fully lesson-specific instruction",
+        "exact expected-output assertions and invalid-input/file fixtures",
+        "capstone end-to-end persistence and package integration tests",
+        "fresh mdBook build and complete Markdown/local-link crawl",
+        "hands-on screen-reader and braille testing"
+      ]
     }
   }
 }
