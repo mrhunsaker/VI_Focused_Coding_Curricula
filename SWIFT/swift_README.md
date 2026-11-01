@@ -1,14 +1,22 @@
 # Swift Curriculum
 
-Swift is used for iOS, macOS, watchOS, tvOS, server applications, and systems components.
+Swift is used for iOS, macOS, watchOS, tvOS, server applications, and systems components. Its static type system, optionals, value semantics, protocols, structured error handling, Codable, and concurrency support robust application development.
 
-A complete course aligned to Python Units 0–11. Familiar problem contexts recur so learners focus on Swift syntax, types, optionals, protocols, value semantics, and standard-library idioms.
+## Course structure
+
+A complete course aligned to the Python curriculum's Units 0–11, including four environment/toolchain lessons and 53 numbered lessons. The worked examples reuse shared course contexts: Avery's profile, calculator and tip values, grades, scores, inventory, coordinates, text samples, CSV fields, task records, text-adventure requirements, and personal-record management.
 
 ## Environment
 
-Install Xcode on macOS or the Swift toolchain on a supported platform. Verify `swift --version`; run `swift main.swift` or create a package with `swift package init --type executable`.
+- Baseline: Swift 6 language mode and a current Swift 6 toolchain.
+- Verify with `swift --version` and `swiftc --version`.
+- Run a single source file with `swift main.swift`.
+- Initialize a package with `swift package init --type executable`; build, run, and test with `swift build`, `swift run`, and `swift test`.
+- Xcode and Apple platform SDKs are required for iOS simulator and Apple-platform application development.
+- Use Foundation for file operations and Codable JSON encoding. Use a standards-aware CSV library for quoted fields and embedded newlines.
 
-Complete the shared [IDE setup lesson](../DEVELOPMENT/IDE_SETUP.md) and [terminal prerequisite](../TERMINAL/TERMINAL_README.md).
+Complete the shared [IDE setup lesson](../DEVELOPMENT/IDE_SETUP.md) and [terminal prerequisite](../TERMINAL/TERMINAL_README.md). The course supports keyboard-first work with screen readers, braille displays, magnification, and other access technology.
 
 - [Complete lessons](lessons.md)
 - [Topic index](INDEX.md)
+- [Example validation instructions](VALIDATION.md)
