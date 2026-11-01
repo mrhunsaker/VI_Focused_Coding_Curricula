@@ -202,3 +202,13 @@ All implementation changes are recorded here. Each numbered step is committed se
 - Added `DEVELOPMENT/LESSON_STRUCTURE_AUDIT.md` with a heading-level audit of the Python, JavaScript, TypeScript, Java, Kotlin, C, C++, C#, Julia, Swift, Rust, Bash, and PowerShell lesson files. The audit explicitly records that the current repository is not yet fully standardized and defines a common instructional structure for a future normalization pass.
 - Added links to the standalone IDE lesson and audit in mdBook navigation, the root README, the curriculum overview, and the Python landing page.
 - Validation: checked the new lesson and audit against the repository's existing navigation and lesson organization. A complete mdBook build and rendered accessibility test have not been run in this update.
+
+
+## 2026-11-01 — Expanded language tracks, specialist modules, and Python alignment
+
+- Expanded C, C++, C#, Julia, Swift, and Rust into Unit 0–11 lesson manuscripts, with repeated familiar problem contexts, worked examples, common mistakes, activities, accessibility practice, and skills checklists.
+- Added complete Go and Lua Unit 0–11 courses, including toolchain setup, language foundations, data structures, functions, object-oriented or data-modeling concepts, files, testing, projects, and capstones.
+- Added specialist introductory modules for HTML/CSS, R, and SQL. Their distinct purposes are preserved rather than forcing them into the Python course sequence.
+- Added root-level `lesson_standardization.json`: an explicit Python unit-by-unit map, shared datasets and problem contexts, equivalence rules, course quality gates, and a reusable generation/refinement prompt.
+- Updated mdBook navigation and the curriculum overview.
+- Validation performed: confirmed the new and expanded lesson files were committed, checked their unit/lesson headings during generation, and added navigation entries. A full mdBook build, compilation/execution of every example, external-link crawl, and screen-reader test have not been run. Some generated examples are instructional starting points and require per-language review before publication.
