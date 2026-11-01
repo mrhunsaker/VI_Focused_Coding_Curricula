@@ -496,6 +496,13 @@ function takeItem(room, requestedName) {
 
 console.log(takeItem("cave", "torch"));
 console.log(inventory.join(", "));
+
+function unlockGate(items) {
+  if (!items.includes("magic key")) return "The gate is locked.";
+  return "The gate opens.";
+}
+console.log(unlockGate(["torch"]));
+console.log(unlockGate(["torch", "magic key"]));
 ```
 
 Expected output:
