@@ -24,6 +24,15 @@ Complete the shared [IDE setup lesson](../DEVELOPMENT/IDE_SETUP.md). Test keyboa
 - [ ] I can create and run a source file.
 - [ ] I can navigate the editor and read output accessibly.
 
+### Lesson 0.4: Project Environments, Dependencies, and Terminal Usage
+
+Use the terminal from the project root and understand the current working directory. Keep each project in its own folder and distinguish source files, build output, and dependency metadata. For multi-file work, use Swift Package Manager. Create a package with `swift package init --type executable`; add dependencies in Package.swift, run `swift package resolve`, build with `swift build`, and execute with `swift run`.
+
+### Skills Checklist
+- [ ] I can identify the project root and run commands from it.
+- [ ] I can explain where project dependencies are recorded, if applicable.
+- [ ] I can run the program or test command from the terminal and read its output.
+
 # Unit 1: Foundations of Computing
 
 ## Overview
