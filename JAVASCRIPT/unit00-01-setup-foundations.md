@@ -63,6 +63,14 @@ npm --version      # Should show npm version
 ### Expected Behavior or Output
 The terminal reports a Node.js version in the documented supported major line and an npm version. The REPL accepts a short expression and prints its result.
 
+### Worked Example
+```bash
+node --version
+npm --version
+node -e "console.log(2 + 3)"
+```
+The third command verifies that Node.js can execute a short JavaScript expression.
+
 ### Common Mistakes
 - Installing a runtime but not reopening the terminal, so PATH changes are not visible.
 - Installing a version that is unsupported or inconsistent with the course baseline.
@@ -136,6 +144,9 @@ Experienced coders may prefer JetBrains IDEs, such as WebStorm. They are advance
 
 ### Worked Example
 Use the keyboard to open a project folder, create `hello.js`, move focus to the integrated terminal, and run `node hello.js`.
+
+### Expected Behavior or Output
+The editor can open a JavaScript project, announce file names and diagnostics, and run the same file from its integrated terminal. The exact keyboard shortcuts may differ between VS Code and Theia.
 
 ### Common Mistakes
 - Assuming VS Code and Theia have identical extensions or keyboard shortcuts.
@@ -224,6 +235,13 @@ Type JavaScript directly and press Enter to execute. Type `.exit` to quit.
 
 ### Expected Behavior or Output
 Running the saved file prints the exact greeting text in the terminal, in the order written in the file.
+
+### Worked Example
+```javascript
+console.log("Hello, World!");
+console.log("Welcome to JavaScript.");
+```
+Run the saved file with `node hello.js`.
 
 ### Common Mistakes
 - Saving source code with a hidden extra extension such as `.js.txt`.
