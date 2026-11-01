@@ -109,3 +109,15 @@ The C curriculum received a lesson-level quality pass on the working branch.
 - The standardization JSON now records this C quality pass and its remaining verification requirements.
 
 **Verification boundary:** structural checks were run against the committed Markdown and JSON. Every C snippet has not yet been compiled or executed with GCC/Clang. The available GitHub connector does not provide a local compiler, and a repository clone attempt failed because the execution environment could not resolve github.com. Screen-reader/braille testing and a fresh mdBook build also remain outstanding. Do not describe the C course as runtime-verified or accessibility-certified.
+
+
+## 2026-11-01 follow-up: C compiler verification
+
+A repeatable compiler check is now committed:
+
+- `scripts/check_c_examples.py` extracts every fenced C example from `C/lessons.md`.
+- `.github/workflows/c-examples.yml` runs the check with both GCC and Clang in C17 mode.
+- GitHub Actions run [41316160464](https://github.com/mrhunsaker/VI_Focused_Coding_Curricula/actions/runs/41316160464) completed successfully.
+- GCC 13.3.0 and Clang 18.1.3 both passed all 49 C examples with `-Wall -Wextra -Wpedantic -Werror`: 46 complete programs compiled and linked; 3 declaration/function fragments passed syntax-only checks.
+
+This is compiler and linker verification. The examples have not all been executed with representative input or file fixtures. A fresh mdBook build, complete link crawl, and hands-on screen-reader/braille testing remain outstanding.
