@@ -20,7 +20,8 @@ Kotlin is statically typed. The compiler may infer a declaration's type, but the
 #### Worked Example
 
 ```kotlin
-fun main(){ fun grade(s:Int)=if(s>=60)"Pass" else "Retry"; check(grade(60)=="Pass"); check(grade(59)=="Retry"); println("Grade boundary checks passed") }
+fun grade(s:Int)=if(s>=60)"Pass" else "Retry"
+fun main(){ check(grade(60)=="Pass"); check(grade(59)=="Retry"); println("Grade boundary checks passed") }
 ```
 
 #### Expected Behavior or Output
