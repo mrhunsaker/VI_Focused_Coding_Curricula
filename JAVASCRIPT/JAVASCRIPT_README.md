@@ -148,3 +148,7 @@ Use [MDN's JavaScript Guide](https://developer.mozilla.org/en-US/docs/Web/JavaSc
 ---
 
 The course uses JavaScript to teach transferable problem-solving skills. Learners who can reason about values, control flow, data, functions, errors, and tests are prepared to explore browser programming and other parts of the ecosystem.
+
+## GUI, visualization, and workbench accessibility
+
+See the shared [GUI, visualization, and workbench accessibility reference](../DEVELOPMENT/GUI_VISUALIZATION_ACCESSIBILITY.md) for screen-reader support by toolkit, platform-specific activation settings, recommended alternatives, and interfaces that must not be required without an equivalent accessible route.
