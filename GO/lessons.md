@@ -1945,6 +1945,7 @@ import (
 	"fmt"
 	"os"
 	"strconv"
+	"strings"
 )
 func main() {
 	reader := bufio.NewReader(os.Stdin)
@@ -2930,9 +2931,9 @@ func main() {
 import (
 	"fmt"
 )
+type Student struct { Name string; Score int }
+func (s *Student) AddPoints(points int) { s.Score += points }
 func main() {
-	type Student struct { Name string; Score int }
-	func (s *Student) AddPoints(points int) { s.Score += points }
 	s := Student{Name: "Avery", Score: 82}
 	s.AddPoints(3)
 	fmt.Println(s.Name, "score:", s.Score)
@@ -2940,10 +2941,10 @@ func main() {
 import (
 	"fmt"
 )
+type Summarizer interface { Summary() string }
+type Task struct { Title string; Done bool }
+func (t Task) Summary() string { return fmt.Sprintf("%s: %t", t.Title, t.Done) }
 func main() {
-	type Summarizer interface { Summary() string }
-	type Task struct { Title string; Done bool }
-	func (t Task) Summary() string { return fmt.Sprintf("%s: %t", t.Title, t.Done) }
 	var item Summarizer = Task{Title: "Study Go", Done: false}
 	fmt.Println(item.Summary())
 },package main
@@ -2952,18 +2953,19 @@ import (
 )
 func main() {
 	type Contact struct { Email string }
-	type Student struct { Name string; Contact Contact }
+	type Contact struct { Email string }
+type Student struct { Name string; Contact }
 	s := Student{Name: "Avery", Contact: Contact{Email: "avery@example.test"}}
 	fmt.Println(s.Name, s.Email)
 },package main
 import (
 	"fmt"
 )
+type Reader interface { Read() string }
+type Note struct { Text string }
+func (n Note) Read() string { return n.Text }
+func display(r Reader) { fmt.Println(r.Read()) }
 func main() {
-	type Reader interface { Read() string }
-	type Note struct { Text string }
-	func (n Note) Read() string { return n.Text }
-	func display(r Reader) { fmt.Println(r.Read()) }
 	display(Note{Text: "Composition and interfaces"})
 } The lesson uses the canonical course data so learners focus on Go semantics rather than a new domain problem. Format with gofmt and use go test ./... as routine development tools.
 
@@ -4024,9 +4026,9 @@ func main() {
 import (
 	"fmt"
 )
+type Counter struct { Value int }
+func (c *Counter) Increment() { c.Value++ }
 func main() {
-	type Counter struct { Value int }
-	func (c *Counter) Increment() { c.Value++ }
 	c := Counter{}
 	c.Increment(); c.Increment()
 	if c.Value != 2 { panic("counter test failed") }
@@ -5044,6 +5046,7 @@ This unit develops capstone using Go's types, packages, and standard-library con
 package main
 import (
 	"fmt"
+	"strings"
 )
 func main() {
 	fields := []string{"id", "title", "description", "category", "created_at", "updated_at"}
