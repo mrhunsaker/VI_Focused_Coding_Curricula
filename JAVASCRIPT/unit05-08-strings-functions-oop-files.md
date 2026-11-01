@@ -484,7 +484,7 @@ console.log(`Inventory value: $${inventoryValue(inventory).toFixed(2)}`);
 
 Expected output:
 ```text
-Inventory value: $16.00
+Inventory value: $17.50
 ```
 
 ### Common Mistakes
