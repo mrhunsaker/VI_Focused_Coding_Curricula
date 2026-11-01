@@ -9,60 +9,171 @@ This course intentionally parallels the original Python curriculum. It reuses pr
 ## Unit 0: Accessible Environment and Toolchain
 
 ### Overview
-Install and verify the compiler or interpreter, create a project, and test keyboard and screen-reader access.
+Install a C++20 compiler, configure an editor, create a reproducible project workspace, and verify keyboard and assistive-technology access to source code, diagnostics, and terminal output.
 
 ### Lesson 0.1: Install and Verify C++
 
-Install a C++20 compiler (GCC, Clang, or MSVC). Verify `c++ --version` (or the platform equivalent), then compile with `c++ -std=c++20 -Wall -Wextra -Wpedantic -Werror -g main.cpp -o main` and run the executable. Use the same compiler and language standard in the editor and terminal.
+#### Reading References
+- GCC, Clang, or Microsoft C++ compiler installation documentation.
+- C++ language support and compiler-version documentation.
+
+#### Learning Objectives
+- Identify the compiler and its version.
+- Compile, link, and run a minimal C++20 program.
+- Explain the difference between a compiler diagnostic and program output.
+
+#### Concept Explanation
+C++ is a compiled language. The compiler translates each translation unit; the linker combines object code and required libraries into an executable. The course uses C++20. Keep the compiler, editor language service, and command-line build on the same standard.
+
+#### Worked Example
+```cpp
+#include <iostream>
+int main() {
+    std::cout << "Hello, C++20!\\n";
+    return 0;
+}
+```
+Compile with `c++ -std=c++20 -Wall -Wextra -Wpedantic -Werror -g main.cpp -o main`; run with `./main` (or the platform executable form).
+
+#### Common Mistakes
+- Installing only editor syntax highlighting and assuming it includes a compiler.
+- Omitting the C++20 standard flag and unknowingly using a different language baseline.
+- Treating a compiler error as output produced by the running program.
+
+#### Activities
+1. Install GCC, Clang, or MSVC and record its exact version.
+2. Compile and run the example from the terminal.
+3. Remove the semicolon after the output statement, compile again, and locate the diagnostic.
+4. Restore the semicolon and confirm that the build succeeds.
+
+#### Accessibility Practice
+Navigate the source by line, word, and character. Confirm that punctuation, braces, indentation, compiler diagnostics, and terminal output can be read without relying on color or mouse-only controls.
+
+#### Skills Checklist
+- [ ] I can identify the installed compiler and version.
+- [ ] I can compile and link a C++20 program from the terminal.
+- [ ] I can run the executable and distinguish its output from diagnostics.
+- [ ] I can navigate the source and diagnostic text with my access technology.
 
 ### Lesson 0.2: Workspace and First Run
-Create a course folder, save a source file named `main.cpp`, run it from the terminal, and read standard output and errors. Distinguish source code, compiler/interpreter, and executable/runtime.
+
+#### Reading References
+- Compiler command-line documentation.
+- The shared terminal prerequisite.
+
+#### Learning Objectives
+- Create a course workspace and source file.
+- Identify the current working directory and executable path.
+- Rebuild and run a program after changing its source.
+
+#### Concept Explanation
+A source file such as `main.cpp` is input to the compiler; it is not itself the executable. Relative paths are interpreted from the process's current working directory. Keep source files separate from generated executables and temporary build output.
+
+#### Worked Example
+```sh
+mkdir -p cpp-course/hello
+cd cpp-course/hello
+# Save the C++ example as main.cpp
+c++ -std=c++20 -Wall -Wextra -Wpedantic main.cpp -o hello
+./hello
+```
+
+#### Common Mistakes
+- Running the compile command from a directory that does not contain the source file.
+- Editing one copy of a file while compiling a different copy.
+- Confusing the source filename with the executable filename.
+
+#### Activities
+1. Create a course folder and a `hello` subfolder.
+2. Save the first program as `main.cpp` and compile it to `hello`.
+3. Change the output text, rebuild, and verify the new output.
+4. List the folder contents and identify source versus generated files.
+
+#### Accessibility Practice
+Use terminal commands to confirm the working directory and list files. Navigate the folder tree with keyboard commands and verify the executable name from text output.
+
+#### Skills Checklist
+- [ ] I can create and navigate a project directory.
+- [ ] I can identify the current working directory.
+- [ ] I can compile a named source file into a separate executable.
+- [ ] I can rebuild after an edit and verify the changed output.
 
 ### Lesson 0.3: Editor and Accessibility Workflow
-Complete the shared [IDE setup lesson](../DEVELOPMENT/IDE_SETUP.md). Test editor navigation, punctuation announcement, indentation, terminal focus, diagnostics, and project navigation. Install only the language tooling needed for this course.
 
-### Skills Checklist
-- [ ] I can verify the selected C++20 compiler and record its version.
-- [ ] I can compile, link, and run a complete source file from the terminal.
-- [ ] I can distinguish compiler diagnostics from runtime output.
-- [ ] I can navigate source, build output, and terminal errors using my access technology.
+#### Reading References
+- [IDE setup lesson](../DEVELOPMENT/IDE_SETUP.md).
+- Documentation for the chosen editor's C++ language extension and screen-reader support.
+
+#### Learning Objectives
+- Open the project root rather than an individual source file only.
+- Configure C++ language services and compiler selection.
+- Navigate source, diagnostics, terminal, and project files by keyboard.
+
+#### Concept Explanation
+An editor provides text editing; an IDE adds integrated language services, build, debugging, and project navigation. VS Code, VSCodium, and Theia can provide C++ support through extensions, but their extension marketplaces differ. A language server is not a substitute for an installed compiler.
+
+#### Worked Example
+Open the folder containing `main.cpp`, install the appropriate C++ language extension, select the same compiler used in the terminal, and confirm that diagnostics identify a deliberately introduced syntax error.
+
+#### Common Mistakes
+- Opening only a file instead of the project root, preventing project-level configuration from loading.
+- Installing an extension from a marketplace unavailable to the selected editor distribution.
+- Assuming code completion or syntax highlighting proves that the compiler is configured.
+
+#### Activities
+1. Open the project folder in VS Code, VSCodium, or Theia.
+2. Verify language-server diagnostics and compiler selection.
+3. Navigate to a line, inspect punctuation, and read a diagnostic using the screen reader.
+4. Build and run from the integrated terminal, then repeat from the system terminal.
+
+#### Accessibility Practice
+Test keyboard-only access to the editor, file tree, diagnostics panel, integrated terminal, and output. Adjust punctuation verbosity and indentation announcements to a usable level.
+
+#### Skills Checklist
+- [ ] I can open the project root in my chosen editor.
+- [ ] I can identify the C++ extension and compiler configuration.
+- [ ] I can navigate diagnostics and terminal output by keyboard.
+- [ ] I can complete the build/run workflow without mouse-only actions.
 
 ### Lesson 0.4: Project Environments, Dependencies, and Terminal Usage
 
-### Overview
-Organize source, headers, build output, and third-party dependencies. Use the terminal from the project root and make build commands reproducible.
+#### Reading References
+- CMake getting-started documentation.
+- Compiler and linker command-line documentation.
 
-### Learning Objectives
-- Explain the working directory and the role of source, header, object, and executable files.
-- Compile a multi-file project and identify compile and link stages.
-- Document compiler flags, external libraries, and build steps.
+#### Learning Objectives
+- Explain the working directory and the roles of source, header, object, and executable files.
+- Compile and link a multi-file project.
+- Record external dependencies and reproducible build instructions.
 
-### Worked Example
+#### Concept Explanation
+C++ dependencies may be supplied by the standard library or external libraries. Header lookup happens during preprocessing/compilation; unresolved external symbols are generally linker errors. Larger projects should record build configuration and use an out-of-source build directory such as a CMake `build/` folder.
+
+#### Worked Example
 ```sh
-c++ -std=c++20 -Wall -Wextra -Wpedantic -Werror -g main.cpp -o app
+c++ -std=c++20 -Wall -Wextra -Wpedantic -Werror -g main.cpp helper.cpp -o app
 ./app
 ```
 
-### Common Mistakes
+#### Common Mistakes
 - Running a relative path from the wrong working directory.
-- Treating a missing header as a linker error; header lookup occurs during preprocessing/compilation.
-- Omitting a required translation unit or library from the link command.
+- Treating a missing header as a linker error.
+- Omitting a required implementation file or library from the link command.
 
-### Activities
+#### Activities
 1. Compile a one-file program from the project root and record the exact command.
-2. Run the same command from another directory and explain any path failure.
-3. Split a program into a header, implementation file, and `main.cpp`; compile and link all translation units.
+2. Split a program into a header, implementation file, and `main.cpp`; compile and link all translation units.
+3. Remove one implementation file from the command and interpret the linker diagnostic.
 4. Record compiler version, standard flag, dependencies, and build steps in a README.
 
-### Accessibility Practice
-Navigate each project file and terminal diagnostic by keyboard. Confirm that build errors are understandable without color or mouse-only controls.
+#### Accessibility Practice
+Navigate each project file and terminal diagnostic by keyboard. Confirm that build errors can be read sequentially and are not communicated by color alone.
 
-Use the terminal from the project root and understand the current working directory. Keep each project in its own folder and distinguish source files, build output, and dependency metadata. Use one folder per C++ project and keep source, headers, and build output organized. For larger projects, introduce CMake and an out-of-source build directory. Explain compiler flags and linking when libraries are added.
-
-### Skills Checklist
+#### Skills Checklist
 - [ ] I can identify the project root and run commands from it.
-- [ ] I can explain where project dependencies are recorded, if applicable.
-- [ ] I can run the program or test command from the terminal and read its output.
+- [ ] I can explain the difference between a header error and a linker error.
+- [ ] I can compile and link a multi-file project.
+- [ ] I can document dependencies and reproducible build steps.
 
 # Unit 1: Foundations of Computing
 
@@ -171,7 +282,8 @@ Variables and data types is taught through the shared course datasets and requir
 ### Worked Example
 ```cpp
 #include <iostream>
-int main() { std::cout << "Hello, World!\n"; }
+#include <string>
+int main() { const std::string name = "Avery"; const int age = 16; const double height_m = 1.72; const std::string favorite_subject = "Computer Science"; std::cout << name << ", age " << age << ", height " << height_m << " m, favorite subject: " << favorite_subject << '\\n'; }
 ```
 
 **Trace:** predict the output before compiling. Identify declarations, values, control-flow decisions, and state changes in order. Then compile and compare actual output with the prediction. The lesson example is intended to be independently compilable.
@@ -373,6 +485,58 @@ Navigate the complete source file by line, word, and character using the learner
 - [ ] I can implement the same requirement for the $24.50 bill and 15% tip without copying Python syntax.
 - [ ] I can test a normal case, a boundary case, and a relevant invalid or failure case.
 - [ ] I can compile the program, interpret diagnostics, and navigate source and terminal output using my access technology.
+
+## Lesson 2.5: Using the Math Library
+
+### Reading References
+- C++ standard library documentation for `<cmath>`.
+- Python Unit 2.5 for the corresponding circle and distance problems.
+
+### Learning Objectives
+- Include and use mathematical functions from `<cmath>`.
+- Calculate a circle's area and circumference.
+- Calculate distance from the origin using the Pythagorean theorem.
+
+### Concept Explanation
+C++ provides common mathematical functions through `<cmath>`, including `std::sqrt`, `std::pow`, and `std::round`. Prefer direct multiplication for simple squares when it improves clarity. Use floating-point types for measurements and check domain constraints before calling functions such as square root.
+
+### Worked Example
+```cpp
+#include <cmath>
+#include <iostream>
+int main() {
+    const double radius = 3.0;
+    const double pi = std::acos(-1.0);
+    const double area = pi * radius * radius;
+    const double circumference = 2.0 * pi * radius;
+    const double distance = std::sqrt(3.0 * 3.0 + 4.0 * 4.0);
+    std::cout << "Area: " << area << '\\n';
+    std::cout << "Circumference: " << circumference << '\\n';
+    std::cout << "Distance: " << distance << '\\n';
+}
+```
+
+**Expected behavior:** the circle with radius 3 has area approximately 28.2743 and circumference approximately 18.8496; the point (3, 4) is 5 units from the origin.
+
+### Common Mistakes
+- Calling a math function without including `<cmath>` or qualifying it with `std::`.
+- Using integer variables for measurements and losing fractional precision.
+- Passing a negative value to `std::sqrt` without defining an error policy.
+
+### Activities
+1. Change the radius to 5 and calculate the expected area and circumference before running.
+2. Calculate the distance for coordinates (5, 12), then compare it with the expected 13.
+3. Add a guard for a negative radicand and explain the chosen behavior.
+4. Format the results to two decimal places and compare rounded output with the unrounded values.
+
+### Accessibility Practice
+Read each intermediate variable and output label in source order. Keep units and labels in text output rather than communicating values through a visual chart.
+
+### Skills Checklist
+- [ ] I can include and call functions from `<cmath>`.
+- [ ] I can calculate circle area and circumference.
+- [ ] I can calculate distance from coordinates using `std::sqrt`.
+- [ ] I can explain floating-point precision and domain validation.
 
 # Unit 3: Control Flow
 
