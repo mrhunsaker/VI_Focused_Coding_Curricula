@@ -326,3 +326,12 @@ All implementation changes are recorded here. Each numbered step is committed se
 - Editorial refinement of repeated lesson explanations, common mistakes, and activities remains outstanding, along with expected-output and invalid-input testing, capstone persistence, mdBook/link checks, and hands-on screen-reader/braille testing.
 
 - Follow-up editorial pass refined all 53 Lua lesson concept explanations, common mistakes, and activities against their lesson topics while retaining accessibility practice and five-item skills checklists. The final workflow run [41336626558](https://github.com/mrhunsaker/VI_Focused_Coding_Curricula/actions/runs/41336626558) passed on Lua 5.4.6; all 53 examples parsed and smoke-executed.
+
+
+## 2026-11-01 — Java complete lesson sequence and validation
+
+- Added `JAVA/lessons.md` with four Unit 0 setup lessons and 53 numbered Java lessons across Units 1–11, aligned to the shared Python curriculum contexts and JDK 25.
+- Standardized all 57 lessons with references, objectives, concept explanations, complete examples, expected behavior, three Java-specific mistakes, four topic-aligned activities, accessibility practice, and five-item skills checklists.
+- Added `scripts/check_java_examples.py` and `.github/workflows/java-examples.yml`; added `JAVA/VALIDATION.md` and linked the consolidated course from the Java README, index, and mdBook navigation.
+- Workflow run [41337711452](https://github.com/mrhunsaker/VI_Focused_Coding_Curricula/actions/runs/41337711452) passed on Temurin JDK 25.0.5, compiling and smoke-executing all 57 examples independently. Final prose-refinement CI rerun is in progress.
+- Remaining verification: exact expected-output assertions, invalid-input/file fixtures, capstone persistence/JUnit integration, fresh mdBook/link crawl, and hands-on screen-reader/braille testing.
