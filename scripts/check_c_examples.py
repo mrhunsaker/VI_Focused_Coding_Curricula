@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Syntax-check every fenced C example in C/lessons.md with a selected compiler."""
+"""Compile and link every complete fenced C example and syntax-check declaration/function fragments."""
 
 from __future__ import annotations
 
