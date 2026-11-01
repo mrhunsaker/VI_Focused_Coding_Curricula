@@ -1031,11 +1031,16 @@ Interactive input arrives as text through `readline`; validate and convert it be
 
 ### Worked Example
 ```jl
-commands = ["list", "help", "quit"]
-i = 1
-while i <= length(commands)
-    println(commands[i]); commands[i] == "quit" && break; i += 1
+function run_commands()
+    commands = ["list", "help", "quit"]
+    index = 1
+    while index <= length(commands)
+        println(commands[index])
+        commands[index] == "quit" && break
+        index += 1
+    end
 end
+run_commands()
 ```
 
 ### Expected Behavior or Output
