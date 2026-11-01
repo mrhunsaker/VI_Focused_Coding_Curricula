@@ -96,3 +96,16 @@ The first expansion pass is now committed on the working branch.
 **Important qualification:** the eight expanded lesson manuscripts are a substantive first-pass expansion, not yet a verified line-by-line translation of every Python lesson. Some lessons currently reuse a representative worked example within a unit. The JSON prompt is intended to guide a later refinement pass that assigns each Python example and activity to its exact language counterpart, verifies each expected result, and removes any repeated or insufficiently specific examples. Kotlin, Java, JavaScript, and TypeScript also require a full comparison against the JSON map before they can be declared completely aligned.
 
 The current course set should therefore be described as **expanded and mapped for standardization**, not fully validated as functionally identical. Compiler/runtime execution, complete link validation, mdBook rendering, and screen-reader testing remain outstanding.
+
+
+## 2026-11-01 follow-up: C lesson-quality refinement
+
+The C curriculum received a lesson-level quality pass on the working branch.
+
+- All four Unit 0 setup lessons now use a complete instructional sequence: references, objectives, concept explanation, worked instructions, common mistakes, activities, accessibility practice, and skills checklist.
+- All 53 numbered lessons in Units 1–11 now have lesson-specific common mistakes, four independent activities tied to the lesson's C concepts and shared datasets, and an observable mastery checklist.
+- Activities use the canonical calculator, grade thresholds, score collection, inventory records, coordinate example, text sample, CSV schema, to-do tasks, and capstone record fields where appropriate.
+- C-specific risks are stated explicitly: array bounds, null termination, conversion validation, integer division, pointer ownership, struct semantics, resource cleanup, file errors, JSON-library limitations, and fixed-capacity project data.
+- The standardization JSON now records this C quality pass and its remaining verification requirements.
+
+**Verification boundary:** structural checks were run against the committed Markdown and JSON. Every C snippet has not yet been compiled or executed with GCC/Clang. The available GitHub connector does not provide a local compiler, and a repository clone attempt failed because the execution environment could not resolve github.com. Screen-reader/braille testing and a fresh mdBook build also remain outstanding. Do not describe the C course as runtime-verified or accessibility-certified.
