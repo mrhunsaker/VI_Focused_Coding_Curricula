@@ -3252,14 +3252,12 @@ import (
 	"os"
 )
 func main() {
-	func main() {
-	 path := "go_read_demo.txt"
-	 if err := os.WriteFile(path, []byte("Avery,82\n"), 0600); err != nil { panic(err) }
-	 data, err := os.ReadFile(path)
-	 if err != nil { panic(err) }
-	 fmt.Print(string(data))
-	 if err := os.Remove(path); err != nil { panic(err) }
-	}
+ path := "go_read_demo.txt"
+ if err := os.WriteFile(path, []byte("Avery,82\n"), 0600); err != nil { panic(err) }
+ data, err := os.ReadFile(path)
+ if err != nil { panic(err) }
+ fmt.Print(string(data))
+ if err := os.Remove(path); err != nil { panic(err) }
 }
 ```
 
@@ -3311,15 +3309,13 @@ import (
 	"os"
 )
 func main() {
-	func main() {
-	 path := "go_append_demo.txt"
-	 file, err := os.OpenFile(path, os.O_CREATE|os.O_APPEND|os.O_WRONLY, 0600)
-	 if err != nil { panic(err) }
-	 if _, err := fmt.Fprintln(file, "Notebook,3"); err != nil { panic(err) }
-	 if err := file.Close(); err != nil { panic(err) }
-	 fmt.Println("appended inventory record")
-	 if err := os.Remove(path); err != nil { panic(err) }
-	}
+ path := "go_append_demo.txt"
+ file, err := os.OpenFile(path, os.O_CREATE|os.O_APPEND|os.O_WRONLY, 0600)
+ if err != nil { panic(err) }
+ if _, err := fmt.Fprintln(file, "Notebook,3"); err != nil { panic(err) }
+ if err := file.Close(); err != nil { panic(err) }
+ fmt.Println("appended inventory record")
+ if err := os.Remove(path); err != nil { panic(err) }
 }
 ```
 
@@ -3371,11 +3367,9 @@ import (
 	"fmt"
 )
 func main() {
-	func main() {
-	 load := func(path string) (string, error) { return "", errors.New("file not found: " + path) }
-	 text, err := load("missing_course_file.txt")
-	 if err != nil { fmt.Println("Could not read file:", err) } else { fmt.Println(text) }
-	}
+ load := func(path string) (string, error) { return "", errors.New("file not found: " + path) }
+ text, err := load("missing_course_file.txt")
+ if err != nil { fmt.Println("Could not read file:", err) } else { fmt.Println(text) }
 }
 ```
 
@@ -3427,14 +3421,12 @@ import (
 	"os"
 )
 func main() {
-	func main() {
-	 path := "go_cleanup_demo.txt"
-	 file, err := os.Create(path)
-	 if err != nil { panic(err) }
-	 defer func() { if err := file.Close(); err != nil { fmt.Println("close error:", err) }; _ = os.Remove(path) }()
-	 if _, err := fmt.Fprintln(file, "closed when function returns"); err != nil { panic(err) }
-	 fmt.Println("deferred cleanup is scheduled")
-	}
+ path := "go_cleanup_demo.txt"
+ file, err := os.Create(path)
+ if err != nil { panic(err) }
+ defer func() { if err := file.Close(); err != nil { fmt.Println("close error:", err) }; _ = os.Remove(path) }()
+ if _, err := fmt.Fprintln(file, "closed when function returns"); err != nil { panic(err) }
+ fmt.Println("deferred cleanup is scheduled")
 }
 ```
 
@@ -3486,12 +3478,10 @@ import (
 	"fmt"
 )
 func main() {
-	func main() {
-	 record := struct { Name string `json:"name"`; Score int `json:"score"` }{Name: "Avery", Score: 82}
-	 data, err := json.Marshal(record)
-	 if err != nil { panic(err) }
-	 fmt.Println(string(data))
-	}
+ record := struct { Name string `json:"name"`; Score int `json:"score"` }{Name: "Avery", Score: 82}
+ data, err := json.Marshal(record)
+ if err != nil { panic(err) }
+ fmt.Println(string(data))
 }
 ```
 
@@ -3542,12 +3532,10 @@ import (
 	"fmt"
 )
 func main() {
-	func main() {
-	 isPassing := func(score int) bool { return score >= 60 }
-	 checks := []struct { score int; want bool }{{82, true}, {59, false}, {60, true}}
-	 for _, check := range checks { got := isPassing(check.score); if got != check.want { panic("boundary test failed") } }
-	 fmt.Println("grade boundary checks passed")
-	}
+ isPassing := func(score int) bool { return score >= 60 }
+ checks := []struct { score int; want bool }{{82, true}, {59, false}, {60, true}}
+ for _, check := range checks { got := isPassing(check.score); if got != check.want { panic("boundary test failed") } }
+ fmt.Println("grade boundary checks passed")
 }
 ```
 
@@ -3657,11 +3645,9 @@ import (
 	"fmt"
 )
 func main() {
-	func main() {
-	 next := func(seed uint64) uint64 { return seed*6364136223846793005 + 1 }
-	 seed := uint64(7)
-	 for i := 0; i < 5; i++ { seed = next(seed); fmt.Println(seed) }
-	}
+ next := func(seed uint64) uint64 { return seed*6364136223846793005 + 1 }
+ seed := uint64(7)
+ for i := 0; i < 5; i++ { seed = next(seed); fmt.Println(seed) }
 }
 ```
 
@@ -3713,11 +3699,9 @@ import (
 	"strings"
 )
 func main() {
-	func main() {
-	 sample := "A student studies programming. Programming builds skill."
-	 fmt.Printf("words=%d characters=%d\n", len(strings.Fields(sample)), len([]rune(sample)))
-	 fmt.Println("contains programming:", strings.Contains(strings.ToLower(sample), "programming"))
-	}
+ sample := "A student studies programming. Programming builds skill."
+ fmt.Printf("words=%d characters=%d\n", len(strings.Fields(sample)), len([]rune(sample)))
+ fmt.Println("contains programming:", strings.Contains(strings.ToLower(sample), "programming"))
 }
 ```
 
@@ -3770,12 +3754,10 @@ import (
 	"strings"
 )
 func main() {
-	func main() {
-	 input := "name,score\nAvery,82\nJordan,91\n"
-	 rows, err := csv.NewReader(strings.NewReader(input)).ReadAll()
-	 if err != nil { panic(err) }
-	 for _, row := range rows { fmt.Println(strings.Join(row, " | ")) }
-	}
+ input := "name,score\nAvery,82\nJordan,91\n"
+ rows, err := csv.NewReader(strings.NewReader(input)).ReadAll()
+ if err != nil { panic(err) }
+ for _, row := range rows { fmt.Println(strings.Join(row, " | ")) }
 }
 ```
 
@@ -3826,10 +3808,8 @@ import (
 	"fmt"
 )
 func main() {
-	func main() {
-	 requirements := []string{"list tasks", "add task", "mark task complete", "save tasks"}
-	 for i, requirement := range requirements { fmt.Printf("%d. %s\n", i+1, requirement) }
-	}
+ requirements := []string{"list tasks", "add task", "mark task complete", "save tasks"}
+ for i, requirement := range requirements { fmt.Printf("%d. %s\n", i+1, requirement) }
 }
 ```
 
@@ -3880,12 +3860,10 @@ import (
 	"fmt"
 )
 func main() {
-	func main() {
-	 rooms := map[string]string{"hall": "library", "library": "garden", "garden": "hall"}
-	 current := "hall"
-	 next, ok := rooms[current]
-	 if !ok { fmt.Println("Unknown room") } else { current = next; fmt.Println("Moved to:", current) }
-	}
+ rooms := map[string]string{"hall": "library", "library": "garden", "garden": "hall"}
+ current := "hall"
+ next, ok := rooms[current]
+ if !ok { fmt.Println("Unknown room") } else { current = next; fmt.Println("Moved to:", current) }
 }
 ```
 
@@ -3936,12 +3914,10 @@ import (
 	"fmt"
 )
 func main() {
-	func main() {
-	 inventory := map[string]bool{"key": true}
-	 unlocked := inventory["key"]
-	 if unlocked { inventory["map"] = true }
-	 fmt.Println("puzzle unlocked:", unlocked, "inventory:", inventory)
-	}
+ inventory := map[string]bool{"key": true}
+ unlocked := inventory["key"]
+ if unlocked { inventory["map"] = true }
+ fmt.Println("puzzle unlocked:", unlocked, "inventory:", inventory)
 }
 ```
 
@@ -3992,12 +3968,10 @@ import (
 	"fmt"
 )
 func main() {
-	func main() {
-	 type Task struct { ID int; Title string; Done bool }
-	 tasks := []Task{{ID: 1, Title: "Read lesson"}, {ID: 2, Title: "Run example"}}
-	 tasks[0].Done = true
-	 for _, task := range tasks { fmt.Printf("%d: %s [%t]\n", task.ID, task.Title, task.Done) }
-	}
+ type Task struct { ID int; Title string; Done bool }
+ tasks := []Task{{ID: 1, Title: "Read lesson"}, {ID: 2, Title: "Run example"}}
+ tasks[0].Done = true
+ for _, task := range tasks { fmt.Printf("%d: %s [%t]\n", task.ID, task.Title, task.Done) }
 }
 ```
 
@@ -4051,13 +4025,11 @@ import (
 	"strings"
 )
 func main() {
-	func main() {
-	 reader := bufio.NewReader(os.Stdin)
-	 fmt.Print("Task title: ")
-	 title, _ := reader.ReadString('\n')
-	 title = strings.TrimSpace(title)
-	 if title == "" { fmt.Println("A title is required.") } else { fmt.Println("Accepted task:", title) }
-	}
+ reader := bufio.NewReader(os.Stdin)
+ fmt.Print("Task title: ")
+ title, _ := reader.ReadString('\n')
+ title = strings.TrimSpace(title)
+ if title == "" { fmt.Println("A title is required.") } else { fmt.Println("Accepted task:", title) }
 }
 ```
 
@@ -4109,10 +4081,8 @@ import (
 	"strings"
 )
 func main() {
-	func main() {
-	 fields := []string{"id", "title", "description", "category", "created_at", "updated_at"}
-	 fmt.Println("Capstone fields:", strings.Join(fields, ", "))
-	}
+ fields := []string{"id", "title", "description", "category", "created_at", "updated_at"}
+ fmt.Println("Capstone fields:", strings.Join(fields, ", "))
 }
 ```
 
@@ -4164,13 +4134,11 @@ import (
 	"fmt"
 )
 func main() {
-	func main() {
-	 type Record struct { ID int `json:"id"`; Title string `json:"title"`; Category string `json:"category"` }
-	 record := Record{ID: 1, Title: "Study Go", Category: "learning"}
-	 data, err := json.Marshal(record)
-	 if err != nil { panic(err) }
-	 fmt.Println(string(data))
-	}
+ type Record struct { ID int `json:"id"`; Title string `json:"title"`; Category string `json:"category"` }
+ record := Record{ID: 1, Title: "Study Go", Category: "learning"}
+ data, err := json.Marshal(record)
+ if err != nil { panic(err) }
+ fmt.Println(string(data))
 }
 ```
 
@@ -4221,12 +4189,10 @@ import (
 	"fmt"
 )
 func main() {
-	func main() {
-	 type Record struct { ID int; Title string; Done bool }
-	 records := []Record{{ID: 1, Title: "Draft"}, {ID: 2, Title: "Review"}}
-	 records[0].Done = true
-	 for _, record := range records { fmt.Printf("%d %s done=%t\n", record.ID, record.Title, record.Done) }
-	}
+ type Record struct { ID int; Title string; Done bool }
+ records := []Record{{ID: 1, Title: "Draft"}, {ID: 2, Title: "Review"}}
+ records[0].Done = true
+ for _, record := range records { fmt.Printf("%d %s done=%t\n", record.ID, record.Title, record.Done) }
 }
 ```
 
@@ -4278,10 +4244,8 @@ import (
 	"strings"
 )
 func main() {
-	func main() {
-	 valid := func(title string) bool { return strings.TrimSpace(title) != "" && len([]rune(title)) <= 80 }
-	 for _, title := range []string{"Plan", "", strings.Repeat("x", 81)} { fmt.Printf("%q valid=%t\n", title, valid(title)) }
-	}
+ valid := func(title string) bool { return strings.TrimSpace(title) != "" && len([]rune(title)) <= 80 }
+ for _, title := range []string{"Plan", "", strings.Repeat("x", 81)} { fmt.Printf("%q valid=%t\n", title, valid(title)) }
 }
 ```
 
@@ -4332,13 +4296,11 @@ import (
 	"fmt"
 )
 func main() {
-	func main() {
-	 fmt.Println("Project: accessible record manager")
-	 fmt.Println("Build: go build ./...")
-	 fmt.Println("Test: go test ./...")
-	 fmt.Println("Run: go run .")
-	 fmt.Println("Document validation, storage, errors, and keyboard workflow.")
-	}
+ fmt.Println("Project: accessible record manager")
+ fmt.Println("Build: go build ./...")
+ fmt.Println("Test: go test ./...")
+ fmt.Println("Run: go run .")
+ fmt.Println("Document validation, storage, errors, and keyboard workflow.")
 }
 ```
 
