@@ -3025,90 +3025,38 @@ Use keyboard navigation to move between the lesson heading, code fence, compiler
 - Test a relevant boundary condition and explain a common failure.
 
 ### Concept Explanation
+Go models data with structs and behavior with methods and interfaces. Pointer receivers can mutate a value; interfaces are satisfied implicitly. Embedding promotes fields and methods but is composition, not inheritance. Keep domain types small and make dependencies explicit. The lesson uses canonical course data so learners focus on Go semantics rather than a new domain problem. Format with gofmt and use go test ./... as routine development tools.
+
+### Worked Example
+```go
 package main
 import (
 	"fmt"
 )
-func main() {
-	type Student struct { Name string; Score int }
-	type Status int
-	const ( Active Status = iota; Inactive )
-	s := Student{Name: "Avery", Score: 82}
-	state := Active
-	fmt.Printf("%s: %d; active=%t; inactive=%t\n", s.Name, s.Score, state == Active, Inactive == Inactive)
-},package main
-import (
-	"fmt"
-)
-func main() {
 	type Student struct { Name string; Score int }
 	func (s *Student) AddPoints(points int) { s.Score += points }
-	s := Student{Name: "Avery", Score: 82}
-	s.AddPoints(3)
-	fmt.Println(s.Name, "score:", s.Score)
-},package main
-import (
-	"fmt"
-)
-func main() {
-	type Summarizer interface { Summary() string }
-	type Task struct { Title string; Done bool }
-	func (t Task) Summary() string { return fmt.Sprintf("%s: %t", t.Title, t.Done) }
-	var item Summarizer = Task{Title: "Study Go", Done: false}
-	fmt.Println(item.Summary())
-},package main
-import (
-	"fmt"
-)
-func main() {
-	type Contact struct { Email string }
-	type Student struct { Name string; Contact Contact }
-	s := Student{Name: "Avery", Contact: Contact{Email: "avery@example.test"}}
-	fmt.Println(s.Name, s.Email)
-},package main
-import (
-	"fmt"
-)
-func main() {
-	type Reader interface { Read() string }
-	type Note struct { Text string }
-	func (n Note) Read() string { return n.Text }
-	func display(r Reader) { fmt.Println(r.Read()) }
-	display(Note{Text: "Composition and interfaces"})
-} The lesson uses the canonical course data so learners focus on Go semantics rather than a new domain problem. Format with gofmt and use go test ./... as routine development tools.
-
-### Wor```go
-package main
-import (
-	"fmt"
-)
-type Student struct { Name string; Score int }
-func (s *Student) AddPoints(points int) { s.Score += points }
-func main() {
-	s := Student{Name: "Avery", Score: 82}
-	s.AddPoints(3)
-	fmt.Println(s.Name, "score:", s.Score)
-}
-
-```Score)
-}
+	func main() {
+	 s := Student{Name: "Avery", Score: 82}
+	 s.AddPoints(3)
+	 fmt.Println(s.Name, "score:", s.Score)
+	}
 ```
 
-**Expected behavior:** The standalone program demonstrates creating values and pointer receivers with the course's shared example data. It compiles and runs using the standard library. Predict the output first, then compare it with the terminal output.
+**Expected behavior:** The standalone program demonstrates creating values and pointer receivers with shared course example data. It compiles and runs using the standard library. Predict the output first, then compare it with terminal output.
 
 ### Common Mistakes
 1. Using a value receiver when mutation of the original struct is required.
-2. Assuming Go interfaces must be declared as implemented explicitly.
-3. Mistaking embedding for class inheritance or assuming promoted fields are always unambiguous.
+2. Assuming interfaces must be declared as implemented explicitly.
+3. Mistaking embedding for class inheritance or overlooking promoted-field ambiguity.
 
 ### Activities
 1. Run the worked example unchanged; trace each declaration, type, function call, and output line.
-2. Change the canonical inventory records, file samples, and CSV fields data and predict the output before running the program.
-3. Add one boundary case and one malformed or missing-data case; state expected behavior before changing the code.
-4. Refactor one part using the Go feature named in this lesson (creating values and pointer receivers); run gofmt and go test ./... and explain the result.
+2. Change the canonical inventory records, file samples, and CSV fields and predict the output before running it.
+3. Add a boundary case and one malformed or missing-data case; define expected behavior before editing the program.
+4. Refactor one part using the Go feature in this lesson (creating values and pointer receivers); run gofmt and go test ./... and explain the result.
 
 ### Accessibility Practice
-Use keyboard navigation to move between the lesson heading, code fence, compiler output, and terminal. With a screen reader, inspect punctuation in Go syntax (:=, &, *, ..., {}, and error assignments). Do not rely on syntax highlighting or color to distinguish errors. Read prompts and validation messages in document order; verify output is announced without unexpected focus movement.
+Use keyboard navigation to move between the lesson heading, code fence, compiler output, and terminal. With a screen reader, inspect Go punctuation (:=, &, *, ..., {}, and error assignments). Do not rely on syntax highlighting or color to distinguish errors. Read prompts and validation messages in document order; verify output is announced without unexpected focus movement.
 
 ### Skills Checklist
 - [ ] I can explain creating values and pointer receivers using Go terminology.
@@ -3132,90 +3080,38 @@ Use keyboard navigation to move between the lesson heading, code fence, compiler
 - Test a relevant boundary condition and explain a common failure.
 
 ### Concept Explanation
+Go models data with structs and behavior with methods and interfaces. Pointer receivers can mutate a value; interfaces are satisfied implicitly. Embedding promotes fields and methods but is composition, not inheritance. Keep domain types small and make dependencies explicit. The lesson uses canonical course data so learners focus on Go semantics rather than a new domain problem. Format with gofmt and use go test ./... as routine development tools.
+
+### Worked Example
+```go
 package main
 import (
 	"fmt"
 )
-func main() {
-	type Student struct { Name string; Score int }
-	type Status int
-	const ( Active Status = iota; Inactive )
-	s := Student{Name: "Avery", Score: 82}
-	state := Active
-	fmt.Printf("%s: %d; active=%t; inactive=%t\n", s.Name, s.Score, state == Active, Inactive == Inactive)
-},package main
-import (
-	"fmt"
-)
-func main() {
-	type Student struct { Name string; Score int }
-	func (s *Student) AddPoints(points int) { s.Score += points }
-	s := Student{Name: "Avery", Score: 82}
-	s.AddPoints(3)
-	fmt.Println(s.Name, "score:", s.Score)
-},package main
-import (
-	"fmt"
-)
-func main() {
 	type Summarizer interface { Summary() string }
 	type Task struct { Title string; Done bool }
 	func (t Task) Summary() string { return fmt.Sprintf("%s: %t", t.Title, t.Done) }
-	var item Summarizer = Task{Title: "Study Go", Done: false}
-	fmt.Println(item.Summary())
-},package main
-import (
-	"fmt"
-)
-func main() {
-	type Contact struct { Email string }
-	type Student struct { Name string; Contact Contact }
-	s := Student{Name: "Avery", Contact: Contact{Email: "avery@example.test"}}
-	fmt.Println(s.Name, s.Email)
-},package main
-import (
-	"fmt"
-)
-func main() {
-	type Reader interface { Read() string }
-	type Note struct { Text string }
-	func (n Note) Read() string { return n.Text }
-	func display(r Reader) { fmt.Println(r.Read()) }
-	display(Note{Text: "Composition and interfaces"})
-} The lesson uses the canonical course data so learners focus on Go semantics rather than a new domain problem. Format with gofmt and use go test ./... as routine development tools.
-
-### Work```go
-package main
-import (
-	"fmt"
-)
-type Summarizer interface { Summary() string }
-type Task struct { Title string; Done bool }
-func (t Task) Summary() string { return fmt.Sprintf("%s: %t", t.Title, t.Done) }
-func main() {
-	var item Summarizer = Task{Title: "Study Go", Done: false}
-	fmt.Println(item.Summary())
-}
-
-```ry())
-}
+	func main() {
+	 var item Summarizer = Task{Title: "Study Go", Done: false}
+	 fmt.Println(item.Summary())
+	}
 ```
 
-**Expected behavior:** The standalone program demonstrates methods and interfaces with the course's shared example data. It compiles and runs using the standard library. Predict the output first, then compare it with the terminal output.
+**Expected behavior:** The standalone program demonstrates methods and interfaces with shared course example data. It compiles and runs using the standard library. Predict the output first, then compare it with terminal output.
 
 ### Common Mistakes
 1. Using a value receiver when mutation of the original struct is required.
-2. Assuming Go interfaces must be declared as implemented explicitly.
-3. Mistaking embedding for class inheritance or assuming promoted fields are always unambiguous.
+2. Assuming interfaces must be declared as implemented explicitly.
+3. Mistaking embedding for class inheritance or overlooking promoted-field ambiguity.
 
 ### Activities
 1. Run the worked example unchanged; trace each declaration, type, function call, and output line.
-2. Change the canonical inventory records, file samples, and CSV fields data and predict the output before running the program.
-3. Add one boundary case and one malformed or missing-data case; state expected behavior before changing the code.
-4. Refactor one part using the Go feature named in this lesson (methods and interfaces); run gofmt and go test ./... and explain the result.
+2. Change the canonical inventory records, file samples, and CSV fields and predict the output before running it.
+3. Add a boundary case and one malformed or missing-data case; define expected behavior before editing the program.
+4. Refactor one part using the Go feature in this lesson (methods and interfaces); run gofmt and go test ./... and explain the result.
 
 ### Accessibility Practice
-Use keyboard navigation to move between the lesson heading, code fence, compiler output, and terminal. With a screen reader, inspect punctuation in Go syntax (:=, &, *, ..., {}, and error assignments). Do not rely on syntax highlighting or color to distinguish errors. Read prompts and validation messages in document order; verify output is announced without unexpected focus movement.
+Use keyboard navigation to move between the lesson heading, code fence, compiler output, and terminal. With a screen reader, inspect Go punctuation (:=, &, *, ..., {}, and error assignments). Do not rely on syntax highlighting or color to distinguish errors. Read prompts and validation messages in document order; verify output is announced without unexpected focus movement.
 
 ### Skills Checklist
 - [ ] I can explain methods and interfaces using Go terminology.
@@ -3239,89 +3135,37 @@ Use keyboard navigation to move between the lesson heading, code fence, compiler
 - Test a relevant boundary condition and explain a common failure.
 
 ### Concept Explanation
+Go models data with structs and behavior with methods and interfaces. Pointer receivers can mutate a value; interfaces are satisfied implicitly. Embedding promotes fields and methods but is composition, not inheritance. Keep domain types small and make dependencies explicit. The lesson uses canonical course data so learners focus on Go semantics rather than a new domain problem. Format with gofmt and use go test ./... as routine development tools.
+
+### Worked Example
+```go
 package main
 import (
 	"fmt"
 )
-func main() {
-	type Student struct { Name string; Score int }
-	type Status int
-	const ( Active Status = iota; Inactive )
-	s := Student{Name: "Avery", Score: 82}
-	state := Active
-	fmt.Printf("%s: %d; active=%t; inactive=%t\n", s.Name, s.Score, state == Active, Inactive == Inactive)
-},package main
-import (
-	"fmt"
-)
-func main() {
-	type Student struct { Name string; Score int }
-	func (s *Student) AddPoints(points int) { s.Score += points }
-	s := Student{Name: "Avery", Score: 82}
-	s.AddPoints(3)
-	fmt.Println(s.Name, "score:", s.Score)
-},package main
-import (
-	"fmt"
-)
-func main() {
-	type Summarizer interface { Summary() string }
-	type Task struct { Title string; Done bool }
-	func (t Task) Summary() string { return fmt.Sprintf("%s: %t", t.Title, t.Done) }
-	var item Summarizer = Task{Title: "Study Go", Done: false}
-	fmt.Println(item.Summary())
-},package main
-import (
-	"fmt"
-)
-func main() {
-	type Contact struct { Email string }
-	type Student struct { Name string; Contact Contact }
-	s := Student{Name: "Avery", Contact: Contact{Email: "avery@example.test"}}
-	fmt.Println(s.Name, s.Email)
-},package main
-import (
-	"fmt"
-)
-func main() {
-	type Reader interface { Read() string }
-	type Note struct { Text string }
-	func (n Note) Read() string { return n.Text }
-	func display(r Reader) { fmt.Println(r.Read()) }
-	display(Note{Text: "Composition and interfaces"})
-} The lesson uses the canonical course data so learners focus on Go semantics rather than a new domain problem. Format with gofmt and use go test ./... as routine development tools.
-
-### Worked```go
-package main
-import (
-	"fmt"
-)
-func main() {
-	type Contact struct { Email string }
-	type Student struct { Name string; Contact }
-	s := Student{Name: "Avery", Contact: Contact{Email: "avery@example.test"}}
-	fmt.Println(s.Name, s.Email)
-}
-
-```il)
-}
+	func main() {
+	 type Contact struct { Email string }
+	 type Student struct { Name string; Contact }
+	 s := Student{Name: "Avery", Contact: Contact{Email: "avery@example.test"}}
+	 fmt.Println(s.Name, s.Email)
+	}
 ```
 
-**Expected behavior:** The standalone program demonstrates embedding and polymorphism with the course's shared example data. It compiles and runs using the standard library. Predict the output first, then compare it with the terminal output.
+**Expected behavior:** The standalone program demonstrates embedding and polymorphism with shared course example data. It compiles and runs using the standard library. Predict the output first, then compare it with terminal output.
 
 ### Common Mistakes
 1. Using a value receiver when mutation of the original struct is required.
-2. Assuming Go interfaces must be declared as implemented explicitly.
-3. Mistaking embedding for class inheritance or assuming promoted fields are always unambiguous.
+2. Assuming interfaces must be declared as implemented explicitly.
+3. Mistaking embedding for class inheritance or overlooking promoted-field ambiguity.
 
 ### Activities
 1. Run the worked example unchanged; trace each declaration, type, function call, and output line.
-2. Change the canonical inventory records, file samples, and CSV fields data and predict the output before running the program.
-3. Add one boundary case and one malformed or missing-data case; state expected behavior before changing the code.
-4. Refactor one part using the Go feature named in this lesson (embedding and polymorphism); run gofmt and go test ./... and explain the result.
+2. Change the canonical inventory records, file samples, and CSV fields and predict the output before running it.
+3. Add a boundary case and one malformed or missing-data case; define expected behavior before editing the program.
+4. Refactor one part using the Go feature in this lesson (embedding and polymorphism); run gofmt and go test ./... and explain the result.
 
 ### Accessibility Practice
-Use keyboard navigation to move between the lesson heading, code fence, compiler output, and terminal. With a screen reader, inspect punctuation in Go syntax (:=, &, *, ..., {}, and error assignments). Do not rely on syntax highlighting or color to distinguish errors. Read prompts and validation messages in document order; verify output is announced without unexpected focus movement.
+Use keyboard navigation to move between the lesson heading, code fence, compiler output, and terminal. With a screen reader, inspect Go punctuation (:=, &, *, ..., {}, and error assignments). Do not rely on syntax highlighting or color to distinguish errors. Read prompts and validation messages in document order; verify output is announced without unexpected focus movement.
 
 ### Skills Checklist
 - [ ] I can explain embedding and polymorphism using Go terminology.
@@ -3345,88 +3189,36 @@ Use keyboard navigation to move between the lesson heading, code fence, compiler
 - Test a relevant boundary condition and explain a common failure.
 
 ### Concept Explanation
+Go models data with structs and behavior with methods and interfaces. Pointer receivers can mutate a value; interfaces are satisfied implicitly. Embedding promotes fields and methods but is composition, not inheritance. Keep domain types small and make dependencies explicit. The lesson uses canonical course data so learners focus on Go semantics rather than a new domain problem. Format with gofmt and use go test ./... as routine development tools.
+
+### Worked Example
+```go
 package main
 import (
 	"fmt"
 )
-func main() {
-	type Student struct { Name string; Score int }
-	type Status int
-	const ( Active Status = iota; Inactive )
-	s := Student{Name: "Avery", Score: 82}
-	state := Active
-	fmt.Printf("%s: %d; active=%t; inactive=%t\n", s.Name, s.Score, state == Active, Inactive == Inactive)
-},package main
-import (
-	"fmt"
-)
-func main() {
-	type Student struct { Name string; Score int }
-	func (s *Student) AddPoints(points int) { s.Score += points }
-	s := Student{Name: "Avery", Score: 82}
-	s.AddPoints(3)
-	fmt.Println(s.Name, "score:", s.Score)
-},package main
-import (
-	"fmt"
-)
-func main() {
-	type Summarizer interface { Summary() string }
-	type Task struct { Title string; Done bool }
-	func (t Task) Summary() string { return fmt.Sprintf("%s: %t", t.Title, t.Done) }
-	var item Summarizer = Task{Title: "Study Go", Done: false}
-	fmt.Println(item.Summary())
-},package main
-import (
-	"fmt"
-)
-func main() {
-	type Contact struct { Email string }
-	type Student struct { Name string; Contact Contact }
-	s := Student{Name: "Avery", Contact: Contact{Email: "avery@example.test"}}
-	fmt.Println(s.Name, s.Email)
-},package main
-import (
-	"fmt"
-)
-func main() {
 	type Reader interface { Read() string }
 	type Note struct { Text string }
 	func (n Note) Read() string { return n.Text }
 	func display(r Reader) { fmt.Println(r.Read()) }
-	display(Note{Text: "Composition and interfaces"})
-} The lesson uses the canonical course data so learners focus on Go semantics rather than a new domain problem. Format with gofmt and use go test ./... as routine development tools.
+	func main() { display(Note{Text: "Composition and interfaces"}) }
+```
 
-### Worked Exampl```go
-package main
-import (
-	"fmt"
-)
-type Reader interface { Read() string }
-type Note struct { Text string }
-func (n Note) Read() string { return n.Text }
-func display(r Reader) { fmt.Println(r.Read()) }
-func main() {
-	display(Note{Text: "Composition and interfaces"})
-}
-
-`````
-
-**Expected behavior:** The standalone program demonstrates composition and collaboration with the course's shared example data. It compiles and runs using the standard library. Predict the output first, then compare it with the terminal output.
+**Expected behavior:** The standalone program demonstrates composition and collaboration with shared course example data. It compiles and runs using the standard library. Predict the output first, then compare it with terminal output.
 
 ### Common Mistakes
 1. Using a value receiver when mutation of the original struct is required.
-2. Assuming Go interfaces must be declared as implemented explicitly.
-3. Mistaking embedding for class inheritance or assuming promoted fields are always unambiguous.
+2. Assuming interfaces must be declared as implemented explicitly.
+3. Mistaking embedding for class inheritance or overlooking promoted-field ambiguity.
 
 ### Activities
 1. Run the worked example unchanged; trace each declaration, type, function call, and output line.
-2. Change the canonical inventory records, file samples, and CSV fields data and predict the output before running the program.
-3. Add one boundary case and one malformed or missing-data case; state expected behavior before changing the code.
-4. Refactor one part using the Go feature named in this lesson (composition and collaboration); run gofmt and go test ./... and explain the result.
+2. Change the canonical inventory records, file samples, and CSV fields and predict the output before running it.
+3. Add a boundary case and one malformed or missing-data case; define expected behavior before editing the program.
+4. Refactor one part using the Go feature in this lesson (composition and collaboration); run gofmt and go test ./... and explain the result.
 
 ### Accessibility Practice
-Use keyboard navigation to move between the lesson heading, code fence, compiler output, and terminal. With a screen reader, inspect punctuation in Go syntax (:=, &, *, ..., {}, and error assignments). Do not rely on syntax highlighting or color to distinguish errors. Read prompts and validation messages in document order; verify output is announced without unexpected focus movement.
+Use keyboard navigation to move between the lesson heading, code fence, compiler output, and terminal. With a screen reader, inspect Go punctuation (:=, &, *, ..., {}, and error assignments). Do not rely on syntax highlighting or color to distinguish errors. Read prompts and validation messages in document order; verify output is announced without unexpected focus movement.
 
 ### Skills Checklist
 - [ ] I can explain composition and collaboration using Go terminology.
@@ -3434,11 +3226,6 @@ Use keyboard navigation to move between the lesson heading, code fence, compiler
 - [ ] I can explain the types and data flow used here.
 - [ ] I can test a boundary case and an invalid-input or error case.
 - [ ] I can navigate source, diagnostics, and output with my keyboard and assistive technology.
-
-# Unit 8: Files and Error Handling
-
-## Overview
-This unit develops files and error handling using Go's types, packages, and standard-library conventions. Prerequisites: the previous units and a working Go module. Use shared canonical course datasets and test boundary conditions, error paths, and accessible interaction.
 
 ## Lesson 8.1: Reading text files
 
@@ -3455,63 +3242,7 @@ This unit develops files and error handling using Go's types, packages, and stan
 - Test a relevant boundary condition and explain a common failure.
 
 ### Concept Explanation
-package main
-import (
-	"fmt"
-	"os"
-)
-func main() {
-	path := "go_read_demo.txt"
-	if err := os.WriteFile(path, []byte("Avery,82\n"), 0600); err != nil { panic(err) }
-	data, err := os.ReadFile(path)
-	if err != nil { panic(err) }
-	fmt.Print(string(data))
-	if err := os.Remove(path); err != nil { panic(err) }
-},package main
-import (
-	"fmt"
-	"os"
-)
-func main() {
-	path := "go_append_demo.txt"
-	file, err := os.OpenFile(path, os.O_CREATE|os.O_APPEND|os.O_WRONLY, 0600)
-	if err != nil { panic(err) }
-	if _, err := fmt.Fprintln(file, "Notebook,3"); err != nil { panic(err) }
-	if err := file.Close(); err != nil { panic(err) }
-	fmt.Println("appended inventory record")
-	if err := os.Remove(path); err != nil { panic(err) }
-},package main
-import (
-	"errors"
-	"fmt"
-)
-func main() {
-	load := func(path string) (string, error) { return "", errors.New("file not found: " + path) }
-	text, err := load("missing_course_file.txt")
-	if err != nil { fmt.Println("Could not read file:", err) } else { fmt.Println(text) }
-},package main
-import (
-	"fmt"
-	"os"
-)
-func main() {
-	path := "go_cleanup_demo.txt"
-	file, err := os.Create(path)
-	if err != nil { panic(err) }
-	defer func() { if err := file.Close(); err != nil { fmt.Println("close error:", err) }; _ = os.Remove(path) }()
-	if _, err := fmt.Fprintln(file, "closed when function returns"); err != nil { panic(err) }
-	fmt.Println("deferred cleanup is scheduled")
-},package main
-import (
-	"encoding/json"
-	"fmt"
-)
-func main() {
-	record := struct { Name string `json:"name"`; Score int `json:"score"` }{Name: "Avery", Score: 82}
-	data, err := json.Marshal(record)
-	if err != nil { panic(err) }
-	fmt.Println(string(data))
-} The lesson uses the canonical course data so learners focus on Go semantics rather than a new domain problem. Format with gofmt and use go test ./... as routine development tools.
+The os and io packages provide file operations. Functions return errors that callers must check. defer schedules cleanup at function return; check Close errors when writes matter. encoding/json handles JSON serialization with struct tags. Production code should avoid panic for expected failures. The lesson uses canonical course data so learners focus on Go semantics rather than a new domain problem. Format with gofmt and use go test ./... as routine development tools.
 
 ### Worked Example
 ```go
@@ -3521,16 +3252,18 @@ import (
 	"os"
 )
 func main() {
-	path := "go_read_demo.txt"
-	if err := os.WriteFile(path, []byte("Avery,82\n"), 0600); err != nil { panic(err) }
-	data, err := os.ReadFile(path)
-	if err != nil { panic(err) }
-	fmt.Print(string(data))
-	if err := os.Remove(path); err != nil { panic(err) }
+	func main() {
+	 path := "go_read_demo.txt"
+	 if err := os.WriteFile(path, []byte("Avery,82\n"), 0600); err != nil { panic(err) }
+	 data, err := os.ReadFile(path)
+	 if err != nil { panic(err) }
+	 fmt.Print(string(data))
+	 if err := os.Remove(path); err != nil { panic(err) }
+	}
 }
 ```
 
-**Expected behavior:** The standalone program demonstrates reading text files with the course's shared example data. It compiles and runs using the standard library. Predict the output first, then compare it with the terminal output.
+**Expected behavior:** The standalone program demonstrates reading text files with shared course example data. It compiles and runs using the standard library. Predict the output first, then compare it with terminal output.
 
 ### Common Mistakes
 1. Ignoring errors from file operations and Close.
@@ -3539,12 +3272,12 @@ func main() {
 
 ### Activities
 1. Run the worked example unchanged; trace each declaration, type, function call, and output line.
-2. Change the canonical inventory records, file samples, and CSV fields data and predict the output before running the program.
-3. Add one boundary case and one malformed or missing-data case; state expected behavior before changing the code.
-4. Refactor one part using the Go feature named in this lesson (reading text files); run gofmt and go test ./... and explain the result.
+2. Change the canonical inventory records, file samples, and CSV fields and predict the output before running it.
+3. Add a boundary case and one malformed or missing-data case; define expected behavior before editing the program.
+4. Refactor one part using the Go feature in this lesson (reading text files); run gofmt and go test ./... and explain the result.
 
 ### Accessibility Practice
-Use keyboard navigation to move between the lesson heading, code fence, compiler output, and terminal. With a screen reader, inspect punctuation in Go syntax (:=, &, *, ..., {}, and error assignments). Do not rely on syntax highlighting or color to distinguish errors. Read prompts and validation messages in document order; verify output is announced without unexpected focus movement.
+Use keyboard navigation to move between the lesson heading, code fence, compiler output, and terminal. With a screen reader, inspect Go punctuation (:=, &, *, ..., {}, and error assignments). Do not rely on syntax highlighting or color to distinguish errors. Read prompts and validation messages in document order; verify output is announced without unexpected focus movement.
 
 ### Skills Checklist
 - [ ] I can explain reading text files using Go terminology.
@@ -3568,63 +3301,7 @@ Use keyboard navigation to move between the lesson heading, code fence, compiler
 - Test a relevant boundary condition and explain a common failure.
 
 ### Concept Explanation
-package main
-import (
-	"fmt"
-	"os"
-)
-func main() {
-	path := "go_read_demo.txt"
-	if err := os.WriteFile(path, []byte("Avery,82\n"), 0600); err != nil { panic(err) }
-	data, err := os.ReadFile(path)
-	if err != nil { panic(err) }
-	fmt.Print(string(data))
-	if err := os.Remove(path); err != nil { panic(err) }
-},package main
-import (
-	"fmt"
-	"os"
-)
-func main() {
-	path := "go_append_demo.txt"
-	file, err := os.OpenFile(path, os.O_CREATE|os.O_APPEND|os.O_WRONLY, 0600)
-	if err != nil { panic(err) }
-	if _, err := fmt.Fprintln(file, "Notebook,3"); err != nil { panic(err) }
-	if err := file.Close(); err != nil { panic(err) }
-	fmt.Println("appended inventory record")
-	if err := os.Remove(path); err != nil { panic(err) }
-},package main
-import (
-	"errors"
-	"fmt"
-)
-func main() {
-	load := func(path string) (string, error) { return "", errors.New("file not found: " + path) }
-	text, err := load("missing_course_file.txt")
-	if err != nil { fmt.Println("Could not read file:", err) } else { fmt.Println(text) }
-},package main
-import (
-	"fmt"
-	"os"
-)
-func main() {
-	path := "go_cleanup_demo.txt"
-	file, err := os.Create(path)
-	if err != nil { panic(err) }
-	defer func() { if err := file.Close(); err != nil { fmt.Println("close error:", err) }; _ = os.Remove(path) }()
-	if _, err := fmt.Fprintln(file, "closed when function returns"); err != nil { panic(err) }
-	fmt.Println("deferred cleanup is scheduled")
-},package main
-import (
-	"encoding/json"
-	"fmt"
-)
-func main() {
-	record := struct { Name string `json:"name"`; Score int `json:"score"` }{Name: "Avery", Score: 82}
-	data, err := json.Marshal(record)
-	if err != nil { panic(err) }
-	fmt.Println(string(data))
-} The lesson uses the canonical course data so learners focus on Go semantics rather than a new domain problem. Format with gofmt and use go test ./... as routine development tools.
+The os and io packages provide file operations. Functions return errors that callers must check. defer schedules cleanup at function return; check Close errors when writes matter. encoding/json handles JSON serialization with struct tags. Production code should avoid panic for expected failures. The lesson uses canonical course data so learners focus on Go semantics rather than a new domain problem. Format with gofmt and use go test ./... as routine development tools.
 
 ### Worked Example
 ```go
@@ -3634,17 +3311,19 @@ import (
 	"os"
 )
 func main() {
-	path := "go_append_demo.txt"
-	file, err := os.OpenFile(path, os.O_CREATE|os.O_APPEND|os.O_WRONLY, 0600)
-	if err != nil { panic(err) }
-	if _, err := fmt.Fprintln(file, "Notebook,3"); err != nil { panic(err) }
-	if err := file.Close(); err != nil { panic(err) }
-	fmt.Println("appended inventory record")
-	if err := os.Remove(path); err != nil { panic(err) }
+	func main() {
+	 path := "go_append_demo.txt"
+	 file, err := os.OpenFile(path, os.O_CREATE|os.O_APPEND|os.O_WRONLY, 0600)
+	 if err != nil { panic(err) }
+	 if _, err := fmt.Fprintln(file, "Notebook,3"); err != nil { panic(err) }
+	 if err := file.Close(); err != nil { panic(err) }
+	 fmt.Println("appended inventory record")
+	 if err := os.Remove(path); err != nil { panic(err) }
+	}
 }
 ```
 
-**Expected behavior:** The standalone program demonstrates writing and appending files with the course's shared example data. It compiles and runs using the standard library. Predict the output first, then compare it with the terminal output.
+**Expected behavior:** The standalone program demonstrates writing and appending files with shared course example data. It compiles and runs using the standard library. Predict the output first, then compare it with terminal output.
 
 ### Common Mistakes
 1. Ignoring errors from file operations and Close.
@@ -3653,12 +3332,12 @@ func main() {
 
 ### Activities
 1. Run the worked example unchanged; trace each declaration, type, function call, and output line.
-2. Change the canonical inventory records, file samples, and CSV fields data and predict the output before running the program.
-3. Add one boundary case and one malformed or missing-data case; state expected behavior before changing the code.
-4. Refactor one part using the Go feature named in this lesson (writing and appending files); run gofmt and go test ./... and explain the result.
+2. Change the canonical inventory records, file samples, and CSV fields and predict the output before running it.
+3. Add a boundary case and one malformed or missing-data case; define expected behavior before editing the program.
+4. Refactor one part using the Go feature in this lesson (writing and appending files); run gofmt and go test ./... and explain the result.
 
 ### Accessibility Practice
-Use keyboard navigation to move between the lesson heading, code fence, compiler output, and terminal. With a screen reader, inspect punctuation in Go syntax (:=, &, *, ..., {}, and error assignments). Do not rely on syntax highlighting or color to distinguish errors. Read prompts and validation messages in document order; verify output is announced without unexpected focus movement.
+Use keyboard navigation to move between the lesson heading, code fence, compiler output, and terminal. With a screen reader, inspect Go punctuation (:=, &, *, ..., {}, and error assignments). Do not rely on syntax highlighting or color to distinguish errors. Read prompts and validation messages in document order; verify output is announced without unexpected focus movement.
 
 ### Skills Checklist
 - [ ] I can explain writing and appending files using Go terminology.
@@ -3682,63 +3361,7 @@ Use keyboard navigation to move between the lesson heading, code fence, compiler
 - Test a relevant boundary condition and explain a common failure.
 
 ### Concept Explanation
-package main
-import (
-	"fmt"
-	"os"
-)
-func main() {
-	path := "go_read_demo.txt"
-	if err := os.WriteFile(path, []byte("Avery,82\n"), 0600); err != nil { panic(err) }
-	data, err := os.ReadFile(path)
-	if err != nil { panic(err) }
-	fmt.Print(string(data))
-	if err := os.Remove(path); err != nil { panic(err) }
-},package main
-import (
-	"fmt"
-	"os"
-)
-func main() {
-	path := "go_append_demo.txt"
-	file, err := os.OpenFile(path, os.O_CREATE|os.O_APPEND|os.O_WRONLY, 0600)
-	if err != nil { panic(err) }
-	if _, err := fmt.Fprintln(file, "Notebook,3"); err != nil { panic(err) }
-	if err := file.Close(); err != nil { panic(err) }
-	fmt.Println("appended inventory record")
-	if err := os.Remove(path); err != nil { panic(err) }
-},package main
-import (
-	"errors"
-	"fmt"
-)
-func main() {
-	load := func(path string) (string, error) { return "", errors.New("file not found: " + path) }
-	text, err := load("missing_course_file.txt")
-	if err != nil { fmt.Println("Could not read file:", err) } else { fmt.Println(text) }
-},package main
-import (
-	"fmt"
-	"os"
-)
-func main() {
-	path := "go_cleanup_demo.txt"
-	file, err := os.Create(path)
-	if err != nil { panic(err) }
-	defer func() { if err := file.Close(); err != nil { fmt.Println("close error:", err) }; _ = os.Remove(path) }()
-	if _, err := fmt.Fprintln(file, "closed when function returns"); err != nil { panic(err) }
-	fmt.Println("deferred cleanup is scheduled")
-},package main
-import (
-	"encoding/json"
-	"fmt"
-)
-func main() {
-	record := struct { Name string `json:"name"`; Score int `json:"score"` }{Name: "Avery", Score: 82}
-	data, err := json.Marshal(record)
-	if err != nil { panic(err) }
-	fmt.Println(string(data))
-} The lesson uses the canonical course data so learners focus on Go semantics rather than a new domain problem. Format with gofmt and use go test ./... as routine development tools.
+The os and io packages provide file operations. Functions return errors that callers must check. defer schedules cleanup at function return; check Close errors when writes matter. encoding/json handles JSON serialization with struct tags. Production code should avoid panic for expected failures. The lesson uses canonical course data so learners focus on Go semantics rather than a new domain problem. Format with gofmt and use go test ./... as routine development tools.
 
 ### Worked Example
 ```go
@@ -3748,13 +3371,15 @@ import (
 	"fmt"
 )
 func main() {
-	load := func(path string) (string, error) { return "", errors.New("file not found: " + path) }
-	text, err := load("missing_course_file.txt")
-	if err != nil { fmt.Println("Could not read file:", err) } else { fmt.Println(text) }
+	func main() {
+	 load := func(path string) (string, error) { return "", errors.New("file not found: " + path) }
+	 text, err := load("missing_course_file.txt")
+	 if err != nil { fmt.Println("Could not read file:", err) } else { fmt.Println(text) }
+	}
 }
 ```
 
-**Expected behavior:** The standalone program demonstrates explicit error handling with the course's shared example data. It compiles and runs using the standard library. Predict the output first, then compare it with the terminal output.
+**Expected behavior:** The standalone program demonstrates explicit error handling with shared course example data. It compiles and runs using the standard library. Predict the output first, then compare it with terminal output.
 
 ### Common Mistakes
 1. Ignoring errors from file operations and Close.
@@ -3763,12 +3388,12 @@ func main() {
 
 ### Activities
 1. Run the worked example unchanged; trace each declaration, type, function call, and output line.
-2. Change the canonical inventory records, file samples, and CSV fields data and predict the output before running the program.
-3. Add one boundary case and one malformed or missing-data case; state expected behavior before changing the code.
-4. Refactor one part using the Go feature named in this lesson (explicit error handling); run gofmt and go test ./... and explain the result.
+2. Change the canonical inventory records, file samples, and CSV fields and predict the output before running it.
+3. Add a boundary case and one malformed or missing-data case; define expected behavior before editing the program.
+4. Refactor one part using the Go feature in this lesson (explicit error handling); run gofmt and go test ./... and explain the result.
 
 ### Accessibility Practice
-Use keyboard navigation to move between the lesson heading, code fence, compiler output, and terminal. With a screen reader, inspect punctuation in Go syntax (:=, &, *, ..., {}, and error assignments). Do not rely on syntax highlighting or color to distinguish errors. Read prompts and validation messages in document order; verify output is announced without unexpected focus movement.
+Use keyboard navigation to move between the lesson heading, code fence, compiler output, and terminal. With a screen reader, inspect Go punctuation (:=, &, *, ..., {}, and error assignments). Do not rely on syntax highlighting or color to distinguish errors. Read prompts and validation messages in document order; verify output is announced without unexpected focus movement.
 
 ### Skills Checklist
 - [ ] I can explain explicit error handling using Go terminology.
@@ -3792,63 +3417,7 @@ Use keyboard navigation to move between the lesson heading, code fence, compiler
 - Test a relevant boundary condition and explain a common failure.
 
 ### Concept Explanation
-package main
-import (
-	"fmt"
-	"os"
-)
-func main() {
-	path := "go_read_demo.txt"
-	if err := os.WriteFile(path, []byte("Avery,82\n"), 0600); err != nil { panic(err) }
-	data, err := os.ReadFile(path)
-	if err != nil { panic(err) }
-	fmt.Print(string(data))
-	if err := os.Remove(path); err != nil { panic(err) }
-},package main
-import (
-	"fmt"
-	"os"
-)
-func main() {
-	path := "go_append_demo.txt"
-	file, err := os.OpenFile(path, os.O_CREATE|os.O_APPEND|os.O_WRONLY, 0600)
-	if err != nil { panic(err) }
-	if _, err := fmt.Fprintln(file, "Notebook,3"); err != nil { panic(err) }
-	if err := file.Close(); err != nil { panic(err) }
-	fmt.Println("appended inventory record")
-	if err := os.Remove(path); err != nil { panic(err) }
-},package main
-import (
-	"errors"
-	"fmt"
-)
-func main() {
-	load := func(path string) (string, error) { return "", errors.New("file not found: " + path) }
-	text, err := load("missing_course_file.txt")
-	if err != nil { fmt.Println("Could not read file:", err) } else { fmt.Println(text) }
-},package main
-import (
-	"fmt"
-	"os"
-)
-func main() {
-	path := "go_cleanup_demo.txt"
-	file, err := os.Create(path)
-	if err != nil { panic(err) }
-	defer func() { if err := file.Close(); err != nil { fmt.Println("close error:", err) }; _ = os.Remove(path) }()
-	if _, err := fmt.Fprintln(file, "closed when function returns"); err != nil { panic(err) }
-	fmt.Println("deferred cleanup is scheduled")
-},package main
-import (
-	"encoding/json"
-	"fmt"
-)
-func main() {
-	record := struct { Name string `json:"name"`; Score int `json:"score"` }{Name: "Avery", Score: 82}
-	data, err := json.Marshal(record)
-	if err != nil { panic(err) }
-	fmt.Println(string(data))
-} The lesson uses the canonical course data so learners focus on Go semantics rather than a new domain problem. Format with gofmt and use go test ./... as routine development tools.
+The os and io packages provide file operations. Functions return errors that callers must check. defer schedules cleanup at function return; check Close errors when writes matter. encoding/json handles JSON serialization with struct tags. Production code should avoid panic for expected failures. The lesson uses canonical course data so learners focus on Go semantics rather than a new domain problem. Format with gofmt and use go test ./... as routine development tools.
 
 ### Worked Example
 ```go
@@ -3858,16 +3427,18 @@ import (
 	"os"
 )
 func main() {
-	path := "go_cleanup_demo.txt"
-	file, err := os.Create(path)
-	if err != nil { panic(err) }
-	defer func() { if err := file.Close(); err != nil { fmt.Println("close error:", err) }; _ = os.Remove(path) }()
-	if _, err := fmt.Fprintln(file, "closed when function returns"); err != nil { panic(err) }
-	fmt.Println("deferred cleanup is scheduled")
+	func main() {
+	 path := "go_cleanup_demo.txt"
+	 file, err := os.Create(path)
+	 if err != nil { panic(err) }
+	 defer func() { if err := file.Close(); err != nil { fmt.Println("close error:", err) }; _ = os.Remove(path) }()
+	 if _, err := fmt.Fprintln(file, "closed when function returns"); err != nil { panic(err) }
+	 fmt.Println("deferred cleanup is scheduled")
+	}
 }
 ```
 
-**Expected behavior:** The standalone program demonstrates deferred cleanup and resource lifetime with the course's shared example data. It compiles and runs using the standard library. Predict the output first, then compare it with the terminal output.
+**Expected behavior:** The standalone program demonstrates deferred cleanup and resource lifetime with shared course example data. It compiles and runs using the standard library. Predict the output first, then compare it with terminal output.
 
 ### Common Mistakes
 1. Ignoring errors from file operations and Close.
@@ -3876,12 +3447,12 @@ func main() {
 
 ### Activities
 1. Run the worked example unchanged; trace each declaration, type, function call, and output line.
-2. Change the canonical inventory records, file samples, and CSV fields data and predict the output before running the program.
-3. Add one boundary case and one malformed or missing-data case; state expected behavior before changing the code.
-4. Refactor one part using the Go feature named in this lesson (deferred cleanup and resource lifetime); run gofmt and go test ./... and explain the result.
+2. Change the canonical inventory records, file samples, and CSV fields and predict the output before running it.
+3. Add a boundary case and one malformed or missing-data case; define expected behavior before editing the program.
+4. Refactor one part using the Go feature in this lesson (deferred cleanup and resource lifetime); run gofmt and go test ./... and explain the result.
 
 ### Accessibility Practice
-Use keyboard navigation to move between the lesson heading, code fence, compiler output, and terminal. With a screen reader, inspect punctuation in Go syntax (:=, &, *, ..., {}, and error assignments). Do not rely on syntax highlighting or color to distinguish errors. Read prompts and validation messages in document order; verify output is announced without unexpected focus movement.
+Use keyboard navigation to move between the lesson heading, code fence, compiler output, and terminal. With a screen reader, inspect Go punctuation (:=, &, *, ..., {}, and error assignments). Do not rely on syntax highlighting or color to distinguish errors. Read prompts and validation messages in document order; verify output is announced without unexpected focus movement.
 
 ### Skills Checklist
 - [ ] I can explain deferred cleanup and resource lifetime using Go terminology.
@@ -3905,63 +3476,7 @@ Use keyboard navigation to move between the lesson heading, code fence, compiler
 - Test a relevant boundary condition and explain a common failure.
 
 ### Concept Explanation
-package main
-import (
-	"fmt"
-	"os"
-)
-func main() {
-	path := "go_read_demo.txt"
-	if err := os.WriteFile(path, []byte("Avery,82\n"), 0600); err != nil { panic(err) }
-	data, err := os.ReadFile(path)
-	if err != nil { panic(err) }
-	fmt.Print(string(data))
-	if err := os.Remove(path); err != nil { panic(err) }
-},package main
-import (
-	"fmt"
-	"os"
-)
-func main() {
-	path := "go_append_demo.txt"
-	file, err := os.OpenFile(path, os.O_CREATE|os.O_APPEND|os.O_WRONLY, 0600)
-	if err != nil { panic(err) }
-	if _, err := fmt.Fprintln(file, "Notebook,3"); err != nil { panic(err) }
-	if err := file.Close(); err != nil { panic(err) }
-	fmt.Println("appended inventory record")
-	if err := os.Remove(path); err != nil { panic(err) }
-},package main
-import (
-	"errors"
-	"fmt"
-)
-func main() {
-	load := func(path string) (string, error) { return "", errors.New("file not found: " + path) }
-	text, err := load("missing_course_file.txt")
-	if err != nil { fmt.Println("Could not read file:", err) } else { fmt.Println(text) }
-},package main
-import (
-	"fmt"
-	"os"
-)
-func main() {
-	path := "go_cleanup_demo.txt"
-	file, err := os.Create(path)
-	if err != nil { panic(err) }
-	defer func() { if err := file.Close(); err != nil { fmt.Println("close error:", err) }; _ = os.Remove(path) }()
-	if _, err := fmt.Fprintln(file, "closed when function returns"); err != nil { panic(err) }
-	fmt.Println("deferred cleanup is scheduled")
-},package main
-import (
-	"encoding/json"
-	"fmt"
-)
-func main() {
-	record := struct { Name string `json:"name"`; Score int `json:"score"` }{Name: "Avery", Score: 82}
-	data, err := json.Marshal(record)
-	if err != nil { panic(err) }
-	fmt.Println(string(data))
-} The lesson uses the canonical course data so learners focus on Go semantics rather than a new domain problem. Format with gofmt and use go test ./... as routine development tools.
+The os and io packages provide file operations. Functions return errors that callers must check. defer schedules cleanup at function return; check Close errors when writes matter. encoding/json handles JSON serialization with struct tags. Production code should avoid panic for expected failures. The lesson uses canonical course data so learners focus on Go semantics rather than a new domain problem. Format with gofmt and use go test ./... as routine development tools.
 
 ### Worked Example
 ```go
@@ -3971,14 +3486,16 @@ import (
 	"fmt"
 )
 func main() {
-	record := struct { Name string `json:"name"`; Score int `json:"score"` }{Name: "Avery", Score: 82}
-	data, err := json.Marshal(record)
-	if err != nil { panic(err) }
-	fmt.Println(string(data))
+	func main() {
+	 record := struct { Name string `json:"name"`; Score int `json:"score"` }{Name: "Avery", Score: 82}
+	 data, err := json.Marshal(record)
+	 if err != nil { panic(err) }
+	 fmt.Println(string(data))
+	}
 }
 ```
 
-**Expected behavior:** The standalone program demonstrates json encoding and persistence with the course's shared example data. It compiles and runs using the standard library. Predict the output first, then compare it with the terminal output.
+**Expected behavior:** The standalone program demonstrates json encoding and persistence with shared course example data. It compiles and runs using the standard library. Predict the output first, then compare it with terminal output.
 
 ### Common Mistakes
 1. Ignoring errors from file operations and Close.
@@ -3987,12 +3504,12 @@ func main() {
 
 ### Activities
 1. Run the worked example unchanged; trace each declaration, type, function call, and output line.
-2. Change the canonical inventory records, file samples, and CSV fields data and predict the output before running the program.
-3. Add one boundary case and one malformed or missing-data case; state expected behavior before changing the code.
-4. Refactor one part using the Go feature named in this lesson (json encoding and persistence); run gofmt and go test ./... and explain the result.
+2. Change the canonical inventory records, file samples, and CSV fields and predict the output before running it.
+3. Add a boundary case and one malformed or missing-data case; define expected behavior before editing the program.
+4. Refactor one part using the Go feature in this lesson (json encoding and persistence); run gofmt and go test ./... and explain the result.
 
 ### Accessibility Practice
-Use keyboard navigation to move between the lesson heading, code fence, compiler output, and terminal. With a screen reader, inspect punctuation in Go syntax (:=, &, *, ..., {}, and error assignments). Do not rely on syntax highlighting or color to distinguish errors. Read prompts and validation messages in document order; verify output is announced without unexpected focus movement.
+Use keyboard navigation to move between the lesson heading, code fence, compiler output, and terminal. With a screen reader, inspect Go punctuation (:=, &, *, ..., {}, and error assignments). Do not rely on syntax highlighting or color to distinguish errors. Read prompts and validation messages in document order; verify output is announced without unexpected focus movement.
 
 ### Skills Checklist
 - [ ] I can explain json encoding and persistence using Go terminology.
@@ -4000,11 +3517,6 @@ Use keyboard navigation to move between the lesson heading, code fence, compiler
 - [ ] I can explain the types and data flow used here.
 - [ ] I can test a boundary case and an invalid-input or error case.
 - [ ] I can navigate source, diagnostics, and output with my keyboard and assistive technology.
-
-# Unit 9: Testing and Data Analysis
-
-## Overview
-This unit develops testing and data analysis using Go's types, packages, and standard-library conventions. Prerequisites: the previous units and a working Go module. Use shared canonical course datasets and test boundary conditions, error paths, and accessible interaction.
 
 ## Lesson 9.1: Testing functions with testing
 
@@ -4021,55 +3533,7 @@ This unit develops testing and data analysis using Go's types, packages, and sta
 - Test a relevant boundary condition and explain a common failure.
 
 ### Concept Explanation
-package main
-import (
-	"fmt"
-)
-func main() {
-	isPassing := func(score int) bool { return score >= 60 }
-	checks := []struct { score int; want bool }{{82, true}, {59, false}, {60, true}}
-	for _, check := range checks { got := isPassing(check.score); if got != check.want { panic("boundary test failed") } }
-	fmt.Println("grade boundary checks passed")
-},package main
-import (
-	"fmt"
-)
-type Counter struct { Value int }
-func (c *Counter) Increment() { c.Value++ }
-func main() {
-	c := Counter{}
-	c.Increment(); c.Increment()
-	if c.Value != 2 { panic("counter test failed") }
-	fmt.Println("counter state verified:", c.Value)
-},package main
-import (
-	"fmt"
-)
-func main() {
-	next := func(seed uint64) uint64 { return seed*6364136223846793005 + 1 }
-	seed := uint64(7)
-	for i := 0; i < 5; i++ { seed = next(seed); fmt.Println(seed) }
-},package main
-import (
-	"fmt"
-	"strings"
-)
-func main() {
-	sample := "A student studies programming. Programming builds skill."
-	fmt.Printf("words=%d characters=%d\n", len(strings.Fields(sample)), len([]rune(sample)))
-	fmt.Println("contains programming:", strings.Contains(strings.ToLower(sample), "programming"))
-},package main
-import (
-	"encoding/csv"
-	"fmt"
-	"strings"
-)
-func main() {
-	input := "name,score\nAvery,82\nJordan,91\n"
-	rows, err := csv.NewReader(strings.NewReader(input)).ReadAll()
-	if err != nil { panic(err) }
-	for _, row := range rows { fmt.Println(strings.Join(row, " | ")) }
-} The lesson uses the canonical course data so learners focus on Go semantics rather than a new domain problem. Format with gofmt and use go test ./... as routine development tools.
+Go's testing package discovers TestXxx functions in _test.go files; run go test ./.... Table-driven tests make cases explicit. Keep logic independently callable. Use deterministic values or inject a random source to make tests repeatable. encoding/csv handles quoted fields and embedded delimiters. The lesson uses canonical course data so learners focus on Go semantics rather than a new domain problem. Format with gofmt and use go test ./... as routine development tools.
 
 ### Worked Example
 ```go
@@ -4078,28 +3542,30 @@ import (
 	"fmt"
 )
 func main() {
-	isPassing := func(score int) bool { return score >= 60 }
-	checks := []struct { score int; want bool }{{82, true}, {59, false}, {60, true}}
-	for _, check := range checks { got := isPassing(check.score); if got != check.want { panic("boundary test failed") } }
-	fmt.Println("grade boundary checks passed")
+	func main() {
+	 isPassing := func(score int) bool { return score >= 60 }
+	 checks := []struct { score int; want bool }{{82, true}, {59, false}, {60, true}}
+	 for _, check := range checks { got := isPassing(check.score); if got != check.want { panic("boundary test failed") } }
+	 fmt.Println("grade boundary checks passed")
+	}
 }
 ```
 
-**Expected behavior:** The standalone program demonstrates testing functions with testing with the course's shared example data. It compiles and runs using the standard library. Predict the output first, then compare it with the terminal output.
+**Expected behavior:** The standalone program demonstrates testing functions with testing with shared course example data. It compiles and runs using the standard library. Predict the output first, then compare it with terminal output.
 
 ### Common Mistakes
 1. Testing only typical values and missing boundaries.
 2. Using package-level mutable state that makes tests order-dependent.
-3. Using a non-deterministic random source in tests without a seeded or injected source.
+3. Using nondeterministic random data in tests without a seeded or injected source.
 
 ### Activities
 1. Run the worked example unchanged; trace each declaration, type, function call, and output line.
-2. Change the canonical inventory records, file samples, and CSV fields data and predict the output before running the program.
-3. Add one boundary case and one malformed or missing-data case; state expected behavior before changing the code.
-4. Refactor one part using the Go feature named in this lesson (testing functions with testing); run gofmt and go test ./... and explain the result.
+2. Change the canonical text-adventure state and to-do fields and predict the output before running it.
+3. Add a boundary case and one malformed or missing-data case; define expected behavior before editing the program.
+4. Refactor one part using the Go feature in this lesson (testing functions with testing); run gofmt and go test ./... and explain the result.
 
 ### Accessibility Practice
-Use keyboard navigation to move between the lesson heading, code fence, compiler output, and terminal. With a screen reader, inspect punctuation in Go syntax (:=, &, *, ..., {}, and error assignments). Do not rely on syntax highlighting or color to distinguish errors. Read prompts and validation messages in document order; verify output is announced without unexpected focus movement.
+Use keyboard navigation to move between the lesson heading, code fence, compiler output, and terminal. With a screen reader, inspect Go punctuation (:=, &, *, ..., {}, and error assignments). Do not rely on syntax highlighting or color to distinguish errors. Read prompts and validation messages in document order; verify output is announced without unexpected focus movement.
 
 ### Skills Checklist
 - [ ] I can explain testing functions with testing using Go terminology.
@@ -4123,87 +3589,42 @@ Use keyboard navigation to move between the lesson heading, code fence, compiler
 - Test a relevant boundary condition and explain a common failure.
 
 ### Concept Explanation
+Go's testing package discovers TestXxx functions in _test.go files; run go test ./.... Table-driven tests make cases explicit. Keep logic independently callable. Use deterministic values or inject a random source to make tests repeatable. encoding/csv handles quoted fields and embedded delimiters. The lesson uses canonical course data so learners focus on Go semantics rather than a new domain problem. Format with gofmt and use go test ./... as routine development tools.
+
+### Worked Example
+```go
 package main
-import (
-	"fmt"
-)
-func main() {
-	isPassing := func(score int) bool { return score >= 60 }
-	checks := []struct { score int; want bool }{{82, true}, {59, false}, {60, true}}
-	for _, check := range checks { got := isPassing(check.score); if got != check.want { panic("boundary test failed") } }
-	fmt.Println("grade boundary checks passed")
-},package main
 import (
 	"fmt"
 )
 func main() {
 	type Counter struct { Value int }
 	func (c *Counter) Increment() { c.Value++ }
-	c := Counter{}
-	c.Increment(); c.Increment()
-	if c.Value != 2 { panic("counter test failed") }
-	fmt.Println("counter state verified:", c.Value)
-},package main
-import (
-	"fmt"
-)
-func main() {
-	next := func(seed uint64) uint64 { return seed*6364136223846793005 + 1 }
-	seed := uint64(7)
-	for i := 0; i < 5; i++ { seed = next(seed); fmt.Println(seed) }
-},package main
-import (
-	"fmt"
-	"strings"
-)
-func main() {
-	sample := "A student studies programming. Programming builds skill."
-	fmt.Printf("words=%d characters=%d\n", len(strings.Fields(sample)), len([]rune(sample)))
-	fmt.Println("contains programming:", strings.Contains(strings.ToLower(sample), "programming"))
-},package main
-import (
-	"encoding/csv"
-	"fmt"
-	"strings"
-)
-func main() {
-	input := "name,score\nAvery,82\nJordan,91\n"
-	rows, err := csv.NewReader(strings.NewReader(input)).ReadAll()
-	if err != nil { panic(err) }
-	for _, row := range rows { fmt.Println(strings.Join(row, " | ")) }
-} The lesson uses the canonical course data so learners focus on Go semantics rather than a new domain problem. Format with gofmt and use go test ./... as routine development tools.
-
-### Worked Example
-````go
-package main
-import (
-	"fmt"
-)
-type Counter struct { Value int }
-func (c *Counter) Increment() { c.Value++ }
-func main() {
-	c := Counter{}
-	c.Increment(); c.Increment()
-	if c.Value != 2 { panic("counter test failed") }
-	fmt.Println("counter state verified:", c.Value)
+	func main() {
+	 c := Counter{}
+	 c.Increment()
+	 c.Increment()
+	 if c.Value != 2 { panic("counter test failed") }
+	 fmt.Println("counter state verified:", c.Value)
+	}
 }
-
 ```
-**Expected behavior:** The standalone program demonstrates testing stateful types with the course's shared example data. It compiles and runs using the standard library. Predict the output first, then compare it with the terminal output.
+
+**Expected behavior:** The standalone program demonstrates testing stateful types with shared course example data. It compiles and runs using the standard library. Predict the output first, then compare it with terminal output.
 
 ### Common Mistakes
 1. Testing only typical values and missing boundaries.
 2. Using package-level mutable state that makes tests order-dependent.
-3. Using a non-deterministic random source in tests without a seeded or injected source.
+3. Using nondeterministic random data in tests without a seeded or injected source.
 
 ### Activities
 1. Run the worked example unchanged; trace each declaration, type, function call, and output line.
-2. Change the canonical inventory records, file samples, and CSV fields data and predict the output before running the program.
-3. Add one boundary case and one malformed or missing-data case; state expected behavior before changing the code.
-4. Refactor one part using the Go feature named in this lesson (testing stateful types); run gofmt and go test ./... and explain the result.
+2. Change the canonical text-adventure state and to-do fields and predict the output before running it.
+3. Add a boundary case and one malformed or missing-data case; define expected behavior before editing the program.
+4. Refactor one part using the Go feature in this lesson (testing stateful types); run gofmt and go test ./... and explain the result.
 
 ### Accessibility Practice
-Use keyboard navigation to move between the lesson heading, code fence, compiler output, and terminal. With a screen reader, inspect punctuation in Go syntax (:=, &, *, ..., {}, and error assignments). Do not rely on syntax highlighting or color to distinguish errors. Read prompts and validation messages in document order; verify output is announced without unexpected focus movement.
+Use keyboard navigation to move between the lesson heading, code fence, compiler output, and terminal. With a screen reader, inspect Go punctuation (:=, &, *, ..., {}, and error assignments). Do not rely on syntax highlighting or color to distinguish errors. Read prompts and validation messages in document order; verify output is announced without unexpected focus movement.
 
 ### Skills Checklist
 - [ ] I can explain testing stateful types using Go terminology.
@@ -4227,55 +3648,7 @@ Use keyboard navigation to move between the lesson heading, code fence, compiler
 - Test a relevant boundary condition and explain a common failure.
 
 ### Concept Explanation
-package main
-import (
-	"fmt"
-)
-func main() {
-	isPassing := func(score int) bool { return score >= 60 }
-	checks := []struct { score int; want bool }{{82, true}, {59, false}, {60, true}}
-	for _, check := range checks { got := isPassing(check.score); if got != check.want { panic("boundary test failed") } }
-	fmt.Println("grade boundary checks passed")
-},package main
-import (
-	"fmt"
-)
-func main() {
-	type Counter struct { Value int }
-	func (c *Counter) Increment() { c.Value++ }
-	c := Counter{}
-	c.Increment(); c.Increment()
-	if c.Value != 2 { panic("counter test failed") }
-	fmt.Println("counter state verified:", c.Value)
-},package main
-import (
-	"fmt"
-)
-func main() {
-	next := func(seed uint64) uint64 { return seed*6364136223846793005 + 1 }
-	seed := uint64(7)
-	for i := 0; i < 5; i++ { seed = next(seed); fmt.Println(seed) }
-},package main
-import (
-	"fmt"
-	"strings"
-)
-func main() {
-	sample := "A student studies programming. Programming builds skill."
-	fmt.Printf("words=%d characters=%d\n", len(strings.Fields(sample)), len([]rune(sample)))
-	fmt.Println("contains programming:", strings.Contains(strings.ToLower(sample), "programming"))
-},package main
-import (
-	"encoding/csv"
-	"fmt"
-	"strings"
-)
-func main() {
-	input := "name,score\nAvery,82\nJordan,91\n"
-	rows, err := csv.NewReader(strings.NewReader(input)).ReadAll()
-	if err != nil { panic(err) }
-	for _, row := range rows { fmt.Println(strings.Join(row, " | ")) }
-} The lesson uses the canonical course data so learners focus on Go semantics rather than a new domain problem. Format with gofmt and use go test ./... as routine development tools.
+Go's testing package discovers TestXxx functions in _test.go files; run go test ./.... Table-driven tests make cases explicit. Keep logic independently callable. Use deterministic values or inject a random source to make tests repeatable. encoding/csv handles quoted fields and embedded delimiters. The lesson uses canonical course data so learners focus on Go semantics rather than a new domain problem. Format with gofmt and use go test ./... as routine development tools.
 
 ### Worked Example
 ```go
@@ -4284,27 +3657,29 @@ import (
 	"fmt"
 )
 func main() {
-	next := func(seed uint64) uint64 { return seed*6364136223846793005 + 1 }
-	seed := uint64(7)
-	for i := 0; i < 5; i++ { seed = next(seed); fmt.Println(seed) }
+	func main() {
+	 next := func(seed uint64) uint64 { return seed*6364136223846793005 + 1 }
+	 seed := uint64(7)
+	 for i := 0; i < 5; i++ { seed = next(seed); fmt.Println(seed) }
+	}
 }
 ```
 
-**Expected behavior:** The standalone program demonstrates random values with the course's shared example data. It compiles and runs using the standard library. Predict the output first, then compare it with the terminal output.
+**Expected behavior:** The standalone program demonstrates random values with shared course example data. It compiles and runs using the standard library. Predict the output first, then compare it with terminal output.
 
 ### Common Mistakes
 1. Testing only typical values and missing boundaries.
 2. Using package-level mutable state that makes tests order-dependent.
-3. Using a non-deterministic random source in tests without a seeded or injected source.
+3. Using nondeterministic random data in tests without a seeded or injected source.
 
 ### Activities
 1. Run the worked example unchanged; trace each declaration, type, function call, and output line.
-2. Change the canonical inventory records, file samples, and CSV fields data and predict the output before running the program.
-3. Add one boundary case and one malformed or missing-data case; state expected behavior before changing the code.
-4. Refactor one part using the Go feature named in this lesson (random values); run gofmt and go test ./... and explain the result.
+2. Change the canonical text-adventure state and to-do fields and predict the output before running it.
+3. Add a boundary case and one malformed or missing-data case; define expected behavior before editing the program.
+4. Refactor one part using the Go feature in this lesson (random values); run gofmt and go test ./... and explain the result.
 
 ### Accessibility Practice
-Use keyboard navigation to move between the lesson heading, code fence, compiler output, and terminal. With a screen reader, inspect punctuation in Go syntax (:=, &, *, ..., {}, and error assignments). Do not rely on syntax highlighting or color to distinguish errors. Read prompts and validation messages in document order; verify output is announced without unexpected focus movement.
+Use keyboard navigation to move between the lesson heading, code fence, compiler output, and terminal. With a screen reader, inspect Go punctuation (:=, &, *, ..., {}, and error assignments). Do not rely on syntax highlighting or color to distinguish errors. Read prompts and validation messages in document order; verify output is announced without unexpected focus movement.
 
 ### Skills Checklist
 - [ ] I can explain random values using Go terminology.
@@ -4328,55 +3703,7 @@ Use keyboard navigation to move between the lesson heading, code fence, compiler
 - Test a relevant boundary condition and explain a common failure.
 
 ### Concept Explanation
-package main
-import (
-	"fmt"
-)
-func main() {
-	isPassing := func(score int) bool { return score >= 60 }
-	checks := []struct { score int; want bool }{{82, true}, {59, false}, {60, true}}
-	for _, check := range checks { got := isPassing(check.score); if got != check.want { panic("boundary test failed") } }
-	fmt.Println("grade boundary checks passed")
-},package main
-import (
-	"fmt"
-)
-func main() {
-	type Counter struct { Value int }
-	func (c *Counter) Increment() { c.Value++ }
-	c := Counter{}
-	c.Increment(); c.Increment()
-	if c.Value != 2 { panic("counter test failed") }
-	fmt.Println("counter state verified:", c.Value)
-},package main
-import (
-	"fmt"
-)
-func main() {
-	next := func(seed uint64) uint64 { return seed*6364136223846793005 + 1 }
-	seed := uint64(7)
-	for i := 0; i < 5; i++ { seed = next(seed); fmt.Println(seed) }
-},package main
-import (
-	"fmt"
-	"strings"
-)
-func main() {
-	sample := "A student studies programming. Programming builds skill."
-	fmt.Printf("words=%d characters=%d\n", len(strings.Fields(sample)), len([]rune(sample)))
-	fmt.Println("contains programming:", strings.Contains(strings.ToLower(sample), "programming"))
-},package main
-import (
-	"encoding/csv"
-	"fmt"
-	"strings"
-)
-func main() {
-	input := "name,score\nAvery,82\nJordan,91\n"
-	rows, err := csv.NewReader(strings.NewReader(input)).ReadAll()
-	if err != nil { panic(err) }
-	for _, row := range rows { fmt.Println(strings.Join(row, " | ")) }
-} The lesson uses the canonical course data so learners focus on Go semantics rather than a new domain problem. Format with gofmt and use go test ./... as routine development tools.
+Go's testing package discovers TestXxx functions in _test.go files; run go test ./.... Table-driven tests make cases explicit. Keep logic independently callable. Use deterministic values or inject a random source to make tests repeatable. encoding/csv handles quoted fields and embedded delimiters. The lesson uses canonical course data so learners focus on Go semantics rather than a new domain problem. Format with gofmt and use go test ./... as routine development tools.
 
 ### Worked Example
 ```go
@@ -4386,27 +3713,29 @@ import (
 	"strings"
 )
 func main() {
-	sample := "A student studies programming. Programming builds skill."
-	fmt.Printf("words=%d characters=%d\n", len(strings.Fields(sample)), len([]rune(sample)))
-	fmt.Println("contains programming:", strings.Contains(strings.ToLower(sample), "programming"))
+	func main() {
+	 sample := "A student studies programming. Programming builds skill."
+	 fmt.Printf("words=%d characters=%d\n", len(strings.Fields(sample)), len([]rune(sample)))
+	 fmt.Println("contains programming:", strings.Contains(strings.ToLower(sample), "programming"))
+	}
 }
 ```
 
-**Expected behavior:** The standalone program demonstrates text analysis with the course's shared example data. It compiles and runs using the standard library. Predict the output first, then compare it with the terminal output.
+**Expected behavior:** The standalone program demonstrates text analysis with shared course example data. It compiles and runs using the standard library. Predict the output first, then compare it with terminal output.
 
 ### Common Mistakes
 1. Testing only typical values and missing boundaries.
 2. Using package-level mutable state that makes tests order-dependent.
-3. Using a non-deterministic random source in tests without a seeded or injected source.
+3. Using nondeterministic random data in tests without a seeded or injected source.
 
 ### Activities
 1. Run the worked example unchanged; trace each declaration, type, function call, and output line.
-2. Change the canonical inventory records, file samples, and CSV fields data and predict the output before running the program.
-3. Add one boundary case and one malformed or missing-data case; state expected behavior before changing the code.
-4. Refactor one part using the Go feature named in this lesson (text analysis); run gofmt and go test ./... and explain the result.
+2. Change the canonical text-adventure state and to-do fields and predict the output before running it.
+3. Add a boundary case and one malformed or missing-data case; define expected behavior before editing the program.
+4. Refactor one part using the Go feature in this lesson (text analysis); run gofmt and go test ./... and explain the result.
 
 ### Accessibility Practice
-Use keyboard navigation to move between the lesson heading, code fence, compiler output, and terminal. With a screen reader, inspect punctuation in Go syntax (:=, &, *, ..., {}, and error assignments). Do not rely on syntax highlighting or color to distinguish errors. Read prompts and validation messages in document order; verify output is announced without unexpected focus movement.
+Use keyboard navigation to move between the lesson heading, code fence, compiler output, and terminal. With a screen reader, inspect Go punctuation (:=, &, *, ..., {}, and error assignments). Do not rely on syntax highlighting or color to distinguish errors. Read prompts and validation messages in document order; verify output is announced without unexpected focus movement.
 
 ### Skills Checklist
 - [ ] I can explain text analysis using Go terminology.
@@ -4430,55 +3759,7 @@ Use keyboard navigation to move between the lesson heading, code fence, compiler
 - Test a relevant boundary condition and explain a common failure.
 
 ### Concept Explanation
-package main
-import (
-	"fmt"
-)
-func main() {
-	isPassing := func(score int) bool { return score >= 60 }
-	checks := []struct { score int; want bool }{{82, true}, {59, false}, {60, true}}
-	for _, check := range checks { got := isPassing(check.score); if got != check.want { panic("boundary test failed") } }
-	fmt.Println("grade boundary checks passed")
-},package main
-import (
-	"fmt"
-)
-func main() {
-	type Counter struct { Value int }
-	func (c *Counter) Increment() { c.Value++ }
-	c := Counter{}
-	c.Increment(); c.Increment()
-	if c.Value != 2 { panic("counter test failed") }
-	fmt.Println("counter state verified:", c.Value)
-},package main
-import (
-	"fmt"
-)
-func main() {
-	next := func(seed uint64) uint64 { return seed*6364136223846793005 + 1 }
-	seed := uint64(7)
-	for i := 0; i < 5; i++ { seed = next(seed); fmt.Println(seed) }
-},package main
-import (
-	"fmt"
-	"strings"
-)
-func main() {
-	sample := "A student studies programming. Programming builds skill."
-	fmt.Printf("words=%d characters=%d\n", len(strings.Fields(sample)), len([]rune(sample)))
-	fmt.Println("contains programming:", strings.Contains(strings.ToLower(sample), "programming"))
-},package main
-import (
-	"encoding/csv"
-	"fmt"
-	"strings"
-)
-func main() {
-	input := "name,score\nAvery,82\nJordan,91\n"
-	rows, err := csv.NewReader(strings.NewReader(input)).ReadAll()
-	if err != nil { panic(err) }
-	for _, row := range rows { fmt.Println(strings.Join(row, " | ")) }
-} The lesson uses the canonical course data so learners focus on Go semantics rather than a new domain problem. Format with gofmt and use go test ./... as routine development tools.
+Go's testing package discovers TestXxx functions in _test.go files; run go test ./.... Table-driven tests make cases explicit. Keep logic independently callable. Use deterministic values or inject a random source to make tests repeatable. encoding/csv handles quoted fields and embedded delimiters. The lesson uses canonical course data so learners focus on Go semantics rather than a new domain problem. Format with gofmt and use go test ./... as routine development tools.
 
 ### Worked Example
 ```go
@@ -4489,28 +3770,30 @@ import (
 	"strings"
 )
 func main() {
-	input := "name,score\nAvery,82\nJordan,91\n"
-	rows, err := csv.NewReader(strings.NewReader(input)).ReadAll()
-	if err != nil { panic(err) }
-	for _, row := range rows { fmt.Println(strings.Join(row, " | ")) }
+	func main() {
+	 input := "name,score\nAvery,82\nJordan,91\n"
+	 rows, err := csv.NewReader(strings.NewReader(input)).ReadAll()
+	 if err != nil { panic(err) }
+	 for _, row := range rows { fmt.Println(strings.Join(row, " | ")) }
+	}
 }
 ```
 
-**Expected behavior:** The standalone program demonstrates csv records with the course's shared example data. It compiles and runs using the standard library. Predict the output first, then compare it with the terminal output.
+**Expected behavior:** The standalone program demonstrates csv records with shared course example data. It compiles and runs using the standard library. Predict the output first, then compare it with terminal output.
 
 ### Common Mistakes
 1. Testing only typical values and missing boundaries.
 2. Using package-level mutable state that makes tests order-dependent.
-3. Using a non-deterministic random source in tests without a seeded or injected source.
+3. Using nondeterministic random data in tests without a seeded or injected source.
 
 ### Activities
 1. Run the worked example unchanged; trace each declaration, type, function call, and output line.
-2. Change the canonical inventory records, file samples, and CSV fields data and predict the output before running the program.
-3. Add one boundary case and one malformed or missing-data case; state expected behavior before changing the code.
-4. Refactor one part using the Go feature named in this lesson (csv records); run gofmt and go test ./... and explain the result.
+2. Change the canonical text-adventure state and to-do fields and predict the output before running it.
+3. Add a boundary case and one malformed or missing-data case; define expected behavior before editing the program.
+4. Refactor one part using the Go feature in this lesson (csv records); run gofmt and go test ./... and explain the result.
 
 ### Accessibility Practice
-Use keyboard navigation to move between the lesson heading, code fence, compiler output, and terminal. With a screen reader, inspect punctuation in Go syntax (:=, &, *, ..., {}, and error assignments). Do not rely on syntax highlighting or color to distinguish errors. Read prompts and validation messages in document order; verify output is announced without unexpected focus movement.
+Use keyboard navigation to move between the lesson heading, code fence, compiler output, and terminal. With a screen reader, inspect Go punctuation (:=, &, *, ..., {}, and error assignments). Do not rely on syntax highlighting or color to distinguish errors. Read prompts and validation messages in document order; verify output is announced without unexpected focus movement.
 
 ### Skills Checklist
 - [ ] I can explain csv records using Go terminology.
@@ -4518,11 +3801,6 @@ Use keyboard navigation to move between the lesson heading, code fence, compiler
 - [ ] I can explain the types and data flow used here.
 - [ ] I can test a boundary case and an invalid-input or error case.
 - [ ] I can navigate source, diagnostics, and output with my keyboard and assistive technology.
-
-# Unit 10: Project-Based Learning
-
-## Overview
-This unit develops project-based learning using Go's types, packages, and standard-library conventions. Prerequisites: the previous units and a working Go module. Use shared canonical course datasets and test boundary conditions, error paths, and accessible interaction.
 
 ## Lesson 10.1: Requirements and top-down design
 
@@ -4539,54 +3817,7 @@ This unit develops project-based learning using Go's types, packages, and standa
 - Test a relevant boundary condition and explain a common failure.
 
 ### Concept Explanation
-package main
-import (
-	"fmt"
-)
-func main() {
-	requirements := []string{"list tasks", "add task", "mark task complete", "save tasks"}
-	for i, requirement := range requirements { fmt.Printf("%d. %s\n", i+1, requirement) }
-},package main
-import (
-	"fmt"
-)
-func main() {
-	rooms := map[string]string{"hall": "library", "library": "garden", "garden": "hall"}
-	current := "hall"
-	next, ok := rooms[current]
-	if !ok { fmt.Println("Unknown room") } else { current = next; fmt.Println("Moved to:", current) }
-},package main
-import (
-	"fmt"
-)
-func main() {
-	inventory := map[string]bool{"key": true}
-	unlocked := inventory["key"]
-	if unlocked { inventory["map"] = true }
-	fmt.Println("puzzle unlocked:", unlocked, "inventory:", inventory)
-},package main
-import (
-	"fmt"
-)
-func main() {
-	type Task struct { ID int; Title string; Done bool }
-	tasks := []Task{{ID: 1, Title: "Read lesson"}, {ID: 2, Title: "Run example"}}
-	tasks[0].Done = true
-	for _, task := range tasks { fmt.Printf("%d: %s [%t]\n", task.ID, task.Title, task.Done) }
-},package main
-import (
-	"bufio"
-	"fmt"
-	"os"
-	"strings"
-)
-func main() {
-	reader := bufio.NewReader(os.Stdin)
-	fmt.Print("Task title: ")
-	title, _ := reader.ReadString('\n')
-	title = strings.TrimSpace(title)
-	if title == "" { fmt.Println("A title is required.") } else { fmt.Println("Accepted task:", title) }
-} The lesson uses the canonical course data so learners focus on Go semantics rather than a new domain problem. Format with gofmt and use go test ./... as routine development tools.
+Separate requirements, application state, domain operations, validation, and terminal interaction. Small functions and explicit types make behavior testable. Terminal prompts should be linear, textual, keyboard-operable, and independent of color or cursor positioning. The lesson uses canonical course data so learners focus on Go semantics rather than a new domain problem. Format with gofmt and use go test ./... as routine development tools.
 
 ### Worked Example
 ```go
@@ -4595,26 +3826,28 @@ import (
 	"fmt"
 )
 func main() {
-	requirements := []string{"list tasks", "add task", "mark task complete", "save tasks"}
-	for i, requirement := range requirements { fmt.Printf("%d. %s\n", i+1, requirement) }
+	func main() {
+	 requirements := []string{"list tasks", "add task", "mark task complete", "save tasks"}
+	 for i, requirement := range requirements { fmt.Printf("%d. %s\n", i+1, requirement) }
+	}
 }
 ```
 
-**Expected behavior:** The standalone program demonstrates requirements and top-down design with the course's shared example data. It compiles and runs using the standard library. Predict the output first, then compare it with the terminal output.
+**Expected behavior:** The standalone program demonstrates requirements and top-down design with shared course example data. It compiles and runs using the standard library. Predict the output first, then compare it with terminal output.
 
 ### Common Mistakes
 1. Mixing domain logic with terminal input/output in one function.
-2. Assuming map order is stable when displaying choices.
-3. Making interaction depend on color, animation, or cursor position.
+2. Assuming map iteration order is stable when displaying choices.
+3. Making interaction depend on color, animation, or cursor positioning.
 
 ### Activities
 1. Run the worked example unchanged; trace each declaration, type, function call, and output line.
-2. Change the canonical text-adventure state, to-do fields, and capstone record fields data and predict the output before running the program.
-3. Add one boundary case and one malformed or missing-data case; state expected behavior before changing the code.
-4. Refactor one part using the Go feature named in this lesson (requirements and top-down design); run gofmt and go test ./... and explain the result.
+2. Change the canonical text-adventure state and to-do fields and predict the output before running it.
+3. Add a boundary case and one malformed or missing-data case; define expected behavior before editing the program.
+4. Refactor one part using the Go feature in this lesson (requirements and top-down design); run gofmt and go test ./... and explain the result.
 
 ### Accessibility Practice
-Use keyboard navigation to move between the lesson heading, code fence, compiler output, and terminal. With a screen reader, inspect punctuation in Go syntax (:=, &, *, ..., {}, and error assignments). Do not rely on syntax highlighting or color to distinguish errors. Read prompts and validation messages in document order; verify output is announced without unexpected focus movement.
+Use keyboard navigation to move between the lesson heading, code fence, compiler output, and terminal. With a screen reader, inspect Go punctuation (:=, &, *, ..., {}, and error assignments). Do not rely on syntax highlighting or color to distinguish errors. Read prompts and validation messages in document order; verify output is announced without unexpected focus movement.
 
 ### Skills Checklist
 - [ ] I can explain requirements and top-down design using Go terminology.
@@ -4638,54 +3871,7 @@ Use keyboard navigation to move between the lesson heading, code fence, compiler
 - Test a relevant boundary condition and explain a common failure.
 
 ### Concept Explanation
-package main
-import (
-	"fmt"
-)
-func main() {
-	requirements := []string{"list tasks", "add task", "mark task complete", "save tasks"}
-	for i, requirement := range requirements { fmt.Printf("%d. %s\n", i+1, requirement) }
-},package main
-import (
-	"fmt"
-)
-func main() {
-	rooms := map[string]string{"hall": "library", "library": "garden", "garden": "hall"}
-	current := "hall"
-	next, ok := rooms[current]
-	if !ok { fmt.Println("Unknown room") } else { current = next; fmt.Println("Moved to:", current) }
-},package main
-import (
-	"fmt"
-)
-func main() {
-	inventory := map[string]bool{"key": true}
-	unlocked := inventory["key"]
-	if unlocked { inventory["map"] = true }
-	fmt.Println("puzzle unlocked:", unlocked, "inventory:", inventory)
-},package main
-import (
-	"fmt"
-)
-func main() {
-	type Task struct { ID int; Title string; Done bool }
-	tasks := []Task{{ID: 1, Title: "Read lesson"}, {ID: 2, Title: "Run example"}}
-	tasks[0].Done = true
-	for _, task := range tasks { fmt.Printf("%d: %s [%t]\n", task.ID, task.Title, task.Done) }
-},package main
-import (
-	"bufio"
-	"fmt"
-	"os"
-	"strings"
-)
-func main() {
-	reader := bufio.NewReader(os.Stdin)
-	fmt.Print("Task title: ")
-	title, _ := reader.ReadString('\n')
-	title = strings.TrimSpace(title)
-	if title == "" { fmt.Println("A title is required.") } else { fmt.Println("Accepted task:", title) }
-} The lesson uses the canonical course data so learners focus on Go semantics rather than a new domain problem. Format with gofmt and use go test ./... as routine development tools.
+Separate requirements, application state, domain operations, validation, and terminal interaction. Small functions and explicit types make behavior testable. Terminal prompts should be linear, textual, keyboard-operable, and independent of color or cursor positioning. The lesson uses canonical course data so learners focus on Go semantics rather than a new domain problem. Format with gofmt and use go test ./... as routine development tools.
 
 ### Worked Example
 ```go
@@ -4694,28 +3880,30 @@ import (
 	"fmt"
 )
 func main() {
-	rooms := map[string]string{"hall": "library", "library": "garden", "garden": "hall"}
-	current := "hall"
-	next, ok := rooms[current]
-	if !ok { fmt.Println("Unknown room") } else { current = next; fmt.Println("Moved to:", current) }
+	func main() {
+	 rooms := map[string]string{"hall": "library", "library": "garden", "garden": "hall"}
+	 current := "hall"
+	 next, ok := rooms[current]
+	 if !ok { fmt.Println("Unknown room") } else { current = next; fmt.Println("Moved to:", current) }
+	}
 }
 ```
 
-**Expected behavior:** The standalone program demonstrates text adventure: rooms and movement with the course's shared example data. It compiles and runs using the standard library. Predict the output first, then compare it with the terminal output.
+**Expected behavior:** The standalone program demonstrates text adventure: rooms and movement with shared course example data. It compiles and runs using the standard library. Predict the output first, then compare it with terminal output.
 
 ### Common Mistakes
 1. Mixing domain logic with terminal input/output in one function.
-2. Assuming map order is stable when displaying choices.
-3. Making interaction depend on color, animation, or cursor position.
+2. Assuming map iteration order is stable when displaying choices.
+3. Making interaction depend on color, animation, or cursor positioning.
 
 ### Activities
 1. Run the worked example unchanged; trace each declaration, type, function call, and output line.
-2. Change the canonical text-adventure state, to-do fields, and capstone record fields data and predict the output before running the program.
-3. Add one boundary case and one malformed or missing-data case; state expected behavior before changing the code.
-4. Refactor one part using the Go feature named in this lesson (text adventure: rooms and movement); run gofmt and go test ./... and explain the result.
+2. Change the canonical text-adventure state and to-do fields and predict the output before running it.
+3. Add a boundary case and one malformed or missing-data case; define expected behavior before editing the program.
+4. Refactor one part using the Go feature in this lesson (text adventure: rooms and movement); run gofmt and go test ./... and explain the result.
 
 ### Accessibility Practice
-Use keyboard navigation to move between the lesson heading, code fence, compiler output, and terminal. With a screen reader, inspect punctuation in Go syntax (:=, &, *, ..., {}, and error assignments). Do not rely on syntax highlighting or color to distinguish errors. Read prompts and validation messages in document order; verify output is announced without unexpected focus movement.
+Use keyboard navigation to move between the lesson heading, code fence, compiler output, and terminal. With a screen reader, inspect Go punctuation (:=, &, *, ..., {}, and error assignments). Do not rely on syntax highlighting or color to distinguish errors. Read prompts and validation messages in document order; verify output is announced without unexpected focus movement.
 
 ### Skills Checklist
 - [ ] I can explain text adventure: rooms and movement using Go terminology.
@@ -4739,54 +3927,7 @@ Use keyboard navigation to move between the lesson heading, code fence, compiler
 - Test a relevant boundary condition and explain a common failure.
 
 ### Concept Explanation
-package main
-import (
-	"fmt"
-)
-func main() {
-	requirements := []string{"list tasks", "add task", "mark task complete", "save tasks"}
-	for i, requirement := range requirements { fmt.Printf("%d. %s\n", i+1, requirement) }
-},package main
-import (
-	"fmt"
-)
-func main() {
-	rooms := map[string]string{"hall": "library", "library": "garden", "garden": "hall"}
-	current := "hall"
-	next, ok := rooms[current]
-	if !ok { fmt.Println("Unknown room") } else { current = next; fmt.Println("Moved to:", current) }
-},package main
-import (
-	"fmt"
-)
-func main() {
-	inventory := map[string]bool{"key": true}
-	unlocked := inventory["key"]
-	if unlocked { inventory["map"] = true }
-	fmt.Println("puzzle unlocked:", unlocked, "inventory:", inventory)
-},package main
-import (
-	"fmt"
-)
-func main() {
-	type Task struct { ID int; Title string; Done bool }
-	tasks := []Task{{ID: 1, Title: "Read lesson"}, {ID: 2, Title: "Run example"}}
-	tasks[0].Done = true
-	for _, task := range tasks { fmt.Printf("%d: %s [%t]\n", task.ID, task.Title, task.Done) }
-},package main
-import (
-	"bufio"
-	"fmt"
-	"os"
-	"strings"
-)
-func main() {
-	reader := bufio.NewReader(os.Stdin)
-	fmt.Print("Task title: ")
-	title, _ := reader.ReadString('\n')
-	title = strings.TrimSpace(title)
-	if title == "" { fmt.Println("A title is required.") } else { fmt.Println("Accepted task:", title) }
-} The lesson uses the canonical course data so learners focus on Go semantics rather than a new domain problem. Format with gofmt and use go test ./... as routine development tools.
+Separate requirements, application state, domain operations, validation, and terminal interaction. Small functions and explicit types make behavior testable. Terminal prompts should be linear, textual, keyboard-operable, and independent of color or cursor positioning. The lesson uses canonical course data so learners focus on Go semantics rather than a new domain problem. Format with gofmt and use go test ./... as routine development tools.
 
 ### Worked Example
 ```go
@@ -4795,28 +3936,30 @@ import (
 	"fmt"
 )
 func main() {
-	inventory := map[string]bool{"key": true}
-	unlocked := inventory["key"]
-	if unlocked { inventory["map"] = true }
-	fmt.Println("puzzle unlocked:", unlocked, "inventory:", inventory)
+	func main() {
+	 inventory := map[string]bool{"key": true}
+	 unlocked := inventory["key"]
+	 if unlocked { inventory["map"] = true }
+	 fmt.Println("puzzle unlocked:", unlocked, "inventory:", inventory)
+	}
 }
 ```
 
-**Expected behavior:** The standalone program demonstrates text adventure: inventory and puzzles with the course's shared example data. It compiles and runs using the standard library. Predict the output first, then compare it with the terminal output.
+**Expected behavior:** The standalone program demonstrates text adventure: inventory and puzzles with shared course example data. It compiles and runs using the standard library. Predict the output first, then compare it with terminal output.
 
 ### Common Mistakes
 1. Mixing domain logic with terminal input/output in one function.
-2. Assuming map order is stable when displaying choices.
-3. Making interaction depend on color, animation, or cursor position.
+2. Assuming map iteration order is stable when displaying choices.
+3. Making interaction depend on color, animation, or cursor positioning.
 
 ### Activities
 1. Run the worked example unchanged; trace each declaration, type, function call, and output line.
-2. Change the canonical text-adventure state, to-do fields, and capstone record fields data and predict the output before running the program.
-3. Add one boundary case and one malformed or missing-data case; state expected behavior before changing the code.
-4. Refactor one part using the Go feature named in this lesson (text adventure: inventory and puzzles); run gofmt and go test ./... and explain the result.
+2. Change the canonical text-adventure state and to-do fields and predict the output before running it.
+3. Add a boundary case and one malformed or missing-data case; define expected behavior before editing the program.
+4. Refactor one part using the Go feature in this lesson (text adventure: inventory and puzzles); run gofmt and go test ./... and explain the result.
 
 ### Accessibility Practice
-Use keyboard navigation to move between the lesson heading, code fence, compiler output, and terminal. With a screen reader, inspect punctuation in Go syntax (:=, &, *, ..., {}, and error assignments). Do not rely on syntax highlighting or color to distinguish errors. Read prompts and validation messages in document order; verify output is announced without unexpected focus movement.
+Use keyboard navigation to move between the lesson heading, code fence, compiler output, and terminal. With a screen reader, inspect Go punctuation (:=, &, *, ..., {}, and error assignments). Do not rely on syntax highlighting or color to distinguish errors. Read prompts and validation messages in document order; verify output is announced without unexpected focus movement.
 
 ### Skills Checklist
 - [ ] I can explain text adventure: inventory and puzzles using Go terminology.
@@ -4840,54 +3983,7 @@ Use keyboard navigation to move between the lesson heading, code fence, compiler
 - Test a relevant boundary condition and explain a common failure.
 
 ### Concept Explanation
-package main
-import (
-	"fmt"
-)
-func main() {
-	requirements := []string{"list tasks", "add task", "mark task complete", "save tasks"}
-	for i, requirement := range requirements { fmt.Printf("%d. %s\n", i+1, requirement) }
-},package main
-import (
-	"fmt"
-)
-func main() {
-	rooms := map[string]string{"hall": "library", "library": "garden", "garden": "hall"}
-	current := "hall"
-	next, ok := rooms[current]
-	if !ok { fmt.Println("Unknown room") } else { current = next; fmt.Println("Moved to:", current) }
-},package main
-import (
-	"fmt"
-)
-func main() {
-	inventory := map[string]bool{"key": true}
-	unlocked := inventory["key"]
-	if unlocked { inventory["map"] = true }
-	fmt.Println("puzzle unlocked:", unlocked, "inventory:", inventory)
-},package main
-import (
-	"fmt"
-)
-func main() {
-	type Task struct { ID int; Title string; Done bool }
-	tasks := []Task{{ID: 1, Title: "Read lesson"}, {ID: 2, Title: "Run example"}}
-	tasks[0].Done = true
-	for _, task := range tasks { fmt.Printf("%d: %s [%t]\n", task.ID, task.Title, task.Done) }
-},package main
-import (
-	"bufio"
-	"fmt"
-	"os"
-	"strings"
-)
-func main() {
-	reader := bufio.NewReader(os.Stdin)
-	fmt.Print("Task title: ")
-	title, _ := reader.ReadString('\n')
-	title = strings.TrimSpace(title)
-	if title == "" { fmt.Println("A title is required.") } else { fmt.Println("Accepted task:", title) }
-} The lesson uses the canonical course data so learners focus on Go semantics rather than a new domain problem. Format with gofmt and use go test ./... as routine development tools.
+Separate requirements, application state, domain operations, validation, and terminal interaction. Small functions and explicit types make behavior testable. Terminal prompts should be linear, textual, keyboard-operable, and independent of color or cursor positioning. The lesson uses canonical course data so learners focus on Go semantics rather than a new domain problem. Format with gofmt and use go test ./... as routine development tools.
 
 ### Worked Example
 ```go
@@ -4896,28 +3992,30 @@ import (
 	"fmt"
 )
 func main() {
-	type Task struct { ID int; Title string; Done bool }
-	tasks := []Task{{ID: 1, Title: "Read lesson"}, {ID: 2, Title: "Run example"}}
-	tasks[0].Done = true
-	for _, task := range tasks { fmt.Printf("%d: %s [%t]\n", task.ID, task.Title, task.Done) }
+	func main() {
+	 type Task struct { ID int; Title string; Done bool }
+	 tasks := []Task{{ID: 1, Title: "Read lesson"}, {ID: 2, Title: "Run example"}}
+	 tasks[0].Done = true
+	 for _, task := range tasks { fmt.Printf("%d: %s [%t]\n", task.ID, task.Title, task.Done) }
+	}
 }
 ```
 
-**Expected behavior:** The standalone program demonstrates command-line to-do manager with the course's shared example data. It compiles and runs using the standard library. Predict the output first, then compare it with the terminal output.
+**Expected behavior:** The standalone program demonstrates command-line to-do manager with shared course example data. It compiles and runs using the standard library. Predict the output first, then compare it with terminal output.
 
 ### Common Mistakes
 1. Mixing domain logic with terminal input/output in one function.
-2. Assuming map order is stable when displaying choices.
-3. Making interaction depend on color, animation, or cursor position.
+2. Assuming map iteration order is stable when displaying choices.
+3. Making interaction depend on color, animation, or cursor positioning.
 
 ### Activities
 1. Run the worked example unchanged; trace each declaration, type, function call, and output line.
-2. Change the canonical text-adventure state, to-do fields, and capstone record fields data and predict the output before running the program.
-3. Add one boundary case and one malformed or missing-data case; state expected behavior before changing the code.
-4. Refactor one part using the Go feature named in this lesson (command-line to-do manager); run gofmt and go test ./... and explain the result.
+2. Change the canonical text-adventure state and to-do fields and predict the output before running it.
+3. Add a boundary case and one malformed or missing-data case; define expected behavior before editing the program.
+4. Refactor one part using the Go feature in this lesson (command-line to-do manager); run gofmt and go test ./... and explain the result.
 
 ### Accessibility Practice
-Use keyboard navigation to move between the lesson heading, code fence, compiler output, and terminal. With a screen reader, inspect punctuation in Go syntax (:=, &, *, ..., {}, and error assignments). Do not rely on syntax highlighting or color to distinguish errors. Read prompts and validation messages in document order; verify output is announced without unexpected focus movement.
+Use keyboard navigation to move between the lesson heading, code fence, compiler output, and terminal. With a screen reader, inspect Go punctuation (:=, &, *, ..., {}, and error assignments). Do not rely on syntax highlighting or color to distinguish errors. Read prompts and validation messages in document order; verify output is announced without unexpected focus movement.
 
 ### Skills Checklist
 - [ ] I can explain command-line to-do manager using Go terminology.
@@ -4941,54 +4039,7 @@ Use keyboard navigation to move between the lesson heading, code fence, compiler
 - Test a relevant boundary condition and explain a common failure.
 
 ### Concept Explanation
-package main
-import (
-	"fmt"
-)
-func main() {
-	requirements := []string{"list tasks", "add task", "mark task complete", "save tasks"}
-	for i, requirement := range requirements { fmt.Printf("%d. %s\n", i+1, requirement) }
-},package main
-import (
-	"fmt"
-)
-func main() {
-	rooms := map[string]string{"hall": "library", "library": "garden", "garden": "hall"}
-	current := "hall"
-	next, ok := rooms[current]
-	if !ok { fmt.Println("Unknown room") } else { current = next; fmt.Println("Moved to:", current) }
-},package main
-import (
-	"fmt"
-)
-func main() {
-	inventory := map[string]bool{"key": true}
-	unlocked := inventory["key"]
-	if unlocked { inventory["map"] = true }
-	fmt.Println("puzzle unlocked:", unlocked, "inventory:", inventory)
-},package main
-import (
-	"fmt"
-)
-func main() {
-	type Task struct { ID int; Title string; Done bool }
-	tasks := []Task{{ID: 1, Title: "Read lesson"}, {ID: 2, Title: "Run example"}}
-	tasks[0].Done = true
-	for _, task := range tasks { fmt.Printf("%d: %s [%t]\n", task.ID, task.Title, task.Done) }
-},package main
-import (
-	"bufio"
-	"fmt"
-	"os"
-	"strings"
-)
-func main() {
-	reader := bufio.NewReader(os.Stdin)
-	fmt.Print("Task title: ")
-	title, _ := reader.ReadString('\n')
-	title = strings.TrimSpace(title)
-	if title == "" { fmt.Println("A title is required.") } else { fmt.Println("Accepted task:", title) }
-} The lesson uses the canonical course data so learners focus on Go semantics rather than a new domain problem. Format with gofmt and use go test ./... as routine development tools.
+Separate requirements, application state, domain operations, validation, and terminal interaction. Small functions and explicit types make behavior testable. Terminal prompts should be linear, textual, keyboard-operable, and independent of color or cursor positioning. The lesson uses canonical course data so learners focus on Go semantics rather than a new domain problem. Format with gofmt and use go test ./... as routine development tools.
 
 ### Worked Example
 ```go
@@ -5000,29 +4051,31 @@ import (
 	"strings"
 )
 func main() {
-	reader := bufio.NewReader(os.Stdin)
-	fmt.Print("Task title: ")
-	title, _ := reader.ReadString('\n')
-	title = strings.TrimSpace(title)
-	if title == "" { fmt.Println("A title is required.") } else { fmt.Println("Accepted task:", title) }
+	func main() {
+	 reader := bufio.NewReader(os.Stdin)
+	 fmt.Print("Task title: ")
+	 title, _ := reader.ReadString('\n')
+	 title = strings.TrimSpace(title)
+	 if title == "" { fmt.Println("A title is required.") } else { fmt.Println("Accepted task:", title) }
+	}
 }
 ```
 
-**Expected behavior:** The standalone program demonstrates accessible interaction and validation with the course's shared example data. It compiles and runs using the standard library. Predict the output first, then compare it with the terminal output.
+**Expected behavior:** The standalone program demonstrates accessible interaction and validation with shared course example data. It compiles and runs using the standard library. Predict the output first, then compare it with terminal output.
 
 ### Common Mistakes
 1. Mixing domain logic with terminal input/output in one function.
-2. Assuming map order is stable when displaying choices.
-3. Making interaction depend on color, animation, or cursor position.
+2. Assuming map iteration order is stable when displaying choices.
+3. Making interaction depend on color, animation, or cursor positioning.
 
 ### Activities
 1. Run the worked example unchanged; trace each declaration, type, function call, and output line.
-2. Change the canonical text-adventure state, to-do fields, and capstone record fields data and predict the output before running the program.
-3. Add one boundary case and one malformed or missing-data case; state expected behavior before changing the code.
-4. Refactor one part using the Go feature named in this lesson (accessible interaction and validation); run gofmt and go test ./... and explain the result.
+2. Change the canonical text-adventure state and to-do fields and predict the output before running it.
+3. Add a boundary case and one malformed or missing-data case; define expected behavior before editing the program.
+4. Refactor one part using the Go feature in this lesson (accessible interaction and validation); run gofmt and go test ./... and explain the result.
 
 ### Accessibility Practice
-Use keyboard navigation to move between the lesson heading, code fence, compiler output, and terminal. With a screen reader, inspect punctuation in Go syntax (:=, &, *, ..., {}, and error assignments). Do not rely on syntax highlighting or color to distinguish errors. Read prompts and validation messages in document order; verify output is announced without unexpected focus movement.
+Use keyboard navigation to move between the lesson heading, code fence, compiler output, and terminal. With a screen reader, inspect Go punctuation (:=, &, *, ..., {}, and error assignments). Do not rely on syntax highlighting or color to distinguish errors. Read prompts and validation messages in document order; verify output is announced without unexpected focus movement.
 
 ### Skills Checklist
 - [ ] I can explain accessible interaction and validation using Go terminology.
@@ -5030,11 +4083,6 @@ Use keyboard navigation to move between the lesson heading, code fence, compiler
 - [ ] I can explain the types and data flow used here.
 - [ ] I can test a boundary case and an invalid-input or error case.
 - [ ] I can navigate source, diagnostics, and output with my keyboard and assistive technology.
-
-# Unit 11: Capstone
-
-## Overview
-This unit develops capstone using Go's types, packages, and standard-library conventions. Prerequisites: the previous units and a working Go module. Use shared canonical course datasets and test boundary conditions, error paths, and accessible interaction.
 
 ## Lesson 11.1: Requirements and design
 
@@ -5051,67 +4099,24 @@ This unit develops capstone using Go's types, packages, and standard-library con
 - Test a relevant boundary condition and explain a common failure.
 
 ### Concept Explanation
-package main
-import (
-	"fmt"
-	"strings"
-)
-func main() {
-	fields := []string{"id", "title", "description", "category", "created_at", "updated_at"}
-	fmt.Println("Capstone fields:", strings.Join(fields, ", "))
-},package main
-import (
-	"encoding/json"
-	"fmt"
-)
-func main() {
-	type Record struct { ID int `json:"id"`; Title string `json:"title"`; Category string `json:"category"` }
-	record := Record{ID: 1, Title: "Study Go", Category: "learning"}
-	data, err := json.Marshal(record)
-	if err != nil { panic(err) }
-	fmt.Println(string(data))
-},package main
-import (
-	"fmt"
-)
-func main() {
-	type Record struct { ID int; Title string; Done bool }
-	records := []Record{{ID: 1, Title: "Draft"}, {ID: 2, Title: "Review"}}
-	records[0].Done = true
-	for _, record := range records { fmt.Printf("%d %s done=%t\n", record.ID, record.Title, record.Done) }
-},package main
-import (
-	"fmt"
-	"strings"
-)
-func main() {
-	valid := func(title string) bool { return strings.TrimSpace(title) != "" && len([]rune(title)) <= 80 }
-	for _, title := range []string{"Plan", "", strings.Repeat("x", 81)} { fmt.Printf("%q valid=%t\n", title, valid(title)) }
-},package main
-import (
-	"fmt"
-)
-func main() {
-	fmt.Println("Project: accessible record manager")
-	fmt.Println("Build: go build ./...")
-	fmt.Println("Test: go test ./...")
-	fmt.Println("Run: go run .")
-	fmt.Println("Document validation, storage, errors, and keyboard workflow.")
-} The lesson uses the canonical course data so learners focus on Go semantics rather than a new domain problem. Format with gofmt and use go test ./... as routine development tools.
+The capstone is an accessible record manager. Define record fields, validation rules, and storage format; implement create/read/update/delete; persist safely; and test normal, boundary, malformed, and missing-data cases. Document exact build, test, and run commands. The lesson uses canonical course data so learners focus on Go semantics rather than a new domain problem. Format with gofmt and use go test ./... as routine development tools.
 
 ### Worked Example
-`````go
+```go
 package main
 import (
 	"fmt"
 	"strings"
 )
 func main() {
-	fields := []string{"id", "title", "description", "category", "created_at", "updated_at"}
-	fmt.Println("Capstone fields:", strings.Join(fields, ", "))
+	func main() {
+	 fields := []string{"id", "title", "description", "category", "created_at", "updated_at"}
+	 fmt.Println("Capstone fields:", strings.Join(fields, ", "))
+	}
 }
+```
 
-```**Expected behavior:** The standalone program demonstrates requirements and design with the course's shared example data. It compiles and runs using the standard library. Predict the output first, then compare it with the terminal output.
+**Expected behavior:** The standalone program demonstrates requirements and design with shared course example data. It compiles and runs using the standard library. Predict the output first, then compare it with terminal output.
 
 ### Common Mistakes
 1. Updating a record without confirming that the identifier exists.
@@ -5120,12 +4125,12 @@ func main() {
 
 ### Activities
 1. Run the worked example unchanged; trace each declaration, type, function call, and output line.
-2. Change the canonical text-adventure state, to-do fields, and capstone record fields data and predict the output before running the program.
-3. Add one boundary case and one malformed or missing-data case; state expected behavior before changing the code.
-4. Refactor one part using the Go feature named in this lesson (requirements and design); run gofmt and go test ./... and explain the result.
+2. Change the canonical capstone record fields and predict the output before running it.
+3. Add a boundary case and one malformed or missing-data case; define expected behavior before editing the program.
+4. Refactor one part using the Go feature in this lesson (requirements and design); run gofmt and go test ./... and explain the result.
 
 ### Accessibility Practice
-Use keyboard navigation to move between the lesson heading, code fence, compiler output, and terminal. With a screen reader, inspect punctuation in Go syntax (:=, &, *, ..., {}, and error assignments). Do not rely on syntax highlighting or color to distinguish errors. Read prompts and validation messages in document order; verify output is announced without unexpected focus movement.
+Use keyboard navigation to move between the lesson heading, code fence, compiler output, and terminal. With a screen reader, inspect Go punctuation (:=, &, *, ..., {}, and error assignments). Do not rely on syntax highlighting or color to distinguish errors. Read prompts and validation messages in document order; verify output is announced without unexpected focus movement.
 
 ### Skills Checklist
 - [ ] I can explain requirements and design using Go terminology.
@@ -5149,52 +4154,7 @@ Use keyboard navigation to move between the lesson heading, code fence, compiler
 - Test a relevant boundary condition and explain a common failure.
 
 ### Concept Explanation
-package main
-import (
-	"fmt"
-)
-func main() {
-	fields := []string{"id", "title", "description", "category", "created_at", "updated_at"}
-	fmt.Println("Capstone fields:", strings.Join(fields, ", "))
-},package main
-import (
-	"encoding/json"
-	"fmt"
-)
-func main() {
-	type Record struct { ID int `json:"id"`; Title string `json:"title"`; Category string `json:"category"` }
-	record := Record{ID: 1, Title: "Study Go", Category: "learning"}
-	data, err := json.Marshal(record)
-	if err != nil { panic(err) }
-	fmt.Println(string(data))
-},package main
-import (
-	"fmt"
-)
-func main() {
-	type Record struct { ID int; Title string; Done bool }
-	records := []Record{{ID: 1, Title: "Draft"}, {ID: 2, Title: "Review"}}
-	records[0].Done = true
-	for _, record := range records { fmt.Printf("%d %s done=%t\n", record.ID, record.Title, record.Done) }
-},package main
-import (
-	"fmt"
-	"strings"
-)
-func main() {
-	valid := func(title string) bool { return strings.TrimSpace(title) != "" && len([]rune(title)) <= 80 }
-	for _, title := range []string{"Plan", "", strings.Repeat("x", 81)} { fmt.Printf("%q valid=%t\n", title, valid(title)) }
-},package main
-import (
-	"fmt"
-)
-func main() {
-	fmt.Println("Project: accessible record manager")
-	fmt.Println("Build: go build ./...")
-	fmt.Println("Test: go test ./...")
-	fmt.Println("Run: go run .")
-	fmt.Println("Document validation, storage, errors, and keyboard workflow.")
-} The lesson uses the canonical course data so learners focus on Go semantics rather than a new domain problem. Format with gofmt and use go test ./... as routine development tools.
+The capstone is an accessible record manager. Define record fields, validation rules, and storage format; implement create/read/update/delete; persist safely; and test normal, boundary, malformed, and missing-data cases. Document exact build, test, and run commands. The lesson uses canonical course data so learners focus on Go semantics rather than a new domain problem. Format with gofmt and use go test ./... as routine development tools.
 
 ### Worked Example
 ```go
@@ -5204,15 +4164,17 @@ import (
 	"fmt"
 )
 func main() {
-	type Record struct { ID int `json:"id"`; Title string `json:"title"`; Category string `json:"category"` }
-	record := Record{ID: 1, Title: "Study Go", Category: "learning"}
-	data, err := json.Marshal(record)
-	if err != nil { panic(err) }
-	fmt.Println(string(data))
+	func main() {
+	 type Record struct { ID int `json:"id"`; Title string `json:"title"`; Category string `json:"category"` }
+	 record := Record{ID: 1, Title: "Study Go", Category: "learning"}
+	 data, err := json.Marshal(record)
+	 if err != nil { panic(err) }
+	 fmt.Println(string(data))
+	}
 }
 ```
 
-**Expected behavior:** The standalone program demonstrates data model and storage with the course's shared example data. It compiles and runs using the standard library. Predict the output first, then compare it with the terminal output.
+**Expected behavior:** The standalone program demonstrates data model and storage with shared course example data. It compiles and runs using the standard library. Predict the output first, then compare it with terminal output.
 
 ### Common Mistakes
 1. Updating a record without confirming that the identifier exists.
@@ -5221,12 +4183,12 @@ func main() {
 
 ### Activities
 1. Run the worked example unchanged; trace each declaration, type, function call, and output line.
-2. Change the canonical text-adventure state, to-do fields, and capstone record fields data and predict the output before running the program.
-3. Add one boundary case and one malformed or missing-data case; state expected behavior before changing the code.
-4. Refactor one part using the Go feature named in this lesson (data model and storage); run gofmt and go test ./... and explain the result.
+2. Change the canonical capstone record fields and predict the output before running it.
+3. Add a boundary case and one malformed or missing-data case; define expected behavior before editing the program.
+4. Refactor one part using the Go feature in this lesson (data model and storage); run gofmt and go test ./... and explain the result.
 
 ### Accessibility Practice
-Use keyboard navigation to move between the lesson heading, code fence, compiler output, and terminal. With a screen reader, inspect punctuation in Go syntax (:=, &, *, ..., {}, and error assignments). Do not rely on syntax highlighting or color to distinguish errors. Read prompts and validation messages in document order; verify output is announced without unexpected focus movement.
+Use keyboard navigation to move between the lesson heading, code fence, compiler output, and terminal. With a screen reader, inspect Go punctuation (:=, &, *, ..., {}, and error assignments). Do not rely on syntax highlighting or color to distinguish errors. Read prompts and validation messages in document order; verify output is announced without unexpected focus movement.
 
 ### Skills Checklist
 - [ ] I can explain data model and storage using Go terminology.
@@ -5250,52 +4212,7 @@ Use keyboard navigation to move between the lesson heading, code fence, compiler
 - Test a relevant boundary condition and explain a common failure.
 
 ### Concept Explanation
-package main
-import (
-	"fmt"
-)
-func main() {
-	fields := []string{"id", "title", "description", "category", "created_at", "updated_at"}
-	fmt.Println("Capstone fields:", strings.Join(fields, ", "))
-},package main
-import (
-	"encoding/json"
-	"fmt"
-)
-func main() {
-	type Record struct { ID int `json:"id"`; Title string `json:"title"`; Category string `json:"category"` }
-	record := Record{ID: 1, Title: "Study Go", Category: "learning"}
-	data, err := json.Marshal(record)
-	if err != nil { panic(err) }
-	fmt.Println(string(data))
-},package main
-import (
-	"fmt"
-)
-func main() {
-	type Record struct { ID int; Title string; Done bool }
-	records := []Record{{ID: 1, Title: "Draft"}, {ID: 2, Title: "Review"}}
-	records[0].Done = true
-	for _, record := range records { fmt.Printf("%d %s done=%t\n", record.ID, record.Title, record.Done) }
-},package main
-import (
-	"fmt"
-	"strings"
-)
-func main() {
-	valid := func(title string) bool { return strings.TrimSpace(title) != "" && len([]rune(title)) <= 80 }
-	for _, title := range []string{"Plan", "", strings.Repeat("x", 81)} { fmt.Printf("%q valid=%t\n", title, valid(title)) }
-},package main
-import (
-	"fmt"
-)
-func main() {
-	fmt.Println("Project: accessible record manager")
-	fmt.Println("Build: go build ./...")
-	fmt.Println("Test: go test ./...")
-	fmt.Println("Run: go run .")
-	fmt.Println("Document validation, storage, errors, and keyboard workflow.")
-} The lesson uses the canonical course data so learners focus on Go semantics rather than a new domain problem. Format with gofmt and use go test ./... as routine development tools.
+The capstone is an accessible record manager. Define record fields, validation rules, and storage format; implement create/read/update/delete; persist safely; and test normal, boundary, malformed, and missing-data cases. Document exact build, test, and run commands. The lesson uses canonical course data so learners focus on Go semantics rather than a new domain problem. Format with gofmt and use go test ./... as routine development tools.
 
 ### Worked Example
 ```go
@@ -5304,14 +4221,16 @@ import (
 	"fmt"
 )
 func main() {
-	type Record struct { ID int; Title string; Done bool }
-	records := []Record{{ID: 1, Title: "Draft"}, {ID: 2, Title: "Review"}}
-	records[0].Done = true
-	for _, record := range records { fmt.Printf("%d %s done=%t\n", record.ID, record.Title, record.Done) }
+	func main() {
+	 type Record struct { ID int; Title string; Done bool }
+	 records := []Record{{ID: 1, Title: "Draft"}, {ID: 2, Title: "Review"}}
+	 records[0].Done = true
+	 for _, record := range records { fmt.Printf("%d %s done=%t\n", record.ID, record.Title, record.Done) }
+	}
 }
 ```
 
-**Expected behavior:** The standalone program demonstrates create, read, update, delete with the course's shared example data. It compiles and runs using the standard library. Predict the output first, then compare it with the terminal output.
+**Expected behavior:** The standalone program demonstrates create, read, update, delete with shared course example data. It compiles and runs using the standard library. Predict the output first, then compare it with terminal output.
 
 ### Common Mistakes
 1. Updating a record without confirming that the identifier exists.
@@ -5320,12 +4239,12 @@ func main() {
 
 ### Activities
 1. Run the worked example unchanged; trace each declaration, type, function call, and output line.
-2. Change the canonical text-adventure state, to-do fields, and capstone record fields data and predict the output before running the program.
-3. Add one boundary case and one malformed or missing-data case; state expected behavior before changing the code.
-4. Refactor one part using the Go feature named in this lesson (create, read, update, delete); run gofmt and go test ./... and explain the result.
+2. Change the canonical capstone record fields and predict the output before running it.
+3. Add a boundary case and one malformed or missing-data case; define expected behavior before editing the program.
+4. Refactor one part using the Go feature in this lesson (create, read, update, delete); run gofmt and go test ./... and explain the result.
 
 ### Accessibility Practice
-Use keyboard navigation to move between the lesson heading, code fence, compiler output, and terminal. With a screen reader, inspect punctuation in Go syntax (:=, &, *, ..., {}, and error assignments). Do not rely on syntax highlighting or color to distinguish errors. Read prompts and validation messages in document order; verify output is announced without unexpected focus movement.
+Use keyboard navigation to move between the lesson heading, code fence, compiler output, and terminal. With a screen reader, inspect Go punctuation (:=, &, *, ..., {}, and error assignments). Do not rely on syntax highlighting or color to distinguish errors. Read prompts and validation messages in document order; verify output is announced without unexpected focus movement.
 
 ### Skills Checklist
 - [ ] I can explain create, read, update, delete using Go terminology.
@@ -5349,52 +4268,7 @@ Use keyboard navigation to move between the lesson heading, code fence, compiler
 - Test a relevant boundary condition and explain a common failure.
 
 ### Concept Explanation
-package main
-import (
-	"fmt"
-)
-func main() {
-	fields := []string{"id", "title", "description", "category", "created_at", "updated_at"}
-	fmt.Println("Capstone fields:", strings.Join(fields, ", "))
-},package main
-import (
-	"encoding/json"
-	"fmt"
-)
-func main() {
-	type Record struct { ID int `json:"id"`; Title string `json:"title"`; Category string `json:"category"` }
-	record := Record{ID: 1, Title: "Study Go", Category: "learning"}
-	data, err := json.Marshal(record)
-	if err != nil { panic(err) }
-	fmt.Println(string(data))
-},package main
-import (
-	"fmt"
-)
-func main() {
-	type Record struct { ID int; Title string; Done bool }
-	records := []Record{{ID: 1, Title: "Draft"}, {ID: 2, Title: "Review"}}
-	records[0].Done = true
-	for _, record := range records { fmt.Printf("%d %s done=%t\n", record.ID, record.Title, record.Done) }
-},package main
-import (
-	"fmt"
-	"strings"
-)
-func main() {
-	valid := func(title string) bool { return strings.TrimSpace(title) != "" && len([]rune(title)) <= 80 }
-	for _, title := range []string{"Plan", "", strings.Repeat("x", 81)} { fmt.Printf("%q valid=%t\n", title, valid(title)) }
-},package main
-import (
-	"fmt"
-)
-func main() {
-	fmt.Println("Project: accessible record manager")
-	fmt.Println("Build: go build ./...")
-	fmt.Println("Test: go test ./...")
-	fmt.Println("Run: go run .")
-	fmt.Println("Document validation, storage, errors, and keyboard workflow.")
-} The lesson uses the canonical course data so learners focus on Go semantics rather than a new domain problem. Format with gofmt and use go test ./... as routine development tools.
+The capstone is an accessible record manager. Define record fields, validation rules, and storage format; implement create/read/update/delete; persist safely; and test normal, boundary, malformed, and missing-data cases. Document exact build, test, and run commands. The lesson uses canonical course data so learners focus on Go semantics rather than a new domain problem. Format with gofmt and use go test ./... as routine development tools.
 
 ### Worked Example
 ```go
@@ -5404,12 +4278,14 @@ import (
 	"strings"
 )
 func main() {
-	valid := func(title string) bool { return strings.TrimSpace(title) != "" && len([]rune(title)) <= 80 }
-	for _, title := range []string{"Plan", "", strings.Repeat("x", 81)} { fmt.Printf("%q valid=%t\n", title, valid(title)) }
+	func main() {
+	 valid := func(title string) bool { return strings.TrimSpace(title) != "" && len([]rune(title)) <= 80 }
+	 for _, title := range []string{"Plan", "", strings.Repeat("x", 81)} { fmt.Printf("%q valid=%t\n", title, valid(title)) }
+	}
 }
 ```
 
-**Expected behavior:** The standalone program demonstrates validation and tests with the course's shared example data. It compiles and runs using the standard library. Predict the output first, then compare it with the terminal output.
+**Expected behavior:** The standalone program demonstrates validation and tests with shared course example data. It compiles and runs using the standard library. Predict the output first, then compare it with terminal output.
 
 ### Common Mistakes
 1. Updating a record without confirming that the identifier exists.
@@ -5418,12 +4294,12 @@ func main() {
 
 ### Activities
 1. Run the worked example unchanged; trace each declaration, type, function call, and output line.
-2. Change the canonical text-adventure state, to-do fields, and capstone record fields data and predict the output before running the program.
-3. Add one boundary case and one malformed or missing-data case; state expected behavior before changing the code.
-4. Refactor one part using the Go feature named in this lesson (validation and tests); run gofmt and go test ./... and explain the result.
+2. Change the canonical capstone record fields and predict the output before running it.
+3. Add a boundary case and one malformed or missing-data case; define expected behavior before editing the program.
+4. Refactor one part using the Go feature in this lesson (validation and tests); run gofmt and go test ./... and explain the result.
 
 ### Accessibility Practice
-Use keyboard navigation to move between the lesson heading, code fence, compiler output, and terminal. With a screen reader, inspect punctuation in Go syntax (:=, &, *, ..., {}, and error assignments). Do not rely on syntax highlighting or color to distinguish errors. Read prompts and validation messages in document order; verify output is announced without unexpected focus movement.
+Use keyboard navigation to move between the lesson heading, code fence, compiler output, and terminal. With a screen reader, inspect Go punctuation (:=, &, *, ..., {}, and error assignments). Do not rely on syntax highlighting or color to distinguish errors. Read prompts and validation messages in document order; verify output is announced without unexpected focus movement.
 
 ### Skills Checklist
 - [ ] I can explain validation and tests using Go terminology.
@@ -5447,52 +4323,7 @@ Use keyboard navigation to move between the lesson heading, code fence, compiler
 - Test a relevant boundary condition and explain a common failure.
 
 ### Concept Explanation
-package main
-import (
-	"fmt"
-)
-func main() {
-	fields := []string{"id", "title", "description", "category", "created_at", "updated_at"}
-	fmt.Println("Capstone fields:", strings.Join(fields, ", "))
-},package main
-import (
-	"encoding/json"
-	"fmt"
-)
-func main() {
-	type Record struct { ID int `json:"id"`; Title string `json:"title"`; Category string `json:"category"` }
-	record := Record{ID: 1, Title: "Study Go", Category: "learning"}
-	data, err := json.Marshal(record)
-	if err != nil { panic(err) }
-	fmt.Println(string(data))
-},package main
-import (
-	"fmt"
-)
-func main() {
-	type Record struct { ID int; Title string; Done bool }
-	records := []Record{{ID: 1, Title: "Draft"}, {ID: 2, Title: "Review"}}
-	records[0].Done = true
-	for _, record := range records { fmt.Printf("%d %s done=%t\n", record.ID, record.Title, record.Done) }
-},package main
-import (
-	"fmt"
-	"strings"
-)
-func main() {
-	valid := func(title string) bool { return strings.TrimSpace(title) != "" && len([]rune(title)) <= 80 }
-	for _, title := range []string{"Plan", "", strings.Repeat("x", 81)} { fmt.Printf("%q valid=%t\n", title, valid(title)) }
-},package main
-import (
-	"fmt"
-)
-func main() {
-	fmt.Println("Project: accessible record manager")
-	fmt.Println("Build: go build ./...")
-	fmt.Println("Test: go test ./...")
-	fmt.Println("Run: go run .")
-	fmt.Println("Document validation, storage, errors, and keyboard workflow.")
-} The lesson uses the canonical course data so learners focus on Go semantics rather than a new domain problem. Format with gofmt and use go test ./... as routine development tools.
+The capstone is an accessible record manager. Define record fields, validation rules, and storage format; implement create/read/update/delete; persist safely; and test normal, boundary, malformed, and missing-data cases. Document exact build, test, and run commands. The lesson uses canonical course data so learners focus on Go semantics rather than a new domain problem. Format with gofmt and use go test ./... as routine development tools.
 
 ### Worked Example
 ```go
@@ -5501,15 +4332,17 @@ import (
 	"fmt"
 )
 func main() {
-	fmt.Println("Project: accessible record manager")
-	fmt.Println("Build: go build ./...")
-	fmt.Println("Test: go test ./...")
-	fmt.Println("Run: go run .")
-	fmt.Println("Document validation, storage, errors, and keyboard workflow.")
+	func main() {
+	 fmt.Println("Project: accessible record manager")
+	 fmt.Println("Build: go build ./...")
+	 fmt.Println("Test: go test ./...")
+	 fmt.Println("Run: go run .")
+	 fmt.Println("Document validation, storage, errors, and keyboard workflow.")
+	}
 }
 ```
 
-**Expected behavior:** The standalone program demonstrates documentation and presentation with the course's shared example data. It compiles and runs using the standard library. Predict the output first, then compare it with the terminal output.
+**Expected behavior:** The standalone program demonstrates documentation and presentation with shared course example data. It compiles and runs using the standard library. Predict the output first, then compare it with terminal output.
 
 ### Common Mistakes
 1. Updating a record without confirming that the identifier exists.
@@ -5518,12 +4351,12 @@ func main() {
 
 ### Activities
 1. Run the worked example unchanged; trace each declaration, type, function call, and output line.
-2. Change the canonical text-adventure state, to-do fields, and capstone record fields data and predict the output before running the program.
-3. Add one boundary case and one malformed or missing-data case; state expected behavior before changing the code.
-4. Refactor one part using the Go feature named in this lesson (documentation and presentation); run gofmt and go test ./... and explain the result.
+2. Change the canonical capstone record fields and predict the output before running it.
+3. Add a boundary case and one malformed or missing-data case; define expected behavior before editing the program.
+4. Refactor one part using the Go feature in this lesson (documentation and presentation); run gofmt and go test ./... and explain the result.
 
 ### Accessibility Practice
-Use keyboard navigation to move between the lesson heading, code fence, compiler output, and terminal. With a screen reader, inspect punctuation in Go syntax (:=, &, *, ..., {}, and error assignments). Do not rely on syntax highlighting or color to distinguish errors. Read prompts and validation messages in document order; verify output is announced without unexpected focus movement.
+Use keyboard navigation to move between the lesson heading, code fence, compiler output, and terminal. With a screen reader, inspect Go punctuation (:=, &, *, ..., {}, and error assignments). Do not rely on syntax highlighting or color to distinguish errors. Read prompts and validation messages in document order; verify output is announced without unexpected focus movement.
 
 ### Skills Checklist
 - [ ] I can explain documentation and presentation using Go terminology.
