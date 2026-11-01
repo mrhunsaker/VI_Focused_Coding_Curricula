@@ -149,6 +149,85 @@ Type JavaScript directly and press Enter to execute. Type `.exit` to quit.
 
 ---
 
+## Lesson 0.4: Node.js Projects, Terminal Execution, and Dependencies
+
+### Reading References
+- Node.js documentation: Getting Started and Command-Line API.
+- npm documentation: package.json and npm scripts.
+
+### Learning Objectives
+- Create a project directory and initialize a Node.js package.
+- Run a JavaScript file from a terminal and distinguish the working directory from the file location.
+- Explain what package.json records and when a dependency is needed.
+- Use npm scripts without relying on mouse-only editor controls.
+
+### Concept Explanation
+A project is a directory containing source files and supporting configuration. Node.js executes a file with `node filename.js`. The terminal's current working directory determines how relative paths such as `./data.json` are resolved. The `package.json` file records project metadata, scripts, dependencies, and module mode. For this course, use one explicit module system per project: CommonJS with `"type": "commonjs"`, or ECMAScript modules with `"type": "module"`. Do not mix `require()` and `import` in the same instructional example.
+
+### Worked Example
+From the terminal, create and enter a project directory:
+
+```bash
+mkdir js-foundations
+cd js-foundations
+npm init -y
+```
+
+Create `hello.js`:
+
+```javascript
+"use strict";
+
+const student = "Avery";
+console.log(`Hello, ${student}! Your Node.js project is ready.`);
+```
+
+Run it:
+
+```bash
+node hello.js
+```
+
+Expected output:
+
+```text
+Hello, Avery! Your Node.js project is ready.
+```
+
+Add a script to the `scripts` object in package.json:
+
+```json
+{
+  "scripts": {
+    "start": "node hello.js"
+  }
+}
+```
+
+Run `npm start`. The script should print the same line.
+
+### Common Mistakes
+- Running the command from the parent directory, so Node.js cannot find `hello.js`.
+- Naming the file `hello.js.txt` because file extensions are hidden.
+- Assuming a package must be installed for built-in Node.js modules such as `node:fs` or `node:readline`.
+- Mixing CommonJS and ES module syntax without configuring module mode.
+
+### Activities
+1. Use `pwd` (macOS/Linux) or `Get-Location` (PowerShell) to announce the current directory, then navigate into the project.
+2. Create `profile.js` and print the canonical student name Avery, age 16, and favorite subject Computer Science.
+3. Add a `start` npm script and run the same program with `npm start`.
+4. Deliberately run Node.js from the wrong directory; read the error, correct the working directory, and rerun.
+
+### Accessibility Practice
+Use terminal commands and keyboard navigation throughout. Confirm the editor announces the file name and extension. Read the complete terminal error before acting on it. Keep output textual and sequential; do not make successful execution depend on a color change or visual notification.
+
+### Skills Checklist
+- [ ] I can create and enter a project directory from the terminal.
+- [ ] I can initialize and describe a package.json file.
+- [ ] I can run a JavaScript file with node and an npm script.
+- [ ] I can diagnose a wrong-working-directory error.
+- [ ] I can explain why a project should use one explicit module system.
+
 # Unit 1: Foundations — Getting Started with JavaScript
 
 ## Overview
@@ -396,84 +475,3 @@ console.log(`Circle area: ${circleArea.toFixed(2)}`);
 - [ ] I understand that JavaScript's `/` always gives a decimal result.
 - [ ] I can convert between types using `Number()`, `String()`, `parseInt()`.
 - [ ] I understand `const` vs. `let`.
-
-## Lesson 0.4: Node.js Projects, Terminal Execution, and Dependencies
-
-### Reading References
-- Node.js documentation: Getting Started and Command-Line API.
-- npm documentation: package.json and npm scripts.
-
-### Learning Objectives
-- Create a project directory and initialize a Node.js package.
-- Run a JavaScript file from a terminal and distinguish the working directory from the file location.
-- Explain what package.json records and when a dependency is needed.
-- Use npm scripts without relying on mouse-only editor controls.
-
-### Concept Explanation
-A project is a directory containing source files and supporting configuration. Node.js executes a file with `node filename.js`. The terminal's current working directory determines how relative paths such as `./data.json` are resolved. The `package.json` file records project metadata, scripts, dependencies, and module mode. For this course, use one explicit module system per project: CommonJS with `"type": "commonjs"`, or ECMAScript modules with `"type": "module"`. Do not mix `require()` and `import` in the same instructional example.
-
-### Worked Example
-From the terminal, create and enter a project directory:
-
-```bash
-mkdir js-foundations
-cd js-foundations
-npm init -y
-```
-
-Create `hello.js`:
-
-```javascript
-"use strict";
-
-const student = "Avery";
-console.log(`Hello, ${student}! Your Node.js project is ready.`);
-```
-
-Run it:
-
-```bash
-node hello.js
-```
-
-Expected output:
-
-```text
-Hello, Avery! Your Node.js project is ready.
-```
-
-Add a script to the `scripts` object in package.json:
-
-```json
-{
-  "scripts": {
-    "start": "node hello.js"
-  }
-}
-```
-
-Run `npm start`. The script should print the same line.
-
-### Common Mistakes
-- Running the command from the parent directory, so Node.js cannot find `hello.js`.
-- Naming the file `hello.js.txt` because file extensions are hidden.
-- Assuming a package must be installed for built-in Node.js modules such as `node:fs` or `node:readline`.
-- Mixing CommonJS and ES module syntax without configuring module mode.
-
-### Activities
-1. Use `pwd` (macOS/Linux) or `Get-Location` (PowerShell) to announce the current directory, then navigate into the project.
-2. Create `profile.js` and print the canonical student name Avery, age 16, and favorite subject Computer Science.
-3. Add a `start` npm script and run the same program with `npm start`.
-4. Deliberately run Node.js from the wrong directory; read the error, correct the working directory, and rerun.
-
-### Accessibility Practice
-Use terminal commands and keyboard navigation throughout. Confirm the editor announces the file name and extension. Read the complete terminal error before acting on it. Keep output textual and sequential; do not make successful execution depend on a color change or visual notification.
-
-### Skills Checklist
-- [ ] I can create and enter a project directory from the terminal.
-- [ ] I can initialize and describe a package.json file.
-- [ ] I can run a JavaScript file with node and an npm script.
-- [ ] I can diagnose a wrong-working-directory error.
-- [ ] I can explain why a project should use one explicit module system.
-
-
