@@ -612,14 +612,16 @@
           "Replaced repeated within-unit example blocks with 53 distinct lesson-specific examples, aligned to canonical profile, calculator, scores, inventory, coordinates, text, CSV, task, and capstone contexts.",
           "Rewrote all 53 numbered lessons with Julia-specific concept explanations, three language-specific common mistakes, four targeted activities, accessibility practice, and five measurable checklist statements.",
           "Documented Julia-specific adaptations: one-based indexing, multiple dispatch, composite types, mutation conventions, TOML versus JSON dependencies, and standards-aware CSV parsing.",
-          "Added scripts/check_julia_examples.py and a Julia 1.12 GitHub Actions workflow to execute every fenced Julia example independently."
+          "Added scripts/check_julia_examples.py and a Julia 1.12 GitHub Actions workflow to execute every fenced Julia example independently.",
+          "Completed the full nine-section instructional structure for each of the four Unit 0 setup lessons."
         ],
         "validation": [
           "Four Unit 0 setup lessons and all 53 numbered Unit 1–11 lesson sections are present.",
           "All 53 numbered lessons contain the required lesson sections, three Julia-specific mistakes, four activities, and five checklist statements.",
           "All 53 numbered lesson examples are distinct; with four Unit 0 examples, the course contains 57 fenced Julia examples.",
           "Structural validation confirms balanced Markdown fences and the missing Unit 2 Lesson 2.5 counterpart is now present.",
-          "GitHub Actions run 41322088371 passed on Julia 1.12.7; all 57 fenced Julia examples executed successfully in isolated temporary directories."
+          "GitHub Actions run 41322088371 passed on Julia 1.12.7; all 57 fenced Julia examples executed successfully in isolated temporary directories.",
+          "All four Unit 0 lessons now include Reading References, Learning Objectives, Concept Explanation, Worked Example, Expected Behavior or Output, Common Mistakes, Activities, Accessibility Practice, and Skills Checklist."
         ],
         "not_yet_verified": [
           "Expected-output assertions and broader behavioral tests with representative invalid input and file fixtures; the current checker verifies successful process exit, not exact output.",
