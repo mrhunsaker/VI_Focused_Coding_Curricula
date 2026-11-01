@@ -45,6 +45,8 @@ def main() -> int:
             line = source.count("\n", 0, match.start()) + 1
             file_path = temp_path / f"example_{index:03}.c"
             file_path.write_text(code, encoding="utf-8")
+            has_main = re.search(r"\bmain\s*\(", code) is not None
+            output_path = temp_path / f"example_{index:03}"
             command = [
                 args.compiler,
                 f"-std={args.standard}",
@@ -52,9 +54,11 @@ def main() -> int:
                 "-Wextra",
                 "-Wpedantic",
                 "-Werror",
-                "-fsyntax-only",
-                str(file_path),
             ]
+            if has_main:
+                command.extend([str(file_path), "-o", str(output_path), "-lm"])
+            else:
+                command.extend(["-fsyntax-only", str(file_path)])
             result = subprocess.run(command, text=True, capture_output=True, check=False)
             if result.returncode != 0:
                 failures.append(
@@ -67,7 +71,12 @@ def main() -> int:
         print(f"FAILED: {len(failures)} of {len(examples)} C examples.", file=sys.stderr)
         return 1
 
-    print(f"PASS: all {len(examples)} fenced C examples passed syntax checks.")
+    linked = sum(1 for match in examples if re.search(r"\bmain\s*\(", match.group(1)))
+    syntax_only = len(examples) - linked
+    print(
+        f"PASS: {len(examples)} C examples checked; "
+        f"{linked} complete programs linked and {syntax_only} declaration/function fragments syntax-checked."
+    )
     return 0
 
 
