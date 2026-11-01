@@ -233,3 +233,13 @@ All implementation changes are recorded here. Each numbered step is committed se
 - Expanded all four C Unit 0 lessons into a complete instructional structure, covering compiler installation, workspace and working directory, editor/accessibility workflow, dependencies, include paths, and linker flags.
 - Updated `lesson_standardization.json` + " and `DEVELOPMENT/LESSON_STRUCTURE_AUDIT.md` + " with progress and verification boundaries.
 - Structural validation is recorded; no claim is made that all C examples have been compiled or executed. A local repository clone could not be completed because github.com DNS resolution failed in the available execution environment. GCC/Clang execution, a fresh mdBook build, complete link crawling, and hands-on screen-reader/braille testing remain outstanding.
+
+
+## 2026-11-01 — C17 compiler and linker verification
+
+- Added `scripts/check_c_examples.py`, which extracts all fenced C examples, compiles and links complete programs, and syntax-checks declaration/function fragments.
+- Added `.github/workflows/c-examples.yml` with GCC and Clang matrix jobs for C17.
+- GitHub Actions run [41316160464](https://github.com/mrhunsaker/VI_Focused_Coding_Curricula/actions/runs/41316160464) passed.
+- GCC 13.3.0 and Clang 18.1.3 each passed all 49 fenced C examples with `-Wall -Wextra -Wpedantic -Werror`: 46 complete programs linked successfully; 3 fragments passed syntax-only checks.
+- Updated the C course README, lesson overview, standardization JSON, and audit to record the verification scope accurately.
+- Remaining: runtime execution with representative input and file fixtures, fresh mdBook build, complete Markdown link crawl, and hands-on screen-reader/braille testing.
