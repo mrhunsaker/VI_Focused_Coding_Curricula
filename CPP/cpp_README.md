@@ -22,7 +22,7 @@ The course includes 53 numbered lessons across Units 1–11 and four structured 
 
 - [C++ example validation script](../scripts/check_cpp_examples.py)
 - [GCC/Clang GitHub Actions workflow](../.github/workflows/cpp-examples.yml)
-- [Validation run 41318260153](https://github.com/mrhunsaker/VI_Focused_Coding_Curricula/actions/runs/41318260153)
+- [Validation run 41318426947](https://github.com/mrhunsaker/VI_Focused_Coding_Curricula/actions/runs/41318426947)
 
 GCC 13.3.0 and Clang 18.1.3 each compiled and linked all 54 fenced C++ examples in C++20 mode with `-Wall -Wextra -Wpedantic -Werror`. The checker wraps lesson fragments in a minimal program and supplies common standard-library headers where needed.
 
