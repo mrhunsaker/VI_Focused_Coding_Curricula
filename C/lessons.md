@@ -350,15 +350,23 @@ Navigate the complete source file by line, word, and character using the learner
 - Modify and test the example independently.
 
 ### Concept Explanation
-Numeric conversions and mathematics. C is a compiled procedural language for operating systems, embedded software, libraries, and performance-sensitive programs. The Python course provides the sequence and problem contexts; this lesson teaches the idiomatic C syntax and semantics. Pay particular attention to static or dynamic typing, mutability, indexing, parameter passing, errors, and resource lifetime where they differ from Python.
+C integer types represent whole numbers; `float` and `double` represent approximate floating-point values. Converting a floating value to an integer truncates toward zero. Convert text with `strtol` or `strtod`, validate the end pointer, and check range errors. Mixed arithmetic follows the usual arithmetic conversions.
 
 ### Worked Example
 ```c
-double bill = 24.50; double tip = bill * 0.15;
-printf("Tip: %.2f; total: %.2f\n", tip, bill + tip);
+#include <stdio.h>
+#include <stdlib.h>
+int main(void)
+{
+    char age_text[] = "16", weight_text[] = "52.5", *end;
+    long age = strtol(age_text, &end, 10);
+    double weight = strtod(weight_text, &end);
+    printf("Age doubled: %ld\nWeight plus age: %.1f\n", age * 2, weight + age);
+    printf("Integer division: %d\nFloating division: %.1f\n", 5 / 2, 5.0 / 2);
+    return 0;
+}
 ```
-
-**Trace:** identify declarations, expressions, control flow, and observable output. Predict the result, run the example, and compare the actual output with the prediction.
+Expected values: 32, 68.5, 2, and 2.5. Extend the example to reject trailing characters and check `errno` for overflow.
 
 ### Common Mistakes
 - Copying Python syntax or assumptions instead of using idiomatic C constructs.
@@ -400,15 +408,21 @@ This unit covers Boolean expressions, conditionals, lists or arrays, iteration, 
 - Modify and test the example independently.
 
 ### Concept Explanation
-Boolean expressions. C is a compiled procedural language for operating systems, embedded software, libraries, and performance-sensitive programs. The Python course provides the sequence and problem contexts; this lesson teaches the idiomatic C syntax and semantics. Pay particular attention to static or dynamic typing, mutability, indexing, parameter passing, errors, and resource lifetime where they differ from Python.
+Relational operators (`==`, `!=`, `<`, `>`, `<=`, `>=`) produce an integer truth value: zero is false and nonzero is true. Logical operators are `&&`, `||`, and `!`; `&&` and `||` short-circuit. Use braces for conditional blocks.
 
 ### Worked Example
 ```c
-int score = 82;
-if (score >= 90) puts("A"); else if (score >= 80) puts("B"); else puts("Keep practicing");
+#include <stdio.h>
+int main(void)
+{
+    int score = 82, attendance = 95;
+    if (score >= 70 && attendance >= 80) puts("Meets the course criteria.");
+    if (score == 100 || attendance == 100) puts("At least one perfect result.");
+    if (!(score < 0)) puts("Score is not negative.");
+    return 0;
+}
 ```
-
-**Trace:** identify declarations, expressions, control flow, and observable output. Predict the result, run the example, and compare the actual output with the prediction.
+Expected output: `Meets the course criteria.` and `Score is not negative.`
 
 ### Common Mistakes
 - Copying Python syntax or assumptions instead of using idiomatic C constructs.
@@ -444,15 +458,29 @@ Navigate the complete source file by line, word, and character using the learner
 - Modify and test the example independently.
 
 ### Concept Explanation
-Chained conditionals. C is a compiled procedural language for operating systems, embedded software, libraries, and performance-sensitive programs. The Python course provides the sequence and problem contexts; this lesson teaches the idiomatic C syntax and semantics. Pay particular attention to static or dynamic typing, mutability, indexing, parameter passing, errors, and resource lifetime where they differ from Python.
+Use `if`, `else if`, and `else` for mutually exclusive choices. Apply the shared grade thresholds from highest to lowest and reject scores outside 0–100 before classification.
 
 ### Worked Example
 ```c
-int score = 82;
-if (score >= 90) puts("A"); else if (score >= 80) puts("B"); else puts("Keep practicing");
+#include <stdio.h>
+char grade_for(int score)
+{
+    if (score < 0 || score > 100) return '?';
+    if (score >= 90) return 'A';
+    else if (score >= 80) return 'B';
+    else if (score >= 70) return 'C';
+    else if (score >= 60) return 'D';
+    else return 'F';
+}
+int main(void)
+{
+    int tests[] = {91, 90, 82, 80, 76, 70, 60, 0, -1, 101};
+    for (size_t i = 0; i < sizeof tests / sizeof tests[0]; ++i)
+        printf("%d -> %c\n", tests[i], grade_for(tests[i]));
+    return 0;
+}
 ```
-
-**Trace:** identify declarations, expressions, control flow, and observable output. Predict the result, run the example, and compare the actual output with the prediction.
+Expected mapping: 91/A, 90/A, 82/B, 80/B, 76/C, 70/C, 60/D, 0/F; -1 and 101 are invalid (`?`).
 
 ### Common Mistakes
 - Copying Python syntax or assumptions instead of using idiomatic C constructs.
@@ -488,15 +516,22 @@ Navigate the complete source file by line, word, and character using the learner
 - Modify and test the example independently.
 
 ### Concept Explanation
-Sequences and indexing. C is a compiled procedural language for operating systems, embedded software, libraries, and performance-sensitive programs. The Python course provides the sequence and problem contexts; this lesson teaches the idiomatic C syntax and semantics. Pay particular attention to static or dynamic typing, mutability, indexing, parameter passing, errors, and resource lifetime where they differ from Python.
+C arrays store a fixed number of elements of one type. Indexing begins at zero and C does not automatically check bounds. A four-element array has valid indices 0–3. When an array is passed to a function, pass its length separately.
 
 ### Worked Example
 ```c
-int score = 82;
-if (score >= 90) puts("A"); else if (score >= 80) puts("B"); else puts("Keep practicing");
+#include <stdio.h>
+int main(void)
+{
+    int scores[] = {82, 91, 76, 88};
+    size_t count = sizeof scores / sizeof scores[0];
+    printf("First: %d\nLast: %d\nCount: %zu\n", scores[0], scores[count - 1], count);
+    scores[2] = 80;
+    printf("Updated third score: %d\n", scores[2]);
+    return 0;
+}
 ```
-
-**Trace:** identify declarations, expressions, control flow, and observable output. Predict the result, run the example, and compare the actual output with the prediction.
+Expected output: first 82, last 88, count 4, updated third score 80.
 
 ### Common Mistakes
 - Copying Python syntax or assumptions instead of using idiomatic C constructs.
@@ -532,15 +567,22 @@ Navigate the complete source file by line, word, and character using the learner
 - Modify and test the example independently.
 
 ### Concept Explanation
-For loops and iteration. C is a compiled procedural language for operating systems, embedded software, libraries, and performance-sensitive programs. The Python course provides the sequence and problem contexts; this lesson teaches the idiomatic C syntax and semantics. Pay particular attention to static or dynamic typing, mutability, indexing, parameter passing, errors, and resource lifetime where they differ from Python.
+A `for` loop has initialization, continuation condition, and update expression. Traverse the shared score array with a known count. Use `size_t` for indices and convert the total to `double` before calculating the average.
 
 ### Worked Example
 ```c
-int score = 82;
-if (score >= 90) puts("A"); else if (score >= 80) puts("B"); else puts("Keep practicing");
+#include <stdio.h>
+int main(void)
+{
+    int scores[] = {82, 91, 76, 88};
+    size_t count = sizeof scores / sizeof scores[0];
+    int total = 0;
+    for (size_t i = 0; i < count; ++i) { printf("Score %zu: %d\n", i + 1, scores[i]); total += scores[i]; }
+    printf("Total: %d\nAverage: %.2f\n", total, (double) total / count);
+    return 0;
+}
 ```
-
-**Trace:** identify declarations, expressions, control flow, and observable output. Predict the result, run the example, and compare the actual output with the prediction.
+Expected total: 337; average: 84.25.
 
 ### Common Mistakes
 - Copying Python syntax or assumptions instead of using idiomatic C constructs.
@@ -576,15 +618,26 @@ Navigate the complete source file by line, word, and character using the learner
 - Modify and test the example independently.
 
 ### Concept Explanation
-String operations. C is a compiled procedural language for operating systems, embedded software, libraries, and performance-sensitive programs. The Python course provides the sequence and problem contexts; this lesson teaches the idiomatic C syntax and semantics. Pay particular attention to static or dynamic typing, mutability, indexing, parameter passing, errors, and resource lifetime where they differ from Python.
+C strings are null-terminated character sequences. Use `strlen`, `strcmp`, and `strstr` from `string.h`; ensure every destination buffer has enough capacity. This example processes ASCII bytes. `strlen` counts bytes, not user-perceived Unicode characters.
 
 ### Worked Example
 ```c
-int score = 82;
-if (score >= 90) puts("A"); else if (score >= 80) puts("B"); else puts("Keep practicing");
+#include <stdio.h>
+#include <string.h>
+#include <ctype.h>
+int main(void)
+{
+    const char sample[] = "A student studies programming. Programming develops problem-solving skills.";
+    char normalized[sizeof sample];
+    size_t length = strlen(sample);
+    for (size_t i = 0; i <= length; ++i) normalized[i] = (char)tolower((unsigned char)sample[i]);
+    printf("Byte length: %zu\n", length);
+    printf("Lowercase: %s\n", normalized);
+    printf("Contains programming: %s\n", strstr(normalized, "programming") ? "yes" : "no");
+    return 0;
+}
 ```
-
-**Trace:** identify declarations, expressions, control flow, and observable output. Predict the result, run the example, and compare the actual output with the prediction.
+Expected byte length: 75; substring result: yes. The cast to `unsigned char` is required for safe use of `tolower`.
 
 ### Common Mistakes
 - Copying Python syntax or assumptions instead of using idiomatic C constructs.
