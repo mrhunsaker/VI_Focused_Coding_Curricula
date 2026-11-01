@@ -280,3 +280,14 @@ All implementation changes are recorded here. Each numbered step is committed se
 - GitHub Actions run [41322088371](https://github.com/mrhunsaker/VI_Focused_Coding_Curricula/actions/runs/41322088371) passed on Julia 1.12.7: all 57 fenced Julia examples executed successfully. One soft-scope issue found by the initial run was corrected before the successful run. This smoke check does not assert expected output or replace end-to-end application tests.
 
 - A final setup pass standardized all four Unit 0 Julia lessons with the full nine-section instructional sequence, including expected behavior and lesson-specific mistakes, activities, accessibility practice, and skills criteria.
+
+
+## 2026-11-01 — Swift lesson-quality and runtime-validation workflow
+
+- Expanded all four Swift Unit 0 setup lessons with installation, compiler/interpreter verification, workspace and path behavior, accessible editor setup, and Swift Package Manager guidance.
+- Added the missing Python Unit 2 Lesson 2.5 counterpart covering Foundation math, circle calculations, and distance from the origin.
+- Replaced repeated Swift examples with 53 distinct lesson-specific examples aligned to shared canonical data and problem contexts.
+- Reworked all 53 numbered lessons with Swift-specific explanations, three common mistakes, four targeted activities, accessibility practice, and five measurable skills criteria.
+- Documented value semantics, optionals, protocols, argument labels, throwing file operations, Codable, and robust CSV parsing boundaries.
+- Added `scripts/check_swift_examples.py` and `.github/workflows/swift-examples.yml` to execute all fenced examples under Swift 6. CI result is pending.
+- Remaining: runtime result confirmation, expected-output and end-to-end tests, mdBook/link validation, and hands-on screen-reader/braille testing.
