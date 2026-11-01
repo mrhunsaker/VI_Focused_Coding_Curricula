@@ -1,37 +1,16 @@
-# Introduction to C
+# C Curriculum
 
-## Standalone beginner curriculum
+C is a compiled procedural language for operating systems, embedded software, libraries, and performance-sensitive programs.
 
-C is a procedural, statically typed, compiled language. It is widely used for operating systems, embedded firmware, device drivers, networking stacks, language runtimes, and performance-sensitive libraries.
+## Course structure
 
-## What information is a good fit?
+A complete introductory sequence aligned to Python Units 0–11: setup; foundations; numeric computation; control flow; data structures; input and iteration; functions; object-oriented design; files and exceptions; testing and data analysis; projects; and capstone. The same core problem contexts recur across languages so students focus on syntax, types, runtime behavior, libraries, and idioms.
 
-C is appropriate when software must work directly with bytes, fixed-width integers, memory buffers, binary records, or data structures whose layout and lifetime must be controlled. Programmers must validate sizes and manage memory carefully; C does not provide automatic bounds checking or garbage collection.
+## Environment
 
-## Lessons
+Install GCC or Clang (C17); compile with cc -std=c17 -Wall -Wextra -Wpedantic -g main.c -o main; run ./main.
 
-1. Compiler, source files, and translation units.
-2. Types, expressions, and formatted input/output.
-3. Conditions and loops.
-4. Functions, headers, and separate compilation.
-5. Arrays, strings, and pointer fundamentals.
-6. Structs, enums, and data modeling.
-7. Dynamic memory and ownership discipline.
-8. Files, error codes, and defensive input.
-9. Debugging, sanitizers, and unit tests.
-10. Systems-oriented capstone.
+Complete the shared [IDE setup lesson](../DEVELOPMENT/IDE_SETUP.md) and [terminal prerequisite](../TERMINAL/TERMINAL_README.md). The course supports keyboard-first work with screen readers, braille displays, magnification, or other access technology.
 
-## First program
-
-~~~c
-#include <stdio.h>
-int main(void) {
-    int count = 3;
-    printf("Count: %d\n", count);
-    return 0;
-}
-~~~
-
-Toolchain: GCC or Clang. Compile with warnings enabled and a declared language standard. This course follows keyboard-first, text-based practice; read compiler diagnostics carefully and test boundary conditions.
-
-See [C lessons](lessons.md) and [topic index](INDEX.md).
+- [Complete lessons](lessons.md)
+- [Topic index](INDEX.md)
