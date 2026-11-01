@@ -76,13 +76,24 @@ def main() -> int:
                     f"Example {index} (CSHARP/lessons.md:{line}) failed to build:\n"
                     f"{result.stdout}{result.stderr}"
                 )
+            else:
+                execution = run(
+                    [args.dotnet, "run", "--no-build", "--no-restore"],
+                    cwd=project_dir,
+                )
+                if execution.returncode:
+                    failures.append(
+                        f"Example {index} (CSHARP/lessons.md:{line}) failed at runtime:\\n"
+                        f"{execution.stdout}{execution.stderr}"
+                    )
+
 
     if failures:
         print("\n\n".join(failures), file=sys.stderr)
         print(f"FAILED: {len(failures)} of {len(examples)} C# examples.", file=sys.stderr)
         return 1
 
-    print(f"PASS: all {len(examples)} C# lesson examples compiled and linked.")
+    print(f"PASS: all {len(examples)} C# lesson examples compiled, linked, and executed.")
     return 0
 
 
