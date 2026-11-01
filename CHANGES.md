@@ -192,3 +192,13 @@ All implementation changes are recorded here. Each numbered step is committed se
 - Updated mdBook navigation, the root README, and the curriculum overview to identify all eleven independent language tracks and the shared terminal prerequisite.
 - Preserved existing Python, JavaScript, TypeScript, and Java lesson content. The reference-only cs_curriculum_final/ directory remains untouched.
 - Validation: source files and relative navigation prepared; mdBook build and full link validation remain to be run before merge.
+
+
+## 2026-11-01 — Standalone IDE setup and lesson-structure audit
+
+- Added `DEVELOPMENT/IDE_SETUP.md`, a standalone, screen-reader-aware lesson with step-by-step installation instructions for Visual Studio Code, VSCodium, and Eclipse Theia on Windows, macOS, and Linux.
+- Interpreted the request's “Vicodin” as **VSCodium**, the VS Code-derived community distribution, and documented the differences in extension registries and compatibility.
+- Compared IDEs with Notepad++, BBEdit, Sublime Text, and lightweight Linux editors; documented advantages, disadvantages, accessibility considerations, and the course's AI-use restrictions.
+- Added `DEVELOPMENT/LESSON_STRUCTURE_AUDIT.md` with a heading-level audit of the Python, JavaScript, TypeScript, Java, Kotlin, C, C++, C#, Julia, Swift, Rust, Bash, and PowerShell lesson files. The audit explicitly records that the current repository is not yet fully standardized and defines a common instructional structure for a future normalization pass.
+- Added links to the standalone IDE lesson and audit in mdBook navigation, the root README, the curriculum overview, and the Python landing page.
+- Validation: checked the new lesson and audit against the repository's existing navigation and lesson organization. A complete mdBook build and rendered accessibility test have not been run in this update.
