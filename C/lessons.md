@@ -2232,14 +2232,10 @@ This unit covers requirements, top-down design, text adventure, command-line to-
 - Modify and test the example independently.
 
 ### Concept Explanation
-Requirements and design. C is a compiled procedural language for operating systems, embedded software, libraries, and performance-sensitive programs. The Python course provides the sequence and problem contexts; this lesson teaches the idiomatic C syntax and semantics. Pay particular attention to static or dynamic typing, mutability, indexing, parameter passing, errors, and resource lifetime where they differ from Python.
+Use top-down design to break an application into input, processing, storage, and output functions. Preserve the same requirements as the Python project: clear prompts, labeled output, confirmation messages, validation, and text-only operation. Write pseudocode and acceptance tests before coding.
 
 ### Worked Example
-```c
-/* Build a menu-driven personal data manager using structs, arrays, validation, and files. */
-```
-
-**Trace:** identify declarations, expressions, control flow, and observable output. Predict the result, run the example, and compare the actual output with the prediction.
+Design the to-do manager around the operations add task, view tasks, mark task complete, save tasks, load tasks, and quit. Define the task fields as `id`, `title`, `description`, `done`, and `created_at`. Specify the behavior for an empty list, an invalid task number, and a missing data file.
 
 ### Common Mistakes
 - Copying Python syntax or assumptions instead of using idiomatic C constructs.
@@ -2275,14 +2271,28 @@ Navigate the complete source file by line, word, and character using the learner
 - Modify and test the example independently.
 
 ### Concept Explanation
-Text adventure: rooms and movement. C is a compiled procedural language for operating systems, embedded software, libraries, and performance-sensitive programs. The Python course provides the sequence and problem contexts; this lesson teaches the idiomatic C syntax and semantics. Pay particular attention to static or dynamic typing, mutability, indexing, parameter passing, errors, and resource lifetime where they differ from Python.
+Represent rooms as records containing a room identifier, description, and exits. Track the current room by index or identifier. A movement command is valid only if the current room has an exit in that direction. Normalize commands consistently and always provide a textual description of the new location.
 
 ### Worked Example
 ```c
-/* Build a menu-driven personal data manager using structs, arrays, validation, and files. */
+#include <stdio.h>
+#include <string.h>
+typedef struct { const char *name; const char *description; int north, east, south, west; } Room;
+int main(void)
+{
+    Room rooms[] = {
+        {"start_room", "You are in a dimly lit cave. A passage leads NORTH.", 1, -1, -1, -1},
+        {"tunnel", "The tunnel is damp and cold. You can go SOUTH or EAST.", -1, 2, 0, -1},
+        {"clearing", "You are in a sunny clearing. A path leads WEST.", -1, -1, -1, 1}
+    };
+    int current = 0;
+    printf("%s\n", rooms[current].description);
+    current = rooms[current].north;
+    printf("%s\n", rooms[current].description);
+    return 0;
+}
 ```
-
-**Trace:** identify declarations, expressions, control flow, and observable output. Predict the result, run the example, and compare the actual output with the prediction.
+The first room leads north to the tunnel; the tunnel leads east to the clearing and south back to the cave. Extend this model with a command parser and a `quit` command. `-1` means that no exit exists in that direction.
 
 ### Common Mistakes
 - Copying Python syntax or assumptions instead of using idiomatic C constructs.
@@ -2318,14 +2328,28 @@ Navigate the complete source file by line, word, and character using the learner
 - Modify and test the example independently.
 
 ### Concept Explanation
-Text adventure: inventory and puzzles. C is a compiled procedural language for operating systems, embedded software, libraries, and performance-sensitive programs. The Python course provides the sequence and problem contexts; this lesson teaches the idiomatic C syntax and semantics. Pay particular attention to static or dynamic typing, mutability, indexing, parameter passing, errors, and resource lifetime where they differ from Python.
+Extend the same cave-and-tunnel adventure with a shiny key, a player inventory, and a locked door. An item must be removed from the room when picked up and added to the inventory. The door unlocks only when the player is in the correct room and has the key. Keep command responses explicit.
 
 ### Worked Example
 ```c
-/* Build a menu-driven personal data manager using structs, arrays, validation, and files. */
+#include <stdio.h>
+#include <string.h>
+int main(void)
+{
+    int key_in_room = 1, has_key = 0, door_locked = 1;
+    char command[80];
+    puts("A dark cave. There is a shiny key here.");
+    printf("Command (take key): ");
+    if (!fgets(command, sizeof command, stdin)) return 1;
+    command[strcspn(command, "\n")] = '\0';
+    if (strcmp(command, "take key") == 0 && key_in_room) {
+        key_in_room = 0; has_key = 1; puts("You picked up the shiny key.");
+    }
+    if (has_key && door_locked) { door_locked = 0; puts("The key can unlock the door."); }
+    return 0;
+}
 ```
-
-**Trace:** identify declarations, expressions, control flow, and observable output. Predict the result, run the example, and compare the actual output with the prediction.
+This is a small state-transition demonstration, not the complete game. Extend it with the same room movement rules from Lesson 10.2, then test taking the key twice, trying to unlock without the key, and using the key in the wrong room.
 
 ### Common Mistakes
 - Copying Python syntax or assumptions instead of using idiomatic C constructs.
@@ -2361,14 +2385,39 @@ Navigate the complete source file by line, word, and character using the learner
 - Modify and test the example independently.
 
 ### Concept Explanation
-Command-line to-do manager. C is a compiled procedural language for operating systems, embedded software, libraries, and performance-sensitive programs. The Python course provides the sequence and problem contexts; this lesson teaches the idiomatic C syntax and semantics. Pay particular attention to static or dynamic typing, mutability, indexing, parameter passing, errors, and resource lifetime where they differ from Python.
+Build a command-line to-do tool with a menu loop and separate functions for adding, viewing, completing, saving, and loading tasks. Use the shared task fields and provide confirmations. C has no standard JSON support; for this project either choose a maintained JSON library and document its build instructions, or use a clearly documented simple text format while teaching JSON serialization separately in Lesson 8.5. Do not label a custom text format as JSON.
 
 ### Worked Example
 ```c
-/* Build a menu-driven personal data manager using structs, arrays, validation, and files. */
+#include <stdio.h>
+#include <string.h>
+typedef struct { char title[80]; int done; } Task;
+void show_tasks(const Task tasks[], size_t count)
+{
+    if (count == 0) { puts("No tasks in your list."); return; }
+    for (size_t i = 0; i < count; ++i)
+        printf("%zu. [%c] %s\n", i + 1, tasks[i].done ? 'X' : ' ', tasks[i].title);
+}
+int main(void)
+{
+    Task tasks[50] = {0}; size_t count = 0; char line[100];
+    for (;;) {
+        puts("1 Add task  2 View tasks  3 Quit");
+        printf("Choice: ");
+        if (!fgets(line, sizeof line, stdin)) break;
+        if (line[0] == '1' && count < 50) {
+            printf("Task title: ");
+            if (!fgets(tasks[count].title, sizeof tasks[count].title, stdin)) break;
+            tasks[count].title[strcspn(tasks[count].title, "\n")] = '\0';
+            tasks[count++].done = 0; puts("Task added.");
+        } else if (line[0] == '2') show_tasks(tasks, count);
+        else if (line[0] == '3') break;
+        else puts("Invalid choice.");
+    }
+    return 0;
+}
 ```
-
-**Trace:** identify declarations, expressions, control flow, and observable output. Predict the result, run the example, and compare the actual output with the prediction.
+This starter implements add, view, and quit with a fixed capacity of 50 tasks. Extend it with completion and persistence, checking every input and file operation.
 
 ### Common Mistakes
 - Copying Python syntax or assumptions instead of using idiomatic C constructs.
@@ -2404,14 +2453,28 @@ Navigate the complete source file by line, word, and character using the learner
 - Modify and test the example independently.
 
 ### Concept Explanation
-Accessible UX and validation. C is a compiled procedural language for operating systems, embedded software, libraries, and performance-sensitive programs. The Python course provides the sequence and problem contexts; this lesson teaches the idiomatic C syntax and semantics. Pay particular attention to static or dynamic typing, mutability, indexing, parameter passing, errors, and resource lifetime where they differ from Python.
+Accessible text interfaces use explicit prompts, consistent labels, predictable menu order, and clear confirmations. Validate all input before changing state. On errors, state what was wrong and how to correct it. Do not rely on color, position, or symbols alone to convey task status. For a screen-reader workflow, ensure output is announced in a useful sequence.
 
 ### Worked Example
 ```c
-/* Build a menu-driven personal data manager using structs, arrays, validation, and files. */
+#include <stdio.h>
+#include <stdlib.h>
+int main(void)
+{
+    char line[80], *end;
+    long age;
+    for (;;) {
+        printf("Enter your age as a positive whole number: ");
+        if (!fgets(line, sizeof line, stdin)) return 1;
+        age = strtol(line, &end, 10);
+        if (end != line && age > 0) break;
+        puts("Invalid age. Enter a whole number greater than zero.");
+    }
+    printf("You entered age: %ld\n", age);
+    return 0;
+}
 ```
-
-**Trace:** identify declarations, expressions, control flow, and observable output. Predict the result, run the example, and compare the actual output with the prediction.
+The program repeats until it receives a positive integer. Improve it by rejecting trailing non-whitespace characters and checking `errno` for overflow.
 
 ### Common Mistakes
 - Copying Python syntax or assumptions instead of using idiomatic C constructs.
@@ -2453,14 +2516,10 @@ This unit covers accessible personal-data manager, model, persistence, CRUD, tes
 - Modify and test the example independently.
 
 ### Concept Explanation
-Capstone requirements. C is a compiled procedural language for operating systems, embedded software, libraries, and performance-sensitive programs. The Python course provides the sequence and problem contexts; this lesson teaches the idiomatic C syntax and semantics. Pay particular attention to static or dynamic typing, mutability, indexing, parameter passing, errors, and resource lifetime where they differ from Python.
+The Python capstone uses NiceGUI, but that framework is Python-specific. The C course must preserve the same user-facing data-manager requirements without pretending that NiceGUI has a C equivalent. Implement a keyboard-operable terminal interface first; a graphical interface is an optional extension using a separately selected C-compatible toolkit. The core record fields, operations, validation, persistence, tests, and accessibility acceptance criteria remain the same.
 
 ### Worked Example
-```c
-/* Build a menu-driven personal data manager using structs, arrays, validation, and files. */
-```
-
-**Trace:** identify declarations, expressions, control flow, and observable output. Predict the result, run the example, and compare the actual output with the prediction.
+Choose one collection: contacts, books/movies, to-do tasks, or inventory. Define fields, required values, validation rules, and the five required operations: add, view, edit, delete, save/load. For the to-do option, use `id`, `title`, `description`, `done`, and `created_at`. Document that the reference Python GUI is replaced by an accessible terminal interface in this C implementation.
 
 ### Common Mistakes
 - Copying Python syntax or assumptions instead of using idiomatic C constructs.
@@ -2496,14 +2555,21 @@ Navigate the complete source file by line, word, and character using the learner
 - Modify and test the example independently.
 
 ### Concept Explanation
-Data model and storage. C is a compiled procedural language for operating systems, embedded software, libraries, and performance-sensitive programs. The Python course provides the sequence and problem contexts; this lesson teaches the idiomatic C syntax and semantics. Pay particular attention to static or dynamic typing, mutability, indexing, parameter passing, errors, and resource lifetime where they differ from Python.
+Define a C struct for the shared capstone record and choose a clear ownership strategy for strings. Fixed-size arrays are acceptable for a small beginner project if maximum lengths are documented and input is bounded. For persistent data, use a maintained JSON library and document its version, dependency setup, and error handling. The C standard library does not provide JSON serialization.
 
 ### Worked Example
 ```c
-/* Build a menu-driven personal data manager using structs, arrays, validation, and files. */
+#include <stddef.h>
+typedef struct {
+    int id;
+    char title[80];
+    char description[240];
+    char category[40];
+    char created_at[32];
+    char updated_at[32];
+} DataItem;
 ```
-
-**Trace:** identify declarations, expressions, control flow, and observable output. Predict the result, run the example, and compare the actual output with the prediction.
+The record contains the exact canonical capstone fields. Define which fields are required, how empty strings are handled, and how IDs and timestamps are generated. The serialization layer must preserve all fields when saving and loading.
 
 ### Common Mistakes
 - Copying Python syntax or assumptions instead of using idiomatic C constructs.
@@ -2539,14 +2605,30 @@ Navigate the complete source file by line, word, and character using the learner
 - Modify and test the example independently.
 
 ### Concept Explanation
-Create/read/update/delete. C is a compiled procedural language for operating systems, embedded software, libraries, and performance-sensitive programs. The Python course provides the sequence and problem contexts; this lesson teaches the idiomatic C syntax and semantics. Pay particular attention to static or dynamic typing, mutability, indexing, parameter passing, errors, and resource lifetime where they differ from Python.
+Implement create, read, update, and delete operations as separate functions that operate on the same collection and report success or failure. Validate an identifier before modifying a record. After every operation, refresh the displayed list and persist successful changes. Avoid returning pointers to local stack variables.
 
 ### Worked Example
 ```c
-/* Build a menu-driven personal data manager using structs, arrays, validation, and files. */
+#include <stdio.h>
+#include <string.h>
+typedef struct { int id; char title[80]; int done; } Task;
+int find_task(const Task tasks[], size_t count, int id)
+{
+    for (size_t i = 0; i < count; ++i) if (tasks[i].id == id) return (int)i;
+    return -1;
+}
+int main(void)
+{
+    Task tasks[] = {{1, "Read C lesson", 0}, {2, "Practice arrays", 1}};
+    size_t count = sizeof tasks / sizeof tasks[0];
+    int index = find_task(tasks, count, 1);
+    if (index >= 0) { strcpy(tasks[index].title, "Review C arrays"); tasks[index].done = 1; }
+    for (size_t i = 0; i < count; ++i)
+        printf("%d: %s (%s)\n", tasks[i].id, tasks[i].title, tasks[i].done ? "done" : "open");
+    return 0;
+}
 ```
-
-**Trace:** identify declarations, expressions, control flow, and observable output. Predict the result, run the example, and compare the actual output with the prediction.
+Expected state: task 1 is renamed to Review C arrays and marked done; task 2 is unchanged. Add bounds-safe input and implement add/delete operations using the same ID lookup.
 
 ### Common Mistakes
 - Copying Python syntax or assumptions instead of using idiomatic C constructs.
@@ -2582,14 +2664,25 @@ Navigate the complete source file by line, word, and character using the learner
 - Modify and test the example independently.
 
 ### Concept Explanation
-Validation and testing. C is a compiled procedural language for operating systems, embedded software, libraries, and performance-sensitive programs. The Python course provides the sequence and problem contexts; this lesson teaches the idiomatic C syntax and semantics. Pay particular attention to static or dynamic typing, mutability, indexing, parameter passing, errors, and resource lifetime where they differ from Python.
+Validate required fields before creating or updating a record. Test duplicate IDs, empty titles, overlong input, missing files, malformed JSON, and operations on unknown IDs. Keep deterministic logic separate from terminal input so it can be tested. In C, use assertions or a test framework and run with compiler warnings; consider AddressSanitizer and UndefinedBehaviorSanitizer during development.
 
 ### Worked Example
 ```c
-/* Build a menu-driven personal data manager using structs, arrays, validation, and files. */
+#include <assert.h>
+#include <string.h>
+int valid_title(const char *title)
+{
+    return title != NULL && title[0] != '\0';
+}
+int main(void)
+{
+    assert(valid_title("Read C lesson"));
+    assert(!valid_title(""));
+    assert(!valid_title(NULL));
+    return 0;
+}
 ```
-
-**Trace:** identify declarations, expressions, control flow, and observable output. Predict the result, run the example, and compare the actual output with the prediction.
+All assertions pass with exit status 0. Add tests for the full CRUD functions and compile a debug build with `-fsanitize=address,undefined -fno-omit-frame-pointer` where supported.
 
 ### Common Mistakes
 - Copying Python syntax or assumptions instead of using idiomatic C constructs.
@@ -2625,14 +2718,10 @@ Navigate the complete source file by line, word, and character using the learner
 - Modify and test the example independently.
 
 ### Concept Explanation
-Documentation and presentation. C is a compiled procedural language for operating systems, embedded software, libraries, and performance-sensitive programs. The Python course provides the sequence and problem contexts; this lesson teaches the idiomatic C syntax and semantics. Pay particular attention to static or dynamic typing, mutability, indexing, parameter passing, errors, and resource lifetime where they differ from Python.
+The deliverable includes source code, sample data, a README, build/run instructions, a description of the data format, and a reflection on accessibility. Document the compiler version, exact build command, external dependencies, file locations, and keyboard commands. Ensure prompts and status messages are meaningful when read linearly. Do not claim screen-reader testing unless it has actually been performed.
 
 ### Worked Example
-```c
-/* Build a menu-driven personal data manager using structs, arrays, validation, and files. */
-```
-
-**Trace:** identify declarations, expressions, control flow, and observable output. Predict the result, run the example, and compare the actual output with the prediction.
+README acceptance checklist: explain the selected data-manager domain; list the exact fields; document add/view/edit/delete/save/load; provide compile and run commands; describe how to navigate the menu by keyboard; explain how to recover from invalid input; include sample data and known limitations; record the screen reader and operating-system tests actually performed.
 
 ### Common Mistakes
 - Copying Python syntax or assumptions instead of using idiomatic C constructs.
