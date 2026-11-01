@@ -2,7 +2,7 @@ import fs from "node:fs";
 import os from "node:os";
 import path from "node:path";
 import { pathToFileURL } from "node:url";
-import * as ts from "typescript";
+import { execFileSync } from "node:child_process";
 
 const files = [
   "TYPESCRIPT/unit00-01-setup-foundations.md",
@@ -47,25 +47,18 @@ try {
   }
   if (lessonCount !== 57) errors.push(`Expected 57 lesson sections; found ${lessonCount}`);
   const sourceFiles = fs.readdirSync(temp).filter(name => name.endsWith(".ts")).map(name => path.join(temp, name));
-  const options = {
-    strict: true,
-    noEmit: true,
-    target: ts.ScriptTarget.ES2022,
-    module: ts.ModuleKind.NodeNext,
-    moduleResolution: ts.ModuleResolutionKind.NodeNext,
-    types: ["node"],
-    esModuleInterop: true,
-    skipLibCheck: true,
-    exactOptionalPropertyTypes: true
-  };
-  const program = ts.createProgram(sourceFiles, options);
-  const diagnostics = ts.getPreEmitDiagnostics(program);
-  for (const diagnostic of diagnostics) {
-    const message = ts.flattenDiagnosticMessageText(diagnostic.messageText, "\n");
-    const location = diagnostic.file && diagnostic.start !== undefined
-      ? `${path.basename(diagnostic.file.fileName)}:${diagnostic.file.getLineAndCharacterOfPosition(diagnostic.start).line + 1}`
-      : "TypeScript compiler";
-    errors.push(`${location}: ${message}`);
+  const compiler = path.join(process.cwd(), "node_modules", ".bin", "tsc");
+  const args = [
+    "--noEmit", "--strict", "--target", "ES2022",
+    "--module", "NodeNext", "--moduleResolution", "NodeNext",
+    "--types", "node", "--esModuleInterop", "--skipLibCheck",
+    ...sourceFiles
+  ];
+  try {
+    execFileSync(compiler, args, { cwd: temp, stdio: "pipe", encoding: "utf8" });
+  } catch (error) {
+    const output = error.stdout || error.stderr || error.message;
+    errors.push(String(output));
   }
   if (errors.length) {
     console.error(errors.join("\n"));
