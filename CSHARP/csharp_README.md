@@ -24,3 +24,7 @@ The complete course has four structured Unit 0 setup lessons and 53 numbered les
 - [GitHub Actions .NET 10 / C# 14 workflow](../.github/workflows/csharp-examples.yml)
 
 The automated check builds and executes every fenced C# example as a separate .NET 10 console program with nullable analysis enabled and compiler warnings treated as errors. [GitHub Actions run 41320247156](https://github.com/mrhunsaker/VI_Focused_Coding_Curricula/actions/runs/41320247156) passed with .NET SDK 10.0.403; all 53 examples compiled, linked, and exited successfully. This is a smoke-execution check, not full behavioral validation: expected-output assertions, broader invalid-input/file fixtures, and the complete capstone application still require testing. Hands-on accessibility validation remains separate.
+
+## GUI, visualization, and workbench accessibility
+
+See the shared [GUI, visualization, and workbench accessibility reference](../DEVELOPMENT/GUI_VISUALIZATION_ACCESSIBILITY.md) for screen-reader support by toolkit, platform-specific activation settings, recommended alternatives, and interfaces that must not be required without an equivalent accessible route.
