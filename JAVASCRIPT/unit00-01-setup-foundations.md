@@ -6,6 +6,16 @@
 
 Node.js 26 LTS lets you run JavaScript on your computer (outside a browser) using the terminal. Install the current LTS line, not an obsolete tutorial version or an experimental prerelease.
 
+### Reading References
+- Official Node.js downloads and installation documentation.
+
+### Learning Objectives
+- Install a supported Node.js LTS runtime and npm.
+- Verify the runtime from a terminal.
+
+### Concept Explanation
+Node.js is the JavaScript runtime used for this course. npm is the package manager distributed with Node.js. The terminal must be able to locate both commands through PATH.
+
 ### Installing Node.js
 
 Download **Node.js 26 LTS** from [https://nodejs.org/](https://nodejs.org/).
@@ -50,6 +60,9 @@ npm --version      # Should show npm version
 
 ---
 
+### Expected Behavior or Output
+The terminal reports a Node.js version in the documented supported major line and an npm version. The REPL accepts a short expression and prints its result.
+
 ### Common Mistakes
 - Installing a runtime but not reopening the terminal, so PATH changes are not visible.
 - Installing a version that is unsupported or inconsistent with the course baseline.
@@ -74,6 +87,17 @@ For a new project, create a package manifest with npm init -y. Choose one module
    - **JavaScript (ES6) code snippets** — Handy code shortcuts.
    - **ESLint** — Catches common errors.
 3. In VS Code, enable Screen Reader Mode: `Ctrl + Shift + P` → "Toggle Screen Reader Optimized". In Theia, enable its corresponding screen-reader setting and verify editor, terminal, diagnostics, and extension announcements.
+
+### Reading References
+- Visual Studio Code accessibility documentation.
+- Theia IDE documentation and extension marketplace guidance.
+
+### Learning Objectives
+- Configure an editor for JavaScript development.
+- Navigate files, editor, terminal, and diagnostics by keyboard.
+
+### Concept Explanation
+An editor provides source navigation and language tooling; it does not replace the Node.js runtime. Keyboard shortcuts and extension availability can differ between VS Code and Theia.
 
 ### VS Code Shortcuts for JavaScript (Theia keybindings may differ)
 
@@ -110,6 +134,9 @@ Experienced coders may prefer JetBrains IDEs, such as WebStorm. They are advance
 
 ---
 
+### Worked Example
+Use the keyboard to open a project folder, create `hello.js`, move focus to the integrated terminal, and run `node hello.js`.
+
 ### Common Mistakes
 - Assuming VS Code and Theia have identical extensions or keyboard shortcuts.
 - Installing extensions without checking compatibility with the chosen editor.
@@ -124,8 +151,24 @@ Experienced coders may prefer JetBrains IDEs, such as WebStorm. They are advance
 ### Accessibility Practice
 Test the learner's actual screen reader and braille display configuration. Do not claim universal accessibility; document editor, operating system, and access-technology versions used.
 
+### Skills Checklist
+- [ ] I can open and navigate a JavaScript workspace.
+- [ ] I can use the keyboard to move between editor and terminal.
+- [ ] I can locate diagnostics and read their messages.
+- [ ] I can verify the installed JavaScript language support.
 
 ## Lesson 0.3: Your First JavaScript File
+
+### Reading References
+- MDN: JavaScript first steps.
+- Node.js: Running JavaScript files.
+
+### Learning Objectives
+- Create and save a JavaScript source file.
+- Run the file and distinguish script execution from the REPL.
+
+### Concept Explanation
+A source file stores a repeatable program. The Node.js REPL evaluates individual expressions interactively; running a file executes its statements in sequence.
 
 ### Hello World
 
@@ -178,6 +221,9 @@ Type JavaScript directly and press Enter to execute. Type `.exit` to quit.
 - [ ] I can use the Node.js REPL for quick experiments.
 
 ---
+
+### Expected Behavior or Output
+Running the saved file prints the exact greeting text in the terminal, in the order written in the file.
 
 ### Common Mistakes
 - Saving source code with a hidden extra extension such as `.js.txt`.
@@ -251,6 +297,9 @@ Add a script to the `scripts` object in package.json:
 
 Run `npm start`. The script should print the same line.
 
+### Expected Behavior or Output
+The project can be run with both `node hello.js` and `npm start`; both commands print the same greeting.
+
 ### Common Mistakes
 - Running the command from the parent directory, so Node.js cannot find `hello.js`.
 - Naming the file `hello.js.txt` because file extensions are hidden.
@@ -284,6 +333,13 @@ This unit covers JavaScript fundamentals: variables, data types, and basic outpu
 ## Lesson 1.1: Welcome to Computer Science
 
 *(See Python Unit 1.1 for conceptual content — hardware, software, algorithms, and problem-solving are language-agnostic.)*
+
+### Reading References
+- Python source counterpart: Unit 1, Lesson 1.1.
+- MDN: Introduction to JavaScript.
+
+### Concept Explanation
+Computer science studies computational problem-solving: representing information, designing algorithms, and evaluating solutions. JavaScript is a programming language; Node.js and web browsers are different runtime environments that host JavaScript code.
 
 ### JavaScript's Role
 
@@ -351,6 +407,9 @@ Expected output:
 Hello, World!
 Welcome to JavaScript.
 ```
+
+### Expected Behavior or Output
+Running `node hello.js` prints `Hello, World!` followed by `Welcome to JavaScript.` on the next line.
 
 ### Common Mistakes
 - Saving the file with the wrong extension.
@@ -425,6 +484,18 @@ console.log("Hello, " + name + "! You are " + age + " years old.");
 ---
 
 ### Additional Primitive Types and Type Conversion
+
+### Reading References
+- Python source counterpart: Unit 1, Lesson 1.3.
+- MDN: JavaScript data types and structures.
+
+### Learning Objectives
+- Declare variables with `const` and `let`.
+- Store strings, numbers, and Booleans.
+- Explain JavaScript's dynamic typing and primitive values.
+
+### Concept Explanation
+A variable name refers to a value. Use `const` when the binding will not be reassigned and `let` when reassignment is required. JavaScript is dynamically typed: a variable can refer to values of different types over time.
 
 ### Primitive Types
 
@@ -553,6 +624,13 @@ console.log(`Circle area: ${circleArea.toFixed(2)}`);
 - [ ] I can convert between types using `Number()`, `String()`, `parseInt()`.
 - [ ] I understand `const` vs. `let`.
 
+### Worked Example
+```javascript
+const student = { name: "Avery", age: 16, heightM: 1.72, favoriteSubject: "Computer Science" };
+console.log(`${student.name}, age ${student.age}`);
+console.log(`Height: ${student.heightM} m`);
+```
+
 ### Common Mistakes
 - Using `var` when `const` or `let` expresses the intended behavior more clearly.
 - Assuming JavaScript has separate integer and floating-point primitive types.
@@ -568,3 +646,5 @@ console.log(`Circle area: ${circleArea.toFixed(2)}`);
 ### Accessibility Practice
 Use meaningful variable names and explicit output labels. Explain punctuation such as braces, commas, quotation marks, and semicolons when reading code aloud.
 
+### Expected Behavior or Output
+The program prints Avery's name and age, then the height with the unit metres. The profile uses the shared canonical values.
