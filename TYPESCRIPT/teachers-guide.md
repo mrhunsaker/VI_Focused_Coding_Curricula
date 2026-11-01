@@ -250,7 +250,7 @@ _"const doubleIfPositive gets arrow function taking n, returning: if n greater t
 
 Teach the curriculum against the current Node.js 26 LTS line. Node.js 26.13.0 entered LTS on October 28, 2026; use the latest security patch in the 26.x line rather than pinning students to an old patch. Node.js 24 remains supported as LTS, but is not the current LTS line.
 
-For new course examples, consistently use const/let, strict equality, explicit numeric conversion, async/await, and node: built-in module specifiers. Prefer the built-in node:test runner for basic unit tests; Jest is a valid optional framework, not a requirement. Keep the two module systems explicit: use a package.json type field and matching file extensions/configuration, and never mix CommonJS and ES module syntax in one file. Use current ESLint flat configuration (eslint.config.mjs) rather than the deprecated .eslintrc format. Check input and parsed JSON at runtime: JavaScript runtime values remain dynamic, and static types do not validate external data at runtime.
+For new course examples, consistently use const/let, strict equality, explicit numeric conversion, async/await, and node: built-in module specifiers. Use the built-in node:test runner for the core course; Jest is an optional extension, not a requirement. Keep the two module systems explicit: use a package.json type field and matching file extensions/configuration, and never mix CommonJS and ES module syntax in one file. Use current ESLint flat configuration (eslint.config.mjs) rather than the deprecated .eslintrc format. Check input and parsed JSON at runtime: JavaScript runtime values remain dynamic, and static types do not validate external data at runtime.
 
 ## 5. Unit 0--1: Setup and Foundations
 
@@ -677,7 +677,7 @@ This pattern is essential for working with real-world data where fields may be m
 
 ---
 
-## 9. Unit 5: Strings
+## 9. Unit 5: User Input and while Loops
 
 #### Instructional Cues
 
@@ -899,7 +899,7 @@ _"Private fields starting with `#` are truly private --- not just conventional p
 
 ---
 
-## 12. Unit 8: Files, Modules, and Error Handling
+## 12. Unit 8: Files and Exceptions
 
 ### Lesson 8.1: Files
 
@@ -973,7 +973,7 @@ _"Everything not in `module.exports` is private to this file. Other files can us
 
 ---
 
-## 13. Unit 9: Collections, Analysis, and Testing
+## 13. Unit 9: Testing and Data Analysis
 
 ### Jest Testing
 
@@ -1393,63 +1393,29 @@ module.exports = { askQuestion, askNumber, close };
 
 ## 20. Teaching AI Tools Responsibly
 
-AI coding assistants can provide explanations, hints, test ideas, and alternative examples. They can also produce incorrect TypeScript, misunderstand Node.js module configuration, recommend untrusted npm packages, or conceal asynchronous behavior. Treat every response as an unverified proposal. The course must remain accessible without paid AI access or a personal account.
+### Student-use rule
 
-### Instructor use of AI during preparation
+For student coursework and assessments, AI may support personal conceptual understanding and reinforcement only. It may explain a TypeScript concept, clarify terminology, or help the learner understand a compiler diagnostic at a conceptual level. It must not write, autocomplete, repair, complete, refactor, or generate course code, project code, tests, algorithms, or assessment solutions. It must not produce ready-to-submit pseudocode or implementations.
 
-Instructors may use approved AI tools to brainstorm examples, draft alternative explanations, propose test inputs, or identify likely misconceptions. The instructor remains accountable for accuracy and pedagogy. Verify every API and language claim against the target Node.js release and MDN or Node.js documentation; run examples and tests; review package recommendations; and test the learning workflow with the intended access technology. Never upload identifiable student work, accommodation plans, credentials, assessment answers, or confidential school information. Do not use AI-generated feedback as the sole basis for grading. Disclose substantive AI assistance when institutional policy or the publication process requires it.
+Students write, trace, test, and debug their own code. When they encounter a compiler error, the instructor may permit a conceptual explanation of the relevant type-system rule, but the learner must make the code change independently. AI must not be used to supply a corrected code block.
 
+### Instructor preparation
 
-### Learning goals and appropriate uses
+Instructors may use approved tools to support their own planning where institutional policy allows. They remain responsible for checking every factual claim, API, compiler option, package, and example. Do not upload identifiable student work, accommodations, records, credentials, private code, assessment answers, or confidential school information.
 
-Students should describe the limitations of code generation, ask focused questions, verify TypeScript behavior using the runtime and official documentation, identify generated code beyond their current level, and disclose assistance when required. When permitted, AI may explain a diagnostic, rephrase a concept, suggest edge cases, critique an algorithm, or generate test inputs. Prefer hint-based prompts and have the learner describe their own understanding first.
+### Accessibility and equity
 
-### TypeScript and Node.js risks
+Screen readers, braille displays, magnification, keyboard navigation, speech input, and other access technologies are not prohibited answer-generation tools. Do not make a paid AI account a course prerequisite. Provide an equivalent non-AI learning path.
 
-Review AI output for:
+### Verification and privacy
 
-- Confusion between CommonJS `require()` and ES module `import`, including package `type`, file extensions, and runtime version.
-- Incorrect claims about semicolon insertion, equality, coercion, truthy/falsy values, `undefined`, `null`, or `NaN`.
-- Missing `await`, unhandled promise rejections, callbacks that do not complete, or incorrect execution-order assumptions.
-- Browser-only APIs used in a Node.js lesson or incorrect Node.js APIs.
-- Unsafe file paths, command execution, network requests, or untrusted input handling.
-- Unnecessary npm dependencies, typo-squatted or abandoned packages, or packages with excessive permissions.
-- Dense chaining, nested callbacks, clever one-liners, and output difficult to review sequentially.
-
-Run examples in the course's declared Node.js environment, inspect values and types, and test success, boundary, and failure cases. Verify API claims in official Node.js documentation or MDN.
-
-### Screen-reader and output review
-
-Review whether braces, nested callbacks, and asynchronous control flow are navigable and explainable; identifiers are descriptive; prompts and output provide context; results arrive in a predictable order; module style is consistent; and the AI interface itself is accessible. Prefer named functions and intermediate variables when they improve understanding. Make asynchronous behavior explicit.
-
-### Privacy, security, and equity
-
-Do not submit student records, credentials, private code, API keys, or confidential school information to public AI systems. Follow institutional policies, age requirements, and approved-tool lists. Treat terminal commands and package recommendations as untrusted. Verify package names and provenance before installation. Provide a non-AI path and never make a paid account a prerequisite. Discuss how generated examples may assume mouse use, visual browser interaction, graphical output, or a particular operating system.
-
-### Verification protocol: Ask – Inspect – Verify – Adapt – Explain – Disclose
-
-1. **Ask:** state the problem and what has already been tried.
-2. **Inspect:** read the response and flag unfamiliar APIs, packages, syntax, and assumptions.
-3. **Verify:** check MDN or Node.js documentation; run a minimal example; test normal, boundary, and invalid input.
-4. **Adapt:** simplify, secure, format, and make code accessible to sequential reading.
-5. **Explain:** have the student explain control flow and make a new change without AI.
-6. **Disclose:** record the tool and assistance when required.
-
-### Activity-specific policy
-
-- **Practice:** hints and explanations may be allowed; request complete solutions only for code-review activities.
-- **Homework/projects:** define permitted assistance and require disclosure and verification.
-- **Individual assessments:** do not permit AI to perform the skill being measured unless explicitly included in the assessment or an accommodation.
-- **Accessibility tools:** screen-reader, braille, magnification, and keyboard access tools are not prohibited answer-generation tools.
+Never enter personal information, student records, credentials, API keys, private source code, or confidential school information into public AI services. Treat external claims and package recommendations as unverified. Follow institutional policy, age requirements, and approved-tool lists.
 
 ### Discussion prompts
 
-- An AI answer mixes CommonJS and ES module syntax. How would you diagnose the mismatch?
-- A suggested npm package has a plausible name but few trustworthy details. What should you check?
-- A promise-based program prints results in an unexpected order. How can you reason about `await`?
-- What must a student understand if AI generated most of a function?
-
----
+- How can a compiler diagnostic teach a type-system concept without outsourcing the code repair?
+- Why does a type assertion not validate JSON at runtime?
+- How can an instructor preserve independent programming practice while supporting accessible learning?
 
 ## 21. Comprehensive Instructional Planning and Course Implementation
 
