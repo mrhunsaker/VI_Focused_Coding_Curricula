@@ -626,15 +626,22 @@ This unit covers sequence mutation, sorting, immutable records, maps, dictionari
 - Modify and test the example independently.
 
 ### Concept Explanation
-Mutable sequences. C is a compiled procedural language for operating systems, embedded software, libraries, and performance-sensitive programs. The Python course provides the sequence and problem contexts; this lesson teaches the idiomatic C syntax and semantics. Pay particular attention to static or dynamic typing, mutability, indexing, parameter passing, errors, and resource lifetime where they differ from Python.
+C arrays have fixed capacity. For a resizable sequence, manage a dynamically allocated buffer with a pointer, element count, and capacity. Every allocation must be checked and every successful allocation must eventually be released with `free`.
 
 ### Worked Example
 ```c
-struct Item { char name[40]; int quantity; };
-struct Item book = {"Notebook", 3}; printf("%s: %d\n", book.name, book.quantity);
+#include <stdio.h>
+int main(void)
+{
+    int scores[8] = {82, 91, 76, 88};
+    size_t count = 4;
+    scores[count++] = 95;
+    scores[count++] = 84;
+    printf("Count: %zu; last: %d\n", count, scores[count - 1]);
+    return 0;
+}
 ```
-
-**Trace:** identify declarations, expressions, control flow, and observable output. Predict the result, run the example, and compare the actual output with the prediction.
+Expected output: `Count: 6; last: 84`. The array has capacity 8 and currently contains 6 values; do not confuse capacity with count.
 
 ### Common Mistakes
 - Copying Python syntax or assumptions instead of using idiomatic C constructs.
@@ -670,15 +677,28 @@ Navigate the complete source file by line, word, and character using the learner
 - Modify and test the example independently.
 
 ### Concept Explanation
-Sorting and organizing data. C is a compiled procedural language for operating systems, embedded software, libraries, and performance-sensitive programs. The Python course provides the sequence and problem contexts; this lesson teaches the idiomatic C syntax and semantics. Pay particular attention to static or dynamic typing, mutability, indexing, parameter passing, errors, and resource lifetime where they differ from Python.
+Use `qsort` from `stdlib.h` to sort an array. The comparator must return a negative value, zero, or a positive value and must avoid subtraction that could overflow. Sorting changes the order of the original array.
 
 ### Worked Example
 ```c
-struct Item { char name[40]; int quantity; };
-struct Item book = {"Notebook", 3}; printf("%s: %d\n", book.name, book.quantity);
+#include <stdio.h>
+#include <stdlib.h>
+int compare_ints(const void *a, const void *b)
+{
+    int left = *(const int *)a, right = *(const int *)b;
+    return (left > right) - (left < right);
+}
+int main(void)
+{
+    int scores[] = {82, 91, 76, 88};
+    size_t n = sizeof scores / sizeof scores[0];
+    qsort(scores, n, sizeof scores[0], compare_ints);
+    for (size_t i = 0; i < n; ++i) printf("%d ", scores[i]);
+    puts("");
+    return 0;
+}
 ```
-
-**Trace:** identify declarations, expressions, control flow, and observable output. Predict the result, run the example, and compare the actual output with the prediction.
+Expected ascending order: 76 82 88 91. Reverse traversal prints descending order.
 
 ### Common Mistakes
 - Copying Python syntax or assumptions instead of using idiomatic C constructs.
@@ -714,15 +734,20 @@ Navigate the complete source file by line, word, and character using the learner
 - Modify and test the example independently.
 
 ### Concept Explanation
-Immutable records. C is a compiled procedural language for operating systems, embedded software, libraries, and performance-sensitive programs. The Python course provides the sequence and problem contexts; this lesson teaches the idiomatic C syntax and semantics. Pay particular attention to static or dynamic typing, mutability, indexing, parameter passing, errors, and resource lifetime where they differ from Python.
+Python tuples are immutable sequences. C has no direct tuple type; use a `struct` for a named record and make the object `const` when it must not be modified. A struct groups fields that may have different types.
 
 ### Worked Example
 ```c
-struct Item { char name[40]; int quantity; };
-struct Item book = {"Notebook", 3}; printf("%s: %d\n", book.name, book.quantity);
+#include <stdio.h>
+typedef struct { int x; int y; } Point;
+int main(void)
+{
+    const Point origin_offset = {3, 4};
+    printf("x: %d\ny: %d\n", origin_offset.x, origin_offset.y);
+    return 0;
+}
 ```
-
-**Trace:** identify declarations, expressions, control flow, and observable output. Predict the result, run the example, and compare the actual output with the prediction.
+Expected output: x: 3 and y: 4. `const` prevents modifying the fields through this object.
 
 ### Common Mistakes
 - Copying Python syntax or assumptions instead of using idiomatic C constructs.
@@ -758,15 +783,21 @@ Navigate the complete source file by line, word, and character using the learner
 - Modify and test the example independently.
 
 ### Concept Explanation
-Maps and key-value data. C is a compiled procedural language for operating systems, embedded software, libraries, and performance-sensitive programs. The Python course provides the sequence and problem contexts; this lesson teaches the idiomatic C syntax and semantics. Pay particular attention to static or dynamic typing, mutability, indexing, parameter passing, errors, and resource lifetime where they differ from Python.
+C does not include a built-in dictionary or hash map. For a small fixed inventory, use an array of structs and search by key; for larger data, introduce a hash-table implementation or a library. The key and value fields must be represented explicitly.
 
 ### Worked Example
 ```c
-struct Item { char name[40]; int quantity; };
-struct Item book = {"Notebook", 3}; printf("%s: %d\n", book.name, book.quantity);
+#include <stdio.h>
+typedef struct { const char *name; int quantity; double unit_price; } Item;
+int main(void)
+{
+    Item inventory[] = {{"Notebook",3,2.50},{"Pencil",10,0.50},{"Folder",4,1.25}};
+    for (size_t i = 0; i < sizeof inventory / sizeof inventory[0]; ++i)
+        printf("%s: %d at $%.2f each\n", inventory[i].name, inventory[i].quantity, inventory[i].unit_price);
+    return 0;
+}
 ```
-
-**Trace:** identify declarations, expressions, control flow, and observable output. Predict the result, run the example, and compare the actual output with the prediction.
+Expected records: Notebook 3 at $2.50; Pencil 10 at $0.50; Folder 4 at $1.25.
 
 ### Common Mistakes
 - Copying Python syntax or assumptions instead of using idiomatic C constructs.
@@ -802,15 +833,24 @@ Navigate the complete source file by line, word, and character using the learner
 - Modify and test the example independently.
 
 ### Concept Explanation
-Collection traversal. C is a compiled procedural language for operating systems, embedded software, libraries, and performance-sensitive programs. The Python course provides the sequence and problem contexts; this lesson teaches the idiomatic C syntax and semantics. Pay particular attention to static or dynamic typing, mutability, indexing, parameter passing, errors, and resource lifetime where they differ from Python.
+Traverse an array of records with an index and explicit count. A struct member is accessed with the dot operator. When passing records to helper functions, use pointers to avoid unnecessary copies and `const` when the function should not modify the record.
 
 ### Worked Example
 ```c
-struct Item { char name[40]; int quantity; };
-struct Item book = {"Notebook", 3}; printf("%s: %d\n", book.name, book.quantity);
+#include <stdio.h>
+typedef struct { const char *name; int quantity; double unit_price; } Item;
+void show_item(const Item *item)
+{
+    printf("%s: quantity %d; value $%.2f\n", item->name, item->quantity, item->quantity * item->unit_price);
+}
+int main(void)
+{
+    Item items[] = {{"Notebook",3,2.50},{"Pencil",10,0.50},{"Folder",4,1.25}};
+    for (size_t i = 0; i < sizeof items / sizeof items[0]; ++i) show_item(&items[i]);
+    return 0;
+}
 ```
-
-**Trace:** identify declarations, expressions, control flow, and observable output. Predict the result, run the example, and compare the actual output with the prediction.
+Expected inventory values: $7.50, $5.00, and $5.00.
 
 ### Common Mistakes
 - Copying Python syntax or assumptions instead of using idiomatic C constructs.
@@ -852,15 +892,30 @@ This unit covers input validation, sentinel loops, while loops, flags, break/con
 - Modify and test the example independently.
 
 ### Concept Explanation
-Input and validation. C is a compiled procedural language for operating systems, embedded software, libraries, and performance-sensitive programs. The Python course provides the sequence and problem contexts; this lesson teaches the idiomatic C syntax and semantics. Pay particular attention to static or dynamic typing, mutability, indexing, parameter passing, errors, and resource lifetime where they differ from Python.
+Read user input as text with `fgets`, then parse and validate it. A robust parser checks whether any digits were consumed, whether trailing characters remain, and whether the value is in range. Keep prompting until valid input arrives or end-of-file is reached.
 
 ### Worked Example
 ```c
-int score = 82;
-if (score >= 90) puts("A"); else if (score >= 80) puts("B"); else puts("Keep practicing");
+#include <stdio.h>
+#include <stdlib.h>
+#include <ctype.h>
+int main(void)
+{
+    char line[80], *end;
+    long value;
+    for (;;) {
+        printf("Enter a score from 0 to 100: ");
+        if (!fgets(line, sizeof line, stdin)) return 1;
+        value = strtol(line, &end, 10);
+        while (isspace((unsigned char)*end)) ++end;
+        if (end != line && *end == '\0' && value >= 0 && value <= 100) break;
+        puts("Invalid score. Enter a whole number from 0 to 100.");
+    }
+    printf("Accepted score: %ld\n", value);
+    return 0;
+}
 ```
-
-**Trace:** identify declarations, expressions, control flow, and observable output. Predict the result, run the example, and compare the actual output with the prediction.
+For input 82, output is `Accepted score: 82`; invalid values cause another prompt.
 
 ### Common Mistakes
 - Copying Python syntax or assumptions instead of using idiomatic C constructs.
@@ -896,15 +951,24 @@ Navigate the complete source file by line, word, and character using the learner
 - Modify and test the example independently.
 
 ### Concept Explanation
-While loops. C is a compiled procedural language for operating systems, embedded software, libraries, and performance-sensitive programs. The Python course provides the sequence and problem contexts; this lesson teaches the idiomatic C syntax and semantics. Pay particular attention to static or dynamic typing, mutability, indexing, parameter passing, errors, and resource lifetime where they differ from Python.
+A `while` loop repeats while its condition is nonzero. Update the condition's state inside the loop so it eventually becomes false. A sentinel-controlled loop is useful for repeated menu input; document the sentinel and handle end-of-file.
 
 ### Worked Example
 ```c
-int score = 82;
-if (score >= 90) puts("A"); else if (score >= 80) puts("B"); else puts("Keep practicing");
+#include <stdio.h>
+int main(void)
+{
+    int value, total = 0;
+    puts("Enter scores; enter -1 to finish.");
+    while (scanf("%d", &value) == 1 && value != -1) {
+        total += value;
+        printf("Running total: %d\n", total);
+    }
+    printf("Final total: %d\n", total);
+    return 0;
+}
 ```
-
-**Trace:** identify declarations, expressions, control flow, and observable output. Predict the result, run the example, and compare the actual output with the prediction.
+For input 82, 91, -1, the running totals are 82 and 173; final total is 173. This compact example assumes integer tokens; the previous lesson's `fgets` parser is safer for robust input.
 
 ### Common Mistakes
 - Copying Python syntax or assumptions instead of using idiomatic C constructs.
@@ -940,15 +1004,23 @@ Navigate the complete source file by line, word, and character using the learner
 - Modify and test the example independently.
 
 ### Concept Explanation
-Flags and break. C is a compiled procedural language for operating systems, embedded software, libraries, and performance-sensitive programs. The Python course provides the sequence and problem contexts; this lesson teaches the idiomatic C syntax and semantics. Pay particular attention to static or dynamic typing, mutability, indexing, parameter passing, errors, and resource lifetime where they differ from Python.
+A Boolean-like flag records whether a condition has occurred. Use `break` to leave the nearest loop once a search succeeds. Initialize the flag before the loop and update it at the point where the condition is met.
 
 ### Worked Example
 ```c
-int score = 82;
-if (score >= 90) puts("A"); else if (score >= 80) puts("B"); else puts("Keep practicing");
+#include <stdio.h>
+int main(void)
+{
+    int scores[] = {82, 91, 76, 88};
+    int found = 0;
+    for (size_t i = 0; i < sizeof scores / sizeof scores[0]; ++i) {
+        if (scores[i] == 76) { found = 1; break; }
+    }
+    puts(found ? "Score found." : "Score not found.");
+    return 0;
+}
 ```
-
-**Trace:** identify declarations, expressions, control flow, and observable output. Predict the result, run the example, and compare the actual output with the prediction.
+Expected output: `Score found.` Change the search value to 100 to exercise the not-found path.
 
 ### Common Mistakes
 - Copying Python syntax or assumptions instead of using idiomatic C constructs.
@@ -984,15 +1056,22 @@ Navigate the complete source file by line, word, and character using the learner
 - Modify and test the example independently.
 
 ### Concept Explanation
-Continue and filtering. C is a compiled procedural language for operating systems, embedded software, libraries, and performance-sensitive programs. The Python course provides the sequence and problem contexts; this lesson teaches the idiomatic C syntax and semantics. Pay particular attention to static or dynamic typing, mutability, indexing, parameter passing, errors, and resource lifetime where they differ from Python.
+Use `continue` to skip the remainder of the current loop iteration. It is useful for filtering records, but the condition must be explicit and understandable. Avoid using it to conceal complex control flow.
 
 ### Worked Example
 ```c
-int score = 82;
-if (score >= 90) puts("A"); else if (score >= 80) puts("B"); else puts("Keep practicing");
+#include <stdio.h>
+int main(void)
+{
+    int scores[] = {82, 91, 76, 88};
+    for (size_t i = 0; i < sizeof scores / sizeof scores[0]; ++i) {
+        if (scores[i] < 80) continue;
+        printf("Passing score: %d\n", scores[i]);
+    }
+    return 0;
+}
 ```
-
-**Trace:** identify declarations, expressions, control flow, and observable output. Predict the result, run the example, and compare the actual output with the prediction.
+Expected output: Passing score: 82, 91, and 88, each on its own line.
 
 ### Common Mistakes
 - Copying Python syntax or assumptions instead of using idiomatic C constructs.
@@ -1028,15 +1107,23 @@ Navigate the complete source file by line, word, and character using the learner
 - Modify and test the example independently.
 
 ### Concept Explanation
-Infinite-loop prevention. C is a compiled procedural language for operating systems, embedded software, libraries, and performance-sensitive programs. The Python course provides the sequence and problem contexts; this lesson teaches the idiomatic C syntax and semantics. Pay particular attention to static or dynamic typing, mutability, indexing, parameter passing, errors, and resource lifetime where they differ from Python.
+An infinite loop occurs when the termination condition never becomes false or the state used by the condition is not updated. Check loop invariants, increment/decrement operations, sentinel handling, and all paths that can exit. Prefer a clear loop condition over an unconditional loop unless an explicit `break` is guaranteed.
 
 ### Worked Example
 ```c
-int score = 82;
-if (score >= 90) puts("A"); else if (score >= 80) puts("B"); else puts("Keep practicing");
+#include <stdio.h>
+int main(void)
+{
+    int remaining = 3;
+    while (remaining > 0) {
+        printf("%d\n", remaining);
+        --remaining;
+    }
+    puts("Finished.");
+    return 0;
+}
 ```
-
-**Trace:** identify declarations, expressions, control flow, and observable output. Predict the result, run the example, and compare the actual output with the prediction.
+Expected output: 3, 2, 1, then Finished. Removing `--remaining` creates a non-terminating loop; diagnose it by tracing the condition and state.
 
 ### Common Mistakes
 - Copying Python syntax or assumptions instead of using idiomatic C constructs.
@@ -1078,15 +1165,23 @@ This unit covers definitions, parameters, arguments, return values, scope, colle
 - Modify and test the example independently.
 
 ### Concept Explanation
-Defining functions. C is a compiled procedural language for operating systems, embedded software, libraries, and performance-sensitive programs. The Python course provides the sequence and problem contexts; this lesson teaches the idiomatic C syntax and semantics. Pay particular attention to static or dynamic typing, mutability, indexing, parameter passing, errors, and resource lifetime where they differ from Python.
+A function gives a name to a reusable operation. Declare its return type, name, and parameter types. Put a prototype before the first call when the definition appears later. Keep one clear responsibility per function.
 
 ### Worked Example
 ```c
-int add(int a, int b) { return a + b; }
-/* use: int total = add(4, 5); */
+#include <stdio.h>
+double calculate_tip(double bill, double rate)
+{
+    return bill * rate;
+}
+int main(void)
+{
+    double tip = calculate_tip(24.50, 0.15);
+    printf("Tip: $%.2f\n", tip);
+    return 0;
+}
 ```
-
-**Trace:** identify declarations, expressions, control flow, and observable output. Predict the result, run the example, and compare the actual output with the prediction.
+Expected tip display: $3.68. The function returns a value and does not print it itself.
 
 ### Common Mistakes
 - Copying Python syntax or assumptions instead of using idiomatic C constructs.
@@ -1122,15 +1217,22 @@ Navigate the complete source file by line, word, and character using the learner
 - Modify and test the example independently.
 
 ### Concept Explanation
-Parameters and arguments. C is a compiled procedural language for operating systems, embedded software, libraries, and performance-sensitive programs. The Python course provides the sequence and problem contexts; this lesson teaches the idiomatic C syntax and semantics. Pay particular attention to static or dynamic typing, mutability, indexing, parameter passing, errors, and resource lifetime where they differ from Python.
+Arguments are the values supplied at a call site; parameters are the local variables receiving them. C passes arguments by value. To modify a caller's object, pass its address using a pointer. C has no default or named arguments; use explicit wrapper functions or configuration structs when needed.
 
 ### Worked Example
 ```c
-int add(int a, int b) { return a + b; }
-/* use: int total = add(4, 5); */
+#include <stdio.h>
+double total_with_tip(double bill, double rate)
+{
+    return bill + bill * rate;
+}
+int main(void)
+{
+    printf("Total: $%.2f\n", total_with_tip(24.50, 0.15));
+    return 0;
+}
 ```
-
-**Trace:** identify declarations, expressions, control flow, and observable output. Predict the result, run the example, and compare the actual output with the prediction.
+Expected total display: $28.18. Swap the two arguments and explain why the result changes; C uses positional arguments.
 
 ### Common Mistakes
 - Copying Python syntax or assumptions instead of using idiomatic C constructs.
@@ -1166,15 +1268,25 @@ Navigate the complete source file by line, word, and character using the learner
 - Modify and test the example independently.
 
 ### Concept Explanation
-Return values. C is a compiled procedural language for operating systems, embedded software, libraries, and performance-sensitive programs. The Python course provides the sequence and problem contexts; this lesson teaches the idiomatic C syntax and semantics. Pay particular attention to static or dynamic typing, mutability, indexing, parameter passing, errors, and resource lifetime where they differ from Python.
+A non-void function returns a value using `return`. The caller can store it, pass it to another function, or print it. Use a `void` return type only when no value is returned. Every control-flow path in a non-void function must return an appropriate value.
 
 ### Worked Example
 ```c
-int add(int a, int b) { return a + b; }
-/* use: int total = add(4, 5); */
+#include <stdio.h>
+int sum_scores(const int scores[], size_t count)
+{
+    int total = 0;
+    for (size_t i = 0; i < count; ++i) total += scores[i];
+    return total;
+}
+int main(void)
+{
+    int scores[] = {82, 91, 76, 88};
+    printf("Total: %d\n", sum_scores(scores, 4));
+    return 0;
+}
 ```
-
-**Trace:** identify declarations, expressions, control flow, and observable output. Predict the result, run the example, and compare the actual output with the prediction.
+Expected total: 337. The function receives the array pointer and its length separately.
 
 ### Common Mistakes
 - Copying Python syntax or assumptions instead of using idiomatic C constructs.
@@ -1210,15 +1322,25 @@ Navigate the complete source file by line, word, and character using the learner
 - Modify and test the example independently.
 
 ### Concept Explanation
-Functions over collections. C is a compiled procedural language for operating systems, embedded software, libraries, and performance-sensitive programs. The Python course provides the sequence and problem contexts; this lesson teaches the idiomatic C syntax and semantics. Pay particular attention to static or dynamic typing, mutability, indexing, parameter passing, errors, and resource lifetime where they differ from Python.
+Pass arrays to functions with an explicit element count. Use `const` when the function only reads the collection. A pointer parameter does not contain the original array length; the caller and callee must agree on the count.
 
 ### Worked Example
 ```c
-int add(int a, int b) { return a + b; }
-/* use: int total = add(4, 5); */
+#include <stdio.h>
+double average(const int values[], size_t count)
+{
+    int total = 0;
+    for (size_t i = 0; i < count; ++i) total += values[i];
+    return count ? (double) total / count : 0.0;
+}
+int main(void)
+{
+    int scores[] = {82, 91, 76, 88};
+    printf("Average: %.2f\n", average(scores, 4));
+    return 0;
+}
 ```
-
-**Trace:** identify declarations, expressions, control flow, and observable output. Predict the result, run the example, and compare the actual output with the prediction.
+Expected average: 84.25. Add a separate function that searches the inventory array by item name.
 
 ### Common Mistakes
 - Copying Python syntax or assumptions instead of using idiomatic C constructs.
@@ -1254,15 +1376,28 @@ Navigate the complete source file by line, word, and character using the learner
 - Modify and test the example independently.
 
 ### Concept Explanation
-Scope and variadic arguments. C is a compiled procedural language for operating systems, embedded software, libraries, and performance-sensitive programs. The Python course provides the sequence and problem contexts; this lesson teaches the idiomatic C syntax and semantics. Pay particular attention to static or dynamic typing, mutability, indexing, parameter passing, errors, and resource lifetime where they differ from Python.
+Local variables have block scope. A variable declared inside a function is not directly accessible elsewhere. C supports variadic functions through `<stdarg.h>`, but a format string or another explicit count is needed to describe the extra arguments. Prefer a typed array-plus-count interface for beginner exercises because it is easier to validate.
 
 ### Worked Example
 ```c
-int add(int a, int b) { return a + b; }
-/* use: int total = add(4, 5); */
+#include <stdio.h>
+#include <stdarg.h>
+int sum_values(size_t count, ...)
+{
+    int total = 0;
+    va_list args;
+    va_start(args, count);
+    for (size_t i = 0; i < count; ++i) total += va_arg(args, int);
+    va_end(args);
+    return total;
+}
+int main(void)
+{
+    printf("Sum: %d\n", sum_values(4, 82, 91, 76, 88));
+    return 0;
+}
 ```
-
-**Trace:** identify declarations, expressions, control flow, and observable output. Predict the result, run the example, and compare the actual output with the prediction.
+Expected sum: 337. The caller must pass the correct count and types; variadic arguments are not type-checked by the function signature.
 
 ### Common Mistakes
 - Copying Python syntax or assumptions instead of using idiomatic C constructs.
