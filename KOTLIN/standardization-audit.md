@@ -14,7 +14,7 @@ The course preserves the shared unit order and lesson topic map. The capstone re
 
 ## Verification status
 
-<badge>Structural draft</badge>
+**Status: Structural draft**
 
 The lesson structure and links are prepared, but this is not a claim of full instructional or runtime verification.
 
