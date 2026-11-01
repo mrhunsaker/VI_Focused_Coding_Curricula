@@ -22,3 +22,7 @@ Identify the current directory; list files; change directories; use absolute and
 10. Integrated project-navigation practice.
 
 Practice in a dedicated directory. Read each command before pressing Enter. List a target before deleting it. Avoid recursive force-delete options while learning. Screen-reader users should read the prompt, command history, and output sequentially. Complete [Bash](bash.md) and [PowerShell](powershell.md) lessons before proceeding.
+
+## GUI, visualization, and workbench accessibility
+
+See the shared [GUI, visualization, and workbench accessibility reference](../DEVELOPMENT/GUI_VISUALIZATION_ACCESSIBILITY.md) for screen-reader support by toolkit, platform-specific activation settings, recommended alternatives, and interfaces that must not be required without an equivalent accessible route.
