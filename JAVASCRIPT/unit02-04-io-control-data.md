@@ -42,7 +42,7 @@ console.log(`Total: $${total.toFixed(2)}`);
 
 Expected output:
 ```text
-Tip: $3.68
+Tip: $3.67
 Total: $28.18
 ```
 
