@@ -24,6 +24,15 @@ Complete the shared [IDE setup lesson](../DEVELOPMENT/IDE_SETUP.md). Test keyboa
 - [ ] I can create a Go module and run a program.
 - [ ] I can navigate the editor and read output accessibly.
 
+### Lesson 0.4: Project Environments, Dependencies, and Terminal Usage
+
+Use the terminal from the project root and understand the current working directory. Keep each project in its own folder and distinguish source files, build output, and dependency metadata. Use Go modules to track dependencies. Add imports, then run `go mod tidy`; inspect go.mod and go.sum. Run `go test ./...`, `go build ./...`, and `go run .` from the module root.
+
+### Skills Checklist
+- [ ] I can identify the project root and run commands from it.
+- [ ] I can explain where project dependencies are recorded, if applicable.
+- [ ] I can run the program or test command from the terminal and read its output.
+
 # Unit 1: Foundations of Computing
 
 ## Overview
