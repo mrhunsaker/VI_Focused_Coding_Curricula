@@ -771,6 +771,9 @@ Composition models a has-a relationship. A class stores another object as a prop
 
 ### Worked Example
 ```typescript
+class Student {
+  constructor(public name: string, public age: number, public favoriteSubject: string) {}
+}
 class Course {
   constructor(public title: string) {}
 }
