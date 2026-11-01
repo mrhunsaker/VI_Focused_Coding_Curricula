@@ -665,7 +665,8 @@
           "All 53 numbered lesson examples are distinct; with four Unit 0 examples, the course contains 57 distinct fenced Swift examples.",
           "All four Unit 0 lessons contain the full nine-section setup lesson structure.",
           "Markdown fences are balanced.",
-          "GitHub Actions run 41324186133 passed on Swift 6.0; all 57 fenced Swift examples executed successfully as independent scripts."
+          "GitHub Actions run 41324186133 passed on Swift 6.0; all 57 fenced Swift examples executed successfully as independent scripts.",
+          "A second CI run, 41324246202, also passed on Swift 6.0.3; all 57 examples executed successfully with the finalized checker."
         ],
         "not_yet_verified": [
           "Expected-output assertions and broader behavioral tests with invalid input, file fixtures, and package integration; current checker verifies successful process exit, not exact output.",
