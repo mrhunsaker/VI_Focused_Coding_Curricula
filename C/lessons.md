@@ -336,6 +336,14 @@ Navigate the complete source file by line, word, and character using the learner
 - [ ] I can complete the lesson-specific boundary or extension tests above and explain the result.
 - [ ] I can recognize the three C-specific failure modes listed in this lesson and apply a correction.
 - [ ] I can navigate, compile, run, and inspect the source and output using my chosen access technology.
+# Unit 2: Numeric Computation
+
+## Overview
+
+Use C expressions, numeric types, input/output, conversions, and the math library to solve the shared calculator and measurement problems. Focus on operator precedence, integer versus floating-point arithmetic, validated input, and predictable formatting.
+
+Prerequisite: Unit 1. Learners should be able to compile a C program and declare basic variables.
+
 ## Lesson 2.1: Design and tracing
 
 ### Reading References
@@ -846,6 +854,14 @@ Navigate the complete source file by line, word, and character using the learner
 - [ ] I can complete the lesson-specific boundary or extension tests above and explain the result.
 - [ ] I can recognize the three C-specific failure modes listed in this lesson and apply a correction.
 - [ ] I can navigate, compile, run, and inspect the source and output using my chosen access technology.
+# Unit 4: Data Structures
+
+## Overview
+
+Represent collections and records using C arrays, structs, pointers, and standard-library algorithms. Compare these explicit data structures with Python lists, tuples, and dictionaries, and document capacity and ownership.
+
+Prerequisite: Unit 3. Learners should understand arrays, indexing, loops, and string basics.
+
 ## Lesson 4.1: Mutable sequences
 
 ### Reading References
@@ -1091,6 +1107,14 @@ Navigate the complete source file by line, word, and character using the learner
 - [ ] I can complete the lesson-specific boundary or extension tests above and explain the result.
 - [ ] I can recognize the three C-specific failure modes listed in this lesson and apply a correction.
 - [ ] I can navigate, compile, run, and inspect the source and output using my chosen access technology.
+# Unit 5: Input and Iteration
+
+## Overview
+
+Build robust input loops, validate parsed values, and control repetition with while, break, continue, and explicit state. Practice the same score and menu contexts while accounting for C's input and conversion APIs.
+
+Prerequisite: Unit 4. Learners should be able to traverse arrays and write simple conditions.
+
 ## Lesson 5.1: Input and validation
 
 ### Reading References
@@ -1343,6 +1367,14 @@ Navigate the complete source file by line, word, and character using the learner
 - [ ] I can complete the lesson-specific boundary or extension tests above and explain the result.
 - [ ] I can recognize the three C-specific failure modes listed in this lesson and apply a correction.
 - [ ] I can navigate, compile, run, and inspect the source and output using my chosen access technology.
+# Unit 6: Functions
+
+## Overview
+
+Decompose programs into functions with clear parameter, return, array-count, and pointer contracts. Understand pass-by-value, scope, and the additional responsibilities of variadic interfaces.
+
+Prerequisite: Unit 5. Learners should be comfortable with loops, arrays, and validated input.
+
 ## Lesson 6.1: Defining functions
 
 ### Reading References
@@ -1596,6 +1628,14 @@ Navigate the complete source file by line, word, and character using the learner
 - [ ] I can complete the lesson-specific boundary or extension tests above and explain the result.
 - [ ] I can recognize the three C-specific failure modes listed in this lesson and apply a correction.
 - [ ] I can navigate, compile, run, and inspect the source and output using my chosen access technology.
+# Unit 7: Structs and Object Models
+
+## Overview
+
+Use structs and functions to organize related data and behavior. C does not provide class methods or built-in inheritance; use composition and explicit interfaces, and document pointer ownership and object lifetime.
+
+Prerequisite: Unit 6. Learners should understand functions, pointers, and record fields.
+
 ## Lesson 7.1: Types and object models
 
 ### Reading References
@@ -1836,6 +1876,14 @@ Navigate the complete source file by line, word, and character using the learner
 - [ ] I can complete the lesson-specific boundary or extension tests above and explain the result.
 - [ ] I can recognize the three C-specific failure modes listed in this lesson and apply a correction.
 - [ ] I can navigate, compile, run, and inspect the source and output using my chosen access technology.
+# Unit 8: Files, Errors, and Persistence
+
+## Overview
+
+Read and write files with explicit error checks and resource cleanup. Distinguish standard C error reporting from exceptions, and use a maintained external library for JSON rather than ad hoc parsing.
+
+Prerequisite: Unit 7. Learners should understand structs, pointers, and function return contracts.
+
 ## Lesson 8.1: Reading text files
 
 ### Reading References
@@ -2080,6 +2128,14 @@ Navigate the complete source file by line, word, and character using the learner
 - [ ] I can complete the lesson-specific boundary or extension tests above and explain the result.
 - [ ] I can recognize the three C-specific failure modes listed in this lesson and apply a correction.
 - [ ] I can navigate, compile, run, and inspect the source and output using my chosen access technology.
+# Unit 9: Testing and Data Analysis
+
+## Overview
+
+Test functions and state changes, use pseudo-random values responsibly, and analyze text and CSV records while recognizing the limits of byte-oriented C examples and simple parsers.
+
+Prerequisite: Unit 8. Learners should understand functions, structs, files, and error handling.
+
 ## Lesson 9.1: Testing functions
 
 ### Reading References
@@ -2326,6 +2382,14 @@ Navigate the complete source file by line, word, and character using the learner
 - [ ] I can complete the lesson-specific boundary or extension tests above and explain the result.
 - [ ] I can recognize the three C-specific failure modes listed in this lesson and apply a correction.
 - [ ] I can navigate, compile, run, and inspect the source and output using my chosen access technology.
+# Unit 10: Applied Projects
+
+## Overview
+
+Apply C data structures, control flow, input validation, and state transitions to a text adventure and a command-line to-do manager. Prioritize explicit feedback, keyboard navigation, and safe handling of fixed-capacity data.
+
+Prerequisite: Units 1–9. Learners should be able to build and test a small multi-function program.
+
 ## Lesson 10.1: Requirements and design
 
 ### Reading References
@@ -2589,6 +2653,14 @@ Navigate the complete source file by line, word, and character using the learner
 - [ ] I can complete the lesson-specific boundary or extension tests above and explain the result.
 - [ ] I can recognize the three C-specific failure modes listed in this lesson and apply a correction.
 - [ ] I can navigate, compile, run, and inspect the source and output using my chosen access technology.
+# Unit 11: Capstone: Personal Data Manager
+
+## Overview
+
+Plan, implement, test, document, and present a C personal-data manager using the shared record fields and required CRUD/persistence behavior. Preserve the Python capstone's data and functional requirements while using a C-appropriate terminal-first interface.
+
+Prerequisite: Units 1–10. Learners should be able to organize structs, functions, files, validation, and tests.
+
 ## Lesson 11.1: Capstone requirements
 
 ### Reading References
