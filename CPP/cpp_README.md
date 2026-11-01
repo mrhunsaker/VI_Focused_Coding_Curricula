@@ -28,7 +28,7 @@ C++ suits large structured objects, numerical arrays, resource-owning objects, e
 #include <string>
 int main() {
     const std::string name = "Avery";
-    std::cout << "Hello, " << name << "!\\n";
+    std::cout << "Hello, " << name << "!\n";
 }
 ~~~
 
