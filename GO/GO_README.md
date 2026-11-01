@@ -21,3 +21,7 @@ The Unit 0–11 manuscript now has four complete setup lessons and 53 numbered l
 ### Validation
 
 `scripts/check_go_examples.py` runs gofmt, builds, and smoke-executes every fenced Go example independently. The GitHub Actions workflow `.github/workflows/go-examples.yml` runs this check on relevant changes. GitHub Actions run [41326670760](https://github.com/mrhunsaker/VI_Focused_Coding_Curricula/actions/runs/41326670760) passed on Go 1.27.3; all 53 fenced examples were formatted with gofmt, built independently, and smoke-executed successfully. A successful run establishes formatting, compilation, and process exit—not exact-output correctness, complete capstone behavior, race freedom, or assistive-technology certification. See [VALIDATION.md](VALIDATION.md) for scope and status.
+
+## GUI, visualization, and workbench accessibility
+
+See the shared [GUI, visualization, and workbench accessibility reference](../DEVELOPMENT/GUI_VISUALIZATION_ACCESSIBILITY.md) for screen-reader support by toolkit, platform-specific activation settings, recommended alternatives, and interfaces that must not be required without an equivalent accessible route.
