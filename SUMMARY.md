@@ -47,6 +47,8 @@
   - [Units 2, 3, 4: Input, Control Flow, and Arrays](JAVA/unit02-04-io-control-arrays.md)
   - [Units 5, 6, 7, 8: Strings, Methods, OOP, and Files](JAVA/unit05-08-strings-methods-oop-files.md)
   - [Units 9, 10, 11: Collections and Projects](JAVA/unit09-11-collections-projects.md)
+  - [Complete standardized lessons](JAVA/lessons.md)
+  - [Java validation record](JAVA/VALIDATION.md)
   
 # Kotlin
 
