@@ -144,6 +144,29 @@ Use descriptive folder and file names. Announce the current working directory be
 ---
 
 ---
+### Project configuration and module mode
+
+Use a project-local TypeScript compiler and strict checking. A representative `tsconfig.json` is:
+
+```json
+{
+  "compilerOptions": {
+    "target": "ES2022",
+    "module": "NodeNext",
+    "moduleResolution": "NodeNext",
+    "strict": true,
+    "noEmitOnError": true,
+    "outDir": "dist",
+    "rootDir": "src"
+  },
+  "include": ["src/**/*.ts"]
+}
+```
+
+For the compiled Node.js workflow, set `"type": "module"` in package.json and use ES module imports consistently. If a project uses CommonJS instead, set `"type": "commonjs"` and use matching compiler settings. Do not mix `require()` and `import` in one module.
+
+A typical script is `"build": "tsc"` and `"start": "node dist/hello.js"`. Run `npm run build` before `npm start`.
+
 
 ## Lesson 0.4: Your first TypeScript file and terminal workflow
 
