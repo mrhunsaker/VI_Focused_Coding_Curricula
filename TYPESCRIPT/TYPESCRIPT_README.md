@@ -51,11 +51,11 @@ TypeScript adds static checking, but its emitted JavaScript still has JavaScript
 | 2. Numbers and input | Math operations, Node.js input, conversion, and validation | Build an interactive terminal calculation |
 | 3. Control flow | Boolean logic, conditionals, loops, truthy/falsy behavior | Predict and control program paths |
 | 4. Arrays and objects | Collections, indexed data, properties, and iteration | Organize and process related data |
-| 5. Strings | String methods, formatting, and introductory pattern matching | Process and validate text |
+| 5. User input and loops | Typed terminal input, validation, while loops, flags, break, and continue | Build a robust interactive loop |
 | 6. Functions | Function forms, parameters, return values, scope, and closures | Decompose a problem into reusable functions |
 | 7. Classes and OOP | Classes, instances, fields, methods, and object-oriented design | Model a simple problem domain |
 | 8. Files and errors | File operations, modules where introduced, and error handling | Persist data and handle expected failures |
-| 9. Modules, collections, and testing | CommonJS and ES modules, Maps, Sets, data analysis, and Jest | Organize, test, and process a program |
+| 9. Testing and data analysis | node:test, class tests, random values, text frequency, and CSV parsing | Verify behavior and summarize structured data |
 | 10. Project-based learning | Text-based applications and incremental design | Implement a multi-feature project |
 | 11. Capstone | Integration, testing, documentation, and explanation | Demonstrate an independent solution |
 
@@ -66,6 +66,8 @@ TypeScript adds static checking, but its emitted JavaScript still has JavaScript
 - [Units 5–8: Strings, Functions, OOP, and Files](unit05-08-strings-functions-oop-files.md)
 - [Units 9–11: Modules, Collections, Testing, and Projects](unit09-11-modules-collections-projects.md)
 - [Teacher's guide: instructor planning, accessible instruction, assessment, and AI guidance](teachers-guide.md)
+- [Topic index](INDEX.md)
+- [Standardization audit and validation status](standardization-audit.md)
 
 Return to the [curriculum overview](../OVERALL_README.md) to compare Python, JavaScript, TypeScript, and Java.
 
@@ -81,7 +83,7 @@ The course follows modern TypeScript practices:
 - Use node: specifiers for built-in modules (for example, node:fs and node:readline/promises).
 - Declare module format explicitly in package.json. Use type: commonjs for CommonJS examples and type: module for ES module examples; do not mix require/module.exports with import/export in the same module.
 - Handle rejected promises and file-system errors explicitly. Do not assume parsed JSON or external input has the expected shape.
-- Use the built-in node:test and node:assert/strict modules for dependency-free introductory tests; Jest remains an optional framework when a project specifically needs it.
+- Use the built-in node:test and node:assert/strict modules for dependency-free introductory tests; Jest is an optional extension, not a course prerequisite.
 - Keep dependencies local to a project, review package provenance, and commit a lockfile for reproducible installations.
 
 ## Why TypeScript is emerging
@@ -157,9 +159,11 @@ The capstone should include a written problem statement, requirements, input/out
 
 ## Teaching with AI
 
-AI tools may offer explanations, sample test cases, or help interpreting a diagnostic. They may also invent APIs, misunderstand Node.js module mode, mix CommonJS and ES module syntax, omit `await`, mishandle errors, or recommend untrusted npm packages. Treat suggestions as unverified drafts.
+## Teaching with AI
 
-Follow the instructor's policy. Students must disclose AI assistance where required and explain, test, and modify all code they submit. Never enter personal information, student records, credentials, private code, or confidential data into public AI services. AI should not replace independent work in assessments intended to measure individual skills. The [teacher's guide](teachers-guide.md) provides a detailed classroom protocol.
+For student coursework and assessments, AI may be used only to support personal conceptual understanding and reinforcement. It may explain a language concept, clarify terminology, or help a learner understand a compiler diagnostic at a conceptual level. It must not write, autocomplete, repair, complete, refactor, or generate course code, project code, test solutions, or assessment answers. It must not provide a ready-to-submit algorithm or implementation.
+
+The learner must write and debug all course code independently. Accessibility tools that provide keyboard navigation, screen-reader output, braille access, magnification, or speech input are not prohibited answer-generation tools. Instructors remain responsible for following institutional policy and protecting student information. See the [teacher's guide](teachers-guide.md) for implementation guidance.
 
 ## Further learning
 
