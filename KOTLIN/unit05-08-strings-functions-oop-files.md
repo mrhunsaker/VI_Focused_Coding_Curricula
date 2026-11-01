@@ -18,15 +18,13 @@ This course sequence aligns Kotlin with the shared 12-unit curriculum map. Each 
 Kotlin is statically typed. The compiler may infer a declaration's type, but the type remains fixed. Prefer val for read-only bindings and var only when reassignment is required. Distinguish read-only collection interfaces from mutable interfaces, and validate data received from users, files, networks, or Java APIs. Apply the lesson concept to the shared course datasets and preserve the original problem's inputs and expected behavior.
 
 #### Worked Example
+
 ```kotlin
-data class Task(val id: Int, val title: String, val done: Boolean)
-fun countOpen(tasks: List<Task>): Int = tasks.count { !it.done }
-val tasks = listOf(Task(1, "Study", false), Task(2, "Review", true))
-println(countOpen(tasks))
+fun main(){ fun parseQty(s:String?):Int?=s?.trim()?.toIntOrNull()?.takeIf{it>=0}; println(parseQty(" 4 ")); println(parseQty("-2")); println(parseQty("four")) }
 ```
 
 #### Expected Behavior or Output
-The result is 1. The function accepts a read-only List and returns the number of incomplete tasks.
+Prints 4, null, null; malformed and negative quantities are rejected.
 
 #### Common Mistakes
 - Assuming type inference makes Kotlin dynamically typed or that numeric types convert implicitly.
@@ -70,15 +68,13 @@ The result is 1. The function accepts a read-only List and returns the number of
 Kotlin is statically typed. The compiler may infer a declaration's type, but the type remains fixed. Prefer val for read-only bindings and var only when reassignment is required. Distinguish read-only collection interfaces from mutable interfaces, and validate data received from users, files, networks, or Java APIs. Apply the lesson concept to the shared course datasets and preserve the original problem's inputs and expected behavior.
 
 #### Worked Example
+
 ```kotlin
-data class Task(val id: Int, val title: String, val done: Boolean)
-fun countOpen(tasks: List<Task>): Int = tasks.count { !it.done }
-val tasks = listOf(Task(1, "Study", false), Task(2, "Review", true))
-println(countOpen(tasks))
+fun main(){ var remaining=3; while(remaining>0){ println("Remaining: $remaining"); remaining-- }; println("Finished") }
 ```
 
 #### Expected Behavior or Output
-The result is 1. The function accepts a read-only List and returns the number of incomplete tasks.
+Prints Remaining: 3, Remaining: 2, Remaining: 1, then Finished.
 
 #### Common Mistakes
 - Assuming type inference makes Kotlin dynamically typed or that numeric types convert implicitly.
@@ -122,15 +118,13 @@ The result is 1. The function accepts a read-only List and returns the number of
 Kotlin is statically typed. The compiler may infer a declaration's type, but the type remains fixed. Prefer val for read-only bindings and var only when reassignment is required. Distinguish read-only collection interfaces from mutable interfaces, and validate data received from users, files, networks, or Java APIs. Apply the lesson concept to the shared course datasets and preserve the original problem's inputs and expected behavior.
 
 #### Worked Example
+
 ```kotlin
-data class Task(val id: Int, val title: String, val done: Boolean)
-fun countOpen(tasks: List<Task>): Int = tasks.count { !it.done }
-val tasks = listOf(Task(1, "Study", false), Task(2, "Review", true))
-println(countOpen(tasks))
+fun main(){ val values=listOf(4,7,9,12); var found=false; for(v in values){ if(v==9){found=true;break} }; println("Found 9: $found") }
 ```
 
 #### Expected Behavior or Output
-The result is 1. The function accepts a read-only List and returns the number of incomplete tasks.
+Prints Found 9: true; break stops the scan when the target is found.
 
 #### Common Mistakes
 - Assuming type inference makes Kotlin dynamically typed or that numeric types convert implicitly.
@@ -174,15 +168,13 @@ The result is 1. The function accepts a read-only List and returns the number of
 Kotlin is statically typed. The compiler may infer a declaration's type, but the type remains fixed. Prefer val for read-only bindings and var only when reassignment is required. Distinguish read-only collection interfaces from mutable interfaces, and validate data received from users, files, networks, or Java APIs. Apply the lesson concept to the shared course datasets and preserve the original problem's inputs and expected behavior.
 
 #### Worked Example
+
 ```kotlin
-data class Task(val id: Int, val title: String, val done: Boolean)
-fun countOpen(tasks: List<Task>): Int = tasks.count { !it.done }
-val tasks = listOf(Task(1, "Study", false), Task(2, "Review", true))
-println(countOpen(tasks))
+fun main(){ for(v in listOf(2,-1,5,0,8)){ if(v<=0) continue; println(v) } }
 ```
 
 #### Expected Behavior or Output
-The result is 1. The function accepts a read-only List and returns the number of incomplete tasks.
+Prints only 2, 5, and 8.
 
 #### Common Mistakes
 - Assuming type inference makes Kotlin dynamically typed or that numeric types convert implicitly.
@@ -226,15 +218,13 @@ The result is 1. The function accepts a read-only List and returns the number of
 Kotlin is statically typed. The compiler may infer a declaration's type, but the type remains fixed. Prefer val for read-only bindings and var only when reassignment is required. Distinguish read-only collection interfaces from mutable interfaces, and validate data received from users, files, networks, or Java APIs. Apply the lesson concept to the shared course datasets and preserve the original problem's inputs and expected behavior.
 
 #### Worked Example
+
 ```kotlin
-data class Task(val id: Int, val title: String, val done: Boolean)
-fun countOpen(tasks: List<Task>): Int = tasks.count { !it.done }
-val tasks = listOf(Task(1, "Study", false), Task(2, "Review", true))
-println(countOpen(tasks))
+fun main(){ var attempts=0; while(attempts<3){ println("Attempt $attempts"); attempts++ }; println("Loop ended at $attempts") }
 ```
 
 #### Expected Behavior or Output
-The result is 1. The function accepts a read-only List and returns the number of incomplete tasks.
+Prints attempts 0, 1, 2, then Loop ended at 3.
 
 #### Common Mistakes
 - Assuming type inference makes Kotlin dynamically typed or that numeric types convert implicitly.
@@ -278,15 +268,13 @@ The result is 1. The function accepts a read-only List and returns the number of
 Kotlin is statically typed. The compiler may infer a declaration's type, but the type remains fixed. Prefer val for read-only bindings and var only when reassignment is required. Distinguish read-only collection interfaces from mutable interfaces, and validate data received from users, files, networks, or Java APIs. Apply the lesson concept to the shared course datasets and preserve the original problem's inputs and expected behavior.
 
 #### Worked Example
+
 ```kotlin
-data class Task(val id: Int, val title: String, val done: Boolean)
-fun countOpen(tasks: List<Task>): Int = tasks.count { !it.done }
-val tasks = listOf(Task(1, "Study", false), Task(2, "Review", true))
-println(countOpen(tasks))
+fun main(){ fun tip(bill:Double,rate:Double):Double=bill*rate; println(tip(24.50,0.15)) }
 ```
 
 #### Expected Behavior or Output
-The result is 1. The function accepts a read-only List and returns the number of incomplete tasks.
+Returns and prints 3.675 for a $24.50 bill and 15% tip.
 
 #### Common Mistakes
 - Assuming type inference makes Kotlin dynamically typed or that numeric types convert implicitly.
@@ -330,15 +318,13 @@ The result is 1. The function accepts a read-only List and returns the number of
 Kotlin is statically typed. The compiler may infer a declaration's type, but the type remains fixed. Prefer val for read-only bindings and var only when reassignment is required. Distinguish read-only collection interfaces from mutable interfaces, and validate data received from users, files, networks, or Java APIs. Apply the lesson concept to the shared course datasets and preserve the original problem's inputs and expected behavior.
 
 #### Worked Example
+
 ```kotlin
-data class Task(val id: Int, val title: String, val done: Boolean)
-fun countOpen(tasks: List<Task>): Int = tasks.count { !it.done }
-val tasks = listOf(Task(1, "Study", false), Task(2, "Review", true))
-println(countOpen(tasks))
+fun main(){ fun describe(name:String,score:Int=0)="$name: $score"; println(describe("Avery",92)); println(describe(name="Jordan")) }
 ```
 
 #### Expected Behavior or Output
-The result is 1. The function accepts a read-only List and returns the number of incomplete tasks.
+Prints Avery: 92 and Jordan: 0; the second call uses the default.
 
 #### Common Mistakes
 - Assuming type inference makes Kotlin dynamically typed or that numeric types convert implicitly.
@@ -382,15 +368,13 @@ The result is 1. The function accepts a read-only List and returns the number of
 Kotlin is statically typed. The compiler may infer a declaration's type, but the type remains fixed. Prefer val for read-only bindings and var only when reassignment is required. Distinguish read-only collection interfaces from mutable interfaces, and validate data received from users, files, networks, or Java APIs. Apply the lesson concept to the shared course datasets and preserve the original problem's inputs and expected behavior.
 
 #### Worked Example
+
 ```kotlin
-data class Task(val id: Int, val title: String, val done: Boolean)
-fun countOpen(tasks: List<Task>): Int = tasks.count { !it.done }
-val tasks = listOf(Task(1, "Study", false), Task(2, "Review", true))
-println(countOpen(tasks))
+fun main(){ fun subtotal(price:Double,quantity:Int)=price*quantity; val amount=subtotal(2.50,3); println("Subtotal: $amount") }
 ```
 
 #### Expected Behavior or Output
-The result is 1. The function accepts a read-only List and returns the number of incomplete tasks.
+Prints Subtotal: 7.5; the function returns a value to its caller.
 
 #### Common Mistakes
 - Assuming type inference makes Kotlin dynamically typed or that numeric types convert implicitly.
@@ -434,15 +418,13 @@ The result is 1. The function accepts a read-only List and returns the number of
 Kotlin is statically typed. The compiler may infer a declaration's type, but the type remains fixed. Prefer val for read-only bindings and var only when reassignment is required. Distinguish read-only collection interfaces from mutable interfaces, and validate data received from users, files, networks, or Java APIs. Apply the lesson concept to the shared course datasets and preserve the original problem's inputs and expected behavior.
 
 #### Worked Example
+
 ```kotlin
-data class Task(val id: Int, val title: String, val done: Boolean)
-fun countOpen(tasks: List<Task>): Int = tasks.count { !it.done }
-val tasks = listOf(Task(1, "Study", false), Task(2, "Review", true))
-println(countOpen(tasks))
+fun main(){ fun average(scores:List<Int>)=scores.average(); println("%.2f".format(average(listOf(82,91,76,88)))) }
 ```
 
 #### Expected Behavior or Output
-The result is 1. The function accepts a read-only List and returns the number of incomplete tasks.
+Prints 84.25; the parameter uses List<Int>.
 
 #### Common Mistakes
 - Assuming type inference makes Kotlin dynamically typed or that numeric types convert implicitly.
@@ -486,15 +468,13 @@ The result is 1. The function accepts a read-only List and returns the number of
 Kotlin is statically typed. The compiler may infer a declaration's type, but the type remains fixed. Prefer val for read-only bindings and var only when reassignment is required. Distinguish read-only collection interfaces from mutable interfaces, and validate data received from users, files, networks, or Java APIs. Apply the lesson concept to the shared course datasets and preserve the original problem's inputs and expected behavior.
 
 #### Worked Example
+
 ```kotlin
-data class Task(val id: Int, val title: String, val done: Boolean)
-fun countOpen(tasks: List<Task>): Int = tasks.count { !it.done }
-val tasks = listOf(Task(1, "Study", false), Task(2, "Review", true))
-println(countOpen(tasks))
+fun main(){ fun sum(vararg values:Int)=values.sum(); val stored=intArrayOf(4,6); println(sum(2,3,5)); println(sum(*stored)) }
 ```
 
 #### Expected Behavior or Output
-The result is 1. The function accepts a read-only List and returns the number of incomplete tasks.
+Both calls print 10; the spread operator passes an existing array to vararg.
 
 #### Common Mistakes
 - Assuming type inference makes Kotlin dynamically typed or that numeric types convert implicitly.
@@ -538,15 +518,13 @@ The result is 1. The function accepts a read-only List and returns the number of
 Kotlin is statically typed. The compiler may infer a declaration's type, but the type remains fixed. Prefer val for read-only bindings and var only when reassignment is required. Distinguish read-only collection interfaces from mutable interfaces, and validate data received from users, files, networks, or Java APIs. Apply the lesson concept to the shared course datasets and preserve the original problem's inputs and expected behavior.
 
 #### Worked Example
+
 ```kotlin
-data class Task(val id: Int, val title: String, val done: Boolean)
-fun countOpen(tasks: List<Task>): Int = tasks.count { !it.done }
-val tasks = listOf(Task(1, "Study", false), Task(2, "Review", true))
-println(countOpen(tasks))
+fun main(){ class Counter(var value:Int){ fun increment(){value++} }; val counter=Counter(0); counter.increment(); println(counter.value) }
 ```
 
 #### Expected Behavior or Output
-The result is 1. The function accepts a read-only List and returns the number of incomplete tasks.
+The counter starts at 0, increments through a method, and prints 1.
 
 #### Common Mistakes
 - Assuming type inference makes Kotlin dynamically typed or that numeric types convert implicitly.
@@ -590,15 +568,13 @@ The result is 1. The function accepts a read-only List and returns the number of
 Kotlin is statically typed. The compiler may infer a declaration's type, but the type remains fixed. Prefer val for read-only bindings and var only when reassignment is required. Distinguish read-only collection interfaces from mutable interfaces, and validate data received from users, files, networks, or Java APIs. Apply the lesson concept to the shared course datasets and preserve the original problem's inputs and expected behavior.
 
 #### Worked Example
+
 ```kotlin
-data class Task(val id: Int, val title: String, val done: Boolean)
-fun countOpen(tasks: List<Task>): Int = tasks.count { !it.done }
-val tasks = listOf(Task(1, "Study", false), Task(2, "Review", true))
-println(countOpen(tasks))
+fun main(){ class Student(val name:String,val age:Int); val learner=Student("Avery",16); println(learner.name+" is "+learner.age) }
 ```
 
 #### Expected Behavior or Output
-The result is 1. The function accepts a read-only List and returns the number of incomplete tasks.
+Prints Avery is 16; constructor properties initialize with the instance.
 
 #### Common Mistakes
 - Assuming type inference makes Kotlin dynamically typed or that numeric types convert implicitly.
@@ -642,15 +618,13 @@ The result is 1. The function accepts a read-only List and returns the number of
 Kotlin is statically typed. The compiler may infer a declaration's type, but the type remains fixed. Prefer val for read-only bindings and var only when reassignment is required. Distinguish read-only collection interfaces from mutable interfaces, and validate data received from users, files, networks, or Java APIs. Apply the lesson concept to the shared course datasets and preserve the original problem's inputs and expected behavior.
 
 #### Worked Example
+
 ```kotlin
-data class Task(val id: Int, val title: String, val done: Boolean)
-fun countOpen(tasks: List<Task>): Int = tasks.count { !it.done }
-val tasks = listOf(Task(1, "Study", false), Task(2, "Review", true))
-println(countOpen(tasks))
+fun main(){ class Item(val name:String,var quantity:Int){ fun isInStock()=quantity>0; fun takeOne(){if(quantity>0) quantity--} }; val item=Item("Notebook",1); item.takeOne(); println(item.quantity.toString()+"; "+item.isInStock()) }
 ```
 
 #### Expected Behavior or Output
-The result is 1. The function accepts a read-only List and returns the number of incomplete tasks.
+Prints 0; false; the method preserves a non-negative quantity invariant.
 
 #### Common Mistakes
 - Assuming type inference makes Kotlin dynamically typed or that numeric types convert implicitly.
@@ -694,15 +668,13 @@ The result is 1. The function accepts a read-only List and returns the number of
 Kotlin is statically typed. The compiler may infer a declaration's type, but the type remains fixed. Prefer val for read-only bindings and var only when reassignment is required. Distinguish read-only collection interfaces from mutable interfaces, and validate data received from users, files, networks, or Java APIs. Apply the lesson concept to the shared course datasets and preserve the original problem's inputs and expected behavior.
 
 #### Worked Example
+
 ```kotlin
-data class Task(val id: Int, val title: String, val done: Boolean)
-fun countOpen(tasks: List<Task>): Int = tasks.count { !it.done }
-val tasks = listOf(Task(1, "Study", false), Task(2, "Review", true))
-println(countOpen(tasks))
+fun main(){ open class Animal{ open fun sound()="sound" }; class Dog:Animal(){ override fun sound()="bark" }; val animals:List<Animal> = listOf(Animal(),Dog()); println(animals.map{it.sound()}) }
 ```
 
 #### Expected Behavior or Output
-The result is 1. The function accepts a read-only List and returns the number of incomplete tasks.
+Prints [sound, bark]; the runtime object type selects the overridden method.
 
 #### Common Mistakes
 - Assuming type inference makes Kotlin dynamically typed or that numeric types convert implicitly.
@@ -746,15 +718,13 @@ The result is 1. The function accepts a read-only List and returns the number of
 Kotlin is statically typed. The compiler may infer a declaration's type, but the type remains fixed. Prefer val for read-only bindings and var only when reassignment is required. Distinguish read-only collection interfaces from mutable interfaces, and validate data received from users, files, networks, or Java APIs. Apply the lesson concept to the shared course datasets and preserve the original problem's inputs and expected behavior.
 
 #### Worked Example
+
 ```kotlin
-data class Task(val id: Int, val title: String, val done: Boolean)
-fun countOpen(tasks: List<Task>): Int = tasks.count { !it.done }
-val tasks = listOf(Task(1, "Study", false), Task(2, "Review", true))
-println(countOpen(tasks))
+fun main(){ data class Address(val city:String); data class Person(val name:String,val address:Address); val p=Person("Avery",Address("Farmington")); println(p.name+" lives in "+p.address.city) }
 ```
 
 #### Expected Behavior or Output
-The result is 1. The function accepts a read-only List and returns the number of incomplete tasks.
+Prints Avery lives in Farmington; Person contains an Address object.
 
 #### Common Mistakes
 - Assuming type inference makes Kotlin dynamically typed or that numeric types convert implicitly.
@@ -798,15 +768,13 @@ The result is 1. The function accepts a read-only List and returns the number of
 Kotlin is statically typed. The compiler may infer a declaration's type, but the type remains fixed. Prefer val for read-only bindings and var only when reassignment is required. Distinguish read-only collection interfaces from mutable interfaces, and validate data received from users, files, networks, or Java APIs. Apply the lesson concept to the shared course datasets and preserve the original problem's inputs and expected behavior.
 
 #### Worked Example
+
 ```kotlin
-data class Task(val id: Int, val title: String, val done: Boolean)
-fun countOpen(tasks: List<Task>): Int = tasks.count { !it.done }
-val tasks = listOf(Task(1, "Study", false), Task(2, "Review", true))
-println(countOpen(tasks))
+fun main(){ val p=java.nio.file.Files.createTempFile("kotlin-course-",".txt"); java.nio.file.Files.writeString(p,"First line\nSecond line\n"); val lines=java.nio.file.Files.readAllLines(p); println(lines.first()); println("Line count: "+lines.size); java.nio.file.Files.deleteIfExists(p) }
 ```
 
 #### Expected Behavior or Output
-The result is 1. The function accepts a read-only List and returns the number of incomplete tasks.
+Prints First line and Line count: 2, then deletes the temporary file.
 
 #### Common Mistakes
 - Assuming type inference makes Kotlin dynamically typed or that numeric types convert implicitly.
@@ -850,15 +818,13 @@ The result is 1. The function accepts a read-only List and returns the number of
 Kotlin is statically typed. The compiler may infer a declaration's type, but the type remains fixed. Prefer val for read-only bindings and var only when reassignment is required. Distinguish read-only collection interfaces from mutable interfaces, and validate data received from users, files, networks, or Java APIs. Apply the lesson concept to the shared course datasets and preserve the original problem's inputs and expected behavior.
 
 #### Worked Example
+
 ```kotlin
-data class Task(val id: Int, val title: String, val done: Boolean)
-fun countOpen(tasks: List<Task>): Int = tasks.count { !it.done }
-val tasks = listOf(Task(1, "Study", false), Task(2, "Review", true))
-println(countOpen(tasks))
+fun main(){ val p=java.nio.file.Files.createTempFile("kotlin-course-",".txt"); java.nio.file.Files.writeString(p,"First note\n"); java.nio.file.Files.writeString(p,"Second note\n",java.nio.file.StandardOpenOption.APPEND); println(java.nio.file.Files.readString(p).trim().replace("\n"," | ")); java.nio.file.Files.deleteIfExists(p) }
 ```
 
 #### Expected Behavior or Output
-The result is 1. The function accepts a read-only List and returns the number of incomplete tasks.
+Prints First note | Second note; the second write appends.
 
 #### Common Mistakes
 - Assuming type inference makes Kotlin dynamically typed or that numeric types convert implicitly.
@@ -902,15 +868,13 @@ The result is 1. The function accepts a read-only List and returns the number of
 Kotlin is statically typed. The compiler may infer a declaration's type, but the type remains fixed. Prefer val for read-only bindings and var only when reassignment is required. Distinguish read-only collection interfaces from mutable interfaces, and validate data received from users, files, networks, or Java APIs. Apply the lesson concept to the shared course datasets and preserve the original problem's inputs and expected behavior.
 
 #### Worked Example
+
 ```kotlin
-data class Task(val id: Int, val title: String, val done: Boolean)
-fun countOpen(tasks: List<Task>): Int = tasks.count { !it.done }
-val tasks = listOf(Task(1, "Study", false), Task(2, "Review", true))
-println(countOpen(tasks))
+fun main(){ fun parseScore(s:String):Int?=s.toIntOrNull(); for(raw in listOf("92","ninety")){ try{ val score=parseScore(raw)?:throw IllegalArgumentException("Score must be a whole number"); println("Accepted: $score") }catch(e:IllegalArgumentException){ println("Rejected: "+e.message) } } }
 ```
 
 #### Expected Behavior or Output
-The result is 1. The function accepts a read-only List and returns the number of incomplete tasks.
+Prints Accepted: 92 then Rejected: Score must be a whole number.
 
 #### Common Mistakes
 - Assuming type inference makes Kotlin dynamically typed or that numeric types convert implicitly.
@@ -954,15 +918,13 @@ The result is 1. The function accepts a read-only List and returns the number of
 Kotlin is statically typed. The compiler may infer a declaration's type, but the type remains fixed. Prefer val for read-only bindings and var only when reassignment is required. Distinguish read-only collection interfaces from mutable interfaces, and validate data received from users, files, networks, or Java APIs. Apply the lesson concept to the shared course datasets and preserve the original problem's inputs and expected behavior.
 
 #### Worked Example
+
 ```kotlin
-data class Task(val id: Int, val title: String, val done: Boolean)
-fun countOpen(tasks: List<Task>): Int = tasks.count { !it.done }
-val tasks = listOf(Task(1, "Study", false), Task(2, "Review", true))
-println(countOpen(tasks))
+fun main(){ val p=java.nio.file.Files.createTempFile("kotlin-course-",".txt"); java.nio.file.Files.writeString(p,"Accessible file access"); java.nio.file.Files.newBufferedReader(p).use{reader->println(reader.readLine())}; println("Reader closed"); java.nio.file.Files.deleteIfExists(p) }
 ```
 
 #### Expected Behavior or Output
-The result is 1. The function accepts a read-only List and returns the number of incomplete tasks.
+Prints Accessible file access then Reader closed; use closes the reader.
 
 #### Common Mistakes
 - Assuming type inference makes Kotlin dynamically typed or that numeric types convert implicitly.
@@ -1006,15 +968,13 @@ The result is 1. The function accepts a read-only List and returns the number of
 Kotlin is statically typed. The compiler may infer a declaration's type, but the type remains fixed. Prefer val for read-only bindings and var only when reassignment is required. Distinguish read-only collection interfaces from mutable interfaces, and validate data received from users, files, networks, or Java APIs. Apply the lesson concept to the shared course datasets and preserve the original problem's inputs and expected behavior.
 
 #### Worked Example
+
 ```kotlin
-data class Task(val id: Int, val title: String, val done: Boolean)
-fun countOpen(tasks: List<Task>): Int = tasks.count { !it.done }
-val tasks = listOf(Task(1, "Study", false), Task(2, "Review", true))
-println(countOpen(tasks))
+fun main(){ data class Task(val id:Int,val title:String,val done:Boolean); val task=Task(1,"Study Kotlin",false); val json="""{"id":""" + task.id + ""","title":"""" + task.title + """","done":""" + task.done + "}"; println(json) }
 ```
 
 #### Expected Behavior or Output
-The result is 1. The function accepts a read-only List and returns the number of incomplete tasks.
+Prints a JSON-shaped record with id 1, title Study Kotlin, and done false. This limited illustration is not a general serializer.
 
 #### Common Mistakes
 - Assuming type inference makes Kotlin dynamically typed or that numeric types convert implicitly.
