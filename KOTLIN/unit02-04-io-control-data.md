@@ -120,7 +120,12 @@ Kotlin is statically typed. The compiler may infer a declaration's type, but the
 #### Worked Example
 
 ```kotlin
-fun main(){ fun parseAge(raw:String?):Int?=raw?.trim()?.toIntOrNull(); val age=parseAge(" 16 "); println(age?.let{"Age next year: "+(it+1)}?:"Enter a whole-number age.") }
+fun main(){
+    fun parseAge(raw:String?):Int? = raw?.trim()?.toIntOrNull()
+    val age = parseAge(" 16 ")
+    val message = age?.let { "Age next year: " + (it + 1) } ?: "Enter a whole-number age."
+    println(message)
+}
 ```
 
 #### Expected Behavior or Output
