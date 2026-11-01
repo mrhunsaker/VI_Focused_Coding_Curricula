@@ -179,7 +179,7 @@ const entries: string[] = ["82", "", "91", "not a score", "76", "88"];
 let total = 0;
 for (const entry of entries) {
   const score = Number(entry);
-  if (!Number.isFinite(score)) continue;
+  if (entry.trim() === "" || !Number.isFinite(score)) continue;
   total += score;
 }
 console.log(total);
