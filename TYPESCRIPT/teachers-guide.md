@@ -17,6 +17,33 @@ Use Node.js 26 LTS (26.13.0 or a newer 26.x maintenance release) and TypeScript 
 
 Teach strict type checking progressively. Prefer explicit function parameter and return types where they clarify contracts; use inference for obvious local values; use interfaces/type aliases for object shapes; prefer unknown over any for untrusted values; and keep strictNullChecks enabled. Explain that type assertions do not validate data and that types are erased from emitted JavaScript. JSON, user input, file contents, and network responses still require runtime validation. TypeScript's compiler catches many classes of mistakes but does not prove program correctness.
 
+## Current course map and TypeScript adaptations
+
+The four student-facing unit files are the authoritative lesson sequence. The course now follows all 57 mapped lessons from `lesson_standardization.json`, with four setup lessons and five lessons in each of Units 2–11 except Unit 1's three foundation lessons.
+
+| Unit | TypeScript focus |
+|---|---|
+| 0 | Node.js/npm/compiler installation, accessible editor, workspace, strict project configuration, compile/run workflow |
+| 1 | Computer science, Hello World, variables, primitive types, Avery profile |
+| 2 | Software design, expressions, asynchronous terminal input, explicit numeric conversion, Math |
+| 3 | Boolean logic, shared grade thresholds, arrays, iteration, string operations |
+| 4 | Array mutation and sorting, native readonly tuples, interfaces, object and Map iteration |
+| 5 | readline/promises input, while loops, sentinel values, flags, break, continue, termination |
+| 6 | Typed function contracts, default and optional arguments, options objects, return values, readonly collections, rest parameters |
+| 7 | Classes, constructors, encapsulation, inheritance, composition |
+| 8 | Promise-based file I/O, error handling, finally, JSON serialization, runtime type guards |
+| 9 | node:test, class tests, random numbers, text frequency, standards-aware CSV parsing |
+| 10 | Text adventure, item inventory and key puzzle, command-line to-do tool, validation and accessible text UX |
+| 11 | Terminal-based personal data manager preserving the Python capstone's record schema and CRUD requirements |
+
+The Python capstone introduces NiceGUI. This TypeScript track deliberately uses a terminal interface so the core learning outcomes remain text-first and keyboard-accessible without requiring a browser UI. The interface differs; the record fields, validation, persistence, CRUD operations, testing expectations, and accessibility acceptance criteria remain equivalent.
+
+TypeScript-specific teaching is integrated throughout: compile-time checking versus runtime validation, explicit types and inference, interfaces, readonly tuples, union narrowing, unknown values at trust boundaries, async/await, and emitted JavaScript. Keep module mode explicit in `package.json` and `tsconfig.json`; Node.js runs emitted JavaScript in the compiled workflow.
+
+The core test runner is Node's built-in `node:test` with `node:assert/strict`. Jest is optional enrichment only. CSV examples use the maintained `csv-parse` package because splitting on commas does not correctly handle quoted CSV fields.
+
+---
+
 ## Table of Contents
 
 1. [Philosophy and Why TypeScript](#1-philosophy-and-why-typescript)
