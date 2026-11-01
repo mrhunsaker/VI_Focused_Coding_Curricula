@@ -904,6 +904,43 @@
       ],
       "ci_run": "41337829888",
       "examples_compiled_and_executed": 57
+    },
+    "requested_additions": {
+      "project_environment_and_container_guide": {
+        "path": "DEVELOPMENT/ENVIRONMENT_ISOLATION.md",
+        "status": "drafted_and_added_to_mdbook_navigation_pending_ci_and_accessibility_review",
+        "completed_work": [
+          "Explains local environment isolation, dependency manifests, lockfiles, reproducibility, and the differences between version managers, package managers, virtual environments, application installers, containers, and editor settings.",
+          "Covers Python venv/virtualenv, pip, pip-tools, pipx, pyenv, Poetry, uv, and Twine, including their distinct purposes.",
+          "Adds Conda advantages, disadvantages, and guidance for mixing Conda and pip.",
+          "Covers npm/npx and related JavaScript tooling, Cargo/rustup, and representative dependency/build tools for the other language tracks.",
+          "Compares Docker and Podman, specifies Docker for documented VS Code Dev Containers instructions, and treats Podman as an optional compatibility-qualified alternative.",
+          "Adds optional VS Code Dev Containers setup and a qualified Theia container workflow.",
+          "Clarifies that containers isolate project runtimes/dependencies but do not themselves isolate host screen-reader or OS accessibility settings; recommends editor profiles and workspace settings for editor-level separation.",
+          "Adds the guide to SUMMARY.md and links it from OVERALL_README.md."
+        ],
+        "not_yet_verified": [
+          "Run a full mdBook build and repository-wide Markdown/local-link validation after this addition.",
+          "Review current vendor documentation and exact installation commands for Docker, Podman, Conda, uv, Poetry, npm, Cargo, VS Code Dev Containers, and Theia before treating version-specific instructions as permanent.",
+          "Perform hands-on keyboard-only, screen-reader, and braille verification of the guide and optional container workflows."
+        ]
+      },
+      "instructor_assessment_solutions": {
+        "requested_scope": "Create an instructor-only repository section containing assessment solutions for all languages and assignments, excluded from the published student website.",
+        "status": "blocked_pending_private_storage_decision",
+        "reason": "The target GitHub repository is public. Excluding a directory from SUMMARY.md or mdBook does not make files private; students can still browse or clone repository source.",
+        "safe_implementation_requirements": [
+          "Create a separate private instructor repository and store assessment solutions there, or change this repository's visibility to private before adding solutions.",
+          "Do not add answer files or a discoverable solution directory to this public repository.",
+          "Once private storage is available, inventory every language, unit, assignment, quiz, project, and capstone; create instructor-only solution files and validation tests.",
+          "Keep student-facing prompts and assessment specifications separate from solution artifacts; preserve the course policy that AI must not generate or complete student assessment work."
+        ],
+        "not_yet_verified": [
+          "A private repository or private target has been selected and access permissions confirmed.",
+          "Complete inventory of assessed items across all language tracks and specialist modules.",
+          "Instructor solutions and tests have been authored, reviewed, and validated."
+        ]
+      }
     }
   }
 }
