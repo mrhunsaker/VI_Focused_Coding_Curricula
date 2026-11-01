@@ -252,5 +252,5 @@ All implementation changes are recorded here. Each numbered step is committed se
 - Replaced repeated C++ worked examples with distinct lesson-specific examples across 53 numbered lessons in Units 1–11, using canonical shared datasets and project contexts.
 - Rewrote all 53 numbered lessons with three C++-specific common mistakes, four targeted activities, and five measurable skills checklist criteria each.
 - Added `scripts/check_cpp_examples.py` and a GCC/Clang C++20 GitHub Actions matrix at `.github/workflows/cpp-examples.yml`.
-- GitHub Actions run [41317861416](https://github.com/mrhunsaker/VI_Focused_Coding_Curricula/actions/runs/41317861416) passed. GCC 13.3.0 and Clang 18.1.3 compiled and linked all 54 fenced C++ examples using `-Wall -Wextra -Wpedantic -Werror`.
+- GitHub Actions run [41318260153](https://github.com/mrhunsaker/VI_Focused_Coding_Curricula/actions/runs/41318260153) passed. GCC 13.3.0 and Clang 18.1.3 compiled and linked all 54 fenced C++ examples using `-Wall -Wextra -Wpedantic -Werror`.
 - Remaining: runtime execution with representative input and file fixtures, a fresh mdBook build, complete local-link crawl, and hands-on screen-reader/braille testing.
