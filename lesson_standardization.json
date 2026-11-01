@@ -447,7 +447,7 @@
   ],
   "refinement_progress": {
     "last_updated": "2026-11-01",
-    "current_language": "C#",
+    "current_language": "Julia",
     "completed_tracks": {
       "C": {
         "path": "C/lessons.md",
@@ -585,10 +585,51 @@
           "Perform hands-on screen-reader and braille testing with named operating systems, editors, SDKs, and access technologies.",
           "Use a standards-aware CSV parser rather than string splitting for production CSV files with quoted commas, escaped quotes, or embedded newlines."
         ]
+      },
+      "Julia": {
+        "path": "JULIA/lessons.md",
+        "units": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11
+        ],
+        "mapped_python_lessons": 55,
+        "target_course_lesson_sections": 57,
+        "numbered_unit_lesson_sections": 53,
+        "status": "content_and_example_execution_validation_pending",
+        "completed_work": [
+          "Expanded all four Unit 0 lessons with Julia installation, REPL/runtime verification, workspace and working-directory behavior, editor accessibility, and project-local dependency management.",
+          "Added the missing Python Unit 2 Lesson 2.5 counterpart for Julia mathematical constants, circle area/circumference, and distance using hypot.",
+          "Replaced repeated within-unit example blocks with 53 distinct lesson-specific examples, aligned to canonical profile, calculator, scores, inventory, coordinates, text, CSV, task, and capstone contexts.",
+          "Rewrote all 53 numbered lessons with Julia-specific concept explanations, three language-specific common mistakes, four targeted activities, accessibility practice, and five measurable checklist statements.",
+          "Documented Julia-specific adaptations: one-based indexing, multiple dispatch, composite types, mutation conventions, TOML versus JSON dependencies, and standards-aware CSV parsing.",
+          "Added scripts/check_julia_examples.py and a Julia 1.12 GitHub Actions workflow to execute every fenced Julia example independently."
+        ],
+        "validation": [
+          "Four Unit 0 setup lessons and all 53 numbered Unit 1–11 lesson sections are present.",
+          "All 53 numbered lessons contain the required lesson sections, three Julia-specific mistakes, four activities, and five checklist statements.",
+          "All 53 numbered lesson examples are distinct; with four Unit 0 examples, the course contains 57 fenced Julia examples.",
+          "Structural validation confirms balanced Markdown fences and the missing Unit 2 Lesson 2.5 counterpart is now present."
+        ],
+        "not_yet_verified": [
+          "GitHub Actions execution of all 57 Julia examples; workflow added but result not yet confirmed.",
+          "Expected-output assertions and broader behavioral tests with representative invalid input and file fixtures.",
+          "A fresh mdBook build and complete Markdown/local-link crawl after the latest edits.",
+          "Hands-on screen-reader and braille testing with named operating systems, editors, Julia versions, and access technologies.",
+          "Full JSON3.jl persistence and CSV.jl parsing workflows in the end-to-end capstone."
+        ]
       }
     },
     "next_tracks": [
-      "Julia",
       "Swift",
       "Rust",
       "Go",
