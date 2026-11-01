@@ -421,3 +421,368 @@ favoriteSubject: Computer Science
 - [ ] I can traverse Map entries.
 - [ ] I can produce readable sequential reports from structured data.
 
+
+# Unit 3: Control Flow — Decisions, Lists, and Strings
+
+## Overview
+This unit follows the Python sequence of Boolean reasoning, chained conditionals, arrays, iteration, and string operations. Use the shared grade thresholds and score list throughout.
+
+## Lesson 3.1: Boolean Expressions and `if` Statements
+
+### Reading References
+- Python source counterpart: Unit 3, Lesson 3.1.
+- MDN: Expressions and operators.
+
+### Learning Objectives
+- Compare values with relational operators.
+- Combine conditions with `&&`, `||`, and `!`.
+- Use an `if` statement to make a decision.
+
+### Concept Explanation
+JavaScript Boolean values are `true` and `false`. Use strict equality (`===`) to avoid implicit type conversion during comparisons. Logical AND (`&&`) requires both conditions to be true; logical OR (`||`) requires at least one; logical NOT (`!`) reverses a Boolean value.
+
+### Worked Example
+```javascript
+const score = 82;
+const isPassing = score >= 60;
+const isValid = score >= 0 && score <= 100;
+
+if (isValid && isPassing) {
+  console.log("Valid passing score.");
+} else {
+  console.log("Score is invalid or not passing.");
+}
+```
+
+Expected output:
+```text
+Valid passing score.
+```
+
+### Common Mistakes
+- Using `=` instead of `===` in a comparison.
+- Confusing `&&` with `||`.
+- Forgetting that JavaScript conditions can use truthy/falsy values, not only Booleans.
+
+### Activities
+1. Test whether each canonical score is at least 60.
+2. Write a condition that accepts scores from 0 through 100.
+3. Compare `0`, `"0"`, `""`, and `null` using strict equality.
+4. Explain the result of `true && false` and `true || false`.
+
+### Accessibility Practice
+Print the score and decision as a complete sentence. Do not use color alone to indicate pass/fail.
+
+### Skills Checklist
+- [ ] I can use relational operators.
+- [ ] I can combine conditions with logical operators.
+- [ ] I can write an if/else statement.
+- [ ] I can explain strict equality.
+
+## Lesson 3.2: Chained Conditionals (`else if`, `else`)
+
+### Reading References
+- Python source counterpart: Unit 3, Lesson 3.2.
+- MDN: Conditional statements.
+
+### Learning Objectives
+- Use ordered conditional branches.
+- Apply the shared A–F grade thresholds.
+- Test branch boundaries.
+
+### Worked Example
+```javascript
+function getGrade(score) {
+  if (score >= 90) return "A";
+  if (score >= 80) return "B";
+  if (score >= 70) return "C";
+  if (score >= 60) return "D";
+  return "F";
+}
+
+for (const score of [82, 91, 76, 88]) {
+  console.log(`Score ${score}: ${getGrade(score)}`);
+}
+```
+
+Expected output:
+```text
+Score 82: B
+Score 91: A
+Score 76: C
+Score 88: B
+```
+
+### Common Mistakes
+- Testing lower thresholds before higher ones.
+- Omitting the final fallback branch.
+- Failing to reject scores outside the valid range.
+
+### Activities
+1. Classify scores 82, 91, 76, and 88.
+2. Test 90, 89, 80, 79, 70, 69, 60, and 59.
+3. Add validation for scores below 0 or above 100.
+4. Explain why branch order matters.
+
+### Accessibility Practice
+Print the numeric score and grade together, one record per line.
+
+### Skills Checklist
+- [ ] I can write chained conditionals.
+- [ ] I can implement the shared grade thresholds.
+- [ ] I can test boundary values.
+- [ ] I can validate a score range.
+
+## Lesson 3.3: Introduction to Arrays
+
+### Reading References
+- Python source counterpart: Unit 3, Lesson 3.3.
+- MDN: Indexed collections — Arrays.
+
+### Learning Objectives
+- Create, access, and modify arrays.
+- Explain zero-based indexing and `length`.
+- Use the canonical scores [82, 91, 76, 88].
+
+### Concept Explanation
+JavaScript arrays are ordered and zero-indexed. The first element is at index 0; the last is at `array.length - 1`. A `const` array can still have its elements changed because `const` prevents reassignment of the binding, not mutation of the array.
+
+### Worked Example
+```javascript
+const scores = [82, 91, 76, 88];
+console.log(`First score: ${scores[0]}`);
+console.log(`Number of scores: ${scores.length}`);
+scores[2] = 80;
+console.log(`Updated third score: ${scores[2]}`);
+```
+
+Expected output:
+```text
+First score: 82
+Number of scores: 4
+Updated third score: 80
+```
+
+### Common Mistakes
+- Using index 1 for the first element.
+- Assuming `const` freezes array contents.
+- Reading beyond the array and receiving `undefined`.
+
+### Activities
+1. Read all four canonical scores by index.
+2. Change the third score from 76 to 80.
+3. Add a fifth score of 95 and report the new length.
+4. Explain the difference between an index and a one-based display number.
+
+### Accessibility Practice
+Identify values by both position and meaning. Print one score per line.
+
+### Skills Checklist
+- [ ] I can create and access an array.
+- [ ] I can explain zero-based indexing.
+- [ ] I can update an array element.
+- [ ] I can use the length property.
+
+## Lesson 3.4: Iterating with `for` Loops
+
+### Reading References
+- Python source counterpart: Unit 3, Lesson 3.4.
+- MDN: Loops and iteration.
+
+### Learning Objectives
+- Iterate over arrays with `for...of`.
+- Calculate a total and average.
+- Compare indexed loops with value-based iteration.
+
+### Worked Example
+```javascript
+const scores = [82, 91, 76, 88];
+let total = 0;
+
+for (const score of scores) {
+  total += score;
+}
+
+console.log(`Total: ${total}`);
+console.log(`Average: ${(total / scores.length).toFixed(2)}`);
+```
+
+Expected output:
+```text
+Total: 337
+Average: 84.25
+```
+
+### Common Mistakes
+- Confusing an array index with an array value.
+- Modifying the collection while iterating without understanding the effect.
+- Using `forEach()` when early termination with `break` is required.
+
+### Activities
+1. Print each canonical score using `for...of`.
+2. Calculate the total and average.
+3. Print each score with a one-based display number.
+4. Compare `for...of`, indexed `for`, and `forEach()`.
+
+### Accessibility Practice
+Use one output line per score and include a meaningful label. Do not rely on visual alignment.
+
+### Skills Checklist
+- [ ] I can iterate over an array.
+- [ ] I can calculate a total and average.
+- [ ] I can use an indexed loop.
+- [ ] I can choose an appropriate loop form.
+
+## Lesson 3.5: Basic String Operations
+
+### Reading References
+- Python source counterpart: Unit 3, Lesson 3.5.
+- MDN: String.
+
+### Learning Objectives
+- Concatenate strings and use template literals.
+- Normalize text and search within it.
+- Count string length and replace text.
+
+### Worked Example
+```javascript
+const firstName = " Avery ";
+const lastName = "Student";
+const fullName = `${firstName.trim()} ${lastName}`;
+const sample = "A student studies programming. Programming develops problem-solving skills.";
+
+console.log(`Name: ${fullName}`);
+console.log(`Uppercase: ${fullName.toUpperCase()}`);
+console.log(`Contains programming: ${sample.toLowerCase().includes("programming")}`);
+console.log(`Characters in name: ${fullName.length}`);
+```
+
+Expected output:
+```text
+Name: Avery Student
+Uppercase: AVERY STUDENT
+Contains programming: true
+Characters in name: 13
+```
+
+### Common Mistakes
+- Assuming string methods mutate the original string.
+- Forgetting to save the result of `trim()` or case conversion.
+- Treating UTF-16 code-unit length as the count of user-perceived characters in all Unicode text.
+
+### Activities
+1. Trim extra spaces from a name.
+2. Convert the canonical text sample to lowercase.
+3. Count the occurrences of the word "programming".
+4. Replace "skills" with "abilities".
+
+### Accessibility Practice
+Use complete labels for string length and search results. Explain punctuation and whitespace explicitly.
+
+### Skills Checklist
+- [ ] I can concatenate strings and use template literals.
+- [ ] I can trim and change case.
+- [ ] I can search and replace text.
+- [ ] I can describe the Unicode caveat for string length.
+
+# Unit 4: Data Structures — Arrays, Fixed Sequences, and Objects
+
+## Overview
+This unit maps Python lists, tuples, and dictionaries to idiomatic JavaScript. JavaScript arrays are mutable sequences; a frozen array can express fixed-sequence intent; plain objects represent records; and `Map` represents a dynamic key-value collection.
+
+## Lesson 4.1: More on Arrays
+
+### Reading References
+- Python source counterpart: Unit 4, Lesson 4.1.
+- MDN: Array methods.
+
+### Learning Objectives
+- Add, insert, update, and remove array elements.
+- Distinguish mutating methods from methods that return a new array.
+- Preserve and process the canonical score data.
+
+### Worked Example
+```javascript
+const scores = [82, 91, 76, 88];
+scores.push(95);
+scores.splice(1, 0, 85);
+const removed = scores.pop();
+console.log(`Removed: ${removed}`);
+console.log(`Scores: ${scores.join(", ")}`);
+```
+
+Expected output:
+```text
+Removed: 95
+Scores: 82, 85, 91, 76, 88
+```
+
+### Common Mistakes
+- Confusing `splice()` (mutates) with `slice()` (returns a copy).
+- Assuming `pop()` returns the updated array rather than the removed element.
+- Sorting numbers without a numeric comparator.
+
+### Activities
+1. Append 95 to the canonical scores.
+2. Insert 85 at index 1.
+3. Remove the final element and report the returned value.
+4. Sort a copy numerically with `(a, b) => a - b`.
+
+### Accessibility Practice
+Announce whether an operation mutates the original array or returns a new one. Read resulting values sequentially.
+
+### Skills Checklist
+- [ ] I can add and remove array elements.
+- [ ] I can insert at an index.
+- [ ] I can distinguish mutating and non-mutating methods.
+- [ ] I can sort numeric arrays correctly.
+
+## Lesson 4.2: Organizing Arrays
+
+### Reading References
+- Python source counterpart: Unit 4, Lesson 4.2.
+- MDN: Array sorting and iteration methods.
+
+### Learning Objectives
+- Sort and reverse arrays.
+- Create filtered and transformed arrays.
+- Explain mutation and copying.
+
+### Worked Example
+```javascript
+const scores = [82, 91, 76, 88];
+const sorted = [...scores].sort((a, b) => a - b);
+const reversed = [...sorted].reverse();
+console.log(`Original: ${scores.join(", ")}`);
+console.log(`Sorted: ${sorted.join(", ")}`);
+console.log(`Reversed: ${reversed.join(", ")}`);
+```
+
+Expected output:
+```text
+Original: 82, 91, 76, 88
+Sorted: 76, 82, 88, 91
+Reversed: 91, 88, 82, 76
+```
+
+### Common Mistakes
+- Calling `sort()` without a comparator for numeric data.
+- Reversing the original array when a copy was intended.
+- Assuming spread syntax makes a deep copy of nested objects.
+
+### Activities
+1. Sort the canonical scores from lowest to highest.
+2. Reverse a copy and preserve the original order.
+3. Filter scores of 80 or higher.
+4. Explain why a shallow copy is sufficient for an array of primitive numbers but not necessarily for nested objects.
+
+### Accessibility Practice
+Label each result as original, sorted, reversed, or filtered. Avoid presenting the distinction only through visual ordering.
+
+### Skills Checklist
+- [ ] I can sort numbers with a comparator.
+- [ ] I can reverse a copy of an array.
+- [ ] I can filter an array.
+- [ ] I can explain shallow copying.
+
+
