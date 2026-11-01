@@ -26,6 +26,15 @@ Complete the shared [IDE setup lesson](../DEVELOPMENT/IDE_SETUP.md). Test editor
 - [ ] I can create and run a source file from the terminal.
 - [ ] I can navigate the editor and read output accessibly.
 
+### Lesson 0.4: Project Environments, Dependencies, and Terminal Usage
+
+Use the terminal from the project root and understand the current working directory. Keep each project in its own folder and distinguish source files, build output, and dependency metadata. Use one folder per C project. Keep source, headers, and generated executable organized separately. Run the compiler from the project folder; do not assume a virtual environment is needed for the C standard library. Learn include paths and linker arguments only when a project adds external libraries.
+
+### Skills Checklist
+- [ ] I can identify the project root and run commands from it.
+- [ ] I can explain where project dependencies are recorded, if applicable.
+- [ ] I can run the program or test command from the terminal and read its output.
+
 # Unit 1: Foundations of Computing
 
 ## Overview
