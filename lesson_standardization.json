@@ -743,7 +743,7 @@
       ]
     },
     "java": {
-      "status": "complete_lesson_structure_topic_refinement_and_jdk_25_compile_smoke_verified_pending_application_and_accessibility_verification",
+      "status": "lesson_structure_topic_refinement_and_final_jdk_25_ci_verified_pending_application_and_accessibility_verification",
       "java_version": "25.0.5",
       "unit_0_setup_lessons": 4,
       "numbered_lessons": 53,
@@ -758,7 +758,7 @@
         "fresh mdBook build and complete Markdown/local-link crawl",
         "hands-on keyboard-only, screen-reader, and braille verification"
       ],
-      "ci_run": "41337711452",
+      "ci_run": "41337829888",
       "examples_compiled_and_executed": 57
     }
   }
