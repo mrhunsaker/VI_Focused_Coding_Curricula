@@ -1,32 +1,14 @@
-# Introduction to Swift
+# Swift Curriculum
 
-## Standalone beginner curriculum
+Swift is used for iOS, macOS, watchOS, tvOS, server applications, and systems components.
 
-Swift is a statically typed, compiled, protocol-oriented language used for iOS, iPadOS, macOS, watchOS, tvOS, server-side Swift, and Apple's software ecosystem.
+A complete course aligned to Python Units 0–11. Familiar problem contexts recur so learners focus on Swift syntax, types, optionals, protocols, value semantics, and standard-library idioms.
 
-## What information is a good fit?
+## Environment
 
-Swift suits strongly typed application models, user settings, structured records, JSON data, asynchronous results, and state managed by value types. Optionals make missing values explicit; data received from external systems still requires validation.
+Install Xcode on macOS or the Swift toolchain on a supported platform. Verify `swift --version`; run `swift main.swift` or create a package with `swift package init --type executable`.
 
-## Lessons
+Complete the shared [IDE setup lesson](../DEVELOPMENT/IDE_SETUP.md) and [terminal prerequisite](../TERMINAL/TERMINAL_README.md).
 
-1. Swift toolchain, scripts, and package projects.
-2. let, var, types, and string interpolation.
-3. Optionals and safe unwrapping.
-4. Conditions, loops, and functions.
-5. Arrays, dictionaries, and sets.
-6. Structs, enums, and value semantics.
-7. Classes, protocols, and extensions.
-8. Errors, files, and Codable JSON.
-9. Concurrency fundamentals and testing.
-10. Cross-platform Swift capstone.
-
-## First program
-
-~~~swift
-let name = "Avery"
-let count = 3
-print("\(name): \(count)")
-~~~
-
-Toolchain: Swift compiler and Swift Package Manager. Swift can be used on Apple platforms and on supported Linux environments; platform frameworks are not interchangeable. See [Swift lessons](lessons.md).
+- [Complete lessons](lessons.md)
+- [Topic index](INDEX.md)
