@@ -167,7 +167,56 @@ JavaScript was created by Brendan Eich at Netscape in 1995. Originally just for 
 
 ---
 
-## Lesson 1.2: Variables and Output
+## Lesson 1.2: Your First JavaScript Program — Hello World
+
+### Reading References
+- Python source counterpart: Unit 1, Lesson 1.2.
+- MDN: JavaScript first steps.
+
+### Learning Objectives
+- Write and run a minimal JavaScript program.
+- Explain sequential execution and console output.
+- Run the same file from the terminal.
+
+### Concept Explanation
+A JavaScript program is a sequence of instructions. Node.js executes statements in order. The `console.log()` function writes text to standard output. JavaScript statements are commonly separated by line breaks and may optionally end with semicolons; this course uses semicolons consistently.
+
+### Worked Example
+Save as `hello.js`:
+```javascript
+console.log("Hello, World!");
+console.log("Welcome to JavaScript.");
+```
+
+Run with `node hello.js`.
+
+Expected output:
+```text
+Hello, World!
+Welcome to JavaScript.
+```
+
+### Common Mistakes
+- Saving the file with the wrong extension.
+- Running Node.js from a directory that does not contain the file.
+- Misspelling the case-sensitive function name `console.log`.
+
+### Activities
+1. Type and run the two-line program.
+2. Add a third line that prints your name.
+3. Change the greeting and predict the output before running.
+4. Run the program from a different directory and diagnose the error.
+
+### Accessibility Practice
+Use the terminal and keyboard to create, save, and run the file. Read the output sequentially and confirm the file name and extension.
+
+### Skills Checklist
+- [ ] I can create a JavaScript source file.
+- [ ] I can print text with `console.log()`.
+- [ ] I can run a file with `node`.
+- [ ] I can explain sequential execution.
+
+## Lesson 1.3: Variables and Simple Data Types
 
 ### `console.log()`
 
@@ -219,7 +268,7 @@ console.log("Hello, " + name + "! You are " + age + " years old.");
 
 ---
 
-## Lesson 1.3: Data Types
+### Additional Primitive Types and Type Conversion
 
 ### Primitive Types
 
@@ -426,3 +475,5 @@ Use terminal commands and keyboard navigation throughout. Confirm the editor ann
 - [ ] I can run a JavaScript file with node and an npm script.
 - [ ] I can diagnose a wrong-working-directory error.
 - [ ] I can explain why a project should use one explicit module system.
+
+
