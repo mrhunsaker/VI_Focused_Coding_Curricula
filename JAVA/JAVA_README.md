@@ -8,6 +8,10 @@ Java makes types and program structure explicit. Its compilation process and cla
 
 **Recommended sequence:** work through Units 0–11 in order. The Markdown files group related units; use the headings and lesson numbers inside each document.
 
+## Complete lesson sequence
+
+The complete standardized course, including four setup lessons and 53 numbered lessons, is available in [lessons.md](lessons.md). The original grouped unit documents remain supplementary reference material. See [validation status](VALIDATION.md) for example-check coverage and remaining verification.
+
 ## Course outcomes
 
 By the end of the curriculum, learners should be able to:
