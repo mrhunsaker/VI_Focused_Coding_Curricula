@@ -180,7 +180,7 @@ console.log(`Programming: ${counts.get("programming")}`);
 ```
 
 ### Expected Behavior or Output
-The sample produces 10 alphabetic tokens under this tokenization rule; programming appears twice.
+The sample produces 9 alphabetic tokens under this tokenization rule; programming appears twice.
 
 ### Common Mistakes
 - Assuming punctuation and hyphens are words.
