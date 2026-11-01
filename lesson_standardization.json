@@ -444,5 +444,64 @@
     "Run compiler/interpreter checks when the environment is available; otherwise mark code as not executed.",
     "Check headings, links, file names, and navigation.",
     "Update the audit with completion status and unresolved differences."
-  ]
+  ],
+  "refinement_progress": {
+    "last_updated": "2026-11-01",
+    "current_language": "C",
+    "completed_tracks": {
+      "C": {
+        "path": "C/lessons.md",
+        "units": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11
+        ],
+        "mapped_python_lessons": 55,
+        "target_course_lesson_sections": 53,
+        "status": "content_alignment_pass_complete_pending_runtime_and_full_accessibility_verification",
+        "completed_work": [
+          "Expanded Unit 0 to four explicit C compiler, editor, workspace, compile/run, and project-environment lessons.",
+          "Replaced generic worked examples and repeated concept text with lesson-specific C examples across Units 1–11.",
+          "Aligned the shared Avery profile, calculator, grade thresholds, scores, inventory, coordinates, text sample, CSV fields, to-do project, and capstone record schema.",
+          "Documented C-specific adaptations for arrays/structs, input parsing, manual resource lifetime, error returns, no built-in JSON library, and the terminal-based capstone interface.",
+          "Added the missing C counterpart for Python Lesson 2.5."
+        ],
+        "validation": [
+          "52 C lesson sections in Units 1–11; four Unit 0 setup lessons.",
+          "52 worked-example sections and required lesson scaffolding present.",
+          "No generic repeated C boilerplate or placeholder project examples remain in the lesson sections.",
+          "Code fence markers are balanced."
+        ],
+        "not_yet_verified": [
+          "Compile and execute every C example on GCC and Clang.",
+          "Run a complete Markdown link crawl and mdBook build after this update.",
+          "Test screen-reader and braille workflows with learners.",
+          "Review external JSON and CSV library choices and pin versions for any implementation project."
+        ]
+      }
+    },
+    "next_tracks": [
+      "C++",
+      "C#",
+      "Julia",
+      "Swift",
+      "Rust",
+      "Go",
+      "Lua",
+      "Java",
+      "JavaScript",
+      "TypeScript",
+      "Kotlin"
+    ],
+    "note": "Content alignment is not a claim that every code example has been compiled or runtime-tested. Preserve explicit language-specific deviations and record verification evidence."
+  }
 }
