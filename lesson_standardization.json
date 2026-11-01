@@ -703,6 +703,21 @@
       "ci_run": "41324948920",
       "rust_version": "1.99.1",
       "examples_compiled_and_executed": 53
+    },
+    "go": {
+      "status": "lesson_content_and_structural_refinement_complete_pending_ci_and_full_accessibility_verification",
+      "toolchain": "current stable Go",
+      "unit_0_setup_lessons": 4,
+      "numbered_lessons": 53,
+      "automated_check": "scripts/check_go_examples.py",
+      "workflow": ".github/workflows/go-examples.yml",
+      "pending": [
+        "GitHub Actions format/build/smoke-run result",
+        "expected-output assertions and broader invalid-input/file fixtures",
+        "capstone end-to-end persistence tests and concurrency race testing",
+        "fresh mdBook build and local-link crawl",
+        "hands-on screen-reader and braille testing"
+      ]
     }
   }
 }
