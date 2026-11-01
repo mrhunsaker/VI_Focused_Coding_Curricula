@@ -307,6 +307,7 @@ Add a script to the `scripts` object in package.json:
 
 ```json
 {
+  "type": "commonjs",
   "scripts": {
     "start": "node hello.js"
   }
