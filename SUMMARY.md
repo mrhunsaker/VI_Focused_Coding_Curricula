@@ -59,26 +59,31 @@
 
 - [C++ Curriculum](CPP/cpp_README.md)
   - [C++ Lessons](CPP/lessons.md)
+  - [C++ Topic Index](CPP/INDEX.md)
 
 # C#
 
 - [C# Curriculum](CSHARP/csharp_README.md)
   - [C# Lessons](CSHARP/lessons.md)
+  - [C# Topic Index](CSHARP/INDEX.md)
 
 # Julia
 
 - [Julia Curriculum](JULIA/julia_README.md)
   - [Julia Lessons](JULIA/lessons.md)
+  - [Julia Topic Index](JULIA/INDEX.md)
 
 # Swift
 
 - [Swift Curriculum](SWIFT/swift_README.md)
   - [Swift Lessons](SWIFT/lessons.md)
+  - [Swift Topic Index](SWIFT/INDEX.md)
 
 # Rust
 
 - [Rust Curriculum](RUST/rust_README.md)
   - [Rust Lessons](RUST/lessons.md)
+  - [Rust Topic Index](RUST/INDEX.md)
 
 # Backmatter
 - [Teacher's Guides](backmatter/Teachers-Guides.md)
