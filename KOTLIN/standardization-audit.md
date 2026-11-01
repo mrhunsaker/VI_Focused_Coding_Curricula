@@ -23,7 +23,7 @@ The GitHub Actions workflow `.github/workflows/kotlin-curriculum.yml` performs:
 3. Execution of all 57 examples.
 4. Exact stdout comparison against the 57 expected-output fixtures.
 
-**Passed:** [GitHub Actions run 41347714875](https://github.com/mrhunsaker/VI_Focused_Coding_Curricula/actions/runs/41347714875) completed successfully with Kotlin 1.9.24 and JDK 21. It compiled all 57 examples in a package-isolated build, executed each example independently, asserted exact stdout for all 57, passed the structural checks, and built the complete mdBook. The result is also recorded in `lesson_standardization.json`.
+**Passed:** [GitHub Actions run 41347726235](https://github.com/mrhunsaker/VI_Focused_Coding_Curricula/actions/runs/41347726235) completed successfully with Kotlin 1.9.24 and JDK 21. It compiled all 57 examples in a package-isolated build, executed each example independently, asserted exact stdout for all 57, passed the structural checks, and built the complete mdBook. The result is also recorded in `lesson_standardization.json`.
 
 ## Remaining verification
 
