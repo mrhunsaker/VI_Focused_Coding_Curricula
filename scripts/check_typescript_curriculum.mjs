@@ -2,7 +2,7 @@ import fs from "node:fs";
 import os from "node:os";
 import path from "node:path";
 import { pathToFileURL } from "node:url";
-import ts from "typescript";
+import * as ts from "typescript";
 
 const files = [
   "TYPESCRIPT/unit00-01-setup-foundations.md",
