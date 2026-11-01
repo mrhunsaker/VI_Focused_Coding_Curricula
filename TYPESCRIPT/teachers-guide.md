@@ -1428,7 +1428,7 @@ Students write, trace, test, and debug their own code. When they encounter a com
 
 ### Instructor preparation
 
-Instructors may use approved tools to support their own planning where institutional policy allows. They remain responsible for checking every factual claim, API, compiler option, package, and example. Do not upload identifiable student work, accommodations, records, credentials, private code, assessment answers, or confidential school information.
+AI use in this course is limited to conceptual understanding and reinforcement for both learners and instructors. It must not generate, autocomplete, repair, complete, refactor, or write course code, project code, test solutions, assessment answers, or learner deliverables. Instructors remain responsible for verifying every factual claim, API, compiler option, package, and example using primary documentation and independent checks. Do not upload identifiable student work, accommodations, records, credentials, private code, assessment answers, or confidential school information.
 
 ### Accessibility and equity
 
