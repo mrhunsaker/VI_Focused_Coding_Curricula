@@ -605,7 +605,7 @@
         "mapped_python_lessons": 55,
         "target_course_lesson_sections": 57,
         "numbered_unit_lesson_sections": 53,
-        "status": "content_and_example_execution_validation_pending",
+        "status": "content_and_julia_1_12_compile_execution_smoke_verification_complete_pending_full_application_and_accessibility_verification",
         "completed_work": [
           "Expanded all four Unit 0 lessons with Julia installation, REPL/runtime verification, workspace and working-directory behavior, editor accessibility, and project-local dependency management.",
           "Added the missing Python Unit 2 Lesson 2.5 counterpart for Julia mathematical constants, circle area/circumference, and distance using hypot.",
@@ -618,10 +618,11 @@
           "Four Unit 0 setup lessons and all 53 numbered Unit 1–11 lesson sections are present.",
           "All 53 numbered lessons contain the required lesson sections, three Julia-specific mistakes, four activities, and five checklist statements.",
           "All 53 numbered lesson examples are distinct; with four Unit 0 examples, the course contains 57 fenced Julia examples.",
-          "Structural validation confirms balanced Markdown fences and the missing Unit 2 Lesson 2.5 counterpart is now present."
+          "Structural validation confirms balanced Markdown fences and the missing Unit 2 Lesson 2.5 counterpart is now present.",
+          "GitHub Actions run 41322088371 passed on Julia 1.12.7; all 57 fenced Julia examples executed successfully in isolated temporary directories."
         ],
         "not_yet_verified": [
-          "GitHub Actions execution of all 57 Julia examples; workflow added but result not yet confirmed.",
+          "Expected-output assertions and broader behavioral tests with representative invalid input and file fixtures; the current checker verifies successful process exit, not exact output.",
           "Expected-output assertions and broader behavioral tests with representative invalid input and file fixtures.",
           "A fresh mdBook build and complete Markdown/local-link crawl after the latest edits.",
           "Hands-on screen-reader and braille testing with named operating systems, editors, Julia versions, and access technologies.",
