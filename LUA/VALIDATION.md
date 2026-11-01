@@ -14,7 +14,7 @@
 - Checker: `scripts/check_lua_examples.py`.
 - Workflow: `.github/workflows/lua-examples.yml`.
 - Scope: `luac5.4 -p` syntax validation and independent smoke execution of each fenced Lua example.
-- CI result: pending.
+- CI: [run 41336406502](https://github.com/mrhunsaker/VI_Focused_Coding_Curricula/actions/runs/41336406502) passed on Lua 5.4.6; all 53 examples parsed with luac5.4 and smoke-executed independently. This is not an expected-output assertion suite.
 
 ## Not yet verified
 
