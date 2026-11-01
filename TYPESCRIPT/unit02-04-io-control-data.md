@@ -30,7 +30,7 @@ console.log(`Total: $${total.toFixed(2)}`);
 ```
 
 ### Expected Behavior or Output
-The tip is $3.68 and the total is $28.18 when rounded using JavaScript number formatting.
+The tip displays as $3.67 and the total as $28.18 with JavaScript's binary floating-point and toFixed(2) behavior.
 
 ### Common Mistakes
 - Coding before identifying inputs and expected results.
@@ -685,7 +685,7 @@ const inventory: InventoryItem[] = [
   { name: "Pencil", quantity: 10, unitPrice: 0.5 },
   { name: "Folder", quantity: 4, unitPrice: 1.25 }
 ];
-const quantities = new Map<string, number>(inventory.map(item => [item.name, item.quantity]));
+const quantities = new Map<string, number>(inventory.map(item => [item.name, item.quantity] as const));
 console.log(quantities.get("Notebook"));
 console.log(quantities.has("Pencil"));
 ```
