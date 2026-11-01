@@ -18,17 +18,13 @@ This course sequence aligns Kotlin with the shared 12-unit curriculum map. Each 
 Kotlin is statically typed. The compiler may infer a declaration's type, but the type remains fixed. Prefer val for read-only bindings and var only when reassignment is required. Distinguish read-only collection interfaces from mutable interfaces, and validate data received from users, files, networks, or Java APIs. Apply the lesson concept to the shared course datasets and preserve the original problem's inputs and expected behavior.
 
 #### Worked Example
+
 ```kotlin
-fun main() {
-    val studentName: String = "Avery"
-    val age = 16
-    val height = 1.72
-    println("$studentName is $age; height=$height m")
-}
+fun main(){ val requiredJdk=21; println("Required JDK: "+requiredJdk); println("Compiler: kotlinc") }
 ```
 
 #### Expected Behavior or Output
-The program prints Avery's profile; `studentName` is String, `age` is Int, and `height` is Double.
+Names JDK 21 and kotlinc; verify actual installed versions in the terminal.
 
 #### Common Mistakes
 - Assuming type inference makes Kotlin dynamically typed or that numeric types convert implicitly.
@@ -72,17 +68,13 @@ The program prints Avery's profile; `studentName` is String, `age` is Int, and `
 Kotlin is statically typed. The compiler may infer a declaration's type, but the type remains fixed. Prefer val for read-only bindings and var only when reassignment is required. Distinguish read-only collection interfaces from mutable interfaces, and validate data received from users, files, networks, or Java APIs. Apply the lesson concept to the shared course datasets and preserve the original problem's inputs and expected behavior.
 
 #### Worked Example
+
 ```kotlin
-fun main() {
-    val studentName: String = "Avery"
-    val age = 16
-    val height = 1.72
-    println("$studentName is $age; height=$height m")
-}
+fun main(){ println("Kotlin editor check") }
 ```
 
 #### Expected Behavior or Output
-The program prints Avery's profile; `studentName` is String, `age` is Int, and `height` is Double.
+Prints Kotlin editor check; use it to verify editor, build, run, and accessible output.
 
 #### Common Mistakes
 - Assuming type inference makes Kotlin dynamically typed or that numeric types convert implicitly.
@@ -126,17 +118,13 @@ The program prints Avery's profile; `studentName` is String, `age` is Int, and `
 Kotlin is statically typed. The compiler may infer a declaration's type, but the type remains fixed. Prefer val for read-only bindings and var only when reassignment is required. Distinguish read-only collection interfaces from mutable interfaces, and validate data received from users, files, networks, or Java APIs. Apply the lesson concept to the shared course datasets and preserve the original problem's inputs and expected behavior.
 
 #### Worked Example
+
 ```kotlin
-fun main() {
-    val studentName: String = "Avery"
-    val age = 16
-    val height = 1.72
-    println("$studentName is $age; height=$height m")
-}
+fun main(){ println("src/main/kotlin | src/test/kotlin") }
 ```
 
 #### Expected Behavior or Output
-The program prints Avery's profile; `studentName` is String, `age` is Int, and `height` is Double.
+Prints the conventional Gradle source and test directories.
 
 #### Common Mistakes
 - Assuming type inference makes Kotlin dynamically typed or that numeric types convert implicitly.
@@ -180,17 +168,13 @@ The program prints Avery's profile; `studentName` is String, `age` is Int, and `
 Kotlin is statically typed. The compiler may infer a declaration's type, but the type remains fixed. Prefer val for read-only bindings and var only when reassignment is required. Distinguish read-only collection interfaces from mutable interfaces, and validate data received from users, files, networks, or Java APIs. Apply the lesson concept to the shared course datasets and preserve the original problem's inputs and expected behavior.
 
 #### Worked Example
+
 ```kotlin
-fun main() {
-    val studentName: String = "Avery"
-    val age = 16
-    val height = 1.72
-    println("$studentName is $age; height=$height m")
-}
+fun main(args:Array<String>){ println("Arguments received: "+args.size); args.forEachIndexed{i,v->println(i.toString()+": "+v)} }
 ```
 
 #### Expected Behavior or Output
-The program prints Avery's profile; `studentName` is String, `age` is Int, and `height` is Double.
+With arguments red blue, reports two arguments and prints indexes 0 and 1. With none, reports zero.
 
 #### Common Mistakes
 - Assuming type inference makes Kotlin dynamically typed or that numeric types convert implicitly.
@@ -234,17 +218,13 @@ The program prints Avery's profile; `studentName` is String, `age` is Int, and `
 Kotlin is statically typed. The compiler may infer a declaration's type, but the type remains fixed. Prefer val for read-only bindings and var only when reassignment is required. Distinguish read-only collection interfaces from mutable interfaces, and validate data received from users, files, networks, or Java APIs. Apply the lesson concept to the shared course datasets and preserve the original problem's inputs and expected behavior.
 
 #### Worked Example
+
 ```kotlin
-fun main() {
-    val studentName: String = "Avery"
-    val age = 16
-    val height = 1.72
-    println("$studentName is $age; height=$height m")
-}
+fun main(){ listOf("understand","decompose","design","implement","test").forEachIndexed{i,s->println((i+1).toString()+". "+s)} }
 ```
 
 #### Expected Behavior or Output
-The program prints Avery's profile; `studentName` is String, `age` is Int, and `height` is Double.
+Prints five problem-solving stages in order, numbered 1 through 5.
 
 #### Common Mistakes
 - Assuming type inference makes Kotlin dynamically typed or that numeric types convert implicitly.
@@ -288,17 +268,13 @@ The program prints Avery's profile; `studentName` is String, `age` is Int, and `
 Kotlin is statically typed. The compiler may infer a declaration's type, but the type remains fixed. Prefer val for read-only bindings and var only when reassignment is required. Distinguish read-only collection interfaces from mutable interfaces, and validate data received from users, files, networks, or Java APIs. Apply the lesson concept to the shared course datasets and preserve the original problem's inputs and expected behavior.
 
 #### Worked Example
+
 ```kotlin
-fun main() {
-    val studentName: String = "Avery"
-    val age = 16
-    val height = 1.72
-    println("$studentName is $age; height=$height m")
-}
+fun main(){ println("Hello, World!"); println("Welcome to Kotlin programming!") }
 ```
 
 #### Expected Behavior or Output
-The program prints Avery's profile; `studentName` is String, `age` is Int, and `height` is Double.
+Prints Hello, World! followed by Welcome to Kotlin programming! on separate lines.
 
 #### Common Mistakes
 - Assuming type inference makes Kotlin dynamically typed or that numeric types convert implicitly.
@@ -342,17 +318,13 @@ The program prints Avery's profile; `studentName` is String, `age` is Int, and `
 Kotlin is statically typed. The compiler may infer a declaration's type, but the type remains fixed. Prefer val for read-only bindings and var only when reassignment is required. Distinguish read-only collection interfaces from mutable interfaces, and validate data received from users, files, networks, or Java APIs. Apply the lesson concept to the shared course datasets and preserve the original problem's inputs and expected behavior.
 
 #### Worked Example
+
 ```kotlin
-fun main() {
-    val studentName: String = "Avery"
-    val age = 16
-    val height = 1.72
-    println("$studentName is $age; height=$height m")
-}
+fun main(){ val name:String="Avery"; val age:Int=16; val height:Double=1.72; var enrolled=true; enrolled=false; println("$name, $age, $height, $enrolled") }
 ```
 
 #### Expected Behavior or Output
-The program prints Avery's profile; `studentName` is String, `age` is Int, and `height` is Double.
+Prints Avery, 16, 1.72, false. val bindings cannot be reassigned; enrolled can.
 
 #### Common Mistakes
 - Assuming type inference makes Kotlin dynamically typed or that numeric types convert implicitly.
