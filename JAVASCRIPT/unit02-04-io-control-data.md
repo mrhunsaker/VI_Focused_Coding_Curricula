@@ -740,37 +740,70 @@ Label each result as original, sorted, reversed, or filtered. Avoid presenting t
 
 ## Lesson 4.3: Tuples — Immutable Sequences in JavaScript
 
-JavaScript has no built-in tuple type with Python's tuple semantics. Use a frozen array for a simple fixed sequence, while explaining that `Object.freeze()` is shallow and does not create a general-purpose static tuple type.
+### Reading References
+- Python source counterpart: Unit 4, Lesson 4.3.
+- MDN: Object.freeze().
 
+### Learning Objectives
+- Explain that JavaScript has no built-in tuple type with Python tuple semantics.
+- Use a frozen array to express fixed-sequence intent.
+- Distinguish a constant binding from immutable object contents.
+
+### Concept Explanation
+JavaScript has no native tuple type. For a short fixed sequence, a frozen array can communicate that the values should not be changed. `Object.freeze()` is shallow: nested objects are not automatically frozen. TypeScript has tuple types, but those are outside this JavaScript unit.
+
+### Worked Example
 ```javascript
+"use strict";
 const coordinates = Object.freeze([3, 4]);
 console.log(`x: ${coordinates[0]}`);
 console.log(`y: ${coordinates[1]}`);
 console.log(`Distance: ${Math.hypot(coordinates[0], coordinates[1])}`);
 ```
 
-Expected output:
+### Expected Behavior or Output
 ```text
 x: 3
 y: 4
 Distance: 5
 ```
+Attempting to change a frozen array element in strict mode throws a TypeError.
 
-**Common Mistakes:** assuming `const` freezes array contents; assuming `Object.freeze()` is deep; confusing fixed sequence intent with a language-enforced tuple type.
+### Common Mistakes
+- Assuming `const` freezes array contents.
+- Assuming `Object.freeze()` is deep.
+- Describing a frozen array as a true language-level tuple.
 
-**Activities:** create a frozen coordinate pair; read each coordinate; attempt reassignment in strict mode and describe the result; compare the frozen pair with a mutable score array.
+### Activities
+1. Create a frozen coordinate pair using the canonical values (3, 4).
+2. Read each coordinate by index and by a descriptive label.
+3. Attempt to change an element in strict mode and observe the error.
+4. Compare the frozen coordinates with a mutable scores array.
 
-**Accessibility Practice:** identify each position by its semantic name (x or y), not only by index.
+### Accessibility Practice
+Identify each position by semantic name (x or y), not only by index. Read the fixed-sequence contract aloud before attempting mutation.
 
-**Skills Checklist**
+### Skills Checklist
 - [ ] I can explain why JavaScript has no direct Python tuple equivalent.
-- [ ] I can use a frozen array for a fixed sequence.
-- [ ] I can distinguish `const` binding from object immutability.
+- [ ] I can use a frozen array for fixed-sequence intent.
+- [ ] I can distinguish const binding from object immutability.
+- [ ] I can explain the shallow behavior of Object.freeze().
 
 ## Lesson 4.4: Introducing Dictionaries — JavaScript Objects and Map
 
-A plain object is appropriate for a record with named fields; `Map` is appropriate for a dynamic key-value collection. Use the canonical inventory records and preserve their values.
+### Reading References
+- Python source counterpart: Unit 4, Lesson 4.4.
+- MDN: Working with objects and Map.
 
+### Learning Objectives
+- Represent a record with an object literal.
+- Use Map for dynamic key-value storage.
+- Add, retrieve, update, and test entries.
+
+### Concept Explanation
+A plain object is appropriate for a record with named fields such as name, quantity, and unit price. `Map` is appropriate for a dynamic key-value collection and supports keys of any value type. A missing object property or Map key returns `undefined`, not zero.
+
+### Worked Example
 ```javascript
 const inventory = [
   { name: "Notebook", quantity: 3, unitPrice: 2.50 },
@@ -781,27 +814,53 @@ const inventory = [
 const quantities = new Map(inventory.map(item => [item.name, item.quantity]));
 console.log(quantities.get("Notebook"));
 console.log(quantities.has("Pencil"));
+quantities.set("Pencil", 12);
+console.log(quantities.get("Pencil"));
 ```
 
-Expected output:
+### Expected Behavior or Output
 ```text
 3
 true
+12
 ```
+The canonical inventory contains three records. Its total value is $17.50.
 
-**Common Mistakes:** confusing object properties with Map entries; using bracket notation on a Map; assuming a missing key returns zero rather than `undefined`.
+### Common Mistakes
+- Confusing object properties with Map entries.
+- Using bracket notation on a Map instead of `get()` and `set()`.
+- Assuming a missing key returns zero rather than `undefined`.
 
-**Activities:** build a record for each inventory item; create a Map from item names to quantities; update the Pencil quantity; calculate total inventory value.
+### Activities
+1. Create the three canonical inventory records.
+2. Create a Map from item names to quantities.
+3. Update the Pencil quantity from 10 to 12.
+4. Calculate the total value of the original inventory and explain the effect of the quantity update.
 
-**Accessibility Practice:** print item names, quantities, and prices as labeled text.
+### Accessibility Practice
+Print item names, quantities, and prices as labeled text. Use one inventory record per output line.
 
-**Skills Checklist**
-- [ ] I can explain when to use an object and when to use Map.
+### Skills Checklist
+- [ ] I can represent a record with a plain object.
+- [ ] I can create and use a Map.
 - [ ] I can add, retrieve, update, and test Map entries.
-- [ ] I can represent the canonical inventory records.
+- [ ] I can distinguish objects from Maps.
 
 ## Lesson 4.5: Looping Through Objects and Maps
 
+### Reading References
+- Python source counterpart: Unit 4, Lesson 4.5.
+- MDN: Object.entries() and Map iteration.
+
+### Learning Objectives
+- Traverse object keys, values, and key-value pairs.
+- Iterate over Map entries.
+- Produce readable reports from structured data.
+
+### Concept Explanation
+Use `Object.keys()`, `Object.values()`, or `Object.entries()` to traverse an object. A Map is directly iterable and yields key-value pairs. Choose the method that matches the data structure rather than assuming the APIs are interchangeable.
+
+### Worked Example
 ```javascript
 const student = {
   name: "Avery",
@@ -815,7 +874,7 @@ for (const [key, value] of Object.entries(student)) {
 }
 ```
 
-Expected output:
+### Expected Behavior or Output
 ```text
 name: Avery
 age: 16
@@ -823,13 +882,22 @@ heightM: 1.72
 favoriteSubject: Computer Science
 ```
 
-**Common Mistakes:** iterating over object keys when key-value pairs are needed; modifying a collection during traversal; assuming Map and object iteration APIs are interchangeable.
+### Common Mistakes
+- Iterating over object keys when key-value pairs are needed.
+- Modifying a collection during traversal without considering the effect.
+- Assuming Map and object iteration APIs are interchangeable.
 
-**Activities:** print every Avery profile field; iterate over inventory Map entries; produce a total count of inventory units; compare `Object.keys()`, `Object.values()`, and `Object.entries()`.
+### Activities
+1. Print every field in Avery's canonical student profile.
+2. Iterate over the inventory Map and print each item and quantity.
+3. Calculate the total number of inventory units.
+4. Compare `Object.keys()`, `Object.values()`, and `Object.entries()`.
 
-**Accessibility Practice:** provide one key-value pair per line and announce when iteration begins and ends.
+### Accessibility Practice
+Provide one key-value pair per line and announce when iteration begins and ends. Keep output order stable for instructional examples.
 
-**Skills Checklist**
+### Skills Checklist
 - [ ] I can traverse object keys, values, and entries.
 - [ ] I can traverse Map entries.
-- [ ] I can produce readable sequential reports from structured data.
+- [ ] I can choose the appropriate traversal API.
+- [ ] I can produce sequential textual reports.
