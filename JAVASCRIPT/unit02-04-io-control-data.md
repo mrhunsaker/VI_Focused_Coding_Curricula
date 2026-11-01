@@ -416,11 +416,17 @@ A chained conditional evaluates branches in order and runs the first matching br
 ### Worked Example
 ```javascript
 function getGrade(score) {
-  if (score >= 90) return "A";
-  if (score >= 80) return "B";
-  if (score >= 70) return "C";
-  if (score >= 60) return "D";
-  return "F";
+  if (score >= 90) {
+    return "A";
+  } else if (score >= 80) {
+    return "B";
+  } else if (score >= 70) {
+    return "C";
+  } else if (score >= 60) {
+    return "D";
+  } else {
+    return "F";
+  }
 }
 
 for (const score of [82, 91, 76, 88]) {
