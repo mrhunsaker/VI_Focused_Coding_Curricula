@@ -1,0 +1,23 @@
+name: Go examples
+on:
+  push:
+    branches: [2026-11-01-curriculum-expansion]
+    paths:
+      - "GO/lessons.md"
+      - "scripts/check_go_examples.py"
+      - ".github/workflows/go-examples.yml"
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  go-examples:
+    runs-on: ubuntu-24.04
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-go@v5
+        with:
+          go-version: stable
+      - name: Verify toolchain
+        run: go version && go env GOMOD
+      - name: Format, build, and smoke-run lesson examples
+        run: python3 scripts/check_go_examples.py
