@@ -243,3 +243,14 @@ All implementation changes are recorded here. Each numbered step is committed se
 - GCC 13.3.0 and Clang 18.1.3 each passed all 49 fenced C examples with `-Wall -Wextra -Wpedantic -Werror`: 46 complete programs linked successfully; 3 fragments passed syntax-only checks.
 - Updated the C course README, lesson overview, standardization JSON, and audit to record the verification scope accurately.
 - Remaining: runtime execution with representative input and file fixtures, fresh mdBook build, complete Markdown link crawl, and hands-on screen-reader/braille testing.
+
+
+## 2026-11-01 — C++ lesson-quality and compiler verification
+
+- Expanded all four C++ Unit 0 setup lessons into complete compiler, workspace, editor/accessibility, dependency, and build workflows.
+- Added the missing Python Unit 2.5 equivalent covering C++ `<cmath>`, circle area/circumference, and distance from the origin.
+- Replaced repeated C++ worked examples with distinct lesson-specific examples across 53 numbered lessons in Units 1–11, using canonical shared datasets and project contexts.
+- Rewrote all 53 numbered lessons with three C++-specific common mistakes, four targeted activities, and five measurable skills checklist criteria each.
+- Added `scripts/check_cpp_examples.py` and a GCC/Clang C++20 GitHub Actions matrix at `.github/workflows/cpp-examples.yml`.
+- GitHub Actions run [41317861416](https://github.com/mrhunsaker/VI_Focused_Coding_Curricula/actions/runs/41317861416) passed. GCC 13.3.0 and Clang 18.1.3 compiled and linked all 54 fenced C++ examples using `-Wall -Wextra -Wpedantic -Werror`.
+- Remaining: runtime execution with representative input and file fixtures, a fresh mdBook build, complete local-link crawl, and hands-on screen-reader/braille testing.
