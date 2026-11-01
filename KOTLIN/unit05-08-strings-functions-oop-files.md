@@ -20,7 +20,8 @@ Kotlin is statically typed. The compiler may infer a declaration's type, but the
 #### Worked Example
 
 ```kotlin
-fun main(){ fun parseQty(s:String?):Int?=s?.trim()?.toIntOrNull()?.takeIf{it>=0}; println(parseQty(" 4 ")); println(parseQty("-2")); println(parseQty("four")) }
+fun parseQty(s:String?):Int? = s?.trim()?.toIntOrNull()?.takeIf { it>=0 }
+fun main(){ println(parseQty(" 4 ")); println(parseQty("-2")); println(parseQty("four")) }
 ```
 
 #### Expected Behavior or Output
@@ -270,7 +271,8 @@ Kotlin is statically typed. The compiler may infer a declaration's type, but the
 #### Worked Example
 
 ```kotlin
-fun main(){ fun tip(bill:Double,rate:Double):Double=bill*rate; println(tip(24.50,0.15)) }
+fun tip(bill:Double,rate:Double):Double = bill*rate
+fun main(){ println(tip(24.50,0.15)) }
 ```
 
 #### Expected Behavior or Output
@@ -320,7 +322,8 @@ Kotlin is statically typed. The compiler may infer a declaration's type, but the
 #### Worked Example
 
 ```kotlin
-fun main(){ fun describe(name:String,score:Int=0)="$name: $score"; println(describe("Avery",92)); println(describe(name="Jordan")) }
+fun describe(name:String,score:Int=0)="$name: $score"
+fun main(){ println(describe("Avery",92)); println(describe(name="Jordan")) }
 ```
 
 #### Expected Behavior or Output
@@ -370,7 +373,8 @@ Kotlin is statically typed. The compiler may infer a declaration's type, but the
 #### Worked Example
 
 ```kotlin
-fun main(){ fun subtotal(price:Double,quantity:Int)=price*quantity; val amount=subtotal(2.50,3); println("Subtotal: $amount") }
+fun subtotal(price:Double,quantity:Int)=price*quantity
+fun main(){ val amount=subtotal(2.50,3); println("Subtotal: $amount") }
 ```
 
 #### Expected Behavior or Output
@@ -420,7 +424,8 @@ Kotlin is statically typed. The compiler may infer a declaration's type, but the
 #### Worked Example
 
 ```kotlin
-fun main(){ fun average(scores:List<Int>)=scores.average(); println("%.2f".format(average(listOf(82,91,76,88)))) }
+fun average(scores:List<Int>)=scores.average()
+fun main(){ println("%.2f".format(average(listOf(82,91,76,88)))) }
 ```
 
 #### Expected Behavior or Output
@@ -470,7 +475,8 @@ Kotlin is statically typed. The compiler may infer a declaration's type, but the
 #### Worked Example
 
 ```kotlin
-fun main(){ fun sum(vararg values:Int)=values.sum(); val stored=intArrayOf(4,6); println(sum(2,3,5)); println(sum(*stored)) }
+fun sum(vararg values:Int)=values.sum()
+fun main(){ val stored=intArrayOf(4,6); println(sum(2,3,5)); println(sum(*stored)) }
 ```
 
 #### Expected Behavior or Output
@@ -872,7 +878,8 @@ Kotlin is statically typed. The compiler may infer a declaration's type, but the
 #### Worked Example
 
 ```kotlin
-fun main(){ fun parseScore(s:String):Int?=s.toIntOrNull(); for(raw in listOf("92","ninety")){ try{ val score=parseScore(raw)?:throw IllegalArgumentException("Score must be a whole number"); println("Accepted: $score") }catch(e:IllegalArgumentException){ println("Rejected: "+e.message) } } }
+fun parseScore(s:String):Int? = s.toIntOrNull()
+fun main(){ for(raw in listOf("92","ninety")){ try{ val score=parseScore(raw)?:throw IllegalArgumentException("Score must be a whole number"); println("Accepted: $score") }catch(e:IllegalArgumentException){ println("Rejected: "+e.message) } } }
 ```
 
 #### Expected Behavior or Output
