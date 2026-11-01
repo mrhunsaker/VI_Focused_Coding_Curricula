@@ -447,7 +447,7 @@
   ],
   "refinement_progress": {
     "last_updated": "2026-11-01",
-    "current_language": "Swift",
+    "current_language": "JavaScript",
     "completed_tracks": {
       "C": {
         "path": "C/lessons.md",
@@ -675,20 +675,57 @@
           "Hands-on screen-reader and braille testing with named operating systems, editors, Swift versions, and access technologies.",
           "End-to-end capstone persistence, XCTest coverage, and Apple-platform build testing."
         ]
+      },
+      "JAVASCRIPT": {
+        "path": "JAVASCRIPT/",
+        "units": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11
+        ],
+        "mapped_python_lessons": 57,
+        "target_course_lesson_sections": 57,
+        "unique_examples": 63,
+        "status": "content_structure_and_v8_syntax_parse_verified_pending_node_runtime_and_full_accessibility_verification",
+        "runtime": "Node.js 26.x",
+        "completed_work": [
+          "Expanded Unit 0 to four explicit Node.js installation, accessible editor, first-file, project, terminal, npm, and module-mode lessons.",
+          "Mapped all Python lessons across Units 0–11 to 57 JavaScript lesson sections, including the previously missing Unit 2.5 mathematics lesson and Unit 0.4 project/terminal lesson.",
+          "Reorganized Units 2–4 to preserve the canonical sequence for software design, expressions, input/output, conversions, Math, Boolean logic, grade classification, arrays, iteration, strings, objects, fixed sequences, and Map.",
+          "Rebuilt Units 5–8 around terminal input, while loops, flags, break/continue, functions, classes, inheritance, composition, files, exceptions, and JSON.",
+          "Rebuilt Units 9–11 around function/class tests, random values, text analysis, CSV parsing, the canonical text adventure, command-line to-do tool, and accessible personal-data-manager capstone.",
+          "Aligned the Avery profile, calculator values, grade thresholds, scores, inventory, coordinates, canonical text, CSV columns, task fields, and capstone record fields.",
+          "Documented JavaScript-specific adaptations for asynchronous Node.js input, Number conversion, frozen arrays instead of Python tuples, object/Map data structures, Node.js built-in testing, standards-aware CSV parsing, and terminal-based capstone interface.",
+          "Updated the JavaScript README, topic index, and teacher guide; aligned student AI use with the shared restriction to conceptual explanations and reinforcement only."
+        ],
+        "validation": [
+          "All 57 mapped lesson sections contain all nine required lesson-template sections.",
+          "All 63 fenced JavaScript examples in the four core lesson files passed a V8 syntax parse; no syntax parse errors were reported.",
+          "Relative Markdown links in the README, index, teacher guide, and four core lesson files resolve against the branch tree.",
+          "Canonical calculations were checked for the tip example, score total and average, and inventory value; the JavaScript floating-point display and inventory expected outputs were corrected."
+        ],
+        "not_yet_verified": [
+          "Execute all 63 examples under the documented Node.js 26 runtime; V8 syntax parsing is not a Node.js runtime test.",
+          "Add exact expected-output assertions and representative invalid-input, missing-file, malformed-JSON, and CSV edge-case fixtures.",
+          "Run the complete text-adventure and command-line to-do applications end to end.",
+          "Run the personal-data-manager capstone end to end, including CRUD operations, JSON persistence, and at least five unit tests.",
+          "Run a fresh mdBook build and complete Markdown/local-link crawl for the full repository.",
+          "Perform hands-on keyboard-only, screen-reader, and braille verification with named operating systems, editors, and access technologies."
+        ]
       }
     },
     "next_tracks": [
-      "Java",
-      "JavaScript",
       "TypeScript",
-      "Kotlin",
-      "C",
-      "C++",
-      "C#",
-      "Julia",
-      "Swift",
-      "Rust",
-      "Go"
+      "Kotlin"
     ],
     "note": "Content alignment is not a claim that every code example has been compiled or runtime-tested. Preserve explicit language-specific deviations and record verification evidence.",
     "rust": {
