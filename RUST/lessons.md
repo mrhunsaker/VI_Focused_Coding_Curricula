@@ -1491,7 +1491,7 @@ Rust models data with structs and enums rather than class inheritance. impl bloc
 
 ### Worked Example
 ```rust
-#[derive(Debug)] struct Student{name:String,score:u8} enum Status{Active,Inactive} fn main(){let s=Student{name:"Avery".into(),score:82};let st=Status::Active;println!("{}: {}; active={}",s.name,s.score,matches!(st,Status::Active));}
+#[derive(Debug)] struct Student{name:String,score:u8} enum Status{Active,Inactive} fn main(){let s=Student{name:"Avery".into(),score:82};let st=Status::Active;let archived=Status::Inactive;println!("{}: {}; active={}; archived={}",s.name,s.score,matches!(st,Status::Active),matches!(archived,Status::Inactive));}
 ```
 
 **Expected behavior:** Runs independently with the standard library and prints the result of this lesson's focused operation. Predict the output, then compare it with the terminal output.
