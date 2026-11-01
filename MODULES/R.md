@@ -94,3 +94,7 @@ Analyze a supplied CSV dataset: inspect and clean it, produce descriptive statis
 - [Official R manuals](https://cran.r-project.org/manuals.html)
 - [R for Data Science](https://r4ds.hadley.nz/)
 - [CRAN Task Views](https://cran.r-project.org/web/views/)
+
+## GUI, visualization, and workbench accessibility
+
+See the shared [GUI, visualization, and workbench accessibility reference](../DEVELOPMENT/GUI_VISUALIZATION_ACCESSIBILITY.md) for screen-reader support by toolkit, platform-specific activation settings, recommended alternatives, and interfaces that must not be required without an equivalent accessible route.
