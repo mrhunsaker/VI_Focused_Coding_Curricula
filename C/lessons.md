@@ -4,6 +4,8 @@
 
 C is a compiled procedural language for operating systems, embedded software, libraries, and performance-sensitive programs.
 
+The repository includes an automated C17 syntax-check workflow for every fenced C example in this manuscript. It runs GCC and Clang with `-Wall -Wextra -Wpedantic -Werror`; this verifies translation-unit syntax and warning cleanliness, but does not by itself link or execute every example.
+
 This course intentionally parallels the original Python curriculum. It reuses problem contexts—greetings, profiles, a calculator, grade decisions, score collections, inventory, functions, text files, tests, text analysis, CSV, a to-do list, and a personal-data manager—so the principal new learning target is the C language. The syntax and implementation remain idiomatic, not a mechanical translation.
 
 ## Unit 0: Accessible Environment and Toolchain
