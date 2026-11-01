@@ -182,3 +182,13 @@ All implementation changes are recorded here. Each numbered step is committed se
 - Static validation passed: all four setup documents have balanced Markdown fences; all 20 Bash-family blocks are immediately paired with Windows PowerShell blocks; each setup contains VS Code, Theia, and JetBrains advanced-option guidance; `convert_to_mdbook.json` parses successfully. mdBook build/CI verification is pending.
 - Implementation commits: `19a091e7b15683e4446307c9d8ecf72e85b8cb79`, `3018ffc98ec455de06ab106cd00b303c225a1930`, `249ec412cf2e20a2ec96b2adb3916a4e4ca92808`, `c8b35f54fbc7b38d364eef40fe15bf379aa7d9b5`.
 - Pre-checkpoint HEAD: `c8b35f54fbc7b38d364eef40fe15bf379aa7d9b5`.
+
+
+## 2026-11-01 — Standalone language pathways and terminal prerequisite
+
+- Promoted Kotlin from an optional Java supplement to a standalone beginner curriculum with a dedicated landing page, ten guided lessons, and topic index. The former Java supplement path now points learners to the standalone course.
+- Added independent introductory curricula for C, C++, C#, Julia, Swift, and Rust. Each includes a language-specific overview, primary application areas, typical data/workload fit, lesson sequence, first-program syntax, accessibility guidance, and guided lessons.
+- Added a shared preliminary terminal course with separate Bash and PowerShell lessons. It teaches command syntax, working directories, absolute and relative paths, listing, creating, reading, copying, moving, renaming, deleting safely, help, and running programs.
+- Updated mdBook navigation, the root README, and the curriculum overview to identify all eleven independent language tracks and the shared terminal prerequisite.
+- Preserved existing Python, JavaScript, TypeScript, and Java lesson content. The reference-only cs_curriculum_final/ directory remains untouched.
+- Validation: source files and relative navigation prepared; mdBook build and full link validation remain to be run before merge.
