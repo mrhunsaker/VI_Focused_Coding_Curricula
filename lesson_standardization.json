@@ -795,7 +795,7 @@
         "unit_0_setup_lessons": 4,
         "numbered_lessons": 53,
         "unique_worked_example_patterns": 57,
-        "status": "all_57_examples_compile_execute_and_exact_output_verified_mdbook_rebuild_pending_project_and_accessibility_verification",
+        "status": "all_57_examples_compile_execute_exact_output_verified_and_mdbook_build_passed_pending_full_project_and_accessibility_verification",
         "automated_check": "scripts/check_kotlin_curriculum.mjs",
         "workflow": ".github/workflows/kotlin-curriculum.yml",
         "completed_work": [
@@ -811,17 +811,16 @@
         ],
         "validation": [
           "Four grouped files contain 57 mapped lesson sections (4 setup and 53 numbered) across Units 0–11.",
-          "All 57 fenced Kotlin examples are distinct and independently executable through package-isolated main entry points.",
-          "Structural validation passed: all nine required lesson sections, all 57 example blocks, and local links in the lesson files were checked.",
-          "GitHub Actions run 41347575784 passed the full Kotlin 1.9.24/JDK 21 compile-and-run suite: all 57 examples compiled, executed, and matched exact expected stdout fixtures.",
-          "mdBook build was attempted in run 41347575784 and found a duplicate Kotlin index entry in SUMMARY.md; that duplicate navigation entry has been removed and the build is being rerun."
+          "All 57 fenced Kotlin examples are distinct and have exact expected stdout fixtures in KOTLIN/examples_expected.json.",
+          "GitHub Actions run 41347714875 passed with Kotlin 1.9.24 and JDK 21: all examples compiled in one package-isolated build, each main function executed independently, and all 57 stdout results matched exactly.",
+          "The same run passed the structural checker for all nine required lesson sections and the complete mdBook build.",
+          "SUMMARY.md now includes all four Kotlin unit files, reference lessons, index, audit, and teacher guide; duplicate Kotlin and pre-existing duplicate Java navigation entries were removed so mdBook can build."
         ],
         "not_yet_verified": [
-          "Confirm the rerun of the complete mdBook build after removing the duplicate SUMMARY entry.",
           "Verify Gradle/JUnit or kotlin.test integration setup and representative invalid-input, null, boundary, file, JSON, and CSV integration cases.",
           "Run the text adventure and CLI to-do applications end to end.",
           "Run capstone CRUD and JSON persistence integration tests, including at least five automated tests.",
-          "Run a complete repository-wide Markdown/local-link crawl beyond the Kotlin lesson files and mdBook's own checks.",
+          "Run a complete repository-wide Markdown/local-link crawl beyond the Kotlin lesson checks and mdBook build.",
           "Perform hands-on keyboard-only, screen-reader, and braille verification with named operating systems, editors, and access technologies."
         ],
         "example_output_fixtures": "KOTLIN/examples_expected.json",
@@ -829,7 +828,9 @@
         "toolchain": {
           "kotlin": "1.9.24",
           "jdk": "21"
-        }
+        },
+        "ci_run": "41347714875",
+        "ci_url": "https://github.com/mrhunsaker/VI_Focused_Coding_Curricula/actions/runs/41347714875"
       }
     },
     "next_tracks": [],
