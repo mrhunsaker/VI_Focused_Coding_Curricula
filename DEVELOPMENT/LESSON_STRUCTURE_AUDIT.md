@@ -169,3 +169,5 @@ This is compiler and linker verification. The examples have not all been execute
 - Outstanding: expected-output and broader behavior tests, mdBook build and local-link crawl, and hands-on screen-reader/braille testing.
 
 - GitHub Actions run [41324186133](https://github.com/mrhunsaker/VI_Focused_Coding_Curricula/actions/runs/41324186133) passed on Swift 6.0; all 57 fenced Swift examples executed successfully as independent scripts. This is a smoke-execution check, not exact-output assertion or full package/capstone testing.
+
+- A second finalized-checker run [41324246202](https://github.com/mrhunsaker/VI_Focused_Coding_Curricula/actions/runs/41324246202) also passed using Swift 6.0.3; all 57 examples executed successfully.
