@@ -58,7 +58,7 @@ The primary audience includes students using NVDA, JAWS, VoiceOver, Narrator, br
 - [Units 9–11: Collections, Testing, and Projects](unit09-11-collections-projects.md)
 - [Teacher's guide: instructor planning, accessible instruction, assessment, and AI guidance](teachers-guide.md)
 
-Return to the [curriculum overview](../OVERALL_README.md) to compare Python, JavaScript, and Java.
+Return to the [curriculum overview](../OVERALL_README.md) to compare the independent language pathways. Kotlin is now taught in its own standalone curriculum.
 
 ## Recommended environment
 
@@ -123,10 +123,6 @@ The capstone should have a written problem statement, user requirements, class o
 AI assistants may explain compiler messages, suggest test cases, compare method designs, or provide alternative explanations. They can also invent Java APIs, use unsupported language features, omit imports, produce incorrect generic types, mishandle exceptions, or generate a class hierarchy more complex than the learning objective requires.
 
 Follow the instructor's policy. Students must disclose AI assistance where required and explain, test, and modify every submitted line. Do not share student records, credentials, private source code, or confidential data with public AI services. AI must not replace independent work in assessments intended to measure individual skills. The [teacher's guide](teachers-guide.md) contains a fuller protocol.
-
-## Optional post-capstone extension: Kotlin
-
-After completing the Java capstone, learners who want to explore a modern JVM language can continue with the [Kotlin for Java Programmers supplement](kotlin.md). It introduces Kotlin syntax, null safety, concise data classes, collections, Java interoperability, and a practical migration path. This is supplementary material, not a required Java unit.
 
 ## Further learning
 
