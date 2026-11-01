@@ -1,0 +1,30 @@
+name: C++ curriculum example validation
+
+on:
+  push:
+    branches:
+      - 2026-11-01-curriculum-expansion
+    paths:
+      - "CPP/lessons.md"
+      - "scripts/check_cpp_examples.py"
+      - ".github/workflows/cpp-examples.yml"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  compile-check:
+    name: ${{ matrix.compiler }} / C++20
+    runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        compiler: [g++, clang++]
+    steps:
+      - name: Check out curriculum
+        uses: actions/checkout@v4
+      - name: Verify compiler
+        run: ${{ matrix.compiler }} --version
+      - name: Compile and link every C++ lesson example
+        run: python3 scripts/check_cpp_examples.py --compiler ${{ matrix.compiler }} --standard c++20
