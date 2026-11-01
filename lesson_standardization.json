@@ -447,7 +447,7 @@
   ],
   "refinement_progress": {
     "last_updated": "2026-11-01",
-    "current_language": "TypeScript",
+    "current_language": "Kotlin",
     "completed_tracks": {
       "C": {
         "path": "C/lessons.md",
@@ -773,11 +773,58 @@
           "Run a fresh mdBook build and complete repository Markdown/local-link crawl.",
           "Perform hands-on keyboard-only, screen-reader, and braille verification with named operating systems, editors, and access technologies."
         ]
+      },
+      "KOTLIN": {
+        "path": "KOTLIN/",
+        "units": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11
+        ],
+        "mapped_python_lessons": 57,
+        "target_course_lesson_sections": 57,
+        "unit_0_setup_lessons": 4,
+        "numbered_lessons": 53,
+        "unique_worked_example_patterns": 4,
+        "status": "structural_draft_complete_pending_lesson_specific_examples_runtime_and_full_accessibility_verification",
+        "automated_check": "scripts/check_kotlin_curriculum.mjs",
+        "workflow": ".github/workflows/kotlin-curriculum.yml",
+        "completed_work": [
+          "Added four grouped Kotlin/JVM lesson files covering Units 0–11 and all 57 mapped lesson headings.",
+          "Added the nine required lesson-template sections to every mapped lesson section.",
+          "Added Kotlin-specific language guidance for val/var, static typing and inference, explicit numeric conversions, null safety, collection interfaces, data classes, inheritance defaults, JVM file handling, and resource cleanup.",
+          "Preserved the shared unit order and project domains, including the terminal-first text adventure, command-line to-do tool, and accessible personal-data-manager capstone schema.",
+          "Updated the Kotlin README, topic index, standalone reference lessons, and teacher guide.",
+          "Added a standardization audit that records known content and verification limitations.",
+          "Added a Node.js structural checker and GitHub Actions workflow for lesson count, required sections, Kotlin code blocks, and local links.",
+          "Recorded Kotlin-specific deviations: named data classes instead of general tuples; JVM terminal interaction instead of requiring NiceGUI; maintained JSON/CSV libraries for general parsing."
+        ],
+        "validation": [
+          "The four grouped files contain 57 mapped lesson sections across Units 0–11.",
+          "Each mapped section contains all nine required lesson-template headings and a Kotlin fenced example block.",
+          "Structural validation is automated in scripts/check_kotlin_curriculum.mjs; CI execution is pending."
+        ],
+        "not_yet_verified": [
+          "Replace the repeated unit-level worked-example scaffold with distinct, lesson-specific Kotlin examples and exact expected outputs for all 57 lessons.",
+          "Compile and execute every Kotlin example using the pinned Kotlin compiler and supported JDK; add expected-output assertions.",
+          "Verify Gradle/JUnit or kotlin.test setup and representative invalid-input, null, boundary, file, JSON, and CSV cases.",
+          "Run the text adventure and CLI to-do applications end to end.",
+          "Run capstone CRUD and JSON persistence tests, including at least five automated tests.",
+          "Run a fresh mdBook build and complete repository Markdown/local-link crawl.",
+          "Perform hands-on keyboard-only, screen-reader, and braille verification with named operating systems, editors, and access technologies."
+        ]
       }
     },
-    "next_tracks": [
-      "Kotlin"
-    ],
+    "next_tracks": [],
     "note": "Content alignment is not a claim that every code example has been compiled or runtime-tested. Preserve explicit language-specific deviations and record verification evidence.",
     "rust": {
       "status": "content_structure_and_example_compile_smoke_execution_verified_pending_full_application_and_accessibility_verification",
