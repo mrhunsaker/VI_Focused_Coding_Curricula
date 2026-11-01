@@ -9,6 +9,11 @@
 - Fenced Lua examples: 53; all are distinct.
 - Markdown code fences: balanced.
 
+## Editorial structure
+
+- Each numbered lesson has a concept explanation, three common mistakes, four activities, accessibility practice, and a five-item skills checklist.
+- Concept explanations, common-mistake prompts, and activities were refined against each lesson topic; Lua semantics remain explicit throughout.
+
 ## Automated check
 
 - Checker: `scripts/check_lua_examples.py`.
@@ -22,3 +27,5 @@
 - End-to-end capstone persistence, JSON/CSV package integration, and malformed-file behavior.
 - Fresh mdBook build and complete local/external link crawl.
 - Hands-on screen-reader and braille testing across supported operating systems and editors.
+
+Final lesson prose was updated after the initial successful CI run; the workflow is being rerun against the final branch state.
