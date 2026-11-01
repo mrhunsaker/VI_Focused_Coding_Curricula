@@ -726,7 +726,7 @@
       "examples_formatted_built_and_executed": 53
     },
     "lua": {
-      "status": "distinct_examples_and_lua_5_4_smoke_execution_verified_pending_editorial_and_application_verification",
+      "status": "lesson_structure_distinct_examples_and_topic_refinement_complete_pending_final_ci_and_application_accessibility_verification",
       "lua_version": "5.4.6",
       "unit_0_setup_lessons": 4,
       "numbered_lessons": 53,
@@ -736,7 +736,7 @@
       "ci_run": "41336406502",
       "examples_parsed_and_executed": 53,
       "pending": [
-        "replace repeated generic concept explanations, mistakes, and activities with fully lesson-specific instruction",
+        "rerun Lua 5.4 CI after the final lesson prose refinement",
         "expected-output assertions and representative invalid-input/file fixtures",
         "capstone end-to-end persistence and JSON/CSV package integration tests",
         "fresh mdBook build and complete Markdown/local-link crawl",
