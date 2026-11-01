@@ -531,7 +531,7 @@
           "Four Unit 0 setup lessons and all 53 numbered Unit 1–11 lesson sections are present.",
           "All 53 numbered lessons have three common mistakes, four activities, and five skills checklist criteria.",
           "The 53 numbered lessons have distinct worked examples; there are 54 fenced C++ blocks including the Unit 0 first-run example.",
-          "GitHub Actions run 41318260153 passed with GCC 13.3.0 and Clang 18.1.3.",
+          "GitHub Actions run 41318426947 passed with GCC 13.3.0 and Clang 18.1.3.",
           "All 54 fenced C++ examples compiled and linked as C++20 with -Wall -Wextra -Wpedantic -Werror."
         ],
         "not_yet_verified": [
