@@ -2147,7 +2147,9 @@ Accessible UX and validation is taught through the shared course datasets and re
 
 ### Worked Example
 ```cpp
-// Build a console personal-data manager with classes, STL containers, JSON, and tests.
+#include <iostream>
+#include <string>
+int main() { std::cout << "Accessible interaction: numbered menu, clear prompts, explicit errors, and stable output order\\n"; std::cout << "Validation: reject blank names and malformed email fields before saving\\n"; }
 ```
 
 **Trace:** predict the output before compiling. Identify declarations, values, control-flow decisions, and state changes in order. Then compile and compare actual output with the prediction. The lesson example is intended to be independently compilable.
