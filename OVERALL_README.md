@@ -8,6 +8,8 @@ Command-line instructions are cross-platform: macOS and Linux learners use the B
 
 The textbook is published with **mdBook**. It is not a GitBook project. Markdown files in this repository are the maintained source; mdBook builds them into the navigable online textbook hosted on GitHub Pages. The book is intended to remain a living resource: lessons, examples, exercises, accessibility notes, and teaching materials can be reviewed and improved as learners and educators use them.
 
+Project environments and dependency isolation are introduced in the [development environment guide](DEVELOPMENT/ENVIRONMENT_ISOLATION.md). It covers project-local package management across Python, JavaScript/TypeScript, Rust, and other ecosystems; Conda; Docker and Podman; optional VS Code/Theia container workflows; and the distinction between project tooling and accessibility settings.
+
 **Start learning:** choose a curriculum below, or read this overview to understand the sequence and how to use the materials. Each language curriculum includes its own topic index. The shared [Programming Code Glossary](backmatter/GLOSSARY.md) defines common and language-specific terminology explicitly.
 
 ## Purpose and learning philosophy
