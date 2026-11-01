@@ -192,3 +192,11 @@ This is compiler and linker verification. The examples have not all been execute
 - Rewrote all 53 numbered lessons with Go-specific explanations, three relevant mistakes, four targeted activities, accessibility practice, and five measurable checklist criteria.
 - Added scripts/check_go_examples.py and .github/workflows/go-examples.yml. GitHub Actions run [41326670760](https://github.com/mrhunsaker/VI_Focused_Coding_Curricula/actions/runs/41326670760) passed on Go 1.27.3; all 53 fenced examples were formatted with gofmt, built independently, and smoke-executed successfully.
 - Remaining: expected-output assertions, broader file/input tests, capstone persistence tests, mdBook/link validation, and hands-on screen-reader/braille testing.
+
+
+## Lua lesson pass — 2026-11-01
+
+- Expanded the Lua sequence to 53 numbered lessons, adding Unit 2 Lesson 2.5 for math-library operations, circle geometry, and distance from the origin.
+- Replaced the repeated fenced Lua snippets with 53 distinct standard-library examples and added a Lua 5.4 syntax/smoke-execution checker and GitHub Actions workflow.
+- Added Lua README and validation-scope documentation.
+- This pass verifies distinct examples and structural counts; lesson-level concept explanations, mistakes, and activities still require deeper topic-specific editorial refinement. CI, expected-output assertions, capstone persistence, mdBook/link validation, and hands-on accessibility tests are pending.
