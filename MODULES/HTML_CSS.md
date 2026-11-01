@@ -137,3 +137,7 @@ Build an accessible personal profile or reading-list site with two pages, semant
 - [MDN CSS guides](https://developer.mozilla.org/en-US/docs/Learn_web_development/Core/Styling_basics)
 - [W3C Web Accessibility Initiative](https://www.w3.org/WAI/)
 - [W3C Web Content Accessibility Guidelines](https://www.w3.org/WAI/standards-guidelines/wcag/)
+
+## GUI, visualization, and workbench accessibility
+
+See the shared [GUI, visualization, and workbench accessibility reference](../DEVELOPMENT/GUI_VISUALIZATION_ACCESSIBILITY.md) for screen-reader support by toolkit, platform-specific activation settings, recommended alternatives, and interfaces that must not be required without an equivalent accessible route.
