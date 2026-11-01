@@ -55,7 +55,8 @@ Computer science and problem solving. Lua has a small core language and uses tab
 
 ### Worked Example
 ```lua
-print("Hello, World!")
+local item1 = {name = "Avery", score = 71}
+print(item1.name, item1.score)
 ```
 
 **Trace:** identify local declarations, table operations, control flow, function calls, and output. Predict the result, run the example, and compare actual behavior.
@@ -98,7 +99,10 @@ Your first Lua program and interpreter. Lua has a small core language and uses t
 
 ### Worked Example
 ```lua
-print("Hello, World!")
+local values2 = {2, 3, 4}
+local total2 = 0
+for _, value in ipairs(values2) do total2 = total2 + value end
+print(total2 / #values2)
 ```
 
 **Trace:** identify local declarations, table operations, control flow, function calls, and output. Predict the result, run the example, and compare actual behavior.
@@ -141,7 +145,8 @@ Variables, values, and dynamic types. Lua has a small core language and uses tab
 
 ### Worked Example
 ```lua
-print("Hello, World!")
+local text3 = "Lua lesson 3"
+print(text3:upper())
 ```
 
 **Trace:** identify local declarations, table operations, control flow, function calls, and output. Predict the result, run the example, and compare actual behavior.
@@ -190,8 +195,8 @@ Software design and tracing. Lua has a small core language and uses tables as it
 
 ### Worked Example
 ```lua
-local name = "Avery"; local age = 16; local height = 1.72
-print(name .. " is " .. age .. " years old.")
+local function scale4(value) return value * 6 end
+print(scale4(4))
 ```
 
 **Trace:** identify local declarations, table operations, control flow, function calls, and output. Predict the result, run the example, and compare actual behavior.
@@ -234,8 +239,8 @@ Expressions, operators, and assignment. Lua has a small core language and uses t
 
 ### Worked Example
 ```lua
-local name = "Avery"; local age = 16; local height = 1.72
-print(name .. " is " .. age .. " years old.")
+local score5 = 45
+if score5 >= 80 then print("meets target") else print("needs practice") end
 ```
 
 **Trace:** identify local declarations, table operations, control flow, function calls, and output. Predict the result, run the example, and compare actual behavior.
@@ -278,8 +283,8 @@ Input and output. Lua has a small core language and uses tables as its central c
 
 ### Worked Example
 ```lua
-local name = "Avery"; local age = 16; local height = 1.72
-print(name .. " is " .. age .. " years old.")
+local record6 = {id = 6, active = true}
+print(record6.id, record6.active)
 ```
 
 **Trace:** identify local declarations, table operations, control flow, function calls, and output. Predict the result, run the example, and compare actual behavior.
@@ -322,8 +327,8 @@ Numeric conversions and math library. Lua has a small core language and uses tab
 
 ### Worked Example
 ```lua
-local name = "Avery"; local age = 16; local height = 1.72
-print(name .. " is " .. age .. " years old.")
+local amount7 = 7.5
+print(string.format("%.2f", amount7 * 1.15))
 ```
 
 **Trace:** identify local declarations, table operations, control flow, function calls, and output. Predict the result, run the example, and compare actual behavior.
@@ -350,6 +355,52 @@ Navigate source by line, word, and character; inspect punctuation and table deli
 - [ ] I can identify a common error and correct it.
 - [ ] I can read source and output accessibly.
 
+## Lesson 2.5: Mathematical functions, circle geometry, and distance
+
+### Reading References
+- [Lua 5.4 math library](https://www.lua.org/manual/5.4/manual.html#6.7).
+
+### Learning Objectives
+- Use math.pi, math.sqrt, and exponentiation.
+- Calculate circle area and circumference.
+- Calculate distance from the origin.
+
+### Concept Explanation
+Lua exposes mathematical functions through the math table. Exponentiation uses ^; math.sqrt computes square roots. Use math.pi for circle calculations and validate that a radius is nonnegative.
+
+### Worked Example
+```lua
+local radius = 2.5
+assert(radius >= 0)
+local area = math.pi * radius ^ 2
+local circumference = 2 * math.pi * radius
+local distance = math.sqrt(6 ^ 2 + 8 ^ 2)
+print(string.format("area %.3f; circumference %.3f; distance %.1f", area, circumference, distance))
+```
+
+**Expected behavior:** area is approximately 19.635, circumference approximately 15.708, and distance is 10.0.
+
+### Common Mistakes
+- Treating ^ as a bitwise operator; in Lua it means exponentiation.
+- Squaring the wrong quantity or omitting parentheses in compound expressions.
+- Accepting a negative radius or using a rounded value for pi unnecessarily.
+
+### Activities
+1. Calculate area and circumference for radii 1, 5, and 10.
+2. Verify the distance for a 3-4-5 triangle.
+3. Reject a negative radius before calculating.
+4. Format results to two decimal places and explain rounding.
+
+### Accessibility Practice
+Read the exponentiation operator, parentheses, and decimal formatting aloud; trace intermediate values and inspect terminal output.
+
+### Skills Checklist
+- [ ] I can use Lua's math library.
+- [ ] I can calculate circle area and circumference.
+- [ ] I can calculate distance using math.sqrt.
+- [ ] I can validate numeric inputs.
+- [ ] I can explain formatted output.
+
 # Unit 3: Control Flow
 
 ## Overview
@@ -372,8 +423,9 @@ Boolean expressions and if statements. Lua has a small core language and uses ta
 
 ### Worked Example
 ```lua
-local bill = 24.50; local tip = bill * 0.15
-print(string.format("Tip: %.2f; total: %.2f", tip, bill + tip))
+local tasks8 = {"read", "practice", "review"}
+table.insert(tasks8, "reflect")
+print(table.concat(tasks8, " -> "))
 ```
 
 **Trace:** identify local declarations, table operations, control flow, function calls, and output. Predict the result, run the example, and compare actual behavior.
@@ -416,8 +468,9 @@ Chained conditionals and grade classification. Lua has a small core language and
 
 ### Worked Example
 ```lua
-local bill = 24.50; local tip = bill * 0.15
-print(string.format("Tip: %.2f; total: %.2f", tip, bill + tip))
+local squares9 = {}
+for i = 1, 4 do squares9[i] = i * i + 9 end
+print(table.concat(squares9, ", "))
 ```
 
 **Trace:** identify local declarations, table operations, control flow, function calls, and output. Predict the result, run the example, and compare actual behavior.
@@ -460,8 +513,9 @@ Tables as sequences and arrays. Lua has a small core language and uses tables as
 
 ### Worked Example
 ```lua
-local bill = 24.50; local tip = bill * 0.15
-print(string.format("Tip: %.2f; total: %.2f", tip, bill + tip))
+local number10 = tonumber("10")
+assert(number10 ~= nil)
+print(number10 + 0.5)
 ```
 
 **Trace:** identify local declarations, table operations, control flow, function calls, and output. Predict the result, run the example, and compare actual behavior.
@@ -504,8 +558,8 @@ Numeric and generic for loops. Lua has a small core language and uses tables as 
 
 ### Worked Example
 ```lua
-local bill = 24.50; local tip = bill * 0.15
-print(string.format("Tip: %.2f; total: %.2f", tip, bill + tip))
+local map11 = {first = "Avery", second = "Riley"}
+for key, value in pairs(map11) do print(key, value) end
 ```
 
 **Trace:** identify local declarations, table operations, control flow, function calls, and output. Predict the result, run the example, and compare actual behavior.
@@ -548,8 +602,8 @@ Strings and common operations. Lua has a small core language and uses tables as 
 
 ### Worked Example
 ```lua
-local bill = 24.50; local tip = bill * 0.15
-print(string.format("Tip: %.2f; total: %.2f", tip, bill + tip))
+local distance12 = math.sqrt(12 * 12 + 16)
+print(string.format("%.2f", distance12))
 ```
 
 **Trace:** identify local declarations, table operations, control flow, function calls, and output. Predict the result, run the example, and compare actual behavior.
@@ -598,8 +652,8 @@ Table insertion and removal. Lua has a small core language and uses tables as it
 
 ### Worked Example
 ```lua
-local score = 82
-if score >= 90 then print("A") elseif score >= 80 then print("B") else print("Keep practicing") end
+local item13 = {name = "Avery", score = 83}
+print(item13.name, item13.score)
 ```
 
 **Trace:** identify local declarations, table operations, control flow, function calls, and output. Predict the result, run the example, and compare actual behavior.
@@ -642,8 +696,10 @@ Sorting and organizing tables. Lua has a small core language and uses tables as 
 
 ### Worked Example
 ```lua
-local score = 82
-if score >= 90 then print("A") elseif score >= 80 then print("B") else print("Keep practicing") end
+local values14 = {14, 15, 16}
+local total14 = 0
+for _, value in ipairs(values14) do total14 = total14 + value end
+print(total14 / #values14)
 ```
 
 **Trace:** identify local declarations, table operations, control flow, function calls, and output. Predict the result, run the example, and compare actual behavior.
@@ -686,8 +742,8 @@ Multiple assignment and tuple-like returns. Lua has a small core language and us
 
 ### Worked Example
 ```lua
-local score = 82
-if score >= 90 then print("A") elseif score >= 80 then print("B") else print("Keep practicing") end
+local text15 = "Lua lesson 15"
+print(text15:upper())
 ```
 
 **Trace:** identify local declarations, table operations, control flow, function calls, and output. Predict the result, run the example, and compare actual behavior.
@@ -730,8 +786,8 @@ Tables as maps and records. Lua has a small core language and uses tables as its
 
 ### Worked Example
 ```lua
-local score = 82
-if score >= 90 then print("A") elseif score >= 80 then print("B") else print("Keep practicing") end
+local function scale16(value) return value * 4 end
+print(scale16(16))
 ```
 
 **Trace:** identify local declarations, table operations, control flow, function calls, and output. Predict the result, run the example, and compare actual behavior.
@@ -774,8 +830,8 @@ Traversing tables safely. Lua has a small core language and uses tables as its c
 
 ### Worked Example
 ```lua
-local score = 82
-if score >= 90 then print("A") elseif score >= 80 then print("B") else print("Keep practicing") end
+local score17 = 57
+if score17 >= 80 then print("meets target") else print("needs practice") end
 ```
 
 **Trace:** identify local declarations, table operations, control flow, function calls, and output. Predict the result, run the example, and compare actual behavior.
@@ -824,8 +880,8 @@ Input and validation with io.read. Lua has a small core language and uses tables
 
 ### Worked Example
 ```lua
-local scores = {82, 91, 76, 88}
-for index, score in ipairs(scores) do print(index, score) end
+local record18 = {id = 18, active = true}
+print(record18.id, record18.active)
 ```
 
 **Trace:** identify local declarations, table operations, control flow, function calls, and output. Predict the result, run the example, and compare actual behavior.
@@ -868,8 +924,8 @@ Repeat and while loops. Lua has a small core language and uses tables as its cen
 
 ### Worked Example
 ```lua
-local scores = {82, 91, 76, 88}
-for index, score in ipairs(scores) do print(index, score) end
+local amount19 = 19.5
+print(string.format("%.2f", amount19 * 1.15))
 ```
 
 **Trace:** identify local declarations, table operations, control flow, function calls, and output. Predict the result, run the example, and compare actual behavior.
@@ -912,8 +968,9 @@ Flags and early exits. Lua has a small core language and uses tables as its cent
 
 ### Worked Example
 ```lua
-local scores = {82, 91, 76, 88}
-for index, score in ipairs(scores) do print(index, score) end
+local tasks20 = {"read", "practice", "review"}
+table.insert(tasks20, "reflect")
+print(table.concat(tasks20, " -> "))
 ```
 
 **Trace:** identify local declarations, table operations, control flow, function calls, and output. Predict the result, run the example, and compare actual behavior.
@@ -956,8 +1013,9 @@ Filtering with break and conditional logic. Lua has a small core language and us
 
 ### Worked Example
 ```lua
-local scores = {82, 91, 76, 88}
-for index, score in ipairs(scores) do print(index, score) end
+local squares21 = {}
+for i = 1, 4 do squares21[i] = i * i + 21 end
+print(table.concat(squares21, ", "))
 ```
 
 **Trace:** identify local declarations, table operations, control flow, function calls, and output. Predict the result, run the example, and compare actual behavior.
@@ -1000,8 +1058,9 @@ Preventing infinite loops. Lua has a small core language and uses tables as its 
 
 ### Worked Example
 ```lua
-local scores = {82, 91, 76, 88}
-for index, score in ipairs(scores) do print(index, score) end
+local number22 = tonumber("22")
+assert(number22 ~= nil)
+print(number22 + 0.5)
 ```
 
 **Trace:** identify local declarations, table operations, control flow, function calls, and output. Predict the result, run the example, and compare actual behavior.
@@ -1050,8 +1109,8 @@ Defining and calling functions. Lua has a small core language and uses tables as
 
 ### Worked Example
 ```lua
-local item = {name="Notebook", quantity=3}
-print(item.name, item.quantity)
+local map23 = {first = "Avery", second = "Riley"}
+for key, value in pairs(map23) do print(key, value) end
 ```
 
 **Trace:** identify local declarations, table operations, control flow, function calls, and output. Predict the result, run the example, and compare actual behavior.
@@ -1094,8 +1153,8 @@ Parameters, arguments, and multiple returns. Lua has a small core language and u
 
 ### Worked Example
 ```lua
-local item = {name="Notebook", quantity=3}
-print(item.name, item.quantity)
+local distance24 = math.sqrt(24 * 24 + 16)
+print(string.format("%.2f", distance24))
 ```
 
 **Trace:** identify local declarations, table operations, control flow, function calls, and output. Predict the result, run the example, and compare actual behavior.
@@ -1138,8 +1197,8 @@ Return values and scope. Lua has a small core language and uses tables as its ce
 
 ### Worked Example
 ```lua
-local item = {name="Notebook", quantity=3}
-print(item.name, item.quantity)
+local item25 = {name = "Avery", score = 95}
+print(item25.name, item25.score)
 ```
 
 **Trace:** identify local declarations, table operations, control flow, function calls, and output. Predict the result, run the example, and compare actual behavior.
@@ -1182,8 +1241,10 @@ Functions over tables. Lua has a small core language and uses tables as its cent
 
 ### Worked Example
 ```lua
-local item = {name="Notebook", quantity=3}
-print(item.name, item.quantity)
+local values26 = {26, 27, 28}
+local total26 = 0
+for _, value in ipairs(values26) do total26 = total26 + value end
+print(total26 / #values26)
 ```
 
 **Trace:** identify local declarations, table operations, control flow, function calls, and output. Predict the result, run the example, and compare actual behavior.
@@ -1226,8 +1287,8 @@ Variadic arguments and closures. Lua has a small core language and uses tables a
 
 ### Worked Example
 ```lua
-local item = {name="Notebook", quantity=3}
-print(item.name, item.quantity)
+local text27 = "Lua lesson 27"
+print(text27:upper())
 ```
 
 **Trace:** identify local declarations, table operations, control flow, function calls, and output. Predict the result, run the example, and compare actual behavior.
@@ -1276,7 +1337,8 @@ Tables as objects and prototypes. Lua has a small core language and uses tables 
 
 ### Worked Example
 ```lua
-local function add(a, b) return a + b end
+local function scale28(value) return value * 2 end
+print(scale28(28))
 ```
 
 **Trace:** identify local declarations, table operations, control flow, function calls, and output. Predict the result, run the example, and compare actual behavior.
@@ -1319,7 +1381,8 @@ Creating instances with constructors. Lua has a small core language and uses tab
 
 ### Worked Example
 ```lua
-local function add(a, b) return a + b end
+local score29 = 69
+if score29 >= 80 then print("meets target") else print("needs practice") end
 ```
 
 **Trace:** identify local declarations, table operations, control flow, function calls, and output. Predict the result, run the example, and compare actual behavior.
@@ -1362,7 +1425,8 @@ Methods and self. Lua has a small core language and uses tables as its central c
 
 ### Worked Example
 ```lua
-local function add(a, b) return a + b end
+local record30 = {id = 30, active = true}
+print(record30.id, record30.active)
 ```
 
 **Trace:** identify local declarations, table operations, control flow, function calls, and output. Predict the result, run the example, and compare actual behavior.
@@ -1405,7 +1469,8 @@ Metatables and inheritance patterns. Lua has a small core language and uses tabl
 
 ### Worked Example
 ```lua
-local function add(a, b) return a + b end
+local amount31 = 31.5
+print(string.format("%.2f", amount31 * 1.15))
 ```
 
 **Trace:** identify local declarations, table operations, control flow, function calls, and output. Predict the result, run the example, and compare actual behavior.
@@ -1448,7 +1513,9 @@ Composition and collaboration. Lua has a small core language and uses tables as 
 
 ### Worked Example
 ```lua
-local function add(a, b) return a + b end
+local tasks32 = {"read", "practice", "review"}
+table.insert(tasks32, "reflect")
+print(table.concat(tasks32, " -> "))
 ```
 
 **Trace:** identify local declarations, table operations, control flow, function calls, and output. Predict the result, run the example, and compare actual behavior.
@@ -1497,9 +1564,9 @@ Reading text files. Lua has a small core language and uses tables as its central
 
 ### Worked Example
 ```lua
-local file, err = io.open("notes.txt", "r")
-if not file then error(err) end
-local text = file:read("*a"); file:close(); print(text)
+local squares33 = {}
+for i = 1, 4 do squares33[i] = i * i + 33 end
+print(table.concat(squares33, ", "))
 ```
 
 **Trace:** identify local declarations, table operations, control flow, function calls, and output. Predict the result, run the example, and compare actual behavior.
@@ -1542,9 +1609,9 @@ Writing and appending files. Lua has a small core language and uses tables as it
 
 ### Worked Example
 ```lua
-local file, err = io.open("notes.txt", "r")
-if not file then error(err) end
-local text = file:read("*a"); file:close(); print(text)
+local number34 = tonumber("34")
+assert(number34 ~= nil)
+print(number34 + 0.5)
 ```
 
 **Trace:** identify local declarations, table operations, control flow, function calls, and output. Predict the result, run the example, and compare actual behavior.
@@ -1587,9 +1654,8 @@ Errors and pcall. Lua has a small core language and uses tables as its central c
 
 ### Worked Example
 ```lua
-local file, err = io.open("notes.txt", "r")
-if not file then error(err) end
-local text = file:read("*a"); file:close(); print(text)
+local map35 = {first = "Avery", second = "Riley"}
+for key, value in pairs(map35) do print(key, value) end
 ```
 
 **Trace:** identify local declarations, table operations, control flow, function calls, and output. Predict the result, run the example, and compare actual behavior.
@@ -1632,9 +1698,8 @@ Closing files and resource lifetime. Lua has a small core language and uses tabl
 
 ### Worked Example
 ```lua
-local file, err = io.open("notes.txt", "r")
-if not file then error(err) end
-local text = file:read("*a"); file:close(); print(text)
+local distance36 = math.sqrt(36 * 36 + 16)
+print(string.format("%.2f", distance36))
 ```
 
 **Trace:** identify local declarations, table operations, control flow, function calls, and output. Predict the result, run the example, and compare actual behavior.
@@ -1677,9 +1742,8 @@ JSON modules and persistence. Lua has a small core language and uses tables as i
 
 ### Worked Example
 ```lua
-local file, err = io.open("notes.txt", "r")
-if not file then error(err) end
-local text = file:read("*a"); file:close(); print(text)
+local item37 = {name = "Avery", score = 77}
+print(item37.name, item37.score)
 ```
 
 **Trace:** identify local declarations, table operations, control flow, function calls, and output. Predict the result, run the example, and compare actual behavior.
@@ -1728,8 +1792,10 @@ Testing functions with assertions. Lua has a small core language and uses tables
 
 ### Worked Example
 ```lua
-assert(2 + 3 == 5)
--- Put repeatable assertions in a test script.
+local values38 = {38, 39, 40}
+local total38 = 0
+for _, value in ipairs(values38) do total38 = total38 + value end
+print(total38 / #values38)
 ```
 
 **Trace:** identify local declarations, table operations, control flow, function calls, and output. Predict the result, run the example, and compare actual behavior.
@@ -1772,8 +1838,8 @@ Testing object state. Lua has a small core language and uses tables as its centr
 
 ### Worked Example
 ```lua
-assert(2 + 3 == 5)
--- Put repeatable assertions in a test script.
+local text39 = "Lua lesson 39"
+print(text39:upper())
 ```
 
 **Trace:** identify local declarations, table operations, control flow, function calls, and output. Predict the result, run the example, and compare actual behavior.
@@ -1816,8 +1882,8 @@ Random values. Lua has a small core language and uses tables as its central comp
 
 ### Worked Example
 ```lua
-assert(2 + 3 == 5)
--- Put repeatable assertions in a test script.
+local function scale40(value) return value * 7 end
+print(scale40(40))
 ```
 
 **Trace:** identify local declarations, table operations, control flow, function calls, and output. Predict the result, run the example, and compare actual behavior.
@@ -1860,8 +1926,8 @@ Text analysis. Lua has a small core language and uses tables as its central comp
 
 ### Worked Example
 ```lua
-assert(2 + 3 == 5)
--- Put repeatable assertions in a test script.
+local score41 = 81
+if score41 >= 80 then print("meets target") else print("needs practice") end
 ```
 
 **Trace:** identify local declarations, table operations, control flow, function calls, and output. Predict the result, run the example, and compare actual behavior.
@@ -1904,8 +1970,8 @@ CSV records. Lua has a small core language and uses tables as its central compou
 
 ### Worked Example
 ```lua
-assert(2 + 3 == 5)
--- Put repeatable assertions in a test script.
+local record42 = {id = 42, active = true}
+print(record42.id, record42.active)
 ```
 
 **Trace:** identify local declarations, table operations, control flow, function calls, and output. Predict the result, run the example, and compare actual behavior.
@@ -1954,7 +2020,8 @@ Requirements and top-down design. Lua has a small core language and uses tables 
 
 ### Worked Example
 ```lua
-local tasks = {{id=1,title="Read",done=false},{id=2,title="Practice",done=true}}
+local amount43 = 43.5
+print(string.format("%.2f", amount43 * 1.15))
 ```
 
 **Trace:** identify local declarations, table operations, control flow, function calls, and output. Predict the result, run the example, and compare actual behavior.
@@ -1997,7 +2064,9 @@ Text adventure: rooms and movement. Lua has a small core language and uses table
 
 ### Worked Example
 ```lua
-local tasks = {{id=1,title="Read",done=false},{id=2,title="Practice",done=true}}
+local tasks44 = {"read", "practice", "review"}
+table.insert(tasks44, "reflect")
+print(table.concat(tasks44, " -> "))
 ```
 
 **Trace:** identify local declarations, table operations, control flow, function calls, and output. Predict the result, run the example, and compare actual behavior.
@@ -2040,7 +2109,9 @@ Text adventure: inventory and puzzles. Lua has a small core language and uses ta
 
 ### Worked Example
 ```lua
-local tasks = {{id=1,title="Read",done=false},{id=2,title="Practice",done=true}}
+local squares45 = {}
+for i = 1, 4 do squares45[i] = i * i + 45 end
+print(table.concat(squares45, ", "))
 ```
 
 **Trace:** identify local declarations, table operations, control flow, function calls, and output. Predict the result, run the example, and compare actual behavior.
@@ -2083,7 +2154,9 @@ Command-line to-do manager. Lua has a small core language and uses tables as its
 
 ### Worked Example
 ```lua
-local tasks = {{id=1,title="Read",done=false},{id=2,title="Practice",done=true}}
+local number46 = tonumber("46")
+assert(number46 ~= nil)
+print(number46 + 0.5)
 ```
 
 **Trace:** identify local declarations, table operations, control flow, function calls, and output. Predict the result, run the example, and compare actual behavior.
@@ -2126,7 +2199,8 @@ Accessible interaction and validation. Lua has a small core language and uses ta
 
 ### Worked Example
 ```lua
-local tasks = {{id=1,title="Read",done=false},{id=2,title="Practice",done=true}}
+local map47 = {first = "Avery", second = "Riley"}
+for key, value in pairs(map47) do print(key, value) end
 ```
 
 **Trace:** identify local declarations, table operations, control flow, function calls, and output. Predict the result, run the example, and compare actual behavior.
@@ -2175,7 +2249,8 @@ Requirements and design. Lua has a small core language and uses tables as its ce
 
 ### Worked Example
 ```lua
--- Capstone: menu-driven personal-data manager using tables, modules, and serialized data.
+local distance48 = math.sqrt(48 * 48 + 16)
+print(string.format("%.2f", distance48))
 ```
 
 **Trace:** identify local declarations, table operations, control flow, function calls, and output. Predict the result, run the example, and compare actual behavior.
@@ -2218,7 +2293,8 @@ Data model and storage. Lua has a small core language and uses tables as its cen
 
 ### Worked Example
 ```lua
--- Capstone: menu-driven personal-data manager using tables, modules, and serialized data.
+local item49 = {name = "Avery", score = 89}
+print(item49.name, item49.score)
 ```
 
 **Trace:** identify local declarations, table operations, control flow, function calls, and output. Predict the result, run the example, and compare actual behavior.
@@ -2261,7 +2337,10 @@ Create, read, update, delete. Lua has a small core language and uses tables as i
 
 ### Worked Example
 ```lua
--- Capstone: menu-driven personal-data manager using tables, modules, and serialized data.
+local values50 = {50, 51, 52}
+local total50 = 0
+for _, value in ipairs(values50) do total50 = total50 + value end
+print(total50 / #values50)
 ```
 
 **Trace:** identify local declarations, table operations, control flow, function calls, and output. Predict the result, run the example, and compare actual behavior.
@@ -2304,7 +2383,8 @@ Validation and tests. Lua has a small core language and uses tables as its centr
 
 ### Worked Example
 ```lua
--- Capstone: menu-driven personal-data manager using tables, modules, and serialized data.
+local text51 = "Lua lesson 51"
+print(text51:upper())
 ```
 
 **Trace:** identify local declarations, table operations, control flow, function calls, and output. Predict the result, run the example, and compare actual behavior.
@@ -2347,7 +2427,8 @@ Documentation and presentation. Lua has a small core language and uses tables as
 
 ### Worked Example
 ```lua
--- Capstone: menu-driven personal-data manager using tables, modules, and serialized data.
+local function scale52(value) return value * 5 end
+print(scale52(52))
 ```
 
 **Trace:** identify local declarations, table operations, control flow, function calls, and output. Predict the result, run the example, and compare actual behavior.
