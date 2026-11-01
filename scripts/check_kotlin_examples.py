@@ -16,11 +16,11 @@ FENCE = chr(96) * 3
 lessons = {}
 for relative in FILES:
     text = (ROOT / relative).read_text(encoding="utf-8")
-    matches = list(re.finditer(r"^### Lesson (\\d+\\.\\d+): .+$", text, flags=re.M))
+    matches = list(re.finditer(r"^### Lesson (\d+\.\d+): .+$", text, flags=re.M))
     for index, match in enumerate(matches):
         end = matches[index + 1].start() if index + 1 < len(matches) else len(text)
         section = text[match.start():end]
-        pattern = re.escape(FENCE + "kotlin") + r"\\s*\\n(.*?)\\n" + re.escape(FENCE)
+        pattern = re.escape(FENCE + "kotlin") + r"\s*\n(.*?)\n" + re.escape(FENCE)
         code = re.search(pattern, section, flags=re.S)
         if not code:
             raise SystemExit(f"{relative}: lesson {match.group(1)} has no Kotlin example")
@@ -42,7 +42,7 @@ with tempfile.TemporaryDirectory(prefix="kotlin-curriculum-") as temporary:
         package = "lesson_" + safe_id
         class_name = "Example_" + safe_id + "Kt"
         source_file = work / ("Example_" + safe_id + ".kt")
-        source_file.write_text(f"package {package}\\n\\n" + source + "\\n", encoding="utf-8")
+        source_file.write_text(f"package {package}\n\n" + source + "\n", encoding="utf-8")
         sources.append(str(source_file))
         launchers.append((lesson_id, package + "." + class_name))
     jar_file = work / "all-examples.jar"
@@ -51,7 +51,7 @@ with tempfile.TemporaryDirectory(prefix="kotlin-curriculum-") as temporary:
         cwd=work, text=True, capture_output=True, timeout=180,
     )
     if compiled.returncode:
-        raise SystemExit(f"Compilation failed for the Kotlin lesson set:\\n{compiled.stdout}\\n{compiled.stderr}")
+        raise SystemExit(f"Compilation failed for the Kotlin lesson set:\n{compiled.stdout}\n{compiled.stderr}")
     for lesson_id, main_class in launchers:
         args = ["red", "blue"] if lesson_id == "0.4" else []
         executed = subprocess.run(
@@ -59,9 +59,9 @@ with tempfile.TemporaryDirectory(prefix="kotlin-curriculum-") as temporary:
             cwd=work, text=True, input="", capture_output=True, timeout=15,
         )
         if executed.returncode:
-            raise SystemExit(f"Execution failed for lesson {lesson_id}:\\nstdout={executed.stdout}\\nstderr={executed.stderr}")
-        actual = executed.stdout.rstrip("\\n")
+            raise SystemExit(f"Execution failed for lesson {lesson_id}:\nstdout={executed.stdout}\nstderr={executed.stderr}")
+        actual = executed.stdout.rstrip("\n")
         wanted = EXPECTED[lesson_id]
         if actual != wanted:
-            raise SystemExit(f"Output mismatch for lesson {lesson_id}:\\nEXPECTED:\\n{wanted!r}\\nACTUAL:\\n{actual!r}\\nstderr:\\n{executed.stderr}")
+            raise SystemExit(f"Output mismatch for lesson {lesson_id}:\nEXPECTED:\n{wanted!r}\nACTUAL:\n{actual!r}\nstderr:\n{executed.stderr}")
 print(f"Passed: {len(lessons)} unique Kotlin examples compiled together, executed independently, and matched exact expected stdout.")
