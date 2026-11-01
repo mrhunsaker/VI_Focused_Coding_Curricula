@@ -180,5 +180,5 @@ This is compiler and linker verification. The examples have not all been execute
 - Replaced repeated generic examples with 53 lesson-specific standard-library Rust programs aligned to shared course contexts.
 - Rewrote all 53 numbered lessons with Rust-specific concept explanations, three topic-relevant common mistakes, four targeted activities, accessibility practice, and five observable checklist criteria.
 - Standardized on stable Rust / Rust 2024 edition and documented production JSON and randomness boundaries.
-- Added scripts/check_rust_examples.py and .github/workflows/rust-examples.yml. CI outcome is pending; no compile/runtime success is claimed until Actions completes.
+- Added scripts/check_rust_examples.py and .github/workflows/rust-examples.yml. GitHub Actions run [41324948920](https://github.com/mrhunsaker/VI_Focused_Coding_Curricula/actions/runs/41324948920) passed on Rust 1.99.1; all 53 examples compiled with warnings denied and smoke-executed successfully.
 - Remaining: expected-output assertions and broader file/error/capstone tests, fresh mdBook build and local-link crawl, and hands-on screen-reader/braille testing.
