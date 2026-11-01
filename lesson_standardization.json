@@ -935,7 +935,7 @@
       },
       "instructor_assessment_solutions": {
         "requested_scope": "Create an instructor-only repository section containing assessment solutions for all languages and assignments, excluded from the published student website.",
-        "status": "schema_and_manifest_created_solution_authoring_deferred_until_repository_is_private",
+        "status": "initial_assessment_inventory_generated_pending_human_review",
         "reason": "The dedicated solutions repository is public temporarily so the current LLM workflow can work with it. Only non-answer schema, manifest, and workflow documentation have been committed. Actual instructor solutions, tests containing expected answers, and grading keys must wait until repository visibility is changed to private and access is verified.",
         "safe_implementation_requirements": [
           "Create a separate private instructor repository and store assessment solutions there, or change this repository's visibility to private before adding solutions.",
@@ -944,10 +944,12 @@
           "Keep student-facing prompts and assessment specifications separate from solution artifacts; preserve the course policy that AI must not generate or complete student assessment work."
         ],
         "not_yet_verified": [
+          "Manually inspect all source lessons for assessment language outside recognized section patterns, including prose instructions, project specifications, deliverables, rubrics, quizzes, and capstone criteria.",
+          "Review repeated generic activity templates to determine whether each repeated prompt is a distinct assessment or one reusable activity.",
+          "Manually inspect Java, HTML/CSS, and SQL source files because the automated pattern pass extracted few or no activity records for those tracks.",
+          "Validate every inventory record against complete source context and approve the inventory before any generation setting is enabled.",
           "Change the dedicated solutions repository visibility to private and verify access before creating any answer content.",
-          "Validate generate_solutions.json against schemas/solution-manifest.schema.json using a Draft 2020-12 validator.",
-          "Discover and manually review the complete assessment inventory across all 13 language tracks and 3 specialist modules.",
-          "Generate, test, review, and record instructor solutions only after the repository is private and the inventory is approved."
+          "Validate generate_solutions.json against schemas/solution-manifest.schema.json using a Draft 2020-12 validator."
         ],
         "schema_repository": "mrhunsaker/VI_Focused_Coding_Curricula_Solutions",
         "schema_path": "schemas/solution-manifest.schema.json",
@@ -957,13 +959,20 @@
           "Created generate_solutions.json covering all 13 general-purpose language tracks and the HTML/CSS, R, and SQL specialist modules.",
           "Defined inventory-first discovery, stable assessment IDs, source traceability, manual review/approval gate, instructor solution output layout, test expectations, and student-integrity constraints.",
           "Set generation.enabled to false so answer content is not generated before inventory approval and private storage readiness.",
-          "Added repository README documenting the temporary public status and the required private-repository workflow."
+          "Added repository README documenting the temporary public status and the required private-repository workflow.",
+          "Scanned published lesson files for explicit Activities/Exercises/Practice sections across all 13 language tracks and 3 specialist modules; created a source-traceable inventory index and per-track/module JSON shards in the dedicated solutions repository.",
+          "Extracted 2,481 activity records with source paths, source line numbers, lesson headings, requirement excerpts, and needs_human_review status; no solution or answer content was generated.",
+          "Set discovery workflow to inventory_only, kept generation.enabled false, and documented extraction limitations and manual-review flags."
         ],
         "safe_public_contents": [
           "schemas/solution-manifest.schema.json",
           "generate_solutions.json",
           "README.md"
-        ]
+        ],
+        "inventory_index": "inventory/assessment-inventory.json",
+        "inventory_shards_directory": "inventory/assessments/",
+        "extracted_activity_records": 2481,
+        "solution_generation_enabled": false
       }
     }
   }
