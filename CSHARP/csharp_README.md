@@ -1,33 +1,16 @@
-# Introduction to C#
+# C# Curriculum
 
-## Standalone beginner curriculum
+C# is a modern managed language for .NET services, web apps, desktop software, cloud systems, and Unity games.
 
-C# is a statically typed, managed, object-oriented language with functional features. It is used for business applications, web APIs, cloud services, desktop software, Unity game development, and cross-platform services on .NET.
+## Course structure
 
-## What information is a good fit?
+A complete introductory sequence aligned to Python Units 0–11: setup; foundations; numeric computation; control flow; data structures; input and iteration; functions; object-oriented design; files and exceptions; testing and data analysis; projects; and capstone. The same core problem contexts recur across languages so students focus on syntax, types, runtime behavior, libraries, and idioms.
 
-C# is well suited to business entities, typed application models, JSON/API payloads, database records, and event-driven application state. Nullable reference types and validation help express assumptions, but external data still needs runtime checks.
+## Environment
 
-## Lessons
+Install .NET SDK; create with dotnet new console; run dotnet run.
 
-1. .NET SDK, project structure, and compilation.
-2. Variables, types, expressions, and interpolation.
-3. Console input, conversion, and validation.
-4. Conditions, loops, and methods.
-5. Arrays, List<T>, and dictionaries.
-6. Classes, records, properties, and interfaces.
-7. Exceptions, nullable reference types, and LINQ.
-8. Files, JSON, and asynchronous basics.
-9. Unit testing and debugging.
-10. .NET application capstone.
+Complete the shared [IDE setup lesson](../DEVELOPMENT/IDE_SETUP.md) and [terminal prerequisite](../TERMINAL/TERMINAL_README.md). The course supports keyboard-first work with screen readers, braille displays, magnification, or other access technology.
 
-## First program
-
-~~~csharp
-using System;
-string name = "Avery";
-int count = 3;
-Console.WriteLine($"{name}: {count}");
-~~~
-
-Toolchain: .NET SDK and dotnet CLI. Use a supported stable SDK and project-local dependencies. See [C# lessons](lessons.md).
+- [Complete lessons](lessons.md)
+- [Topic index](INDEX.md)
