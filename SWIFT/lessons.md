@@ -2,2371 +2,3048 @@
 
 ## Course Overview
 
-Swift is used for iOS, macOS, watchOS, tvOS, server applications, and systems components. This course mirrors the original Python curriculum's problem contexts so students focus on Swift syntax and semantics. It teaches Swift-native optionals, value types, protocols, error handling, Codable, and concurrency rather than mechanically translating Python.
+Swift is used for iOS, macOS, watchOS, tvOS, server applications, and systems components. Its static type system, optionals, value semantics, protocols, structured error handling, Codable, and concurrency support robust application development. This course follows the Python curriculum's unit sequence and shared problem contexts while teaching Swift-native design.
+
+**Version baseline:** Swift 6 language mode and a current Swift 6 toolchain. Verify with `swift --version`. Run a single file with `swift main.swift`; use Swift Package Manager for multi-file projects and dependencies.
 
 ## Unit 0: Accessible Environment and Toolchain
 
 ### Overview
-Install Swift, create a project, and verify keyboard and screen-reader access.
+
+Install and verify the Swift toolchain, create a predictable workspace, configure an accessible editor, and understand Swift Package Manager. On macOS, Xcode provides the integrated toolchain and simulator; supported Linux and Windows distributions can use the Swift toolchain for command-line development. iOS application development requires macOS and Xcode.
 
 ### Lesson 0.1: Install and Verify Swift
 
-Install Xcode on macOS or the Swift toolchain on a supported platform. Verify `swift --version`; run `swift main.swift` or create a package with `swift package init --type executable`.
+#### Reading References
+- [Swift.org downloads](https://www.swift.org/install/)
+- [The Swift Programming Language](https://docs.swift.org/swift-book/documentation/the-swift-programming-language/)
+
+#### Learning Objectives
+- Install Swift 6 or Xcode with the Swift 6 toolchain.
+- Verify compiler and interpreter availability.
+- Distinguish the Swift REPL, script execution, and compilation.
+
+#### Concept Explanation
+On macOS, install Xcode or the official Swift toolchain. On supported Linux or Windows systems, follow the official Swift installation instructions for the platform. Open a new terminal and run `swift --version` and `swiftc --version`. Run a source file with `swift main.swift`; compile an executable with `swiftc main.swift -o main` and run it with `./main`. Xcode is required for Apple-platform SDKs and iOS simulators.
+
+#### Worked Example
+```swift
+print("Swift toolchain is available.")
+print("Run swift --version to inspect the installed version.")
+```
+
+#### Expected Behavior or Output
+The program prints two lines confirming that the source file executes. The terminal version command reports the installed compiler version.
+
+#### Common Mistakes
+- Using a terminal session whose PATH has not refreshed after installation.
+- Assuming the Swift REPL, script interpreter, compiler, and Xcode are interchangeable tools.
+- Expecting iOS simulator tooling on a non-macOS host.
+
+#### Activities
+1. Install Swift or Xcode using the official platform instructions.
+2. Record the output of `swift --version` and `swiftc --version`.
+3. Run the worked example as a script and compile it as an executable.
+4. Deliberately use an incorrect filename and read the compiler or runtime diagnostic.
+
+#### Accessibility Practice
+Navigate the installer and terminal by keyboard. Confirm that prompts, compiler messages, punctuation, and build output are announced by the learner's screen reader or braille display.
+
+#### Skills Checklist
+- [ ] I can install and identify a supported Swift toolchain.
+- [ ] I can report the installed Swift version.
+- [ ] I can run a Swift script from the terminal.
+- [ ] I can compile and execute a standalone Swift program.
+- [ ] I can read terminal output and diagnostics using my access technology.
 
 ### Lesson 0.2: Workspace and First Run
-Create a project folder and a file named `main.swift`. Run it from the terminal, read standard output and diagnostics, and distinguish the Swift compiler/interpreter from the source file.
+
+#### Reading References
+- [Swift command-line usage](https://www.swift.org/documentation/)
+- [Swift Package Manager](https://www.swift.org/documentation/package-manager/)
+
+#### Learning Objectives
+- Create and identify a project root and Swift source file.
+- Distinguish source files from generated build artifacts.
+- Explain how the process working directory affects relative file paths.
+
+#### Concept Explanation
+Create a course directory and save `main.swift` in its root. Use `pwd` in the terminal to confirm the current directory. Swift resolves relative file paths from the process working directory, not automatically from the source file's directory. Keep source, test, data, and generated files in predictable locations. Package builds create a `.build` directory.
+
+#### Worked Example
+```swift
+import Foundation
+print("Project: Swift course workspace")
+print("Working directory: \(FileManager.default.currentDirectoryPath)")
+```
+
+#### Expected Behavior or Output
+The program prints a project label and the absolute path of the directory from which it is running.
+
+#### Common Mistakes
+- Opening a parent directory instead of the intended project root.
+- Assuming relative file paths are based on the source file's location.
+- Editing or deleting generated files under `.build` instead of source files.
+
+#### Activities
+1. Create the project directory and verify it with `pwd`.
+2. Save and run `main.swift` from the project root.
+3. Change to a different working directory and observe how a relative path resolves.
+4. Create a Swift package and identify its source and build directories.
+
+#### Accessibility Practice
+Use terminal history and directory commands without drag-and-drop. Verify that editor file navigation, indentation, build output, and diagnostics are exposed in a linear reading order.
+
+#### Skills Checklist
+- [ ] I can identify the project root and current working directory.
+- [ ] I can create and run `main.swift`.
+- [ ] I can explain how relative paths are resolved.
+- [ ] I can distinguish source files from generated build artifacts.
+- [ ] I can navigate the workspace without mouse-only actions.
 
 ### Lesson 0.3: Editor and Accessibility Workflow
-Complete the shared [IDE setup lesson](../DEVELOPMENT/IDE_SETUP.md). Test keyboard navigation, punctuation announcement, indentation, terminal focus, and diagnostics. Install only required Swift language tooling.
 
-### Skills Checklist
-- [ ] I can verify Swift installation.
-- [ ] I can create and run a source file.
-- [ ] I can navigate the editor and read output accessibly.
+#### Reading References
+- [Swift tools and editors](https://www.swift.org/documentation/)
+- [Shared IDE setup lesson](../DEVELOPMENT/IDE_SETUP.md)
+
+#### Learning Objectives
+- Configure VS Code, VSCodium, Theia, or Xcode for Swift development.
+- Navigate source, diagnostics, terminal, and project files by keyboard.
+- Verify that editor language tooling uses the intended Swift toolchain.
+
+#### Concept Explanation
+Open the project root in the chosen editor and install compatible Swift language support. On macOS, Xcode provides integrated Swift editing and debugging. In VS Code or VSCodium, configure the Swift extension and sourcekit-lsp using the selected toolchain; extension availability differs across marketplaces. Theia may require a compatible extension distribution. Verify diagnostics and symbol navigation rather than relying on syntax coloring alone.
+
+#### Worked Example
+```swift
+func greet(_ name: String) -> String {
+    return "Hello, \(name)!"
+}
+print(greet("Avery"))
+```
+
+#### Expected Behavior or Output
+The program prints `Hello, Avery!`. The editor should identify the function and its parameter type.
+
+#### Common Mistakes
+- Selecting a different Swift toolchain in the editor than in the terminal.
+- Treating syntax coloring as proof that SourceKit-LSP diagnostics work.
+- Depending on mouse-only navigation or inaccessible inline diagnostic panels.
+
+#### Activities
+1. Open the course project root in the selected editor.
+2. Navigate the worked example by line, word, and character.
+3. Introduce a type error, locate the diagnostic, and correct it.
+4. Run the file from the integrated terminal and system terminal.
+
+#### Accessibility Practice
+Test punctuation verbosity, indentation announcements, completion popups, diagnostic navigation, terminal focus, and editor panels with the learner's access technology. Keep a terminal-first workflow available.
+
+#### Skills Checklist
+- [ ] I can open the project root and select the intended Swift toolchain.
+- [ ] I can navigate and edit Swift source by keyboard.
+- [ ] I can locate and correct a compiler or language-server diagnostic.
+- [ ] I can run source code without mouse-dependent actions.
+- [ ] I can describe editor accessibility limitations and use a workable alternative.
 
 ### Lesson 0.4: Project Environments, Dependencies, and Terminal Usage
 
-Use the terminal from the project root and understand the current working directory. Keep each project in its own folder and distinguish source files, build output, and dependency metadata. For multi-file work, use Swift Package Manager. Create a package with `swift package init --type executable`; add dependencies in Package.swift, run `swift package resolve`, build with `swift build`, and execute with `swift run`.
+#### Reading References
+- [Swift Package Manager](https://www.swift.org/documentation/package-manager/)
+- [PackageDescription API](https://docs.swift.org/package-manager/PackageDescription/PackageDescription.html)
 
-### Skills Checklist
-- [ ] I can identify the project root and run commands from it.
-- [ ] I can explain where project dependencies are recorded, if applicable.
-- [ ] I can run the program or test command from the terminal and read its output.
+#### Learning Objectives
+- Create and inspect a Swift package.
+- Explain the roles of `Package.swift`, source targets, and test targets.
+- Add and resolve dependencies with Swift Package Manager.
+- Build, test, and run a package from the terminal.
+
+#### Concept Explanation
+Use Swift Package Manager for multi-file applications and dependencies. Run `swift package init --type executable` from the project root. The package manifest `Package.swift` declares products, targets, and dependencies. Run `swift package resolve`, `swift build`, `swift test`, and `swift run`. Package artifacts are generated under `.build`; do not edit them directly. For Apple platform applications, Xcode projects and platform SDK configuration may also be required.
+
+#### Worked Example
+```swift
+import PackageDescription
+
+let package = Package(
+    name: "CourseDemo",
+    targets: [
+        .executableTarget(name: "CourseDemo")
+    ]
+)
+```
+
+#### Expected Behavior or Output
+This manifest declares an executable package target named `CourseDemo`. Swift Package Manager uses it to determine how to build the package.
+
+#### Common Mistakes
+- Running package commands from a directory that does not contain `Package.swift`.
+- Editing generated files in `.build` instead of the package sources or manifest.
+- Adding a dependency without declaring the product in the appropriate target.
+
+#### Activities
+1. Initialize an executable package and inspect its directory structure.
+2. Run `swift build` and `swift run`.
+3. Add a test target and run `swift test`.
+4. Add a small external dependency in a practice package and inspect the manifest and resolved package graph.
+
+#### Accessibility Practice
+Read `Package.swift` as source text and inspect build/test output sequentially. Document commands and error messages; do not rely on transient editor notifications or mouse-only build controls.
+
+#### Skills Checklist
+- [ ] I can initialize a Swift package.
+- [ ] I can explain the purpose of `Package.swift` and its targets.
+- [ ] I can resolve declared package dependencies.
+- [ ] I can build, run, and test from the terminal.
+- [ ] I can inspect package output using keyboard-accessible tools.
 
 # Unit 1: Foundations of Computing
 
 ## Overview
 
-This unit follows the matching Python unit's objectives and examples. Its purpose is to make the programming concept familiar while Swift's type system and language features become the new learning target.
+Computer science expresses problems as precise inputs, transformations, and outputs. A program executes statements in order unless control flow changes that order. Swift is statically typed with type inference; `let` creates an immutable binding and `var` a mutable binding.
 
 ## Lesson 1.1: Computer science and problem solving
 
 ### Reading References
-- Official Swift language guide and standard library documentation.
-- Matching Python curriculum lesson for the problem context.
+- [The Swift Programming Language](https://docs.swift.org/swift-book/documentation/the-swift-programming-language/)
+- [Swift Standard Library](https://developer.apple.com/documentation/swift/swift-standard-library)
+- Matching Python curriculum lesson for the shared problem context.
 
 ### Learning Objectives
-- Explain computer science and problem solving in Swift terms.
-- Predict program behavior before running the example.
-- Modify, run, and debug the example independently.
+- Explain computer science and problem solving using Swift terminology.
+- Apply the relevant language and standard-library features correctly.
+- Test normal, boundary, and invalid cases using the shared course data.
 
 ### Concept Explanation
-Computer science and problem solving. Swift is statically typed with type inference, value semantics, optionals, and a strong standard library. Use `let` for values that do not change and `var` for mutable values. Explain any semantic difference from Python rather than assuming the languages behave alike.
+Computer science expresses problems as precise inputs, transformations, and outputs. A program executes statements in order unless control flow changes that order. Swift is statically typed with type inference; `let` creates an immutable binding and `var` a mutable binding.
+
+**Lesson focus:** Computer science and problem solving. The example uses Swift-native semantics and a canonical course context rather than mechanically translating Python.
 
 ### Worked Example
 ```swift
-print("Hello, World!")
+let problem = "Calculate a class average"
+let inputs = ["82", "91", "76", "88"]
+let steps = ["collect scores", "validate each score", "calculate the mean", "report the result"]
+for (step, number) in zip(steps, 1...) {
+    print("\(number). \(step)\n")
+}
+print("Problem: \(problem); inputs: \(inputs.count)\n")
 ```
 
-**Expected behavior:** the example demonstrates the unit's corresponding operation. Trace each declaration and expression before execution; then run it and compare the actual output.
+### Expected Behavior or Output
+The example is a self-contained Swift program. Predict the output from the stated values before running it, then compare the actual result. Examples that read input accept a line from standard input; file examples use temporary paths.
 
 ### Common Mistakes
-- Using `var` where a constant `let` is sufficient, or attempting to mutate a constant.
-- Treating an optional as if it always contains a value; unwrap safely.
-- Assuming arrays, dictionaries, strings, or structs have Python's semantics.
-- Ignoring compiler diagnostics or thrown errors.
+- Prefer `let` for bindings that never change; use `var` only when mutation is required.
+- Swift uses static typing with inference; a binding's type is fixed after initialization.
+- Do not assume Python indexing, collection, or string semantics carry over.
 
 ### Activities
-1. Reproduce and run the example.
-2. Change one value and predict the result before execution.
-3. Add one boundary case and one invalid-input case.
-4. Explain the code and output without relying on syntax highlighting.
+1. Trace the algorithm and state the input, process, and output.
+2. Change the canonical learner data and predict the printed result.
+3. Write a short sequence of steps for calculating a class average.
+4. Run the example and explain its output without syntax highlighting.
 
 ### Accessibility Practice
-Navigate by line, word, and character; verify punctuation announcements; run from the terminal; and read output and diagnostics sequentially.
+Navigate source by line, word, and character. Inspect punctuation, braces, optionals, argument labels, and compiler diagnostics. Run from the terminal and read prompts and output sequentially. Do not rely on syntax coloring, color-only status, or mouse-only actions.
 
 ### Skills Checklist
-- [ ] I can explain the concept in Swift terminology.
-- [ ] I can predict and verify the example's behavior.
-- [ ] I can modify and run the code independently.
-- [ ] I can identify a common error and correct it.
-- [ ] I can read source and output with my access technology.
+- [ ] I can explain computer science and problem solving in Swift terminology.
+- [ ] I can trace the example and predict its behavior.
+- [ ] I can adapt the example to the shared canonical data.
+- [ ] I can identify and correct a Swift-specific error or edge case.
+- [ ] I can run and inspect the program using keyboard-accessible tools.
 
 ## Lesson 1.2: Your first program and sequential execution
 
 ### Reading References
-- Official Swift language guide and standard library documentation.
-- Matching Python curriculum lesson for the problem context.
+- [The Swift Programming Language](https://docs.swift.org/swift-book/documentation/the-swift-programming-language/)
+- [Swift Standard Library](https://developer.apple.com/documentation/swift/swift-standard-library)
+- Matching Python curriculum lesson for the shared problem context.
 
 ### Learning Objectives
-- Explain your first program and sequential execution in Swift terms.
-- Predict program behavior before running the example.
-- Modify, run, and debug the example independently.
+- Explain your first program and sequential execution using Swift terminology.
+- Apply the relevant language and standard-library features correctly.
+- Test normal, boundary, and invalid cases using the shared course data.
 
 ### Concept Explanation
-Your first program and sequential execution. Swift is statically typed with type inference, value semantics, optionals, and a strong standard library. Use `let` for values that do not change and `var` for mutable values. Explain any semantic difference from Python rather than assuming the languages behave alike.
+Computer science expresses problems as precise inputs, transformations, and outputs. A program executes statements in order unless control flow changes that order. Swift is statically typed with type inference; `let` creates an immutable binding and `var` a mutable binding.
+
+**Lesson focus:** Your first program and sequential execution. The example uses Swift-native semantics and a canonical course context rather than mechanically translating Python.
 
 ### Worked Example
 ```swift
-print("Hello, World!")
+print("Hello, Swift!")
+print("Swift version is reported by the swift --version command.")
+let greeting = "Welcome to the course"
+print(greeting)
 ```
 
-**Expected behavior:** the example demonstrates the unit's corresponding operation. Trace each declaration and expression before execution; then run it and compare the actual output.
+### Expected Behavior or Output
+The example is a self-contained Swift program. Predict the output from the stated values before running it, then compare the actual result. Examples that read input accept a line from standard input; file examples use temporary paths.
 
 ### Common Mistakes
-- Using `var` where a constant `let` is sufficient, or attempting to mutate a constant.
-- Treating an optional as if it always contains a value; unwrap safely.
-- Assuming arrays, dictionaries, strings, or structs have Python's semantics.
-- Ignoring compiler diagnostics or thrown errors.
+- Prefer `let` for bindings that never change; use `var` only when mutation is required.
+- Swift uses static typing with inference; a binding's type is fixed after initialization.
+- Do not assume Python indexing, collection, or string semantics carry over.
 
 ### Activities
-1. Reproduce and run the example.
-2. Change one value and predict the result before execution.
-3. Add one boundary case and one invalid-input case.
-4. Explain the code and output without relying on syntax highlighting.
+1. Trace the algorithm and state the input, process, and output.
+2. Change the canonical learner data and predict the printed result.
+3. Write a short sequence of steps for calculating a class average.
+4. Run the example and explain its output without syntax highlighting.
 
 ### Accessibility Practice
-Navigate by line, word, and character; verify punctuation announcements; run from the terminal; and read output and diagnostics sequentially.
+Navigate source by line, word, and character. Inspect punctuation, braces, optionals, argument labels, and compiler diagnostics. Run from the terminal and read prompts and output sequentially. Do not rely on syntax coloring, color-only status, or mouse-only actions.
 
 ### Skills Checklist
-- [ ] I can explain the concept in Swift terminology.
-- [ ] I can predict and verify the example's behavior.
-- [ ] I can modify and run the code independently.
-- [ ] I can identify a common error and correct it.
-- [ ] I can read source and output with my access technology.
+- [ ] I can explain your first program and sequential execution in Swift terminology.
+- [ ] I can trace the example and predict its behavior.
+- [ ] I can adapt the example to the shared canonical data.
+- [ ] I can identify and correct a Swift-specific error or edge case.
+- [ ] I can run and inspect the program using keyboard-accessible tools.
 
 ## Lesson 1.3: Variables, constants, type inference, and primitive types
 
 ### Reading References
-- Official Swift language guide and standard library documentation.
-- Matching Python curriculum lesson for the problem context.
+- [The Swift Programming Language](https://docs.swift.org/swift-book/documentation/the-swift-programming-language/)
+- [Swift Standard Library](https://developer.apple.com/documentation/swift/swift-standard-library)
+- Matching Python curriculum lesson for the shared problem context.
 
 ### Learning Objectives
-- Explain variables, constants, type inference, and primitive types in Swift terms.
-- Predict program behavior before running the example.
-- Modify, run, and debug the example independently.
+- Explain variables, constants, type inference, and primitive types using Swift terminology.
+- Apply the relevant language and standard-library features correctly.
+- Test normal, boundary, and invalid cases using the shared course data.
 
 ### Concept Explanation
-Variables, constants, type inference, and primitive types. Swift is statically typed with type inference, value semantics, optionals, and a strong standard library. Use `let` for values that do not change and `var` for mutable values. Explain any semantic difference from Python rather than assuming the languages behave alike.
+Computer science expresses problems as precise inputs, transformations, and outputs. A program executes statements in order unless control flow changes that order. Swift is statically typed with type inference; `let` creates an immutable binding and `var` a mutable binding.
+
+**Lesson focus:** Variables, constants, type inference, and primitive types. The example uses Swift-native semantics and a canonical course context rather than mechanically translating Python.
 
 ### Worked Example
 ```swift
-print("Hello, World!")
+let studentName: String = "Avery"
+var completedLessons = 3
+let averageScore = 84.25
+let isEnrolled = true
+completedLessons += 1
+print("\(studentName): \(completedLessons), average \(averageScore), enrolled \(isEnrolled)")
 ```
 
-**Expected behavior:** the example demonstrates the unit's corresponding operation. Trace each declaration and expression before execution; then run it and compare the actual output.
+### Expected Behavior or Output
+The example is a self-contained Swift program. Predict the output from the stated values before running it, then compare the actual result. Examples that read input accept a line from standard input; file examples use temporary paths.
 
 ### Common Mistakes
-- Using `var` where a constant `let` is sufficient, or attempting to mutate a constant.
-- Treating an optional as if it always contains a value; unwrap safely.
-- Assuming arrays, dictionaries, strings, or structs have Python's semantics.
-- Ignoring compiler diagnostics or thrown errors.
+- Prefer `let` for bindings that never change; use `var` only when mutation is required.
+- Swift uses static typing with inference; a binding's type is fixed after initialization.
+- Do not assume Python indexing, collection, or string semantics carry over.
 
 ### Activities
-1. Reproduce and run the example.
-2. Change one value and predict the result before execution.
-3. Add one boundary case and one invalid-input case.
-4. Explain the code and output without relying on syntax highlighting.
+1. Trace the algorithm and state the input, process, and output.
+2. Change the canonical learner data and predict the printed result.
+3. Write a short sequence of steps for calculating a class average.
+4. Run the example and explain its output without syntax highlighting.
 
 ### Accessibility Practice
-Navigate by line, word, and character; verify punctuation announcements; run from the terminal; and read output and diagnostics sequentially.
+Navigate source by line, word, and character. Inspect punctuation, braces, optionals, argument labels, and compiler diagnostics. Run from the terminal and read prompts and output sequentially. Do not rely on syntax coloring, color-only status, or mouse-only actions.
 
 ### Skills Checklist
-- [ ] I can explain the concept in Swift terminology.
-- [ ] I can predict and verify the example's behavior.
-- [ ] I can modify and run the code independently.
-- [ ] I can identify a common error and correct it.
-- [ ] I can read source and output with my access technology.
+- [ ] I can explain variables, constants, type inference, and primitive types in Swift terminology.
+- [ ] I can trace the example and predict its behavior.
+- [ ] I can adapt the example to the shared canonical data.
+- [ ] I can identify and correct a Swift-specific error or edge case.
+- [ ] I can run and inspect the program using keyboard-accessible tools.
 
 # Unit 2: Numeric Computations
 
 ## Overview
 
-This unit follows the matching Python unit's objectives and examples. Its purpose is to make the programming concept familiar while Swift's type system and language features become the new learning target.
+Design calculations by naming inputs, deriving intermediate values, and verifying results. Swift's numeric operators do not perform implicit conversions between integer and floating-point types. `readLine()` returns `String?`; unwrap or validate it before use. Foundation supplies formatting and common mathematical functions.
 
 ## Lesson 2.1: Software design and tracing
 
 ### Reading References
-- Official Swift language guide and standard library documentation.
-- Matching Python curriculum lesson for the problem context.
+- [The Swift Programming Language](https://docs.swift.org/swift-book/documentation/the-swift-programming-language/)
+- [Swift Standard Library](https://developer.apple.com/documentation/swift/swift-standard-library)
+- Matching Python curriculum lesson for the shared problem context.
 
 ### Learning Objectives
-- Explain software design and tracing in Swift terms.
-- Predict program behavior before running the example.
-- Modify, run, and debug the example independently.
+- Explain software design and tracing using Swift terminology.
+- Apply the relevant language and standard-library features correctly.
+- Test normal, boundary, and invalid cases using the shared course data.
 
 ### Concept Explanation
-Software design and tracing. Swift is statically typed with type inference, value semantics, optionals, and a strong standard library. Use `let` for values that do not change and `var` for mutable values. Explain any semantic difference from Python rather than assuming the languages behave alike.
+Design calculations by naming inputs, deriving intermediate values, and verifying results. Swift's numeric operators do not perform implicit conversions between integer and floating-point types. `readLine()` returns `String?`; unwrap or validate it before use. Foundation supplies formatting and common mathematical functions.
+
+**Lesson focus:** Software design and tracing. The example uses Swift-native semantics and a canonical course context rather than mechanically translating Python.
 
 ### Worked Example
 ```swift
-let name = "Avery"; let age = 16; let height = 1.72
-print("\(name) is \(age) years old.")
+let scores = [82.0, 91.0, 76.0, 88.0]
+let total = scores.reduce(0, +)
+let average = total / Double(scores.count)
+print("total=\(total), count=\(scores.count), average=\(average)")
 ```
 
-**Expected behavior:** the example demonstrates the unit's corresponding operation. Trace each declaration and expression before execution; then run it and compare the actual output.
+### Expected Behavior or Output
+The example is a self-contained Swift program. Predict the output from the stated values before running it, then compare the actual result. Examples that read input accept a line from standard input; file examples use temporary paths.
 
 ### Common Mistakes
-- Using `var` where a constant `let` is sufficient, or attempting to mutate a constant.
-- Treating an optional as if it always contains a value; unwrap safely.
-- Assuming arrays, dictionaries, strings, or structs have Python's semantics.
-- Ignoring compiler diagnostics or thrown errors.
+- Swift does not implicitly convert between numeric types; convert explicitly.
+- `readLine()` returns an optional string, not a guaranteed value.
+- Use `Double` for fractional values and account for floating-point precision.
 
 ### Activities
-1. Reproduce and run the example.
-2. Change one value and predict the result before execution.
-3. Add one boundary case and one invalid-input case.
-4. Explain the code and output without relying on syntax highlighting.
+1. Trace the calculator example and calculate each intermediate value.
+2. Calculate a $24.50 bill with a 15% tip and compare formatted output.
+3. Test zero, negative, and fractional inputs where meaningful.
+4. Refactor a calculation into a named function and verify it.
 
 ### Accessibility Practice
-Navigate by line, word, and character; verify punctuation announcements; run from the terminal; and read output and diagnostics sequentially.
+Navigate source by line, word, and character. Inspect punctuation, braces, optionals, argument labels, and compiler diagnostics. Run from the terminal and read prompts and output sequentially. Do not rely on syntax coloring, color-only status, or mouse-only actions.
 
 ### Skills Checklist
-- [ ] I can explain the concept in Swift terminology.
-- [ ] I can predict and verify the example's behavior.
-- [ ] I can modify and run the code independently.
-- [ ] I can identify a common error and correct it.
-- [ ] I can read source and output with my access technology.
+- [ ] I can explain software design and tracing in Swift terminology.
+- [ ] I can trace the example and predict its behavior.
+- [ ] I can adapt the example to the shared canonical data.
+- [ ] I can identify and correct a Swift-specific error or edge case.
+- [ ] I can run and inspect the program using keyboard-accessible tools.
 
 ## Lesson 2.2: Expressions, operators, and assignment
 
 ### Reading References
-- Official Swift language guide and standard library documentation.
-- Matching Python curriculum lesson for the problem context.
+- [The Swift Programming Language](https://docs.swift.org/swift-book/documentation/the-swift-programming-language/)
+- [Swift Standard Library](https://developer.apple.com/documentation/swift/swift-standard-library)
+- Matching Python curriculum lesson for the shared problem context.
 
 ### Learning Objectives
-- Explain expressions, operators, and assignment in Swift terms.
-- Predict program behavior before running the example.
-- Modify, run, and debug the example independently.
+- Explain expressions, operators, and assignment using Swift terminology.
+- Apply the relevant language and standard-library features correctly.
+- Test normal, boundary, and invalid cases using the shared course data.
 
 ### Concept Explanation
-Expressions, operators, and assignment. Swift is statically typed with type inference, value semantics, optionals, and a strong standard library. Use `let` for values that do not change and `var` for mutable values. Explain any semantic difference from Python rather than assuming the languages behave alike.
+Design calculations by naming inputs, deriving intermediate values, and verifying results. Swift's numeric operators do not perform implicit conversions between integer and floating-point types. `readLine()` returns `String?`; unwrap or validate it before use. Foundation supplies formatting and common mathematical functions.
+
+**Lesson focus:** Expressions, operators, and assignment. The example uses Swift-native semantics and a canonical course context rather than mechanically translating Python.
 
 ### Worked Example
 ```swift
-let name = "Avery"; let age = 16; let height = 1.72
-print("\(name) is \(age) years old.")
+let subtotal = 24.50
+let tipRate = 0.15
+let tip = subtotal * tipRate
+let total = subtotal + tip
+print(String(format: "subtotal=$%.2f tip=$%.2f total=$%.2f", subtotal, tip, total))
 ```
 
-**Expected behavior:** the example demonstrates the unit's corresponding operation. Trace each declaration and expression before execution; then run it and compare the actual output.
+### Expected Behavior or Output
+The example is a self-contained Swift program. Predict the output from the stated values before running it, then compare the actual result. Examples that read input accept a line from standard input; file examples use temporary paths.
 
 ### Common Mistakes
-- Using `var` where a constant `let` is sufficient, or attempting to mutate a constant.
-- Treating an optional as if it always contains a value; unwrap safely.
-- Assuming arrays, dictionaries, strings, or structs have Python's semantics.
-- Ignoring compiler diagnostics or thrown errors.
+- Swift does not implicitly convert between numeric types; convert explicitly.
+- `readLine()` returns an optional string, not a guaranteed value.
+- Use `Double` for fractional values and account for floating-point precision.
 
 ### Activities
-1. Reproduce and run the example.
-2. Change one value and predict the result before execution.
-3. Add one boundary case and one invalid-input case.
-4. Explain the code and output without relying on syntax highlighting.
+1. Trace the calculator example and calculate each intermediate value.
+2. Calculate a $24.50 bill with a 15% tip and compare formatted output.
+3. Test zero, negative, and fractional inputs where meaningful.
+4. Refactor a calculation into a named function and verify it.
 
 ### Accessibility Practice
-Navigate by line, word, and character; verify punctuation announcements; run from the terminal; and read output and diagnostics sequentially.
+Navigate source by line, word, and character. Inspect punctuation, braces, optionals, argument labels, and compiler diagnostics. Run from the terminal and read prompts and output sequentially. Do not rely on syntax coloring, color-only status, or mouse-only actions.
 
 ### Skills Checklist
-- [ ] I can explain the concept in Swift terminology.
-- [ ] I can predict and verify the example's behavior.
-- [ ] I can modify and run the code independently.
-- [ ] I can identify a common error and correct it.
-- [ ] I can read source and output with my access technology.
+- [ ] I can explain expressions, operators, and assignment in Swift terminology.
+- [ ] I can trace the example and predict its behavior.
+- [ ] I can adapt the example to the shared canonical data.
+- [ ] I can identify and correct a Swift-specific error or edge case.
+- [ ] I can run and inspect the program using keyboard-accessible tools.
 
 ## Lesson 2.3: Input and output
 
 ### Reading References
-- Official Swift language guide and standard library documentation.
-- Matching Python curriculum lesson for the problem context.
+- [The Swift Programming Language](https://docs.swift.org/swift-book/documentation/the-swift-programming-language/)
+- [Swift Standard Library](https://developer.apple.com/documentation/swift/swift-standard-library)
+- Matching Python curriculum lesson for the shared problem context.
 
 ### Learning Objectives
-- Explain input and output in Swift terms.
-- Predict program behavior before running the example.
-- Modify, run, and debug the example independently.
+- Explain input and output using Swift terminology.
+- Apply the relevant language and standard-library features correctly.
+- Test normal, boundary, and invalid cases using the shared course data.
 
 ### Concept Explanation
-Input and output. Swift is statically typed with type inference, value semantics, optionals, and a strong standard library. Use `let` for values that do not change and `var` for mutable values. Explain any semantic difference from Python rather than assuming the languages behave alike.
+Design calculations by naming inputs, deriving intermediate values, and verifying results. Swift's numeric operators do not perform implicit conversions between integer and floating-point types. `readLine()` returns `String?`; unwrap or validate it before use. Foundation supplies formatting and common mathematical functions.
+
+**Lesson focus:** Input and output. The example uses Swift-native semantics and a canonical course context rather than mechanically translating Python.
 
 ### Worked Example
 ```swift
-let name = "Avery"; let age = 16; let height = 1.72
-print("\(name) is \(age) years old.")
+print("Enter a learner name:")
+let name = readLine() ?? ""
+print("Hello, \(name.isEmpty ? "learner" : name)")
 ```
 
-**Expected behavior:** the example demonstrates the unit's corresponding operation. Trace each declaration and expression before execution; then run it and compare the actual output.
+### Expected Behavior or Output
+The example is a self-contained Swift program. Predict the output from the stated values before running it, then compare the actual result. Examples that read input accept a line from standard input; file examples use temporary paths.
 
 ### Common Mistakes
-- Using `var` where a constant `let` is sufficient, or attempting to mutate a constant.
-- Treating an optional as if it always contains a value; unwrap safely.
-- Assuming arrays, dictionaries, strings, or structs have Python's semantics.
-- Ignoring compiler diagnostics or thrown errors.
+- Swift does not implicitly convert between numeric types; convert explicitly.
+- `readLine()` returns an optional string, not a guaranteed value.
+- Use `Double` for fractional values and account for floating-point precision.
 
 ### Activities
-1. Reproduce and run the example.
-2. Change one value and predict the result before execution.
-3. Add one boundary case and one invalid-input case.
-4. Explain the code and output without relying on syntax highlighting.
+1. Trace the calculator example and calculate each intermediate value.
+2. Calculate a $24.50 bill with a 15% tip and compare formatted output.
+3. Test zero, negative, and fractional inputs where meaningful.
+4. Refactor a calculation into a named function and verify it.
 
 ### Accessibility Practice
-Navigate by line, word, and character; verify punctuation announcements; run from the terminal; and read output and diagnostics sequentially.
+Navigate source by line, word, and character. Inspect punctuation, braces, optionals, argument labels, and compiler diagnostics. Run from the terminal and read prompts and output sequentially. Do not rely on syntax coloring, color-only status, or mouse-only actions.
 
 ### Skills Checklist
-- [ ] I can explain the concept in Swift terminology.
-- [ ] I can predict and verify the example's behavior.
-- [ ] I can modify and run the code independently.
-- [ ] I can identify a common error and correct it.
-- [ ] I can read source and output with my access technology.
+- [ ] I can explain input and output in Swift terminology.
+- [ ] I can trace the example and predict its behavior.
+- [ ] I can adapt the example to the shared canonical data.
+- [ ] I can identify and correct a Swift-specific error or edge case.
+- [ ] I can run and inspect the program using keyboard-accessible tools.
 
 ## Lesson 2.4: Numeric types, conversions, and math
 
 ### Reading References
-- Official Swift language guide and standard library documentation.
-- Matching Python curriculum lesson for the problem context.
+- [The Swift Programming Language](https://docs.swift.org/swift-book/documentation/the-swift-programming-language/)
+- [Swift Standard Library](https://developer.apple.com/documentation/swift/swift-standard-library)
+- Matching Python curriculum lesson for the shared problem context.
 
 ### Learning Objectives
-- Explain numeric types, conversions, and math in Swift terms.
-- Predict program behavior before running the example.
-- Modify, run, and debug the example independently.
+- Explain numeric types, conversions, and math using Swift terminology.
+- Apply the relevant language and standard-library features correctly.
+- Test normal, boundary, and invalid cases using the shared course data.
 
 ### Concept Explanation
-Numeric types, conversions, and math. Swift is statically typed with type inference, value semantics, optionals, and a strong standard library. Use `let` for values that do not change and `var` for mutable values. Explain any semantic difference from Python rather than assuming the languages behave alike.
+Design calculations by naming inputs, deriving intermediate values, and verifying results. Swift's numeric operators do not perform implicit conversions between integer and floating-point types. `readLine()` returns `String?`; unwrap or validate it before use. Foundation supplies formatting and common mathematical functions.
+
+**Lesson focus:** Numeric types, conversions, and math. The example uses Swift-native semantics and a canonical course context rather than mechanically translating Python.
 
 ### Worked Example
 ```swift
-let name = "Avery"; let age = 16; let height = 1.72
-print("\(name) is \(age) years old.")
+let wholeNumber = 7
+let preciseNumber = Double(wholeNumber) / 2.0
+let rounded = Int(preciseNumber.rounded())
+print("precise=\(preciseNumber), rounded=\(rounded)")
 ```
 
-**Expected behavior:** the example demonstrates the unit's corresponding operation. Trace each declaration and expression before execution; then run it and compare the actual output.
+### Expected Behavior or Output
+The example is a self-contained Swift program. Predict the output from the stated values before running it, then compare the actual result. Examples that read input accept a line from standard input; file examples use temporary paths.
 
 ### Common Mistakes
-- Using `var` where a constant `let` is sufficient, or attempting to mutate a constant.
-- Treating an optional as if it always contains a value; unwrap safely.
-- Assuming arrays, dictionaries, strings, or structs have Python's semantics.
-- Ignoring compiler diagnostics or thrown errors.
+- Swift does not implicitly convert between numeric types; convert explicitly.
+- `readLine()` returns an optional string, not a guaranteed value.
+- Use `Double` for fractional values and account for floating-point precision.
 
 ### Activities
-1. Reproduce and run the example.
-2. Change one value and predict the result before execution.
-3. Add one boundary case and one invalid-input case.
-4. Explain the code and output without relying on syntax highlighting.
+1. Trace the calculator example and calculate each intermediate value.
+2. Calculate a $24.50 bill with a 15% tip and compare formatted output.
+3. Test zero, negative, and fractional inputs where meaningful.
+4. Refactor a calculation into a named function and verify it.
 
 ### Accessibility Practice
-Navigate by line, word, and character; verify punctuation announcements; run from the terminal; and read output and diagnostics sequentially.
+Navigate source by line, word, and character. Inspect punctuation, braces, optionals, argument labels, and compiler diagnostics. Run from the terminal and read prompts and output sequentially. Do not rely on syntax coloring, color-only status, or mouse-only actions.
 
 ### Skills Checklist
-- [ ] I can explain the concept in Swift terminology.
-- [ ] I can predict and verify the example's behavior.
-- [ ] I can modify and run the code independently.
-- [ ] I can identify a common error and correct it.
-- [ ] I can read source and output with my access technology.
+- [ ] I can explain numeric types, conversions, and math in Swift terminology.
+- [ ] I can trace the example and predict its behavior.
+- [ ] I can adapt the example to the shared canonical data.
+- [ ] I can identify and correct a Swift-specific error or edge case.
+- [ ] I can run and inspect the program using keyboard-accessible tools.
+
+## Lesson 2.5: Using the Math Library
+
+### Reading References
+- [The Swift Programming Language](https://docs.swift.org/swift-book/documentation/the-swift-programming-language/)
+- [Swift Standard Library](https://developer.apple.com/documentation/swift/swift-standard-library)
+- Matching Python curriculum lesson for the shared problem context.
+
+### Learning Objectives
+- Explain using the math library using Swift terminology.
+- Apply the relevant language and standard-library features correctly.
+- Test normal, boundary, and invalid cases using the shared course data.
+
+### Concept Explanation
+Design calculations by naming inputs, deriving intermediate values, and verifying results. Swift's numeric operators do not perform implicit conversions between integer and floating-point types. `readLine()` returns `String?`; unwrap or validate it before use. Foundation supplies formatting and common mathematical functions.
+
+**Lesson focus:** Using the Math Library. The example uses Swift-native semantics and a canonical course context rather than mechanically translating Python.
+
+### Worked Example
+```swift
+import Foundation
+let radius = 3.0
+let area = Double.pi * pow(radius, 2)
+let circumference = 2 * Double.pi * radius
+let distance = hypot(3.0, 4.0)
+print(String(format: "area=%.3f circumference=%.3f distance=%.1f", area, circumference, distance))
+```
+
+### Expected Behavior or Output
+The example is a self-contained Swift program. Predict the output from the stated values before running it, then compare the actual result. Examples that read input accept a line from standard input; file examples use temporary paths.
+
+### Common Mistakes
+- Swift does not implicitly convert between numeric types; convert explicitly.
+- `readLine()` returns an optional string, not a guaranteed value.
+- Use `Double` for fractional values and account for floating-point precision.
+
+### Activities
+1. Trace the calculator example and calculate each intermediate value.
+2. Calculate a $24.50 bill with a 15% tip and compare formatted output.
+3. Test zero, negative, and fractional inputs where meaningful.
+4. Refactor a calculation into a named function and verify it.
+
+### Accessibility Practice
+Navigate source by line, word, and character. Inspect punctuation, braces, optionals, argument labels, and compiler diagnostics. Run from the terminal and read prompts and output sequentially. Do not rely on syntax coloring, color-only status, or mouse-only actions.
+
+### Skills Checklist
+- [ ] I can explain using the math library in Swift terminology.
+- [ ] I can trace the example and predict its behavior.
+- [ ] I can adapt the example to the shared canonical data.
+- [ ] I can identify and correct a Swift-specific error or edge case.
+- [ ] I can run and inspect the program using keyboard-accessible tools.
 
 # Unit 3: Control Flow
 
 ## Overview
 
-This unit follows the matching Python unit's objectives and examples. Its purpose is to make the programming concept familiar while Swift's type system and language features become the new learning target.
+Swift uses `Bool` conditions, `if`/`else if`/`else`, `switch`, zero-based arrays, and `for-in` loops. Array subscripting requires a valid index. Strings are collections of extended grapheme clusters; use String APIs rather than assuming integer offsets are byte offsets.
 
 ## Lesson 3.1: Boolean expressions and if statements
 
 ### Reading References
-- Official Swift language guide and standard library documentation.
-- Matching Python curriculum lesson for the problem context.
+- [The Swift Programming Language](https://docs.swift.org/swift-book/documentation/the-swift-programming-language/)
+- [Swift Standard Library](https://developer.apple.com/documentation/swift/swift-standard-library)
+- Matching Python curriculum lesson for the shared problem context.
 
 ### Learning Objectives
-- Explain boolean expressions and if statements in Swift terms.
-- Predict program behavior before running the example.
-- Modify, run, and debug the example independently.
+- Explain boolean expressions and if statements using Swift terminology.
+- Apply the relevant language and standard-library features correctly.
+- Test normal, boundary, and invalid cases using the shared course data.
 
 ### Concept Explanation
-Boolean expressions and if statements. Swift is statically typed with type inference, value semantics, optionals, and a strong standard library. Use `let` for values that do not change and `var` for mutable values. Explain any semantic difference from Python rather than assuming the languages behave alike.
+Swift uses `Bool` conditions, `if`/`else if`/`else`, `switch`, zero-based arrays, and `for-in` loops. Array subscripting requires a valid index. Strings are collections of extended grapheme clusters; use String APIs rather than assuming integer offsets are byte offsets.
+
+**Lesson focus:** Boolean expressions and if statements. The example uses Swift-native semantics and a canonical course context rather than mechanically translating Python.
 
 ### Worked Example
 ```swift
-let bill = 24.50; let tip = bill * 0.15
-print("Tip: \(tip); total: \(bill + tip)")
+let score = 82
+let isPassing = score >= 60 && score <= 100
+let hasPerfectScore = score == 100
+if isPassing {
+    print("Passing: \(score)")
+} else {
+    print("Needs review")
+}
+print("Perfect: \(hasPerfectScore)")
 ```
 
-**Expected behavior:** the example demonstrates the unit's corresponding operation. Trace each declaration and expression before execution; then run it and compare the actual output.
+### Expected Behavior or Output
+The example is a self-contained Swift program. Predict the output from the stated values before running it, then compare the actual result. Examples that read input accept a line from standard input; file examples use temporary paths.
 
 ### Common Mistakes
-- Using `var` where a constant `let` is sufficient, or attempting to mutate a constant.
-- Treating an optional as if it always contains a value; unwrap safely.
-- Assuming arrays, dictionaries, strings, or structs have Python's semantics.
-- Ignoring compiler diagnostics or thrown errors.
+- Swift Boolean conditions must be `Bool`; integers are not truthy or falsy.
+- Array indices are zero-based and valid indices stop before `count`.
+- Handle optional lookups and user input instead of force-unwrapping.
 
 ### Activities
-1. Reproduce and run the example.
-2. Change one value and predict the result before execution.
-3. Add one boundary case and one invalid-input case.
-4. Explain the code and output without relying on syntax highlighting.
+1. Test scores 82, 91, 76, and 88 at grade boundaries.
+2. Test empty and single-element collections.
+3. Trace each loop iteration and its index.
+4. Normalize the canonical text sample and search it case-insensitively.
 
 ### Accessibility Practice
-Navigate by line, word, and character; verify punctuation announcements; run from the terminal; and read output and diagnostics sequentially.
+Navigate source by line, word, and character. Inspect punctuation, braces, optionals, argument labels, and compiler diagnostics. Run from the terminal and read prompts and output sequentially. Do not rely on syntax coloring, color-only status, or mouse-only actions.
 
 ### Skills Checklist
-- [ ] I can explain the concept in Swift terminology.
-- [ ] I can predict and verify the example's behavior.
-- [ ] I can modify and run the code independently.
-- [ ] I can identify a common error and correct it.
-- [ ] I can read source and output with my access technology.
+- [ ] I can explain boolean expressions and if statements in Swift terminology.
+- [ ] I can trace the example and predict its behavior.
+- [ ] I can adapt the example to the shared canonical data.
+- [ ] I can identify and correct a Swift-specific error or edge case.
+- [ ] I can run and inspect the program using keyboard-accessible tools.
 
 ## Lesson 3.2: Chained conditionals and grade classification
 
 ### Reading References
-- Official Swift language guide and standard library documentation.
-- Matching Python curriculum lesson for the problem context.
+- [The Swift Programming Language](https://docs.swift.org/swift-book/documentation/the-swift-programming-language/)
+- [Swift Standard Library](https://developer.apple.com/documentation/swift/swift-standard-library)
+- Matching Python curriculum lesson for the shared problem context.
 
 ### Learning Objectives
-- Explain chained conditionals and grade classification in Swift terms.
-- Predict program behavior before running the example.
-- Modify, run, and debug the example independently.
+- Explain chained conditionals and grade classification using Swift terminology.
+- Apply the relevant language and standard-library features correctly.
+- Test normal, boundary, and invalid cases using the shared course data.
 
 ### Concept Explanation
-Chained conditionals and grade classification. Swift is statically typed with type inference, value semantics, optionals, and a strong standard library. Use `let` for values that do not change and `var` for mutable values. Explain any semantic difference from Python rather than assuming the languages behave alike.
+Swift uses `Bool` conditions, `if`/`else if`/`else`, `switch`, zero-based arrays, and `for-in` loops. Array subscripting requires a valid index. Strings are collections of extended grapheme clusters; use String APIs rather than assuming integer offsets are byte offsets.
+
+**Lesson focus:** Chained conditionals and grade classification. The example uses Swift-native semantics and a canonical course context rather than mechanically translating Python.
 
 ### Worked Example
 ```swift
-let bill = 24.50; let tip = bill * 0.15
-print("Tip: \(tip); total: \(bill + tip)")
+let score = 91
+let grade: String
+if score >= 90 { grade = "A" }
+else if score >= 80 { grade = "B" }
+else if score >= 70 { grade = "C" }
+else if score >= 60 { grade = "D" }
+else { grade = "F" }
+print("Score \(score) earns \(grade)")
 ```
 
-**Expected behavior:** the example demonstrates the unit's corresponding operation. Trace each declaration and expression before execution; then run it and compare the actual output.
+### Expected Behavior or Output
+The example is a self-contained Swift program. Predict the output from the stated values before running it, then compare the actual result. Examples that read input accept a line from standard input; file examples use temporary paths.
 
 ### Common Mistakes
-- Using `var` where a constant `let` is sufficient, or attempting to mutate a constant.
-- Treating an optional as if it always contains a value; unwrap safely.
-- Assuming arrays, dictionaries, strings, or structs have Python's semantics.
-- Ignoring compiler diagnostics or thrown errors.
+- Swift Boolean conditions must be `Bool`; integers are not truthy or falsy.
+- Array indices are zero-based and valid indices stop before `count`.
+- Handle optional lookups and user input instead of force-unwrapping.
 
 ### Activities
-1. Reproduce and run the example.
-2. Change one value and predict the result before execution.
-3. Add one boundary case and one invalid-input case.
-4. Explain the code and output without relying on syntax highlighting.
+1. Test scores 82, 91, 76, and 88 at grade boundaries.
+2. Test empty and single-element collections.
+3. Trace each loop iteration and its index.
+4. Normalize the canonical text sample and search it case-insensitively.
 
 ### Accessibility Practice
-Navigate by line, word, and character; verify punctuation announcements; run from the terminal; and read output and diagnostics sequentially.
+Navigate source by line, word, and character. Inspect punctuation, braces, optionals, argument labels, and compiler diagnostics. Run from the terminal and read prompts and output sequentially. Do not rely on syntax coloring, color-only status, or mouse-only actions.
 
 ### Skills Checklist
-- [ ] I can explain the concept in Swift terminology.
-- [ ] I can predict and verify the example's behavior.
-- [ ] I can modify and run the code independently.
-- [ ] I can identify a common error and correct it.
-- [ ] I can read source and output with my access technology.
+- [ ] I can explain chained conditionals and grade classification in Swift terminology.
+- [ ] I can trace the example and predict its behavior.
+- [ ] I can adapt the example to the shared canonical data.
+- [ ] I can identify and correct a Swift-specific error or edge case.
+- [ ] I can run and inspect the program using keyboard-accessible tools.
 
 ## Lesson 3.3: Arrays and indexing
 
 ### Reading References
-- Official Swift language guide and standard library documentation.
-- Matching Python curriculum lesson for the problem context.
+- [The Swift Programming Language](https://docs.swift.org/swift-book/documentation/the-swift-programming-language/)
+- [Swift Standard Library](https://developer.apple.com/documentation/swift/swift-standard-library)
+- Matching Python curriculum lesson for the shared problem context.
 
 ### Learning Objectives
-- Explain arrays and indexing in Swift terms.
-- Predict program behavior before running the example.
-- Modify, run, and debug the example independently.
+- Explain arrays and indexing using Swift terminology.
+- Apply the relevant language and standard-library features correctly.
+- Test normal, boundary, and invalid cases using the shared course data.
 
 ### Concept Explanation
-Arrays and indexing. Swift is statically typed with type inference, value semantics, optionals, and a strong standard library. Use `let` for values that do not change and `var` for mutable values. Explain any semantic difference from Python rather than assuming the languages behave alike.
+Swift uses `Bool` conditions, `if`/`else if`/`else`, `switch`, zero-based arrays, and `for-in` loops. Array subscripting requires a valid index. Strings are collections of extended grapheme clusters; use String APIs rather than assuming integer offsets are byte offsets.
+
+**Lesson focus:** Arrays and indexing. The example uses Swift-native semantics and a canonical course context rather than mechanically translating Python.
 
 ### Worked Example
 ```swift
-let bill = 24.50; let tip = bill * 0.15
-print("Tip: \(tip); total: \(bill + tip)")
+let scores = [82, 91, 76, 88]
+print("first=\(scores[0]), last=\(scores[scores.count - 1])")
+print("count=\(scores.count), contains 91=\(scores.contains(91))")
 ```
 
-**Expected behavior:** the example demonstrates the unit's corresponding operation. Trace each declaration and expression before execution; then run it and compare the actual output.
+### Expected Behavior or Output
+The example is a self-contained Swift program. Predict the output from the stated values before running it, then compare the actual result. Examples that read input accept a line from standard input; file examples use temporary paths.
 
 ### Common Mistakes
-- Using `var` where a constant `let` is sufficient, or attempting to mutate a constant.
-- Treating an optional as if it always contains a value; unwrap safely.
-- Assuming arrays, dictionaries, strings, or structs have Python's semantics.
-- Ignoring compiler diagnostics or thrown errors.
+- Swift Boolean conditions must be `Bool`; integers are not truthy or falsy.
+- Array indices are zero-based and valid indices stop before `count`.
+- Handle optional lookups and user input instead of force-unwrapping.
 
 ### Activities
-1. Reproduce and run the example.
-2. Change one value and predict the result before execution.
-3. Add one boundary case and one invalid-input case.
-4. Explain the code and output without relying on syntax highlighting.
+1. Test scores 82, 91, 76, and 88 at grade boundaries.
+2. Test empty and single-element collections.
+3. Trace each loop iteration and its index.
+4. Normalize the canonical text sample and search it case-insensitively.
 
 ### Accessibility Practice
-Navigate by line, word, and character; verify punctuation announcements; run from the terminal; and read output and diagnostics sequentially.
+Navigate source by line, word, and character. Inspect punctuation, braces, optionals, argument labels, and compiler diagnostics. Run from the terminal and read prompts and output sequentially. Do not rely on syntax coloring, color-only status, or mouse-only actions.
 
 ### Skills Checklist
-- [ ] I can explain the concept in Swift terminology.
-- [ ] I can predict and verify the example's behavior.
-- [ ] I can modify and run the code independently.
-- [ ] I can identify a common error and correct it.
-- [ ] I can read source and output with my access technology.
+- [ ] I can explain arrays and indexing in Swift terminology.
+- [ ] I can trace the example and predict its behavior.
+- [ ] I can adapt the example to the shared canonical data.
+- [ ] I can identify and correct a Swift-specific error or edge case.
+- [ ] I can run and inspect the program using keyboard-accessible tools.
 
 ## Lesson 3.4: For loops and iteration
 
 ### Reading References
-- Official Swift language guide and standard library documentation.
-- Matching Python curriculum lesson for the problem context.
+- [The Swift Programming Language](https://docs.swift.org/swift-book/documentation/the-swift-programming-language/)
+- [Swift Standard Library](https://developer.apple.com/documentation/swift/swift-standard-library)
+- Matching Python curriculum lesson for the shared problem context.
 
 ### Learning Objectives
-- Explain for loops and iteration in Swift terms.
-- Predict program behavior before running the example.
-- Modify, run, and debug the example independently.
+- Explain for loops and iteration using Swift terminology.
+- Apply the relevant language and standard-library features correctly.
+- Test normal, boundary, and invalid cases using the shared course data.
 
 ### Concept Explanation
-For loops and iteration. Swift is statically typed with type inference, value semantics, optionals, and a strong standard library. Use `let` for values that do not change and `var` for mutable values. Explain any semantic difference from Python rather than assuming the languages behave alike.
+Swift uses `Bool` conditions, `if`/`else if`/`else`, `switch`, zero-based arrays, and `for-in` loops. Array subscripting requires a valid index. Strings are collections of extended grapheme clusters; use String APIs rather than assuming integer offsets are byte offsets.
+
+**Lesson focus:** For loops and iteration. The example uses Swift-native semantics and a canonical course context rather than mechanically translating Python.
 
 ### Worked Example
 ```swift
-let bill = 24.50; let tip = bill * 0.15
-print("Tip: \(tip); total: \(bill + tip)")
+let scores = [82, 91, 76, 88]
+for (index, score) in scores.enumerated() {
+    print("Score \(index + 1): \(score)")
+}
 ```
 
-**Expected behavior:** the example demonstrates the unit's corresponding operation. Trace each declaration and expression before execution; then run it and compare the actual output.
+### Expected Behavior or Output
+The example is a self-contained Swift program. Predict the output from the stated values before running it, then compare the actual result. Examples that read input accept a line from standard input; file examples use temporary paths.
 
 ### Common Mistakes
-- Using `var` where a constant `let` is sufficient, or attempting to mutate a constant.
-- Treating an optional as if it always contains a value; unwrap safely.
-- Assuming arrays, dictionaries, strings, or structs have Python's semantics.
-- Ignoring compiler diagnostics or thrown errors.
+- Swift Boolean conditions must be `Bool`; integers are not truthy or falsy.
+- Array indices are zero-based and valid indices stop before `count`.
+- Handle optional lookups and user input instead of force-unwrapping.
 
 ### Activities
-1. Reproduce and run the example.
-2. Change one value and predict the result before execution.
-3. Add one boundary case and one invalid-input case.
-4. Explain the code and output without relying on syntax highlighting.
+1. Test scores 82, 91, 76, and 88 at grade boundaries.
+2. Test empty and single-element collections.
+3. Trace each loop iteration and its index.
+4. Normalize the canonical text sample and search it case-insensitively.
 
 ### Accessibility Practice
-Navigate by line, word, and character; verify punctuation announcements; run from the terminal; and read output and diagnostics sequentially.
+Navigate source by line, word, and character. Inspect punctuation, braces, optionals, argument labels, and compiler diagnostics. Run from the terminal and read prompts and output sequentially. Do not rely on syntax coloring, color-only status, or mouse-only actions.
 
 ### Skills Checklist
-- [ ] I can explain the concept in Swift terminology.
-- [ ] I can predict and verify the example's behavior.
-- [ ] I can modify and run the code independently.
-- [ ] I can identify a common error and correct it.
-- [ ] I can read source and output with my access technology.
+- [ ] I can explain for loops and iteration in Swift terminology.
+- [ ] I can trace the example and predict its behavior.
+- [ ] I can adapt the example to the shared canonical data.
+- [ ] I can identify and correct a Swift-specific error or edge case.
+- [ ] I can run and inspect the program using keyboard-accessible tools.
 
 ## Lesson 3.5: Strings and common operations
 
 ### Reading References
-- Official Swift language guide and standard library documentation.
-- Matching Python curriculum lesson for the problem context.
+- [The Swift Programming Language](https://docs.swift.org/swift-book/documentation/the-swift-programming-language/)
+- [Swift Standard Library](https://developer.apple.com/documentation/swift/swift-standard-library)
+- Matching Python curriculum lesson for the shared problem context.
 
 ### Learning Objectives
-- Explain strings and common operations in Swift terms.
-- Predict program behavior before running the example.
-- Modify, run, and debug the example independently.
+- Explain strings and common operations using Swift terminology.
+- Apply the relevant language and standard-library features correctly.
+- Test normal, boundary, and invalid cases using the shared course data.
 
 ### Concept Explanation
-Strings and common operations. Swift is statically typed with type inference, value semantics, optionals, and a strong standard library. Use `let` for values that do not change and `var` for mutable values. Explain any semantic difference from Python rather than assuming the languages behave alike.
+Swift uses `Bool` conditions, `if`/`else if`/`else`, `switch`, zero-based arrays, and `for-in` loops. Array subscripting requires a valid index. Strings are collections of extended grapheme clusters; use String APIs rather than assuming integer offsets are byte offsets.
+
+**Lesson focus:** Strings and common operations. The example uses Swift-native semantics and a canonical course context rather than mechanically translating Python.
 
 ### Worked Example
 ```swift
-let bill = 24.50; let tip = bill * 0.15
-print("Tip: \(tip); total: \(bill + tip)")
+let rawText = "  Avery studies Swift Programming.  "
+let cleaned = rawText.trimmingCharacters(in: .whitespacesAndNewlines)
+print(cleaned.lowercased())
+print("contains Swift: \(cleaned.contains("Swift")); characters: \(cleaned.count)")
 ```
 
-**Expected behavior:** the example demonstrates the unit's corresponding operation. Trace each declaration and expression before execution; then run it and compare the actual output.
+### Expected Behavior or Output
+The example is a self-contained Swift program. Predict the output from the stated values before running it, then compare the actual result. Examples that read input accept a line from standard input; file examples use temporary paths.
 
 ### Common Mistakes
-- Using `var` where a constant `let` is sufficient, or attempting to mutate a constant.
-- Treating an optional as if it always contains a value; unwrap safely.
-- Assuming arrays, dictionaries, strings, or structs have Python's semantics.
-- Ignoring compiler diagnostics or thrown errors.
+- Swift Boolean conditions must be `Bool`; integers are not truthy or falsy.
+- Array indices are zero-based and valid indices stop before `count`.
+- Handle optional lookups and user input instead of force-unwrapping.
 
 ### Activities
-1. Reproduce and run the example.
-2. Change one value and predict the result before execution.
-3. Add one boundary case and one invalid-input case.
-4. Explain the code and output without relying on syntax highlighting.
+1. Test scores 82, 91, 76, and 88 at grade boundaries.
+2. Test empty and single-element collections.
+3. Trace each loop iteration and its index.
+4. Normalize the canonical text sample and search it case-insensitively.
 
 ### Accessibility Practice
-Navigate by line, word, and character; verify punctuation announcements; run from the terminal; and read output and diagnostics sequentially.
+Navigate source by line, word, and character. Inspect punctuation, braces, optionals, argument labels, and compiler diagnostics. Run from the terminal and read prompts and output sequentially. Do not rely on syntax coloring, color-only status, or mouse-only actions.
 
 ### Skills Checklist
-- [ ] I can explain the concept in Swift terminology.
-- [ ] I can predict and verify the example's behavior.
-- [ ] I can modify and run the code independently.
-- [ ] I can identify a common error and correct it.
-- [ ] I can read source and output with my access technology.
+- [ ] I can explain strings and common operations in Swift terminology.
+- [ ] I can trace the example and predict its behavior.
+- [ ] I can adapt the example to the shared canonical data.
+- [ ] I can identify and correct a Swift-specific error or edge case.
+- [ ] I can run and inspect the program using keyboard-accessible tools.
 
 # Unit 4: Data Structures
 
 ## Overview
 
-This unit follows the matching Python unit's objectives and examples. Its purpose is to make the programming concept familiar while Swift's type system and language features become the new learning target.
+Swift's Array, Dictionary, and Set are value types. Tuples group fixed related values; dictionaries map unique keys to values and return optionals on lookup. Collection methods such as `map`, `filter`, `sorted`, and `reduce` express transformations.
 
 ## Lesson 4.1: Array mutation and collection methods
 
 ### Reading References
-- Official Swift language guide and standard library documentation.
-- Matching Python curriculum lesson for the problem context.
+- [The Swift Programming Language](https://docs.swift.org/swift-book/documentation/the-swift-programming-language/)
+- [Swift Standard Library](https://developer.apple.com/documentation/swift/swift-standard-library)
+- Matching Python curriculum lesson for the shared problem context.
 
 ### Learning Objectives
-- Explain array mutation and collection methods in Swift terms.
-- Predict program behavior before running the example.
-- Modify, run, and debug the example independently.
+- Explain array mutation and collection methods using Swift terminology.
+- Apply the relevant language and standard-library features correctly.
+- Test normal, boundary, and invalid cases using the shared course data.
 
 ### Concept Explanation
-Array mutation and collection methods. Swift is statically typed with type inference, value semantics, optionals, and a strong standard library. Use `let` for values that do not change and `var` for mutable values. Explain any semantic difference from Python rather than assuming the languages behave alike.
+Swift's Array, Dictionary, and Set are value types. Tuples group fixed related values; dictionaries map unique keys to values and return optionals on lookup. Collection methods such as `map`, `filter`, `sorted`, and `reduce` express transformations.
+
+**Lesson focus:** Array mutation and collection methods. The example uses Swift-native semantics and a canonical course context rather than mechanically translating Python.
 
 ### Worked Example
 ```swift
-let score = 82
-if score >= 90 { print("A") } else if score >= 80 { print("B") } else { print("Keep practicing") }
+var scores = [82, 91, 76, 88]
+scores.append(95)
+scores.insert(85, at: 1)
+scores.remove(at: 0)
+print(scores)
 ```
 
-**Expected behavior:** the example demonstrates the unit's corresponding operation. Trace each declaration and expression before execution; then run it and compare the actual output.
+### Expected Behavior or Output
+The example is a self-contained Swift program. Predict the output from the stated values before running it, then compare the actual result. Examples that read input accept a line from standard input; file examples use temporary paths.
 
 ### Common Mistakes
-- Using `var` where a constant `let` is sufficient, or attempting to mutate a constant.
-- Treating an optional as if it always contains a value; unwrap safely.
-- Assuming arrays, dictionaries, strings, or structs have Python's semantics.
-- Ignoring compiler diagnostics or thrown errors.
+- Arrays and dictionaries are value types with copy-on-write behavior.
+- Dictionary iteration order is not a stable presentation order; sort keys for deterministic output.
+- A dictionary subscript returns an optional because the key may be absent.
 
 ### Activities
-1. Reproduce and run the example.
-2. Change one value and predict the result before execution.
-3. Add one boundary case and one invalid-input case.
-4. Explain the code and output without relying on syntax highlighting.
+1. Add, update, and remove canonical inventory entries.
+2. Sort inventory keys and explain why output order matters.
+3. Represent a coordinate and learner record with tuples.
+4. Test missing dictionary keys and empty collections.
 
 ### Accessibility Practice
-Navigate by line, word, and character; verify punctuation announcements; run from the terminal; and read output and diagnostics sequentially.
+Navigate source by line, word, and character. Inspect punctuation, braces, optionals, argument labels, and compiler diagnostics. Run from the terminal and read prompts and output sequentially. Do not rely on syntax coloring, color-only status, or mouse-only actions.
 
 ### Skills Checklist
-- [ ] I can explain the concept in Swift terminology.
-- [ ] I can predict and verify the example's behavior.
-- [ ] I can modify and run the code independently.
-- [ ] I can identify a common error and correct it.
-- [ ] I can read source and output with my access technology.
+- [ ] I can explain array mutation and collection methods in Swift terminology.
+- [ ] I can trace the example and predict its behavior.
+- [ ] I can adapt the example to the shared canonical data.
+- [ ] I can identify and correct a Swift-specific error or edge case.
+- [ ] I can run and inspect the program using keyboard-accessible tools.
 
 ## Lesson 4.2: Sorting and organizing data
 
 ### Reading References
-- Official Swift language guide and standard library documentation.
-- Matching Python curriculum lesson for the problem context.
+- [The Swift Programming Language](https://docs.swift.org/swift-book/documentation/the-swift-programming-language/)
+- [Swift Standard Library](https://developer.apple.com/documentation/swift/swift-standard-library)
+- Matching Python curriculum lesson for the shared problem context.
 
 ### Learning Objectives
-- Explain sorting and organizing data in Swift terms.
-- Predict program behavior before running the example.
-- Modify, run, and debug the example independently.
+- Explain sorting and organizing data using Swift terminology.
+- Apply the relevant language and standard-library features correctly.
+- Test normal, boundary, and invalid cases using the shared course data.
 
 ### Concept Explanation
-Sorting and organizing data. Swift is statically typed with type inference, value semantics, optionals, and a strong standard library. Use `let` for values that do not change and `var` for mutable values. Explain any semantic difference from Python rather than assuming the languages behave alike.
+Swift's Array, Dictionary, and Set are value types. Tuples group fixed related values; dictionaries map unique keys to values and return optionals on lookup. Collection methods such as `map`, `filter`, `sorted`, and `reduce` express transformations.
+
+**Lesson focus:** Sorting and organizing data. The example uses Swift-native semantics and a canonical course context rather than mechanically translating Python.
 
 ### Worked Example
 ```swift
-let score = 82
-if score >= 90 { print("A") } else if score >= 80 { print("B") } else { print("Keep practicing") }
+let inventory = ["Notebook": 3, "Pencil": 10, "Folder": 4]
+for item in inventory.keys.sorted() {
+    print("\(item): \(inventory[item]!)")
+}
 ```
 
-**Expected behavior:** the example demonstrates the unit's corresponding operation. Trace each declaration and expression before execution; then run it and compare the actual output.
+### Expected Behavior or Output
+The example is a self-contained Swift program. Predict the output from the stated values before running it, then compare the actual result. Examples that read input accept a line from standard input; file examples use temporary paths.
 
 ### Common Mistakes
-- Using `var` where a constant `let` is sufficient, or attempting to mutate a constant.
-- Treating an optional as if it always contains a value; unwrap safely.
-- Assuming arrays, dictionaries, strings, or structs have Python's semantics.
-- Ignoring compiler diagnostics or thrown errors.
+- Arrays and dictionaries are value types with copy-on-write behavior.
+- Dictionary iteration order is not a stable presentation order; sort keys for deterministic output.
+- A dictionary subscript returns an optional because the key may be absent.
 
 ### Activities
-1. Reproduce and run the example.
-2. Change one value and predict the result before execution.
-3. Add one boundary case and one invalid-input case.
-4. Explain the code and output without relying on syntax highlighting.
+1. Add, update, and remove canonical inventory entries.
+2. Sort inventory keys and explain why output order matters.
+3. Represent a coordinate and learner record with tuples.
+4. Test missing dictionary keys and empty collections.
 
 ### Accessibility Practice
-Navigate by line, word, and character; verify punctuation announcements; run from the terminal; and read output and diagnostics sequentially.
+Navigate source by line, word, and character. Inspect punctuation, braces, optionals, argument labels, and compiler diagnostics. Run from the terminal and read prompts and output sequentially. Do not rely on syntax coloring, color-only status, or mouse-only actions.
 
 ### Skills Checklist
-- [ ] I can explain the concept in Swift terminology.
-- [ ] I can predict and verify the example's behavior.
-- [ ] I can modify and run the code independently.
-- [ ] I can identify a common error and correct it.
-- [ ] I can read source and output with my access technology.
+- [ ] I can explain sorting and organizing data in Swift terminology.
+- [ ] I can trace the example and predict its behavior.
+- [ ] I can adapt the example to the shared canonical data.
+- [ ] I can identify and correct a Swift-specific error or edge case.
+- [ ] I can run and inspect the program using keyboard-accessible tools.
 
 ## Lesson 4.3: Tuples and immutable values
 
 ### Reading References
-- Official Swift language guide and standard library documentation.
-- Matching Python curriculum lesson for the problem context.
+- [The Swift Programming Language](https://docs.swift.org/swift-book/documentation/the-swift-programming-language/)
+- [Swift Standard Library](https://developer.apple.com/documentation/swift/swift-standard-library)
+- Matching Python curriculum lesson for the shared problem context.
 
 ### Learning Objectives
-- Explain tuples and immutable values in Swift terms.
-- Predict program behavior before running the example.
-- Modify, run, and debug the example independently.
+- Explain tuples and immutable values using Swift terminology.
+- Apply the relevant language and standard-library features correctly.
+- Test normal, boundary, and invalid cases using the shared course data.
 
 ### Concept Explanation
-Tuples and immutable values. Swift is statically typed with type inference, value semantics, optionals, and a strong standard library. Use `let` for values that do not change and `var` for mutable values. Explain any semantic difference from Python rather than assuming the languages behave alike.
+Swift's Array, Dictionary, and Set are value types. Tuples group fixed related values; dictionaries map unique keys to values and return optionals on lookup. Collection methods such as `map`, `filter`, `sorted`, and `reduce` express transformations.
+
+**Lesson focus:** Tuples and immutable values. The example uses Swift-native semantics and a canonical course context rather than mechanically translating Python.
 
 ### Worked Example
 ```swift
-let score = 82
-if score >= 90 { print("A") } else if score >= 80 { print("B") } else { print("Keep practicing") }
+let coordinate = (x: 3.0, y: 4.0)
+let studentRecord = ("Avery", 16, "Computer Science")
+print("point=(\(coordinate.x), \(coordinate.y))")
+print("student=\(studentRecord.0), age=\(studentRecord.1)")
 ```
 
-**Expected behavior:** the example demonstrates the unit's corresponding operation. Trace each declaration and expression before execution; then run it and compare the actual output.
+### Expected Behavior or Output
+The example is a self-contained Swift program. Predict the output from the stated values before running it, then compare the actual result. Examples that read input accept a line from standard input; file examples use temporary paths.
 
 ### Common Mistakes
-- Using `var` where a constant `let` is sufficient, or attempting to mutate a constant.
-- Treating an optional as if it always contains a value; unwrap safely.
-- Assuming arrays, dictionaries, strings, or structs have Python's semantics.
-- Ignoring compiler diagnostics or thrown errors.
+- Arrays and dictionaries are value types with copy-on-write behavior.
+- Dictionary iteration order is not a stable presentation order; sort keys for deterministic output.
+- A dictionary subscript returns an optional because the key may be absent.
 
 ### Activities
-1. Reproduce and run the example.
-2. Change one value and predict the result before execution.
-3. Add one boundary case and one invalid-input case.
-4. Explain the code and output without relying on syntax highlighting.
+1. Add, update, and remove canonical inventory entries.
+2. Sort inventory keys and explain why output order matters.
+3. Represent a coordinate and learner record with tuples.
+4. Test missing dictionary keys and empty collections.
 
 ### Accessibility Practice
-Navigate by line, word, and character; verify punctuation announcements; run from the terminal; and read output and diagnostics sequentially.
+Navigate source by line, word, and character. Inspect punctuation, braces, optionals, argument labels, and compiler diagnostics. Run from the terminal and read prompts and output sequentially. Do not rely on syntax coloring, color-only status, or mouse-only actions.
 
 ### Skills Checklist
-- [ ] I can explain the concept in Swift terminology.
-- [ ] I can predict and verify the example's behavior.
-- [ ] I can modify and run the code independently.
-- [ ] I can identify a common error and correct it.
-- [ ] I can read source and output with my access technology.
+- [ ] I can explain tuples and immutable values in Swift terminology.
+- [ ] I can trace the example and predict its behavior.
+- [ ] I can adapt the example to the shared canonical data.
+- [ ] I can identify and correct a Swift-specific error or edge case.
+- [ ] I can run and inspect the program using keyboard-accessible tools.
 
 ## Lesson 4.4: Dictionaries and key-value data
 
 ### Reading References
-- Official Swift language guide and standard library documentation.
-- Matching Python curriculum lesson for the problem context.
+- [The Swift Programming Language](https://docs.swift.org/swift-book/documentation/the-swift-programming-language/)
+- [Swift Standard Library](https://developer.apple.com/documentation/swift/swift-standard-library)
+- Matching Python curriculum lesson for the shared problem context.
 
 ### Learning Objectives
-- Explain dictionaries and key-value data in Swift terms.
-- Predict program behavior before running the example.
-- Modify, run, and debug the example independently.
+- Explain dictionaries and key-value data using Swift terminology.
+- Apply the relevant language and standard-library features correctly.
+- Test normal, boundary, and invalid cases using the shared course data.
 
 ### Concept Explanation
-Dictionaries and key-value data. Swift is statically typed with type inference, value semantics, optionals, and a strong standard library. Use `let` for values that do not change and `var` for mutable values. Explain any semantic difference from Python rather than assuming the languages behave alike.
+Swift's Array, Dictionary, and Set are value types. Tuples group fixed related values; dictionaries map unique keys to values and return optionals on lookup. Collection methods such as `map`, `filter`, `sorted`, and `reduce` express transformations.
+
+**Lesson focus:** Dictionaries and key-value data. The example uses Swift-native semantics and a canonical course context rather than mechanically translating Python.
 
 ### Worked Example
 ```swift
-let score = 82
-if score >= 90 { print("A") } else if score >= 80 { print("B") } else { print("Keep practicing") }
+var inventory: [String: Int] = ["Notebook": 3, "Pencil": 10]
+inventory["Folder"] = 4
+inventory["Pencil"] = nil
+print("notebooks=\(inventory["Notebook"] ?? 0)")
+print("keys=\(inventory.keys.sorted())")
 ```
 
-**Expected behavior:** the example demonstrates the unit's corresponding operation. Trace each declaration and expression before execution; then run it and compare the actual output.
+### Expected Behavior or Output
+The example is a self-contained Swift program. Predict the output from the stated values before running it, then compare the actual result. Examples that read input accept a line from standard input; file examples use temporary paths.
 
 ### Common Mistakes
-- Using `var` where a constant `let` is sufficient, or attempting to mutate a constant.
-- Treating an optional as if it always contains a value; unwrap safely.
-- Assuming arrays, dictionaries, strings, or structs have Python's semantics.
-- Ignoring compiler diagnostics or thrown errors.
+- Arrays and dictionaries are value types with copy-on-write behavior.
+- Dictionary iteration order is not a stable presentation order; sort keys for deterministic output.
+- A dictionary subscript returns an optional because the key may be absent.
 
 ### Activities
-1. Reproduce and run the example.
-2. Change one value and predict the result before execution.
-3. Add one boundary case and one invalid-input case.
-4. Explain the code and output without relying on syntax highlighting.
+1. Add, update, and remove canonical inventory entries.
+2. Sort inventory keys and explain why output order matters.
+3. Represent a coordinate and learner record with tuples.
+4. Test missing dictionary keys and empty collections.
 
 ### Accessibility Practice
-Navigate by line, word, and character; verify punctuation announcements; run from the terminal; and read output and diagnostics sequentially.
+Navigate source by line, word, and character. Inspect punctuation, braces, optionals, argument labels, and compiler diagnostics. Run from the terminal and read prompts and output sequentially. Do not rely on syntax coloring, color-only status, or mouse-only actions.
 
 ### Skills Checklist
-- [ ] I can explain the concept in Swift terminology.
-- [ ] I can predict and verify the example's behavior.
-- [ ] I can modify and run the code independently.
-- [ ] I can identify a common error and correct it.
-- [ ] I can read source and output with my access technology.
+- [ ] I can explain dictionaries and key-value data in Swift terminology.
+- [ ] I can trace the example and predict its behavior.
+- [ ] I can adapt the example to the shared canonical data.
+- [ ] I can identify and correct a Swift-specific error or edge case.
+- [ ] I can run and inspect the program using keyboard-accessible tools.
 
 ## Lesson 4.5: Collection traversal
 
 ### Reading References
-- Official Swift language guide and standard library documentation.
-- Matching Python curriculum lesson for the problem context.
+- [The Swift Programming Language](https://docs.swift.org/swift-book/documentation/the-swift-programming-language/)
+- [Swift Standard Library](https://developer.apple.com/documentation/swift/swift-standard-library)
+- Matching Python curriculum lesson for the shared problem context.
 
 ### Learning Objectives
-- Explain collection traversal in Swift terms.
-- Predict program behavior before running the example.
-- Modify, run, and debug the example independently.
+- Explain collection traversal using Swift terminology.
+- Apply the relevant language and standard-library features correctly.
+- Test normal, boundary, and invalid cases using the shared course data.
 
 ### Concept Explanation
-Collection traversal. Swift is statically typed with type inference, value semantics, optionals, and a strong standard library. Use `let` for values that do not change and `var` for mutable values. Explain any semantic difference from Python rather than assuming the languages behave alike.
+Swift's Array, Dictionary, and Set are value types. Tuples group fixed related values; dictionaries map unique keys to values and return optionals on lookup. Collection methods such as `map`, `filter`, `sorted`, and `reduce` express transformations.
+
+**Lesson focus:** Collection traversal. The example uses Swift-native semantics and a canonical course context rather than mechanically translating Python.
 
 ### Worked Example
 ```swift
-let score = 82
-if score >= 90 { print("A") } else if score >= 80 { print("B") } else { print("Keep practicing") }
+let scores = [82, 91, 76, 88]
+let passing = scores.filter { $0 >= 80 }
+let doubled = scores.map { $0 * 2 }
+let total = scores.reduce(0, +)
+print("passing=\(passing), doubled=\(doubled), total=\(total)")
 ```
 
-**Expected behavior:** the example demonstrates the unit's corresponding operation. Trace each declaration and expression before execution; then run it and compare the actual output.
+### Expected Behavior or Output
+The example is a self-contained Swift program. Predict the output from the stated values before running it, then compare the actual result. Examples that read input accept a line from standard input; file examples use temporary paths.
 
 ### Common Mistakes
-- Using `var` where a constant `let` is sufficient, or attempting to mutate a constant.
-- Treating an optional as if it always contains a value; unwrap safely.
-- Assuming arrays, dictionaries, strings, or structs have Python's semantics.
-- Ignoring compiler diagnostics or thrown errors.
+- Arrays and dictionaries are value types with copy-on-write behavior.
+- Dictionary iteration order is not a stable presentation order; sort keys for deterministic output.
+- A dictionary subscript returns an optional because the key may be absent.
 
 ### Activities
-1. Reproduce and run the example.
-2. Change one value and predict the result before execution.
-3. Add one boundary case and one invalid-input case.
-4. Explain the code and output without relying on syntax highlighting.
+1. Add, update, and remove canonical inventory entries.
+2. Sort inventory keys and explain why output order matters.
+3. Represent a coordinate and learner record with tuples.
+4. Test missing dictionary keys and empty collections.
 
 ### Accessibility Practice
-Navigate by line, word, and character; verify punctuation announcements; run from the terminal; and read output and diagnostics sequentially.
+Navigate source by line, word, and character. Inspect punctuation, braces, optionals, argument labels, and compiler diagnostics. Run from the terminal and read prompts and output sequentially. Do not rely on syntax coloring, color-only status, or mouse-only actions.
 
 ### Skills Checklist
-- [ ] I can explain the concept in Swift terminology.
-- [ ] I can predict and verify the example's behavior.
-- [ ] I can modify and run the code independently.
-- [ ] I can identify a common error and correct it.
-- [ ] I can read source and output with my access technology.
+- [ ] I can explain collection traversal in Swift terminology.
+- [ ] I can trace the example and predict its behavior.
+- [ ] I can adapt the example to the shared canonical data.
+- [ ] I can identify and correct a Swift-specific error or edge case.
+- [ ] I can run and inspect the program using keyboard-accessible tools.
 
 # Unit 5: Input and Iteration
 
 ## Overview
 
-This unit follows the matching Python unit's objectives and examples. Its purpose is to make the programming concept familiar while Swift's type system and language features become the new learning target.
+Console input arrives as an optional string. Convert and validate it before use. `while`, `break`, and `continue` control repetition; a loop must make progress or reach an exit condition.
 
 ## Lesson 5.1: Input and validation
 
 ### Reading References
-- Official Swift language guide and standard library documentation.
-- Matching Python curriculum lesson for the problem context.
+- [The Swift Programming Language](https://docs.swift.org/swift-book/documentation/the-swift-programming-language/)
+- [Swift Standard Library](https://developer.apple.com/documentation/swift/swift-standard-library)
+- Matching Python curriculum lesson for the shared problem context.
 
 ### Learning Objectives
-- Explain input and validation in Swift terms.
-- Predict program behavior before running the example.
-- Modify, run, and debug the example independently.
+- Explain input and validation using Swift terminology.
+- Apply the relevant language and standard-library features correctly.
+- Test normal, boundary, and invalid cases using the shared course data.
 
 ### Concept Explanation
-Input and validation. Swift is statically typed with type inference, value semantics, optionals, and a strong standard library. Use `let` for values that do not change and `var` for mutable values. Explain any semantic difference from Python rather than assuming the languages behave alike.
+Console input arrives as an optional string. Convert and validate it before use. `while`, `break`, and `continue` control repetition; a loop must make progress or reach an exit condition.
+
+**Lesson focus:** Input and validation. The example uses Swift-native semantics and a canonical course context rather than mechanically translating Python.
 
 ### Worked Example
 ```swift
-let scores = [82, 91, 76, 88]
-for score in scores { print(score) }
+print("Enter a score from 0 to 100:")
+let input = readLine() ?? ""
+if let score = Int(input), (0...100).contains(score) {
+    print("Accepted score: \(score)")
+} else {
+    print("Invalid score")
+}
 ```
 
-**Expected behavior:** the example demonstrates the unit's corresponding operation. Trace each declaration and expression before execution; then run it and compare the actual output.
+### Expected Behavior or Output
+The example is a self-contained Swift program. Predict the output from the stated values before running it, then compare the actual result. Examples that read input accept a line from standard input; file examples use temporary paths.
 
 ### Common Mistakes
-- Using `var` where a constant `let` is sufficient, or attempting to mutate a constant.
-- Treating an optional as if it always contains a value; unwrap safely.
-- Assuming arrays, dictionaries, strings, or structs have Python's semantics.
-- Ignoring compiler diagnostics or thrown errors.
+- A `while` loop must change state or terminate explicitly.
+- Use `break` to exit the intended loop and `continue` to skip only the current iteration.
+- Validate text before converting it to a numeric value.
 
 ### Activities
-1. Reproduce and run the example.
-2. Change one value and predict the result before execution.
-3. Add one boundary case and one invalid-input case.
-4. Explain the code and output without relying on syntax highlighting.
+1. Test valid, invalid, and blank user input.
+2. Trace a sentinel loop with both quit and non-quit commands.
+3. Find the first matching score and stop immediately.
+4. Prove a loop terminates for empty and no-match inputs.
 
 ### Accessibility Practice
-Navigate by line, word, and character; verify punctuation announcements; run from the terminal; and read output and diagnostics sequentially.
+Navigate source by line, word, and character. Inspect punctuation, braces, optionals, argument labels, and compiler diagnostics. Run from the terminal and read prompts and output sequentially. Do not rely on syntax coloring, color-only status, or mouse-only actions.
 
 ### Skills Checklist
-- [ ] I can explain the concept in Swift terminology.
-- [ ] I can predict and verify the example's behavior.
-- [ ] I can modify and run the code independently.
-- [ ] I can identify a common error and correct it.
-- [ ] I can read source and output with my access technology.
+- [ ] I can explain input and validation in Swift terminology.
+- [ ] I can trace the example and predict its behavior.
+- [ ] I can adapt the example to the shared canonical data.
+- [ ] I can identify and correct a Swift-specific error or edge case.
+- [ ] I can run and inspect the program using keyboard-accessible tools.
 
 ## Lesson 5.2: While loops and sentinel repetition
 
 ### Reading References
-- Official Swift language guide and standard library documentation.
-- Matching Python curriculum lesson for the problem context.
+- [The Swift Programming Language](https://docs.swift.org/swift-book/documentation/the-swift-programming-language/)
+- [Swift Standard Library](https://developer.apple.com/documentation/swift/swift-standard-library)
+- Matching Python curriculum lesson for the shared problem context.
 
 ### Learning Objectives
-- Explain while loops and sentinel repetition in Swift terms.
-- Predict program behavior before running the example.
-- Modify, run, and debug the example independently.
+- Explain while loops and sentinel repetition using Swift terminology.
+- Apply the relevant language and standard-library features correctly.
+- Test normal, boundary, and invalid cases using the shared course data.
 
 ### Concept Explanation
-While loops and sentinel repetition. Swift is statically typed with type inference, value semantics, optionals, and a strong standard library. Use `let` for values that do not change and `var` for mutable values. Explain any semantic difference from Python rather than assuming the languages behave alike.
+Console input arrives as an optional string. Convert and validate it before use. `while`, `break`, and `continue` control repetition; a loop must make progress or reach an exit condition.
+
+**Lesson focus:** While loops and sentinel repetition. The example uses Swift-native semantics and a canonical course context rather than mechanically translating Python.
 
 ### Worked Example
 ```swift
-let scores = [82, 91, 76, 88]
-for score in scores { print(score) }
+var commands = ["list", "help", "quit"]
+var position = 0
+while position < commands.count {
+    let command = commands[position]
+    print("Command: \(command)")
+    position += 1
+    if command == "quit" { break }
+}
 ```
 
-**Expected behavior:** the example demonstrates the unit's corresponding operation. Trace each declaration and expression before execution; then run it and compare the actual output.
+### Expected Behavior or Output
+The example is a self-contained Swift program. Predict the output from the stated values before running it, then compare the actual result. Examples that read input accept a line from standard input; file examples use temporary paths.
 
 ### Common Mistakes
-- Using `var` where a constant `let` is sufficient, or attempting to mutate a constant.
-- Treating an optional as if it always contains a value; unwrap safely.
-- Assuming arrays, dictionaries, strings, or structs have Python's semantics.
-- Ignoring compiler diagnostics or thrown errors.
+- A `while` loop must change state or terminate explicitly.
+- Use `break` to exit the intended loop and `continue` to skip only the current iteration.
+- Validate text before converting it to a numeric value.
 
 ### Activities
-1. Reproduce and run the example.
-2. Change one value and predict the result before execution.
-3. Add one boundary case and one invalid-input case.
-4. Explain the code and output without relying on syntax highlighting.
+1. Test valid, invalid, and blank user input.
+2. Trace a sentinel loop with both quit and non-quit commands.
+3. Find the first matching score and stop immediately.
+4. Prove a loop terminates for empty and no-match inputs.
 
 ### Accessibility Practice
-Navigate by line, word, and character; verify punctuation announcements; run from the terminal; and read output and diagnostics sequentially.
+Navigate source by line, word, and character. Inspect punctuation, braces, optionals, argument labels, and compiler diagnostics. Run from the terminal and read prompts and output sequentially. Do not rely on syntax coloring, color-only status, or mouse-only actions.
 
 ### Skills Checklist
-- [ ] I can explain the concept in Swift terminology.
-- [ ] I can predict and verify the example's behavior.
-- [ ] I can modify and run the code independently.
-- [ ] I can identify a common error and correct it.
-- [ ] I can read source and output with my access technology.
+- [ ] I can explain while loops and sentinel repetition in Swift terminology.
+- [ ] I can trace the example and predict its behavior.
+- [ ] I can adapt the example to the shared canonical data.
+- [ ] I can identify and correct a Swift-specific error or edge case.
+- [ ] I can run and inspect the program using keyboard-accessible tools.
 
 ## Lesson 5.3: Flags and early exits
 
 ### Reading References
-- Official Swift language guide and standard library documentation.
-- Matching Python curriculum lesson for the problem context.
+- [The Swift Programming Language](https://docs.swift.org/swift-book/documentation/the-swift-programming-language/)
+- [Swift Standard Library](https://developer.apple.com/documentation/swift/swift-standard-library)
+- Matching Python curriculum lesson for the shared problem context.
 
 ### Learning Objectives
-- Explain flags and early exits in Swift terms.
-- Predict program behavior before running the example.
-- Modify, run, and debug the example independently.
+- Explain flags and early exits using Swift terminology.
+- Apply the relevant language and standard-library features correctly.
+- Test normal, boundary, and invalid cases using the shared course data.
 
 ### Concept Explanation
-Flags and early exits. Swift is statically typed with type inference, value semantics, optionals, and a strong standard library. Use `let` for values that do not change and `var` for mutable values. Explain any semantic difference from Python rather than assuming the languages behave alike.
+Console input arrives as an optional string. Convert and validate it before use. `while`, `break`, and `continue` control repetition; a loop must make progress or reach an exit condition.
+
+**Lesson focus:** Flags and early exits. The example uses Swift-native semantics and a canonical course context rather than mechanically translating Python.
 
 ### Worked Example
 ```swift
 let scores = [82, 91, 76, 88]
-for score in scores { print(score) }
+var foundIndex: Int? = nil
+for (index, score) in scores.enumerated() {
+    if score == 91 {
+        foundIndex = index
+        break
+    }
+}
+print("91 found at index: \(foundIndex.map(String.init) ?? "not found")")
 ```
 
-**Expected behavior:** the example demonstrates the unit's corresponding operation. Trace each declaration and expression before execution; then run it and compare the actual output.
+### Expected Behavior or Output
+The example is a self-contained Swift program. Predict the output from the stated values before running it, then compare the actual result. Examples that read input accept a line from standard input; file examples use temporary paths.
 
 ### Common Mistakes
-- Using `var` where a constant `let` is sufficient, or attempting to mutate a constant.
-- Treating an optional as if it always contains a value; unwrap safely.
-- Assuming arrays, dictionaries, strings, or structs have Python's semantics.
-- Ignoring compiler diagnostics or thrown errors.
+- A `while` loop must change state or terminate explicitly.
+- Use `break` to exit the intended loop and `continue` to skip only the current iteration.
+- Validate text before converting it to a numeric value.
 
 ### Activities
-1. Reproduce and run the example.
-2. Change one value and predict the result before execution.
-3. Add one boundary case and one invalid-input case.
-4. Explain the code and output without relying on syntax highlighting.
+1. Test valid, invalid, and blank user input.
+2. Trace a sentinel loop with both quit and non-quit commands.
+3. Find the first matching score and stop immediately.
+4. Prove a loop terminates for empty and no-match inputs.
 
 ### Accessibility Practice
-Navigate by line, word, and character; verify punctuation announcements; run from the terminal; and read output and diagnostics sequentially.
+Navigate source by line, word, and character. Inspect punctuation, braces, optionals, argument labels, and compiler diagnostics. Run from the terminal and read prompts and output sequentially. Do not rely on syntax coloring, color-only status, or mouse-only actions.
 
 ### Skills Checklist
-- [ ] I can explain the concept in Swift terminology.
-- [ ] I can predict and verify the example's behavior.
-- [ ] I can modify and run the code independently.
-- [ ] I can identify a common error and correct it.
-- [ ] I can read source and output with my access technology.
+- [ ] I can explain flags and early exits in Swift terminology.
+- [ ] I can trace the example and predict its behavior.
+- [ ] I can adapt the example to the shared canonical data.
+- [ ] I can identify and correct a Swift-specific error or edge case.
+- [ ] I can run and inspect the program using keyboard-accessible tools.
 
 ## Lesson 5.4: Continue and filtering
 
 ### Reading References
-- Official Swift language guide and standard library documentation.
-- Matching Python curriculum lesson for the problem context.
+- [The Swift Programming Language](https://docs.swift.org/swift-book/documentation/the-swift-programming-language/)
+- [Swift Standard Library](https://developer.apple.com/documentation/swift/swift-standard-library)
+- Matching Python curriculum lesson for the shared problem context.
 
 ### Learning Objectives
-- Explain continue and filtering in Swift terms.
-- Predict program behavior before running the example.
-- Modify, run, and debug the example independently.
+- Explain continue and filtering using Swift terminology.
+- Apply the relevant language and standard-library features correctly.
+- Test normal, boundary, and invalid cases using the shared course data.
 
 ### Concept Explanation
-Continue and filtering. Swift is statically typed with type inference, value semantics, optionals, and a strong standard library. Use `let` for values that do not change and `var` for mutable values. Explain any semantic difference from Python rather than assuming the languages behave alike.
+Console input arrives as an optional string. Convert and validate it before use. `while`, `break`, and `continue` control repetition; a loop must make progress or reach an exit condition.
+
+**Lesson focus:** Continue and filtering. The example uses Swift-native semantics and a canonical course context rather than mechanically translating Python.
 
 ### Worked Example
 ```swift
-let scores = [82, 91, 76, 88]
-for score in scores { print(score) }
+let values = [82, -1, 91, 0, 76]
+var positiveValues: [Int] = []
+for value in values {
+    if value <= 0 { continue }
+    positiveValues.append(value)
+}
+print(positiveValues)
 ```
 
-**Expected behavior:** the example demonstrates the unit's corresponding operation. Trace each declaration and expression before execution; then run it and compare the actual output.
+### Expected Behavior or Output
+The example is a self-contained Swift program. Predict the output from the stated values before running it, then compare the actual result. Examples that read input accept a line from standard input; file examples use temporary paths.
 
 ### Common Mistakes
-- Using `var` where a constant `let` is sufficient, or attempting to mutate a constant.
-- Treating an optional as if it always contains a value; unwrap safely.
-- Assuming arrays, dictionaries, strings, or structs have Python's semantics.
-- Ignoring compiler diagnostics or thrown errors.
+- A `while` loop must change state or terminate explicitly.
+- Use `break` to exit the intended loop and `continue` to skip only the current iteration.
+- Validate text before converting it to a numeric value.
 
 ### Activities
-1. Reproduce and run the example.
-2. Change one value and predict the result before execution.
-3. Add one boundary case and one invalid-input case.
-4. Explain the code and output without relying on syntax highlighting.
+1. Test valid, invalid, and blank user input.
+2. Trace a sentinel loop with both quit and non-quit commands.
+3. Find the first matching score and stop immediately.
+4. Prove a loop terminates for empty and no-match inputs.
 
 ### Accessibility Practice
-Navigate by line, word, and character; verify punctuation announcements; run from the terminal; and read output and diagnostics sequentially.
+Navigate source by line, word, and character. Inspect punctuation, braces, optionals, argument labels, and compiler diagnostics. Run from the terminal and read prompts and output sequentially. Do not rely on syntax coloring, color-only status, or mouse-only actions.
 
 ### Skills Checklist
-- [ ] I can explain the concept in Swift terminology.
-- [ ] I can predict and verify the example's behavior.
-- [ ] I can modify and run the code independently.
-- [ ] I can identify a common error and correct it.
-- [ ] I can read source and output with my access technology.
+- [ ] I can explain continue and filtering in Swift terminology.
+- [ ] I can trace the example and predict its behavior.
+- [ ] I can adapt the example to the shared canonical data.
+- [ ] I can identify and correct a Swift-specific error or edge case.
+- [ ] I can run and inspect the program using keyboard-accessible tools.
 
 ## Lesson 5.5: Preventing infinite loops
 
 ### Reading References
-- Official Swift language guide and standard library documentation.
-- Matching Python curriculum lesson for the problem context.
+- [The Swift Programming Language](https://docs.swift.org/swift-book/documentation/the-swift-programming-language/)
+- [Swift Standard Library](https://developer.apple.com/documentation/swift/swift-standard-library)
+- Matching Python curriculum lesson for the shared problem context.
 
 ### Learning Objectives
-- Explain preventing infinite loops in Swift terms.
-- Predict program behavior before running the example.
-- Modify, run, and debug the example independently.
+- Explain preventing infinite loops using Swift terminology.
+- Apply the relevant language and standard-library features correctly.
+- Test normal, boundary, and invalid cases using the shared course data.
 
 ### Concept Explanation
-Preventing infinite loops. Swift is statically typed with type inference, value semantics, optionals, and a strong standard library. Use `let` for values that do not change and `var` for mutable values. Explain any semantic difference from Python rather than assuming the languages behave alike.
+Console input arrives as an optional string. Convert and validate it before use. `while`, `break`, and `continue` control repetition; a loop must make progress or reach an exit condition.
+
+**Lesson focus:** Preventing infinite loops. The example uses Swift-native semantics and a canonical course context rather than mechanically translating Python.
 
 ### Worked Example
 ```swift
-let scores = [82, 91, 76, 88]
-for score in scores { print(score) }
+func countDown(from start: Int) {
+    var current = start
+    while current > 0 {
+        print(current)
+        current -= 1
+    }
+    print("Done")
+}
+countDown(from: 3)
 ```
 
-**Expected behavior:** the example demonstrates the unit's corresponding operation. Trace each declaration and expression before execution; then run it and compare the actual output.
+### Expected Behavior or Output
+The example is a self-contained Swift program. Predict the output from the stated values before running it, then compare the actual result. Examples that read input accept a line from standard input; file examples use temporary paths.
 
 ### Common Mistakes
-- Using `var` where a constant `let` is sufficient, or attempting to mutate a constant.
-- Treating an optional as if it always contains a value; unwrap safely.
-- Assuming arrays, dictionaries, strings, or structs have Python's semantics.
-- Ignoring compiler diagnostics or thrown errors.
+- A `while` loop must change state or terminate explicitly.
+- Use `break` to exit the intended loop and `continue` to skip only the current iteration.
+- Validate text before converting it to a numeric value.
 
 ### Activities
-1. Reproduce and run the example.
-2. Change one value and predict the result before execution.
-3. Add one boundary case and one invalid-input case.
-4. Explain the code and output without relying on syntax highlighting.
+1. Test valid, invalid, and blank user input.
+2. Trace a sentinel loop with both quit and non-quit commands.
+3. Find the first matching score and stop immediately.
+4. Prove a loop terminates for empty and no-match inputs.
 
 ### Accessibility Practice
-Navigate by line, word, and character; verify punctuation announcements; run from the terminal; and read output and diagnostics sequentially.
+Navigate source by line, word, and character. Inspect punctuation, braces, optionals, argument labels, and compiler diagnostics. Run from the terminal and read prompts and output sequentially. Do not rely on syntax coloring, color-only status, or mouse-only actions.
 
 ### Skills Checklist
-- [ ] I can explain the concept in Swift terminology.
-- [ ] I can predict and verify the example's behavior.
-- [ ] I can modify and run the code independently.
-- [ ] I can identify a common error and correct it.
-- [ ] I can read source and output with my access technology.
+- [ ] I can explain preventing infinite loops in Swift terminology.
+- [ ] I can trace the example and predict its behavior.
+- [ ] I can adapt the example to the shared canonical data.
+- [ ] I can identify and correct a Swift-specific error or edge case.
+- [ ] I can run and inspect the program using keyboard-accessible tools.
 
 # Unit 6: Functions
 
 ## Overview
 
-This unit follows the matching Python unit's objectives and examples. Its purpose is to make the programming concept familiar while Swift's type system and language features become the new learning target.
+Functions declare parameter types, return types, and external argument labels. Swift supports default arguments, closures, and variadic parameters. Return optional values when a result may be absent; use `guard` for early validation exits.
 
 ## Lesson 6.1: Defining and calling functions
 
 ### Reading References
-- Official Swift language guide and standard library documentation.
-- Matching Python curriculum lesson for the problem context.
+- [The Swift Programming Language](https://docs.swift.org/swift-book/documentation/the-swift-programming-language/)
+- [Swift Standard Library](https://developer.apple.com/documentation/swift/swift-standard-library)
+- Matching Python curriculum lesson for the shared problem context.
 
 ### Learning Objectives
-- Explain defining and calling functions in Swift terms.
-- Predict program behavior before running the example.
-- Modify, run, and debug the example independently.
+- Explain defining and calling functions using Swift terminology.
+- Apply the relevant language and standard-library features correctly.
+- Test normal, boundary, and invalid cases using the shared course data.
 
 ### Concept Explanation
-Defining and calling functions. Swift is statically typed with type inference, value semantics, optionals, and a strong standard library. Use `let` for values that do not change and `var` for mutable values. Explain any semantic difference from Python rather than assuming the languages behave alike.
+Functions declare parameter types, return types, and external argument labels. Swift supports default arguments, closures, and variadic parameters. Return optional values when a result may be absent; use `guard` for early validation exits.
+
+**Lesson focus:** Defining and calling functions. The example uses Swift-native semantics and a canonical course context rather than mechanically translating Python.
 
 ### Worked Example
 ```swift
-struct Item { let name: String; var quantity: Int }
-let book = Item(name: "Notebook", quantity: 3)
+func greet(_ name: String) {
+    print("Hello, \(name)!")
+}
+greet("Avery")
+greet("Jordan")
 ```
 
-**Expected behavior:** the example demonstrates the unit's corresponding operation. Trace each declaration and expression before execution; then run it and compare the actual output.
+### Expected Behavior or Output
+The example is a self-contained Swift program. Predict the output from the stated values before running it, then compare the actual result. Examples that read input accept a line from standard input; file examples use temporary paths.
 
 ### Common Mistakes
-- Using `var` where a constant `let` is sufficient, or attempting to mutate a constant.
-- Treating an optional as if it always contains a value; unwrap safely.
-- Assuming arrays, dictionaries, strings, or structs have Python's semantics.
-- Ignoring compiler diagnostics or thrown errors.
+- Swift argument labels are part of a function's call-site API.
+- A function returning an optional must handle the empty case explicitly.
+- Closures capture values; understand capture semantics and avoid unnecessary shared mutable state.
 
 ### Activities
-1. Reproduce and run the example.
-2. Change one value and predict the result before execution.
-3. Add one boundary case and one invalid-input case.
-4. Explain the code and output without relying on syntax highlighting.
+1. Write a function with a clear input and output contract.
+2. Add argument labels and a default parameter value.
+3. Test return values for normal, boundary, and invalid cases.
+4. Compose a closure with a variadic reporting function.
 
 ### Accessibility Practice
-Navigate by line, word, and character; verify punctuation announcements; run from the terminal; and read output and diagnostics sequentially.
+Navigate source by line, word, and character. Inspect punctuation, braces, optionals, argument labels, and compiler diagnostics. Run from the terminal and read prompts and output sequentially. Do not rely on syntax coloring, color-only status, or mouse-only actions.
 
 ### Skills Checklist
-- [ ] I can explain the concept in Swift terminology.
-- [ ] I can predict and verify the example's behavior.
-- [ ] I can modify and run the code independently.
-- [ ] I can identify a common error and correct it.
-- [ ] I can read source and output with my access technology.
+- [ ] I can explain defining and calling functions in Swift terminology.
+- [ ] I can trace the example and predict its behavior.
+- [ ] I can adapt the example to the shared canonical data.
+- [ ] I can identify and correct a Swift-specific error or edge case.
+- [ ] I can run and inspect the program using keyboard-accessible tools.
 
 ## Lesson 6.2: Parameters and argument labels
 
 ### Reading References
-- Official Swift language guide and standard library documentation.
-- Matching Python curriculum lesson for the problem context.
+- [The Swift Programming Language](https://docs.swift.org/swift-book/documentation/the-swift-programming-language/)
+- [Swift Standard Library](https://developer.apple.com/documentation/swift/swift-standard-library)
+- Matching Python curriculum lesson for the shared problem context.
 
 ### Learning Objectives
-- Explain parameters and argument labels in Swift terms.
-- Predict program behavior before running the example.
-- Modify, run, and debug the example independently.
+- Explain parameters and argument labels using Swift terminology.
+- Apply the relevant language and standard-library features correctly.
+- Test normal, boundary, and invalid cases using the shared course data.
 
 ### Concept Explanation
-Parameters and argument labels. Swift is statically typed with type inference, value semantics, optionals, and a strong standard library. Use `let` for values that do not change and `var` for mutable values. Explain any semantic difference from Python rather than assuming the languages behave alike.
+Functions declare parameter types, return types, and external argument labels. Swift supports default arguments, closures, and variadic parameters. Return optional values when a result may be absent; use `guard` for early validation exits.
+
+**Lesson focus:** Parameters and argument labels. The example uses Swift-native semantics and a canonical course context rather than mechanically translating Python.
 
 ### Worked Example
 ```swift
-struct Item { let name: String; var quantity: Int }
-let book = Item(name: "Notebook", quantity: 3)
+func invoiceTotal(subtotal: Double, tipRate: Double = 0.15) -> Double {
+    return subtotal + subtotal * tipRate
+}
+print(String(format: "%.2f", invoiceTotal(subtotal: 24.50)))
+print(String(format: "%.2f", invoiceTotal(subtotal: 24.50, tipRate: 0.20)))
 ```
 
-**Expected behavior:** the example demonstrates the unit's corresponding operation. Trace each declaration and expression before execution; then run it and compare the actual output.
+### Expected Behavior or Output
+The example is a self-contained Swift program. Predict the output from the stated values before running it, then compare the actual result. Examples that read input accept a line from standard input; file examples use temporary paths.
 
 ### Common Mistakes
-- Using `var` where a constant `let` is sufficient, or attempting to mutate a constant.
-- Treating an optional as if it always contains a value; unwrap safely.
-- Assuming arrays, dictionaries, strings, or structs have Python's semantics.
-- Ignoring compiler diagnostics or thrown errors.
+- Swift argument labels are part of a function's call-site API.
+- A function returning an optional must handle the empty case explicitly.
+- Closures capture values; understand capture semantics and avoid unnecessary shared mutable state.
 
 ### Activities
-1. Reproduce and run the example.
-2. Change one value and predict the result before execution.
-3. Add one boundary case and one invalid-input case.
-4. Explain the code and output without relying on syntax highlighting.
+1. Write a function with a clear input and output contract.
+2. Add argument labels and a default parameter value.
+3. Test return values for normal, boundary, and invalid cases.
+4. Compose a closure with a variadic reporting function.
 
 ### Accessibility Practice
-Navigate by line, word, and character; verify punctuation announcements; run from the terminal; and read output and diagnostics sequentially.
+Navigate source by line, word, and character. Inspect punctuation, braces, optionals, argument labels, and compiler diagnostics. Run from the terminal and read prompts and output sequentially. Do not rely on syntax coloring, color-only status, or mouse-only actions.
 
 ### Skills Checklist
-- [ ] I can explain the concept in Swift terminology.
-- [ ] I can predict and verify the example's behavior.
-- [ ] I can modify and run the code independently.
-- [ ] I can identify a common error and correct it.
-- [ ] I can read source and output with my access technology.
+- [ ] I can explain parameters and argument labels in Swift terminology.
+- [ ] I can trace the example and predict its behavior.
+- [ ] I can adapt the example to the shared canonical data.
+- [ ] I can identify and correct a Swift-specific error or edge case.
+- [ ] I can run and inspect the program using keyboard-accessible tools.
 
 ## Lesson 6.3: Return values
 
 ### Reading References
-- Official Swift language guide and standard library documentation.
-- Matching Python curriculum lesson for the problem context.
+- [The Swift Programming Language](https://docs.swift.org/swift-book/documentation/the-swift-programming-language/)
+- [Swift Standard Library](https://developer.apple.com/documentation/swift/swift-standard-library)
+- Matching Python curriculum lesson for the shared problem context.
 
 ### Learning Objectives
-- Explain return values in Swift terms.
-- Predict program behavior before running the example.
-- Modify, run, and debug the example independently.
+- Explain return values using Swift terminology.
+- Apply the relevant language and standard-library features correctly.
+- Test normal, boundary, and invalid cases using the shared course data.
 
 ### Concept Explanation
-Return values. Swift is statically typed with type inference, value semantics, optionals, and a strong standard library. Use `let` for values that do not change and `var` for mutable values. Explain any semantic difference from Python rather than assuming the languages behave alike.
+Functions declare parameter types, return types, and external argument labels. Swift supports default arguments, closures, and variadic parameters. Return optional values when a result may be absent; use `guard` for early validation exits.
+
+**Lesson focus:** Return values. The example uses Swift-native semantics and a canonical course context rather than mechanically translating Python.
 
 ### Worked Example
 ```swift
-struct Item { let name: String; var quantity: Int }
-let book = Item(name: "Notebook", quantity: 3)
+func letterGrade(for score: Int) -> String {
+    guard (0...100).contains(score) else { return "Invalid" }
+    switch score {
+    case 90...100: return "A"
+    case 80..<90: return "B"
+    case 70..<80: return "C"
+    case 60..<70: return "D"
+    default: return "F"
+    }
+}
+print(letterGrade(for: 82))
 ```
 
-**Expected behavior:** the example demonstrates the unit's corresponding operation. Trace each declaration and expression before execution; then run it and compare the actual output.
+### Expected Behavior or Output
+The example is a self-contained Swift program. Predict the output from the stated values before running it, then compare the actual result. Examples that read input accept a line from standard input; file examples use temporary paths.
 
 ### Common Mistakes
-- Using `var` where a constant `let` is sufficient, or attempting to mutate a constant.
-- Treating an optional as if it always contains a value; unwrap safely.
-- Assuming arrays, dictionaries, strings, or structs have Python's semantics.
-- Ignoring compiler diagnostics or thrown errors.
+- Swift argument labels are part of a function's call-site API.
+- A function returning an optional must handle the empty case explicitly.
+- Closures capture values; understand capture semantics and avoid unnecessary shared mutable state.
 
 ### Activities
-1. Reproduce and run the example.
-2. Change one value and predict the result before execution.
-3. Add one boundary case and one invalid-input case.
-4. Explain the code and output without relying on syntax highlighting.
+1. Write a function with a clear input and output contract.
+2. Add argument labels and a default parameter value.
+3. Test return values for normal, boundary, and invalid cases.
+4. Compose a closure with a variadic reporting function.
 
 ### Accessibility Practice
-Navigate by line, word, and character; verify punctuation announcements; run from the terminal; and read output and diagnostics sequentially.
+Navigate source by line, word, and character. Inspect punctuation, braces, optionals, argument labels, and compiler diagnostics. Run from the terminal and read prompts and output sequentially. Do not rely on syntax coloring, color-only status, or mouse-only actions.
 
 ### Skills Checklist
-- [ ] I can explain the concept in Swift terminology.
-- [ ] I can predict and verify the example's behavior.
-- [ ] I can modify and run the code independently.
-- [ ] I can identify a common error and correct it.
-- [ ] I can read source and output with my access technology.
+- [ ] I can explain return values in Swift terminology.
+- [ ] I can trace the example and predict its behavior.
+- [ ] I can adapt the example to the shared canonical data.
+- [ ] I can identify and correct a Swift-specific error or edge case.
+- [ ] I can run and inspect the program using keyboard-accessible tools.
 
 ## Lesson 6.4: Functions over collections
 
 ### Reading References
-- Official Swift language guide and standard library documentation.
-- Matching Python curriculum lesson for the problem context.
+- [The Swift Programming Language](https://docs.swift.org/swift-book/documentation/the-swift-programming-language/)
+- [Swift Standard Library](https://developer.apple.com/documentation/swift/swift-standard-library)
+- Matching Python curriculum lesson for the shared problem context.
 
 ### Learning Objectives
-- Explain functions over collections in Swift terms.
-- Predict program behavior before running the example.
-- Modify, run, and debug the example independently.
+- Explain functions over collections using Swift terminology.
+- Apply the relevant language and standard-library features correctly.
+- Test normal, boundary, and invalid cases using the shared course data.
 
 ### Concept Explanation
-Functions over collections. Swift is statically typed with type inference, value semantics, optionals, and a strong standard library. Use `let` for values that do not change and `var` for mutable values. Explain any semantic difference from Python rather than assuming the languages behave alike.
+Functions declare parameter types, return types, and external argument labels. Swift supports default arguments, closures, and variadic parameters. Return optional values when a result may be absent; use `guard` for early validation exits.
+
+**Lesson focus:** Functions over collections. The example uses Swift-native semantics and a canonical course context rather than mechanically translating Python.
 
 ### Worked Example
 ```swift
-struct Item { let name: String; var quantity: Int }
-let book = Item(name: "Notebook", quantity: 3)
+func mean(of values: [Double]) -> Double? {
+    guard !values.isEmpty else { return nil }
+    return values.reduce(0, +) / Double(values.count)
+}
+let scores = [82.0, 91.0, 76.0, 88.0]
+print(mean(of: scores) ?? 0)
 ```
 
-**Expected behavior:** the example demonstrates the unit's corresponding operation. Trace each declaration and expression before execution; then run it and compare the actual output.
+### Expected Behavior or Output
+The example is a self-contained Swift program. Predict the output from the stated values before running it, then compare the actual result. Examples that read input accept a line from standard input; file examples use temporary paths.
 
 ### Common Mistakes
-- Using `var` where a constant `let` is sufficient, or attempting to mutate a constant.
-- Treating an optional as if it always contains a value; unwrap safely.
-- Assuming arrays, dictionaries, strings, or structs have Python's semantics.
-- Ignoring compiler diagnostics or thrown errors.
+- Swift argument labels are part of a function's call-site API.
+- A function returning an optional must handle the empty case explicitly.
+- Closures capture values; understand capture semantics and avoid unnecessary shared mutable state.
 
 ### Activities
-1. Reproduce and run the example.
-2. Change one value and predict the result before execution.
-3. Add one boundary case and one invalid-input case.
-4. Explain the code and output without relying on syntax highlighting.
+1. Write a function with a clear input and output contract.
+2. Add argument labels and a default parameter value.
+3. Test return values for normal, boundary, and invalid cases.
+4. Compose a closure with a variadic reporting function.
 
 ### Accessibility Practice
-Navigate by line, word, and character; verify punctuation announcements; run from the terminal; and read output and diagnostics sequentially.
+Navigate source by line, word, and character. Inspect punctuation, braces, optionals, argument labels, and compiler diagnostics. Run from the terminal and read prompts and output sequentially. Do not rely on syntax coloring, color-only status, or mouse-only actions.
 
 ### Skills Checklist
-- [ ] I can explain the concept in Swift terminology.
-- [ ] I can predict and verify the example's behavior.
-- [ ] I can modify and run the code independently.
-- [ ] I can identify a common error and correct it.
-- [ ] I can read source and output with my access technology.
+- [ ] I can explain functions over collections in Swift terminology.
+- [ ] I can trace the example and predict its behavior.
+- [ ] I can adapt the example to the shared canonical data.
+- [ ] I can identify and correct a Swift-specific error or edge case.
+- [ ] I can run and inspect the program using keyboard-accessible tools.
 
 ## Lesson 6.5: Scope, closures, and variadic parameters
 
 ### Reading References
-- Official Swift language guide and standard library documentation.
-- Matching Python curriculum lesson for the problem context.
+- [The Swift Programming Language](https://docs.swift.org/swift-book/documentation/the-swift-programming-language/)
+- [Swift Standard Library](https://developer.apple.com/documentation/swift/swift-standard-library)
+- Matching Python curriculum lesson for the shared problem context.
 
 ### Learning Objectives
-- Explain scope, closures, and variadic parameters in Swift terms.
-- Predict program behavior before running the example.
-- Modify, run, and debug the example independently.
+- Explain scope, closures, and variadic parameters using Swift terminology.
+- Apply the relevant language and standard-library features correctly.
+- Test normal, boundary, and invalid cases using the shared course data.
 
 ### Concept Explanation
-Scope, closures, and variadic parameters. Swift is statically typed with type inference, value semantics, optionals, and a strong standard library. Use `let` for values that do not change and `var` for mutable values. Explain any semantic difference from Python rather than assuming the languages behave alike.
+Functions declare parameter types, return types, and external argument labels. Swift supports default arguments, closures, and variadic parameters. Return optional values when a result may be absent; use `guard` for early validation exits.
+
+**Lesson focus:** Scope, closures, and variadic parameters. The example uses Swift-native semantics and a canonical course context rather than mechanically translating Python.
 
 ### Worked Example
 ```swift
-struct Item { let name: String; var quantity: Int }
-let book = Item(name: "Notebook", quantity: 3)
+func makeMultiplier(by factor: Int) -> (Int) -> Int {
+    return { value in value * factor }
+}
+let triple = makeMultiplier(by: 3)
+func report(_ title: String, scores: Int...) {
+    print("\(title): \(scores.map(String.init).joined(separator: ", "))")
+}
+report("Tripled score", triple(82), triple(91))
 ```
 
-**Expected behavior:** the example demonstrates the unit's corresponding operation. Trace each declaration and expression before execution; then run it and compare the actual output.
+### Expected Behavior or Output
+The example is a self-contained Swift program. Predict the output from the stated values before running it, then compare the actual result. Examples that read input accept a line from standard input; file examples use temporary paths.
 
 ### Common Mistakes
-- Using `var` where a constant `let` is sufficient, or attempting to mutate a constant.
-- Treating an optional as if it always contains a value; unwrap safely.
-- Assuming arrays, dictionaries, strings, or structs have Python's semantics.
-- Ignoring compiler diagnostics or thrown errors.
+- Swift argument labels are part of a function's call-site API.
+- A function returning an optional must handle the empty case explicitly.
+- Closures capture values; understand capture semantics and avoid unnecessary shared mutable state.
 
 ### Activities
-1. Reproduce and run the example.
-2. Change one value and predict the result before execution.
-3. Add one boundary case and one invalid-input case.
-4. Explain the code and output without relying on syntax highlighting.
+1. Write a function with a clear input and output contract.
+2. Add argument labels and a default parameter value.
+3. Test return values for normal, boundary, and invalid cases.
+4. Compose a closure with a variadic reporting function.
 
 ### Accessibility Practice
-Navigate by line, word, and character; verify punctuation announcements; run from the terminal; and read output and diagnostics sequentially.
+Navigate source by line, word, and character. Inspect punctuation, braces, optionals, argument labels, and compiler diagnostics. Run from the terminal and read prompts and output sequentially. Do not rely on syntax coloring, color-only status, or mouse-only actions.
 
 ### Skills Checklist
-- [ ] I can explain the concept in Swift terminology.
-- [ ] I can predict and verify the example's behavior.
-- [ ] I can modify and run the code independently.
-- [ ] I can identify a common error and correct it.
-- [ ] I can read source and output with my access technology.
+- [ ] I can explain scope, closures, and variadic parameters in Swift terminology.
+- [ ] I can trace the example and predict its behavior.
+- [ ] I can adapt the example to the shared canonical data.
+- [ ] I can identify and correct a Swift-specific error or edge case.
+- [ ] I can run and inspect the program using keyboard-accessible tools.
 
 # Unit 7: Object-Oriented Programming
 
 ## Overview
 
-This unit follows the matching Python unit's objectives and examples. Its purpose is to make the programming concept familiar while Swift's type system and language features become the new learning target.
+Swift models data with structs, classes, enums, and protocols. Structs and enums have value semantics; classes have reference semantics. Protocols specify behavior, and composition models relationships without relying on inheritance.
 
 ## Lesson 7.1: Types and object models
 
 ### Reading References
-- Official Swift language guide and standard library documentation.
-- Matching Python curriculum lesson for the problem context.
+- [The Swift Programming Language](https://docs.swift.org/swift-book/documentation/the-swift-programming-language/)
+- [Swift Standard Library](https://developer.apple.com/documentation/swift/swift-standard-library)
+- Matching Python curriculum lesson for the shared problem context.
 
 ### Learning Objectives
-- Explain types and object models in Swift terms.
-- Predict program behavior before running the example.
-- Modify, run, and debug the example independently.
+- Explain types and object models using Swift terminology.
+- Apply the relevant language and standard-library features correctly.
+- Test normal, boundary, and invalid cases using the shared course data.
 
 ### Concept Explanation
-Types and object models. Swift is statically typed with type inference, value semantics, optionals, and a strong standard library. Use `let` for values that do not change and `var` for mutable values. Explain any semantic difference from Python rather than assuming the languages behave alike.
+Swift models data with structs, classes, enums, and protocols. Structs and enums have value semantics; classes have reference semantics. Protocols specify behavior, and composition models relationships without relying on inheritance.
+
+**Lesson focus:** Types and object models. The example uses Swift-native semantics and a canonical course context rather than mechanically translating Python.
 
 ### Worked Example
 ```swift
-func add(_ a: Int, _ b: Int) -> Int { a + b }
+struct Student {
+    let name: String
+    var age: Int
+}
+let learner = Student(name: "Avery", age: 16)
+print("\(learner.name) is \(learner.age)")
 ```
 
-**Expected behavior:** the example demonstrates the unit's corresponding operation. Trace each declaration and expression before execution; then run it and compare the actual output.
+### Expected Behavior or Output
+The example is a self-contained Swift program. Predict the output from the stated values before running it, then compare the actual result. Examples that read input accept a line from standard input; file examples use temporary paths.
 
 ### Common Mistakes
-- Using `var` where a constant `let` is sufficient, or attempting to mutate a constant.
-- Treating an optional as if it always contains a value; unwrap safely.
-- Assuming arrays, dictionaries, strings, or structs have Python's semantics.
-- Ignoring compiler diagnostics or thrown errors.
+- A `struct` instance is a value; mutating methods require a `var` receiver.
+- Use `class` only when reference identity or shared mutation is required.
+- Protocols define requirements; they are not concrete class inheritance.
 
 ### Activities
-1. Reproduce and run the example.
-2. Change one value and predict the result before execution.
-3. Add one boundary case and one invalid-input case.
-4. Explain the code and output without relying on syntax highlighting.
+1. Model Avery or an inventory item with a Swift struct.
+2. Create multiple instances and inspect stored and computed properties.
+3. Define a protocol and conform a custom type to it.
+4. Compare value semantics and reference semantics with a copied value.
 
 ### Accessibility Practice
-Navigate by line, word, and character; verify punctuation announcements; run from the terminal; and read output and diagnostics sequentially.
+Navigate source by line, word, and character. Inspect punctuation, braces, optionals, argument labels, and compiler diagnostics. Run from the terminal and read prompts and output sequentially. Do not rely on syntax coloring, color-only status, or mouse-only actions.
 
 ### Skills Checklist
-- [ ] I can explain the concept in Swift terminology.
-- [ ] I can predict and verify the example's behavior.
-- [ ] I can modify and run the code independently.
-- [ ] I can identify a common error and correct it.
-- [ ] I can read source and output with my access technology.
+- [ ] I can explain types and object models in Swift terminology.
+- [ ] I can trace the example and predict its behavior.
+- [ ] I can adapt the example to the shared canonical data.
+- [ ] I can identify and correct a Swift-specific error or edge case.
+- [ ] I can run and inspect the program using keyboard-accessible tools.
 
 ## Lesson 7.2: Creating instances
 
 ### Reading References
-- Official Swift language guide and standard library documentation.
-- Matching Python curriculum lesson for the problem context.
+- [The Swift Programming Language](https://docs.swift.org/swift-book/documentation/the-swift-programming-language/)
+- [Swift Standard Library](https://developer.apple.com/documentation/swift/swift-standard-library)
+- Matching Python curriculum lesson for the shared problem context.
 
 ### Learning Objectives
-- Explain creating instances in Swift terms.
-- Predict program behavior before running the example.
-- Modify, run, and debug the example independently.
+- Explain creating instances using Swift terminology.
+- Apply the relevant language and standard-library features correctly.
+- Test normal, boundary, and invalid cases using the shared course data.
 
 ### Concept Explanation
-Creating instances. Swift is statically typed with type inference, value semantics, optionals, and a strong standard library. Use `let` for values that do not change and `var` for mutable values. Explain any semantic difference from Python rather than assuming the languages behave alike.
+Swift models data with structs, classes, enums, and protocols. Structs and enums have value semantics; classes have reference semantics. Protocols specify behavior, and composition models relationships without relying on inheritance.
+
+**Lesson focus:** Creating instances. The example uses Swift-native semantics and a canonical course context rather than mechanically translating Python.
 
 ### Worked Example
 ```swift
-func add(_ a: Int, _ b: Int) -> Int { a + b }
+struct InventoryItem {
+    let name: String
+    var quantity: Int
+}
+let notebook = InventoryItem(name: "Notebook", quantity: 3)
+let pencil = InventoryItem(name: "Pencil", quantity: 10)
+print("\(notebook.name): \(notebook.quantity); \(pencil.name): \(pencil.quantity)")
 ```
 
-**Expected behavior:** the example demonstrates the unit's corresponding operation. Trace each declaration and expression before execution; then run it and compare the actual output.
+### Expected Behavior or Output
+The example is a self-contained Swift program. Predict the output from the stated values before running it, then compare the actual result. Examples that read input accept a line from standard input; file examples use temporary paths.
 
 ### Common Mistakes
-- Using `var` where a constant `let` is sufficient, or attempting to mutate a constant.
-- Treating an optional as if it always contains a value; unwrap safely.
-- Assuming arrays, dictionaries, strings, or structs have Python's semantics.
-- Ignoring compiler diagnostics or thrown errors.
+- A `struct` instance is a value; mutating methods require a `var` receiver.
+- Use `class` only when reference identity or shared mutation is required.
+- Protocols define requirements; they are not concrete class inheritance.
 
 ### Activities
-1. Reproduce and run the example.
-2. Change one value and predict the result before execution.
-3. Add one boundary case and one invalid-input case.
-4. Explain the code and output without relying on syntax highlighting.
+1. Model Avery or an inventory item with a Swift struct.
+2. Create multiple instances and inspect stored and computed properties.
+3. Define a protocol and conform a custom type to it.
+4. Compare value semantics and reference semantics with a copied value.
 
 ### Accessibility Practice
-Navigate by line, word, and character; verify punctuation announcements; run from the terminal; and read output and diagnostics sequentially.
+Navigate source by line, word, and character. Inspect punctuation, braces, optionals, argument labels, and compiler diagnostics. Run from the terminal and read prompts and output sequentially. Do not rely on syntax coloring, color-only status, or mouse-only actions.
 
 ### Skills Checklist
-- [ ] I can explain the concept in Swift terminology.
-- [ ] I can predict and verify the example's behavior.
-- [ ] I can modify and run the code independently.
-- [ ] I can identify a common error and correct it.
-- [ ] I can read source and output with my access technology.
+- [ ] I can explain creating instances in Swift terminology.
+- [ ] I can trace the example and predict its behavior.
+- [ ] I can adapt the example to the shared canonical data.
+- [ ] I can identify and correct a Swift-specific error or edge case.
+- [ ] I can run and inspect the program using keyboard-accessible tools.
 
 ## Lesson 7.3: Properties and methods
 
 ### Reading References
-- Official Swift language guide and standard library documentation.
-- Matching Python curriculum lesson for the problem context.
+- [The Swift Programming Language](https://docs.swift.org/swift-book/documentation/the-swift-programming-language/)
+- [Swift Standard Library](https://developer.apple.com/documentation/swift/swift-standard-library)
+- Matching Python curriculum lesson for the shared problem context.
 
 ### Learning Objectives
-- Explain properties and methods in Swift terms.
-- Predict program behavior before running the example.
-- Modify, run, and debug the example independently.
+- Explain properties and methods using Swift terminology.
+- Apply the relevant language and standard-library features correctly.
+- Test normal, boundary, and invalid cases using the shared course data.
 
 ### Concept Explanation
-Properties and methods. Swift is statically typed with type inference, value semantics, optionals, and a strong standard library. Use `let` for values that do not change and `var` for mutable values. Explain any semantic difference from Python rather than assuming the languages behave alike.
+Swift models data with structs, classes, enums, and protocols. Structs and enums have value semantics; classes have reference semantics. Protocols specify behavior, and composition models relationships without relying on inheritance.
+
+**Lesson focus:** Properties and methods. The example uses Swift-native semantics and a canonical course context rather than mechanically translating Python.
 
 ### Worked Example
 ```swift
-func add(_ a: Int, _ b: Int) -> Int { a + b }
+struct Circle {
+    var radius: Double
+    var area: Double { Double.pi * radius * radius }
+    mutating func scale(by factor: Double) { radius *= factor }
+}
+var circle = Circle(radius: 2)
+print(circle.area)
+circle.scale(by: 2)
+print(circle.area)
 ```
 
-**Expected behavior:** the example demonstrates the unit's corresponding operation. Trace each declaration and expression before execution; then run it and compare the actual output.
+### Expected Behavior or Output
+The example is a self-contained Swift program. Predict the output from the stated values before running it, then compare the actual result. Examples that read input accept a line from standard input; file examples use temporary paths.
 
 ### Common Mistakes
-- Using `var` where a constant `let` is sufficient, or attempting to mutate a constant.
-- Treating an optional as if it always contains a value; unwrap safely.
-- Assuming arrays, dictionaries, strings, or structs have Python's semantics.
-- Ignoring compiler diagnostics or thrown errors.
+- A `struct` instance is a value; mutating methods require a `var` receiver.
+- Use `class` only when reference identity or shared mutation is required.
+- Protocols define requirements; they are not concrete class inheritance.
 
 ### Activities
-1. Reproduce and run the example.
-2. Change one value and predict the result before execution.
-3. Add one boundary case and one invalid-input case.
-4. Explain the code and output without relying on syntax highlighting.
+1. Model Avery or an inventory item with a Swift struct.
+2. Create multiple instances and inspect stored and computed properties.
+3. Define a protocol and conform a custom type to it.
+4. Compare value semantics and reference semantics with a copied value.
 
 ### Accessibility Practice
-Navigate by line, word, and character; verify punctuation announcements; run from the terminal; and read output and diagnostics sequentially.
+Navigate source by line, word, and character. Inspect punctuation, braces, optionals, argument labels, and compiler diagnostics. Run from the terminal and read prompts and output sequentially. Do not rely on syntax coloring, color-only status, or mouse-only actions.
 
 ### Skills Checklist
-- [ ] I can explain the concept in Swift terminology.
-- [ ] I can predict and verify the example's behavior.
-- [ ] I can modify and run the code independently.
-- [ ] I can identify a common error and correct it.
-- [ ] I can read source and output with my access technology.
+- [ ] I can explain properties and methods in Swift terminology.
+- [ ] I can trace the example and predict its behavior.
+- [ ] I can adapt the example to the shared canonical data.
+- [ ] I can identify and correct a Swift-specific error or edge case.
+- [ ] I can run and inspect the program using keyboard-accessible tools.
 
 ## Lesson 7.4: Protocols and inheritance
 
 ### Reading References
-- Official Swift language guide and standard library documentation.
-- Matching Python curriculum lesson for the problem context.
+- [The Swift Programming Language](https://docs.swift.org/swift-book/documentation/the-swift-programming-language/)
+- [Swift Standard Library](https://developer.apple.com/documentation/swift/swift-standard-library)
+- Matching Python curriculum lesson for the shared problem context.
 
 ### Learning Objectives
-- Explain protocols and inheritance in Swift terms.
-- Predict program behavior before running the example.
-- Modify, run, and debug the example independently.
+- Explain protocols and inheritance using Swift terminology.
+- Apply the relevant language and standard-library features correctly.
+- Test normal, boundary, and invalid cases using the shared course data.
 
 ### Concept Explanation
-Protocols and inheritance. Swift is statically typed with type inference, value semantics, optionals, and a strong standard library. Use `let` for values that do not change and `var` for mutable values. Explain any semantic difference from Python rather than assuming the languages behave alike.
+Swift models data with structs, classes, enums, and protocols. Structs and enums have value semantics; classes have reference semantics. Protocols specify behavior, and composition models relationships without relying on inheritance.
+
+**Lesson focus:** Protocols and inheritance. The example uses Swift-native semantics and a canonical course context rather than mechanically translating Python.
 
 ### Worked Example
 ```swift
-func add(_ a: Int, _ b: Int) -> Int { a + b }
+protocol Describable {
+    var summary: String { get }
+}
+struct Task: Describable {
+    let title: String
+    var isComplete: Bool
+    var summary: String { "\(title): \(isComplete ? "complete" : "open")" }
+}
+let task = Task(title: "Read Swift lesson", isComplete: false)
+print(task.summary)
 ```
 
-**Expected behavior:** the example demonstrates the unit's corresponding operation. Trace each declaration and expression before execution; then run it and compare the actual output.
+### Expected Behavior or Output
+The example is a self-contained Swift program. Predict the output from the stated values before running it, then compare the actual result. Examples that read input accept a line from standard input; file examples use temporary paths.
 
 ### Common Mistakes
-- Using `var` where a constant `let` is sufficient, or attempting to mutate a constant.
-- Treating an optional as if it always contains a value; unwrap safely.
-- Assuming arrays, dictionaries, strings, or structs have Python's semantics.
-- Ignoring compiler diagnostics or thrown errors.
+- A `struct` instance is a value; mutating methods require a `var` receiver.
+- Use `class` only when reference identity or shared mutation is required.
+- Protocols define requirements; they are not concrete class inheritance.
 
 ### Activities
-1. Reproduce and run the example.
-2. Change one value and predict the result before execution.
-3. Add one boundary case and one invalid-input case.
-4. Explain the code and output without relying on syntax highlighting.
+1. Model Avery or an inventory item with a Swift struct.
+2. Create multiple instances and inspect stored and computed properties.
+3. Define a protocol and conform a custom type to it.
+4. Compare value semantics and reference semantics with a copied value.
 
 ### Accessibility Practice
-Navigate by line, word, and character; verify punctuation announcements; run from the terminal; and read output and diagnostics sequentially.
+Navigate source by line, word, and character. Inspect punctuation, braces, optionals, argument labels, and compiler diagnostics. Run from the terminal and read prompts and output sequentially. Do not rely on syntax coloring, color-only status, or mouse-only actions.
 
 ### Skills Checklist
-- [ ] I can explain the concept in Swift terminology.
-- [ ] I can predict and verify the example's behavior.
-- [ ] I can modify and run the code independently.
-- [ ] I can identify a common error and correct it.
-- [ ] I can read source and output with my access technology.
+- [ ] I can explain protocols and inheritance in Swift terminology.
+- [ ] I can trace the example and predict its behavior.
+- [ ] I can adapt the example to the shared canonical data.
+- [ ] I can identify and correct a Swift-specific error or edge case.
+- [ ] I can run and inspect the program using keyboard-accessible tools.
 
 ## Lesson 7.5: Composition and value semantics
 
 ### Reading References
-- Official Swift language guide and standard library documentation.
-- Matching Python curriculum lesson for the problem context.
+- [The Swift Programming Language](https://docs.swift.org/swift-book/documentation/the-swift-programming-language/)
+- [Swift Standard Library](https://developer.apple.com/documentation/swift/swift-standard-library)
+- Matching Python curriculum lesson for the shared problem context.
 
 ### Learning Objectives
-- Explain composition and value semantics in Swift terms.
-- Predict program behavior before running the example.
-- Modify, run, and debug the example independently.
+- Explain composition and value semantics using Swift terminology.
+- Apply the relevant language and standard-library features correctly.
+- Test normal, boundary, and invalid cases using the shared course data.
 
 ### Concept Explanation
-Composition and value semantics. Swift is statically typed with type inference, value semantics, optionals, and a strong standard library. Use `let` for values that do not change and `var` for mutable values. Explain any semantic difference from Python rather than assuming the languages behave alike.
+Swift models data with structs, classes, enums, and protocols. Structs and enums have value semantics; classes have reference semantics. Protocols specify behavior, and composition models relationships without relying on inheritance.
+
+**Lesson focus:** Composition and value semantics. The example uses Swift-native semantics and a canonical course context rather than mechanically translating Python.
 
 ### Worked Example
 ```swift
-func add(_ a: Int, _ b: Int) -> Int { a + b }
+struct Address {
+    var city: String
+}
+struct Person {
+    let name: String
+    var address: Address
+}
+var person = Person(name: "Avery", address: Address(city: "Farmington"))
+var updatedPerson = person
+updatedPerson.address.city = "Ogden"
+print(person.address.city)
+print(updatedPerson.address.city)
 ```
 
-**Expected behavior:** the example demonstrates the unit's corresponding operation. Trace each declaration and expression before execution; then run it and compare the actual output.
+### Expected Behavior or Output
+The example is a self-contained Swift program. Predict the output from the stated values before running it, then compare the actual result. Examples that read input accept a line from standard input; file examples use temporary paths.
 
 ### Common Mistakes
-- Using `var` where a constant `let` is sufficient, or attempting to mutate a constant.
-- Treating an optional as if it always contains a value; unwrap safely.
-- Assuming arrays, dictionaries, strings, or structs have Python's semantics.
-- Ignoring compiler diagnostics or thrown errors.
+- A `struct` instance is a value; mutating methods require a `var` receiver.
+- Use `class` only when reference identity or shared mutation is required.
+- Protocols define requirements; they are not concrete class inheritance.
 
 ### Activities
-1. Reproduce and run the example.
-2. Change one value and predict the result before execution.
-3. Add one boundary case and one invalid-input case.
-4. Explain the code and output without relying on syntax highlighting.
+1. Model Avery or an inventory item with a Swift struct.
+2. Create multiple instances and inspect stored and computed properties.
+3. Define a protocol and conform a custom type to it.
+4. Compare value semantics and reference semantics with a copied value.
 
 ### Accessibility Practice
-Navigate by line, word, and character; verify punctuation announcements; run from the terminal; and read output and diagnostics sequentially.
+Navigate source by line, word, and character. Inspect punctuation, braces, optionals, argument labels, and compiler diagnostics. Run from the terminal and read prompts and output sequentially. Do not rely on syntax coloring, color-only status, or mouse-only actions.
 
 ### Skills Checklist
-- [ ] I can explain the concept in Swift terminology.
-- [ ] I can predict and verify the example's behavior.
-- [ ] I can modify and run the code independently.
-- [ ] I can identify a common error and correct it.
-- [ ] I can read source and output with my access technology.
+- [ ] I can explain composition and value semantics in Swift terminology.
+- [ ] I can trace the example and predict its behavior.
+- [ ] I can adapt the example to the shared canonical data.
+- [ ] I can identify and correct a Swift-specific error or edge case.
+- [ ] I can run and inspect the program using keyboard-accessible tools.
 
 # Unit 8: Files and Exceptions
 
 ## Overview
 
-This unit follows the matching Python unit's objectives and examples. Its purpose is to make the programming concept familiar while Swift's type system and language features become the new learning target.
+Foundation provides file URLs, FileManager, String file I/O, FileHandle, and Codable. File APIs can throw; handle errors with `do`/`catch`, use `defer` for scope cleanup, and encode structured records with JSONEncoder and JSONDecoder.
 
 ## Lesson 8.1: Reading text files
 
 ### Reading References
-- Official Swift language guide and standard library documentation.
-- Matching Python curriculum lesson for the problem context.
+- [The Swift Programming Language](https://docs.swift.org/swift-book/documentation/the-swift-programming-language/)
+- [Swift Standard Library](https://developer.apple.com/documentation/swift/swift-standard-library)
+- Matching Python curriculum lesson for the shared problem context.
 
 ### Learning Objectives
-- Explain reading text files in Swift terms.
-- Predict program behavior before running the example.
-- Modify, run, and debug the example independently.
+- Explain reading text files using Swift terminology.
+- Apply the relevant language and standard-library features correctly.
+- Test normal, boundary, and invalid cases using the shared course data.
 
 ### Concept Explanation
-Reading text files. Swift is statically typed with type inference, value semantics, optionals, and a strong standard library. Use `let` for values that do not change and `var` for mutable values. Explain any semantic difference from Python rather than assuming the languages behave alike.
+Foundation provides file URLs, FileManager, String file I/O, FileHandle, and Codable. File APIs can throw; handle errors with `do`/`catch`, use `defer` for scope cleanup, and encode structured records with JSONEncoder and JSONDecoder.
+
+**Lesson focus:** Reading text files. The example uses Swift-native semantics and a canonical course context rather than mechanically translating Python.
 
 ### Worked Example
 ```swift
-do { let text = try String(contentsOfFile: "notes.txt", encoding: .utf8); print(text) } catch { print(error) }
+import Foundation
+let folder = FileManager.default.temporaryDirectory
+let file = folder.appendingPathComponent(UUID().uuidString + ".txt")
+try! "Avery studies Swift.\nScores are stored safely.\n".write(to: file, atomically: true, encoding: .utf8)
+let contents = try! String(contentsOf: file, encoding: .utf8)
+print(contents.trimmingCharacters(in: .whitespacesAndNewlines))
+try? FileManager.default.removeItem(at: file)
 ```
 
-**Expected behavior:** the example demonstrates the unit's corresponding operation. Trace each declaration and expression before execution; then run it and compare the actual output.
+### Expected Behavior or Output
+The example is a self-contained Swift program. Predict the output from the stated values before running it, then compare the actual result. Examples that read input accept a line from standard input; file examples use temporary paths.
 
 ### Common Mistakes
-- Using `var` where a constant `let` is sufficient, or attempting to mutate a constant.
-- Treating an optional as if it always contains a value; unwrap safely.
-- Assuming arrays, dictionaries, strings, or structs have Python's semantics.
-- Ignoring compiler diagnostics or thrown errors.
+- File operations can throw; handle errors instead of assuming success.
+- Use explicit encodings and atomic writes for text-file safety.
+- A `defer` block runs when the current scope exits, not at an arbitrary later time.
 
 ### Activities
-1. Reproduce and run the example.
-2. Change one value and predict the result before execution.
-3. Add one boundary case and one invalid-input case.
-4. Explain the code and output without relying on syntax highlighting.
+1. Create a temporary file fixture and read its contents.
+2. Test missing, empty, and malformed files.
+3. Append to a file and verify cleanup after the operation.
+4. Encode and decode a Codable record; inspect the JSON fields.
 
 ### Accessibility Practice
-Navigate by line, word, and character; verify punctuation announcements; run from the terminal; and read output and diagnostics sequentially.
+Navigate source by line, word, and character. Inspect punctuation, braces, optionals, argument labels, and compiler diagnostics. Run from the terminal and read prompts and output sequentially. Do not rely on syntax coloring, color-only status, or mouse-only actions.
 
 ### Skills Checklist
-- [ ] I can explain the concept in Swift terminology.
-- [ ] I can predict and verify the example's behavior.
-- [ ] I can modify and run the code independently.
-- [ ] I can identify a common error and correct it.
-- [ ] I can read source and output with my access technology.
+- [ ] I can explain reading text files in Swift terminology.
+- [ ] I can trace the example and predict its behavior.
+- [ ] I can adapt the example to the shared canonical data.
+- [ ] I can identify and correct a Swift-specific error or edge case.
+- [ ] I can run and inspect the program using keyboard-accessible tools.
 
 ## Lesson 8.2: Writing and appending files
 
 ### Reading References
-- Official Swift language guide and standard library documentation.
-- Matching Python curriculum lesson for the problem context.
+- [The Swift Programming Language](https://docs.swift.org/swift-book/documentation/the-swift-programming-language/)
+- [Swift Standard Library](https://developer.apple.com/documentation/swift/swift-standard-library)
+- Matching Python curriculum lesson for the shared problem context.
 
 ### Learning Objectives
-- Explain writing and appending files in Swift terms.
-- Predict program behavior before running the example.
-- Modify, run, and debug the example independently.
+- Explain writing and appending files using Swift terminology.
+- Apply the relevant language and standard-library features correctly.
+- Test normal, boundary, and invalid cases using the shared course data.
 
 ### Concept Explanation
-Writing and appending files. Swift is statically typed with type inference, value semantics, optionals, and a strong standard library. Use `let` for values that do not change and `var` for mutable values. Explain any semantic difference from Python rather than assuming the languages behave alike.
+Foundation provides file URLs, FileManager, String file I/O, FileHandle, and Codable. File APIs can throw; handle errors with `do`/`catch`, use `defer` for scope cleanup, and encode structured records with JSONEncoder and JSONDecoder.
+
+**Lesson focus:** Writing and appending files. The example uses Swift-native semantics and a canonical course context rather than mechanically translating Python.
 
 ### Worked Example
 ```swift
-do { let text = try String(contentsOfFile: "notes.txt", encoding: .utf8); print(text) } catch { print(error) }
+import Foundation
+let file = FileManager.default.temporaryDirectory.appendingPathComponent(UUID().uuidString + ".txt")
+try! "First line\n".write(to: file, atomically: true, encoding: .utf8)
+let handle = try! FileHandle(forWritingTo: file)
+try! handle.seekToEnd()
+try! handle.write(contentsOf: Data("Appended line\n".utf8))
+try! handle.close()
+print(try! String(contentsOf: file, encoding: .utf8))
+try? FileManager.default.removeItem(at: file)
 ```
 
-**Expected behavior:** the example demonstrates the unit's corresponding operation. Trace each declaration and expression before execution; then run it and compare the actual output.
+### Expected Behavior or Output
+The example is a self-contained Swift program. Predict the output from the stated values before running it, then compare the actual result. Examples that read input accept a line from standard input; file examples use temporary paths.
 
 ### Common Mistakes
-- Using `var` where a constant `let` is sufficient, or attempting to mutate a constant.
-- Treating an optional as if it always contains a value; unwrap safely.
-- Assuming arrays, dictionaries, strings, or structs have Python's semantics.
-- Ignoring compiler diagnostics or thrown errors.
+- File operations can throw; handle errors instead of assuming success.
+- Use explicit encodings and atomic writes for text-file safety.
+- A `defer` block runs when the current scope exits, not at an arbitrary later time.
 
 ### Activities
-1. Reproduce and run the example.
-2. Change one value and predict the result before execution.
-3. Add one boundary case and one invalid-input case.
-4. Explain the code and output without relying on syntax highlighting.
+1. Create a temporary file fixture and read its contents.
+2. Test missing, empty, and malformed files.
+3. Append to a file and verify cleanup after the operation.
+4. Encode and decode a Codable record; inspect the JSON fields.
 
 ### Accessibility Practice
-Navigate by line, word, and character; verify punctuation announcements; run from the terminal; and read output and diagnostics sequentially.
+Navigate source by line, word, and character. Inspect punctuation, braces, optionals, argument labels, and compiler diagnostics. Run from the terminal and read prompts and output sequentially. Do not rely on syntax coloring, color-only status, or mouse-only actions.
 
 ### Skills Checklist
-- [ ] I can explain the concept in Swift terminology.
-- [ ] I can predict and verify the example's behavior.
-- [ ] I can modify and run the code independently.
-- [ ] I can identify a common error and correct it.
-- [ ] I can read source and output with my access technology.
+- [ ] I can explain writing and appending files in Swift terminology.
+- [ ] I can trace the example and predict its behavior.
+- [ ] I can adapt the example to the shared canonical data.
+- [ ] I can identify and correct a Swift-specific error or edge case.
+- [ ] I can run and inspect the program using keyboard-accessible tools.
 
 ## Lesson 8.3: Errors and throwing functions
 
 ### Reading References
-- Official Swift language guide and standard library documentation.
-- Matching Python curriculum lesson for the problem context.
+- [The Swift Programming Language](https://docs.swift.org/swift-book/documentation/the-swift-programming-language/)
+- [Swift Standard Library](https://developer.apple.com/documentation/swift/swift-standard-library)
+- Matching Python curriculum lesson for the shared problem context.
 
 ### Learning Objectives
-- Explain errors and throwing functions in Swift terms.
-- Predict program behavior before running the example.
-- Modify, run, and debug the example independently.
+- Explain errors and throwing functions using Swift terminology.
+- Apply the relevant language and standard-library features correctly.
+- Test normal, boundary, and invalid cases using the shared course data.
 
 ### Concept Explanation
-Errors and throwing functions. Swift is statically typed with type inference, value semantics, optionals, and a strong standard library. Use `let` for values that do not change and `var` for mutable values. Explain any semantic difference from Python rather than assuming the languages behave alike.
+Foundation provides file URLs, FileManager, String file I/O, FileHandle, and Codable. File APIs can throw; handle errors with `do`/`catch`, use `defer` for scope cleanup, and encode structured records with JSONEncoder and JSONDecoder.
+
+**Lesson focus:** Errors and throwing functions. The example uses Swift-native semantics and a canonical course context rather than mechanically translating Python.
 
 ### Worked Example
 ```swift
-do { let text = try String(contentsOfFile: "notes.txt", encoding: .utf8); print(text) } catch { print(error) }
+enum ScoreError: Error {
+    case outOfRange
+}
+func validate(score: Int) throws -> Int {
+    guard (0...100).contains(score) else { throw ScoreError.outOfRange }
+    return score
+}
+do {
+    print(try validate(score: 82))
+    print(try validate(score: 120))
+} catch {
+    print("Rejected score: \(error)")
+}
 ```
 
-**Expected behavior:** the example demonstrates the unit's corresponding operation. Trace each declaration and expression before execution; then run it and compare the actual output.
+### Expected Behavior or Output
+The example is a self-contained Swift program. Predict the output from the stated values before running it, then compare the actual result. Examples that read input accept a line from standard input; file examples use temporary paths.
 
 ### Common Mistakes
-- Using `var` where a constant `let` is sufficient, or attempting to mutate a constant.
-- Treating an optional as if it always contains a value; unwrap safely.
-- Assuming arrays, dictionaries, strings, or structs have Python's semantics.
-- Ignoring compiler diagnostics or thrown errors.
+- File operations can throw; handle errors instead of assuming success.
+- Use explicit encodings and atomic writes for text-file safety.
+- A `defer` block runs when the current scope exits, not at an arbitrary later time.
 
 ### Activities
-1. Reproduce and run the example.
-2. Change one value and predict the result before execution.
-3. Add one boundary case and one invalid-input case.
-4. Explain the code and output without relying on syntax highlighting.
+1. Create a temporary file fixture and read its contents.
+2. Test missing, empty, and malformed files.
+3. Append to a file and verify cleanup after the operation.
+4. Encode and decode a Codable record; inspect the JSON fields.
 
 ### Accessibility Practice
-Navigate by line, word, and character; verify punctuation announcements; run from the terminal; and read output and diagnostics sequentially.
+Navigate source by line, word, and character. Inspect punctuation, braces, optionals, argument labels, and compiler diagnostics. Run from the terminal and read prompts and output sequentially. Do not rely on syntax coloring, color-only status, or mouse-only actions.
 
 ### Skills Checklist
-- [ ] I can explain the concept in Swift terminology.
-- [ ] I can predict and verify the example's behavior.
-- [ ] I can modify and run the code independently.
-- [ ] I can identify a common error and correct it.
-- [ ] I can read source and output with my access technology.
+- [ ] I can explain errors and throwing functions in Swift terminology.
+- [ ] I can trace the example and predict its behavior.
+- [ ] I can adapt the example to the shared canonical data.
+- [ ] I can identify and correct a Swift-specific error or edge case.
+- [ ] I can run and inspect the program using keyboard-accessible tools.
 
 ## Lesson 8.4: Resource lifetime and cleanup
 
 ### Reading References
-- Official Swift language guide and standard library documentation.
-- Matching Python curriculum lesson for the problem context.
+- [The Swift Programming Language](https://docs.swift.org/swift-book/documentation/the-swift-programming-language/)
+- [Swift Standard Library](https://developer.apple.com/documentation/swift/swift-standard-library)
+- Matching Python curriculum lesson for the shared problem context.
 
 ### Learning Objectives
-- Explain resource lifetime and cleanup in Swift terms.
-- Predict program behavior before running the example.
-- Modify, run, and debug the example independently.
+- Explain resource lifetime and cleanup using Swift terminology.
+- Apply the relevant language and standard-library features correctly.
+- Test normal, boundary, and invalid cases using the shared course data.
 
 ### Concept Explanation
-Resource lifetime and cleanup. Swift is statically typed with type inference, value semantics, optionals, and a strong standard library. Use `let` for values that do not change and `var` for mutable values. Explain any semantic difference from Python rather than assuming the languages behave alike.
+Foundation provides file URLs, FileManager, String file I/O, FileHandle, and Codable. File APIs can throw; handle errors with `do`/`catch`, use `defer` for scope cleanup, and encode structured records with JSONEncoder and JSONDecoder.
+
+**Lesson focus:** Resource lifetime and cleanup. The example uses Swift-native semantics and a canonical course context rather than mechanically translating Python.
 
 ### Worked Example
 ```swift
-do { let text = try String(contentsOfFile: "notes.txt", encoding: .utf8); print(text) } catch { print(error) }
+import Foundation
+func writeTemporaryReport() throws -> URL {
+    let url = FileManager.default.temporaryDirectory.appendingPathComponent(UUID().uuidString + ".txt")
+    defer { try? FileManager.default.removeItem(at: url) }
+    try "Report complete".write(to: url, atomically: true, encoding: .utf8)
+    print(try String(contentsOf: url, encoding: .utf8))
+    return url
+}
+_ = try writeTemporaryReport()
 ```
 
-**Expected behavior:** the example demonstrates the unit's corresponding operation. Trace each declaration and expression before execution; then run it and compare the actual output.
+### Expected Behavior or Output
+The example is a self-contained Swift program. Predict the output from the stated values before running it, then compare the actual result. Examples that read input accept a line from standard input; file examples use temporary paths.
 
 ### Common Mistakes
-- Using `var` where a constant `let` is sufficient, or attempting to mutate a constant.
-- Treating an optional as if it always contains a value; unwrap safely.
-- Assuming arrays, dictionaries, strings, or structs have Python's semantics.
-- Ignoring compiler diagnostics or thrown errors.
+- File operations can throw; handle errors instead of assuming success.
+- Use explicit encodings and atomic writes for text-file safety.
+- A `defer` block runs when the current scope exits, not at an arbitrary later time.
 
 ### Activities
-1. Reproduce and run the example.
-2. Change one value and predict the result before execution.
-3. Add one boundary case and one invalid-input case.
-4. Explain the code and output without relying on syntax highlighting.
+1. Create a temporary file fixture and read its contents.
+2. Test missing, empty, and malformed files.
+3. Append to a file and verify cleanup after the operation.
+4. Encode and decode a Codable record; inspect the JSON fields.
 
 ### Accessibility Practice
-Navigate by line, word, and character; verify punctuation announcements; run from the terminal; and read output and diagnostics sequentially.
+Navigate source by line, word, and character. Inspect punctuation, braces, optionals, argument labels, and compiler diagnostics. Run from the terminal and read prompts and output sequentially. Do not rely on syntax coloring, color-only status, or mouse-only actions.
 
 ### Skills Checklist
-- [ ] I can explain the concept in Swift terminology.
-- [ ] I can predict and verify the example's behavior.
-- [ ] I can modify and run the code independently.
-- [ ] I can identify a common error and correct it.
-- [ ] I can read source and output with my access technology.
+- [ ] I can explain resource lifetime and cleanup in Swift terminology.
+- [ ] I can trace the example and predict its behavior.
+- [ ] I can adapt the example to the shared canonical data.
+- [ ] I can identify and correct a Swift-specific error or edge case.
+- [ ] I can run and inspect the program using keyboard-accessible tools.
 
 ## Lesson 8.5: JSON with Codable
 
 ### Reading References
-- Official Swift language guide and standard library documentation.
-- Matching Python curriculum lesson for the problem context.
+- [The Swift Programming Language](https://docs.swift.org/swift-book/documentation/the-swift-programming-language/)
+- [Swift Standard Library](https://developer.apple.com/documentation/swift/swift-standard-library)
+- Matching Python curriculum lesson for the shared problem context.
 
 ### Learning Objectives
-- Explain json with codable in Swift terms.
-- Predict program behavior before running the example.
-- Modify, run, and debug the example independently.
+- Explain json with codable using Swift terminology.
+- Apply the relevant language and standard-library features correctly.
+- Test normal, boundary, and invalid cases using the shared course data.
 
 ### Concept Explanation
-JSON with Codable. Swift is statically typed with type inference, value semantics, optionals, and a strong standard library. Use `let` for values that do not change and `var` for mutable values. Explain any semantic difference from Python rather than assuming the languages behave alike.
+Foundation provides file URLs, FileManager, String file I/O, FileHandle, and Codable. File APIs can throw; handle errors with `do`/`catch`, use `defer` for scope cleanup, and encode structured records with JSONEncoder and JSONDecoder.
+
+**Lesson focus:** JSON with Codable. The example uses Swift-native semantics and a canonical course context rather than mechanically translating Python.
 
 ### Worked Example
 ```swift
-do { let text = try String(contentsOfFile: "notes.txt", encoding: .utf8); print(text) } catch { print(error) }
+import Foundation
+struct LearnerRecord: Codable {
+    let id: Int
+    let name: String
+    let scores: [Int]
+}
+let learner = LearnerRecord(id: 1, name: "Avery", scores: [82, 91, 76])
+let data = try! JSONEncoder().encode(learner)
+let decoded = try! JSONDecoder().decode(LearnerRecord.self, from: data)
+print(String(data: data, encoding: .utf8)!)
+print(decoded.name, decoded.scores)
 ```
 
-**Expected behavior:** the example demonstrates the unit's corresponding operation. Trace each declaration and expression before execution; then run it and compare the actual output.
+### Expected Behavior or Output
+The example is a self-contained Swift program. Predict the output from the stated values before running it, then compare the actual result. Examples that read input accept a line from standard input; file examples use temporary paths.
 
 ### Common Mistakes
-- Using `var` where a constant `let` is sufficient, or attempting to mutate a constant.
-- Treating an optional as if it always contains a value; unwrap safely.
-- Assuming arrays, dictionaries, strings, or structs have Python's semantics.
-- Ignoring compiler diagnostics or thrown errors.
+- File operations can throw; handle errors instead of assuming success.
+- Use explicit encodings and atomic writes for text-file safety.
+- A `defer` block runs when the current scope exits, not at an arbitrary later time.
 
 ### Activities
-1. Reproduce and run the example.
-2. Change one value and predict the result before execution.
-3. Add one boundary case and one invalid-input case.
-4. Explain the code and output without relying on syntax highlighting.
+1. Create a temporary file fixture and read its contents.
+2. Test missing, empty, and malformed files.
+3. Append to a file and verify cleanup after the operation.
+4. Encode and decode a Codable record; inspect the JSON fields.
 
 ### Accessibility Practice
-Navigate by line, word, and character; verify punctuation announcements; run from the terminal; and read output and diagnostics sequentially.
+Navigate source by line, word, and character. Inspect punctuation, braces, optionals, argument labels, and compiler diagnostics. Run from the terminal and read prompts and output sequentially. Do not rely on syntax coloring, color-only status, or mouse-only actions.
 
 ### Skills Checklist
-- [ ] I can explain the concept in Swift terminology.
-- [ ] I can predict and verify the example's behavior.
-- [ ] I can modify and run the code independently.
-- [ ] I can identify a common error and correct it.
-- [ ] I can read source and output with my access technology.
+- [ ] I can explain json with codable in Swift terminology.
+- [ ] I can trace the example and predict its behavior.
+- [ ] I can adapt the example to the shared canonical data.
+- [ ] I can identify and correct a Swift-specific error or edge case.
+- [ ] I can run and inspect the program using keyboard-accessible tools.
 
 # Unit 9: Testing and Data Analysis
 
 ## Overview
 
-This unit follows the matching Python unit's objectives and examples. Its purpose is to make the programming concept familiar while Swift's type system and language features become the new learning target.
+Test pure functions and stateful types with assertions or XCTest in a package. Floating-point comparisons often need tolerances. Foundation and Swift standard-library collections support text and data processing; robust CSV requires a parser that understands quoting and escaping.
 
 ## Lesson 9.1: Testing pure functions
 
 ### Reading References
-- Official Swift language guide and standard library documentation.
-- Matching Python curriculum lesson for the problem context.
+- [The Swift Programming Language](https://docs.swift.org/swift-book/documentation/the-swift-programming-language/)
+- [Swift Standard Library](https://developer.apple.com/documentation/swift/swift-standard-library)
+- Matching Python curriculum lesson for the shared problem context.
 
 ### Learning Objectives
-- Explain testing pure functions in Swift terms.
-- Predict program behavior before running the example.
-- Modify, run, and debug the example independently.
+- Explain testing pure functions using Swift terminology.
+- Apply the relevant language and standard-library features correctly.
+- Test normal, boundary, and invalid cases using the shared course data.
 
 ### Concept Explanation
-Testing pure functions. Swift is statically typed with type inference, value semantics, optionals, and a strong standard library. Use `let` for values that do not change and `var` for mutable values. Explain any semantic difference from Python rather than assuming the languages behave alike.
+Test pure functions and stateful types with assertions or XCTest in a package. Floating-point comparisons often need tolerances. Foundation and Swift standard-library collections support text and data processing; robust CSV requires a parser that understands quoting and escaping.
+
+**Lesson focus:** Testing pure functions. The example uses Swift-native semantics and a canonical course context rather than mechanically translating Python.
 
 ### Worked Example
 ```swift
-import Testing
-@Test func additionWorks() { #expect(2 + 3 == 5) }
+func tip(for bill: Double, rate: Double) -> Double {
+    bill * rate
+}
+precondition(tip(for: 20, rate: 0.2) == 4)
+precondition(abs(tip(for: 24.50, rate: 0.15) - 3.675) < 0.000001)
+print("Tip calculation tests passed")
 ```
 
-**Expected behavior:** the example demonstrates the unit's corresponding operation. Trace each declaration and expression before execution; then run it and compare the actual output.
+### Expected Behavior or Output
+The example is a self-contained Swift program. Predict the output from the stated values before running it, then compare the actual result. Examples that read input accept a line from standard input; file examples use temporary paths.
 
 ### Common Mistakes
-- Using `var` where a constant `let` is sufficient, or attempting to mutate a constant.
-- Treating an optional as if it always contains a value; unwrap safely.
-- Assuming arrays, dictionaries, strings, or structs have Python's semantics.
-- Ignoring compiler diagnostics or thrown errors.
+- Use tolerance-based assertions for floating-point calculations.
+- Random results are not reproducible unless the generator and seed are controlled.
+- A simple comma split is not a complete CSV parser for quoted fields.
 
 ### Activities
-1. Reproduce and run the example.
-2. Change one value and predict the result before execution.
-3. Add one boundary case and one invalid-input case.
-4. Explain the code and output without relying on syntax highlighting.
+1. Test pure functions with ordinary and boundary inputs.
+2. Test a stateful type before and after mutation.
+3. Generate random values and discuss repeatability.
+4. Analyze the canonical text sample and process simple CSV rows.
 
 ### Accessibility Practice
-Navigate by line, word, and character; verify punctuation announcements; run from the terminal; and read output and diagnostics sequentially.
+Navigate source by line, word, and character. Inspect punctuation, braces, optionals, argument labels, and compiler diagnostics. Run from the terminal and read prompts and output sequentially. Do not rely on syntax coloring, color-only status, or mouse-only actions.
 
 ### Skills Checklist
-- [ ] I can explain the concept in Swift terminology.
-- [ ] I can predict and verify the example's behavior.
-- [ ] I can modify and run the code independently.
-- [ ] I can identify a common error and correct it.
-- [ ] I can read source and output with my access technology.
+- [ ] I can explain testing pure functions in Swift terminology.
+- [ ] I can trace the example and predict its behavior.
+- [ ] I can adapt the example to the shared canonical data.
+- [ ] I can identify and correct a Swift-specific error or edge case.
+- [ ] I can run and inspect the program using keyboard-accessible tools.
 
 ## Lesson 9.2: Testing stateful types
 
 ### Reading References
-- Official Swift language guide and standard library documentation.
-- Matching Python curriculum lesson for the problem context.
+- [The Swift Programming Language](https://docs.swift.org/swift-book/documentation/the-swift-programming-language/)
+- [Swift Standard Library](https://developer.apple.com/documentation/swift/swift-standard-library)
+- Matching Python curriculum lesson for the shared problem context.
 
 ### Learning Objectives
-- Explain testing stateful types in Swift terms.
-- Predict program behavior before running the example.
-- Modify, run, and debug the example independently.
+- Explain testing stateful types using Swift terminology.
+- Apply the relevant language and standard-library features correctly.
+- Test normal, boundary, and invalid cases using the shared course data.
 
 ### Concept Explanation
-Testing stateful types. Swift is statically typed with type inference, value semantics, optionals, and a strong standard library. Use `let` for values that do not change and `var` for mutable values. Explain any semantic difference from Python rather than assuming the languages behave alike.
+Test pure functions and stateful types with assertions or XCTest in a package. Floating-point comparisons often need tolerances. Foundation and Swift standard-library collections support text and data processing; robust CSV requires a parser that understands quoting and escaping.
+
+**Lesson focus:** Testing stateful types. The example uses Swift-native semantics and a canonical course context rather than mechanically translating Python.
 
 ### Worked Example
 ```swift
-import Testing
-@Test func additionWorks() { #expect(2 + 3 == 5) }
+struct Counter {
+    private(set) var value = 0
+    mutating func increment() { value += 1 }
+}
+var counter = Counter()
+counter.increment()
+counter.increment()
+precondition(counter.value == 2)
+print("Counter state test passed: \(counter.value)")
 ```
 
-**Expected behavior:** the example demonstrates the unit's corresponding operation. Trace each declaration and expression before execution; then run it and compare the actual output.
+### Expected Behavior or Output
+The example is a self-contained Swift program. Predict the output from the stated values before running it, then compare the actual result. Examples that read input accept a line from standard input; file examples use temporary paths.
 
 ### Common Mistakes
-- Using `var` where a constant `let` is sufficient, or attempting to mutate a constant.
-- Treating an optional as if it always contains a value; unwrap safely.
-- Assuming arrays, dictionaries, strings, or structs have Python's semantics.
-- Ignoring compiler diagnostics or thrown errors.
+- Use tolerance-based assertions for floating-point calculations.
+- Random results are not reproducible unless the generator and seed are controlled.
+- A simple comma split is not a complete CSV parser for quoted fields.
 
 ### Activities
-1. Reproduce and run the example.
-2. Change one value and predict the result before execution.
-3. Add one boundary case and one invalid-input case.
-4. Explain the code and output without relying on syntax highlighting.
+1. Test pure functions with ordinary and boundary inputs.
+2. Test a stateful type before and after mutation.
+3. Generate random values and discuss repeatability.
+4. Analyze the canonical text sample and process simple CSV rows.
 
 ### Accessibility Practice
-Navigate by line, word, and character; verify punctuation announcements; run from the terminal; and read output and diagnostics sequentially.
+Navigate source by line, word, and character. Inspect punctuation, braces, optionals, argument labels, and compiler diagnostics. Run from the terminal and read prompts and output sequentially. Do not rely on syntax coloring, color-only status, or mouse-only actions.
 
 ### Skills Checklist
-- [ ] I can explain the concept in Swift terminology.
-- [ ] I can predict and verify the example's behavior.
-- [ ] I can modify and run the code independently.
-- [ ] I can identify a common error and correct it.
-- [ ] I can read source and output with my access technology.
+- [ ] I can explain testing stateful types in Swift terminology.
+- [ ] I can trace the example and predict its behavior.
+- [ ] I can adapt the example to the shared canonical data.
+- [ ] I can identify and correct a Swift-specific error or edge case.
+- [ ] I can run and inspect the program using keyboard-accessible tools.
 
 ## Lesson 9.3: Random values
 
 ### Reading References
-- Official Swift language guide and standard library documentation.
-- Matching Python curriculum lesson for the problem context.
+- [The Swift Programming Language](https://docs.swift.org/swift-book/documentation/the-swift-programming-language/)
+- [Swift Standard Library](https://developer.apple.com/documentation/swift/swift-standard-library)
+- Matching Python curriculum lesson for the shared problem context.
 
 ### Learning Objectives
-- Explain random values in Swift terms.
-- Predict program behavior before running the example.
-- Modify, run, and debug the example independently.
+- Explain random values using Swift terminology.
+- Apply the relevant language and standard-library features correctly.
+- Test normal, boundary, and invalid cases using the shared course data.
 
 ### Concept Explanation
-Random values. Swift is statically typed with type inference, value semantics, optionals, and a strong standard library. Use `let` for values that do not change and `var` for mutable values. Explain any semantic difference from Python rather than assuming the languages behave alike.
+Test pure functions and stateful types with assertions or XCTest in a package. Floating-point comparisons often need tolerances. Foundation and Swift standard-library collections support text and data processing; robust CSV requires a parser that understands quoting and escaping.
+
+**Lesson focus:** Random values. The example uses Swift-native semantics and a canonical course context rather than mechanically translating Python.
 
 ### Worked Example
 ```swift
-import Testing
-@Test func additionWorks() { #expect(2 + 3 == 5) }
+import Foundation
+var generator = SystemRandomNumberGenerator()
+let diceRolls = (1...5).map { _ in Int.random(in: 1...6, using: &generator) }
+print("Dice rolls: \(diceRolls)")
+let seededLikeValues = (1...5).map { _ in Int.random(in: 1...10) }
+print("Additional sample: \(seededLikeValues)")
 ```
 
-**Expected behavior:** the example demonstrates the unit's corresponding operation. Trace each declaration and expression before execution; then run it and compare the actual output.
+### Expected Behavior or Output
+The example is a self-contained Swift program. Predict the output from the stated values before running it, then compare the actual result. Examples that read input accept a line from standard input; file examples use temporary paths.
 
 ### Common Mistakes
-- Using `var` where a constant `let` is sufficient, or attempting to mutate a constant.
-- Treating an optional as if it always contains a value; unwrap safely.
-- Assuming arrays, dictionaries, strings, or structs have Python's semantics.
-- Ignoring compiler diagnostics or thrown errors.
+- Use tolerance-based assertions for floating-point calculations.
+- Random results are not reproducible unless the generator and seed are controlled.
+- A simple comma split is not a complete CSV parser for quoted fields.
 
 ### Activities
-1. Reproduce and run the example.
-2. Change one value and predict the result before execution.
-3. Add one boundary case and one invalid-input case.
-4. Explain the code and output without relying on syntax highlighting.
+1. Test pure functions with ordinary and boundary inputs.
+2. Test a stateful type before and after mutation.
+3. Generate random values and discuss repeatability.
+4. Analyze the canonical text sample and process simple CSV rows.
 
 ### Accessibility Practice
-Navigate by line, word, and character; verify punctuation announcements; run from the terminal; and read output and diagnostics sequentially.
+Navigate source by line, word, and character. Inspect punctuation, braces, optionals, argument labels, and compiler diagnostics. Run from the terminal and read prompts and output sequentially. Do not rely on syntax coloring, color-only status, or mouse-only actions.
 
 ### Skills Checklist
-- [ ] I can explain the concept in Swift terminology.
-- [ ] I can predict and verify the example's behavior.
-- [ ] I can modify and run the code independently.
-- [ ] I can identify a common error and correct it.
-- [ ] I can read source and output with my access technology.
+- [ ] I can explain random values in Swift terminology.
+- [ ] I can trace the example and predict its behavior.
+- [ ] I can adapt the example to the shared canonical data.
+- [ ] I can identify and correct a Swift-specific error or edge case.
+- [ ] I can run and inspect the program using keyboard-accessible tools.
 
 ## Lesson 9.4: Text analysis
 
 ### Reading References
-- Official Swift language guide and standard library documentation.
-- Matching Python curriculum lesson for the problem context.
+- [The Swift Programming Language](https://docs.swift.org/swift-book/documentation/the-swift-programming-language/)
+- [Swift Standard Library](https://developer.apple.com/documentation/swift/swift-standard-library)
+- Matching Python curriculum lesson for the shared problem context.
 
 ### Learning Objectives
-- Explain text analysis in Swift terms.
-- Predict program behavior before running the example.
-- Modify, run, and debug the example independently.
+- Explain text analysis using Swift terminology.
+- Apply the relevant language and standard-library features correctly.
+- Test normal, boundary, and invalid cases using the shared course data.
 
 ### Concept Explanation
-Text analysis. Swift is statically typed with type inference, value semantics, optionals, and a strong standard library. Use `let` for values that do not change and `var` for mutable values. Explain any semantic difference from Python rather than assuming the languages behave alike.
+Test pure functions and stateful types with assertions or XCTest in a package. Floating-point comparisons often need tolerances. Foundation and Swift standard-library collections support text and data processing; robust CSV requires a parser that understands quoting and escaping.
+
+**Lesson focus:** Text analysis. The example uses Swift-native semantics and a canonical course context rather than mechanically translating Python.
 
 ### Worked Example
 ```swift
-import Testing
-@Test func additionWorks() { #expect(2 + 3 == 5) }
+let sample = "A student studies Swift. Swift helps students build useful programs."
+let words = sample.lowercased().split { !$0.isLetter }
+var counts: [String: Int] = [:]
+for word in words { counts[String(word), default: 0] += 1 }
+for word in counts.keys.sorted() { print("\(word): \(counts[word]!)") }
 ```
 
-**Expected behavior:** the example demonstrates the unit's corresponding operation. Trace each declaration and expression before execution; then run it and compare the actual output.
+### Expected Behavior or Output
+The example is a self-contained Swift program. Predict the output from the stated values before running it, then compare the actual result. Examples that read input accept a line from standard input; file examples use temporary paths.
 
 ### Common Mistakes
-- Using `var` where a constant `let` is sufficient, or attempting to mutate a constant.
-- Treating an optional as if it always contains a value; unwrap safely.
-- Assuming arrays, dictionaries, strings, or structs have Python's semantics.
-- Ignoring compiler diagnostics or thrown errors.
+- Use tolerance-based assertions for floating-point calculations.
+- Random results are not reproducible unless the generator and seed are controlled.
+- A simple comma split is not a complete CSV parser for quoted fields.
 
 ### Activities
-1. Reproduce and run the example.
-2. Change one value and predict the result before execution.
-3. Add one boundary case and one invalid-input case.
-4. Explain the code and output without relying on syntax highlighting.
+1. Test pure functions with ordinary and boundary inputs.
+2. Test a stateful type before and after mutation.
+3. Generate random values and discuss repeatability.
+4. Analyze the canonical text sample and process simple CSV rows.
 
 ### Accessibility Practice
-Navigate by line, word, and character; verify punctuation announcements; run from the terminal; and read output and diagnostics sequentially.
+Navigate source by line, word, and character. Inspect punctuation, braces, optionals, argument labels, and compiler diagnostics. Run from the terminal and read prompts and output sequentially. Do not rely on syntax coloring, color-only status, or mouse-only actions.
 
 ### Skills Checklist
-- [ ] I can explain the concept in Swift terminology.
-- [ ] I can predict and verify the example's behavior.
-- [ ] I can modify and run the code independently.
-- [ ] I can identify a common error and correct it.
-- [ ] I can read source and output with my access technology.
+- [ ] I can explain text analysis in Swift terminology.
+- [ ] I can trace the example and predict its behavior.
+- [ ] I can adapt the example to the shared canonical data.
+- [ ] I can identify and correct a Swift-specific error or edge case.
+- [ ] I can run and inspect the program using keyboard-accessible tools.
 
 ## Lesson 9.5: CSV records
 
 ### Reading References
-- Official Swift language guide and standard library documentation.
-- Matching Python curriculum lesson for the problem context.
+- [The Swift Programming Language](https://docs.swift.org/swift-book/documentation/the-swift-programming-language/)
+- [Swift Standard Library](https://developer.apple.com/documentation/swift/swift-standard-library)
+- Matching Python curriculum lesson for the shared problem context.
 
 ### Learning Objectives
-- Explain csv records in Swift terms.
-- Predict program behavior before running the example.
-- Modify, run, and debug the example independently.
+- Explain csv records using Swift terminology.
+- Apply the relevant language and standard-library features correctly.
+- Test normal, boundary, and invalid cases using the shared course data.
 
 ### Concept Explanation
-CSV records. Swift is statically typed with type inference, value semantics, optionals, and a strong standard library. Use `let` for values that do not change and `var` for mutable values. Explain any semantic difference from Python rather than assuming the languages behave alike.
+Test pure functions and stateful types with assertions or XCTest in a package. Floating-point comparisons often need tolerances. Foundation and Swift standard-library collections support text and data processing; robust CSV requires a parser that understands quoting and escaping.
+
+**Lesson focus:** CSV records. The example uses Swift-native semantics and a canonical course context rather than mechanically translating Python.
 
 ### Worked Example
 ```swift
-import Testing
-@Test func additionWorks() { #expect(2 + 3 == 5) }
+let csv = "id,first_name,score\n1,Avery,91\n2,Jordan,84"
+let lines = csv.split(separator: "\n")
+for line in lines.dropFirst() {
+    let fields = line.split(separator: ",")
+    if fields.count == 3, let score = Int(fields[2]) {
+        print("\(fields[1]): \(score)")
+    }
+}
 ```
 
-**Expected behavior:** the example demonstrates the unit's corresponding operation. Trace each declaration and expression before execution; then run it and compare the actual output.
+### Expected Behavior or Output
+The example is a self-contained Swift program. Predict the output from the stated values before running it, then compare the actual result. Examples that read input accept a line from standard input; file examples use temporary paths.
 
 ### Common Mistakes
-- Using `var` where a constant `let` is sufficient, or attempting to mutate a constant.
-- Treating an optional as if it always contains a value; unwrap safely.
-- Assuming arrays, dictionaries, strings, or structs have Python's semantics.
-- Ignoring compiler diagnostics or thrown errors.
+- Use tolerance-based assertions for floating-point calculations.
+- Random results are not reproducible unless the generator and seed are controlled.
+- A simple comma split is not a complete CSV parser for quoted fields.
 
 ### Activities
-1. Reproduce and run the example.
-2. Change one value and predict the result before execution.
-3. Add one boundary case and one invalid-input case.
-4. Explain the code and output without relying on syntax highlighting.
+1. Test pure functions with ordinary and boundary inputs.
+2. Test a stateful type before and after mutation.
+3. Generate random values and discuss repeatability.
+4. Analyze the canonical text sample and process simple CSV rows.
 
 ### Accessibility Practice
-Navigate by line, word, and character; verify punctuation announcements; run from the terminal; and read output and diagnostics sequentially.
+Navigate source by line, word, and character. Inspect punctuation, braces, optionals, argument labels, and compiler diagnostics. Run from the terminal and read prompts and output sequentially. Do not rely on syntax coloring, color-only status, or mouse-only actions.
 
 ### Skills Checklist
-- [ ] I can explain the concept in Swift terminology.
-- [ ] I can predict and verify the example's behavior.
-- [ ] I can modify and run the code independently.
-- [ ] I can identify a common error and correct it.
-- [ ] I can read source and output with my access technology.
+- [ ] I can explain csv records in Swift terminology.
+- [ ] I can trace the example and predict its behavior.
+- [ ] I can adapt the example to the shared canonical data.
+- [ ] I can identify and correct a Swift-specific error or edge case.
+- [ ] I can run and inspect the program using keyboard-accessible tools.
 
 # Unit 10: Project-Based Learning
 
 ## Overview
 
-This unit follows the matching Python unit's objectives and examples. Its purpose is to make the programming concept familiar while Swift's type system and language features become the new learning target.
+Projects begin with requirements and acceptance criteria. Implement a text-based adventure and todo manager using explicit state, validated commands, and predictable output. Accessible interaction uses keyboard-operable text prompts and readable error messages.
 
 ## Lesson 10.1: Requirements and top-down design
 
 ### Reading References
-- Official Swift language guide and standard library documentation.
-- Matching Python curriculum lesson for the problem context.
+- [The Swift Programming Language](https://docs.swift.org/swift-book/documentation/the-swift-programming-language/)
+- [Swift Standard Library](https://developer.apple.com/documentation/swift/swift-standard-library)
+- Matching Python curriculum lesson for the shared problem context.
 
 ### Learning Objectives
-- Explain requirements and top-down design in Swift terms.
-- Predict program behavior before running the example.
-- Modify, run, and debug the example independently.
+- Explain requirements and top-down design using Swift terminology.
+- Apply the relevant language and standard-library features correctly.
+- Test normal, boundary, and invalid cases using the shared course data.
 
 ### Concept Explanation
-Requirements and top-down design. Swift is statically typed with type inference, value semantics, optionals, and a strong standard library. Use `let` for values that do not change and `var` for mutable values. Explain any semantic difference from Python rather than assuming the languages behave alike.
+Projects begin with requirements and acceptance criteria. Implement a text-based adventure and todo manager using explicit state, validated commands, and predictable output. Accessible interaction uses keyboard-operable text prompts and readable error messages.
+
+**Lesson focus:** Requirements and top-down design. The example uses Swift-native semantics and a canonical course context rather than mechanically translating Python.
 
 ### Worked Example
 ```swift
-struct TaskItem { let id: Int; var title: String; var done: Bool }
+let requirements = [
+    "List current records",
+    "Add a record with a unique identifier",
+    "Search by title",
+    "Update completion state",
+    "Reject blank titles"
+]
+for (number, requirement) in requirements.enumerated() {
+    print("\(number + 1). \(requirement)")
+}
 ```
 
-**Expected behavior:** the example demonstrates the unit's corresponding operation. Trace each declaration and expression before execution; then run it and compare the actual output.
+### Expected Behavior or Output
+The example is a self-contained Swift program. Predict the output from the stated values before running it, then compare the actual result. Examples that read input accept a line from standard input; file examples use temporary paths.
 
 ### Common Mistakes
-- Using `var` where a constant `let` is sufficient, or attempting to mutate a constant.
-- Treating an optional as if it always contains a value; unwrap safely.
-- Assuming arrays, dictionaries, strings, or structs have Python's semantics.
-- Ignoring compiler diagnostics or thrown errors.
+- Write acceptance criteria before implementing project features.
+- Reject invalid directions and unknown commands explicitly.
+- Do not make interaction depend on color, animation, or mouse-only controls.
 
 ### Activities
-1. Reproduce and run the example.
-2. Change one value and predict the result before execution.
-3. Add one boundary case and one invalid-input case.
-4. Explain the code and output without relying on syntax highlighting.
+1. Translate project requirements into acceptance tests.
+2. Test valid room movement and unavailable exits.
+3. Test inventory puzzles with and without required items.
+4. Exercise todo list, add, completion, and invalid-title workflows.
 
 ### Accessibility Practice
-Navigate by line, word, and character; verify punctuation announcements; run from the terminal; and read output and diagnostics sequentially.
+Navigate source by line, word, and character. Inspect punctuation, braces, optionals, argument labels, and compiler diagnostics. Run from the terminal and read prompts and output sequentially. Do not rely on syntax coloring, color-only status, or mouse-only actions.
 
 ### Skills Checklist
-- [ ] I can explain the concept in Swift terminology.
-- [ ] I can predict and verify the example's behavior.
-- [ ] I can modify and run the code independently.
-- [ ] I can identify a common error and correct it.
-- [ ] I can read source and output with my access technology.
+- [ ] I can explain requirements and top-down design in Swift terminology.
+- [ ] I can trace the example and predict its behavior.
+- [ ] I can adapt the example to the shared canonical data.
+- [ ] I can identify and correct a Swift-specific error or edge case.
+- [ ] I can run and inspect the program using keyboard-accessible tools.
 
 ## Lesson 10.2: Text adventure: rooms and movement
 
 ### Reading References
-- Official Swift language guide and standard library documentation.
-- Matching Python curriculum lesson for the problem context.
+- [The Swift Programming Language](https://docs.swift.org/swift-book/documentation/the-swift-programming-language/)
+- [Swift Standard Library](https://developer.apple.com/documentation/swift/swift-standard-library)
+- Matching Python curriculum lesson for the shared problem context.
 
 ### Learning Objectives
-- Explain text adventure: rooms and movement in Swift terms.
-- Predict program behavior before running the example.
-- Modify, run, and debug the example independently.
+- Explain text adventure: rooms and movement using Swift terminology.
+- Apply the relevant language and standard-library features correctly.
+- Test normal, boundary, and invalid cases using the shared course data.
 
 ### Concept Explanation
-Text adventure: rooms and movement. Swift is statically typed with type inference, value semantics, optionals, and a strong standard library. Use `let` for values that do not change and `var` for mutable values. Explain any semantic difference from Python rather than assuming the languages behave alike.
+Projects begin with requirements and acceptance criteria. Implement a text-based adventure and todo manager using explicit state, validated commands, and predictable output. Accessible interaction uses keyboard-operable text prompts and readable error messages.
+
+**Lesson focus:** Text adventure: rooms and movement. The example uses Swift-native semantics and a canonical course context rather than mechanically translating Python.
 
 ### Worked Example
 ```swift
-struct TaskItem { let id: Int; var title: String; var done: Bool }
+let exits = ["Atrium": ["north": "Laboratory"], "Laboratory": ["south": "Atrium"]]
+let currentRoom = "Atrium"
+let direction = "north"
+if let destination = exits[currentRoom]?[direction] {
+    print("You move to the \(destination).")
+} else {
+    print("There is no exit that way.")
+}
 ```
 
-**Expected behavior:** the example demonstrates the unit's corresponding operation. Trace each declaration and expression before execution; then run it and compare the actual output.
+### Expected Behavior or Output
+The example is a self-contained Swift program. Predict the output from the stated values before running it, then compare the actual result. Examples that read input accept a line from standard input; file examples use temporary paths.
 
 ### Common Mistakes
-- Using `var` where a constant `let` is sufficient, or attempting to mutate a constant.
-- Treating an optional as if it always contains a value; unwrap safely.
-- Assuming arrays, dictionaries, strings, or structs have Python's semantics.
-- Ignoring compiler diagnostics or thrown errors.
+- Write acceptance criteria before implementing project features.
+- Reject invalid directions and unknown commands explicitly.
+- Do not make interaction depend on color, animation, or mouse-only controls.
 
 ### Activities
-1. Reproduce and run the example.
-2. Change one value and predict the result before execution.
-3. Add one boundary case and one invalid-input case.
-4. Explain the code and output without relying on syntax highlighting.
+1. Translate project requirements into acceptance tests.
+2. Test valid room movement and unavailable exits.
+3. Test inventory puzzles with and without required items.
+4. Exercise todo list, add, completion, and invalid-title workflows.
 
 ### Accessibility Practice
-Navigate by line, word, and character; verify punctuation announcements; run from the terminal; and read output and diagnostics sequentially.
+Navigate source by line, word, and character. Inspect punctuation, braces, optionals, argument labels, and compiler diagnostics. Run from the terminal and read prompts and output sequentially. Do not rely on syntax coloring, color-only status, or mouse-only actions.
 
 ### Skills Checklist
-- [ ] I can explain the concept in Swift terminology.
-- [ ] I can predict and verify the example's behavior.
-- [ ] I can modify and run the code independently.
-- [ ] I can identify a common error and correct it.
-- [ ] I can read source and output with my access technology.
+- [ ] I can explain text adventure: rooms and movement in Swift terminology.
+- [ ] I can trace the example and predict its behavior.
+- [ ] I can adapt the example to the shared canonical data.
+- [ ] I can identify and correct a Swift-specific error or edge case.
+- [ ] I can run and inspect the program using keyboard-accessible tools.
 
 ## Lesson 10.3: Text adventure: inventory and puzzles
 
 ### Reading References
-- Official Swift language guide and standard library documentation.
-- Matching Python curriculum lesson for the problem context.
+- [The Swift Programming Language](https://docs.swift.org/swift-book/documentation/the-swift-programming-language/)
+- [Swift Standard Library](https://developer.apple.com/documentation/swift/swift-standard-library)
+- Matching Python curriculum lesson for the shared problem context.
 
 ### Learning Objectives
-- Explain text adventure: inventory and puzzles in Swift terms.
-- Predict program behavior before running the example.
-- Modify, run, and debug the example independently.
+- Explain text adventure: inventory and puzzles using Swift terminology.
+- Apply the relevant language and standard-library features correctly.
+- Test normal, boundary, and invalid cases using the shared course data.
 
 ### Concept Explanation
-Text adventure: inventory and puzzles. Swift is statically typed with type inference, value semantics, optionals, and a strong standard library. Use `let` for values that do not change and `var` for mutable values. Explain any semantic difference from Python rather than assuming the languages behave alike.
+Projects begin with requirements and acceptance criteria. Implement a text-based adventure and todo manager using explicit state, validated commands, and predictable output. Accessible interaction uses keyboard-operable text prompts and readable error messages.
+
+**Lesson focus:** Text adventure: inventory and puzzles. The example uses Swift-native semantics and a canonical course context rather than mechanically translating Python.
 
 ### Worked Example
 ```swift
-struct TaskItem { let id: Int; var title: String; var done: Bool }
+var inventory: Set<String> = ["key", "map"]
+let requiredItem = "key"
+if inventory.contains(requiredItem) {
+    print("The cabinet unlocks.")
+    inventory.remove(requiredItem)
+} else {
+    print("You need a key.")
+}
+print("Inventory: \(inventory.sorted())")
 ```
 
-**Expected behavior:** the example demonstrates the unit's corresponding operation. Trace each declaration and expression before execution; then run it and compare the actual output.
+### Expected Behavior or Output
+The example is a self-contained Swift program. Predict the output from the stated values before running it, then compare the actual result. Examples that read input accept a line from standard input; file examples use temporary paths.
 
 ### Common Mistakes
-- Using `var` where a constant `let` is sufficient, or attempting to mutate a constant.
-- Treating an optional as if it always contains a value; unwrap safely.
-- Assuming arrays, dictionaries, strings, or structs have Python's semantics.
-- Ignoring compiler diagnostics or thrown errors.
+- Write acceptance criteria before implementing project features.
+- Reject invalid directions and unknown commands explicitly.
+- Do not make interaction depend on color, animation, or mouse-only controls.
 
 ### Activities
-1. Reproduce and run the example.
-2. Change one value and predict the result before execution.
-3. Add one boundary case and one invalid-input case.
-4. Explain the code and output without relying on syntax highlighting.
+1. Translate project requirements into acceptance tests.
+2. Test valid room movement and unavailable exits.
+3. Test inventory puzzles with and without required items.
+4. Exercise todo list, add, completion, and invalid-title workflows.
 
 ### Accessibility Practice
-Navigate by line, word, and character; verify punctuation announcements; run from the terminal; and read output and diagnostics sequentially.
+Navigate source by line, word, and character. Inspect punctuation, braces, optionals, argument labels, and compiler diagnostics. Run from the terminal and read prompts and output sequentially. Do not rely on syntax coloring, color-only status, or mouse-only actions.
 
 ### Skills Checklist
-- [ ] I can explain the concept in Swift terminology.
-- [ ] I can predict and verify the example's behavior.
-- [ ] I can modify and run the code independently.
-- [ ] I can identify a common error and correct it.
-- [ ] I can read source and output with my access technology.
+- [ ] I can explain text adventure: inventory and puzzles in Swift terminology.
+- [ ] I can trace the example and predict its behavior.
+- [ ] I can adapt the example to the shared canonical data.
+- [ ] I can identify and correct a Swift-specific error or edge case.
+- [ ] I can run and inspect the program using keyboard-accessible tools.
 
 ## Lesson 10.4: Command-line to-do manager
 
 ### Reading References
-- Official Swift language guide and standard library documentation.
-- Matching Python curriculum lesson for the problem context.
+- [The Swift Programming Language](https://docs.swift.org/swift-book/documentation/the-swift-programming-language/)
+- [Swift Standard Library](https://developer.apple.com/documentation/swift/swift-standard-library)
+- Matching Python curriculum lesson for the shared problem context.
 
 ### Learning Objectives
-- Explain command-line to-do manager in Swift terms.
-- Predict program behavior before running the example.
-- Modify, run, and debug the example independently.
+- Explain command-line to-do manager using Swift terminology.
+- Apply the relevant language and standard-library features correctly.
+- Test normal, boundary, and invalid cases using the shared course data.
 
 ### Concept Explanation
-Command-line to-do manager. Swift is statically typed with type inference, value semantics, optionals, and a strong standard library. Use `let` for values that do not change and `var` for mutable values. Explain any semantic difference from Python rather than assuming the languages behave alike.
+Projects begin with requirements and acceptance criteria. Implement a text-based adventure and todo manager using explicit state, validated commands, and predictable output. Accessible interaction uses keyboard-operable text prompts and readable error messages.
+
+**Lesson focus:** Command-line to-do manager. The example uses Swift-native semantics and a canonical course context rather than mechanically translating Python.
 
 ### Worked Example
 ```swift
-struct TaskItem { let id: Int; var title: String; var done: Bool }
+struct Todo: Identifiable {
+    let id: Int
+    var title: String
+    var isComplete: Bool
+}
+var tasks = [Todo(id: 1, title: "Read lesson", isComplete: false)]
+tasks.append(Todo(id: 2, title: "Run examples", isComplete: true))
+for task in tasks {
+    print("[\(task.isComplete ? "x" : " ")] \(task.id): \(task.title)")
+}
 ```
 
-**Expected behavior:** the example demonstrates the unit's corresponding operation. Trace each declaration and expression before execution; then run it and compare the actual output.
+### Expected Behavior or Output
+The example is a self-contained Swift program. Predict the output from the stated values before running it, then compare the actual result. Examples that read input accept a line from standard input; file examples use temporary paths.
 
 ### Common Mistakes
-- Using `var` where a constant `let` is sufficient, or attempting to mutate a constant.
-- Treating an optional as if it always contains a value; unwrap safely.
-- Assuming arrays, dictionaries, strings, or structs have Python's semantics.
-- Ignoring compiler diagnostics or thrown errors.
+- Write acceptance criteria before implementing project features.
+- Reject invalid directions and unknown commands explicitly.
+- Do not make interaction depend on color, animation, or mouse-only controls.
 
 ### Activities
-1. Reproduce and run the example.
-2. Change one value and predict the result before execution.
-3. Add one boundary case and one invalid-input case.
-4. Explain the code and output without relying on syntax highlighting.
+1. Translate project requirements into acceptance tests.
+2. Test valid room movement and unavailable exits.
+3. Test inventory puzzles with and without required items.
+4. Exercise todo list, add, completion, and invalid-title workflows.
 
 ### Accessibility Practice
-Navigate by line, word, and character; verify punctuation announcements; run from the terminal; and read output and diagnostics sequentially.
+Navigate source by line, word, and character. Inspect punctuation, braces, optionals, argument labels, and compiler diagnostics. Run from the terminal and read prompts and output sequentially. Do not rely on syntax coloring, color-only status, or mouse-only actions.
 
 ### Skills Checklist
-- [ ] I can explain the concept in Swift terminology.
-- [ ] I can predict and verify the example's behavior.
-- [ ] I can modify and run the code independently.
-- [ ] I can identify a common error and correct it.
-- [ ] I can read source and output with my access technology.
+- [ ] I can explain command-line to-do manager in Swift terminology.
+- [ ] I can trace the example and predict its behavior.
+- [ ] I can adapt the example to the shared canonical data.
+- [ ] I can identify and correct a Swift-specific error or edge case.
+- [ ] I can run and inspect the program using keyboard-accessible tools.
 
 ## Lesson 10.5: Accessible interaction and validation
 
 ### Reading References
-- Official Swift language guide and standard library documentation.
-- Matching Python curriculum lesson for the problem context.
+- [The Swift Programming Language](https://docs.swift.org/swift-book/documentation/the-swift-programming-language/)
+- [Swift Standard Library](https://developer.apple.com/documentation/swift/swift-standard-library)
+- Matching Python curriculum lesson for the shared problem context.
 
 ### Learning Objectives
-- Explain accessible interaction and validation in Swift terms.
-- Predict program behavior before running the example.
-- Modify, run, and debug the example independently.
+- Explain accessible interaction and validation using Swift terminology.
+- Apply the relevant language and standard-library features correctly.
+- Test normal, boundary, and invalid cases using the shared course data.
 
 ### Concept Explanation
-Accessible interaction and validation. Swift is statically typed with type inference, value semantics, optionals, and a strong standard library. Use `let` for values that do not change and `var` for mutable values. Explain any semantic difference from Python rather than assuming the languages behave alike.
+Projects begin with requirements and acceptance criteria. Implement a text-based adventure and todo manager using explicit state, validated commands, and predictable output. Accessible interaction uses keyboard-operable text prompts and readable error messages.
+
+**Lesson focus:** Accessible interaction and validation. The example uses Swift-native semantics and a canonical course context rather than mechanically translating Python.
 
 ### Worked Example
 ```swift
-struct TaskItem { let id: Int; var title: String; var done: Bool }
+func cleanTitle(_ raw: String) -> Result<String, String> {
+    let title = raw.trimmingCharacters(in: .whitespacesAndNewlines)
+    return title.isEmpty ? .failure("Title cannot be blank") : .success(title)
+}
+for raw in ["  Study Swift  ", "   "] {
+    switch cleanTitle(raw) {
+    case .success(let title): print("Accepted: \(title)")
+    case .failure(let message): print("Error: \(message)")
+    }
+}
 ```
 
-**Expected behavior:** the example demonstrates the unit's corresponding operation. Trace each declaration and expression before execution; then run it and compare the actual output.
+### Expected Behavior or Output
+The example is a self-contained Swift program. Predict the output from the stated values before running it, then compare the actual result. Examples that read input accept a line from standard input; file examples use temporary paths.
 
 ### Common Mistakes
-- Using `var` where a constant `let` is sufficient, or attempting to mutate a constant.
-- Treating an optional as if it always contains a value; unwrap safely.
-- Assuming arrays, dictionaries, strings, or structs have Python's semantics.
-- Ignoring compiler diagnostics or thrown errors.
+- Write acceptance criteria before implementing project features.
+- Reject invalid directions and unknown commands explicitly.
+- Do not make interaction depend on color, animation, or mouse-only controls.
 
 ### Activities
-1. Reproduce and run the example.
-2. Change one value and predict the result before execution.
-3. Add one boundary case and one invalid-input case.
-4. Explain the code and output without relying on syntax highlighting.
+1. Translate project requirements into acceptance tests.
+2. Test valid room movement and unavailable exits.
+3. Test inventory puzzles with and without required items.
+4. Exercise todo list, add, completion, and invalid-title workflows.
 
 ### Accessibility Practice
-Navigate by line, word, and character; verify punctuation announcements; run from the terminal; and read output and diagnostics sequentially.
+Navigate source by line, word, and character. Inspect punctuation, braces, optionals, argument labels, and compiler diagnostics. Run from the terminal and read prompts and output sequentially. Do not rely on syntax coloring, color-only status, or mouse-only actions.
 
 ### Skills Checklist
-- [ ] I can explain the concept in Swift terminology.
-- [ ] I can predict and verify the example's behavior.
-- [ ] I can modify and run the code independently.
-- [ ] I can identify a common error and correct it.
-- [ ] I can read source and output with my access technology.
+- [ ] I can explain accessible interaction and validation in Swift terminology.
+- [ ] I can trace the example and predict its behavior.
+- [ ] I can adapt the example to the shared canonical data.
+- [ ] I can identify and correct a Swift-specific error or edge case.
+- [ ] I can run and inspect the program using keyboard-accessible tools.
 
 # Unit 11: Capstone
 
 ## Overview
 
-This unit follows the matching Python unit's objectives and examples. Its purpose is to make the programming concept familiar while Swift's type system and language features become the new learning target.
+The capstone is a personal-record manager with stable identifiers, validated create/read/update/delete operations, and Codable persistence. Separate the data model, validation, storage, and command-line interface; verify save/reload and document limitations.
 
 ## Lesson 11.1: Requirements and design
 
 ### Reading References
-- Official Swift language guide and standard library documentation.
-- Matching Python curriculum lesson for the problem context.
+- [The Swift Programming Language](https://docs.swift.org/swift-book/documentation/the-swift-programming-language/)
+- [Swift Standard Library](https://developer.apple.com/documentation/swift/swift-standard-library)
+- Matching Python curriculum lesson for the shared problem context.
 
 ### Learning Objectives
-- Explain requirements and design in Swift terms.
-- Predict program behavior before running the example.
-- Modify, run, and debug the example independently.
+- Explain requirements and design using Swift terminology.
+- Apply the relevant language and standard-library features correctly.
+- Test normal, boundary, and invalid cases using the shared course data.
 
 ### Concept Explanation
-Requirements and design. Swift is statically typed with type inference, value semantics, optionals, and a strong standard library. Use `let` for values that do not change and `var` for mutable values. Explain any semantic difference from Python rather than assuming the languages behave alike.
+The capstone is a personal-record manager with stable identifiers, validated create/read/update/delete operations, and Codable persistence. Separate the data model, validation, storage, and command-line interface; verify save/reload and document limitations.
+
+**Lesson focus:** Requirements and design. The example uses Swift-native semantics and a canonical course context rather than mechanically translating Python.
 
 ### Worked Example
 ```swift
-// Capstone: Codable personal-data manager with CRUD operations and tests.
+let capstoneRequirements = [
+    "Accessible text-first personal record manager",
+    "Stable record identifiers",
+    "Create, list, search, update, and delete",
+    "Validate user input",
+    "Save and reload records"
+]
+print("Capstone design:")
+capstoneRequirements.forEach { print("- \($0)") }
 ```
 
-**Expected behavior:** the example demonstrates the unit's corresponding operation. Trace each declaration and expression before execution; then run it and compare the actual output.
+### Expected Behavior or Output
+The example is a self-contained Swift program. Predict the output from the stated values before running it, then compare the actual result. Examples that read input accept a line from standard input; file examples use temporary paths.
 
 ### Common Mistakes
-- Using `var` where a constant `let` is sufficient, or attempting to mutate a constant.
-- Treating an optional as if it always contains a value; unwrap safely.
-- Assuming arrays, dictionaries, strings, or structs have Python's semantics.
-- Ignoring compiler diagnostics or thrown errors.
+- Keep stable identifiers separate from editable record fields.
+- Validate before mutating stored records.
+- Test save/reload, duplicate identifiers, missing records, and accessibility behavior.
 
 ### Activities
-1. Reproduce and run the example.
-2. Change one value and predict the result before execution.
-3. Add one boundary case and one invalid-input case.
-4. Explain the code and output without relying on syntax highlighting.
+1. Specify the record schema and validation rules before coding.
+2. Test create, list, search, update, and delete operations.
+3. Test duplicate, missing, blank, and invalid values.
+4. Test save/reload and document keyboard-first operation and limitations.
 
 ### Accessibility Practice
-Navigate by line, word, and character; verify punctuation announcements; run from the terminal; and read output and diagnostics sequentially.
+Navigate source by line, word, and character. Inspect punctuation, braces, optionals, argument labels, and compiler diagnostics. Run from the terminal and read prompts and output sequentially. Do not rely on syntax coloring, color-only status, or mouse-only actions.
 
 ### Skills Checklist
-- [ ] I can explain the concept in Swift terminology.
-- [ ] I can predict and verify the example's behavior.
-- [ ] I can modify and run the code independently.
-- [ ] I can identify a common error and correct it.
-- [ ] I can read source and output with my access technology.
+- [ ] I can explain requirements and design in Swift terminology.
+- [ ] I can trace the example and predict its behavior.
+- [ ] I can adapt the example to the shared canonical data.
+- [ ] I can identify and correct a Swift-specific error or edge case.
+- [ ] I can run and inspect the program using keyboard-accessible tools.
 
 ## Lesson 11.2: Data model and storage
 
 ### Reading References
-- Official Swift language guide and standard library documentation.
-- Matching Python curriculum lesson for the problem context.
+- [The Swift Programming Language](https://docs.swift.org/swift-book/documentation/the-swift-programming-language/)
+- [Swift Standard Library](https://developer.apple.com/documentation/swift/swift-standard-library)
+- Matching Python curriculum lesson for the shared problem context.
 
 ### Learning Objectives
-- Explain data model and storage in Swift terms.
-- Predict program behavior before running the example.
-- Modify, run, and debug the example independently.
+- Explain data model and storage using Swift terminology.
+- Apply the relevant language and standard-library features correctly.
+- Test normal, boundary, and invalid cases using the shared course data.
 
 ### Concept Explanation
-Data model and storage. Swift is statically typed with type inference, value semantics, optionals, and a strong standard library. Use `let` for values that do not change and `var` for mutable values. Explain any semantic difference from Python rather than assuming the languages behave alike.
+The capstone is a personal-record manager with stable identifiers, validated create/read/update/delete operations, and Codable persistence. Separate the data model, validation, storage, and command-line interface; verify save/reload and document limitations.
+
+**Lesson focus:** Data model and storage. The example uses Swift-native semantics and a canonical course context rather than mechanically translating Python.
 
 ### Worked Example
 ```swift
-// Capstone: Codable personal-data manager with CRUD operations and tests.
+struct PersonalRecord: Codable, Identifiable {
+    let id: UUID
+    var title: String
+    var notes: String
+    var isComplete: Bool
+    init(title: String, notes: String = "") {
+        id = UUID()
+        self.title = title
+        self.notes = notes
+        isComplete = false
+    }
+}
+let record = PersonalRecord(title: "Study Swift", notes: "Review Codable")
+print("\(record.id): \(record.title), complete=\(record.isComplete)")
 ```
 
-**Expected behavior:** the example demonstrates the unit's corresponding operation. Trace each declaration and expression before execution; then run it and compare the actual output.
+### Expected Behavior or Output
+The example is a self-contained Swift program. Predict the output from the stated values before running it, then compare the actual result. Examples that read input accept a line from standard input; file examples use temporary paths.
 
 ### Common Mistakes
-- Using `var` where a constant `let` is sufficient, or attempting to mutate a constant.
-- Treating an optional as if it always contains a value; unwrap safely.
-- Assuming arrays, dictionaries, strings, or structs have Python's semantics.
-- Ignoring compiler diagnostics or thrown errors.
+- Keep stable identifiers separate from editable record fields.
+- Validate before mutating stored records.
+- Test save/reload, duplicate identifiers, missing records, and accessibility behavior.
 
 ### Activities
-1. Reproduce and run the example.
-2. Change one value and predict the result before execution.
-3. Add one boundary case and one invalid-input case.
-4. Explain the code and output without relying on syntax highlighting.
+1. Specify the record schema and validation rules before coding.
+2. Test create, list, search, update, and delete operations.
+3. Test duplicate, missing, blank, and invalid values.
+4. Test save/reload and document keyboard-first operation and limitations.
 
 ### Accessibility Practice
-Navigate by line, word, and character; verify punctuation announcements; run from the terminal; and read output and diagnostics sequentially.
+Navigate source by line, word, and character. Inspect punctuation, braces, optionals, argument labels, and compiler diagnostics. Run from the terminal and read prompts and output sequentially. Do not rely on syntax coloring, color-only status, or mouse-only actions.
 
 ### Skills Checklist
-- [ ] I can explain the concept in Swift terminology.
-- [ ] I can predict and verify the example's behavior.
-- [ ] I can modify and run the code independently.
-- [ ] I can identify a common error and correct it.
-- [ ] I can read source and output with my access technology.
+- [ ] I can explain data model and storage in Swift terminology.
+- [ ] I can trace the example and predict its behavior.
+- [ ] I can adapt the example to the shared canonical data.
+- [ ] I can identify and correct a Swift-specific error or edge case.
+- [ ] I can run and inspect the program using keyboard-accessible tools.
 
 ## Lesson 11.3: Create, read, update, delete
 
 ### Reading References
-- Official Swift language guide and standard library documentation.
-- Matching Python curriculum lesson for the problem context.
+- [The Swift Programming Language](https://docs.swift.org/swift-book/documentation/the-swift-programming-language/)
+- [Swift Standard Library](https://developer.apple.com/documentation/swift/swift-standard-library)
+- Matching Python curriculum lesson for the shared problem context.
 
 ### Learning Objectives
-- Explain create, read, update, delete in Swift terms.
-- Predict program behavior before running the example.
-- Modify, run, and debug the example independently.
+- Explain create, read, update, delete using Swift terminology.
+- Apply the relevant language and standard-library features correctly.
+- Test normal, boundary, and invalid cases using the shared course data.
 
 ### Concept Explanation
-Create, read, update, delete. Swift is statically typed with type inference, value semantics, optionals, and a strong standard library. Use `let` for values that do not change and `var` for mutable values. Explain any semantic difference from Python rather than assuming the languages behave alike.
+The capstone is a personal-record manager with stable identifiers, validated create/read/update/delete operations, and Codable persistence. Separate the data model, validation, storage, and command-line interface; verify save/reload and document limitations.
+
+**Lesson focus:** Create, read, update, delete. The example uses Swift-native semantics and a canonical course context rather than mechanically translating Python.
 
 ### Worked Example
 ```swift
-// Capstone: Codable personal-data manager with CRUD operations and tests.
+struct Record {
+    let id: Int
+    var title: String
+}
+var records = [Record(id: 1, title: "Study Swift")]
+records.append(Record(id: 2, title: "Practice optionals"))
+let found = records.first { $0.id == 1 }
+if let found {
+    records[records.firstIndex { $0.id == found.id }!].title = "Study Swift deeply"
+}
+records.removeAll { $0.id == 2 }
+print(records.map(\.title))
 ```
 
-**Expected behavior:** the example demonstrates the unit's corresponding operation. Trace each declaration and expression before execution; then run it and compare the actual output.
+### Expected Behavior or Output
+The example is a self-contained Swift program. Predict the output from the stated values before running it, then compare the actual result. Examples that read input accept a line from standard input; file examples use temporary paths.
 
 ### Common Mistakes
-- Using `var` where a constant `let` is sufficient, or attempting to mutate a constant.
-- Treating an optional as if it always contains a value; unwrap safely.
-- Assuming arrays, dictionaries, strings, or structs have Python's semantics.
-- Ignoring compiler diagnostics or thrown errors.
+- Keep stable identifiers separate from editable record fields.
+- Validate before mutating stored records.
+- Test save/reload, duplicate identifiers, missing records, and accessibility behavior.
 
 ### Activities
-1. Reproduce and run the example.
-2. Change one value and predict the result before execution.
-3. Add one boundary case and one invalid-input case.
-4. Explain the code and output without relying on syntax highlighting.
+1. Specify the record schema and validation rules before coding.
+2. Test create, list, search, update, and delete operations.
+3. Test duplicate, missing, blank, and invalid values.
+4. Test save/reload and document keyboard-first operation and limitations.
 
 ### Accessibility Practice
-Navigate by line, word, and character; verify punctuation announcements; run from the terminal; and read output and diagnostics sequentially.
+Navigate source by line, word, and character. Inspect punctuation, braces, optionals, argument labels, and compiler diagnostics. Run from the terminal and read prompts and output sequentially. Do not rely on syntax coloring, color-only status, or mouse-only actions.
 
 ### Skills Checklist
-- [ ] I can explain the concept in Swift terminology.
-- [ ] I can predict and verify the example's behavior.
-- [ ] I can modify and run the code independently.
-- [ ] I can identify a common error and correct it.
-- [ ] I can read source and output with my access technology.
+- [ ] I can explain create, read, update, delete in Swift terminology.
+- [ ] I can trace the example and predict its behavior.
+- [ ] I can adapt the example to the shared canonical data.
+- [ ] I can identify and correct a Swift-specific error or edge case.
+- [ ] I can run and inspect the program using keyboard-accessible tools.
 
 ## Lesson 11.4: Validation and tests
 
 ### Reading References
-- Official Swift language guide and standard library documentation.
-- Matching Python curriculum lesson for the problem context.
+- [The Swift Programming Language](https://docs.swift.org/swift-book/documentation/the-swift-programming-language/)
+- [Swift Standard Library](https://developer.apple.com/documentation/swift/swift-standard-library)
+- Matching Python curriculum lesson for the shared problem context.
 
 ### Learning Objectives
-- Explain validation and tests in Swift terms.
-- Predict program behavior before running the example.
-- Modify, run, and debug the example independently.
+- Explain validation and tests using Swift terminology.
+- Apply the relevant language and standard-library features correctly.
+- Test normal, boundary, and invalid cases using the shared course data.
 
 ### Concept Explanation
-Validation and tests. Swift is statically typed with type inference, value semantics, optionals, and a strong standard library. Use `let` for values that do not change and `var` for mutable values. Explain any semantic difference from Python rather than assuming the languages behave alike.
+The capstone is a personal-record manager with stable identifiers, validated create/read/update/delete operations, and Codable persistence. Separate the data model, validation, storage, and command-line interface; verify save/reload and document limitations.
+
+**Lesson focus:** Validation and tests. The example uses Swift-native semantics and a canonical course context rather than mechanically translating Python.
 
 ### Worked Example
 ```swift
-// Capstone: Codable personal-data manager with CRUD operations and tests.
+func validateTitle(_ value: String) -> Bool {
+    !value.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty
+}
+precondition(validateTitle("Study Swift"))
+precondition(!validateTitle("   "))
+let duplicateIDs = [1, 2, 1]
+precondition(Set(duplicateIDs).count != duplicateIDs.count)
+print("Validation checks passed")
 ```
 
-**Expected behavior:** the example demonstrates the unit's corresponding operation. Trace each declaration and expression before execution; then run it and compare the actual output.
+### Expected Behavior or Output
+The example is a self-contained Swift program. Predict the output from the stated values before running it, then compare the actual result. Examples that read input accept a line from standard input; file examples use temporary paths.
 
 ### Common Mistakes
-- Using `var` where a constant `let` is sufficient, or attempting to mutate a constant.
-- Treating an optional as if it always contains a value; unwrap safely.
-- Assuming arrays, dictionaries, strings, or structs have Python's semantics.
-- Ignoring compiler diagnostics or thrown errors.
+- Keep stable identifiers separate from editable record fields.
+- Validate before mutating stored records.
+- Test save/reload, duplicate identifiers, missing records, and accessibility behavior.
 
 ### Activities
-1. Reproduce and run the example.
-2. Change one value and predict the result before execution.
-3. Add one boundary case and one invalid-input case.
-4. Explain the code and output without relying on syntax highlighting.
+1. Specify the record schema and validation rules before coding.
+2. Test create, list, search, update, and delete operations.
+3. Test duplicate, missing, blank, and invalid values.
+4. Test save/reload and document keyboard-first operation and limitations.
 
 ### Accessibility Practice
-Navigate by line, word, and character; verify punctuation announcements; run from the terminal; and read output and diagnostics sequentially.
+Navigate source by line, word, and character. Inspect punctuation, braces, optionals, argument labels, and compiler diagnostics. Run from the terminal and read prompts and output sequentially. Do not rely on syntax coloring, color-only status, or mouse-only actions.
 
 ### Skills Checklist
-- [ ] I can explain the concept in Swift terminology.
-- [ ] I can predict and verify the example's behavior.
-- [ ] I can modify and run the code independently.
-- [ ] I can identify a common error and correct it.
-- [ ] I can read source and output with my access technology.
+- [ ] I can explain validation and tests in Swift terminology.
+- [ ] I can trace the example and predict its behavior.
+- [ ] I can adapt the example to the shared canonical data.
+- [ ] I can identify and correct a Swift-specific error or edge case.
+- [ ] I can run and inspect the program using keyboard-accessible tools.
 
 ## Lesson 11.5: Documentation and presentation
 
 ### Reading References
-- Official Swift language guide and standard library documentation.
-- Matching Python curriculum lesson for the problem context.
+- [The Swift Programming Language](https://docs.swift.org/swift-book/documentation/the-swift-programming-language/)
+- [Swift Standard Library](https://developer.apple.com/documentation/swift/swift-standard-library)
+- Matching Python curriculum lesson for the shared problem context.
 
 ### Learning Objectives
-- Explain documentation and presentation in Swift terms.
-- Predict program behavior before running the example.
-- Modify, run, and debug the example independently.
+- Explain documentation and presentation using Swift terminology.
+- Apply the relevant language and standard-library features correctly.
+- Test normal, boundary, and invalid cases using the shared course data.
 
 ### Concept Explanation
-Documentation and presentation. Swift is statically typed with type inference, value semantics, optionals, and a strong standard library. Use `let` for values that do not change and `var` for mutable values. Explain any semantic difference from Python rather than assuming the languages behave alike.
+The capstone is a personal-record manager with stable identifiers, validated create/read/update/delete operations, and Codable persistence. Separate the data model, validation, storage, and command-line interface; verify save/reload and document limitations.
+
+**Lesson focus:** Documentation and presentation. The example uses Swift-native semantics and a canonical course context rather than mechanically translating Python.
 
 ### Worked Example
 ```swift
-// Capstone: Codable personal-data manager with CRUD operations and tests.
+let releaseNotes = [
+    "Purpose: manage personal learning records",
+    "Input: text commands and record fields",
+    "Storage: Codable JSON document",
+    "Accessibility: keyboard-first, plain-text prompts",
+    "Testing: CRUD, validation, and save/reload"
+]
+print(releaseNotes.joined(separator: "\n"))
 ```
 
-**Expected behavior:** the example demonstrates the unit's corresponding operation. Trace each declaration and expression before execution; then run it and compare the actual output.
+### Expected Behavior or Output
+The example is a self-contained Swift program. Predict the output from the stated values before running it, then compare the actual result. Examples that read input accept a line from standard input; file examples use temporary paths.
 
 ### Common Mistakes
-- Using `var` where a constant `let` is sufficient, or attempting to mutate a constant.
-- Treating an optional as if it always contains a value; unwrap safely.
-- Assuming arrays, dictionaries, strings, or structs have Python's semantics.
-- Ignoring compiler diagnostics or thrown errors.
+- Keep stable identifiers separate from editable record fields.
+- Validate before mutating stored records.
+- Test save/reload, duplicate identifiers, missing records, and accessibility behavior.
 
 ### Activities
-1. Reproduce and run the example.
-2. Change one value and predict the result before execution.
-3. Add one boundary case and one invalid-input case.
-4. Explain the code and output without relying on syntax highlighting.
+1. Specify the record schema and validation rules before coding.
+2. Test create, list, search, update, and delete operations.
+3. Test duplicate, missing, blank, and invalid values.
+4. Test save/reload and document keyboard-first operation and limitations.
 
 ### Accessibility Practice
-Navigate by line, word, and character; verify punctuation announcements; run from the terminal; and read output and diagnostics sequentially.
+Navigate source by line, word, and character. Inspect punctuation, braces, optionals, argument labels, and compiler diagnostics. Run from the terminal and read prompts and output sequentially. Do not rely on syntax coloring, color-only status, or mouse-only actions.
 
 ### Skills Checklist
-- [ ] I can explain the concept in Swift terminology.
-- [ ] I can predict and verify the example's behavior.
-- [ ] I can modify and run the code independently.
-- [ ] I can identify a common error and correct it.
-- [ ] I can read source and output with my access technology.
+- [ ] I can explain documentation and presentation in Swift terminology.
+- [ ] I can trace the example and predict its behavior.
+- [ ] I can adapt the example to the shared canonical data.
+- [ ] I can identify and correct a Swift-specific error or edge case.
+- [ ] I can run and inspect the program using keyboard-accessible tools.
 
-## Course-Wide Assessment and Portfolio
+## Swift-specific platform and package notes
 
-Submit runnable exercises, prediction and debugging notes, tests, a text adventure, a command-line to-do manager, and an accessible personal-data manager. Assessment focuses on correct behavior, idiomatic Swift, independent debugging, and code explanation.
-
-## AI Policy
-AI may be used only for personal conceptual explanations and reinforcement when permitted. It must not write, complete, autocomplete, repair, or generate course code or assessment solutions.
+- Use Swift Package Manager for cross-platform command-line packages and reusable modules.
+- iOS, watchOS, tvOS, and many macOS application workflows require Xcode and Apple platform SDKs.
+- Foundation provides file handling, JSONEncoder/JSONDecoder, date and URL facilities, and string formatting.
+- Use XCTest in a Swift package for a full test suite; the standalone examples use `precondition` for dependency-free smoke checks.
+- The introductory CSV example handles simple unquoted rows only. Use a maintained CSV library for quoted commas, escaped quotes, and embedded newlines.
+- Swift concurrency uses structured tasks and actors; add concurrency only when the problem requires it and test isolation and cancellation explicitly.
