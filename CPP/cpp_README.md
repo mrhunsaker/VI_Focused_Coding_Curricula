@@ -27,3 +27,7 @@ The course includes 53 numbered lessons across Units 1–11 and four structured 
 GCC 13.3.0 and Clang 18.1.3 each compiled and linked all 54 fenced C++ examples in C++20 mode with `-Wall -Wextra -Wpedantic -Werror`. The checker wraps lesson fragments in a minimal program and supplies common standard-library headers where needed.
 
 This verifies compilation and linking only. The examples have not all been executed with representative input or file fixtures. A fresh mdBook build, complete link crawl, and hands-on screen-reader/braille testing remain outstanding.
+
+## GUI, visualization, and workbench accessibility
+
+See the shared [GUI, visualization, and workbench accessibility reference](../DEVELOPMENT/GUI_VISUALIZATION_ACCESSIBILITY.md) for screen-reader support by toolkit, platform-specific activation settings, recommended alternatives, and interfaces that must not be required without an equivalent accessible route.
