@@ -107,3 +107,7 @@ Use descriptive column aliases, explicit column lists, predictable ORDER BY clau
 - [SQLite documentation](https://www.sqlite.org/docs.html)
 - [PostgreSQL SQL tutorial](https://www.postgresql.org/docs/current/tutorial.html)
 - [SQLBolt interactive lessons](https://sqlbolt.com/)
+
+## GUI, visualization, and workbench accessibility
+
+See the shared [GUI, visualization, and workbench accessibility reference](../DEVELOPMENT/GUI_VISUALIZATION_ACCESSIBILITY.md) for screen-reader support by toolkit, platform-specific activation settings, recommended alternatives, and interfaces that must not be required without an equivalent accessible route.
