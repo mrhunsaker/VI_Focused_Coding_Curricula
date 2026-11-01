@@ -447,7 +447,7 @@
   ],
   "refinement_progress": {
     "last_updated": "2026-11-01",
-    "current_language": "C++",
+    "current_language": "C#",
     "completed_tracks": {
       "C": {
         "path": "C/lessons.md",
@@ -540,10 +540,52 @@
           "Perform hands-on screen-reader and braille testing with named operating systems, editors, compilers, and access technologies.",
           "Review the C++ JSON and CSV lessons against selected external library/parser choices for a full application implementation."
         ]
+      },
+      "CSHARP": {
+        "path": "CSHARP/lessons.md",
+        "units": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11
+        ],
+        "mapped_python_lessons": 55,
+        "target_course_lesson_sections": 57,
+        "numbered_unit_lesson_sections": 53,
+        "status": "content_complete_pending_dotnet_compile_runtime_and_full_accessibility_verification",
+        "completed_work": [
+          "Expanded all four Unit 0 setup lessons into complete .NET SDK, workspace, editor/accessibility, dependency, restore, build, test, and run workflows.",
+          "Added the missing C# equivalent of Python Unit 2 Lesson 2.5 for System.Math, circle area/circumference, and distance from the origin.",
+          "Replaced repeated worked examples with 53 distinct C# examples aligned to the shared Avery profile, calculator, grade thresholds, score collection, inventory, coordinates, text sample, CSV columns, task fields, and capstone record fields.",
+          "Rewrote all 53 numbered lessons with three C#-specific common mistakes, four practice activities, and five observable mastery criteria per lesson.",
+          "Aligned the C# course with .NET 10 and C# 14, using typed APIs, generic collections, records, interfaces, LINQ, System.Text.Json, and deterministic IDisposable cleanup where appropriate.",
+          "Added scripts/check_csharp_examples.py to build each fenced C# example as an independent .NET 10 console program with nullable analysis and warnings treated as errors.",
+          "Added .github/workflows/csharp-examples.yml to run the C# compiler validation in GitHub Actions."
+        ],
+        "validation": [
+          "Four Unit 0 setup lessons and all 53 numbered Unit 1–11 lesson sections are present.",
+          "All 53 numbered lessons have exactly three common mistakes, four activities, and five skills checklist criteria.",
+          "All 53 worked examples are distinct C# code blocks.",
+          "The checker and workflow were added; the first GitHub Actions run is pending."
+        ],
+        "not_yet_verified": [
+          "Complete the first GitHub Actions run and confirm all 53 C# examples build and link using .NET 10/C# 14.",
+          "Execute examples with representative input and file fixtures; build success does not establish runtime behavior.",
+          "Run a fresh mdBook build and a complete Markdown/local-link crawl after the latest edits.",
+          "Perform hands-on screen-reader and braille testing with named operating systems, editors, SDKs, and access technologies.",
+          "Review the simple CSV Split example's documented limitation and use a standards-aware parser for production CSV files."
+        ]
       }
     },
     "next_tracks": [
-      "C#",
       "Julia",
       "Swift",
       "Rust",
