@@ -67,6 +67,10 @@ Start with the [curriculum overview](OVERALL_README.md), then choose a language:
 
 The [mdBook table of contents](SUMMARY.md) defines the published book's navigation.
 
+## Expanded language courses and modules
+
+The repository now includes full Go and Lua courses, expanded C, C++, C#, Julia, Swift, and Rust courses, and specialist introductory modules for [HTML/CSS](MODULES/HTML_CSS.md), [R](MODULES/R.md), and [SQL](MODULES/SQL.md). The root [lesson_standardization.json](lesson_standardization.json) maps the original Python course unit by unit and contains a reusable prompt for making general-purpose language courses functionally equivalent.
+
 ## Development environment
 
 The standalone [IDE setup lesson](DEVELOPMENT/IDE_SETUP.md) walks through Visual Studio Code, VSCodium, and Eclipse Theia IDE on Windows, macOS, and Linux. It compares IDEs with lightweight editors such as Notepad++, BBEdit, Sublime Text, and Linux text editors, and documents the course's limits on AI-assisted coding. The [lesson structure audit](DEVELOPMENT/LESSON_STRUCTURE_AUDIT.md) records how the current lessons compare with the original Python instructional pattern and defines a normalization standard.
