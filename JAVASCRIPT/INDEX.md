@@ -40,7 +40,7 @@ Use this topic index to locate the lesson for a JavaScript concept, API, or prog
 | Object iteration; destructuring; spread syntax; rest syntax; shallow copy | [Unit 4: Object operations](unit02-04-io-control-data.md) |
 | Function declaration; function expression; arrow function; `return` | [Unit 6: Defining functions](unit05-08-strings-functions-oop-files.md) |
 | Parameters; arguments; default parameters; rest parameters; callbacks | [Unit 6: Function parameters](unit05-08-strings-functions-oop-files.md) |
-| Scope; lexical scope; closure; function passed to another function | [Unit 6: Closures](unit05-08-strings-functions-oop-files.md) |
+
 
 ## Classes, files, asynchronous operations, and errors
 
@@ -54,14 +54,14 @@ Use this topic index to locate the lesson for a JavaScript concept, API, or prog
 | `try`; `catch`; `finally`; `throw`; custom Error class | [Unit 8: Error handling](unit05-08-strings-functions-oop-files.md) |
 | JSON; `JSON.parse()`; `JSON.stringify()`; serialization | [Unit 8: JSON](unit05-08-strings-functions-oop-files.md) |
 
-## Modules, collections, testing, and projects
+## Testing, data analysis, and projects
 
 | Topic and learner search terms | Lesson |
 |---|---|
 | ES modules; `import`; `export`; `type: module`; module resolution | [Unit 0: Node.js project configuration](unit00-01-setup-foundations.md) |
 | CommonJS; `require()`; `module.exports`; `type: commonjs` | [Unit 0: Node.js project configuration](unit00-01-setup-foundations.md) |
 | `package.json`; package type; dependencies; npm scripts; project-local tools | [Unit 0: Node.js project configuration](unit00-01-setup-foundations.md) |
-| `Map`; key-value collection; arbitrary key types; `Set`; unique values | [Unit 4: Objects and Map](unit02-04-io-control-data.md) |
+| `Map`; key-value collection; arbitrary key types | [Unit 4: Objects and Map](unit02-04-io-control-data.md) |
 | Word frequency; text processing; CSV; data parsing | [Unit 9: Data analysis](unit09-11-modules-collections-projects.md) |
 | `node:test`; `node:assert/strict`; test suite; test case; assertion | [Unit 9: Testing functions and classes](unit09-11-modules-collections-projects.md) |
 | Text adventure; rooms; exits; inventory; magic key; command-line to-do manager | [Unit 10: Projects](unit09-11-modules-collections-projects.md) |
