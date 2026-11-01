@@ -37,3 +37,7 @@ Use keyboard-first editor and terminal workflows. Verify the selected Kotlin lan
 Assess conceptual understanding, independent tracing, testing, explanation, and accessible tool use. AI may support conceptual understanding and reinforcement only; it must not generate, complete, repair, refactor, or write course code or assessment solutions for students or instructors.
 
 The lesson files provide the aligned instructional structure. The audit records what has and has not been verified; structural completeness is not a claim that every example or full application has passed runtime tests.
+
+## GUI, visualization, and workbench accessibility
+
+See the shared [GUI, visualization, and workbench accessibility reference](../DEVELOPMENT/GUI_VISUALIZATION_ACCESSIBILITY.md) for screen-reader support by toolkit, platform-specific activation settings, recommended alternatives, and interfaces that must not be required without an equivalent accessible route.
