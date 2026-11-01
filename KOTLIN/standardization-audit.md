@@ -7,7 +7,7 @@
 - All 57 worked examples are distinct and are stored as standalone Kotlin/JVM programs.
 - Every lesson retains the nine required instructional sections.
 - Exact expected standard output is stored in `examples_expected.json`.
-- The Python checker compiles and executes each example independently and compares stdout with its expected fixture.
+- The Python checker compiles all 57 examples in one package-isolated Kotlin compiler invocation, executes each main function independently, and compares stdout exactly with its expected fixture.
 - Toolchain for automated validation: Kotlin 1.9.24 and JDK 21.
 
 ## Language and course alignment
