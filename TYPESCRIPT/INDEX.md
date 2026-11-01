@@ -103,10 +103,10 @@ Use this index to locate lessons by language feature, runtime behavior, or proje
 
 | Topic and learner search terms | Lesson |
 |---|---|
-| Top-down design, requirements, acceptance tests | [Lesson 10.1: Designing a text-based project](unit09-11-modules-collections-projects.md#lesson-101-designing-a-textbased-project) |
+| Top-down design, requirements, acceptance tests | [Lesson 10.1: Designing a text-based project](unit09-11-modules-collections-projects.md#lesson-101-designing-a-text-based-project) |
 | Text adventure rooms, typed exits, movement | [Lesson 10.2: Text adventure part 1: rooms and movement](unit09-11-modules-collections-projects.md#lesson-102-text-adventure-part-1-rooms-and-movement) |
 | Inventory, item pickup, magic-key puzzle | [Lesson 10.3: Text adventure part 2: items, inventory, and puzzle](unit09-11-modules-collections-projects.md#lesson-103-text-adventure-part-2-items-inventory-and-puzzle) |
-| Command-line to-do manager, typed tasks, persistence | [Lesson 10.4: Developing a command-line to-do tool](unit09-11-modules-collections-projects.md#lesson-104-developing-a-commandline-todo-tool) |
+| Command-line to-do manager, typed tasks, persistence | [Lesson 10.4: Developing a command-line to-do tool](unit09-11-modules-collections-projects.md#lesson-104-developing-a-command-line-todo-tool) |
 | Text interface, prompts, validation, errors, accessibility | [Lesson 10.5: Refinement and accessible text user experience](unit09-11-modules-collections-projects.md#lesson-105-refinement-and-accessible-text-user-experience) |
 
 ## Unit 11
