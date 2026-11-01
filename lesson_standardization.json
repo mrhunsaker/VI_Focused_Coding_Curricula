@@ -711,7 +711,8 @@
           "All 57 mapped lesson sections contain all nine required lesson-template sections.",
           "All 63 fenced JavaScript examples in the four core lesson files passed a V8 syntax parse; no syntax parse errors were reported.",
           "Relative Markdown links in the README, index, teacher guide, and four core lesson files resolve against the branch tree.",
-          "Canonical calculations were checked for the tip example, score total and average, and inventory value; the JavaScript floating-point display and inventory expected outputs were corrected."
+          "Canonical calculations were checked for the tip example, score total and average, and inventory value; the JavaScript floating-point display and inventory expected outputs were corrected.",
+          "GitHub Actions run 41344284538 passed on commit 593759ad2256991256272da8a81056e46d4d49ba using the committed structural and syntax checker."
         ],
         "not_yet_verified": [
           "Execute all 63 examples under the documented Node.js 26 runtime; V8 syntax parsing is not a Node.js runtime test.",
