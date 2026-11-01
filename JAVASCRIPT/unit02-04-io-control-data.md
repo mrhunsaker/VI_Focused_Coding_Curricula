@@ -324,104 +324,6 @@ Read each result with its label. Preserve units in prompts and output. Ensure ma
 - [ ] I can calculate distance from the origin.
 - [ ] I can distinguish ceiling, floor, and rounding.
 
-
-### Lesson 4.3: Tuples — Immutable Sequences in JavaScript
-
-JavaScript has no built-in tuple type with Python's tuple semantics. Use a frozen array for a simple fixed sequence, while explaining that `Object.freeze()` is shallow and does not create a general-purpose static tuple type.
-
-```javascript
-const coordinates = Object.freeze([3, 4]);
-console.log(`x: ${coordinates[0]}`);
-console.log(`y: ${coordinates[1]}`);
-console.log(`Distance: ${Math.hypot(coordinates[0], coordinates[1])}`);
-```
-
-Expected output:
-```text
-x: 3
-y: 4
-Distance: 5
-```
-
-**Common Mistakes:** assuming `const` freezes array contents; assuming `Object.freeze()` is deep; confusing fixed sequence intent with a language-enforced tuple type.
-
-**Activities:** create a frozen coordinate pair; read each coordinate; attempt reassignment in strict mode and describe the result; compare the frozen pair with a mutable score array.
-
-**Accessibility Practice:** identify each position by its semantic name (x or y), not only by index.
-
-**Skills Checklist**
-- [ ] I can explain why JavaScript has no direct Python tuple equivalent.
-- [ ] I can use a frozen array for a fixed sequence.
-- [ ] I can distinguish `const` binding from object immutability.
-
-### Lesson 4.4: Introducing Dictionaries — JavaScript Objects and Map
-
-A plain object is appropriate for a record with named fields; `Map` is appropriate for a dynamic key-value collection. Use the canonical inventory records and preserve their values.
-
-```javascript
-const inventory = [
-  { name: "Notebook", quantity: 3, unitPrice: 2.50 },
-  { name: "Pencil", quantity: 10, unitPrice: 0.50 },
-  { name: "Folder", quantity: 4, unitPrice: 1.25 }
-];
-
-const quantities = new Map(inventory.map(item => [item.name, item.quantity]));
-console.log(quantities.get("Notebook"));
-console.log(quantities.has("Pencil"));
-```
-
-Expected output:
-```text
-3
-true
-```
-
-**Common Mistakes:** confusing object properties with Map entries; using bracket notation on a Map; assuming a missing key returns zero rather than `undefined`.
-
-**Activities:** build a record for each inventory item; create a Map from item names to quantities; update the Pencil quantity; calculate total inventory value.
-
-**Accessibility Practice:** print item names, quantities, and prices as labeled text.
-
-**Skills Checklist**
-- [ ] I can explain when to use an object and when to use Map.
-- [ ] I can add, retrieve, update, and test Map entries.
-- [ ] I can represent the canonical inventory records.
-
-### Lesson 4.5: Looping Through Objects and Maps
-
-```javascript
-const student = {
-  name: "Avery",
-  age: 16,
-  heightM: 1.72,
-  favoriteSubject: "Computer Science"
-};
-
-for (const [key, value] of Object.entries(student)) {
-  console.log(`${key}: ${value}`);
-}
-```
-
-Expected output:
-```text
-name: Avery
-age: 16
-heightM: 1.72
-favoriteSubject: Computer Science
-```
-
-**Common Mistakes:** iterating over object keys when key-value pairs are needed; modifying a collection during traversal; assuming Map and object iteration APIs are interchangeable.
-
-**Activities:** print every Avery profile field; iterate over inventory Map entries; produce a total count of inventory units; compare `Object.keys()`, `Object.values()`, and `Object.entries()`.
-
-**Accessibility Practice:** provide one key-value pair per line and announce when iteration begins and ends.
-
-**Skills Checklist**
-- [ ] I can traverse object keys, values, and entries.
-- [ ] I can traverse Map entries.
-- [ ] I can produce readable sequential reports from structured data.
-
-
 # Unit 3: Control Flow — Decisions, Lists, and Strings
 
 ## Overview
@@ -785,4 +687,98 @@ Label each result as original, sorted, reversed, or filtered. Avoid presenting t
 - [ ] I can filter an array.
 - [ ] I can explain shallow copying.
 
+## Lesson 4.3: Tuples — Immutable Sequences in JavaScript
 
+JavaScript has no built-in tuple type with Python's tuple semantics. Use a frozen array for a simple fixed sequence, while explaining that `Object.freeze()` is shallow and does not create a general-purpose static tuple type.
+
+```javascript
+const coordinates = Object.freeze([3, 4]);
+console.log(`x: ${coordinates[0]}`);
+console.log(`y: ${coordinates[1]}`);
+console.log(`Distance: ${Math.hypot(coordinates[0], coordinates[1])}`);
+```
+
+Expected output:
+```text
+x: 3
+y: 4
+Distance: 5
+```
+
+**Common Mistakes:** assuming `const` freezes array contents; assuming `Object.freeze()` is deep; confusing fixed sequence intent with a language-enforced tuple type.
+
+**Activities:** create a frozen coordinate pair; read each coordinate; attempt reassignment in strict mode and describe the result; compare the frozen pair with a mutable score array.
+
+**Accessibility Practice:** identify each position by its semantic name (x or y), not only by index.
+
+**Skills Checklist**
+- [ ] I can explain why JavaScript has no direct Python tuple equivalent.
+- [ ] I can use a frozen array for a fixed sequence.
+- [ ] I can distinguish `const` binding from object immutability.
+
+## Lesson 4.4: Introducing Dictionaries — JavaScript Objects and Map
+
+A plain object is appropriate for a record with named fields; `Map` is appropriate for a dynamic key-value collection. Use the canonical inventory records and preserve their values.
+
+```javascript
+const inventory = [
+  { name: "Notebook", quantity: 3, unitPrice: 2.50 },
+  { name: "Pencil", quantity: 10, unitPrice: 0.50 },
+  { name: "Folder", quantity: 4, unitPrice: 1.25 }
+];
+
+const quantities = new Map(inventory.map(item => [item.name, item.quantity]));
+console.log(quantities.get("Notebook"));
+console.log(quantities.has("Pencil"));
+```
+
+Expected output:
+```text
+3
+true
+```
+
+**Common Mistakes:** confusing object properties with Map entries; using bracket notation on a Map; assuming a missing key returns zero rather than `undefined`.
+
+**Activities:** build a record for each inventory item; create a Map from item names to quantities; update the Pencil quantity; calculate total inventory value.
+
+**Accessibility Practice:** print item names, quantities, and prices as labeled text.
+
+**Skills Checklist**
+- [ ] I can explain when to use an object and when to use Map.
+- [ ] I can add, retrieve, update, and test Map entries.
+- [ ] I can represent the canonical inventory records.
+
+## Lesson 4.5: Looping Through Objects and Maps
+
+```javascript
+const student = {
+  name: "Avery",
+  age: 16,
+  heightM: 1.72,
+  favoriteSubject: "Computer Science"
+};
+
+for (const [key, value] of Object.entries(student)) {
+  console.log(`${key}: ${value}`);
+}
+```
+
+Expected output:
+```text
+name: Avery
+age: 16
+heightM: 1.72
+favoriteSubject: Computer Science
+```
+
+**Common Mistakes:** iterating over object keys when key-value pairs are needed; modifying a collection during traversal; assuming Map and object iteration APIs are interchangeable.
+
+**Activities:** print every Avery profile field; iterate over inventory Map entries; produce a total count of inventory units; compare `Object.keys()`, `Object.values()`, and `Object.entries()`.
+
+**Accessibility Practice:** provide one key-value pair per line and announce when iteration begins and ends.
+
+**Skills Checklist**
+- [ ] I can traverse object keys, values, and entries.
+- [ ] I can traverse Map entries.
+- [ ] I can produce readable sequential reports from structured data.
