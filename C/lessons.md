@@ -53,15 +53,10 @@ This unit covers computer science, hardware/software, algorithms, first program,
 - Modify and test the example independently.
 
 ### Concept Explanation
-Computer science and problem solving. C is a compiled procedural language for operating systems, embedded software, libraries, and performance-sensitive programs. The Python course provides the sequence and problem contexts; this lesson teaches the idiomatic C syntax and semantics. Pay particular attention to static or dynamic typing, mutability, indexing, parameter passing, errors, and resource lifetime where they differ from Python.
+Computer science is the study of representing problems and designing precise algorithms. Hardware includes the CPU, RAM, keyboard, and storage; software is the instructions and data executed by the machine. C is widely used for operating systems, embedded systems, libraries, and performance-sensitive programs. An algorithm must state inputs, processing steps, and outputs unambiguously.
 
 ### Worked Example
-```c
-#include <stdio.h>
-int main(void) { printf("Hello, World!\n"); return 0; }
-```
-
-**Trace:** identify declarations, expressions, control flow, and observable output. Predict the result, run the example, and compare the actual output with the prediction.
+Plan the canonical tip-calculator problem without coding: read a bill amount, calculate 15 percent of it, add the tip to the bill, and display both amounts. For a bill of $24.50, the unrounded tip is $3.675 and the unrounded total is $28.175. Displaying two decimal places yields $3.68 and $28.18.
 
 ### Common Mistakes
 - Copying Python syntax or assumptions instead of using idiomatic C constructs.
@@ -97,15 +92,18 @@ Navigate the complete source file by line, word, and character using the learner
 - Modify and test the example independently.
 
 ### Concept Explanation
-Your first program. C is a compiled procedural language for operating systems, embedded software, libraries, and performance-sensitive programs. The Python course provides the sequence and problem contexts; this lesson teaches the idiomatic C syntax and semantics. Pay particular attention to static or dynamic typing, mutability, indexing, parameter passing, errors, and resource lifetime where they differ from Python.
+A C program begins at `main`. `#include <stdio.h>` makes standard I/O declarations available. `puts` writes a string and newline. Braces delimit the function body and semicolons terminate statements. The compiler translates this source into an executable.
 
 ### Worked Example
 ```c
 #include <stdio.h>
-int main(void) { printf("Hello, World!\n"); return 0; }
+int main(void)
+{
+    puts("Hello, World!");
+    return 0;
+}
 ```
-
-**Trace:** identify declarations, expressions, control flow, and observable output. Predict the result, run the example, and compare the actual output with the prediction.
+Expected output: `Hello, World!` followed by a newline. Compile with `cc -std=c17 -Wall -Wextra -Wpedantic hello.c -o hello`.
 
 ### Common Mistakes
 - Copying Python syntax or assumptions instead of using idiomatic C constructs.
@@ -141,15 +139,23 @@ Navigate the complete source file by line, word, and character using the learner
 - Modify and test the example independently.
 
 ### Concept Explanation
-Variables and data types. C is a compiled procedural language for operating systems, embedded software, libraries, and performance-sensitive programs. The Python course provides the sequence and problem contexts; this lesson teaches the idiomatic C syntax and semantics. Pay particular attention to static or dynamic typing, mutability, indexing, parameter passing, errors, and resource lifetime where they differ from Python.
+C is statically typed. Use `int` for age, `double` for fractional measurements, `char` for one character, and a null-terminated character array or `const char *` for text. A C string buffer has a finite capacity and must include room for its terminating null character. Format specifiers in `printf` must match argument types.
 
 ### Worked Example
 ```c
 #include <stdio.h>
-int main(void) { printf("Hello, World!\n"); return 0; }
+int main(void)
+{
+    const char *name = "Avery";
+    int age = 16;
+    double height_m = 1.72;
+    const char *favorite = "Computer Science";
+    printf("Name: %s\nAge: %d\nHeight: %.2f m\nFavorite subject: %s\n",
+           name, age, height_m, favorite);
+    return 0;
+}
 ```
-
-**Trace:** identify declarations, expressions, control flow, and observable output. Predict the result, run the example, and compare the actual output with the prediction.
+Expected output labels Avery, 16, 1.72 m, and Computer Science on separate lines. `%s`, `%d`, and `%.2f` correspond to string, integer, and floating-point arguments.
 
 ### Common Mistakes
 - Copying Python syntax or assumptions instead of using idiomatic C constructs.
@@ -191,15 +197,10 @@ This unit covers development process, expressions, assignment, input/output, con
 - Modify and test the example independently.
 
 ### Concept Explanation
-Design and tracing. C is a compiled procedural language for operating systems, embedded software, libraries, and performance-sensitive programs. The Python course provides the sequence and problem contexts; this lesson teaches the idiomatic C syntax and semantics. Pay particular attention to static or dynamic typing, mutability, indexing, parameter passing, errors, and resource lifetime where they differ from Python.
+Use the design–implement–test cycle. Design identifies inputs, outputs, constraints, and edge cases; implementation translates the algorithm into C; testing compares actual behavior with expected behavior. Compile incrementally with warnings enabled and test both ordinary and boundary inputs.
 
 ### Worked Example
-```c
-double bill = 24.50; double tip = bill * 0.15;
-printf("Tip: %.2f; total: %.2f\n", tip, bill + tip);
-```
-
-**Trace:** identify declarations, expressions, control flow, and observable output. Predict the result, run the example, and compare the actual output with the prediction.
+For the canonical calculator, input is bill = 24.50 and rate = 0.15. Calculate tip = bill * rate and total = bill + tip. Expected unrounded values are 3.675 and 28.175; formatted to cents they appear as 3.68 and 28.18. Test zero, typical, and large bills.
 
 ### Common Mistakes
 - Copying Python syntax or assumptions instead of using idiomatic C constructs.
@@ -235,15 +236,23 @@ Navigate the complete source file by line, word, and character using the learner
 - Modify and test the example independently.
 
 ### Concept Explanation
-Expressions and assignment. C is a compiled procedural language for operating systems, embedded software, libraries, and performance-sensitive programs. The Python course provides the sequence and problem contexts; this lesson teaches the idiomatic C syntax and semantics. Pay particular attention to static or dynamic typing, mutability, indexing, parameter passing, errors, and resource lifetime where they differ from Python.
+Expressions combine operands and operators. C follows operator precedence; parentheses make intent explicit. Assignment (`=`) stores a value, while equality (`==`) compares values. Integer division discards the fractional part; at least one operand must be floating point for a fractional quotient.
 
 ### Worked Example
 ```c
-double bill = 24.50; double tip = bill * 0.15;
-printf("Tip: %.2f; total: %.2f\n", tip, bill + tip);
+#include <stdio.h>
+int main(void)
+{
+    int score = 50;
+    printf("Initial score: %d\n", score);
+    score = score + 20;
+    printf("New score: %d\n", score);
+    printf("Integer expression: %d\n", 10 / 3 + 3);
+    printf("Floating expression: %.2f\n", 10.0 / 3 + 3);
+    return 0;
+}
 ```
-
-**Trace:** identify declarations, expressions, control flow, and observable output. Predict the result, run the example, and compare the actual output with the prediction.
+Expected score values are 50 and 70. The integer expression is 6; the floating expression is approximately 6.33.
 
 ### Common Mistakes
 - Copying Python syntax or assumptions instead of using idiomatic C constructs.
@@ -279,15 +288,33 @@ Navigate the complete source file by line, word, and character using the learner
 - Modify and test the example independently.
 
 ### Concept Explanation
-Input and output. C is a compiled procedural language for operating systems, embedded software, libraries, and performance-sensitive programs. The Python course provides the sequence and problem contexts; this lesson teaches the idiomatic C syntax and semantics. Pay particular attention to static or dynamic typing, mutability, indexing, parameter passing, errors, and resource lifetime where they differ from Python.
+Use `printf` for formatted output. For line input, use `fgets` with a fixed-size buffer and check its return value. Convert numeric text with `strtol` or `strtod`; do not assume input is valid. Unlike Python's `input`, C input requires explicit buffer management and conversion.
 
 ### Worked Example
 ```c
-double bill = 24.50; double tip = bill * 0.15;
-printf("Tip: %.2f; total: %.2f\n", tip, bill + tip);
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+int main(void)
+{
+    char name[80], line[80], *end;
+    long first, second;
+    printf("Name: ");
+    if (!fgets(name, sizeof name, stdin)) return 1;
+    name[strcspn(name, "\n")] = '\0';
+    printf("First whole number: ");
+    if (!fgets(line, sizeof line, stdin)) return 1;
+    first = strtol(line, &end, 10);
+    if (end == line) { puts("Invalid number."); return 1; }
+    printf("Second whole number: ");
+    if (!fgets(line, sizeof line, stdin)) return 1;
+    second = strtol(line, &end, 10);
+    if (end == line) { puts("Invalid number."); return 1; }
+    printf("Hello, %s!\nSum: %ld\n", name, first + second);
+    return 0;
+}
 ```
-
-**Trace:** identify declarations, expressions, control flow, and observable output. Predict the result, run the example, and compare the actual output with the prediction.
+For inputs Avery, 12, and 8, output includes `Hello, Avery!` and `Sum: 20`. A production parser should also validate trailing characters and range errors.
 
 ### Common Mistakes
 - Copying Python syntax or assumptions instead of using idiomatic C constructs.
