@@ -1,28 +1,38 @@
 # Introduction to Kotlin
 
-## Standalone beginner curriculum
+## Standardized beginner curriculum
 
-Kotlin is a statically typed general-purpose language with concise syntax, null-safety features, and first-class support for the Java Virtual Machine (JVM). This is a complete introductory path and does not require prior Java experience.
+This course is a Kotlin/JVM parallel track aligned to the shared 12-unit, 57-lesson sequence. It assumes no prior Java experience. Kotlin is statically typed, supports nullable and non-nullable types, and interoperates with Java libraries on the JVM.
 
-## Where Kotlin is used
+## Toolchain
 
-Kotlin is used for Android applications, server-side services, command-line tools, JVM libraries, and multiplatform applications. It is useful when teams want concise, statically checked code and access to the Java ecosystem. Kotlin Multiplatform and Kotlin/Native support targets beyond the JVM, with platform-specific APIs and build workflows.
+- Use a supported JDK; the course Java pathway baseline is JDK 25 LTS.
+- Use Kotlin compiler/plugin 2.4.21 for the documented course baseline; check the [Kotlin release process](https://kotlinlang.org/docs/releases.html) before changing versions.
+- Verify the compiler with `kotlinc -version` and the runtime with `java -version`.
+- For a single file: `kotlinc Hello.kt -include-runtime -d hello.jar`, then `java -jar hello.jar`.
+- For multi-file work, use the Gradle wrapper and Kotlin/JVM plugin. Commit the wrapper so the build version is reproducible.
 
-## What information is a good fit?
+## Course files
 
-Kotlin suits typed application models, user and business records, JSON/API payloads, structured configuration, database-backed entities, and asynchronous application state. Nullable types make missing values explicit, but data from files, networks, databases, and Java APIs still requires runtime validation.
+- [Unit 0–1: setup and foundations](unit00-01-setup-foundations.md)
+- [Unit 2–4: expressions, control flow, and collections](unit02-04-io-control-data.md)
+- [Unit 5–8: input, functions, OOP, and files](unit05-08-strings-functions-oop-files.md)
+- [Unit 9–11: testing, analysis, and projects](unit09-11-collections-projects.md)
+- [Complete standalone Kotlin reference lessons](lessons.md)
+- [57-topic index](INDEX.md)
+- [Teacher guide](teachers-guide.md)
+- [Standardization audit](standardization-audit.md)
 
-## Lessons
+## Kotlin semantics emphasized
 
-1. Kotlin toolchain, source files, and JVM execution.
-2. Variables, types, inference, and expressions.
-3. Nullable types, safe calls, and Elvis expressions.
-4. Input, validation, and control flow.
-5. Functions, parameters, and scope.
-6. Classes, properties, constructors, and data classes.
-7. Collections, lambdas, and standard-library operations.
-8. Files, exceptions, and Java interoperability.
-9. Coroutines overview, testing, and debugging.
-10. Capstone and project organization.
+Teach `val` versus `var`, static typing and inference, explicit numeric conversions, nullable types, safe calls (`?.`), Elvis expressions (`?:`), and the risk of not-null assertions (`!!`). Kotlin has no general tuple syntax; use named data classes, Pair, or Triple as appropriate. Distinguish read-only collection interfaces from mutable collections. Kotlin classes are final by default; inheritance requires deliberate `open` declarations. Use `use` for resource-safe operations and maintained libraries for JSON and CSV.
 
-See [Kotlin lessons](lessons.md) and [topic index](INDEX.md). Explain symbols such as question mark, safe-call, Elvis, not-null assertion, and arrow explicitly. Expand complex expressions when doing so improves comprehension.
+## Accessibility baseline
+
+Use keyboard-first editor and terminal workflows. Verify the selected Kotlin language server, diagnostics, Gradle tasks, and screen-reader announcements with the learner's actual access technology. Explain punctuation and indentation explicitly. Prefer named intermediate values and short functions over deeply nested expressions. The default capstone interface is text-first; a GUI is not required to demonstrate the shared data operations.
+
+## Assessment and AI-use policy
+
+Assess conceptual understanding, independent tracing, testing, explanation, and accessible tool use. AI may support conceptual understanding and reinforcement only; it must not generate, complete, repair, refactor, or write course code or assessment solutions for students or instructors.
+
+The lesson files provide the aligned instructional structure. The audit records what has and has not been verified; structural completeness is not a claim that every example or full application has passed runtime tests.
