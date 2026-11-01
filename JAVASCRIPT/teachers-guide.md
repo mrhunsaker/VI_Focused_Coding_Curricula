@@ -670,7 +670,7 @@ This pattern is essential for working with real-world data where fields may be m
 
 ---
 
-## 9. Unit 5: Strings
+## 9. Unit 3, Lesson 3.5: Strings
 
 #### Instructional Cues
 
@@ -716,6 +716,22 @@ Teach `\w+` (word characters), `\d+` (digits), `\s+` (whitespace), and the `g` a
 2. _"String immutability in JavaScript (same as Python) means every `.toUpperCase()`, `.replace()`, and `.slice()` creates a new string. For a loop that builds a long string incrementally, what is the efficient alternative? (Hint: consider `Array.push()` + `.join()` as a form of StringBuilder.)"_
 
 ---
+
+## Unit 5: User Input and `while` Loops
+
+### Teaching emphasis
+Teach the asynchronous nature of Node.js terminal input explicitly. Students should understand that `readline/promises` returns a Promise and that `await` pauses the async function until a response is received. Contrast the input API with Python's synchronous `input()` without implying that one language's syntax is universal.
+
+### Instructional cues
+- Model the lifecycle: create the readline interface, ask a question, await the response, validate the string, and close the interface in `finally`.
+- Require learners to identify the loop's termination condition before running a `while` loop.
+- Use the canonical scores [82, 91, 76, 88] for accumulation and search examples.
+- Demonstrate sentinel values, Boolean flags, `break`, and `continue` as separate control-flow tools.
+- When debugging a possible infinite loop, have learners trace the control variable and every branch that can bypass its update.
+
+### Accessibility practice
+Use explicit prompts, one response per line, and clear termination messages. Do not rely on terminal color or cursor position to communicate state. Provide a keyboard-only recovery strategy for stopping a runaway process.
+
 
 ## 10. Unit 6: Functions
 
@@ -892,7 +908,7 @@ _"Private fields starting with `#` are truly private --- not just conventional p
 
 ---
 
-## 12. Unit 8: Files, Modules, and Error Handling
+## 12. Unit 8: Files and Exceptions
 
 ### Lesson 8.1: Files
 
@@ -927,7 +943,7 @@ if (fs.existsSync(dataFile)) {
 
 Always check existence before reading. The alternative --- catching `ENOENT` in a try-catch --- works but puts normal "first run" behavior in the error path.
 
-### Lesson 8.3: CommonJS Modules
+### Supplementary Note: CommonJS Modules
 
 **Module design for accessibility:**
 
@@ -966,9 +982,9 @@ _"Everything not in `module.exports` is private to this file. Other files can us
 
 ---
 
-## 13. Unit 9: Collections, Analysis, and Testing
+## 13. Unit 9: Testing and Data Analysis
 
-### Jest Testing
+### Node.js Testing with `node:test` (Jest as an Optional Extension)
 
 #### Instructional Cues
 
