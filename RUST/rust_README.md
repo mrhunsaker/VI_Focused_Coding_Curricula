@@ -21,3 +21,7 @@ The Unit 0–11 manuscript now has four complete setup lessons and 53 numbered l
 ### Validation
 
 scripts/check_rust_examples.py compiles and smoke-runs every fenced Rust example with rustc --edition=2024 -D warnings. The GitHub Actions workflow .github/workflows/rust-examples.yml runs this check on relevant changes. Passing establishes compilation and successful process exit, not expected-output correctness, complete capstone behavior, or assistive-technology certification. See VALIDATION.md for current status.
+
+## GUI, visualization, and workbench accessibility
+
+See the shared [GUI, visualization, and workbench accessibility reference](../DEVELOPMENT/GUI_VISUALIZATION_ACCESSIBILITY.md) for screen-reader support by toolkit, platform-specific activation settings, recommended alternatives, and interfaces that must not be required without an equivalent accessible route.
