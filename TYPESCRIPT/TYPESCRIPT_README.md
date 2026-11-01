@@ -15,7 +15,8 @@ By the end of this curriculum, learners should be able to:
 - Write TypeScript programs using variables, primitive values, expressions, and output.
 - Explain TypeScript's compile-time type checking and JavaScript's runtime coercion, truthy/falsy values, `undefined`, `null`, and `NaN`.
 - Accept and validate terminal input using Node.js input mechanisms.
-- Use decisions, loops, arrays, objects, strings, and common collection operations.
+- Use decisions, loops, arrays, readonly tuples, typed objects, interfaces, Maps, and common collection operations.
+- Use union types, generic types, discriminated unions, and type guards to model and validate data.
 - Design functions and use parameters, return values, scope, and closures.
 - Explain classes and object-oriented programming at an introductory level.
 - Work with files, modules, errors, and asynchronous operations introduced by the curriculum.
@@ -49,7 +50,7 @@ TypeScript adds static checking, but its emitted JavaScript still has JavaScript
 | 0. Environment setup | Node.js, editor setup, terminal, first file, REPL | Verify Node.js and run a script |
 | 1. Foundations | Computer science, TypeScript role, variables, output, values and types | Explain a simple script and its values |
 | 2. Numbers and input | Math operations, Node.js input, conversion, and validation | Build an interactive terminal calculation |
-| 3. Control flow | Boolean logic, conditionals, loops, truthy/falsy behavior | Predict and control program paths |
+| 3. Control flow | Boolean logic, grade classification, arrays, iteration, and string operations | Predict and control program paths |
 | 4. Arrays and objects | Collections, indexed data, properties, and iteration | Organize and process related data |
 | 5. User input and loops | Typed terminal input, validation, while loops, flags, break, and continue | Build a robust interactive loop |
 | 6. Functions | Function forms, parameters, return values, scope, and closures | Decompose a problem into reusable functions |
@@ -58,6 +59,8 @@ TypeScript adds static checking, but its emitted JavaScript still has JavaScript
 | 9. Testing and data analysis | node:test, class tests, random values, text frequency, and CSV parsing | Verify behavior and summarize structured data |
 | 10. Project-based learning | Text-based applications and incremental design | Implement a multi-feature project |
 | 11. Capstone | Integration, testing, documentation, and explanation | Demonstrate an independent solution |
+
+The course contains **57 mapped lesson sections across Units 0–11**. Each substantive lesson includes references, objectives, a concept explanation, a TypeScript worked example, expected behavior, common mistakes, activities, accessibility practice, and a skills checklist.
 
 ## Materials and navigation
 
@@ -164,6 +167,16 @@ The capstone should include a written problem statement, requirements, input/out
 For student coursework and assessments, AI may be used only to support personal conceptual understanding and reinforcement. It may explain a language concept, clarify terminology, or help a learner understand a compiler diagnostic at a conceptual level. It must not write, autocomplete, repair, complete, refactor, or generate course code, project code, test solutions, or assessment answers. It must not provide a ready-to-submit algorithm or implementation.
 
 The learner must write and debug all course code independently. Accessibility tools that provide keyboard navigation, screen-reader output, braille access, magnification, or speech input are not prohibited answer-generation tools. Instructors remain responsible for following institutional policy and protecting student information. See the [teacher's guide](teachers-guide.md) for implementation guidance.
+
+## Repeatable curriculum validation
+
+The repository includes a strict TypeScript checker and GitHub Actions workflow. From the repository root, install the documented checker dependencies and run:
+
+```sh
+node scripts/check_typescript_curriculum.mjs
+```
+
+The checker verifies all 57 lesson structures and type-checks isolated TypeScript examples in strict mode. It does not execute examples or assert their expected output; runtime and end-to-end testing remain separate verification tasks.
 
 ## Further learning
 
