@@ -756,3 +756,104 @@ The program prints Plan. The record retains the six shared capstone fields; full
 - [ ] I can navigate and understand the lesson with keyboard and screen-reader output.
 
 ---
+
+### Lesson 11.4: Searching, Updating, and Deleting Records
+
+#### Reading References
+- [Kotlin documentation](https://kotlinlang.org/docs/home.html)
+- Shared capstone acceptance criteria and accessible interface requirements.
+
+#### Learning Objectives
+- Implement search, update, and delete operations using stable record identifiers and clearly defined matching rules.
+- Preserve the shared record schema and user-facing behavior.
+- Verify the operation with deterministic tests.
+
+#### Concept Explanation
+Treat each operation as a defined state transition. Validate input before changing stored data, preserve identifiers, update timestamps consistently, and report success or failure in text. A terminal menu is an appropriate Kotlin/JVM implementation; a visual interface is not required.
+
+#### Worked Example
+```kotlin
+data class Record(val id: Int, val title: String, val done: Boolean)
+val records = mutableListOf(Record(1, "Plan", false))
+val updated = records.map { record ->
+    if (record.id == 1) record.copy(done = true) else record
+}
+println(updated)
+```
+
+#### Expected Behavior or Output
+The record with identifier 1 is returned with done=true; unrelated records remain unchanged.
+
+#### Common Mistakes
+- Updating the wrong record when identifiers are duplicated or missing.
+- Mutating stored data before validation succeeds.
+- Reporting success when persistence fails.
+- Omitting a regression test for the state transition.
+
+#### Activities
+1. Specify preconditions and postconditions for the operation.
+2. Test an existing identifier, an unknown identifier, and an empty collection.
+3. Verify that unrelated records remain unchanged.
+4. Add a persistence round-trip test.
+
+#### Accessibility Practice
+Use explicit menu labels, predictable result messages, and keyboard-operable commands. Announce validation failures and successful state changes in text; never communicate state only through color or position.
+
+#### Skills Checklist
+- [ ] I can explain the operation's preconditions and postconditions.
+- [ ] I can preserve the shared record schema.
+- [ ] I can test success, missing-record, and invalid-input cases.
+- [ ] I can verify the operation using keyboard and screen-reader output.
+
+---
+
+### Lesson 11.5: Completion State, Persistence, and Acceptance Tests
+
+#### Reading References
+- [Kotlin documentation](https://kotlinlang.org/docs/home.html)
+- Shared capstone acceptance criteria and accessible interface requirements.
+
+#### Learning Objectives
+- Implement completion-state changes and verify the complete CRUD workflow, JSON persistence, and accessible text feedback.
+- Preserve the shared record schema and user-facing behavior.
+- Verify the operation with deterministic tests.
+
+#### Concept Explanation
+Treat each operation as a defined state transition. Validate input before changing stored data, preserve identifiers, update timestamps consistently, and report success or failure in text. A terminal menu is an appropriate Kotlin/JVM implementation; a visual interface is not required.
+
+#### Worked Example
+```kotlin
+data class Record(val id: Int, val title: String, val done: Boolean)
+val records = mutableListOf(Record(1, "Plan", false))
+val updated = records.map { record ->
+    if (record.id == 1) record.copy(done = true) else record
+}
+println(updated)
+```
+
+#### Expected Behavior or Output
+The record with identifier 1 is returned with done=true; unrelated records remain unchanged.
+
+#### Common Mistakes
+- Updating the wrong record when identifiers are duplicated or missing.
+- Mutating stored data before validation succeeds.
+- Reporting success when persistence fails.
+- Omitting a regression test for the state transition.
+
+#### Activities
+1. Specify preconditions and postconditions for the operation.
+2. Test an existing identifier, an unknown identifier, and an empty collection.
+3. Verify that unrelated records remain unchanged.
+4. Add a persistence round-trip test.
+
+#### Accessibility Practice
+Use explicit menu labels, predictable result messages, and keyboard-operable commands. Announce validation failures and successful state changes in text; never communicate state only through color or position.
+
+#### Skills Checklist
+- [ ] I can explain the operation's preconditions and postconditions.
+- [ ] I can preserve the shared record schema.
+- [ ] I can test success, missing-record, and invalid-input cases.
+- [ ] I can verify the operation using keyboard and screen-reader output.
+
+---
+
