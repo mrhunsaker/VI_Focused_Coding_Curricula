@@ -19,7 +19,7 @@ Run locally with JDK 25:
 python3 scripts/check_java_examples.py
 ```
 
-The checker extracts every fenced Java example, writes it into an isolated temporary directory, compiles it independently with `javac --release 25 -Xlint:all`, and runs it with assertions enabled. GitHub Actions workflow: [java-examples.yml](../.github/workflows/java-examples.yml).
+The checker extracts every fenced Java example, writes it into an isolated temporary directory, compiles it independently with `javac --release 25 -Xlint:all`, and runs it with assertions enabled. Final workflow run [41337829888](https://github.com/mrhunsaker/VI_Focused_Coding_Curricula/actions/runs/41337829888) passed on Temurin JDK 25.0.5: all 57 examples compiled and smoke-executed independently. Workflow: [java-examples.yml](../.github/workflows/java-examples.yml).
 
 This is a compile and smoke-execution check. It does not assert exact output, prove robust behavior for malformed input, or substitute for end-to-end project tests.
 
