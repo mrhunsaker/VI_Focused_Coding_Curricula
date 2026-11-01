@@ -233,7 +233,7 @@ Plan the canonical tip-calculator problem without coding: read a bill amount, ca
 1. Write the tip-calculator algorithm as input, processing, and output steps, then calculate the unrounded values for a $24.50 bill.
 2. Identify the input validation rule for a negative bill and an invalid tip rate.
 3. Explain why formatting a monetary result to two decimals is different from rounding every intermediate calculation.
-
+4. Write an acceptance-test note for "Computer science and problem solving": state the exact input or source change and the expected observable result.
 ### Accessibility Practice
 Navigate the complete source file by line, word, and character using the learner's access technology. Read punctuation and indentation, run from the terminal, and inspect standard output and errors sequentially.
 
@@ -277,7 +277,7 @@ Expected output: `Hello, World!` followed by a newline. Compile with `cc -std=c1
 1. Compile the hello program with C17 and all requested warnings; record every diagnostic.
 2. Change the greeting and add a second output line, predicting the exact line order.
 3. Remove a semicolon in a disposable copy, compile, and use the diagnostic to locate the syntax error.
-
+4. Write an acceptance-test note for "Your first program": state the exact input or source change and the expected observable result.
 ### Accessibility Practice
 Navigate the complete source file by line, word, and character using the learner's access technology. Read punctuation and indentation, run from the terminal, and inspect standard output and errors sequentially.
 
@@ -326,7 +326,7 @@ Expected output labels Avery, 16, 1.72 m, and Computer Science on separate lines
 1. Add student ID and a middle initial to Avery's profile, selecting appropriate C types.
 2. Print the height using `%.1f`, `%.2f`, and `%.3f` and compare the displayed precision.
 3. Explain why the string buffer size must include the terminating null byte.
-
+4. Write an acceptance-test note for "Variables and data types": state the exact input or source change and the expected observable result.
 ### Accessibility Practice
 Navigate the complete source file by line, word, and character using the learner's access technology. Read punctuation and indentation, run from the terminal, and inspect standard output and errors sequentially.
 
@@ -362,7 +362,7 @@ For the canonical calculator, input is bill = 24.50 and rate = 0.15. Calculate t
 1. Write pseudocode for the $24.50 bill and 15% tip, naming each input and intermediate result.
 2. Create acceptance cases for bills 0.00, 24.50, and -1.00.
 3. Trace the values 24.50, 0.15, 3.675, and 28.175 in order.
-
+4. Record the exact expected numeric result before running the modified program; include 3.675 tip and 28.175 total before two-decimal display where the calculator context applies.
 ### Accessibility Practice
 Navigate the complete source file by line, word, and character using the learner's access technology. Read punctuation and indentation, run from the terminal, and inspect standard output and errors sequentially.
 
@@ -411,7 +411,7 @@ Expected score values are 50 and 70. The integer expression is 6; the floating e
 1. Predict the results of `10 / 3`, `10.0 / 3`, and `10 / 3.0` before compiling.
 2. Rewrite a compound expression with parentheses to show the intended precedence.
 3. Change the score assignment from 50 to 70 and trace the printed values.
-
+4. Record the exact expected numeric result before running the modified program; include 3.675 tip and 28.175 total before two-decimal display where the calculator context applies.
 ### Accessibility Practice
 Navigate the complete source file by line, word, and character using the learner's access technology. Read punctuation and indentation, run from the terminal, and inspect standard output and errors sequentially.
 
@@ -470,7 +470,7 @@ For inputs Avery, 12, and 8, output includes `Hello, Avery!` and `Sum: 20`. A pr
 1. Enter Avery, 12, and 8; verify the greeting and sum.
 2. Enter a name containing spaces and confirm that the entire line is retained.
 3. Extend the parser to reject `12abc`, blank input, and an out-of-range integer.
-
+4. Record the exact expected numeric result before running the modified program; include 3.675 tip and 28.175 total before two-decimal display where the calculator context applies.
 ### Accessibility Practice
 Navigate the complete source file by line, word, and character using the learner's access technology. Read punctuation and indentation, run from the terminal, and inspect standard output and errors sequentially.
 
@@ -519,7 +519,7 @@ Expected values: 32, 68.5, 2, and 2.5. Extend the example to reject trailing cha
 1. Predict the results for age 16 and weight 52.5 before running the conversion example.
 2. Convert -2.9 to an integer and explain truncation toward zero.
 3. Add end-pointer and `errno` checks for malformed and out-of-range text.
-
+4. Record the exact expected numeric result before running the modified program; include 3.675 tip and 28.175 total before two-decimal display where the calculator context applies.
 ### Accessibility Practice
 Navigate the complete source file by line, word, and character using the learner's access technology. Read punctuation and indentation, run from the terminal, and inspect standard output and errors sequentially.
 
@@ -577,7 +577,7 @@ Expected output: area 78.54, circumference 31.42, and distance 5.00. Compile wit
 1. Change the radius to 2.5 and predict area and circumference.
 2. Calculate `sqrt(81.0)`, `ceil(4.2)`, and `floor(4.8)` by hand and verify.
 3. Add validated radius input and reject negative values.
-
+4. Record the exact expected numeric result before running the modified program; include 3.675 tip and 28.175 total before two-decimal display where the calculator context applies.
 ### Accessibility Practice
 Read the complete source line by line and inspect the punctuation in the function calls and arithmetic expressions. Run the compile command in the terminal and read compiler or linker diagnostics sequentially. Confirm that each output label identifies its value without relying on visual formatting.
 
@@ -633,7 +633,7 @@ Expected output: `Meets the course criteria.` and `Score is not negative.`
 1. Evaluate the score/attendance condition for (82,95), (69,95), and (82,70).
 2. Create an expression where `&&` short-circuits and explain which operand is skipped.
 3. Add a test for score zero and explain C's truth-value convention.
-
+4. Write expected results for the shared scores 82, 91, 76, and 88, and include at least one boundary condition for the concept.
 ### Accessibility Practice
 Navigate the complete source file by line, word, and character using the learner's access technology. Read punctuation and indentation, run from the terminal, and inspect standard output and errors sequentially.
 
@@ -688,7 +688,7 @@ Expected mapping: 91/A, 90/A, 82/B, 80/B, 76/C, 70/C, 60/D, 0/F; -1 and 101 are 
 1. Run the grade function for 91, 90, 82, 80, 76, 70, 60, and 0.
 2. Add tests for 89, 79, 69, and 59 and predict the grade at each boundary.
 3. Verify that -1 and 101 are rejected rather than assigned a grade.
-
+4. Write expected results for the shared scores 82, 91, 76, and 88, and include at least one boundary condition for the concept.
 ### Accessibility Practice
 Navigate the complete source file by line, word, and character using the learner's access technology. Read punctuation and indentation, run from the terminal, and inspect standard output and errors sequentially.
 
@@ -736,7 +736,7 @@ Expected output: first 82, last 88, count 4, updated third score 80.
 1. Print each score with both its zero-based index and one-based position.
 2. Change the third score from 76 to 80 and verify the updated array.
 3. Explain why the valid indices for four elements are 0 through 3.
-
+4. Write expected results for the shared scores 82, 91, 76, and 88, and include at least one boundary condition for the concept.
 ### Accessibility Practice
 Navigate the complete source file by line, word, and character using the learner's access technology. Read punctuation and indentation, run from the terminal, and inspect standard output and errors sequentially.
 
@@ -784,7 +784,7 @@ Expected total: 337; average: 84.25.
 1. Trace the index, running total, and output for each of the four scores.
 2. Count scores greater than or equal to 80 and report the result.
 3. Calculate the average using integer division and floating-point division; compare.
-
+4. Write expected results for the shared scores 82, 91, 76, and 88, and include at least one boundary condition for the concept.
 ### Accessibility Practice
 Navigate the complete source file by line, word, and character using the learner's access technology. Read punctuation and indentation, run from the terminal, and inspect standard output and errors sequentially.
 
@@ -836,7 +836,7 @@ Expected byte length: 75; substring result: yes. The cast to `unsigned char` is 
 1. Print the byte length and lowercase form of the canonical text sample.
 2. Count occurrences of `programming` and test a missing substring.
 3. Add a non-ASCII UTF-8 character and explain why byte length is not character count.
-
+4. Write expected results for the shared scores 82, 91, 76, and 88, and include at least one boundary condition for the concept.
 ### Accessibility Practice
 Navigate the complete source file by line, word, and character using the learner's access technology. Read punctuation and indentation, run from the terminal, and inspect standard output and errors sequentially.
 
@@ -884,7 +884,7 @@ Expected output: `Count: 6; last: 84`. The array has capacity 8 and currently co
 1. Append 95 and 84 while tracking count separately from capacity.
 2. Attempt to append beyond capacity and design a safe rejection or growth policy.
 3. Sketch a `realloc` helper that checks failure without losing the original pointer.
-
+4. Write a small test case that proves the collection count and capacity remain distinct and that all inventory fields stay associated.
 ### Accessibility Practice
 Navigate the complete source file by line, word, and character using the learner's access technology. Read punctuation and indentation, run from the terminal, and inspect standard output and errors sequentially.
 
@@ -938,7 +938,7 @@ Expected ascending order: 76 82 88 91. Reverse traversal prints descending order
 1. Sort scores and verify the order 76, 82, 88, 91.
 2. Change the comparator to descending order and test equal values.
 3. Sort inventory records by quantity without separating fields from their item.
-
+4. Write a small test case that proves the collection count and capacity remain distinct and that all inventory fields stay associated.
 ### Accessibility Practice
 Navigate the complete source file by line, word, and character using the learner's access technology. Read punctuation and indentation, run from the terminal, and inspect standard output and errors sequentially.
 
@@ -984,7 +984,7 @@ Expected output: x: 3 and y: 4. `const` prevents modifying the fields through th
 1. Create a `Point` record for coordinates (3,4) and calculate its distance.
 2. Compare designated and positional initialization for the same record.
 3. Add a pointer member and explain why a struct copy is not a deep copy.
-
+4. Write a small test case that proves the collection count and capacity remain distinct and that all inventory fields stay associated.
 ### Accessibility Practice
 Navigate the complete source file by line, word, and character using the learner's access technology. Read punctuation and indentation, run from the terminal, and inspect standard output and errors sequentially.
 
@@ -1031,7 +1031,7 @@ Expected records: Notebook 3 at $2.50; Pencil 10 at $0.50; Folder 4 at $1.25.
 1. Search the inventory for `Pencil` and display quantity and unit price.
 2. Search for a missing key and report not found without using an invalid index.
 3. Explain when an array scan becomes inefficient and a hash table is justified.
-
+4. Write a small test case that proves the collection count and capacity remain distinct and that all inventory fields stay associated.
 ### Accessibility Practice
 Navigate the complete source file by line, word, and character using the learner's access technology. Read punctuation and indentation, run from the terminal, and inspect standard output and errors sequentially.
 
@@ -1081,7 +1081,7 @@ Expected inventory values: $7.50, $5.00, and $5.00.
 1. Print all inventory items and calculate each quantity-times-price value.
 2. Write a helper that receives a `const Item *` and explain the `->` operator.
 3. Test the function with zero items and with all three inventory records.
-
+4. Write a small test case that proves the collection count and capacity remain distinct and that all inventory fields stay associated.
 ### Accessibility Practice
 Navigate the complete source file by line, word, and character using the learner's access technology. Read punctuation and indentation, run from the terminal, and inspect standard output and errors sequentially.
 
@@ -1137,7 +1137,7 @@ For input 82, output is `Accepted score: 82`; invalid values cause another promp
 1. Verify that 0, 82, and 100 are accepted as scores.
 2. Verify that -1, 101, blank input, and `82abc` are rejected.
 3. Test a value outside the range of `long` and check overflow handling.
-
+4. Write a trace table for one valid input, one rejected input, and the exact state at loop termination.
 ### Accessibility Practice
 Navigate the complete source file by line, word, and character using the learner's access technology. Read punctuation and indentation, run from the terminal, and inspect standard output and errors sequentially.
 
@@ -1187,7 +1187,7 @@ For input 82, 91, -1, the running totals are 82 and 173; final total is 173. Thi
 1. Enter 82, 91, and -1 and trace the running total after each accepted score.
 2. Enter -1 first and verify that the final total is zero.
 3. Enter a nonnumeric token and explain why the unchecked `scanf` loop is not robust.
-
+4. Write a trace table for one valid input, one rejected input, and the exact state at loop termination.
 ### Accessibility Practice
 Navigate the complete source file by line, word, and character using the learner's access technology. Read punctuation and indentation, run from the terminal, and inspect standard output and errors sequentially.
 
@@ -1236,7 +1236,7 @@ Expected output: `Score found.` Change the search value to 100 to exercise the n
 1. Search for 76 and trace when the flag changes and when the loop breaks.
 2. Search for 100 and verify the not-found branch.
 3. Rewrite the search as a function returning the matching index or -1.
-
+4. Write a trace table for one valid input, one rejected input, and the exact state at loop termination.
 ### Accessibility Practice
 Navigate the complete source file by line, word, and character using the learner's access technology. Read punctuation and indentation, run from the terminal, and inspect standard output and errors sequentially.
 
@@ -1284,7 +1284,7 @@ Expected output: Passing score: 82, 91, and 88, each on its own line.
 1. Filter the scores and print only values greater than or equal to 80.
 2. Change the threshold to 90 and predict the remaining values.
 3. Rewrite the loop without `continue` and compare the trace.
-
+4. Write a trace table for one valid input, one rejected input, and the exact state at loop termination.
 ### Accessibility Practice
 Navigate the complete source file by line, word, and character using the learner's access technology. Read punctuation and indentation, run from the terminal, and inspect standard output and errors sequentially.
 
@@ -1333,7 +1333,7 @@ Expected output: 3, 2, 1, then Finished. Removing `--remaining` creates a non-te
 1. Trace `remaining` from 3 to 0 and identify the terminating condition.
 2. Remove the decrement in a disposable copy and explain why it loops indefinitely.
 3. Add a maximum-iteration safeguard to a loop that processes untrusted input.
-
+4. Write a trace table for one valid input, one rejected input, and the exact state at loop termination.
 ### Accessibility Practice
 Navigate the complete source file by line, word, and character using the learner's access technology. Read punctuation and indentation, run from the terminal, and inspect standard output and errors sequentially.
 
@@ -1382,7 +1382,7 @@ Expected tip display: $3.68. The function returns a value and does not print it 
 1. Write `calculate_tip` and call it for a $24.50 bill at 15%.
 2. Move the function below `main` and add a correct prototype.
 3. Separate calculation from printing so a second caller can reuse the result.
-
+4. Document the function contract: parameter types, return type, array count or pointer ownership where relevant, and the expected result for one call.
 ### Accessibility Practice
 Navigate the complete source file by line, word, and character using the learner's access technology. Read punctuation and indentation, run from the terminal, and inspect standard output and errors sequentially.
 
@@ -1430,7 +1430,7 @@ Expected total display: $28.18. Swap the two arguments and explain why the resul
 1. Call `total_with_tip(24.50, 0.15)` and predict the output.
 2. Swap the arguments and explain why C cannot infer their semantic roles when types match.
 3. Write a second function that modifies a caller's integer through a pointer.
-
+4. Document the function contract: parameter types, return type, array count or pointer ownership where relevant, and the expected result for one call.
 ### Accessibility Practice
 Navigate the complete source file by line, word, and character using the learner's access technology. Read punctuation and indentation, run from the terminal, and inspect standard output and errors sequentially.
 
@@ -1481,7 +1481,7 @@ Expected total: 337. The function receives the array pointer and its length sepa
 1. Call the score-summing function with the shared four values and verify 337.
 2. Test a one-element array and an empty collection.
 3. Add an average function and define behavior for count zero.
-
+4. Document the function contract: parameter types, return type, array count or pointer ownership where relevant, and the expected result for one call.
 ### Accessibility Practice
 Navigate the complete source file by line, word, and character using the learner's access technology. Read punctuation and indentation, run from the terminal, and inspect standard output and errors sequentially.
 
@@ -1532,7 +1532,7 @@ Expected average: 84.25. Add a separate function that searches the inventory arr
 1. Calculate the average of the shared scores using the array-plus-count interface.
 2. Test count zero and document the function's defined result.
 3. Add a maximum function and test one-element and repeated-maximum arrays.
-
+4. Document the function contract: parameter types, return type, array count or pointer ownership where relevant, and the expected result for one call.
 ### Accessibility Practice
 Navigate the complete source file by line, word, and character using the learner's access technology. Read punctuation and indentation, run from the terminal, and inspect standard output and errors sequentially.
 
@@ -1586,7 +1586,7 @@ Expected sum: 337. The caller must pass the correct count and types; variadic ar
 1. Move a variable into a nested block and test its scope.
 2. Call the variadic sum with the four shared scores and verify 337.
 3. Replace the variadic interface with an array-plus-count function and compare type safety.
-
+4. Document the function contract: parameter types, return type, array count or pointer ownership where relevant, and the expected result for one call.
 ### Accessibility Practice
 Navigate the complete source file by line, word, and character using the learner's access technology. Read punctuation and indentation, run from the terminal, and inspect standard output and errors sequentially.
 
@@ -1629,7 +1629,7 @@ This record models one inventory item with the same fields used throughout the c
 1. Define an `Item` struct with name, quantity, and unit price.
 2. Move the declaration into a header and include it from a source file.
 3. Explain why C structs group fields but do not supply methods or automatic constructors.
-
+4. Document the struct fields, initialization values, ownership rules, and the expected state after one operation.
 ### Accessibility Practice
 Navigate the complete source file by line, word, and character using the learner's access technology. Read punctuation and indentation, run from the terminal, and inspect standard output and errors sequentially.
 
@@ -1676,7 +1676,7 @@ Expected output: Notebook: 3; Pencil: 10. The two variables are separate struct 
 1. Initialize Notebook, Pencil, and Folder with designated initializers.
 2. Copy one record and explain which data is copied when a member is a pointer.
 3. Change one record's quantity and verify the other instance is unchanged.
-
+4. Document the struct fields, initialization values, ownership rules, and the expected state after one operation.
 ### Accessibility Practice
 Navigate the complete source file by line, word, and character using the learner's access technology. Read punctuation and indentation, run from the terminal, and inspect standard output and errors sequentially.
 
@@ -1726,7 +1726,7 @@ Expected output: Notebook inventory value: $7.50.
 1. Calculate the value of three notebooks through `item_value`.
 2. Compare `.` member access on an object with `->` on a pointer.
 3. Add a null-pointer check and a `const` parameter.
-
+4. Document the struct fields, initialization values, ownership rules, and the expected state after one operation.
 ### Accessibility Practice
 Navigate the complete source file by line, word, and character using the learner's access technology. Read punctuation and indentation, run from the terminal, and inspect standard output and errors sequentially.
 
@@ -1778,7 +1778,7 @@ Expected output: Notebook reorder required: yes. This is composition, not langua
 1. Create a `StockedItem` by embedding an `Item` and a reorder threshold.
 2. Test quantities below, equal to, and above the threshold.
 3. Explain why this composition is not C++-style inheritance.
-
+4. Document the struct fields, initialization values, ownership rules, and the expected state after one operation.
 ### Accessibility Practice
 Navigate the complete source file by line, word, and character using the learner's access technology. Read punctuation and indentation, run from the terminal, and inspect standard output and errors sequentially.
 
@@ -1826,7 +1826,7 @@ Expected output lists the two tasks and their completion states.
 1. Create a task manager with two tasks and print completion states.
 2. Attempt to add an eleventh task to a ten-slot manager and handle capacity safely.
 3. Document whether the manager owns task strings or borrows pointers.
-
+4. Document the struct fields, initialization values, ownership rules, and the expected state after one operation.
 ### Accessibility Practice
 Navigate the complete source file by line, word, and character using the learner's access technology. Read punctuation and indentation, run from the terminal, and inspect standard output and errors sequentially.
 
@@ -1875,7 +1875,7 @@ Create `notes.txt` with two lines before running. The program reproduces those l
 1. Create a two-line notes file and verify that both lines are read.
 2. Run with the file missing and inspect the diagnostic and exit status.
 3. Create an overlong line and explain how truncation can be detected.
-
+4. Record the file or data operation's success result, failure result, and the resource cleanup expected on each path.
 ### Accessibility Practice
 Navigate the complete source file by line, word, and character using the learner's access technology. Read punctuation and indentation, run from the terminal, and inspect standard output and errors sequentially.
 
@@ -1925,7 +1925,7 @@ Expected output: `Note appended.` The new line is added to the end of `notes.txt
 1. Append a second note and verify that the original contents remain.
 2. Run the append program twice and count the resulting lines.
 3. Change append mode to write mode in a disposable copy and observe truncation.
-
+4. Record the file or data operation's success result, failure result, and the resource cleanup expected on each path.
 ### Accessibility Practice
 Navigate the complete source file by line, word, and character using the learner's access technology. Read punctuation and indentation, run from the terminal, and inspect standard output and errors sequentially.
 
@@ -1974,7 +1974,7 @@ If the file is absent, the program prints an operating-system diagnostic and exi
 1. Run with a missing file and identify the error return and diagnostic.
 2. Run with an existing file and verify the success path.
 3. Write a helper that returns an error code to its caller rather than printing inside the helper.
-
+4. Record the file or data operation's success result, failure result, and the resource cleanup expected on each path.
 ### Accessibility Practice
 Navigate the complete source file by line, word, and character using the learner's access technology. Read punctuation and indentation, run from the terminal, and inspect standard output and errors sequentially.
 
@@ -2024,7 +2024,7 @@ The cleanup path closes the file exactly once if opening succeeded. In larger pr
 1. Trace both the successful and failed `fopen` paths and locate the `fclose`.
 2. Add a second resource and determine the correct cleanup order.
 3. Introduce an early error after opening the file and verify that cleanup still occurs.
-
+4. Record the file or data operation's success result, failure result, and the resource cleanup expected on each path.
 ### Accessibility Practice
 Navigate the complete source file by line, word, and character using the learner's access technology. Read punctuation and indentation, run from the terminal, and inspect standard output and errors sequentially.
 
@@ -2070,7 +2070,7 @@ This C struct is the in-memory shape of one capstone record. The JSON library la
 1. Map each canonical capstone field to a C member and a JSON value type.
 2. Select a maintained C JSON library and document its version and link command.
 3. Test missing required fields, malformed JSON, and a valid round-trip record.
-
+4. Record the file or data operation's success result, failure result, and the resource cleanup expected on each path.
 ### Accessibility Practice
 Navigate the complete source file by line, word, and character using the learner's access technology. Read punctuation and indentation, run from the terminal, and inspect standard output and errors sequentially.
 
@@ -2117,7 +2117,7 @@ No output and exit status 0 indicate that all assertions passed. An assertion fa
 1. Test addition with positive, negative, and zero values.
 2. Create one failing assertion and inspect the diagnostic.
 3. Compile with and without `NDEBUG` and explain the effect on assertions.
-
+4. Write the expected test result and explain what a failing assertion or diagnostic would indicate.
 ### Accessibility Practice
 Navigate the complete source file by line, word, and character using the learner's access technology. Read punctuation and indentation, run from the terminal, and inspect standard output and errors sequentially.
 
@@ -2167,7 +2167,7 @@ The assertions verify that a positive restock changes quantity and a negative re
 1. Restock by a positive amount and verify quantity changes.
 2. Try zero and negative restock amounts and verify state remains unchanged.
 3. Create fresh records for each test to prevent test-order dependence.
-
+4. Write the expected test result and explain what a failing assertion or diagnostic would indicate.
 ### Accessibility Practice
 Navigate the complete source file by line, word, and character using the learner's access technology. Read punctuation and indentation, run from the terminal, and inspect standard output and errors sequentially.
 
@@ -2214,7 +2214,7 @@ The output is reproducible for a given C library implementation and seed, but th
 1. Run twice with the same seed on the same C library and compare results.
 2. Generate 1000 die values and verify each is between 1 and 6.
 3. Explain why modulo reduction may be biased and why `rand` is not for secrets.
-
+4. Write the expected test result and explain what a failing assertion or diagnostic would indicate.
 ### Accessibility Practice
 Navigate the complete source file by line, word, and character using the learner's access technology. Read punctuation and indentation, run from the terminal, and inspect standard output and errors sequentially.
 
@@ -2266,7 +2266,7 @@ Expected output: 2 occurrences. This counts substring matches, not general word 
 1. Count the two `programming` occurrences in the canonical sample.
 2. Change case and punctuation and compare substring count with whole-word count.
 3. Test a UTF-8 input and document the limits of byte-wise lowercase conversion.
-
+4. Write the expected test result and explain what a failing assertion or diagnostic would indicate.
 ### Accessibility Practice
 Navigate the complete source file by line, word, and character using the learner's access technology. Read punctuation and indentation, run from the terminal, and inspect standard output and errors sequentially.
 
@@ -2316,7 +2316,7 @@ Create a header with `student_id,first_name,last_name,score,active` and at least
 1. Create the canonical students.csv header and two data rows.
 2. Test missing file, empty file, and an overlong row.
 3. Add a quoted comma and explain why naive comma splitting is invalid CSV parsing.
-
+4. Write the expected test result and explain what a failing assertion or diagnostic would indicate.
 ### Accessibility Practice
 Navigate the complete source file by line, word, and character using the learner's access technology. Read punctuation and indentation, run from the terminal, and inspect standard output and errors sequentially.
 
@@ -2352,7 +2352,7 @@ Design the to-do manager around the operations add task, view tasks, mark task c
 1. Write acceptance criteria for add, view, edit, delete, and save/load operations.
 2. Define behavior for empty data, duplicate IDs, unknown IDs, and unavailable storage.
 3. Draw a module plan separating input, validation, data operations, persistence, and output.
-
+4. Write an acceptance test with the initial project state, user action, expected response, and unchanged state after a rejected action.
 ### Accessibility Practice
 Navigate the complete source file by line, word, and character using the learner's access technology. Read punctuation and indentation, run from the terminal, and inspect standard output and errors sequentially.
 
@@ -2406,7 +2406,7 @@ The first room leads north to the tunnel; the tunnel leads east to the clearing 
 1. Move north from the start room and verify the tunnel description.
 2. Attempt west from the start room and verify that the room does not change.
 3. Add case-insensitive direction commands and a quit command.
-
+4. Write an acceptance test with the initial project state, user action, expected response, and unchanged state after a rejected action.
 ### Accessibility Practice
 Navigate the complete source file by line, word, and character using the learner's access technology. Read punctuation and indentation, run from the terminal, and inspect standard output and errors sequentially.
 
@@ -2460,7 +2460,7 @@ This is a small state-transition demonstration, not the complete game. Extend it
 1. Take the key and verify it leaves the room and enters inventory.
 2. Try taking the key twice and verify the second attempt is rejected.
 3. Test unlocking without the key and from the wrong room.
-
+4. Write an acceptance test with the initial project state, user action, expected response, and unchanged state after a rejected action.
 ### Accessibility Practice
 Navigate the complete source file by line, word, and character using the learner's access technology. Read punctuation and indentation, run from the terminal, and inspect standard output and errors sequentially.
 
@@ -2525,7 +2525,7 @@ This starter implements add, view, and quit with a fixed capacity of 50 tasks. E
 1. Add two tasks and view them in insertion order.
 2. Complete a task by ID and reject an unknown ID.
 3. Implement save/load and verify data remains after restarting.
-
+4. Write an acceptance test with the initial project state, user action, expected response, and unchanged state after a rejected action.
 ### Accessibility Practice
 Navigate the complete source file by line, word, and character using the learner's access technology. Read punctuation and indentation, run from the terminal, and inspect standard output and errors sequentially.
 
@@ -2579,7 +2579,7 @@ The program repeats until it receives a positive integer. Improve it by rejectin
 1. Complete the menu workflow using keyboard only and read prompts sequentially.
 2. Submit blank, overlong, and invalid menu input and verify corrective instructions.
 3. Test with a named screen reader and OS; record observed results rather than assuming compatibility.
-
+4. Write an acceptance test with the initial project state, user action, expected response, and unchanged state after a rejected action.
 ### Accessibility Practice
 Navigate the complete source file by line, word, and character using the learner's access technology. Read punctuation and indentation, run from the terminal, and inspect standard output and errors sequentially.
 
@@ -2615,7 +2615,7 @@ Choose one collection: contacts, books/movies, to-do tasks, or inventory. Define
 1. Choose a capstone domain and list fields, validation rules, and user operations.
 2. Write acceptance tests for add, view, edit, delete, save, and load before implementation.
 3. Document why the C implementation uses a terminal interface rather than the Python-specific NiceGUI framework.
-
+4. Add one capstone acceptance-test case to the project test plan, including test data, expected persisted fields, and failure behavior.
 ### Accessibility Practice
 Navigate the complete source file by line, word, and character using the learner's access technology. Read punctuation and indentation, run from the terminal, and inspect standard output and errors sequentially.
 
@@ -2662,7 +2662,7 @@ The record contains the exact canonical capstone fields. Define which fields are
 1. Define every C record field and its maximum length or allocation strategy.
 2. Specify ID generation, timestamp format, and string ownership.
 3. Round-trip a record through the chosen JSON library and compare every field.
-
+4. Add one capstone acceptance-test case to the project test plan, including test data, expected persisted fields, and failure behavior.
 ### Accessibility Practice
 Navigate the complete source file by line, word, and character using the learner's access technology. Read punctuation and indentation, run from the terminal, and inspect standard output and errors sequentially.
 
@@ -2718,7 +2718,7 @@ Expected state: task 1 is renamed to Review C arrays and marked done; task 2 is 
 1. Add two records and verify their stable display order.
 2. Edit one record by ID and confirm unrelated fields remain unchanged.
 3. Delete an existing record, then attempt to delete the same ID again.
-
+4. Add one capstone acceptance-test case to the project test plan, including test data, expected persisted fields, and failure behavior.
 ### Accessibility Practice
 Navigate the complete source file by line, word, and character using the learner's access technology. Read punctuation and indentation, run from the terminal, and inspect standard output and errors sequentially.
 
@@ -2769,7 +2769,7 @@ All assertions pass with exit status 0. Add tests for the full CRUD functions an
 1. Create a test matrix for valid, boundary, malformed, missing-file, and unknown-ID cases.
 2. Compile with warnings and address every diagnostic.
 3. Run AddressSanitizer and UndefinedBehaviorSanitizer where available and investigate reports.
-
+4. Add one capstone acceptance-test case to the project test plan, including test data, expected persisted fields, and failure behavior.
 ### Accessibility Practice
 Navigate the complete source file by line, word, and character using the learner's access technology. Read punctuation and indentation, run from the terminal, and inspect standard output and errors sequentially.
 
@@ -2805,7 +2805,7 @@ README acceptance checklist: explain the selected data-manager domain; list the 
 1. Build and run the project from a clean checkout using only the README instructions.
 2. Document compiler, dependency versions, build command, file paths, and menu commands.
 3. Test the documented keyboard workflow with a named access technology and record limitations.
-
+4. Add one capstone acceptance-test case to the project test plan, including test data, expected persisted fields, and failure behavior.
 ### Accessibility Practice
 Navigate the complete source file by line, word, and character using the learner's access technology. Read punctuation and indentation, run from the terminal, and inspect standard output and errors sequentially.
 
