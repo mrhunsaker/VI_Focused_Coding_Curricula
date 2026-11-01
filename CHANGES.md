@@ -325,4 +325,4 @@ All implementation changes are recorded here. Each numbered step is committed se
 - Structural verification confirms 53 numbered lessons, 53 distinct fenced Lua examples, and balanced Markdown fences. CI has been triggered; runtime success is not claimed until the workflow completes.
 - Editorial refinement of repeated lesson explanations, common mistakes, and activities remains outstanding, along with expected-output and invalid-input testing, capstone persistence, mdBook/link checks, and hands-on screen-reader/braille testing.
 
-- Follow-up editorial pass refined all 53 Lua lesson concept explanations, common mistakes, and activities against their lesson topics while retaining accessibility practice and five-item skills checklists. A final CI rerun is pending.
+- Follow-up editorial pass refined all 53 Lua lesson concept explanations, common mistakes, and activities against their lesson topics while retaining accessibility practice and five-item skills checklists. The final workflow run [41336626558](https://github.com/mrhunsaker/VI_Focused_Coding_Curricula/actions/runs/41336626558) passed on Lua 5.4.6; all 53 examples parsed and smoke-executed.
