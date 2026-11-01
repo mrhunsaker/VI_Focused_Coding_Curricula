@@ -2456,7 +2456,7 @@ The capstone is a record manager. Model records, define validation rules, implem
 
 ### Worked Example
 ```rust
-#[derive(Debug)]struct Record{id:u32,title:String,category:String}fn main(){let r=Record{id:1,title:"Study Rust".into(),category:"learning".into()};println!("{r:?}");}
+struct Record{id:u32,title:String,category:String}fn main(){let r=Record{id:1,title:"Study Rust".into(),category:"learning".into()};println!("id={}, title={}, category={}",r.id,r.title,r.category);}
 ```
 
 **Expected behavior:** Runs independently with the standard library and prints the result of this lesson's focused operation. Predict the output, then compare it with the terminal output.
