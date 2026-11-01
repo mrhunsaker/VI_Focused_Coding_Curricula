@@ -21,11 +21,11 @@ Plan for both programming learning and access to the programming environment. Es
 6. [Unit 2: Numbers, Input, and Math](#6-unit-2-numbers-input-and-math)
 7. [Unit 3: Control Flow](#7-unit-3-control-flow)
 8. [Unit 4: Arrays and Objects](#8-unit-4-arrays-and-objects)
-9. [Unit 5: Strings](#9-unit-5-strings)
+9. [Unit 3, Lesson 3.5: Strings](#9-unit-3-lesson-35-strings)
 10. [Unit 6: Functions](#10-unit-6-functions)
 11. [Unit 7: Classes and OOP](#11-unit-7-classes-and-oop)
 12. [Unit 8: Files, Modules, and Error Handling](#12-unit-8-files-modules-and-error-handling)
-13. [Unit 9: Collections, Analysis, and Testing](#13-unit-9-collections-analysis-and-testing)
+13. [Unit 9: Testing and Data Analysis](#13-unit-9-testing-and-data-analysis)
 14. [Units 10--11: Projects and Capstone](#14-units-1011-projects-and-capstone)
 15. [Bridging from Python/Java to JavaScript](#15-bridging-from-pythonjava-to-javascript)
 16. [Assessment Strategies](#16-assessment-strategies)
@@ -929,19 +929,28 @@ console.log("Data file location:", dataFile);
 
 For a student who cannot visually navigate a file tree, `console.log(__dirname)` and `console.log(dataFile)` are essential diagnostic tools. Teach them to print file paths as the first debugging step when a file isn't found.
 
-**`fs.existsSync()` before file operations:**
+**Handle a missing file at the point of reading:**
+
+For a new project, prefer the promise-based file API used in the student lessons. Avoid checking existence and then reading in separate operations; the file can change between those calls.
 
 ```javascript
-if (fs.existsSync(dataFile)) {
-  const data = fs.readFileSync(dataFile, "utf8");
-  return JSON.parse(data);
-} else {
-  console.log("No data file found. Starting with empty data.");
-  return [];
+const fs = require("node:fs/promises");
+
+async function loadContacts(dataFile) {
+  try {
+    const data = await fs.readFile(dataFile, "utf8");
+    return JSON.parse(data);
+  } catch (error) {
+    if (error.code === "ENOENT") {
+      console.log("No data file found. Starting with empty data.");
+      return [];
+    }
+    throw error;
+  }
 }
 ```
 
-Always check existence before reading. The alternative --- catching `ENOENT` in a try-catch --- works but puts normal "first run" behavior in the error path.
+Teach learners to print and inspect the resolved path when diagnosing file errors. Handle malformed JSON separately from a missing file; do not silently replace corrupted data with an empty collection.
 
 ### Supplementary Note: CommonJS Modules
 
@@ -988,64 +997,37 @@ _"Everything not in `module.exports` is private to this file. Other files can us
 
 #### Instructional Cues
 
-**Jest output is accessible:**
+Use Node.js's built-in test runner for the core curriculum. It requires no third-party dependency and keeps the project setup simple.
 
-Run `npx jest --verbose` for maximum accessibility. The `--verbose` flag produces:
+Run `node --test` from the project root. The default output is TAP (Test Anything Protocol), a line-oriented text format that identifies each test and whether it passed:
 
-```
-PASS src/math.test.js
-  add function
-    [x] adds two positive numbers (3ms)
-    [x] adds negative numbers (1ms)
-    [x] handles zero (0ms)
-  getGrade function
-    [x] returns A for score >= 90 (0ms)
-    [x] returns F for score < 60 (0ms)
-
-Test Suites: 1 passed, 1 total
-Tests:       5 passed, 5 total
+```text
+TAP version 13
+# Subtest: add returns the sum
+ok 1 - add returns the sum
+# Subtest: getGrade follows shared thresholds
+ok 2 - getGrade follows shared thresholds
+1..2
+# tests 2
+# pass 2
+# fail 0
 ```
 
-Each test name is announced. Failures include file path, test name, expected vs. received values, and a diff. All of this is plain text --- fully screen-reader-accessible.
-
-**Add to `package.json` scripts:**
+Add this script to `package.json`:
 
 ```json
-"scripts": {
-    "test": "jest --verbose",
-    "test:watch": "jest --verbose --watch"
+{
+  "scripts": {
+    "test": "node --test"
+  }
 }
 ```
 
-`npm test` runs all tests. `npm run test:watch` reruns tests whenever a file changes --- useful during active development.
+Then `npm test` runs the same suite. Jest remains a valid optional framework for projects that need its additional matchers or ecosystem; do not make it a prerequisite for the introductory course.
 
 **Test naming convention:**
 
-```javascript
-describe("BankAccount", () => {
-  describe("deposit", () => {
-    test("increases balance by deposited amount", () => {
-      /* ... */
-    });
-    test("rejects negative amounts", () => {
-      /* ... */
-    });
-    test("rejects zero amount", () => {
-      /* ... */
-    });
-  });
-  describe("withdraw", () => {
-    test("decreases balance by withdrawn amount", () => {
-      /* ... */
-    });
-    test("throws InsufficientFundsError when balance is too low", () => {
-      /* ... */
-    });
-  });
-});
-```
-
-The nested `describe` / `test` structure, when announced by Jest with `--verbose`, reads as complete sentences: "BankAccount > deposit > increases balance by deposited amount."
+Use names that describe the behavior and expected result. For example, "getGrade returns B for a score of 82" is more useful than "test 2". Include normal values, boundary values, and invalid inputs. Keep tests independent and avoid reliance on execution order.
 
 #### Thought Experiments
 
@@ -1091,8 +1073,7 @@ my-data-manager/
 {
   "scripts": {
     "start": "node index.js",
-    "test": "jest --verbose",
-    "test:watch": "jest --verbose --watch",
+    "test": "node --test",
     "lint": "eslint src/",
     "lint:fix": "eslint src/ --fix"
   }
@@ -1259,7 +1240,7 @@ Async/await is conceptually hard. For students who struggle:
 | ---------------- | --------------------------------- | ----------------------------------------- |
 | **ESLint**       | Code quality and error prevention | Command-line; fully accessible            |
 | **Prettier**     | Consistent code formatting        | Run on save; no screen interaction needed |
-| **Jest**         | Testing framework                 | Accessible output; `--verbose` flag       |
+| **node:test**    | Built-in testing runner           | TAP text output; no dependency required   |
 | **jshint.com**   | Online JS linter                  | Plain HTML; basic linting                 |
 | **node-inspect** | Node.js debugger                  | Terminal-based debugging                  |
 | **0x**           | Node.js profiler                  | Terminal output                           |
