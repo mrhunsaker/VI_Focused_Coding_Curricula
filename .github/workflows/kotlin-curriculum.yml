@@ -1,0 +1,24 @@
+name: Kotlin curriculum structure
+
+on:
+  push:
+    paths:
+      - "KOTLIN/**"
+      - "scripts/check_kotlin_curriculum.mjs"
+      - ".github/workflows/kotlin-curriculum.yml"
+  pull_request:
+    paths:
+      - "KOTLIN/**"
+      - "scripts/check_kotlin_curriculum.mjs"
+      - ".github/workflows/kotlin-curriculum.yml"
+
+jobs:
+  structure:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      - name: Check lesson structure and local links
+        run: node scripts/check_kotlin_curriculum.mjs
