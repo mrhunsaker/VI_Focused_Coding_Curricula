@@ -811,7 +811,9 @@
         "validation": [
           "The four grouped files contain 57 mapped lesson sections across Units 0–11.",
           "Each mapped section contains all nine required lesson-template headings and a Kotlin fenced example block.",
-          "Structural validation is automated in scripts/check_kotlin_curriculum.mjs; CI execution is pending."
+          "Structural validation is automated in scripts/check_kotlin_curriculum.mjs; CI execution is pending.",
+          "GitHub Actions run 41346516721 passed: the Node.js structural checker verified 57 lesson sections, all nine required sections, Kotlin example fences, and local links.",
+          "Four distinct unit-level Kotlin worked-example patterns were manually compiled with the available Kotlin/JVM 1.9.0 compiler and JDK 21; this is a smoke check, not validation of all 57 lesson examples or the pinned course toolchain."
         ],
         "not_yet_verified": [
           "Replace the repeated unit-level worked-example scaffold with distinct, lesson-specific Kotlin examples and exact expected outputs for all 57 lessons.",
