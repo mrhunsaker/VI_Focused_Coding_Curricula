@@ -212,3 +212,14 @@ All implementation changes are recorded here. Each numbered step is committed se
 - Added root-level `lesson_standardization.json`: an explicit Python unit-by-unit map, shared datasets and problem contexts, equivalence rules, course quality gates, and a reusable generation/refinement prompt.
 - Updated mdBook navigation and the curriculum overview.
 - Validation performed: confirmed the new and expanded lesson files were committed, checked their unit/lesson headings during generation, and added navigation entries. A full mdBook build, compilation/execution of every example, external-link crawl, and screen-reader test have not been run. Some generated examples are instructional starting points and require per-language review before publication.
+
+## 2026-11-01 — C curriculum alignment pass
+
+- Refined `C/lessons.md` against `lesson_standardization.json` and the canonical Python units 0–11.
+- Added lesson-specific worked examples and expected behavior across C Units 1–11; aligned the canonical student profile, calculator, grade thresholds, score array, inventory, coordinates, text sample, CSV schema, to-do task fields, and capstone record fields.
+- Reworked the C toolchain/setup material to distinguish compiler, source, executable, editor tooling, project dependencies, and terminal execution.
+- Documented C-specific adaptations: fixed and dynamic arrays, structs in place of Python records/maps, explicit parsing and error returns instead of exceptions, manual resource cleanup, third-party JSON support, CSV parser limitations, and an accessible terminal-first capstone in place of Python-only NiceGUI.
+- Added the missing C equivalent for Python Lesson 2.5 (math library).
+- Updated `C/c_README.md` and recorded refinement status and outstanding verification in `lesson_standardization.json`.
+- Validation: 52 lesson sections in C Units 1–11, four Unit 0 setup lessons, 52 worked-example sections, no generic repeated boilerplate/placeholders, and balanced fenced-code markers.
+- Not yet verified: GCC/Clang compilation and execution of every example, complete link crawl, post-change mdBook build, and hands-on screen-reader/braille testing. No such verification is claimed.
