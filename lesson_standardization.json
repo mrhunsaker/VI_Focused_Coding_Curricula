@@ -741,6 +741,24 @@
         "fresh mdBook build and complete Markdown/local-link crawl",
         "hands-on screen-reader and braille testing"
       ]
+    },
+    "java": {
+      "status": "complete_53_lesson_course_added_ci_pending",
+      "java_version": "25",
+      "unit_0_setup_lessons": 4,
+      "numbered_lessons": 53,
+      "unique_examples": 57,
+      "course_file": "JAVA/lessons.md",
+      "automated_check": "scripts/check_java_examples.py",
+      "workflow": ".github/workflows/java-examples.yml",
+      "pending": [
+        "compile and smoke-execute all 57 examples on JDK 25 and fix failures",
+        "add exact expected-output assertions and systematic invalid-input/boundary fixtures",
+        "exercise file operations against missing, malformed, and permission-restricted paths",
+        "add capstone persistence and JUnit integration tests",
+        "fresh mdBook build and complete Markdown/local-link crawl",
+        "hands-on keyboard-only, screen-reader, and braille verification"
+      ]
     }
   }
 }
