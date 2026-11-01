@@ -50,6 +50,21 @@ npm --version      # Should show npm version
 
 ---
 
+### Common Mistakes
+- Installing a runtime but not reopening the terminal, so PATH changes are not visible.
+- Installing a version that is unsupported or inconsistent with the course baseline.
+- Confusing Node.js with npm; Node.js runs JavaScript and npm manages packages.
+
+### Activities
+1. Install Node.js using the official download or package-manager instructions for the operating system.
+2. Run `node --version` and `npm --version`.
+3. Open the Node.js REPL, evaluate `2 + 3`, and exit.
+4. If a command is not found, identify whether the runtime is installed and whether PATH is configured.
+
+### Accessibility Practice
+Use keyboard navigation in the installer and terminal. Read each installation prompt and verify the runtime with text commands rather than relying on an icon or graphical success message.
+
+
 ## Lesson 0.2: Setting Up VS Code or Theia IDE
 
 For a new project, create a package manifest with npm init -y. Choose one module system and declare it explicitly: set package.json to { "type": "commonjs" } for the CommonJS examples in the early lessons, or { "type": "module" } for the ES module examples later in the course. Do not combine the two syntaxes in one file.
@@ -94,6 +109,21 @@ For a new project, create a package manifest with npm init -y. Choose one module
 Experienced coders may prefer JetBrains IDEs, such as WebStorm. They are advanced alternatives, not the recommended starting point for this beginner curriculum. This course does not provide JetBrains installation or usage instructions.
 
 ---
+
+### Common Mistakes
+- Assuming VS Code and Theia have identical extensions or keyboard shortcuts.
+- Installing extensions without checking compatibility with the chosen editor.
+- Relying on a mouse-only run button instead of terminal execution.
+
+### Activities
+1. Open the Command Palette using the keyboard.
+2. Install or verify JavaScript language support and Node.js tooling.
+3. Navigate between editor, terminal, and file explorer without a mouse.
+4. Confirm that the editor announces syntax errors and file names accessibly.
+
+### Accessibility Practice
+Test the learner's actual screen reader and braille display configuration. Do not claim universal accessibility; document editor, operating system, and access-technology versions used.
+
 
 ## Lesson 0.3: Your First JavaScript File
 
@@ -148,6 +178,21 @@ Type JavaScript directly and press Enter to execute. Type `.exit` to quit.
 - [ ] I can use the Node.js REPL for quick experiments.
 
 ---
+
+### Common Mistakes
+- Saving source code with a hidden extra extension such as `.js.txt`.
+- Typing smart quotes instead of straight quotation marks.
+- Running the REPL command instead of executing the saved file.
+
+### Activities
+1. Create and save `hello.js`.
+2. Run the file from the terminal.
+3. Enter a short arithmetic expression in the Node.js REPL.
+4. Explain the difference between a saved script and an interactive REPL session.
+
+### Accessibility Practice
+Ensure the file name, extension, and terminal output are announced in sequence. Keep a terminal path available even when the editor provides a run command.
+
 
 ## Lesson 0.4: Node.js Projects, Terminal Execution, and Dependencies
 
@@ -245,6 +290,38 @@ This unit covers JavaScript fundamentals: variables, data types, and basic outpu
 JavaScript was created by Brendan Eich at Netscape in 1995. Originally just for web browsers, it now runs everywhere thanks to Node.js (2009).
 
 ---
+
+### Learning Objectives
+- Define computer science as the study of computational problem-solving.
+- Distinguish hardware from software.
+- Describe JavaScript's role in browser and server-side programming.
+
+### Worked Example
+A simple algorithm for preparing a school day can be written as ordered steps: check the schedule, pack required materials, travel to school, and attend the first class. A computer program expresses a precise algorithm so that a machine can execute it consistently.
+
+### Expected Behavior or Output
+Students can explain the difference between a physical computer component and a program, and identify that JavaScript code can run in a browser or in Node.js.
+
+### Common Mistakes
+- Defining computer science as only learning a programming language.
+- Confusing a browser with JavaScript itself.
+- Assuming JavaScript running in Node.js has browser APIs such as document and window.
+
+### Activities
+1. Identify three hardware components and three software examples.
+2. Describe an everyday task as an ordered algorithm.
+3. Compare JavaScript in a browser with JavaScript in Node.js.
+4. Explain why this course starts with terminal programs.
+
+### Accessibility Practice
+Describe hardware and software with textual examples. Do not require interpreting a diagram as the only way to understand system components.
+
+### Skills Checklist
+- [ ] I can define computer science.
+- [ ] I can distinguish hardware and software.
+- [ ] I can describe JavaScript's browser and Node.js environments.
+- [ ] I can express a simple task as an algorithm.
+
 
 ## Lesson 1.2: Your First JavaScript Program — Hello World
 
@@ -475,3 +552,19 @@ console.log(`Circle area: ${circleArea.toFixed(2)}`);
 - [ ] I understand that JavaScript's `/` always gives a decimal result.
 - [ ] I can convert between types using `Number()`, `String()`, `parseInt()`.
 - [ ] I understand `const` vs. `let`.
+
+### Common Mistakes
+- Using `var` when `const` or `let` expresses the intended behavior more clearly.
+- Assuming JavaScript has separate integer and floating-point primitive types.
+- Confusing `null` with `undefined`.
+- Assuming a conversion such as `Number("hello")` throws instead of returning `NaN`.
+
+### Activities
+1. Create an Avery profile with name, age 16, height 1.72, and favorite subject Computer Science.
+2. Print each property with a descriptive label.
+3. Compare `typeof 16`, `typeof 1.72`, `typeof "Avery"`, and `typeof true`.
+4. Convert the text `"16"` to a number and test the invalid text `"sixteen"`.
+
+### Accessibility Practice
+Use meaningful variable names and explicit output labels. Explain punctuation such as braces, commas, quotation marks, and semicolons when reading code aloud.
+
