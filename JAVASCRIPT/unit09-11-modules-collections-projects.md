@@ -502,6 +502,8 @@ Expected output:
 ```text
 true
 torch
+The gate is locked.
+The gate opens.
 ```
 
 ### Expected Behavior or Output
