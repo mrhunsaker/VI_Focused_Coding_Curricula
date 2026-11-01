@@ -171,3 +171,14 @@ This is compiler and linker verification. The examples have not all been execute
 - GitHub Actions run [41324186133](https://github.com/mrhunsaker/VI_Focused_Coding_Curricula/actions/runs/41324186133) passed on Swift 6.0; all 57 fenced Swift examples executed successfully as independent scripts. This is a smoke-execution check, not exact-output assertion or full package/capstone testing.
 
 - A second finalized-checker run [41324246202](https://github.com/mrhunsaker/VI_Focused_Coding_Curricula/actions/runs/41324246202) also passed using Swift 6.0.3; all 57 examples executed successfully.
+
+
+## 2026-11-01 follow-up: Rust lesson-quality and execution verification
+
+- Expanded all four Unit 0 lessons with rustup/stable toolchain installation, Cargo project structure, rust-analyzer and assistive-technology workflow, project-local dependencies, and build/test commands.
+- Added the missing Unit 2 Lesson 2.5 counterpart for mathematical functions, circle area/circumference, and distance using PI, powi, and hypot.
+- Replaced repeated generic examples with 53 lesson-specific standard-library Rust programs aligned to shared course contexts.
+- Rewrote all 53 numbered lessons with Rust-specific concept explanations, three topic-relevant common mistakes, four targeted activities, accessibility practice, and five observable checklist criteria.
+- Standardized on stable Rust / Rust 2024 edition and documented production JSON and randomness boundaries.
+- Added scripts/check_rust_examples.py and .github/workflows/rust-examples.yml. CI outcome is pending; no compile/runtime success is claimed until Actions completes.
+- Remaining: expected-output assertions and broader file/error/capstone tests, fresh mdBook build and local-link crawl, and hands-on screen-reader/braille testing.
