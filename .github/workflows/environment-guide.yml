@@ -1,0 +1,67 @@
+name: Validate development environment guide
+
+on:
+  push:
+    paths:
+      - 'DEVELOPMENT/ENVIRONMENT_ISOLATION.md'
+      - 'SUMMARY.md'
+      - 'OVERALL_README.md'
+      - 'lesson_standardization.json'
+      - '.github/workflows/environment-guide.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.x'
+
+      - name: Validate standardization tracker JSON
+        run: python -m json.tool lesson_standardization.json > /dev/null
+
+      - name: Install mdBook
+        uses: peaceiris/actions-mdbook@v2
+        with:
+          mdbook-version: latest
+
+      - name: Build the complete textbook
+        run: mdbook build
+
+      - name: Check local Markdown link targets
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+          import re
+          import sys
+          root = Path(".")
+          failures = []
+          pattern = re.compile(r'!?(?:\[[^\]]*\])\(([^)]+)\)')
+          for source in root.rglob("*.md"):
+              if any(part in {".git", "book"} for part in source.parts):
+                  continue
+              text = source.read_text(encoding="utf-8")
+              for raw in pattern.findall(text):
+                  target = raw.strip().split()[0].strip("<>")
+                  if not target or target.startswith(("http://", "https://", "mailto:", "#", "data:")):
+                      continue
+                  path = target.split("#", 1)[0].split("?", 1)[0]
+                  if not path:
+                      continue
+                  resolved = (source.parent / path).resolve()
+                  if not resolved.exists():
+                      failures.append(f"{source}: {target}")
+          if failures:
+              print("Broken local Markdown targets:")
+              print("\n".join(failures))
+              sys.exit(1)
+          print("All local Markdown link targets exist.")
+          PY
