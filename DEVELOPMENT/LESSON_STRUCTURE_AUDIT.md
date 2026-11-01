@@ -121,3 +121,14 @@ A repeatable compiler check is now committed:
 - GCC 13.3.0 and Clang 18.1.3 both passed all 49 C examples with `-Wall -Wextra -Wpedantic -Werror`: 46 complete programs compiled and linked; 3 declaration/function fragments passed syntax-only checks.
 
 This is compiler and linker verification. The examples have not all been executed with representative input or file fixtures. A fresh mdBook build, complete link crawl, and hands-on screen-reader/braille testing remain outstanding.
+
+
+## 2026-11-01 follow-up: C++ lesson-quality and compiler-verification pass
+
+- Expanded all four Unit 0 lessons into structured compiler, workspace, editor/accessibility, and dependency/build instruction.
+- Added the missing C++ equivalent of Python Lesson 2.5 for standard mathematical functions and the shared circle/distance problems.
+- Replaced repeated worked examples with distinct lesson-specific C++20 examples across the 53 numbered Unit 1–11 lessons.
+- Rewrote all 53 numbered lessons with three C++-specific common mistakes, four targeted activities, and five observable skills-checklist criteria.
+- Added `scripts/check_cpp_examples.py` and `.github/workflows/cpp-examples.yml`.
+- GitHub Actions run [41317861416](https://github.com/mrhunsaker/VI_Focused_Coding_Curricula/actions/runs/41317861416) passed with GCC 13.3.0 and Clang 18.1.3. All 54 fenced C++ examples compiled and linked as C++20 with strict warning flags.
+- Remaining: runtime execution with representative inputs/files, fresh mdBook build, complete local-link crawl, and hands-on screen-reader/braille testing. Compiler success is not runtime or accessibility validation.
