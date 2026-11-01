@@ -53,8 +53,13 @@
 # Kotlin
 
 - [Kotlin Curriculum](KOTLIN/KOTLIN_README.md)
-  - [Kotlin Lessons](KOTLIN/lessons.md)
+  - [Unit 0–1: Setup and Foundations](KOTLIN/unit00-01-setup-foundations.md)
+  - [Unit 2–4: Expressions, Control Flow, and Collections](KOTLIN/unit02-04-io-control-data.md)
+  - [Unit 5–8: Functions, OOP, and Files](KOTLIN/unit05-08-strings-functions-oop-files.md)
+  - [Unit 9–11: Testing and Projects](KOTLIN/unit09-11-collections-projects.md)
+  - [Complete Kotlin Reference Lessons](KOTLIN/lessons.md)
   - [Kotlin Topic Index](KOTLIN/INDEX.md)
+  - [Kotlin Standardization Audit](KOTLIN/standardization-audit.md)
 
 # C
 
@@ -118,12 +123,14 @@
   - [Teacher's Guide](JAVASCRIPT/teachers-guide.md)
   - [Teacher's Guide](TYPESCRIPT/teachers-guide.md)
   - [Teacher's Guide](JAVA/teachers-guide.md)
+  - [Teacher's Guide](KOTLIN/teachers-guide.md)
 - [Programming Code Glossary](backmatter/GLOSSARY.md)
 - [Index](backmatter/index.md)
   - [Python Index](PYTHON/INDEX.md)
   - [JavaScript Index](JAVASCRIPT/INDEX.md)
   - [TypeScript Index](TYPESCRIPT/INDEX.md)
   - [Java Index](JAVA/INDEX.md)
+  - [Kotlin Index](KOTLIN/INDEX.md)
 - [About The Author](backmatter/Contributors.md)
   - [Java — complete standardized lesson sequence](JAVA/lessons.md)
   - [Java validation record](JAVA/VALIDATION.md)
