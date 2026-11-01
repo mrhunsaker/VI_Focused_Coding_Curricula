@@ -1775,10 +1775,9 @@ Java is statically typed and class-based. Local variables have declared or infer
 ```java
 public class Lesson_7_1 {
     public static void main(String[] args) {
+        record Book(String title, int pages) {}
         Book book = new Book("Accessible Java", 240);
         System.out.println(book.title() + " has " + book.pages() + " pages.");
-        }
-        record Book(String title, int pages) {}
     }
 }
 ```
