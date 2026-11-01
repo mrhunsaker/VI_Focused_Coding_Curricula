@@ -50,6 +50,12 @@ By working through one curriculum, learners should build the ability to:
 
 These are introductory outcomes, not a claim of professional mastery.
 
+## Development environment and lesson structure
+
+Before beginning a language pathway, complete the [terminal skills prerequisite](TERMINAL/TERMINAL_README.md) and review the standalone [IDE setup lesson](DEVELOPMENT/IDE_SETUP.md). The IDE lesson provides installation steps for Visual Studio Code, VSCodium, and Eclipse Theia on Windows, macOS, and Linux; compares IDEs with lightweight text editors; and sets the course policy that AI features may be used only for personal conceptual understanding and reinforcement, not to write or complete course code.
+
+The [lesson structure audit](DEVELOPMENT/LESSON_STRUCTURE_AUDIT.md) compares the current lesson files with the original Python course. The audit finds that the repository is not yet fully standardized: some language tracks are concise lesson maps, and some existing JavaScript, TypeScript, Java, Kotlin, and terminal lessons use different section patterns. It defines a common lesson structure for future normalization rather than claiming that every lesson already matches Python.
+
 ## Choose a language
 
 ### Python
