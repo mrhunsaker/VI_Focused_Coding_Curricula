@@ -560,7 +560,7 @@
         "mapped_python_lessons": 55,
         "target_course_lesson_sections": 57,
         "numbered_unit_lesson_sections": 53,
-        "status": "content_and_compile_link_verification_complete_pending_runtime_and_full_accessibility_verification",
+        "status": "content_and_compile_link_smoke_execution_complete_pending_full_application_and_accessibility_verification",
         "completed_work": [
           "Expanded all four Unit 0 setup lessons into complete .NET SDK, workspace, editor/accessibility, dependency, restore, build, test, and run workflows.",
           "Added the missing C# equivalent of Python Unit 2 Lesson 2.5 for System.Math, circle area/circumference, and distance from the origin.",
@@ -568,17 +568,19 @@
           "Rewrote all 53 numbered lessons with three C#-specific common mistakes, four practice activities, and five observable mastery criteria per lesson.",
           "Aligned the C# course with .NET 10 and C# 14, using typed APIs, generic collections, records, interfaces, LINQ, System.Text.Json, and deterministic IDisposable cleanup where appropriate.",
           "Added scripts/check_csharp_examples.py to build each fenced C# example as an independent .NET 10 console program with nullable analysis and warnings treated as errors.",
-          "Added .github/workflows/csharp-examples.yml to run the C# compiler validation in GitHub Actions."
+          "Added .github/workflows/csharp-examples.yml to run the C# compiler validation in GitHub Actions.",
+          "Extended the checker to execute each successfully built example; all 53 examples now compile, link, and exit successfully under the .NET 10 SDK."
         ],
         "validation": [
           "Four Unit 0 setup lessons and all 53 numbered Unit 1–11 lesson sections are present.",
           "All 53 numbered lessons have exactly three C#-specific common mistakes, four practice activities, and five skills checklist criteria.",
           "All 53 worked examples are distinct C# code blocks.",
-          "GitHub Actions run 41319979071 passed using .NET SDK 10.0.403.",
-          "All 53 fenced C# examples compiled and linked as independent .NET 10 / C# 14 console programs with nullable analysis enabled and warnings treated as errors."
+          "GitHub Actions run 41319979071 passed initial compile/link validation using .NET SDK 10.0.403.",
+          "GitHub Actions run 41320247156 passed: all 53 fenced C# examples compiled, linked, and executed as independent .NET 10 / C# 14 console programs with nullable analysis enabled and warnings treated as errors."
         ],
         "not_yet_verified": [
-          "Execute examples with representative input and file fixtures; successful builds do not establish runtime behavior.",
+          "Run broader behavioral tests with representative invalid input, missing files, malformed JSON, and persistence fixtures; the current execution pass verifies clean process exit, not expected-output assertions or full interactive workflows.",
+          "Test the complete capstone application end to end, including JSON save/reload and CRUD behavior.",
           "Run a fresh mdBook build and a complete Markdown/local-link crawl after the latest edits.",
           "Perform hands-on screen-reader and braille testing with named operating systems, editors, SDKs, and access technologies.",
           "Use a standards-aware CSV parser rather than string splitting for production CSV files with quoted commas, escaped quotes, or embedded newlines."
