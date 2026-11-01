@@ -150,3 +150,7 @@ Use the official [Python documentation](https://docs.python.org/3/) as the refer
 ---
 
 The objective is to develop a repeatable approach to understanding problems, writing clear programs, testing behavior, and learning new tools independently.
+
+## GUI, visualization, and workbench accessibility
+
+See the shared [GUI, visualization, and workbench accessibility reference](../DEVELOPMENT/GUI_VISUALIZATION_ACCESSIBILITY.md) for screen-reader support by toolkit, platform-specific activation settings, recommended alternatives, and interfaces that must not be required without an equivalent accessible route.
