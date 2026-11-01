@@ -110,7 +110,7 @@ The generated `book/` directory is build output and is intentionally ignored by 
 
 ## Contribute to the living textbook
 
-Contributions are welcome. You do not need to be an expert in all four curricula. A focused correction to one explanation, a reproducible example, a screen-reader usability report, or a better exercise can make the book more useful.
+Contributions are welcome. You do not need to be an expert in every language curriculum. A focused correction to one explanation, a reproducible example, a screen-reader usability report, or a better exercise can make the book more useful.
 
 - **Discussions:** ask questions, propose ideas, compare learning approaches, and discuss the textbook's direction in [GitHub Discussions](https://github.com/mrhunsaker/VI_Focused_Coding_Curricula/discussions).
 - **Issues:** report errors, broken links, outdated setup instructions, unclear explanations, missing topics, or accessibility barriers in [GitHub Issues](https://github.com/mrhunsaker/VI_Focused_Coding_Curricula/issues).
@@ -127,7 +127,7 @@ Read [CONTRIBUTING.md](CONTRIBUTING.md), [CODE_STYLE.md](CODE_STYLE.md), and [CO
 ├── book.toml               # mdBook configuration
 ├── PYTHON/                 # Python curriculum and units
 ├── JAVASCRIPT/             # JavaScript curriculum and units
-├── JAVA/                   # Java curriculum, units, and Kotlin supplement
+├── JAVA/                   # Java curriculum and units
 ├── TYPESCRIPT/             # TypeScript curriculum and units
 ├── KOTLIN/                 # Standalone Kotlin curriculum
 ├── C/                      # C curriculum
