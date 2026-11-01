@@ -190,5 +190,5 @@ This is compiler and linker verification. The examples have not all been execute
 - Added the missing Unit 2 Lesson 2.5 counterpart for mathematical functions, circle geometry, and distance from origin.
 - Replaced generic/repeated snippets with 53 distinct standalone Go examples using canonical student, calculator, grades, scores, inventory, text, file, CSV, to-do, and capstone contexts.
 - Rewrote all 53 numbered lessons with Go-specific explanations, three relevant mistakes, four targeted activities, accessibility practice, and five measurable checklist criteria.
-- Added scripts/check_go_examples.py and .github/workflows/go-examples.yml. CI result pending; no successful compile/runtime result is claimed until Actions completes.
+- Added scripts/check_go_examples.py and .github/workflows/go-examples.yml. GitHub Actions run [41326670760](https://github.com/mrhunsaker/VI_Focused_Coding_Curricula/actions/runs/41326670760) passed on Go 1.27.3; all 53 fenced examples were formatted with gofmt, built independently, and smoke-executed successfully.
 - Remaining: expected-output assertions, broader file/input tests, capstone persistence tests, mdBook/link validation, and hands-on screen-reader/braille testing.
