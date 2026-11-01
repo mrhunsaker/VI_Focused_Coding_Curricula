@@ -1,0 +1,452 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "document_type": "curriculum_standardization_plan_and_generation_prompt",
+  "version": "1.0.0",
+  "status": "authoritative_alignment_specification_for_future_course_refinement",
+  "source_curriculum": {
+    "language": "Python",
+    "directory": "PYTHON/",
+    "files": [
+      "unit00-setup.md",
+      "unit01-foundations.md",
+      "unit02-numeric-computations.md",
+      "unit03-control-flow.md",
+      "unit04-06-data-functions.md",
+      "unit07-09-oop-files.md",
+      "unit10-11-projects-capstone.md"
+    ],
+    "instruction": "Treat the actual Python lesson files as the canonical source for sequence, learning objectives, example datasets, expected outputs, exercises, and assessment criteria. This JSON records the intended unit-by-unit correspondence; when a lesson title or subtopic differs from the live Python file, inspect the live source and preserve its actual content."
+  },
+  "curriculum_goal": "Create functionally equivalent introductory computer science courses in different general-purpose programming languages. Students should encounter the same concepts, problem contexts, datasets, input/output behavior, edge cases, project specifications, and assessment expectations. The primary variable between courses should be the language syntax, type system, runtime, standard library, idioms, and language-specific semantics—not a different set of examples or problem domains.",
+  "general_purpose_parallel_tracks": [
+    "Python",
+    "Java",
+    "JavaScript",
+    "TypeScript",
+    "Kotlin",
+    "C",
+    "C++",
+    "C#",
+    "Julia",
+    "Swift",
+    "Rust",
+    "Go",
+    "Lua"
+  ],
+  "specialized_modules": {
+    "HTML_CSS": {
+      "path": "MODULES/HTML_CSS.md",
+      "parallelize_to_python": false,
+      "reason": "HTML structures semantic documents and CSS controls presentation; these have distinct learning objectives and accessibility requirements."
+    },
+    "R": {
+      "path": "MODULES/R.md",
+      "parallelize_to_python": false,
+      "reason": "R is taught for statistical computing, data analysis, visualization, and reproducible research; use datasets and statistical questions appropriate to that domain."
+    },
+    "SQL": {
+      "path": "MODULES/SQL.md",
+      "parallelize_to_python": false,
+      "reason": "SQL is declarative and relational; teach schemas, relations, queries, joins, constraints, transactions, and query reasoning rather than procedural-language lesson equivalence."
+    }
+  },
+  "new_full_courses": {
+    "Go": {
+      "path": "GO/lessons.md",
+      "parallelize_to_python": true
+    },
+    "Lua": {
+      "path": "LUA/lessons.md",
+      "parallelize_to_python": true
+    }
+  },
+  "unit_map": [
+    {
+      "unit": 0,
+      "title": "Accessible Development Environment",
+      "source_file": "PYTHON/unit00-setup.md",
+      "purpose": "Reproduce toolchain setup, editor configuration, accessibility, workspace, terminal, and first-run verification. Adapt installation steps and runtime commands to each language.",
+      "lessons": [
+        "0.1 Installing Python and uv",
+        "0.2 Installing and configuring VS Code or Theia IDE",
+        "0.3 Editor extensions and project workspace",
+        "0.4 Python environments and terminal usage"
+      ],
+      "parallel_examples": [
+        "Install and verify the language runtime/compiler",
+        "Configure the same editor and keyboard/screen-reader workflow",
+        "Create the same course project folder and first source file",
+        "Run a Hello World program from the terminal"
+      ]
+    },
+    {
+      "unit": 1,
+      "title": "Foundations of Computing",
+      "source_file": "PYTHON/unit01-foundations.md",
+      "purpose": "Teach the same introductory computing concepts, first program, variables, and primitive values.",
+      "lessons": [
+        "1.1 Welcome to Computer Science",
+        "1.2 Your First Python Program — Hello World",
+        "1.3 Variables and Simple Data Types"
+      ],
+      "parallel_examples": [
+        "Hardware/software and algorithmic problem solving",
+        "Hello World output and sequential execution",
+        "Student profile using name, age, height, and favorite item; compare types and declarations"
+      ]
+    },
+    {
+      "unit": 2,
+      "title": "Numeric Computations",
+      "source_file": "PYTHON/unit02-numeric-computations.md",
+      "purpose": "Preserve the same software-development process, expressions, input/output, conversions, and mathematical problems.",
+      "lessons": [
+        "2.1 The Software Development Process",
+        "2.2 Elements of Programs — Expressions and Assignment",
+        "2.3 Input and Output Revisited",
+        "2.4 Computing with Numbers and Type Conversions",
+        "2.5 Using the Math Library"
+      ],
+      "parallel_examples": [
+        "Design/implement/test cycle and pseudocode for a tip calculator",
+        "Expression precedence and updating a score",
+        "Prompt for a name and two numbers; print a greeting and sum",
+        "Convert numeric text and calculate age/weight/measurement values",
+        "Circle area/circumference and distance from origin"
+      ]
+    },
+    {
+      "unit": 3,
+      "title": "Control Flow — Decisions and Loops",
+      "source_file": "PYTHON/unit03-control-flow.md",
+      "purpose": "Keep the same boolean reasoning, grade classification, score list, iteration, and text-processing examples.",
+      "lessons": [
+        "3.1 Boolean Expressions and if Statements",
+        "3.2 Chained Conditionals (elif, else)",
+        "3.3 Introduction to Lists",
+        "3.4 Iterating with for Loops",
+        "3.5 Basic String Operations"
+      ],
+      "parallel_examples": [
+        "Compare numeric scores and combine Boolean conditions",
+        "Use identical grade thresholds and boundary scores",
+        "Create, index, and modify the same list of four scores",
+        "Iterate through scores and calculate total/average",
+        "Normalize a name or sentence, count characters, and search text"
+      ]
+    },
+    {
+      "unit": 4,
+      "title": "Data Structures — Lists and Dictionaries",
+      "source_file": "PYTHON/unit04-06-data-functions.md",
+      "purpose": "Use the same collection operations and inventory/grade data in each general-purpose language; explain language-specific equivalents.",
+      "lessons": [
+        "4.1 More on Lists",
+        "4.2 Organizing Lists",
+        "4.3 Tuples — Immutable Lists",
+        "4.4 Introducing Dictionaries",
+        "4.5 Looping Through Dictionaries"
+      ],
+      "parallel_examples": [
+        "Append, insert, update, remove, and inspect a sequence",
+        "Sort and reverse the same numeric values",
+        "Represent immutable coordinates or a student record",
+        "Represent an inventory item with name, quantity, and price using a map/record/type appropriate to the language",
+        "Traverse keys, values, and key-value pairs"
+      ]
+    },
+    {
+      "unit": 5,
+      "title": "User Input and while Loops",
+      "source_file": "PYTHON/unit04-06-data-functions.md",
+      "purpose": "Use the same prompt/validation loop and sentinel-controlled interaction. Explain language-specific input parsing and loop syntax.",
+      "lessons": [
+        "5.1 How the input() Function Works",
+        "5.2 The while Loop in Action",
+        "5.3 Using Flags and break to Exit Loops",
+        "5.4 Using continue in Loops",
+        "5.5 Avoiding Infinite Loops"
+      ],
+      "parallel_examples": [
+        "Prompt for and parse user input; explain string conversion or typed input",
+        "Repeat a menu until a sentinel command is entered",
+        "Use a Boolean flag and break to stop a search",
+        "Skip invalid or unwanted entries with continue or equivalent",
+        "Diagnose loop termination and boundary conditions"
+      ]
+    },
+    {
+      "unit": 6,
+      "title": "Functions",
+      "source_file": "PYTHON/unit04-06-data-functions.md",
+      "purpose": "Use the same calculation and collection-processing functions. Preserve input/output contracts and decomposition while explaining parameter semantics.",
+      "lessons": [
+        "6.1 Defining Functions",
+        "6.2 Passing Arguments",
+        "6.3 Return Values",
+        "6.4 Functions with Lists and Dictionaries",
+        "6.5 Arbitrary Number of Arguments"
+      ],
+      "parallel_examples": [
+        "Define a reusable tip/total calculator",
+        "Call with positional, named, and default arguments where language supports them; explain alternatives where it does not",
+        "Return a computed result rather than only printing it",
+        "Pass and process the same scores list and inventory map",
+        "Teach variadic arguments or the closest idiomatic language-specific pattern"
+      ]
+    },
+    {
+      "unit": 7,
+      "title": "Classes and Object-Oriented Programming",
+      "source_file": "PYTHON/unit07-09-oop-files.md",
+      "purpose": "Keep the same Student, Item, or Task domain model while translating the design to idiomatic types, classes, structs, interfaces, or composition.",
+      "lessons": [
+        "7.1 Why Learn About Classes?",
+        "7.2 Creating and Using a Class",
+        "7.3 Working with Attributes and Methods",
+        "7.4 Inheritance",
+        "7.5 Instances as Attributes (Composition)"
+      ],
+      "parallel_examples": [
+        "Model a student or inventory item and explain encapsulation",
+        "Create several instances with the same fields",
+        "Add methods for display, update, and validation",
+        "Model a specialized item/student type using inheritance, interfaces, traits, protocols, or embedding as appropriate",
+        "Compose a personal data manager from related objects"
+      ]
+    },
+    {
+      "unit": 8,
+      "title": "Files and Exceptions",
+      "source_file": "PYTHON/unit07-09-oop-files.md",
+      "purpose": "Use the same notes.txt and structured task/student records; teach idiomatic resource lifetime and error propagation.",
+      "lessons": [
+        "8.1 Reading from a File",
+        "8.2 Writing to a File",
+        "8.3 Exceptions — Handling Errors",
+        "8.4 The else and finally Blocks",
+        "8.5 Storing Data with JSON"
+      ],
+      "parallel_examples": [
+        "Read the same line-oriented text file and report its contents",
+        "Write and append the same notes or task records",
+        "Handle missing file, invalid input, and malformed data",
+        "Guarantee resource cleanup using language-specific constructs",
+        "Serialize and reload the same structured records as JSON"
+      ]
+    },
+    {
+      "unit": 9,
+      "title": "Testing and Data Analysis",
+      "source_file": "PYTHON/unit07-09-oop-files.md",
+      "purpose": "Reuse the same deterministic functions, records, text sample, random selection, and CSV dataset.",
+      "lessons": [
+        "9.1 Testing a Function",
+        "9.2 Testing a Class",
+        "9.3 Introduction to Random Numbers",
+        "9.4 Analyzing Text Data",
+        "9.5 Working with CSV Data"
+      ],
+      "parallel_examples": [
+        "Test add, tip, and classification functions with identical inputs/expected results",
+        "Test Task or Item state and methods",
+        "Generate a random integer, decimal, and selection; seed when reproducibility is needed",
+        "Count words and character frequencies in the same short text",
+        "Read the same CSV columns and compute identical summaries"
+      ]
+    },
+    {
+      "unit": 10,
+      "title": "Project-Based Learning — Text-Based Applications",
+      "source_file": "PYTHON/unit10-11-projects-capstone.md",
+      "purpose": "Keep the exact project specification and user interaction consistent so language implementation is the principal variable.",
+      "lessons": [
+        "10.1 Designing Your Project",
+        "10.2 Building a Text-Based Adventure Game (Part 1)",
+        "10.3 Building a Text-Based Adventure Game (Part 2)",
+        "10.4 Developing a Command-Line Tool",
+        "10.5 Refinement and User Experience"
+      ],
+      "parallel_examples": [
+        "Same requirements, pseudocode, inputs, outputs, and accessibility criteria",
+        "Same rooms, exits, and movement commands",
+        "Same inventory, item pickup, and puzzle rules",
+        "Same command-line to-do operations and persistence",
+        "Same validation, prompt wording, error cases, and text-only accessibility review"
+      ]
+    },
+    {
+      "unit": 11,
+      "title": "Capstone — Accessible Personal Data Manager",
+      "source_file": "PYTHON/unit10-11-projects-capstone.md",
+      "purpose": "Use one shared capstone specification across general-purpose languages. Framework/UI choices may differ, but core data model, operations, and acceptance tests must remain equivalent.",
+      "lessons": [
+        "11.1 Introduction to NiceGUI",
+        "11.2 Data Model and Storage",
+        "11.3 Displaying and Managing Items",
+        "11.4 Updating and Deleting Items",
+        "11.5 Testing, Accessibility, and Delivery"
+      ],
+      "parallel_examples": [
+        "Introduce an appropriate interface option; do not require NiceGUI outside Python",
+        "Same record fields, validation rules, and JSON storage format",
+        "Same add/list/search behavior",
+        "Same edit/delete behavior and confirmation rules",
+        "Same tests, keyboard/screen-reader acceptance criteria, README, and reflection"
+      ]
+    }
+  ],
+  "canonical_shared_datasets": {
+    "student_profile": {
+      "name": "Avery",
+      "age": 16,
+      "height_m": 1.72,
+      "favorite_subject": "Computer Science"
+    },
+    "calculator": {
+      "bill": 24.5,
+      "tip_rate": 0.15
+    },
+    "grade_thresholds": [
+      {
+        "minimum": 90,
+        "grade": "A"
+      },
+      {
+        "minimum": 80,
+        "grade": "B"
+      },
+      {
+        "minimum": 70,
+        "grade": "C"
+      },
+      {
+        "minimum": 60,
+        "grade": "D"
+      },
+      {
+        "minimum": 0,
+        "grade": "F"
+      }
+    ],
+    "scores": [
+      82,
+      91,
+      76,
+      88
+    ],
+    "inventory": [
+      {
+        "name": "Notebook",
+        "quantity": 3,
+        "unit_price": 2.5
+      },
+      {
+        "name": "Pencil",
+        "quantity": 10,
+        "unit_price": 0.5
+      },
+      {
+        "name": "Folder",
+        "quantity": 4,
+        "unit_price": 1.25
+      }
+    ],
+    "coordinates": {
+      "x": 3,
+      "y": 4
+    },
+    "text_sample": "A student studies programming. Programming develops problem-solving skills.",
+    "csv_columns": [
+      "student_id",
+      "first_name",
+      "last_name",
+      "score",
+      "active"
+    ],
+    "todo_fields": [
+      "id",
+      "title",
+      "description",
+      "done",
+      "created_at"
+    ],
+    "capstone_record_fields": [
+      "id",
+      "title",
+      "description",
+      "category",
+      "created_at",
+      "updated_at"
+    ]
+  },
+  "equivalence_rules": [
+    "Preserve the same unit order and the same learning objective in every general-purpose track.",
+    "Preserve the same example problem, input values, dataset, boundary cases, and expected output wherever technically possible.",
+    "Use idiomatic language syntax; never produce awkward literal translations solely to resemble Python.",
+    "When a language has no direct equivalent, teach the closest idiomatic construct and explicitly explain the semantic difference.",
+    "Do not introduce unrelated examples that make the learner solve a new domain problem while learning new syntax.",
+    "Keep code examples small, runnable, and independently understandable; introduce complexity incrementally.",
+    "For compiled languages, include compile and run commands and explain compiler diagnostics. For interpreted languages, explain interpreter execution.",
+    "For statically typed languages, explicitly teach type declarations/inference and conversion. For memory-safe or ownership-oriented languages, explain ownership/borrowing where relevant.",
+    "For C and C++, include memory, arrays, pointers/references, and resource-lifetime lessons without changing the shared problem context.",
+    "For Julia, emphasize arrays, broadcasting, multiple dispatch, and numerical workloads while retaining shared general-programming examples.",
+    "For Rust, explain ownership, borrowing, Result/Option, and traits in the context of the shared examples.",
+    "For Swift, explain optionals, value semantics, protocols, and Codable in the context of the shared examples.",
+    "For Go, explain packages, slices, maps, structs, interfaces, explicit errors, and concurrency as appropriate.",
+    "For Lua, explain tables, dynamic values, functions as values, modules, and metatables using the shared examples."
+  ],
+  "lesson_template": {
+    "required_sections": [
+      "Overview at unit level",
+      "Reading References",
+      "Learning Objectives",
+      "Concept Explanation",
+      "Worked Example",
+      "Expected Behavior or Output",
+      "Common Mistakes",
+      "Activities",
+      "Accessibility Practice",
+      "Skills Checklist"
+    ],
+    "optional_sections": [
+      "Compatibility Notes",
+      "Language-Specific Semantics",
+      "Debugging Walkthrough",
+      "Extension Challenge",
+      "Project Milestone"
+    ],
+    "accessibility_requirements": [
+      "Keyboard-first instructions; do not require mouse-only operation.",
+      "Ensure code and output can be read sequentially with screen readers and braille displays.",
+      "Explain punctuation, indentation, braces, delimiters, and nesting when they affect code interpretation.",
+      "Do not use color as the only way to communicate meaning.",
+      "Use descriptive prompts and explicit textual errors; provide textual equivalents for charts and visual outputs.",
+      "Include terminal execution paths even when an IDE run command exists.",
+      "Test examples with common screen-reader workflows where practical; do not claim testing unless it was performed."
+    ]
+  },
+  "course_quality_gates": [
+    "Every unit 0–11 exists in each general-purpose course.",
+    "Every Python lesson has an explicit mapped counterpart or a documented language-specific reason for adaptation.",
+    "Every substantive lesson contains a worked example, expected behavior, common mistakes, activities, accessibility practice, and a skills checklist.",
+    "The same shared datasets and expected results are used across parallel tracks.",
+    "Examples compile or execute under the documented language version; do not claim validation unless actually run.",
+    "All code uses idiomatic conventions for the target language and explains non-equivalent constructs.",
+    "The course includes text adventure, command-line to-do, and personal-data manager projects with equivalent requirements.",
+    "The final assessment checks understanding of the target language rather than visual IDE fluency.",
+    "AI policy is consistent: AI may support personal conceptual understanding and reinforcement only; it may not write, autocomplete, repair, complete, or generate course code or assessment solutions."
+  ],
+  "generation_prompt": "You are an expert computer science curriculum author and accessibility specialist. Refine the target language course in this repository using the original Python curriculum as the canonical instructional blueprint. Read every Python unit file listed in source_curriculum and map each lesson, example, dataset, activity, common mistake, skills checklist, project requirement, and assessment criterion to the corresponding target-language lesson. Follow unit_map exactly and preserve the sequence from Unit 0 through Unit 11. The learner should solve functionally the same problems in each general-purpose language: same student profile, calculator values, grade thresholds, score list, inventory records, text sample, CSV columns, to-do requirements, text-adventure rules, and personal-data-manager capstone. Do not change the problem merely to demonstrate a language feature. Teach the same concept with idiomatic target-language syntax, type rules, standard-library facilities, compiler/interpreter workflow, and language-specific semantics. Explain when a construct has no direct equivalent and choose the closest idiomatic alternative without pretending the languages behave identically. Expand outline-only lessons into full instructional lessons using lesson_template.required_sections. Include complete runnable code examples, expected output, common mistakes, step-by-step activities, and measurable skills checklists. Keep the shared accessibility requirements and terminal workflow. Keep HTML/CSS, R, and SQL as separate specialized modules; do not force those subjects into the Python sequence. Do not use AI to produce learner assignment answers: the course policy permits AI only for personal conceptual explanations and reinforcement, not for writing, completing, autocompleting, repairing, or generating course code. Before editing, inventory the target course files and identify missing units or lessons. After editing, validate file coverage against unit_map, inspect code syntax and expected outputs, verify navigation links, and report exactly which checks were and were not run. Never claim a build, execution test, or screen-reader test unless it actually occurred.",
+  "future_refinement_workflow": [
+    "Select one target language at a time.",
+    "Read the canonical Python source files in full.",
+    "Read the target course's current README, lessons, and index.",
+    "Create a mapping table from every Python lesson to a target-language lesson.",
+    "Revise in manageable unit batches, preserving existing useful language-specific material.",
+    "Use the shared canonical datasets and compare expected outputs.",
+    "Run compiler/interpreter checks when the environment is available; otherwise mark code as not executed.",
+    "Check headings, links, file names, and navigation.",
+    "Update the audit with completion status and unresolved differences."
+  ]
+}
