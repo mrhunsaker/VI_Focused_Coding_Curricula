@@ -18,6 +18,9 @@ This unit follows the Python sequence: test a function, test a class, generate r
 - Use assertions for expected and actual values.
 - Run tests from the terminal.
 
+### Concept Explanation
+A unit test calls a deterministic function with known inputs and compares the returned value with an expected result. Tests should include ordinary inputs and boundary conditions.
+
 ### Worked Example
 Create `math.js`:
 ```javascript
@@ -61,6 +64,9 @@ Run with `node --test`.
 
 Expected result: two passing tests and zero failures.
 
+### Expected Behavior or Output
+The Node.js test runner reports two passing tests and no failures when add() and getGrade() satisfy the stated contracts.
+
 ### Common Mistakes
 - Testing only one typical value and ignoring boundaries.
 - Writing assertions that merely repeat the implementation.
@@ -93,6 +99,9 @@ Read each test name and assertion result. Ensure failures identify the expected 
 - Verify both valid and invalid operations.
 - Keep test cases independent.
 
+### Concept Explanation
+A class test verifies observable behavior of an instance: construction, method results, valid state changes, and rejected invalid changes.
+
 ### Worked Example
 Assume `InventoryItem` exposes `quantity`, `updateQuantity()`, and `lineValue()`. A test file can verify its public behavior:
 
@@ -115,6 +124,9 @@ test("inventory item rejects a negative quantity", () => {
 ```
 
 Expected result: both tests pass when the class enforces its stated contract.
+
+### Expected Behavior or Output
+Both tests pass when the item value updates from $7.50 to $12.50 and a negative quantity throws RangeError.
 
 ### Common Mistakes
 - Testing private implementation details instead of public behavior.
@@ -147,6 +159,9 @@ Give each test a descriptive name that states the behavior being verified. Avoid
 - Select a random element from an array.
 - Explain why random tests should not depend on a specific result.
 
+### Concept Explanation
+Math.random() returns a pseudorandom floating-point value greater than or equal to zero and less than one. Transform it to a bounded integer with multiplication and Math.floor().
+
 ### Worked Example
 ```javascript
 const randomDecimal = Math.random();
@@ -161,6 +176,9 @@ console.log(`Selected item is valid: ${colors.includes(randomChoice)}`);
 ```
 
 Expected output: three lines containing `true`; the sampled values vary on each run.
+
+### Expected Behavior or Output
+Each run prints true for all three range and membership checks; the sampled values may differ.
 
 ### Common Mistakes
 - Assuming `Math.random()` can return exactly 1.
@@ -193,6 +211,9 @@ Label the range and meaning of each random value. Never require a visual animati
 - Count words and character frequencies.
 - Use a Map to store frequency counts.
 
+### Concept Explanation
+Text analysis requires explicit normalization and tokenization rules. A Map stores each token and its current frequency; the regular expression in this example treats hyphenated words as separate alphabetic tokens.
+
 ### Worked Example
 ```javascript
 const sample = "A student studies programming. Programming develops problem-solving skills.";
@@ -224,6 +245,9 @@ problem: 1
 solving: 1
 skills: 1
 ```
+
+### Expected Behavior or Output
+The sample produces nine tokens and eight distinct token keys; programming has frequency 2 and every other displayed token has frequency 1.
 
 ### Common Mistakes
 - Counting uppercase and lowercase forms as separate words.
@@ -292,6 +316,9 @@ Loaded students: 3
 Average score: 83.00
 ```
 
+### Expected Behavior or Output
+The sample CSV contains three records with scores 91, 82, and 76. The average is 83.00.
+
 ### Common Mistakes
 - Splitting CSV lines on commas without handling quoted fields.
 - Forgetting that parsed field values are strings until converted.
@@ -346,6 +373,9 @@ REPEAT
 UNTIL player enters quit
 ```
 
+### Expected Behavior or Output
+The learner produces pseudocode, a room/command specification, and acceptance tests before implementation.
+
 ### Common Mistakes
 - Starting implementation before defining the project requirements.
 - Combining input, state changes, and display in one large function.
@@ -380,6 +410,9 @@ Use keyboard-operable commands, descriptive prompts, and predictable text output
 ### Shared Project Specification
 Create three rooms: Dark Cave, Stone Tunnel, and Sunny Clearing. The cave connects north to the tunnel; the tunnel connects south to the cave and north to the clearing; the clearing connects south to the tunnel. The player begins in the cave. Valid commands include `go north`, `go south`, `look`, and `quit`.
 
+### Concept Explanation
+A room is represented by its identifier, description, and a map of valid exits. Movement looks up the requested direction and changes the player's current room only when the exit exists.
+
 ### Worked Example
 ```javascript
 const rooms = {
@@ -402,6 +435,9 @@ Expected output:
 tunnel
 null
 ```
+
+### Expected Behavior or Output
+Moving north from cave returns the room identifier tunnel. Moving west from cave returns null.
 
 ### Common Mistakes
 - Adding an exit in one direction but forgetting the reverse connection.
@@ -437,6 +473,9 @@ Announce the current room, description, and available exits in a consistent orde
 ### Shared Project Specification
 Place a torch in the Dark Cave and a magic key in the Sunny Clearing. The player can use `take [item]` and `inventory`. The magic key unlocks a gate or completes a clearly described puzzle. Preserve the same item names and rules across language tracks.
 
+### Concept Explanation
+An item belongs either to a room or to the player's inventory. Picking it up removes it from the room and adds it to inventory as one state transition.
+
 ### Worked Example
 ```javascript
 const roomItems = {
@@ -464,6 +503,9 @@ Expected output:
 true
 torch
 ```
+
+### Expected Behavior or Output
+Taking the torch from the cave returns true and the inventory contains torch.
 
 ### Common Mistakes
 - Allowing an item to be picked up repeatedly after it has been removed.
@@ -499,6 +541,9 @@ Confirm each successful pickup by item name. When pickup fails, explain whether 
 ### Shared Project Specification
 Each task has an identifier, description, completion state, and creation timestamp. The menu supports add task, view tasks, mark complete, delete, and quit. Save after every state-changing operation.
 
+### Concept Explanation
+A command-line task manager separates data operations from prompts and display. Task numbers shown to users are one-based, while array indexes are zero-based.
+
 ### Worked Example
 Core task operations:
 ```javascript
@@ -523,6 +568,9 @@ function markComplete(tasks, taskNumber) {
   return true;
 }
 ```
+
+### Expected Behavior or Output
+A valid task description is added with completed false and a timestamp; a valid task number marks the corresponding task complete.
 
 ### Common Mistakes
 - Confusing the user's one-based task number with a zero-based array index.
@@ -559,6 +607,9 @@ Number every task and include an explicit completion label such as "complete" or
 
 ### Concept Explanation
 A usable text program gives the same kind of response for the same kind of action. Prompts should state valid input, errors should explain the problem, and successful operations should confirm what changed. A help command should list every supported operation.
+
+### Expected Behavior or Output
+The refined application handles blank input, unknown commands, invalid record numbers, empty lists, and malformed stored data with explicit text messages.
 
 ### Common Mistakes
 - Printing "Invalid input" without explaining valid choices.
@@ -600,6 +651,17 @@ Build a complete command-line personal data manager in JavaScript and Node.js. T
 ### Concept Explanation
 The capstone is assessed on data operations and accessibility, not visual interface fluency. The terminal interface must support adding, viewing, searching, editing, deleting, and saving records. A help command must list all commands.
 
+### Worked Example
+A minimal command menu might list: add, view, search, edit, delete, help, and quit. Each command maps to one named function.
+
+### Expected Behavior or Output
+The project plan contains a selected domain, a record schema, command descriptions, and acceptance tests.
+
+### Common Mistakes
+- Choosing a domain before identifying required fields and operations.
+- Designing a visual-only interaction when the project requires an accessible text interface.
+- Omitting help and invalid-command behavior.
+
 ### Activities
 1. Choose one project domain.
 2. List the fields each record requires.
@@ -629,6 +691,17 @@ Every action must be possible from the keyboard. Prompts must name the expected 
 ### Canonical Record Fields
 Use these shared fields for the generic personal data manager: `id`, `title`, `description`, `category`, `created_at`, and `updated_at`. A selected domain may add fields, but must not remove the shared fields.
 
+### Worked Example
+A record contains id, title, description, category, created_at, and updated_at. The id is unique; timestamps use ISO 8601 strings.
+
+### Expected Behavior or Output
+After saving and reloading, all record fields and values are preserved. Missing files can initialize an empty collection; malformed JSON produces a clear error.
+
+### Common Mistakes
+- Treating parsed JSON as trusted data without validation.
+- Reusing record identifiers.
+- Overwriting valid data after a parse failure without informing the user.
+
 ### Activities
 1. Define the record shape and document each field.
 2. Create a sample JSON file containing at least three records.
@@ -644,6 +717,10 @@ Use human-readable JSON during development. Provide explicit save/load confirmat
 - [ ] I can preserve timestamps and identifiers.
 - [ ] I can handle missing and malformed data.
 
+### Concept Explanation
+The data model defines the fields and invariants of each record. JSON persistence stores the records between runs; load and save operations must handle file and parse failures.
+
+
 ## Lesson 11.3: Displaying Items
 
 ### Reading References
@@ -654,6 +731,9 @@ Use human-readable JSON during development. Provide explicit save/load confirmat
 - Display every record with a one-based number.
 - Print each field with an explicit label.
 - Handle an empty collection.
+
+### Concept Explanation
+Displaying records is a read operation. A one-based display number is a temporary selection aid; the stored identifier remains the stable record identity.
 
 ### Worked Example
 ```javascript
@@ -670,6 +750,14 @@ function displayItems(items) {
   });
 }
 ```
+
+### Expected Behavior or Output
+Each record is announced with its number and labeled fields. An empty collection prints the no-items message.
+
+### Common Mistakes
+- Omitting field labels.
+- Using zero-based indexes as the displayed number.
+- Failing to handle an empty collection.
 
 ### Activities
 1. Display three sample records in order.
@@ -697,6 +785,9 @@ Use labels, stable ordering, and one record at a time. Do not rely on columns, c
 - Search records by keyword.
 - Edit selected fields and update timestamps.
 
+### Concept Explanation
+Searching filters records without changing the stored collection. Editing changes only permitted fields and updates the updated_at timestamp.
+
 ### Worked Example
 ```javascript
 function searchItems(items, keyword) {
@@ -715,6 +806,14 @@ function updateItem(item, changes) {
   item.updated_at = new Date().toISOString();
 }
 ```
+
+### Expected Behavior or Output
+Search returns matching titles or descriptions. A successful edit changes the requested field and refreshes updated_at.
+
+### Common Mistakes
+- Searching case-sensitively without documenting that behavior.
+- Allowing edits to immutable identifiers.
+- Failing to update the modification timestamp.
 
 ### Activities
 1. Search records by a word in the title.
@@ -742,6 +841,9 @@ Report the number of matches and identify each result by its title and record nu
 - Save changes and reload them between program runs.
 - Verify the full CRUD workflow and error handling.
 
+### Concept Explanation
+Deleting removes a selected record from the collection. Persistence must happen after the mutation so the deletion remains effective after the next program launch.
+
 ### Worked Example
 ```javascript
 function deleteItem(items, id) {
@@ -751,6 +853,14 @@ function deleteItem(items, id) {
   return true;
 }
 ```
+
+### Expected Behavior or Output
+After deleting and saving a record, reloading the JSON file confirms that the record is absent.
+
+### Common Mistakes
+- Deleting by a stale array index.
+- Failing to save after a deletion.
+- Omitting confirmation for an irreversible action.
 
 ### Activities
 1. Delete one record and confirm the title of the deleted item.
