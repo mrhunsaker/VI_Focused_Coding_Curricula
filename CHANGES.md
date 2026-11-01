@@ -276,3 +276,5 @@ All implementation changes are recorded here. Each numbered step is committed se
 - Documented Julia-specific array indexing, multiple dispatch, composite types, TOML/JSON package boundaries, and robust CSV parsing guidance.
 - Added `scripts/check_julia_examples.py` and `.github/workflows/julia-examples.yml` to execute the fenced examples under Julia 1.12. CI result is pending and will be recorded separately.
 - Remaining: runtime result confirmation, expected-output and end-to-end tests, mdBook/link validation, and hands-on screen-reader/braille testing.
+
+- GitHub Actions run [41322088371](https://github.com/mrhunsaker/VI_Focused_Coding_Curricula/actions/runs/41322088371) passed on Julia 1.12.7: all 57 fenced Julia examples executed successfully. One soft-scope issue found by the initial run was corrected before the successful run. This smoke check does not assert expected output or replace end-to-end application tests.
