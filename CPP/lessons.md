@@ -538,6 +538,7 @@ Read each intermediate variable and output label in source order. Keep units and
 - [ ] I can calculate circle area and circumference.
 - [ ] I can calculate distance from coordinates using `std::sqrt`.
 - [ ] I can explain floating-point precision and domain validation.
+- [ ] I can format calculated measurements with meaningful labels and units.
 
 # Unit 3: Control Flow
 
@@ -1224,8 +1225,7 @@ Defining functions is taught through the shared course datasets and requirements
 
 ### Worked Example
 ```cpp
-const auto add = [](int left, int right) { return left + right; }; std::cout << "4 + 5 = " << add(4, 5) << '\n';
-
+const auto calculate_total = [](double bill, double rate) { return bill * (1.0 + rate); }; std::cout << "Bill plus tip: $" << calculate_total(24.50, 0.15) << '\n';
 ```
 
 **Trace:** predict the output before compiling. Identify declarations, values, control-flow decisions, and state changes in order. Then compile and compare actual output with the prediction. The lesson example is intended to be independently compilable.
@@ -2016,8 +2016,7 @@ Text analysis is taught through the shared course datasets and requirements. The
 
 ### Worked Example
 ```cpp
-const std::string sample = "A student studies programming."; int letters = 0, spaces = 0; for (unsigned char ch : sample) { if (std::isalpha(ch)) ++letters; if (std::isspace(ch)) ++spaces; } std::cout << "Letters: " << letters << "; spaces: " << spaces << '\n';
-
+const std::string sample = "A student studies programming. Programming develops problem-solving skills."; int letters = 0, spaces = 0; for (unsigned char ch : sample) { if (std::isalpha(ch)) ++letters; if (std::isspace(ch)) ++spaces; } std::cout << "Letters: " << letters << "; spaces: " << spaces << '\n';
 ```
 
 **Trace:** predict the output before compiling. Identify declarations, values, control-flow decisions, and state changes in order. Then compile and compare actual output with the prediction. The lesson example is intended to be independently compilable.
@@ -2059,8 +2058,7 @@ CSV records is taught through the shared course datasets and requirements. The P
 
 ### Worked Example
 ```cpp
-std::istringstream row("Avery,92,active"); std::string name, score_text, status; std::getline(row, name, ','); std::getline(row, score_text, ','); std::getline(row, status); const int score = std::stoi(score_text); std::cout << name << ": " << score << " (" << status << ")\n";
-
+std::istringstream row("001,Avery,Student,92,true"); std::string id, first_name, last_name, score_text, active; std::getline(row, id, ','); std::getline(row, first_name, ','); std::getline(row, last_name, ','); std::getline(row, score_text, ','); std::getline(row, active); const int score = std::stoi(score_text); std::cout << id << ": " << first_name << " " << last_name << ", score " << score << ", active " << active << '\n';
 ```
 
 **Trace:** predict the output before compiling. Identify declarations, values, control-flow decisions, and state changes in order. Then compile and compare actual output with the prediction. The lesson example is intended to be independently compilable.
@@ -2372,8 +2370,7 @@ Data model and storage is taught through the shared course datasets and requirem
 
 ### Worked Example
 ```cpp
-struct Person { int id; std::string name; std::string email; }; const std::vector<Person> people{{1, "Avery", "avery@example.test"}}; for (const auto& person : people) std::cout << person.id << "," << person.name << "," << person.email << '\n';
-
+struct Record { int id; std::string title; std::string description; std::string category; }; const std::vector<Record> records{{1, "Course project", "Personal data manager", "education"}}; for (const auto& record : records) std::cout << record.id << "," << record.title << "," << record.description << "," << record.category << '\n';
 ```
 
 **Trace:** predict the output before compiling. Identify declarations, values, control-flow decisions, and state changes in order. Then compile and compare actual output with the prediction. The lesson example is intended to be independently compilable.
