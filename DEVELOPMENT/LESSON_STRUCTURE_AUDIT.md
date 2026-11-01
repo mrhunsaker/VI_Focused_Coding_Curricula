@@ -167,3 +167,5 @@ This is compiler and linker verification. The examples have not all been execute
 - Rewrote all 53 numbered lessons with Swift-specific concept explanations, three common mistakes, four targeted activities, accessibility practice, and five observable checklist criteria.
 - Added a Swift 6 example runner and GitHub Actions workflow. CI execution is pending; no successful compile/runtime result is claimed until the workflow completes.
 - Outstanding: expected-output and broader behavior tests, mdBook build and local-link crawl, and hands-on screen-reader/braille testing.
+
+- GitHub Actions run [41324186133](https://github.com/mrhunsaker/VI_Focused_Coding_Curricula/actions/runs/41324186133) passed on Swift 6.0; all 57 fenced Swift examples executed successfully as independent scripts. This is a smoke-execution check, not exact-output assertion or full package/capstone testing.
