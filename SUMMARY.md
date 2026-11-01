@@ -8,6 +8,11 @@
   - [Bash navigation and syntax](TERMINAL/bash.md)
   - [PowerShell navigation and syntax](TERMINAL/powershell.md)
 
+# Development environment
+
+- [Standalone IDE setup: VS Code, VSCodium, and Theia](DEVELOPMENT/IDE_SETUP.md)
+- [Lesson structure audit and standard](DEVELOPMENT/LESSON_STRUCTURE_AUDIT.md)
+
 # Python
 
 - [Python Curriculum](PYTHON/PYTHON_README.md)
