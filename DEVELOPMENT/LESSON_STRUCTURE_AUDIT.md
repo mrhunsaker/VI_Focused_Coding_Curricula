@@ -132,3 +132,14 @@ This is compiler and linker verification. The examples have not all been execute
 - Added `scripts/check_cpp_examples.py` and `.github/workflows/cpp-examples.yml`.
 - GitHub Actions run [41318426947](https://github.com/mrhunsaker/VI_Focused_Coding_Curricula/actions/runs/41318426947) passed with GCC 13.3.0 and Clang 18.1.3. All 54 fenced C++ examples compiled and linked as C++20 with strict warning flags.
 - Remaining: runtime execution with representative inputs/files, fresh mdBook build, complete local-link crawl, and hands-on screen-reader/braille testing. Compiler success is not runtime or accessibility validation.
+
+
+## 2026-11-01 follow-up: C# lesson-quality pass
+
+- Expanded all four Unit 0 lessons into complete .NET 10 SDK, project workspace, editor/accessibility, NuGet, restore, build, test, and run workflows.
+- Added the missing C# counterpart of Python Unit 2 Lesson 2.5 using `System.Math`, circle area/circumference, and distance from the origin.
+- Replaced repeated examples with 53 distinct C# examples using the canonical shared profile, calculator, grade thresholds, scores, inventory, coordinates, text sample, CSV columns, task fields, and capstone record fields.
+- Rewrote all 53 numbered lessons with three C#-specific common mistakes, four practice activities, and five observable mastery criteria per lesson.
+- Standardized the examples on .NET 10 / C# 14 and added `scripts/check_csharp_examples.py` plus `.github/workflows/csharp-examples.yml`.
+- Structural validation confirms four fully structured setup lessons, 53 numbered lessons, 53 distinct C# examples, and the required three/four/five mistake/activity/checklist counts.
+- Compiler validation is pending; runtime execution, a fresh mdBook build/link crawl, and hands-on screen-reader/braille testing remain outstanding.
