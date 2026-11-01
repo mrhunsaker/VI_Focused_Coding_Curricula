@@ -14,7 +14,7 @@ The checker extracts every fenced Go block, runs gofmt, builds each standalone p
 
 - Structural target: four complete Unit 0 setup lessons and 53 numbered lessons across Units 1–11.
 - Each numbered lesson: Reading References, Learning Objectives, Concept Explanation, Worked Example, expected behavior, three Common Mistakes, four Activities, Accessibility Practice, and five Skills Checklist criteria.
-- Automated runtime check: formatting, compilation, and successful process exit for every fenced Go example.
+- Automated runtime check: GitHub Actions run [41326670760](https://github.com/mrhunsaker/VI_Focused_Coding_Curricula/actions/runs/41326670760) passed on Go 1.27.3; all 53 fenced examples were formatted with gofmt, built independently, and smoke-executed successfully.
 - Not covered: exact-output assertions, broad malformed-input/file fixtures, package-level tests, concurrency race testing, capstone end-to-end persistence, or cross-platform behavior.
 - Not yet performed: fresh mdBook build and complete local-link crawl; hands-on screen-reader and braille-display testing.
 
