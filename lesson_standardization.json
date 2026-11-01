@@ -447,7 +447,7 @@
   ],
   "refinement_progress": {
     "last_updated": "2026-11-01",
-    "current_language": "Julia",
+    "current_language": "Swift",
     "completed_tracks": {
       "C": {
         "path": "C/lessons.md",
@@ -630,10 +630,52 @@
           "Hands-on screen-reader and braille testing with named operating systems, editors, Julia versions, and access technologies.",
           "Full JSON3.jl persistence and CSV.jl parsing workflows in the end-to-end capstone."
         ]
+      },
+      "Swift": {
+        "path": "SWIFT/lessons.md",
+        "units": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11
+        ],
+        "mapped_python_lessons": 55,
+        "target_course_lesson_sections": 57,
+        "numbered_unit_lesson_sections": 53,
+        "status": "content_and_example_execution_validation_pending",
+        "completed_work": [
+          "Expanded all four Unit 0 setup lessons with Swift installation and version verification, workspace/path behavior, accessible editor and SourceKit-LSP setup, and Swift Package Manager guidance.",
+          "Added the missing Python Unit 2 Lesson 2.5 counterpart for Foundation mathematical functions, circle area/circumference, and distance using hypot.",
+          "Replaced repeated worked examples with 53 distinct lesson-specific Swift examples aligned to shared course datasets and project contexts.",
+          "Rewrote all 53 numbered lessons with Swift-specific explanations, three common mistakes, four targeted activities, accessibility practice, and five measurable skills checklist criteria.",
+          "Documented Swift-specific value semantics, optionals, argument labels, protocols, throwing file operations, Codable, and CSV package boundaries.",
+          "Added scripts/check_swift_examples.py and a Swift 6 GitHub Actions workflow to execute every fenced Swift example independently."
+        ],
+        "validation": [
+          "Structural checks confirm Units 1–11, all 53 numbered lessons including Unit 2 Lesson 2.5, and four Unit 0 setup lessons.",
+          "All 53 numbered lessons have exactly three common mistakes, four activities, and five checklist criteria.",
+          "All 53 numbered lesson examples are distinct; with four Unit 0 examples, the course contains 57 distinct fenced Swift examples.",
+          "All four Unit 0 lessons contain the full nine-section setup lesson structure.",
+          "Markdown fences are balanced."
+        ],
+        "not_yet_verified": [
+          "GitHub Actions execution of all 57 Swift examples; workflow added but result not yet confirmed.",
+          "Expected-output assertions and broader behavioral tests with invalid input, file fixtures, and package integration.",
+          "A fresh mdBook build and complete Markdown/local-link crawl after the latest edits.",
+          "Hands-on screen-reader and braille testing with named operating systems, editors, Swift versions, and access technologies.",
+          "End-to-end capstone persistence, XCTest coverage, and Apple-platform build testing."
+        ]
       }
     },
     "next_tracks": [
-      "Swift",
       "Rust",
       "Go",
       "Lua",
