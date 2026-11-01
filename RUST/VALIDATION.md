@@ -14,7 +14,7 @@ The checker extracts every fenced Rust block, compiles each independently with r
 
 - Structural target: four complete Unit 0 setup lessons and 53 numbered lessons across Units 1–11.
 - Each numbered lesson: Reading References, Learning Objectives, Concept Explanation, Worked Example, expected behavior, three Common Mistakes, four Activities, Accessibility Practice, and five Skills Checklist criteria.
-- Runtime check: compilation and successful process exit for every fenced Rust example.
+- Runtime check: GitHub Actions run [41324948920](https://github.com/mrhunsaker/VI_Focused_Coding_Curricula/actions/runs/41324948920) passed on Rust 1.99.1; all 53 fenced Rust examples compiled with `--edition=2024 -D warnings` and smoke-executed successfully.
 - Not covered: exact-output assertions, broad malformed-input fixtures, persistence round-trip tests, capstone end-to-end behavior, dependency audit, or cross-platform behavior.
 - Not yet performed: fresh mdBook build and complete local-link crawl; hands-on screen-reader and braille-display testing.
 
