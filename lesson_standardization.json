@@ -688,19 +688,21 @@
     ],
     "note": "Content alignment is not a claim that every code example has been compiled or runtime-tested. Preserve explicit language-specific deviations and record verification evidence.",
     "rust": {
-      "status": "lesson_content_and_structural_refinement_complete_pending_ci_and_full_accessibility_verification",
+      "status": "content_structure_and_example_compile_smoke_execution_verified_pending_full_application_and_accessibility_verification",
       "edition": "Rust 2024",
       "unit_0_setup_lessons": 4,
       "numbered_lessons": 53,
       "automated_check": "scripts/check_rust_examples.py",
       "workflow": ".github/workflows/rust-examples.yml",
       "pending": [
-        "GitHub Actions compile/smoke-run result",
         "expected-output assertions and broader invalid-input/file fixtures",
         "capstone end-to-end persistence tests",
         "fresh mdBook build and local-link crawl",
         "hands-on screen-reader and braille testing"
-      ]
+      ],
+      "ci_run": "41324948920",
+      "rust_version": "1.99.1",
+      "examples_compiled_and_executed": 53
     }
   }
 }
