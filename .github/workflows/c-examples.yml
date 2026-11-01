@@ -1,0 +1,30 @@
+name: C curriculum example validation
+
+on:
+  push:
+    branches:
+      - 2026-11-01-curriculum-expansion
+    paths:
+      - "C/lessons.md"
+      - "scripts/check_c_examples.py"
+      - ".github/workflows/c-examples.yml"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  syntax-check:
+    name: ${{ matrix.compiler }} / C17
+    runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        compiler: [gcc, clang]
+    steps:
+      - name: Check out curriculum
+        uses: actions/checkout@v4
+      - name: Verify compiler
+        run: ${{ matrix.compiler }} --version
+      - name: Syntax-check every C lesson example
+        run: python3 scripts/check_c_examples.py --compiler ${{ matrix.compiler }} --standard c17
