@@ -21,6 +21,7 @@ This course is a Kotlin/JVM parallel track aligned to the shared 12-unit, 57-les
 - [Complete standalone Kotlin reference lessons](lessons.md)
 - [57-topic index](INDEX.md)
 - [Teacher guide](teachers-guide.md)
+- [Expected output fixtures for all 57 examples](examples_expected.json)
 - [Standardization audit](standardization-audit.md)
 
 ## Kotlin semantics emphasized
