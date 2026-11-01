@@ -1,6 +1,6 @@
 # Accessible Introduction to Computer Science
 
-## A living, accessibility-first textbook in Python, JavaScript, TypeScript, Java, Kotlin, C, C++, C#, Julia, Swift, and Rust
+## A living, accessibility-first textbook in C, C++, C#, Go, Java, JavaScript, Julia, Kotlin, Lua, Python, Rust, Swift, and TypeScript
 
 This book is a structured introduction to programming and core computer science concepts. It is designed with blind and visually impaired learners who use screen readers, braille displays, magnification, keyboard navigation, or combinations of access technologies in mind. It is also intended for sighted beginners, educators, and anyone who benefits from explicit, text-first instruction.
 
@@ -52,58 +52,35 @@ By working through one curriculum, learners should build the ability to:
 
 These are introductory outcomes, not a claim of professional mastery.
 
-## Additional language courses and modules
-
-### Full programming-language courses
-
-Go and Lua are now included as complete introductory courses aligned to the Python Units 0–11 sequence. The C, C++, C#, Julia, Swift, and Rust tracks have also been expanded from short outlines into unit-by-unit lesson manuscripts using the same instructional progression and recurring problem contexts.
-
-- [Go](GO/GO_README.md)
-- [Lua](LUA/LUA_README.md)
-- [C](C/c_README.md)
-- [C++](CPP/cpp_README.md)
-- [C#](CSHARP/csharp_README.md)
-- [Julia](JULIA/julia_README.md)
-- [Swift](SWIFT/swift_README.md)
-- [Rust](RUST/rust_README.md)
-
-### Specialized introductory modules
-
-These subjects have different learning objectives, so they are taught as domain-specific modules rather than being forced into the Python lesson sequence.
-
-- [HTML and CSS](MODULES/HTML_CSS.md): semantic, accessible web documents and styling.
-- [R](MODULES/R.md): statistical computing, data analysis, and reproducible research.
-- [SQL](MODULES/SQL.md): relational data, querying, joins, integrity, and transactions.
-
-### Parallel-course standardization
-
-The [lesson_standardization.json](lesson_standardization.json) file specifies the Python curriculum unit by unit, defines shared datasets and example problems, and contains a reusable prompt for refining each general-purpose language course. Its objective is functional equivalence: students encounter the same concepts and problems while learning the syntax and semantics of a different language. HTML/CSS, R, and SQL remain specialized modules.
-
-## Development environment and lesson structure
-
-Before beginning a language pathway, complete the [terminal skills prerequisite](TERMINAL/TERMINAL_README.md) and review the standalone [IDE setup lesson](DEVELOPMENT/IDE_SETUP.md). The IDE lesson provides installation steps for Visual Studio Code, VSCodium, and Eclipse Theia on Windows, macOS, and Linux; compares IDEs with lightweight text editors; and sets the course policy that AI features may be used only for personal conceptual understanding and reinforcement, not to write or complete course code.
-
-The [lesson structure audit](DEVELOPMENT/LESSON_STRUCTURE_AUDIT.md) compares the current lesson files with the original Python course. The audit finds that the repository is not yet fully standardized: some language tracks are concise lesson maps, and some existing JavaScript, TypeScript, Java, Kotlin, and terminal lessons use different section patterns. It defines a common lesson structure for future normalization rather than claiming that every lesson already matches Python.
-
 ## Choose a language
 
-### Python
+The book offers thirteen full introductory language curricula. Each one is a standalone, complete course aligned to the same instructional progression and recurring problem contexts. They are listed alphabetically and are on equal footing: no curriculum is a prerequisite for another, and none is treated as the default path.
 
-[Open the Python curriculum](PYTHON/PYTHON_README.md)
+Every language curriculum includes an opening page, a sequence of unit documents aligned to the Python Units 0–11 progression, and its own topic index. Where the language introduces concepts the shared sequence does not cover (or omits concepts it does not support), the curriculum states this explicitly on its opening page.
 
-Python is a strong starting point for many beginners because its syntax is comparatively compact and it supports interactive experimentation. The course moves from environment setup and computing foundations through numeric programs, decisions, loops, lists, dictionaries, tuples, functions, classes, files, exceptions, testing, data analysis, and projects.
+### C
 
-### JavaScript
+[Open the C curriculum](C/c_README.md)
 
-[Open the JavaScript curriculum](JAVASCRIPT/JAVASCRIPT_README.md)
+C is a procedural, statically typed language with explicit, low-level control over memory and representation. Learners work with bytes, fixed-width values, buffers, pointers, and binary records, which builds a concrete mental model of how programs use the machine. It is the foundation for operating systems, embedded firmware, drivers, and runtimes, and it deepens understanding of every higher-level language.
 
-JavaScript introduces a widely used language with applications in web and server development. This curriculum uses Node.js so the core learning sequence can be completed in a terminal without requiring browser-based visual work. Learners encounter variables, types and coercion, input, control flow, arrays, objects, strings, functions, asynchronous input patterns, classes, files, modules, collections, tests, and projects.
+### C++
 
-### TypeScript
+[Open the C++ curriculum](CPP/cpp_README.md)
 
-[Open the TypeScript curriculum](TYPESCRIPT/TYPESCRIPT_README.md)
+C++ adds resource-owning abstractions, generic programming, and object orientation to C's low-level foundation. Learners study numerical arrays, large objects, performance-sensitive streams, and manual and semi-automatic memory management. It is the working language of game engines, simulation, and real-time and high-performance software.
 
-TypeScript complements JavaScript with a static type system and a compiler-driven workflow. Its growing use in large JavaScript codebases makes it valuable for learning how explicit types, object contracts, strict null checks, and editor diagnostics can prevent many errors before runtime. TypeScript still compiles to JavaScript and requires runtime validation for untrusted data.
+### C#
+
+[Open the C# curriculum](CSHARP/csharp_README.md)
+
+C# is a statically typed language for business software, web APIs, cloud services, desktop applications, and the Unity game engine. Learners build typed models, business entities, and JSON/API payloads while studying classes, collections, exceptions, and testing through a modern .NET workflow.
+
+### Go
+
+[Open the Go curriculum](GO/GO_README.md)
+
+Go is a statically typed language designed for network services, command-line tools, and cloud infrastructure. Its deliberately small syntax, fast builds, built-in formatting and testing tools, and concurrency model make it a direct and approachable introduction to statically typed, compiled programming.
 
 ### Java
 
@@ -111,58 +88,128 @@ TypeScript complements JavaScript with a static type system and a compiler-drive
 
 Java offers an explicit, statically typed introduction to programming and object-oriented design. Learners work with the JDK and a terminal-based workflow, then study primitive types, expressions, input, control flow, arrays, ArrayLists, strings, methods, classes, inheritance, files, exceptions, collections, testing, and projects.
 
+### JavaScript
+
+[Open the JavaScript curriculum](JAVASCRIPT/JAVASCRIPT_README.md)
+
+JavaScript introduces a widely used language with applications in web and server development. This curriculum uses Node.js so the core learning sequence can be completed in a terminal without requiring browser-based visual work. Learners encounter variables, types and coercion, input, control flow, arrays, objects, strings, functions, asynchronous input patterns, classes, files, modules, collections, tests, and projects.
+
+### Julia
+
+[Open the Julia curriculum](JULIA/julia_README.md)
+
+Julia is a dynamically typed language built for scientific computing, numerical analysis, optimization, statistics, and machine learning. Learners work with vectors, matrices, tensors, measurements, simulation outputs, and statistical datasets, with optional type annotations that clarify program behavior without ceremony.
+
+### Kotlin
+
+[Open the Kotlin curriculum](KOTLIN/KOTLIN_README.md)
+
+Kotlin is a statically typed language for Android, JVM services, command-line tools, and multiplatform software. Its concise syntax, nullable types, and null-safety checks teach disciplined application modeling — typed models, API payloads, structured records, nullable data, and asynchronous state — without requiring prior Java experience.
+
+### Lua
+
+[Open the Lua curriculum](LUA/LUA_README.md)
+
+Lua is a small, dynamically typed, embeddable scripting language widely used in games, tooling, and embedded systems. Its minimal syntax and single universal data structure (the table) give beginners an unusually clear view of values, functions, and state, and its interpreter supports fast interactive experimentation.
+
+### Python
+
+[Open the Python curriculum](PYTHON/PYTHON_README.md)
+
+Python is a strong starting point for many beginners because its syntax is comparatively compact and it supports interactive experimentation. The course moves from environment setup and computing foundations through numeric programs, decisions, loops, lists, dictionaries, tuples, functions, classes, files, exceptions, testing, data analysis, and projects.
+
+### Rust
+
+[Open the Rust curriculum](RUST/rust_README.md)
+
+Rust is a statically typed systems language for CLI tools, network services, WebAssembly, and embedded software. Its ownership and borrowing model gives learners an explicit, compiler-checked understanding of memory and concurrency, producing reliable programs while diagnosing many errors before runtime.
+
+### Swift
+
+[Open the Swift curriculum](SWIFT/swift_README.md)
+
+Swift is a statically typed language for Apple-platform apps, server-side Swift, and cross-platform libraries. Learners build strongly typed app models, settings, structured records, JSON, and asynchronous results while studying optionals, protocols, and error handling.
+
+### TypeScript
+
+[Open the TypeScript curriculum](TYPESCRIPT/TYPESCRIPT_README.md)
+
+TypeScript complements JavaScript with a static type system and a compiler-driven workflow. Its growing use in large JavaScript codebases makes it valuable for learning how explicit types, object contracts, strict null checks, and editor diagnostics can prevent many errors before runtime. TypeScript still compiles to JavaScript and requires runtime validation for untrusted data.
+
 ## Comparing the language paths
 
-| Dimension | Python | JavaScript | TypeScript | Java |
-| --------- | ------ | ---------- | ---------- | ---- |
-| Typing model | Dynamic | Dynamic, with coercion rules | Static, structural, erased at runtime | Static, explicit types |
-| Block structure | Indentation | Braces | Braces |
-| Typical execution | Python interpreter | Node.js | TypeScript compiler, then Node.js/JavaScript runtime | JDK compiler and JVM |
-| Interactive experimentation | Python REPL | Node.js REPL | TypeScript playground/editor plus Node.js REPL for runtime JavaScript | JShell |
-| Beginner emphasis | Concise syntax and problem solving | Data, control flow, and runtime behavior | Explicit contracts, static analysis, and JavaScript interoperability | Types, program structure, and object-oriented design |
-| Common next steps | Automation, data work, scripting, APIs | Browser programming, web services, tooling | Typed web applications, large JavaScript codebases, shared libraries | Larger applications, APIs, typed software design |
+| Language | Typing model | Typical execution | Beginner emphasis | Primary uses |
+| --- | --- | --- | --- | --- |
+| C | Static; manual memory management | Compiled to native machine code | Explicit low-level control: bytes, values, memory, and representation | Operating systems, embedded firmware, drivers, networking, runtimes |
+| C++ | Static; manual and RAII memory management | Compiled to native machine code | Performance, resource ownership, abstraction with control | Game engines, simulation, real-time and high-performance software |
+| C# | Static, explicit types | .NET runtime (CLR) | Typed application models, object orientation, rich libraries | Business software, web APIs, cloud services, desktop apps, Unity |
+| Go | Static, explicit types | Compiled to native machine code | Simplicity, fast builds, built-in concurrency and tooling | Network services, command-line tools, cloud infrastructure |
+| Java | Static, explicit types | JDK compiler and JVM | Types, program structure, and object-oriented design | Larger applications, APIs, typed software design |
+| JavaScript | Dynamic, with coercion rules | Node.js | Data, control flow, and runtime behavior | Browser programming, web services, tooling |
+| Julia | Dynamic, with optional type annotations | Julia JIT compiler | Numerical and scientific computing; arrays and mathematical data | Scientific computing, numerical analysis, optimization, statistics, machine learning |
+| Kotlin | Static, null-safe | JVM (also Kotlin/Native and Kotlin/JS targets) | Concise typed syntax, null safety, application models | Android, JVM services, command-line tools, multiplatform software |
+| Lua | Dynamic | Lua interpreter | Small, embeddable scripting; tables as the universal data structure | Game scripting, embedded systems, tooling, configuration |
+| Python | Dynamic | Python interpreter | Concise syntax and problem solving | Automation, data work, scripting, APIs |
+| Rust | Static, ownership-based | Cargo build to native machine code | Ownership, borrowing, memory safety, reliable systems code | Systems software, CLI tools, network services, WebAssembly, embedded software |
+| Swift | Static, with optionals | Swift toolchain (Apple platforms and Linux) | Typed app models, optionals, structured data | Apple-platform apps, server-side Swift, cross-platform libraries |
+| TypeScript | Static, structural, erased at runtime | TypeScript compiler, then Node.js/JavaScript runtime | Explicit contracts, static analysis, and JavaScript interoperability | Typed web applications, large JavaScript codebases, shared libraries |
 
 This is a practical orientation, not a ranking. No language is universally easiest or best. The suitable starting point depends on learner goals, course context, available tools, and instructor expertise. Core concepts transfer across languages; syntax and runtime behavior do not always transfer directly.
 
+These are common application patterns, not hard limits. Choose a language by considering target platform, ecosystem, performance, safety, interoperability, available libraries, and maintainability. Data suitability depends on the data model and validation practices, not simply the language. Treat external input as untrusted and protect sensitive information.
+
+## Specialized introductory modules
+
+These subjects have different learning objectives, so they are taught as domain-specific modules rather than general-purpose language courses.
+
+- [HTML and CSS](MODULES/HTML_CSS.md): semantic, accessible web documents and styling.
+- [R](MODULES/R.md): statistical computing, data analysis, and reproducible research.
+- [SQL](MODULES/SQL.md): relational data, querying, joins, integrity, and transactions.
+
+## Parallel-course standardization
+
+The [lesson_standardization.json](lesson_standardization.json) file specifies the shared unit sequence, defines common datasets and example problems, and contains a reusable prompt for refining each general-purpose language course. Its objective is functional equivalence: students encounter the same concepts and problems while learning the syntax and semantics of a different language. HTML/CSS, R, and SQL remain specialized modules.
+
 ## Suggested learning pathways
 
-- **First programming course:** choose one language and complete its units in order. Python is often a comfortable starting point, but goals or course requirements may make JavaScript or Java the better choice.
+- **First programming course:** choose one language and complete its units in order. All thirteen curricula are complete, standalone courses; compact syntax makes Python or Lua frequent starting points, but goals or course requirements may make any other language the better choice.
 - **Web and interactive application pathway:** start with JavaScript and Node.js, then continue to browser technologies and accessible web development.
 - **Type safety and JavaScript ecosystem:** TypeScript adds static checking to JavaScript and supports incremental adoption in existing projects.
-- **Types and object-oriented design:** Java makes types, classes, compilation, and program structure explicit.
+- **Types and object-oriented design:** Java, Kotlin, C#, and Swift each make types, classes, compilation, and program structure explicit.
+- **Systems and performance pathway:** C, C++, Rust, and Go expose memory, compilation, and machine-level behavior with increasing safety guarantees.
+- **Scientific and data pathway:** Julia and Python, supplemented by the R and SQL modules, support numerical work, statistics, and data analysis.
 - **Cross-language comparison:** complete one introductory course first, then study a second language by comparing equivalent concepts rather than learning several syntaxes simultaneously.
 - **Educator-led course:** use the matching teacher's guide alongside the learner units.
 
-Kotlin is a standalone curriculum and does not require completion of Java. C, C++, C#, Julia, Swift, and Rust are also independent learning paths.
-
 Avoid requiring students to learn multiple curricula at once. Complete one language path before comparing syntax and design trade-offs across languages. Depth in one language provides a stronger foundation for transfer.
 
-## Additional standalone language curricula
+## Development environment and lesson structure
 
-All language tracks share the [preliminary Bash and PowerShell terminal course](TERMINAL/TERMINAL_README.md). Complete it first so learners can navigate projects, run tools, and interpret command output independently.
+Before beginning a language pathway, complete the [terminal skills prerequisite](TERMINAL/TERMINAL_README.md) and review the standalone [IDE setup lesson](DEVELOPMENT/IDE_SETUP.md). The IDE lesson provides installation steps for Visual Studio Code, VSCodium, and Eclipse Theia on Windows, macOS, and Linux; compares IDEs with lightweight text editors; and sets the course policy that AI features may be used only for personal conceptual understanding and reinforcement, not to write or complete course code.
 
-| Language | Primary uses | Typical information and workloads | Curriculum |
-| --- | --- | --- | --- |
-| Kotlin | Android, JVM services, command-line tools, multiplatform software | Typed application models, API payloads, structured records, nullable data, asynchronous state | [Kotlin](KOTLIN/KOTLIN_README.md) |
-| C | Operating systems, embedded firmware, drivers, networking, runtimes | Bytes, fixed-width values, memory buffers, binary records, low-level structures | [C](C/c_README.md) |
-| C++ | Game engines, simulation, real-time and high-performance software | Numerical arrays, large objects, resource-owning structures, performance-sensitive streams | [C++](CPP/cpp_README.md) |
-| C# | Business software, web APIs, cloud services, desktop apps, Unity | Business entities, typed models, JSON/API payloads, database records | [C#](CSHARP/csharp_README.md) |
-| Julia | Scientific computing, numerical analysis, optimization, statistics, machine learning | Vectors, matrices, tensors, measurements, simulation outputs, statistical datasets | [Julia](JULIA/julia_README.md) |
-| Swift | Apple-platform apps, server-side Swift, cross-platform libraries | Strongly typed app models, settings, structured records, JSON, asynchronous results | [Swift](SWIFT/swift_README.md) |
-| Rust | Systems software, CLI tools, network services, WebAssembly, embedded software | Owned values, borrowed views, byte buffers, structured records, concurrent data | [Rust](RUST/rust_README.md) |
-
-These are common application patterns, not hard limits. Choose a language by considering target platform, ecosystem, performance, safety, interoperability, available libraries, and maintainability. Data suitability depends on the data model and validation practices, not simply the language. Treat external input as untrusted and protect sensitive information.
+The [lesson structure audit](DEVELOPMENT/LESSON_STRUCTURE_AUDIT.md) compares the current lesson files with the original Python course. The audit finds that the repository is not yet fully standardized: some language tracks are concise lesson maps, and some existing lessons use different section patterns. It defines a common lesson structure for future normalization rather than claiming that every lesson already matches Python.
 
 ## How the curriculum is organized
 
-Each language has an opening page, a sequence of unit documents, and a teacher's guide. The [mdBook table of contents](SUMMARY.md) is the authoritative navigation for the published book. Unit files may group multiple numbered units; follow the headings and lesson numbers inside each document.
+Each language has an opening page, a sequence of unit documents, and a topic index. The [mdBook table of contents](SUMMARY.md) is the authoritative navigation for the published book. Unit files may group multiple numbered units; follow the headings and lesson numbers inside each document.
 
 | Language | Learner materials | Teacher support |
 | --- | --- | --- |
-| Python | [Python overview and units](PYTHON/PYTHON_README.md) | [Python teacher's guide](PYTHON/teachers-guide.md) |
-| JavaScript | [JavaScript overview and units](JAVASCRIPT/JAVASCRIPT_README.md) | [JavaScript teacher's guide](JAVASCRIPT/teachers-guide.md) |
-| TypeScript | [TypeScript overview and units](TYPESCRIPT/TYPESCRIPT_README.md) | [TypeScript teacher's guide](TYPESCRIPT/teachers-guide.md) |
+| C | [C overview and units](C/c_README.md) | — |
+| C++ | [C++ overview and units](CPP/cpp_README.md) | — |
+| C# | [C# overview and units](CSHARP/csharp_README.md) | — |
+| Go | [Go overview and units](GO/GO_README.md) | — |
 | Java | [Java overview and units](JAVA/JAVA_README.md) | [Java teacher's guide](JAVA/teachers-guide.md) |
+| JavaScript | [JavaScript overview and units](JAVASCRIPT/JAVASCRIPT_README.md) | [JavaScript teacher's guide](JAVASCRIPT/teachers-guide.md) |
+| Julia | [Julia overview and units](JULIA/julia_README.md) | — |
+| Kotlin | [Kotlin overview and units](KOTLIN/KOTLIN_README.md) | [Kotlin teacher's guide](KOTLIN/teachers-guide.md) |
+| Lua | [Lua overview and units](LUA/LUA_README.md) | — |
+| Python | [Python overview and units](PYTHON/PYTHON_README.md) | [Python teacher's guide](PYTHON/teachers-guide.md) |
+| Rust | [Rust overview and units](RUST/rust_README.md) | — |
+| Swift | [Swift overview and units](SWIFT/swift_README.md) | — |
+| TypeScript | [TypeScript overview and units](TYPESCRIPT/TYPESCRIPT_README.md) | [TypeScript teacher's guide](TYPESCRIPT/teachers-guide.md) |
+
+Teacher guides currently exist for Python, JavaScript, TypeScript, Java, and Kotlin. Writing guides for the remaining languages is a welcome contribution; follow [CONTRIBUTING.md](CONTRIBUTING.md) and match the structure of the existing guides.
 
 ## A practical study routine
 
@@ -188,7 +235,7 @@ Access configurations vary by operating system, screen reader, braille display, 
 
 ### Dependency and environment management
 
-For Python, use [uv](https://docs.astral.sh/uv/) to manage Python versions, project environments, and dependencies. Install project packages with `uv add package` and run commands with `uv run`; do not use global `pip install` or `python -m pip install` for course dependencies. For JavaScript and TypeScript, install dependencies into the project with `npm install`/`npm install --save-dev` and run project tools through `npx` or npm scripts; do not use global npm installs for course tools. For Java, use the project's Maven Wrapper (`mvnw`/`mvnw.cmd`) or Gradle Wrapper (`gradlew`/`gradlew.bat`) so build tooling and dependencies are reproducible.
+For Python, use [uv](https://docs.astral.sh/uv/) to manage Python versions, project environments, and dependencies. Install project packages with `uv add package` and run commands with `uv run`; do not use global `pip install` or `python -m pip install` for course dependencies. For JavaScript and TypeScript, install dependencies into the project with `npm install`/`npm install --save-dev` and run project tools through `npx` or npm scripts; do not use global npm installs for course tools. For Java, use the project's Maven Wrapper (`mvnw`/`mvnw.cmd`) or Gradle Wrapper (`gradlew`/`gradlew.bat`) so build tooling and dependencies are reproducible. Other language curricula use each language's standard project-local tooling (for example, Cargo for Rust, Go modules for Go, and NuGet for C#); follow the setup instructions on each curriculum's opening page.
 
 ### Shared accessibility practices
 
@@ -237,7 +284,7 @@ Read [CONTRIBUTING.md](CONTRIBUTING.md), follow [CODE_STYLE.md](CODE_STYLE.md), 
 
 ## References and acknowledgments
 
-The curriculum draws on established introductory programming texts and official language documentation, including *Python Crash Course* by Eric Matthes, *Python Programming: An Introduction to Computer Science* by John Zelle, *Introduction to Programming Using Java* by David J. Eck, MDN Web Docs, and official Python, Node.js, TypeScript, and Java documentation. Language-specific pages and lessons provide further references.
+The curriculum draws on established introductory programming texts and official language documentation, including *Python Crash Course* by Eric Matthes, *Python Programming: An Introduction to Computer Science* by John Zelle, *Introduction to Programming Using Java* by David J. Eck, MDN Web Docs, and official language and runtime documentation. Language-specific pages and lessons provide further references.
 
 Use official documentation to confirm version-sensitive installation and API details. External resources may change or have different accessibility characteristics over time; evaluate them in the learner's actual environment.
 
