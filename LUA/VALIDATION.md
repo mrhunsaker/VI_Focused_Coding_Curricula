@@ -28,4 +28,4 @@
 - Fresh mdBook build and complete local/external link crawl.
 - Hands-on screen-reader and braille testing across supported operating systems and editors.
 
-Final lesson prose was updated after the initial successful CI run; the workflow is being rerun against the final branch state.
+Final lesson prose was updated after the initial successful CI run; the final-lesson workflow run [41336626558](https://github.com/mrhunsaker/VI_Focused_Coding_Curricula/actions/runs/41336626558) passed on Lua 5.4.6; all 53 examples parsed and smoke-executed.
