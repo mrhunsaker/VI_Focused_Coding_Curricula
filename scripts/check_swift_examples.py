@@ -8,7 +8,7 @@ import subprocess
 import tempfile
 from pathlib import Path
 
-FENCE = re.compile(r"^```swift\s*\n(.*?)^\`\`\`\s*$", re.MULTILINE | re.DOTALL)
+FENCE = re.compile('^' + '```swift' + r'\s*\n(.*?)^' + '```' + r'\s*$', re.MULTILINE | re.DOTALL)
 
 
 def main() -> int:
