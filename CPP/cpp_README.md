@@ -1,35 +1,16 @@
-# Introduction to C++
+# C++ Curriculum
 
-## Standalone beginner curriculum
+C++ is used in game engines, simulation, robotics, finance, desktop software, and performance-critical systems.
 
-C++ is a compiled, statically typed, multi-paradigm language used for game engines, real-time systems, desktop software, simulation, high-performance computing, and performance-critical libraries.
+## Course structure
 
-## What information is a good fit?
+A complete introductory sequence aligned to Python Units 0–11: setup; foundations; numeric computation; control flow; data structures; input and iteration; functions; object-oriented design; files and exceptions; testing and data analysis; projects; and capstone. The same core problem contexts recur across languages so students focus on syntax, types, runtime behavior, libraries, and idioms.
 
-C++ suits large structured objects, numerical arrays, resource-owning objects, event streams, and data requiring predictable performance. Modern C++ uses RAII and standard-library abstractions to manage resources safely; raw pointers and manual memory management still exist but should not be the default.
+## Environment
 
-## Lessons
+Install a C++20 compiler; compile with c++ -std=c++20 -Wall -Wextra -pedantic main.cpp -o main.
 
-1. Compiler, source files, and build workflow.
-2. Types, expressions, and console I/O.
-3. Conditions, loops, and functions.
-4. Strings, vectors, and standard containers.
-5. References, pointers, and object lifetime.
-6. Classes, constructors, and encapsulation.
-7. RAII, smart pointers, and resource safety.
-8. Templates, algorithms, and generic programming.
-9. Files, exceptions, and testing.
-10. Performance-aware capstone.
+Complete the shared [IDE setup lesson](../DEVELOPMENT/IDE_SETUP.md) and [terminal prerequisite](../TERMINAL/TERMINAL_README.md). The course supports keyboard-first work with screen readers, braille displays, magnification, or other access technology.
 
-## First program
-
-~~~cpp
-#include <iostream>
-#include <string>
-int main() {
-    const std::string name = "Avery";
-    std::cout << "Hello, " << name << "!\n";
-}
-~~~
-
-Toolchain: GCC, Clang, or MSVC. Use a modern standard such as C++20, enable warnings, and prefer standard-library types over manual resource management. See [C++ lessons](lessons.md).
+- [Complete lessons](lessons.md)
+- [Topic index](INDEX.md)
