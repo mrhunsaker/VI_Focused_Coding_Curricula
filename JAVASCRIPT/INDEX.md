@@ -26,7 +26,9 @@ Use this topic index to locate the lesson for a JavaScript concept, API, or prog
 | `if`; `else if`; `else`; nested conditions; branching | [Unit 3: Conditional statements](unit02-04-io-control-data.md) |
 | Strict equality `===`; loose equality `==`; truthy; falsy | [Unit 3: Comparisons and truthiness](unit02-04-io-control-data.md) |
 | Ternary operator; `switch`; multi-branch decisions | [Unit 3: Alternative branching](unit02-04-io-control-data.md) |
-| `for`; `while`; `break`; `continue`; `forEach()` | [Unit 3: Loops](unit02-04-io-control-data.md) |
+| `for`; `for...of`; iteration; score totals and averages | [Unit 3: Iteration](unit02-04-io-control-data.md) |
+| `while`; sentinel; flags; `break`; `continue`; infinite loop | [Unit 5: User input and while loops](unit05-08-strings-functions-oop-files.md) |
+| String methods; `trim()`; `toLowerCase()`; `includes()`; text processing | [Unit 3: Basic string operations](unit02-04-io-control-data.md) |
 
 ## Arrays, objects, strings, and functions
 
@@ -36,10 +38,9 @@ Use this topic index to locate the lesson for a JavaScript concept, API, or prog
 | `map()`; `filter()`; `forEach()`; functional array methods | [Unit 4: Array methods](unit02-04-io-control-data.md) |
 | Object literal; properties; keys; values; nested objects and arrays | [Unit 4: Objects](unit02-04-io-control-data.md) |
 | Object iteration; destructuring; spread syntax; rest syntax; shallow copy | [Unit 4: Object operations](unit02-04-io-control-data.md) |
-| String methods; template strings; string processing; regular expressions; RegExp | [Unit 5: Strings](unit05-08-strings-functions-oop-files.md) |
 | Function declaration; function expression; arrow function; `return` | [Unit 6: Defining functions](unit05-08-strings-functions-oop-files.md) |
 | Parameters; arguments; default parameters; rest parameters; callbacks | [Unit 6: Function parameters](unit05-08-strings-functions-oop-files.md) |
-| Scope; lexical scope; closure; function passed to another function | [Unit 6: Closures](unit05-08-strings-functions-oop-files.md) |
+
 
 ## Classes, files, asynchronous operations, and errors
 
@@ -53,16 +54,17 @@ Use this topic index to locate the lesson for a JavaScript concept, API, or prog
 | `try`; `catch`; `finally`; `throw`; custom Error class | [Unit 8: Error handling](unit05-08-strings-functions-oop-files.md) |
 | JSON; `JSON.parse()`; `JSON.stringify()`; serialization | [Unit 8: JSON](unit05-08-strings-functions-oop-files.md) |
 
-## Modules, collections, testing, and projects
+## Testing, data analysis, and projects
 
 | Topic and learner search terms | Lesson |
 |---|---|
-| ES modules; `import`; `export`; `type: module`; module resolution | [Unit 9: ES modules](unit09-11-modules-collections-projects.md) |
-| CommonJS; `require()`; `module.exports`; `type: commonjs` | [Unit 9: CommonJS](unit09-11-modules-collections-projects.md) |
-| `package.json`; package type; dependencies; npm scripts; project-local tools | [Unit 9: Node project configuration](unit09-11-modules-collections-projects.md) |
-| `Map`; key-value collection; arbitrary key types; `Set`; unique values | [Unit 9: Maps and sets](unit09-11-modules-collections-projects.md) |
-| Word frequency; text processing; CSV; data parsing | [Unit 9: Data projects](unit09-11-modules-collections-projects.md) |
-| Jest; test suite; test case; matcher; assertion; test setup | [Unit 9: Testing with Jest](unit09-11-modules-collections-projects.md) |
-| Text adventure; command-line to-do manager; requirements; capstone; accessibility | [Units 10–11: Projects](unit09-11-modules-collections-projects.md) |
+| ES modules; `import`; `export`; `type: module`; module resolution | [Unit 0: Node.js project configuration](unit00-01-setup-foundations.md) |
+| CommonJS; `require()`; `module.exports`; `type: commonjs` | [Unit 0: Node.js project configuration](unit00-01-setup-foundations.md) |
+| `package.json`; package type; dependencies; npm scripts; project-local tools | [Unit 0: Node.js project configuration](unit00-01-setup-foundations.md) |
+| `Map`; key-value collection; arbitrary key types | [Unit 4: Objects and Map](unit02-04-io-control-data.md) |
+| Word frequency; text processing; CSV; data parsing | [Unit 9: Data analysis](unit09-11-modules-collections-projects.md) |
+| `node:test`; `node:assert/strict`; test suite; test case; assertion | [Unit 9: Testing functions and classes](unit09-11-modules-collections-projects.md) |
+| Text adventure; rooms; exits; inventory; magic key; command-line to-do manager | [Unit 10: Projects](unit09-11-modules-collections-projects.md) |
+| Personal data manager; CRUD; JSON persistence; accessible CLI; capstone | [Unit 11: Capstone](unit09-11-modules-collections-projects.md) |
 
 [JavaScript curriculum](JAVASCRIPT_README.md) · [Book overview](../OVERALL_README.md) · [Programming glossary](../backmatter/GLOSSARY.md)

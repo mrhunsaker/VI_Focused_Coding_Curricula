@@ -46,18 +46,18 @@ JavaScript also has behaviors that require explicit teaching. Dynamic typing and
 
 | Unit | Main topics | Evidence of progress |
 | --- | --- | --- |
-| 0. Environment setup | Node.js, editor setup, terminal, first file, REPL | Verify Node.js and run a script |
-| 1. Foundations | Computer science, JavaScript role, variables, output, values and types | Explain a simple script and its values |
-| 2. Numbers and input | Math operations, Node.js input, conversion, and validation | Build an interactive terminal calculation |
-| 3. Control flow | Boolean logic, conditionals, loops, truthy/falsy behavior | Predict and control program paths |
-| 4. Arrays and objects | Collections, indexed data, properties, and iteration | Organize and process related data |
-| 5. Strings | String methods, formatting, and introductory pattern matching | Process and validate text |
-| 6. Functions | Function forms, parameters, return values, scope, and closures | Decompose a problem into reusable functions |
-| 7. Classes and OOP | Classes, instances, fields, methods, and object-oriented design | Model a simple problem domain |
-| 8. Files and errors | File operations, modules where introduced, and error handling | Persist data and handle expected failures |
-| 9. Modules, collections, and testing | CommonJS and ES modules, Maps, Sets, data analysis, and Jest | Organize, test, and process a program |
-| 10. Project-based learning | Text-based applications and incremental design | Implement a multi-feature project |
-| 11. Capstone | Integration, testing, documentation, and explanation | Demonstrate an independent solution |
+| 0. Environment setup | Node.js, editor and access technology, workspace, terminal, first file, npm project | Verify Node.js and run a project script |
+| 1. Foundations | Computer science, Hello World, variables, primitive values, output | Explain and run a short sequential program |
+| 2. Numeric computations | Development process, expressions, input/output, conversion, Math object | Build and test an interactive tip calculator |
+| 3. Control flow | Boolean logic, chained conditionals, arrays, for loops, strings | Classify the shared scores and process text |
+| 4. Data structures | Array operations, sorting, fixed sequences, objects, Map, iteration | Organize the shared inventory and student profile |
+| 5. User input and while loops | readline, sentinel loops, flags, break, continue, termination | Build a validated command loop |
+| 6. Functions | Definitions, arguments, returns, arrays/objects, rest parameters | Decompose shared calculations into reusable functions |
+| 7. Classes and OOP | Classes, instances, fields, methods, inheritance, composition | Model students and inventory items |
+| 8. Files and exceptions | Text files, JSON, exceptions, cleanup | Persist and reload structured records |
+| 9. Testing and data analysis | Function/class tests, random values, text frequency, CSV | Test deterministic behavior and summarize data |
+| 10. Project-based learning | Text adventure and command-line to-do manager | Implement equivalent project requirements |
+| 11. Capstone | Accessible personal data manager, CRUD, search, persistence, tests | Demonstrate an independent, documented solution |
 
 ## Materials and navigation
 
@@ -66,6 +66,7 @@ JavaScript also has behaviors that require explicit teaching. Dynamic typing and
 - [Units 5–8: Strings, Functions, OOP, and Files](unit05-08-strings-functions-oop-files.md)
 - [Units 9–11: Modules, Collections, Testing, and Projects](unit09-11-modules-collections-projects.md)
 - [Teacher's guide: instructor planning, accessible instruction, assessment, and AI guidance](teachers-guide.md)
+- [Standardization audit: Python-to-JavaScript alignment and validation status](standardization-audit.md)
 
 Return to the [curriculum overview](../OVERALL_README.md) to compare Python, JavaScript, and Java.
 
@@ -138,9 +139,7 @@ The capstone should include a written problem statement, requirements, input/out
 
 ## Teaching with AI
 
-AI tools may offer explanations, sample test cases, or help interpreting a diagnostic. They may also invent APIs, misunderstand Node.js module mode, mix CommonJS and ES module syntax, omit `await`, mishandle errors, or recommend untrusted npm packages. Treat suggestions as unverified drafts.
-
-Follow the instructor's policy. Students must disclose AI assistance where required and explain, test, and modify all code they submit. Never enter personal information, student records, credentials, private code, or confidential data into public AI services. AI should not replace independent work in assessments intended to measure individual skills. The [teacher's guide](teachers-guide.md) provides a detailed classroom protocol.
+AI may be used by students only for personal conceptual explanations and reinforcement. It may not write, autocomplete, repair, complete, or generate course code or assessment solutions. Students must independently produce and explain submitted code. Never enter personal information, student records, credentials, private code, or confidential data into public AI services. The [teacher's guide](teachers-guide.md) provides the instructor protocol.
 
 ## Further learning
 
@@ -149,3 +148,7 @@ Use [MDN's JavaScript Guide](https://developer.mozilla.org/en-US/docs/Web/JavaSc
 ---
 
 The course uses JavaScript to teach transferable problem-solving skills. Learners who can reason about values, control flow, data, functions, errors, and tests are prepared to explore browser programming and other parts of the ecosystem.
+
+## GUI, visualization, and workbench accessibility
+
+See the shared [GUI, visualization, and workbench accessibility reference](../DEVELOPMENT/GUI_VISUALIZATION_ACCESSIBILITY.md) for screen-reader support by toolkit, platform-specific activation settings, recommended alternatives, and interfaces that must not be required without an equivalent accessible route.

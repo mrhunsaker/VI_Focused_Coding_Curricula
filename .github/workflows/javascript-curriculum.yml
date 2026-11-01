@@ -1,0 +1,24 @@
+name: JavaScript Curriculum Structure
+
+on:
+  push:
+    paths:
+      - "JAVASCRIPT/**"
+      - "scripts/check_javascript_curriculum.mjs"
+      - ".github/workflows/javascript-curriculum.yml"
+  pull_request:
+    paths:
+      - "JAVASCRIPT/**"
+      - "scripts/check_javascript_curriculum.mjs"
+      - ".github/workflows/javascript-curriculum.yml"
+
+jobs:
+  curriculum-structure:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 26
+      - name: Validate lesson structure and JavaScript syntax
+        run: node scripts/check_javascript_curriculum.mjs

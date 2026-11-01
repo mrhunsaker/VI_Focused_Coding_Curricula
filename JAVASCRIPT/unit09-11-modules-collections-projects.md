@@ -1,658 +1,937 @@
-# Unit 9: Modules, Collections, and Testing
+# Units 9–11: Testing, Data Analysis, Projects, and Capstone
 
----
+**Runtime baseline:** Node.js 26.x. Unit 9 uses Node's built-in test runner for a dependency-free baseline. A Jest alternative may be introduced as an extension.
 
-## Lesson 9.1: JavaScript Modules
-
-### CommonJS (explicit `type: commonjs` in package.json)
-
-```javascript
-// math.js — exporting
-const add = (a, b) => a + b;
-const multiply = (a, b) => a * b;
-const PI = Math.PI;
-
-module.exports = { add, multiply, PI };
-
-// Or export individually:
-// module.exports.add = add;
-```
-
-```javascript
-// main.js — importing
-const { add, multiply, PI } = require('./math');
-
-console.log(add(5, 3));         // 8
-console.log(multiply(4, 6));    // 24
-console.log(PI.toFixed(5));     // 3.14159
-```
-
-### ES Modules (Modern — requires `"type": "module"` in package.json)
-
-```javascript
-// math.mjs
-export const add = (a, b) => a + b;
-export const multiply = (a, b) => a * b;
-export const PI = Math.PI;
-export default function greet(name) {
-    return `Hello, ${name}!`;
-}
-```
-
-```javascript
-// main.mjs
-import greet, { add, multiply, PI } from './math.mjs';
-
-console.log(greet("Alice"));
-console.log(add(5, 3));
-```
-
----
-
-## Lesson 9.2: Maps and Sets
-
-### `Map` — Key-Value (Better than plain objects for maps)
-
-```javascript
-const inventory = new Map();
-
-// Adding
-inventory.set("apples", 50);
-inventory.set("bananas", 30);
-inventory.set("oranges", 40);
-
-// Access
-console.log(inventory.get("apples"));    // 50
-console.log(inventory.has("bananas"));   // true
-console.log(inventory.size);             // 3
-
-// Delete
-inventory.delete("bananas");
-
-// Iterate
-for (const [key, value] of inventory) {
-    console.log(`${key}: ${value}`);
-}
-
-inventory.forEach((value, key) => {
-    console.log(`${key} = ${value}`);
-});
-
-console.log([...inventory.keys()]);
-console.log([...inventory.values()]);
-console.log([...inventory.entries()]);
-```
-
-### `Set` — Unique Values
-
-```javascript
-const uniqueWords = new Set();
-uniqueWords.add("apple");
-uniqueWords.add("banana");
-uniqueWords.add("apple");   // Duplicate — ignored
-
-console.log(uniqueWords.size);           // 2
-console.log(uniqueWords.has("banana"));  // true
-uniqueWords.delete("banana");
-
-// Convert array to set (remove duplicates)
-const nums = [1, 2, 2, 3, 3, 3, 4];
-const unique = [...new Set(nums)];
-console.log(unique);   // [1, 2, 3, 4]
-
-// Iterate
-for (const item of uniqueWords) {
-    console.log(item);
-}
-```
-
----
-
-## Lesson 9.3: Word Frequency Analysis
-
-```javascript
-const fs = require('node:fs');
-
-function countWords(text) {
-    const words = text
-        .toLowerCase()
-        .replace(/[^a-z\s]/g, '')
-        .trim()
-        .split(/\s+/)
-        .filter(word => word.length > 0);
-
-    const frequency = new Map();
-    for (const word of words) {
-        frequency.set(word, (frequency.get(word) || 0) + 1);
-    }
-
-    return frequency;
-}
-
-const text = "the quick brown fox jumps over the lazy dog the quick brown fox";
-const freq = countWords(text);
-
-// Sort by frequency (most common first)
-const sorted = [...freq.entries()].sort((a, b) => b[1] - a[1]);
-
-console.log("Word Frequencies:");
-for (const [word, count] of sorted) {
-    console.log(`'${word}': ${count}`);
-}
-
-// Top 5 words
-console.log("\nTop 5 words:");
-sorted.slice(0, 5).forEach(([word, count]) => {
-    console.log(`  ${word}: ${count}`);
-});
-```
-
----
-
-## Lesson 9.4: Working with CSV Files
-
-```javascript
-const fs = require('node:fs');
-
-function parseCSV(content) {
-    const lines = content.trim().split('\n');
-    const headers = lines[0].split(',').map(h => h.trim());
-
-    return lines.slice(1).map(line => {
-        const values = line.split(',').map(v => v.trim());
-        const record = {};
-        headers.forEach((header, index) => {
-            record[header] = values[index];
-        });
-        return record;
-    });
-}
-
-function generateCSV(records) {
-    if (records.length === 0) return '';
-    const headers = Object.keys(records[0]);
-    const headerLine = headers.join(',');
-    const dataLines = records.map(record =>
-        headers.map(h => record[h]).join(',')
-    );
-    return [headerLine, ...dataLines].join('\n');
-}
-
-// Read and parse CSV
-try {
-    const content = fs.readFileSync('students.csv', 'utf8');
-    const students = parseCSV(content);
-
-    console.log(`Loaded ${students.length} students:`);
-    students.forEach(student => {
-        console.log(`  Name: ${student.name}, Age: ${student.age}, Grade: ${student.grade}`);
-    });
-
-} catch (err) {
-    if (err.code === 'ENOENT') {
-        // Create a sample CSV for demonstration
-        const sampleData = `name,age,grade
-Alice,15,A
-Bob,14,B
-Charlie,16,A`;
-        fs.writeFileSync('students.csv', sampleData);
-        console.log("Created sample students.csv");
-    }
-}
-```
-
----
-
-## Lesson 9.5: Testing with Jest
-
-### Setting Up Jest
-
-```bash
-npm init -y
-npm install --save-dev jest
-```
-
-Windows Powershell
-
-```powershell
-npm init -y
-npm install --save-dev jest
-```
-
-Add to `package.json`:
-```json
-{
-  "scripts": {
-    "test": "jest"
-  }
-}
-```
-
-### Writing Tests
-
-```javascript
-// math.js
-const add = (a, b) => a + b;
-const getGrade = (score) => {
-    if (score >= 90) return "A";
-    if (score >= 80) return "B";
-    if (score >= 70) return "C";
-    return "F";
-};
-const circleArea = (radius) => Math.PI * radius ** 2;
-
-module.exports = { add, getGrade, circleArea };
-```
-
-```javascript
-// math.test.js
-const { add, getGrade, circleArea } = require('./math');
-
-describe("add function", () => {
-    test("adds two positive numbers", () => {
-        expect(add(5, 3)).toBe(8);
-    });
-
-    test("adds negative numbers", () => {
-        expect(add(-5, -3)).toBe(-8);
-    });
-
-    test("adds zero", () => {
-        expect(add(0, 7)).toBe(7);
-    });
-});
-
-describe("getGrade function", () => {
-    test("returns A for score >= 90", () => {
-        expect(getGrade(95)).toBe("A");
-        expect(getGrade(90)).toBe("A");
-    });
-
-    test("returns B for score 80-89", () => {
-        expect(getGrade(85)).toBe("B");
-    });
-
-    test("returns F for score < 60", () => {
-        expect(getGrade(55)).toBe("F");
-    });
-});
-
-describe("circleArea function", () => {
-    test("calculates area of circle", () => {
-        expect(circleArea(5)).toBeCloseTo(78.54, 1);
-    });
-});
-```
-
-Run tests:
-```bash
-npm test
-```
-
-Windows Powershell
-
-```powershell
-npm test
-```
-
-### Common Jest Matchers
-
-| Matcher | Description |
-|---------|-------------|
-| `toBe(value)` | Strict equality (`===`) |
-| `toEqual(value)` | Deep equality (for objects/arrays) |
-| `toBeCloseTo(num, decimals)` | Floating-point comparison |
-| `toBeTruthy()` | Check if truthy |
-| `toBeFalsy()` | Check if falsy |
-| `toBeNull()` | Check if null |
-| `toBeUndefined()` | Check if undefined |
-| `toContain(item)` | Array/string contains item |
-| `toHaveLength(n)` | Check length |
-| `toThrow(error)` | Check if function throws |
-
-### Skills Checklist
-- [ ] I can create and import modules using CommonJS.
-- [ ] I can use `Map` and `Set` for collections.
-- [ ] I can write and run Jest tests.
-- [ ] I can use common Jest matchers.
-
----
-
-# Unit 10: Project-Based Learning
-
----
-
-## Lesson 10.1: Text-Based Adventure Game
-
-```javascript
-class Room {
-    constructor(name, description) {
-        this.name = name;
-        this.description = description;
-        this.exits = {};
-        this.items = [];
-    }
-
-    addExit(direction, room) {
-        this.exits[direction.toLowerCase()] = room;
-    }
-
-    addItem(item) {
-        this.items.push(item);
-    }
-
-    describe() {
-        let desc = `--- ${this.name} ---\n${this.description}\n`;
-        if (this.items.length > 0) {
-            desc += `You see: ${this.items.join(', ')}\n`;
-        }
-        const exitList = Object.keys(this.exits).join(', ');
-        desc += `Exits: ${exitList}`;
-        return desc;
-    }
-}
-
-class Player {
-    constructor(name, startRoom) {
-        this.name = name;
-        this.currentRoom = startRoom;
-        this.inventory = [];
-        this.health = 100;
-    }
-
-    move(direction) {
-        const nextRoom = this.currentRoom.exits[direction.toLowerCase()];
-        if (nextRoom) {
-            this.currentRoom = nextRoom;
-            return true;
-        }
-        return false;
-    }
-
-    takeItem(itemName) {
-        const index = this.currentRoom.items.findIndex(
-            item => item.toLowerCase() === itemName.toLowerCase()
-        );
-        if (index !== -1) {
-            const item = this.currentRoom.items.splice(index, 1)[0];
-            this.inventory.push(item);
-            return true;
-        }
-        return false;
-    }
-
-    getStatus() {
-        const inv = this.inventory.length > 0
-            ? this.inventory.join(', ')
-            : 'empty';
-        return `${this.name} | Health: ${this.health} | Inventory: ${inv}`;
-    }
-}
-
-async function playGame() {
-    const { askQuestion, close } = require('./input');
-
-    // Build world
-    const cave = new Room("Dark Cave", "You are in a dimly lit cave.");
-    const tunnel = new Room("Stone Tunnel", "A narrow tunnel runs north and south.");
-    const clearing = new Room("Sunny Clearing", "A bright clearing with tall trees.");
-
-    cave.addExit("north", tunnel);
-    cave.addItem("torch");
-    tunnel.addExit("south", cave);
-    tunnel.addExit("north", clearing);
-    clearing.addExit("south", tunnel);
-    clearing.addItem("magic key");
-
-    const player = new Player("Hero", cave);
-
-    console.log("=== Text Adventure ===");
-    console.log("Commands: go [direction], take [item], inventory, look, quit\n");
-
-    while (true) {
-        console.log(player.currentRoom.describe());
-        console.log(player.getStatus());
-
-        const input = (await askQuestion("\n> ")).trim().toLowerCase();
-        const [command, ...argParts] = input.split(/\s+/);
-        const argument = argParts.join(' ');
-
-        console.log('');
-
-        switch (command) {
-            case 'go':
-                if (!argument) {
-                    console.log("Go where?");
-                } else if (!player.move(argument)) {
-                    console.log("You can't go that way.");
-                }
-                break;
-            case 'take':
-                if (player.takeItem(argument)) {
-                    console.log(`You picked up the ${argument}.`);
-                } else {
-                    console.log(`There's no ${argument} here.`);
-                }
-                break;
-            case 'inventory':
-                console.log(`Inventory: ${player.inventory.join(', ') || 'empty'}`);
-                break;
-            case 'look':
-                // Description already shown at top
-                break;
-            case 'quit':
-                console.log("Thanks for playing!");
-                close();
-                return;
-            default:
-                console.log(`Unknown command: '${command}'`);
-        }
-    }
-}
-
-playGame();
-```
-
----
-
-## Lesson 10.2: Command-Line To-Do Manager
-
-```javascript
-const fs = require('node:fs');
-const { askQuestion, close } = require('./input');
-
-const FILE_PATH = 'todos.json';
-
-function loadTodos() {
-    try {
-        const data = fs.readFileSync(FILE_PATH, 'utf8');
-        return JSON.parse(data);
-    } catch (err) {
-        if (err.code === 'ENOENT') {
-            return [];   // File doesn't exist yet
-        }
-        if (err instanceof SyntaxError) {
-            console.log("Warning: Corrupted todos file. Starting fresh.");
-            return [];
-        }
-        throw err;
-    }
-}
-
-function saveTodos(todos) {
-    fs.writeFileSync(FILE_PATH, JSON.stringify(todos, null, 2));
-}
-
-function addTask(todos, description) {
-    todos.push({ description, completed: false, createdAt: new Date().toISOString() });
-    console.log(`Task added: "${description}"`);
-}
-
-function viewTasks(todos) {
-    if (todos.length === 0) {
-        console.log("No tasks in your list.");
-        return;
-    }
-    console.log("--- Your To-Do List ---");
-    todos.forEach((task, index) => {
-        const status = task.completed ? "[X]" : "[ ]";
-        console.log(`${index + 1}. ${status} ${task.description}`);
-    });
-    console.log("-----------------------");
-}
-
-function markComplete(todos, taskNumber) {
-    const index = parseInt(taskNumber) - 1;
-    if (index >= 0 && index < todos.length) {
-        todos[index].completed = true;
-        console.log(`Completed: "${todos[index].description}"`);
-    } else {
-        console.log("Invalid task number.");
-    }
-}
-
-function deleteTask(todos, taskNumber) {
-    const index = parseInt(taskNumber) - 1;
-    if (index >= 0 && index < todos.length) {
-        const removed = todos.splice(index, 1)[0];
-        console.log(`Deleted: "${removed.description}"`);
-    } else {
-        console.log("Invalid task number.");
-    }
-}
-
-async function main() {
-    let todos = loadTodos();
-    console.log("=== To-Do Manager ===");
-
-    while (true) {
-        console.log("\n1. Add Task  2. View Tasks  3. Mark Complete  4. Delete  5. Quit");
-        const choice = (await askQuestion("Choice: ")).trim();
-
-        switch (choice) {
-            case '1':
-                const desc = await askQuestion("Task description: ");
-                addTask(todos, desc);
-                saveTodos(todos);
-                break;
-            case '2':
-                viewTasks(todos);
-                break;
-            case '3':
-                viewTasks(todos);
-                const completeNum = await askQuestion("Task number: ");
-                markComplete(todos, completeNum);
-                saveTodos(todos);
-                break;
-            case '4':
-                viewTasks(todos);
-                const deleteNum = await askQuestion("Task number to delete: ");
-                deleteTask(todos, deleteNum);
-                saveTodos(todos);
-                break;
-            case '5':
-                console.log("Goodbye!");
-                close();
-                return;
-            default:
-                console.log("Invalid choice.");
-        }
-    }
-}
-
-main();
-```
-
----
-
-# Unit 11: Capstone Project — Personal Data Manager in JavaScript
+# Unit 9: Testing and Data Analysis
 
 ## Overview
+This unit follows the Python sequence: test a function, test a class, generate random values, analyze text, and process CSV data. Reuse the canonical score list, text sample, inventory, and CSV column names.
 
-**Runtime baseline:** Examples target the current Node.js 26 LTS line (26.13.0 or a newer 26.x security/maintenance patch) and standard ECMAScript features supported by that runtime. Use explicit module mode in package.json and do not mix CommonJS and ES module syntax in one file.
+## Lesson 9.1: Testing a Function
 
+### Reading References
+- Python source counterpart: Unit 9, Lesson 9.1.
+- Node.js documentation: Test runner (`node:test`).
 
-Build a fully functional, accessible command-line personal data manager using Node.js.
+### Learning Objectives
+- Write unit tests for deterministic functions.
+- Use assertions for expected and actual values.
+- Run tests from the terminal.
 
-## Project Options
+### Concept Explanation
+A unit test calls a deterministic function with known inputs and compares the returned value with an expected result. Tests should include ordinary inputs and boundary conditions.
 
-- **Contact Manager:** name, phone, email, notes
-- **Book Tracker:** title, author, genre, read status
-- **Recipe Collection:** name, ingredients, instructions, cuisine type
-- **Budget Tracker:** category, amount, date, description
+### Worked Example
+Create `math.js`:
+```javascript
+function add(a, b) {
+  return a + b;
+}
 
-## Required Features
+function getGrade(score) {
+  if (score >= 90) return "A";
+  if (score >= 80) return "B";
+  if (score >= 70) return "C";
+  if (score >= 60) return "D";
+  return "F";
+}
 
-1. **Add item** — prompt for all attributes and save.
-2. **View all items** — display clearly with numbers.
-3. **Search/filter** — find items by keyword.
-4. **Edit item** — select and modify specific fields.
-5. **Delete item** — remove by number.
-6. **Persistence** — save/load to JSON file.
-
-## Project Structure
-
-```
-my-data-manager/
-├── src/
-│   ├── models/
-│   │   └── contact.js      (data model/class)
-│   ├── storage/
-│   │   └── dataManager.js  (JSON file I/O)
-│   ├── ui/
-│   │   └── consoleUI.js    (menu and display)
-│   └── utils/
-│       └── input.js        (reusable input helper)
-├── data/
-│   └── contacts.json       (data storage)
-├── tests/
-│   └── contact.test.js     (Jest tests)
-├── package.json
-├── README.md
-└── index.js                (entry point)
+module.exports = { add, getGrade };
 ```
 
-## Accessibility Guidelines
+Create `math.test.js`:
+```javascript
+const test = require("node:test");
+const assert = require("node:assert/strict");
+const { add, getGrade } = require("./math");
 
-1. Every prompt must clearly describe what input is expected.
-2. Print a confirmation message after every action.
-3. Number all listed items for easy selection.
-4. Provide clear, specific error messages.
-5. Include a `help` command listing all available options.
-6. Use consistent separators (`---`) to group output.
+test("add returns the sum", () => {
+  assert.equal(add(5, 3), 8);
+  assert.equal(add(-5, -3), -8);
+  assert.equal(add(0, 7), 7);
+});
+
+test("getGrade follows shared thresholds", () => {
+  assert.equal(getGrade(90), "A");
+  assert.equal(getGrade(82), "B");
+  assert.equal(getGrade(76), "C");
+  assert.equal(getGrade(60), "D");
+  assert.equal(getGrade(59), "F");
+});
+```
+
+Run with `node --test`.
+
+Expected result: two passing tests and zero failures.
+
+### Expected Behavior or Output
+The Node.js test runner reports two passing tests and no failures when add() and getGrade() satisfy the stated contracts.
+
+### Common Mistakes
+- Testing only one typical value and ignoring boundaries.
+- Writing assertions that merely repeat the implementation.
+- Forgetting to export the function being tested.
+- Making tests depend on execution order or shared mutable state.
+
+### Activities
+1. Add tests for the canonical scores 82, 91, 76, and 88.
+2. Add boundary tests for every grade threshold.
+3. Add a test for invalid scores and decide what the function contract should be.
+4. Run the test file from the terminal and interpret the pass/fail summary.
+
+### Accessibility Practice
+Read each test name and assertion result. Ensure failures identify the expected and actual values in text.
+
+### Skills Checklist
+- [ ] I can write a test with `node:test`.
+- [ ] I can assert expected values.
+- [ ] I can test normal and boundary cases.
+- [ ] I can run tests from the terminal.
+
+## Lesson 9.2: Testing a Class
+
+### Reading References
+- Python source counterpart: Unit 9, Lesson 9.2.
+- Node.js documentation: Test runner and assert.
+
+### Learning Objectives
+- Test object construction, state changes, and methods.
+- Verify both valid and invalid operations.
+- Keep test cases independent.
+
+### Concept Explanation
+A class test verifies observable behavior of an instance: construction, method results, valid state changes, and rejected invalid changes.
+
+### Worked Example
+Assume `InventoryItem` exposes `quantity`, `updateQuantity()`, and `lineValue()`. A test file can verify its public behavior:
+
+```javascript
+const test = require("node:test");
+const assert = require("node:assert/strict");
+const { InventoryItem } = require("./inventory-item");
+
+test("inventory item updates quantity and calculates value", () => {
+  const item = new InventoryItem("Notebook", 3, 2.50);
+  assert.equal(item.lineValue(), 7.50);
+  item.updateQuantity(5);
+  assert.equal(item.lineValue(), 12.50);
+});
+
+test("inventory item rejects a negative quantity", () => {
+  const item = new InventoryItem("Pencil", 10, 0.50);
+  assert.throws(() => item.updateQuantity(-1), RangeError);
+});
+```
+
+Expected result: both tests pass when the class enforces its stated contract.
+
+### Expected Behavior or Output
+Both tests pass when the item value updates from $7.50 to $12.50 and a negative quantity throws RangeError.
+
+### Common Mistakes
+- Testing private implementation details instead of public behavior.
+- Reusing one mutated instance across unrelated tests.
+- Forgetting to test invalid state transitions.
+
+### Activities
+1. Test a Notebook item with quantity 3 and unit price 2.50.
+2. Verify its line value after changing quantity to 5.
+3. Verify that a negative quantity is rejected.
+4. Add a test for a zero quantity and explain whether it is valid.
+
+### Accessibility Practice
+Give each test a descriptive name that states the behavior being verified. Avoid ambiguous test labels such as "test 1".
+
+### Skills Checklist
+- [ ] I can instantiate an object in a test.
+- [ ] I can test a method's return value.
+- [ ] I can test a state change.
+- [ ] I can assert that invalid operations throw.
+
+## Lesson 9.3: Introduction to Random Numbers
+
+### Reading References
+- Python source counterpart: Unit 9, Lesson 9.3.
+- MDN: Math.random.
+
+### Learning Objectives
+- Generate random floating-point values and bounded integers.
+- Select a random element from an array.
+- Explain why random tests should not depend on a specific result.
+
+### Concept Explanation
+Math.random() returns a pseudorandom floating-point value greater than or equal to zero and less than one. Transform it to a bounded integer with multiplication and Math.floor().
+
+### Worked Example
+```javascript
+const randomDecimal = Math.random();
+const randomInteger = Math.floor(Math.random() * 10) + 1;
+
+const colors = ["red", "blue", "green"];
+const randomChoice = colors[Math.floor(Math.random() * colors.length)];
+
+console.log(`Decimal in [0, 1): ${randomDecimal >= 0 && randomDecimal < 1}`);
+console.log(`Integer in 1..10: ${randomInteger >= 1 && randomInteger <= 10}`);
+console.log(`Selected item is valid: ${colors.includes(randomChoice)}`);
+```
+
+Expected output: three lines containing `true`; the sampled values vary on each run.
+
+### Expected Behavior or Output
+Each run prints true for all three range and membership checks; the sampled values may differ.
+
+### Common Mistakes
+- Assuming `Math.random()` can return exactly 1.
+- Forgetting that `Math.floor()` is needed for an integer index.
+- Writing a test that expects one particular random result.
+
+### Activities
+1. Generate a random integer from 1 through 10.
+2. Select one of the canonical inventory item names.
+3. Run the program several times and observe that values vary.
+4. Explain why randomness makes exact-output tests unreliable without a controllable source.
+
+### Accessibility Practice
+Label the range and meaning of each random value. Never require a visual animation to observe a random result.
+
+### Skills Checklist
+- [ ] I can use `Math.random()`.
+- [ ] I can generate a bounded integer.
+- [ ] I can select a random array element.
+- [ ] I can test properties of random output rather than one exact sample.
+
+## Lesson 9.4: Analyzing Text Data
+
+### Reading References
+- Python source counterpart: Unit 9, Lesson 9.4.
+- MDN: String and Map.
+
+### Learning Objectives
+- Normalize text before analysis.
+- Count words and character frequencies.
+- Use a Map to store frequency counts.
+
+### Concept Explanation
+Text analysis requires explicit normalization and tokenization rules. A Map stores each token and its current frequency; the regular expression in this example treats hyphenated words as separate alphabetic tokens.
+
+### Worked Example
+```javascript
+const sample = "A student studies programming. Programming develops problem-solving skills.";
+
+function countWords(text) {
+  const words = text.toLowerCase().match(/[a-z]+/g) ?? [];
+  const counts = new Map();
+
+  for (const word of words) {
+    counts.set(word, (counts.get(word) ?? 0) + 1);
+  }
+  return counts;
+}
+
+const frequencies = countWords(sample);
+for (const [word, count] of frequencies) {
+  console.log(`${word}: ${count}`);
+}
+```
+
+Expected output:
+```text
+a: 1
+student: 1
+studies: 1
+programming: 2
+develops: 1
+problem: 1
+solving: 1
+skills: 1
+```
+
+### Expected Behavior or Output
+The sample produces nine tokens and eight distinct token keys; programming has frequency 2 and every other displayed token has frequency 1.
+
+### Common Mistakes
+- Counting uppercase and lowercase forms as separate words.
+- Splitting on a single space and retaining punctuation.
+- Assuming a simple regular expression handles every language's word boundaries.
+
+### Activities
+1. Count the words in the canonical text sample.
+2. Identify the most frequent word.
+3. Count characters after normalizing case.
+4. Explain how punctuation and hyphenation affect the result.
+
+### Accessibility Practice
+Print each word and count as a labeled pair. State the normalization rules so learners can understand why the counts have those values.
+
+### Skills Checklist
+- [ ] I can normalize text before counting.
+- [ ] I can tokenize a simple English text sample.
+- [ ] I can store frequencies in a Map.
+- [ ] I can explain limitations of a simple tokenizer.
+
+## Lesson 9.5: Working with CSV Data
+
+### Reading References
+- Python source counterpart: Unit 9, Lesson 9.5.
+- npm documentation: `csv-parse`.
+
+### Learning Objectives
+- Explain rows, columns, headers, and records.
+- Read CSV data with a standards-aware parser.
+- Compute a summary from the canonical column set.
+
+### Concept Explanation
+CSV is a text format with quoting and escaping rules. Splitting every line on commas is not a correct general CSV parser because a quoted field may itself contain a comma or newline. Use a maintained parser for real CSV data. The canonical headers are `student_id`, `first_name`, `last_name`, `score`, and `active`.
+
+### Worked Example
+Install the parser with `npm install csv-parse`. Save a small fixture as `students.csv`:
+```csv
+student_id,first_name,last_name,score,active
+1,Avery,Student,91,true
+2,Jordan,Lee,82,true
+3,Casey,Smith,76,false
+```
+
+Read it with `csv-parse`:
+```javascript
+const fs = require("node:fs");
+const { parse } = require("csv-parse/sync");
+
+const records = parse(fs.readFileSync("students.csv", "utf8"), {
+  columns: true,
+  skip_empty_lines: true,
+  trim: true
+});
+
+const average = records.reduce((sum, row) => sum + Number(row.score), 0)
+  / records.length;
+
+console.log(`Loaded students: ${records.length}`);
+console.log(`Average score: ${average.toFixed(2)}`);
+```
+
+Expected output:
+```text
+Loaded students: 3
+Average score: 83.00
+```
+
+### Expected Behavior or Output
+The sample CSV contains three records with scores 91, 82, and 76. The average is 83.00.
+
+### Common Mistakes
+- Splitting CSV lines on commas without handling quoted fields.
+- Forgetting that parsed field values are strings until converted.
+- Assuming every row contains every required column.
+- Failing to handle a missing or empty file.
+
+### Activities
+1. Create a CSV with the five canonical column names.
+2. Load the records and print each student's name and score.
+3. Calculate the average score.
+4. Add a quoted field containing a comma and verify that the parser reads it as one field.
+
+### Accessibility Practice
+Print one record per line with column names. Provide a textual summary of any malformed rows rather than relying on a spreadsheet's visual highlighting.
+
+### Skills Checklist
+- [ ] I can explain CSV headers and records.
+- [ ] I can parse CSV with a standards-aware library.
+- [ ] I can convert numeric fields before calculating.
+- [ ] I can summarize a dataset with labeled output.
+
+# Unit 10: Project-Based Learning — Text-Based Applications
+
+## Overview
+The projects preserve the Python track's requirements and user interaction. The text adventure uses the same three rooms, exits, torch, magic key, and movement commands. The command-line to-do manager supports add, view, complete, delete, and JSON persistence.
+
+## Lesson 10.1: Designing Your Project
+
+### Reading References
+- Python source counterpart: Unit 10, Lesson 10.1.
+- MDN: JavaScript modules and functions.
+
+### Learning Objectives
+- Apply top-down design to a multi-part program.
+- Identify inputs, outputs, data, and edge cases.
+- Write pseudocode and acceptance tests before implementation.
+
+### Concept Explanation
+Top-down design breaks a large task into smaller responsibilities. The project should have separate functions for input, state changes, display, and persistence. Define command names and error behavior before writing code.
+
+### Worked Example
+Text-adventure pseudocode:
+```text
+CREATE rooms and exits
+PLACE items in selected rooms
+CREATE player at starting room
+REPEAT
+  DISPLAY current room and player status
+  READ command
+  VALIDATE command
+  APPLY movement or inventory action
+UNTIL player enters quit
+```
+
+### Expected Behavior or Output
+The learner produces pseudocode, a room/command specification, and acceptance tests before implementation.
+
+### Common Mistakes
+- Starting implementation before defining the project requirements.
+- Combining input, state changes, and display in one large function.
+- Omitting invalid-command and boundary cases.
+
+### Activities
+1. Draw or describe the three-room map in text.
+2. List every valid movement command and its destination.
+3. Define the to-do manager's five menu operations.
+4. Write at least five acceptance tests before implementation.
+
+### Accessibility Practice
+Use keyboard-operable commands, descriptive prompts, and predictable text output. Do not require maps, color, drag-and-drop, or mouse-only interaction.
+
+### Skills Checklist
+- [ ] I can decompose a project into functions or modules.
+- [ ] I can define inputs and outputs.
+- [ ] I can write pseudocode.
+- [ ] I can define acceptance tests and error cases.
+
+## Lesson 10.2: Building a Text-Based Adventure Game (Part 1)
+
+### Reading References
+- Python source counterpart: Unit 10, Lesson 10.2.
+- Node.js documentation: readline/promises.
+
+### Learning Objectives
+- Model rooms and exits.
+- Create a player and move between connected rooms.
+- Reject invalid directions with a clear message.
+
+### Shared Project Specification
+Create three rooms: Dark Cave, Stone Tunnel, and Sunny Clearing. The cave connects north to the tunnel; the tunnel connects south to the cave and north to the clearing; the clearing connects south to the tunnel. The player begins in the cave. Valid commands include `go north`, `go south`, `look`, and `quit`.
+
+### Concept Explanation
+A room is represented by its identifier, description, and a map of valid exits. Movement looks up the requested direction and changes the player's current room only when the exit exists.
+
+### Worked Example
+```javascript
+const rooms = {
+  cave: { name: "Dark Cave", description: "A dimly lit cave.", exits: { north: "tunnel" } },
+  tunnel: { name: "Stone Tunnel", description: "A narrow tunnel.", exits: { south: "cave", north: "clearing" } },
+  clearing: { name: "Sunny Clearing", description: "A bright clearing.", exits: { south: "tunnel" } }
+};
+
+function move(currentRoom, direction) {
+  const destination = rooms[currentRoom].exits[direction];
+  return destination ?? null;
+}
+
+console.log(move("cave", "north"));
+console.log(move("cave", "west"));
+```
+
+Expected output:
+```text
+tunnel
+null
+```
+
+### Expected Behavior or Output
+Moving north from cave returns the room identifier tunnel. Moving west from cave returns null.
+
+### Common Mistakes
+- Adding an exit in one direction but forgetting the reverse connection.
+- Accepting an exit that does not exist.
+- Confusing a room key with its display name.
+
+### Activities
+1. Build the three canonical rooms and exits.
+2. Test every valid movement.
+3. Test an invalid movement from each room.
+4. Print the room name and description after every successful move.
+
+### Accessibility Practice
+Announce the current room, description, and available exits in a consistent order. Never make the map available only as a graphic.
+
+### Skills Checklist
+- [ ] I can represent rooms and exits as objects.
+- [ ] I can move between connected rooms.
+- [ ] I can reject invalid directions.
+- [ ] I can display room information sequentially.
+
+## Lesson 10.3: Building a Text-Based Adventure Game (Part 2)
+
+### Reading References
+- Python source counterpart: Unit 10, Lesson 10.3.
+- MDN: Array methods and object methods.
+
+### Learning Objectives
+- Add items to rooms and player inventory.
+- Implement item pickup and inventory display.
+- Add a simple puzzle that uses the magic key.
+
+### Shared Project Specification
+Place a torch in the Dark Cave and a magic key in the Sunny Clearing. The player can use `take [item]` and `inventory`. The magic key unlocks a gate or completes a clearly described puzzle. Preserve the same item names and rules across language tracks.
+
+### Concept Explanation
+An item belongs either to a room or to the player's inventory. Picking it up removes it from the room and adds it to inventory as one state transition.
+
+### Worked Example
+```javascript
+const roomItems = {
+  cave: ["torch"],
+  tunnel: [],
+  clearing: ["magic key"]
+};
+const inventory = [];
+
+function takeItem(room, requestedName) {
+  const index = roomItems[room].findIndex(
+    item => item.toLowerCase() === requestedName.toLowerCase()
+  );
+  if (index < 0) return false;
+  inventory.push(roomItems[room].splice(index, 1)[0]);
+  return true;
+}
+
+console.log(takeItem("cave", "torch"));
+console.log(inventory.join(", "));
+
+function unlockGate(items) {
+  if (!items.includes("magic key")) return "The gate is locked.";
+  return "The gate opens.";
+}
+console.log(unlockGate(["torch"]));
+console.log(unlockGate(["torch", "magic key"]));
+```
+
+Expected output:
+```text
+true
+torch
+The gate is locked.
+The gate opens.
+```
+
+### Expected Behavior or Output
+Taking the torch from the cave returns true and the inventory contains torch.
+
+### Common Mistakes
+- Allowing an item to be picked up repeatedly after it has been removed.
+- Failing to normalize item names consistently.
+- Updating the room but not the inventory, or vice versa.
+
+### Activities
+1. Pick up the torch in the cave.
+2. Travel to the clearing and pick up the magic key.
+3. Attempt to take an item that is not in the current room.
+4. Implement the puzzle rule and test both locked and unlocked states.
+
+### Accessibility Practice
+Confirm each successful pickup by item name. When pickup fails, explain whether the item is absent or the command is invalid.
+
+### Skills Checklist
+- [ ] I can store items in rooms.
+- [ ] I can transfer an item to inventory.
+- [ ] I can display inventory contents.
+- [ ] I can implement and test a puzzle condition.
+
+## Lesson 10.4: Developing a Command-Line To-Do Tool
+
+### Reading References
+- Python source counterpart: Unit 10, Lesson 10.4.
+- Node.js documentation: File system and readline.
+
+### Learning Objectives
+- Implement add, view, complete, delete, and quit operations.
+- Validate a one-based task number.
+- Persist task data in JSON.
+
+### Shared Project Specification
+Each task has an identifier, description, completion state, and creation timestamp. The menu supports add task, view tasks, mark complete, delete, and quit. Save after every state-changing operation.
+
+### Concept Explanation
+A command-line task manager separates data operations from prompts and display. Task numbers shown to users are one-based, while array indexes are zero-based.
+
+### Worked Example
+Core task operations:
+```javascript
+function addTask(tasks, description, createdAt = new Date().toISOString()) {
+  if (description.trim() === "") {
+    throw new Error("Task description cannot be empty.");
+  }
+  tasks.push({
+    id: tasks.length + 1,
+    description: description.trim(),
+    completed: false,
+    createdAt
+  });
+}
+
+function markComplete(tasks, taskNumber) {
+  const index = taskNumber - 1;
+  if (!Number.isInteger(taskNumber) || index < 0 || index >= tasks.length) {
+    return false;
+  }
+  tasks[index].completed = true;
+  return true;
+}
+```
+
+### Expected Behavior or Output
+A valid task description is added with completed false and a timestamp; a valid task number marks the corresponding task complete.
+
+### Common Mistakes
+- Confusing the user's one-based task number with a zero-based array index.
+- Allowing empty descriptions.
+- Saving only when the program exits, so an interrupted run loses changes.
+- Reusing task identifiers after deletion without a documented policy.
+
+### Activities
+1. Add two tasks and view them in numbered order.
+2. Mark the first task complete.
+3. Delete the second task.
+4. Save and reload the task list using JSON and verify the state persists.
+
+### Accessibility Practice
+Number every task and include an explicit completion label such as "complete" or "not complete". Confirm every add, update, and delete action in text.
+
+### Skills Checklist
+- [ ] I can add and display tasks.
+- [ ] I can mark a task complete.
+- [ ] I can delete a task by number.
+- [ ] I can persist tasks as JSON.
+- [ ] I can validate task descriptions and numbers.
+
+## Lesson 10.5: Refinement and User Experience
+
+### Reading References
+- Python source counterpart: Unit 10, Lesson 10.5.
+- Node.js documentation: Process exit codes and error handling.
+
+### Learning Objectives
+- Improve prompt clarity and validation.
+- Test invalid commands and boundary cases.
+- Review output for predictable keyboard and screen-reader use.
+
+### Concept Explanation
+A usable text program gives the same kind of response for the same kind of action. Prompts should state valid input, errors should explain the problem, and successful operations should confirm what changed. A help command should list every supported operation.
+
+### Expected Behavior or Output
+The refined application handles blank input, unknown commands, invalid record numbers, empty lists, and malformed stored data with explicit text messages.
+
+### Worked Example
+```javascript
+function validateMenuChoice(choice) {
+  const validChoices = ["add", "view", "search", "edit", "delete", "help", "quit"];
+  if (!validChoices.includes(choice.trim().toLowerCase())) {
+    return "Invalid choice. Enter add, view, search, edit, delete, help, or quit.";
+  }
+  return "Command accepted.";
+}
+console.log(validateMenuChoice("unknown"));
+```
+
+### Common Mistakes
+- Printing "Invalid input" without explaining valid choices.
+- Failing to confirm a successful action.
+- Letting malformed stored data crash the entire program.
+- Relying on visual formatting without textual labels.
+
+### Activities
+1. Add a help command to the to-do tool.
+2. Test blank input, unknown commands, invalid task numbers, and an empty task list.
+3. Review every prompt for a clear expected input format.
+4. Ask a partner to complete all tasks using keyboard navigation only and record obstacles.
+
+### Accessibility Practice
+Use consistent separators, descriptive prompts, explicit errors, and sequential output. Do not claim a screen-reader test unless it has actually been performed.
+
+### Skills Checklist
+- [ ] I can validate user input.
+- [ ] I can provide specific error messages.
+- [ ] I can confirm successful operations.
+- [ ] I can review a CLI for keyboard and screen-reader usability.
+
+# Unit 11: Capstone Project — Accessible Personal Data Manager
+
+## Overview
+Build a complete command-line personal data manager in JavaScript and Node.js. The implementation may choose a Contact Manager, Book Tracker, Recipe Collection, or Budget Tracker, but the data model, operations, persistence, accessibility, and acceptance tests must be equivalent across the language tracks. Unlike the Python implementation, which introduces NiceGUI, this JavaScript track uses a terminal interface so the core capstone remains independent of a browser UI.
+
+## Lesson 11.1: Project Introduction and Interface Design
+
+### Reading References
+- Python source counterpart: Unit 11, Lesson 11.1.
+- Node.js documentation: readline/promises.
+
+### Learning Objectives
+- Select a capstone domain.
+- Translate requirements into a menu and command set.
+- Design a keyboard-first text interface.
+
+### Concept Explanation
+The capstone is assessed on data operations and accessibility, not visual interface fluency. The terminal interface must support adding, viewing, searching, editing, deleting, and saving records. A help command must list all commands.
+
+### Worked Example
+A minimal command menu might list: add, view, search, edit, delete, help, and quit. Each command maps to one named function.
+
+### Expected Behavior or Output
+The project plan contains a selected domain, a record schema, command descriptions, and acceptance tests.
+
+### Common Mistakes
+- Choosing a domain before identifying required fields and operations.
+- Designing a visual-only interaction when the project requires an accessible text interface.
+- Omitting help and invalid-command behavior.
+
+### Activities
+1. Choose one project domain.
+2. List the fields each record requires.
+3. Design the menu and exact prompt wording.
+4. Write acceptance tests for all required operations.
+
+### Accessibility Practice
+Every action must be possible from the keyboard. Prompts must name the expected field and format. Output must be sequential and understandable without visual layout.
+
+### Skills Checklist
+- [ ] I can select a project domain.
+- [ ] I can define a record schema.
+- [ ] I can design a text-only command interface.
+- [ ] I can write acceptance tests.
+
+## Lesson 11.2: Data Model and Storage
+
+### Reading References
+- Python source counterpart: Unit 11, Lesson 11.2.
+- Node.js documentation: fs/promises and JSON.
+
+### Learning Objectives
+- Define a record model.
+- Persist records to JSON.
+- Handle missing, malformed, and inaccessible files.
+
+### Canonical Record Fields
+Use these shared fields for the generic personal data manager: `id`, `title`, `description`, `category`, `created_at`, and `updated_at`. A selected domain may add fields, but must not remove the shared fields.
+
+### Worked Example
+A record contains id, title, description, category, created_at, and updated_at. The id is unique; timestamps use ISO 8601 strings.
+
+### Expected Behavior or Output
+After saving and reloading, all record fields and values are preserved. Missing files can initialize an empty collection; malformed JSON produces a clear error.
+
+### Common Mistakes
+- Treating parsed JSON as trusted data without validation.
+- Reusing record identifiers.
+- Overwriting valid data after a parse failure without informing the user.
+
+### Activities
+1. Define the record shape and document each field.
+2. Create a sample JSON file containing at least three records.
+3. Implement load and save functions.
+4. Test missing files, malformed JSON, and an empty data set.
+
+### Accessibility Practice
+Use human-readable JSON during development. Provide explicit save/load confirmations and specific error messages.
+
+### Skills Checklist
+- [ ] I can define the record schema.
+- [ ] I can load and save JSON.
+- [ ] I can preserve timestamps and identifiers.
+- [ ] I can handle missing and malformed data.
+
+### Concept Explanation
+The data model defines the fields and invariants of each record. JSON persistence stores the records between runs; load and save operations must handle file and parse failures.
+
+
+## Lesson 11.3: Displaying Items
+
+### Reading References
+- Python source counterpart: Unit 11, Lesson 11.3.
+- Node.js documentation: console output and Array iteration.
+
+### Learning Objectives
+- Display every record with a one-based number.
+- Print each field with an explicit label.
+- Handle an empty collection.
+
+### Concept Explanation
+Displaying records is a read operation. A one-based display number is a temporary selection aid; the stored identifier remains the stable record identity.
+
+### Worked Example
+```javascript
+function displayItems(items) {
+  if (items.length === 0) {
+    console.log("No items have been saved.");
+    return;
+  }
+  items.forEach((item, index) => {
+    console.log(`Item ${index + 1}:`);
+    console.log(`  Title: ${item.title}`);
+    console.log(`  Category: ${item.category}`);
+    console.log(`  Description: ${item.description}`);
+  });
+}
+```
+
+### Expected Behavior or Output
+Each record is announced with its number and labeled fields. An empty collection prints the no-items message.
+
+### Common Mistakes
+- Omitting field labels.
+- Using zero-based indexes as the displayed number.
+- Failing to handle an empty collection.
+
+### Activities
+1. Display three sample records in order.
+2. Display an empty list and confirm the message is clear.
+3. Include the record identifier and timestamps in the output.
+4. Review output using sequential screen-reader navigation.
+
+### Accessibility Practice
+Use labels, stable ordering, and one record at a time. Do not rely on columns, color, or icons to convey record fields.
+
+### Skills Checklist
+- [ ] I can display all records.
+- [ ] I can number records for selection.
+- [ ] I can handle an empty collection.
+- [ ] I can label every displayed field.
+
+## Lesson 11.4: Searching, Adding, and Editing Items
+
+### Reading References
+- Python source counterpart: Unit 11, Lessons 11.3–11.5.
+- Node.js documentation: Array methods and Date.
+
+### Learning Objectives
+- Add validated records with unique identifiers.
+- Search records by keyword.
+- Edit selected fields and update timestamps.
+
+### Concept Explanation
+Searching filters records without changing the stored collection. Editing changes only permitted fields and updates the updated_at timestamp.
+
+### Worked Example
+```javascript
+function searchItems(items, keyword) {
+  const query = keyword.trim().toLowerCase();
+  return items.filter(item =>
+    item.title.toLowerCase().includes(query) ||
+    item.description.toLowerCase().includes(query)
+  );
+}
+
+function updateItem(item, changes) {
+  const allowed = ["title", "description", "category"];
+  for (const field of allowed) {
+    if (Object.hasOwn(changes, field)) item[field] = changes[field];
+  }
+  item.updated_at = new Date().toISOString();
+}
+```
+
+### Expected Behavior or Output
+Search returns matching titles or descriptions. A successful edit changes the requested field and refreshes updated_at.
+
+### Common Mistakes
+- Searching case-sensitively without documenting that behavior.
+- Allowing edits to immutable identifiers.
+- Failing to update the modification timestamp.
+
+### Activities
+1. Search records by a word in the title.
+2. Search by a word in the description.
+3. Edit a title and verify that updated_at changes.
+4. Reject an edit that contains only blank required fields.
+
+### Accessibility Practice
+Report the number of matches and identify each result by its title and record number. Confirm every successful edit.
+
+### Skills Checklist
+- [ ] I can search records by keyword.
+- [ ] I can add a validated record.
+- [ ] I can update selected fields.
+- [ ] I can maintain the updated_at timestamp.
+
+## Lesson 11.5: Deleting Items, Persistence, and Final Verification
+
+### Reading References
+- Python source counterpart: Unit 11, Lessons 11.3–11.5.
+- Node.js documentation: fs/promises and JSON.
+
+### Learning Objectives
+- Delete a record by its identifier or displayed number.
+- Save changes and reload them between program runs.
+- Verify the full CRUD workflow and error handling.
+
+### Concept Explanation
+Deleting removes a selected record from the collection. Persistence must happen after the mutation so the deletion remains effective after the next program launch.
+
+### Worked Example
+```javascript
+function deleteItem(items, id) {
+  const index = items.findIndex(item => item.id === id);
+  if (index < 0) return false;
+  items.splice(index, 1);
+  return true;
+}
+```
+
+### Expected Behavior or Output
+After deleting and saving a record, reloading the JSON file confirms that the record is absent.
+
+### Common Mistakes
+- Deleting by a stale array index.
+- Failing to save after a deletion.
+- Omitting confirmation for an irreversible action.
+
+### Activities
+1. Delete one record and confirm the title of the deleted item.
+2. Save the remaining records to JSON.
+3. Restart the application and verify the deleted record is still absent.
+4. Run the full acceptance checklist: add, view, search, edit, delete, invalid input, missing file, malformed JSON, and help.
+
+### Accessibility Practice
+Ask for confirmation before irreversible deletion. Announce success or failure in text and preserve predictable menu navigation.
+
+### Skills Checklist
+- [ ] I can delete a record safely.
+- [ ] I can persist and reload records.
+- [ ] I can verify the complete CRUD workflow.
+- [ ] I can test invalid input and storage failures.
 
 ## Assessment Criteria
 
 ### Functionality (60%)
-- [ ] All CRUD operations (Create, Read, Update, Delete) work correctly.
+- [ ] All create, read, update, and delete operations work.
 - [ ] Data persists to JSON between program runs.
 - [ ] Search works by at least one field.
-- [ ] Program handles invalid input without crashing.
+- [ ] Invalid input is handled without crashing.
 
 ### Code Quality (20%)
-- [ ] Functions are small with single responsibilities.
-- [ ] Consistent use of `const`/`let`, arrow functions, template literals.
-- [ ] Meaningful names for all variables and functions.
+- [ ] Functions have focused responsibilities.
+- [ ] Names are descriptive and consistent.
 - [ ] Code is organized into modules.
-- [ ] Includes JSDoc comments for key functions.
+- [ ] Key functions include JSDoc comments.
 
-### Accessibility & UX (15%)
-- [ ] All prompts are descriptive and clear.
-- [ ] Confirmation messages after every action.
-- [ ] Consistent, predictable output format.
-- [ ] Help system available.
+### Accessibility and User Experience (15%)
+- [ ] Prompts are descriptive and clear.
+- [ ] Every state-changing operation has a confirmation.
+- [ ] Output is sequential and predictable.
+- [ ] A help system is available.
+- [ ] Keyboard-only operation is supported.
 
-### Documentation & Tests (5%)
-- [ ] `README.md` with setup and usage instructions.
-- [ ] At least 5 Jest unit tests for key functions.
+### Documentation and Tests (5%)
+- [ ] README includes setup and usage instructions.
+- [ ] At least five unit tests cover key functions.
+- [ ] README includes screen-reader usage tips and a reflection.
 
 ## Deliverables
+- Source files organized into modules.
+- A data folder with example JSON records.
+- A README with installation, run instructions, commands, screen-reader tips, and a reflection.
+- A test suite with at least five meaningful tests.
 
-1. All source code files.
-2. `data/` folder with example JSON data.
-3. `README.md` including:
-   - Installation steps: `npm install`
-   - Run instructions: `node index.js`
-   - Available commands list.
-   - Screen reader usage tips.
-   - Reflection on challenges faced.
+## JavaScript Module Note
+CommonJS and ECMAScript modules are both valid JavaScript module systems. For this curriculum, choose one mode explicitly in package.json and use it consistently. If using CommonJS, use `require()` and `module.exports`; if using ES modules, use `import` and `export`. Do not mix both systems in a single file.
+
+## AI Use Policy
+AI may be used for personal conceptual explanations and reinforcement only. It may not write, autocomplete, repair, complete, or generate course code or assessment solutions. Students must be able to explain and independently produce their submitted work.

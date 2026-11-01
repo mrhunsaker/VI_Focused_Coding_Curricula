@@ -64,7 +64,7 @@ Return to the [curriculum overview](../OVERALL_README.md) to compare the three l
 
 ## Recommended environment
 
-The setup unit contains the authoritative instructions. In general, learners need:
+The setup unit contains the Python-specific runtime and project instructions. For a cross-language comparison and detailed installation steps for Visual Studio Code, VSCodium, and Theia IDE, see the standalone [IDE setup lesson](../DEVELOPMENT/IDE_SETUP.md). In general, learners need:
 
 - A currently supported Python 3 release compatible with the course examples.
 - Visual Studio Code or [Theia IDE](https://theia-ide.org/#theiaide), or another keyboard-accessible editor that supports Python and the learner's screen reader.
@@ -150,3 +150,7 @@ Use the official [Python documentation](https://docs.python.org/3/) as the refer
 ---
 
 The objective is to develop a repeatable approach to understanding problems, writing clear programs, testing behavior, and learning new tools independently.
+
+## GUI, visualization, and workbench accessibility
+
+See the shared [GUI, visualization, and workbench accessibility reference](../DEVELOPMENT/GUI_VISUALIZATION_ACCESSIBILITY.md) for screen-reader support by toolkit, platform-specific activation settings, recommended alternatives, and interfaces that must not be required without an equivalent accessible route.

@@ -1,12 +1,14 @@
 # Accessible Introduction to Computer Science
 
-## A living, accessibility-first textbook in Python, JavaScript, TypeScript, and Java
+## A living, accessibility-first textbook in Python, JavaScript, TypeScript, Java, Kotlin, C, C++, C#, Julia, Swift, and Rust
 
 This book is a structured introduction to programming and core computer science concepts. It is designed with blind and visually impaired learners who use screen readers, braille displays, magnification, keyboard navigation, or combinations of access technologies in mind. It is also intended for sighted beginners, educators, and anyone who benefits from explicit, text-first instruction.
 
 Command-line instructions are cross-platform: macOS and Linux learners use the Bash-family examples (also suitable for typical zsh workflows), and each executable Bash-family block is immediately followed by a Windows 11 PowerShell equivalent. Windows alternatives use native PowerShell commands and tools such as `winget` where Linux package managers are not available.
 
 The textbook is published with **mdBook**. It is not a GitBook project. Markdown files in this repository are the maintained source; mdBook builds them into the navigable online textbook hosted on GitHub Pages. The book is intended to remain a living resource: lessons, examples, exercises, accessibility notes, and teaching materials can be reviewed and improved as learners and educators use them.
+
+Project environments and dependency isolation are introduced in the [development environment guide](DEVELOPMENT/ENVIRONMENT_ISOLATION.md). It covers project-local package management across Python, JavaScript/TypeScript, Rust, and other ecosystems; Conda; Docker and Podman; optional VS Code/Theia container workflows; and the distinction between project tooling and accessibility settings.
 
 **Start learning:** choose a curriculum below, or read this overview to understand the sequence and how to use the materials. Each language curriculum includes its own topic index. The shared [Programming Code Glossary](backmatter/GLOSSARY.md) defines common and language-specific terminology explicitly.
 
@@ -49,6 +51,39 @@ By working through one curriculum, learners should build the ability to:
 12. Evaluate whether program interaction, prompts, messages, and output are understandable through assistive technology.
 
 These are introductory outcomes, not a claim of professional mastery.
+
+## Additional language courses and modules
+
+### Full programming-language courses
+
+Go and Lua are now included as complete introductory courses aligned to the Python Units 0–11 sequence. The C, C++, C#, Julia, Swift, and Rust tracks have also been expanded from short outlines into unit-by-unit lesson manuscripts using the same instructional progression and recurring problem contexts.
+
+- [Go](GO/GO_README.md)
+- [Lua](LUA/LUA_README.md)
+- [C](C/c_README.md)
+- [C++](CPP/cpp_README.md)
+- [C#](CSHARP/csharp_README.md)
+- [Julia](JULIA/julia_README.md)
+- [Swift](SWIFT/swift_README.md)
+- [Rust](RUST/rust_README.md)
+
+### Specialized introductory modules
+
+These subjects have different learning objectives, so they are taught as domain-specific modules rather than being forced into the Python lesson sequence.
+
+- [HTML and CSS](MODULES/HTML_CSS.md): semantic, accessible web documents and styling.
+- [R](MODULES/R.md): statistical computing, data analysis, and reproducible research.
+- [SQL](MODULES/SQL.md): relational data, querying, joins, integrity, and transactions.
+
+### Parallel-course standardization
+
+The [lesson_standardization.json](lesson_standardization.json) file specifies the Python curriculum unit by unit, defines shared datasets and example problems, and contains a reusable prompt for refining each general-purpose language course. Its objective is functional equivalence: students encounter the same concepts and problems while learning the syntax and semantics of a different language. HTML/CSS, R, and SQL remain specialized modules.
+
+## Development environment and lesson structure
+
+Before beginning a language pathway, complete the [terminal skills prerequisite](TERMINAL/TERMINAL_README.md) and review the standalone [IDE setup lesson](DEVELOPMENT/IDE_SETUP.md). The IDE lesson provides installation steps for Visual Studio Code, VSCodium, and Eclipse Theia on Windows, macOS, and Linux; compares IDEs with lightweight text editors; and sets the course policy that AI features may be used only for personal conceptual understanding and reinforcement, not to write or complete course code.
+
+The [lesson structure audit](DEVELOPMENT/LESSON_STRUCTURE_AUDIT.md) compares the current lesson files with the original Python course. The audit finds that the repository is not yet fully standardized: some language tracks are concise lesson maps, and some existing JavaScript, TypeScript, Java, Kotlin, and terminal lessons use different section patterns. It defines a common lesson structure for future normalization rather than claiming that every lesson already matches Python.
 
 ## Choose a language
 
@@ -98,9 +133,25 @@ This is a practical orientation, not a ranking. No language is universally easie
 - **Cross-language comparison:** complete one introductory course first, then study a second language by comparing equivalent concepts rather than learning several syntaxes simultaneously.
 - **Educator-led course:** use the matching teacher's guide alongside the learner units.
 
-Kotlin is available as an optional [post-capstone supplement for Java learners](JAVA/kotlin.md); it is not a required core curriculum.
+Kotlin is a standalone curriculum and does not require completion of Java. C, C++, C#, Julia, Swift, and Rust are also independent learning paths.
 
-Avoid requiring students to learn all four curricula at once. Depth in one language provides a stronger foundation for transfer.
+Avoid requiring students to learn multiple curricula at once. Complete one language path before comparing syntax and design trade-offs across languages. Depth in one language provides a stronger foundation for transfer.
+
+## Additional standalone language curricula
+
+All language tracks share the [preliminary Bash and PowerShell terminal course](TERMINAL/TERMINAL_README.md). Complete it first so learners can navigate projects, run tools, and interpret command output independently.
+
+| Language | Primary uses | Typical information and workloads | Curriculum |
+| --- | --- | --- | --- |
+| Kotlin | Android, JVM services, command-line tools, multiplatform software | Typed application models, API payloads, structured records, nullable data, asynchronous state | [Kotlin](KOTLIN/KOTLIN_README.md) |
+| C | Operating systems, embedded firmware, drivers, networking, runtimes | Bytes, fixed-width values, memory buffers, binary records, low-level structures | [C](C/c_README.md) |
+| C++ | Game engines, simulation, real-time and high-performance software | Numerical arrays, large objects, resource-owning structures, performance-sensitive streams | [C++](CPP/cpp_README.md) |
+| C# | Business software, web APIs, cloud services, desktop apps, Unity | Business entities, typed models, JSON/API payloads, database records | [C#](CSHARP/csharp_README.md) |
+| Julia | Scientific computing, numerical analysis, optimization, statistics, machine learning | Vectors, matrices, tensors, measurements, simulation outputs, statistical datasets | [Julia](JULIA/julia_README.md) |
+| Swift | Apple-platform apps, server-side Swift, cross-platform libraries | Strongly typed app models, settings, structured records, JSON, asynchronous results | [Swift](SWIFT/swift_README.md) |
+| Rust | Systems software, CLI tools, network services, WebAssembly, embedded software | Owned values, borrowed views, byte buffers, structured records, concurrent data | [Rust](RUST/rust_README.md) |
+
+These are common application patterns, not hard limits. Choose a language by considering target platform, ecosystem, performance, safety, interoperability, available libraries, and maintainability. Data suitability depends on the data model and validation practices, not simply the language. Treat external input as untrusted and protect sensitive information.
 
 ## How the curriculum is organized
 
@@ -193,3 +244,7 @@ Use official documentation to confirm version-sensitive installation and API det
 ---
 
 Select one language, open its curriculum page, and work through the units in sequence. The goal is to become an independent problem solver who can read, write, test, explain, and improve programs using accessible tools.
+
+## GUI, visualization, and workbench accessibility
+
+See the shared [GUI, visualization, and workbench accessibility reference](DEVELOPMENT/GUI_VISUALIZATION_ACCESSIBILITY.md) for screen-reader support by toolkit, platform-specific activation settings, recommended alternatives, and interfaces that must not be required without an equivalent accessible route.

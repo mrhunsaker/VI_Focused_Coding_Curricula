@@ -1,0 +1,25 @@
+name: Swift examples
+
+on:
+  push:
+    branches:
+      - 2026-11-01-curriculum-expansion
+    paths:
+      - "SWIFT/lessons.md"
+      - "scripts/check_swift_examples.py"
+      - ".github/workflows/swift-examples.yml"
+  workflow_dispatch:
+
+jobs:
+  swift-examples:
+    runs-on: ubuntu-24.04
+    steps:
+      - uses: actions/checkout@v4
+      - name: Install Swift 6
+        uses: swift-actions/setup-swift@v2
+        with:
+          swift-version: "6.0"
+      - name: Show toolchain
+        run: swift --version
+      - name: Execute every fenced Swift example
+        run: python3 scripts/check_swift_examples.py

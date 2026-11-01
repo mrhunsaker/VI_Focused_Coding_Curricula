@@ -1,0 +1,26 @@
+name: TypeScript Curriculum Validation
+
+on:
+  push:
+    paths:
+      - "TYPESCRIPT/**"
+      - "scripts/check_typescript_curriculum.mjs"
+      - ".github/workflows/typescript-curriculum.yml"
+  pull_request:
+    paths:
+      - "TYPESCRIPT/**"
+      - "scripts/check_typescript_curriculum.mjs"
+      - ".github/workflows/typescript-curriculum.yml"
+
+jobs:
+  typecheck-curriculum:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 26
+      - name: Install TypeScript and declaration dependencies
+        run: npm install --no-save --no-package-lock typescript@7.0.2 @types/node@26 csv-parse@6
+      - name: Validate lesson structure and TypeScript examples
+        run: node scripts/check_typescript_curriculum.mjs

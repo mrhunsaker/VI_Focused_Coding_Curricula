@@ -1,0 +1,33 @@
+name: Lua 5.4 examples
+
+on:
+  push:
+    paths:
+      - "LUA/**"
+      - "scripts/check_lua_examples.py"
+      - ".github/workflows/lua-examples.yml"
+  pull_request:
+    paths:
+      - "LUA/**"
+      - "scripts/check_lua_examples.py"
+      - ".github/workflows/lua-examples.yml"
+  workflow_dispatch:
+
+jobs:
+  lua-5-4:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Install Lua 5.4
+        run: |
+          sudo apt-get update
+          sudo apt-get install --yes lua5.4
+      - name: Verify interpreter
+        run: |
+          lua5.4 -v
+          luac5.4 -v
+      - name: Parse and execute every lesson example
+        env:
+          LUA: lua5.4
+          LUAC: luac5.4
+        run: python3 scripts/check_lua_examples.py

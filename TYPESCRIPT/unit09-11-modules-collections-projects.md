@@ -1,692 +1,812 @@
-# Unit 9: Modules, Collections, and Testing
-
----
-
-## Typed modules, collections, and data boundaries
-
-Use interfaces and type aliases to describe records, and use generic collection types such as Map<string, number> and Set<string>. When data comes from JSON or a file, treat it as untrusted until it has been validated; a TypeScript annotation does not validate the runtime value.
-
-## Lesson 9.1: TypeScript Modules
-
-### CommonJS (explicit `type: commonjs` in package.json)
-
-```typescript
-// math.ts — exporting
-const add = (a: number, b: number): number => a + b;
-const multiply = (a: number, b: number): number => a * b;
-const PI = Math.PI;
-
-module.exports = { add, multiply, PI };
-
-// Or export individually:
-// module.exports.add = add;
-```
-
-```typescript
-// main.ts — importing
-const { add, multiply, PI } = require('./math');
-
-console.log(add(5, 3));         // 8
-console.log(multiply(4, 6));    // 24
-console.log(PI.toFixed(5));     // 3.14159
-```
-
-### ES Modules (Modern — requires `"type": "module"` in package.json)
-
-```typescript
-// math.ts
-export const add = (a: number, b: number): number => a + b;
-export const multiply = (a: number, b: number): number => a * b;
-export const PI = Math.PI;
-export default function greet(name: string): string {
-    return `Hello, ${name}!`;
-}
-```
-
-```typescript
-// main.ts
-import greet, { add, multiply, PI } from './math.js';
-
-console.log(greet("Alice"));
-console.log(add(5, 3));
-```
-
----
-
-## Lesson 9.2: Maps and Sets
-
-### `Map` — Key-Value (Better than plain objects for maps)
-
-```typescript
-const inventory = new Map();
-
-// Adding
-inventory.set("apples", 50);
-inventory.set("bananas", 30);
-inventory.set("oranges", 40);
-
-// Access
-console.log(inventory.get("apples"));    // 50
-console.log(inventory.has("bananas"));   // true
-console.log(inventory.size);             // 3
-
-// Delete
-inventory.delete("bananas");
-
-// Iterate
-for (const [key, value] of inventory) {
-    console.log(`${key}: ${value}`);
-}
-
-inventory.forEach((value, key) => {
-    console.log(`${key} = ${value}`);
-});
-
-console.log([...inventory.keys()]);
-console.log([...inventory.values()]);
-console.log([...inventory.entries()]);
-```
-
-### `Set` — Unique Values
-
-```typescript
-const uniqueWords = new Set();
-uniqueWords.add("apple");
-uniqueWords.add("banana");
-uniqueWords.add("apple");   // Duplicate — ignored
-
-console.log(uniqueWords.size);           // 2
-console.log(uniqueWords.has("banana"));  // true
-uniqueWords.delete("banana");
-
-// Convert array to set (remove duplicates)
-const nums = [1, 2, 2, 3, 3, 3, 4];
-const unique = [...new Set(nums)];
-console.log(unique);   // [1, 2, 3, 4]
-
-// Iterate
-for (const item of uniqueWords) {
-    console.log(item);
-}
-```
-
----
-
-## Lesson 9.3: Word Frequency Analysis
-
-```typescript
-const fs = require('node:fs');
-
-function countWords(text: string): Map<string, number> {
-    const words = text
-        .toLowerCase()
-        .replace(/[^a-z\s]/g, '')
-        .trim()
-        .split(/\s+/)
-        .filter(word => word.length > 0);
-
-    const frequency = new Map();
-    for (const word of words) {
-        frequency.set(word, (frequency.get(word) || 0) + 1);
-    }
-
-    return frequency;
-}
-
-const text = "the quick brown fox jumps over the lazy dog the quick brown fox";
-const freq = countWords(text);
-
-// Sort by frequency (most common first)
-const sorted = [...freq.entries()].sort((a, b) => b[1] - a[1]);
-
-console.log("Word Frequencies:");
-for (const [word, count] of sorted) {
-    console.log(`'${word}': ${count}`);
-}
-
-// Top 5 words
-console.log("\nTop 5 words:");
-sorted.slice(0, 5).forEach(([word, count]) => {
-    console.log(`  ${word}: ${count}`);
-});
-```
-
----
-
-## Lesson 9.4: Working with CSV Files
-
-```typescript
-const fs = require('node:fs');
-
-type CsvRecord = Record<string, string>;
-
-function parseCSV(content: string): CsvRecord[] {
-    if (content.trim() === '') return [];
-    const lines = content.trim().split('\n');
-    const headers = lines[0].split(',').map(h => h.trim());
-
-    return lines.slice(1).map(line => {
-        const values = line.split(',').map(v => v.trim());
-        const record: CsvRecord = {};
-        headers.forEach((header, index) => {
-            record[header] = values[index];
-        });
-        return record;
-    });
-}
-
-function generateCSV(records: CsvRecord[]): string {
-    if (records.length === 0) return '';
-    const headers = Object.keys(records[0]);
-    const headerLine = headers.join(',');
-    const dataLines = records.map(record =>
-        headers.map(h => record[h]).join(',')
-    );
-    return [headerLine, ...dataLines].join('\n');
-}
-
-// Read and parse CSV
-try {
-    const content = fs.readFileSync('students.csv', 'utf8');
-    const students = parseCSV(content);
-
-    console.log(`Loaded ${students.length} students:`);
-    students.forEach(student => {
-        console.log(`  Name: ${student.name}, Age: ${student.age}, Grade: ${student.grade}`);
-    });
-
-} catch (err: unknown) {
-    if (typeof err === 'object' && err !== null && 'code' in err && err.code === 'ENOENT') {
-        // Create a sample CSV for demonstration
-        const sampleData = `name,age,grade
-Alice,15,A
-Bob,14,B
-Charlie,16,A`;
-        fs.writeFileSync('students.csv', sampleData);
-        console.log("Created sample students.csv");
-    }
-}
-```
-
----
-
-## Lesson 9.5: Testing with Jest
-
-### Setting Up Jest
-
-```bash
-npm init -y
-npm install --save-dev jest @types/jest
-```
-
-Windows Powershell
-
-```powershell
-npm init -y
-npm install --save-dev jest @types/jest
-```
-
-Add to `package.json`:
-```json
-{
-  "scripts": {
-    "test": "jest"
-  }
-}
-```
-
-### Writing Tests
-
-```typescript
-// math.ts
-const add = (a: number, b: number): number => a + b;
-const getGrade = (score: number): string => {
-    if (score >= 90) return "A";
-    if (score >= 80) return "B";
-    if (score >= 70) return "C";
-    return "F";
-};
-const circleArea = (radius: number): number => Math.PI * radius ** 2;
-
-module.exports = { add, getGrade, circleArea };
-```
-
-```typescript
-// math.test.ts
-const { add, getGrade, circleArea } = require('./math');
-
-describe("add function", () => {
-    test("adds two positive numbers", () => {
-        expect(add(5, 3)).toBe(8);
-    });
-
-    test("adds negative numbers", () => {
-        expect(add(-5, -3)).toBe(-8);
-    });
-
-    test("adds zero", () => {
-        expect(add(0, 7)).toBe(7);
-    });
-});
-
-describe("getGrade function", () => {
-    test("returns A for score >= 90", () => {
-        expect(getGrade(95)).toBe("A");
-        expect(getGrade(90)).toBe("A");
-    });
-
-    test("returns B for score 80-89", () => {
-        expect(getGrade(85)).toBe("B");
-    });
-
-    test("returns F for score < 60", () => {
-        expect(getGrade(55)).toBe("F");
-    });
-});
-
-describe("circleArea function", () => {
-    test("calculates area of circle", () => {
-        expect(circleArea(5)).toBeCloseTo(78.54, 1);
-    });
-});
-```
-
-Run tests:
-```bash
-npm test
-```
-
-Windows Powershell
-
-```powershell
-npm test
-```
-
-### Common Jest Matchers
-
-| Matcher | Description |
-|---------|-------------|
-| `toBe(value)` | Strict equality (`===`) |
-| `toEqual(value)` | Deep equality (for objects/arrays) |
-| `toBeCloseTo(num, decimals)` | Floating-point comparison |
-| `toBeTruthy()` | Check if truthy |
-| `toBeFalsy()` | Check if falsy |
-| `toBeNull()` | Check if null |
-| `toBeUndefined()` | Check if undefined |
-| `toContain(item)` | Array/string contains item |
-| `toHaveLength(n)` | Check length |
-| `toThrow(error)` | Check if function throws |
-
-### Skills Checklist
-- [ ] I can create and import modules using CommonJS.
-- [ ] I can use `Map` and `Set` for collections.
-- [ ] I can write and run Jest tests.
-- [ ] I can use common Jest matchers.
-
----
-
-# Unit 10: Project-Based Learning
-
----
-
-## Lesson 10.1: Text-Based Adventure Game
-
-```typescript
-class Room {
-    name: string;
-    description: string;
-    exits: Partial<Record<string, Room>>;
-    items: string[];
-    constructor(name: string, description: string) {
-        this.name = name;
-        this.description = description;
-        this.exits = {};
-        this.items = [];
-    }
-
-    addExit(direction: string, room: Room): void {
-        this.exits[direction.toLowerCase()] = room;
-    }
-
-    addItem(item: string): void {
-        this.items.push(item);
-    }
-
-    describe(): string {
-        let desc = `--- ${this.name} ---\n${this.description}\n`;
-        if (this.items.length > 0) {
-            desc += `You see: ${this.items.join(', ')}\n`;
-        }
-        const exitList = Object.keys(this.exits).join(', ');
-        desc += `Exits: ${exitList}`;
-        return desc;
-    }
-}
-
-class Player {
-    name: string;
-    currentRoom: Room;
-    inventory: string[];
-    health: number;
-    constructor(name: string, startRoom: Room) {
-        this.name = name;
-        this.currentRoom = startRoom;
-        this.inventory = [];
-        this.health = 100;
-    }
-
-    move(direction: string): boolean {
-        const nextRoom = this.currentRoom.exits[direction.toLowerCase()];
-        if (nextRoom) {
-            this.currentRoom = nextRoom;
-            return true;
-        }
-        return false;
-    }
-
-    takeItem(itemName: string): boolean {
-        const index = this.currentRoom.items.findIndex(
-            item => item.toLowerCase() === itemName.toLowerCase()
-        );
-        if (index !== -1) {
-            const item = this.currentRoom.items.splice(index, 1)[0];
-            this.inventory.push(item);
-            return true;
-        }
-        return false;
-    }
-
-    getStatus(): string {
-        const inv = this.inventory.length > 0
-            ? this.inventory.join(', ')
-            : 'empty';
-        return `${this.name} | Health: ${this.health} | Inventory: ${inv}`;
-    }
-}
-
-async function playGame(): Promise<void> {
-    const { askQuestion, close } = require('./input');
-
-    // Build world
-    const cave = new Room("Dark Cave", "You are in a dimly lit cave.");
-    const tunnel = new Room("Stone Tunnel", "A narrow tunnel runs north and south.");
-    const clearing = new Room("Sunny Clearing", "A bright clearing with tall trees.");
-
-    cave.addExit("north", tunnel);
-    cave.addItem("torch");
-    tunnel.addExit("south", cave);
-    tunnel.addExit("north", clearing);
-    clearing.addExit("south", tunnel);
-    clearing.addItem("magic key");
-
-    const player = new Player("Hero", cave);
-
-    console.log("=== Text Adventure ===");
-    console.log("Commands: go [direction], take [item], inventory, look, quit\n");
-
-    while (true) {
-        console.log(player.currentRoom.describe());
-        console.log(player.getStatus());
-
-        const input = (await askQuestion("\n> ")).trim().toLowerCase();
-        const [command, ...argParts] = input.split(/\s+/);
-        const argument = argParts.join(' ');
-
-        console.log('');
-
-        switch (command) {
-            case 'go':
-                if (!argument) {
-                    console.log("Go where?");
-                } else if (!player.move(argument)) {
-                    console.log("You can't go that way.");
-                }
-                break;
-            case 'take':
-                if (player.takeItem(argument)) {
-                    console.log(`You picked up the ${argument}.`);
-                } else {
-                    console.log(`There's no ${argument} here.`);
-                }
-                break;
-            case 'inventory':
-                console.log(`Inventory: ${player.inventory.join(', ') || 'empty'}`);
-                break;
-            case 'look':
-                // Description already shown at top
-                break;
-            case 'quit':
-                console.log("Thanks for playing!");
-                close();
-                return;
-            default:
-                console.log(`Unknown command: '${command}'`);
-        }
-    }
-}
-
-playGame();
-```
-
----
-
-## Lesson 10.2: Command-Line To-Do Manager
-
-```typescript
-const fs = require('node:fs');
-const { askQuestion, close } = require('./input');
-
-const FILE_PATH = 'todos.json';
-
-interface Todo {
-    description: string;
-    completed: boolean;
-    createdAt: string;
-}
-
-function isTodo(value: unknown): value is Todo {
-    if (typeof value !== 'object' || value === null) return false;
-    const candidate = value as Record<string, unknown>;
-    return typeof candidate.description === 'string'
-        && typeof candidate.completed === 'boolean'
-        && typeof candidate.createdAt === 'string';
-}
-
-function isTodoArray(value: unknown): value is Todo[] {
-    return Array.isArray(value) && value.every(isTodo);
-}
-
-function loadTodos(): Todo[] {
-    try {
-        const data = fs.readFileSync(FILE_PATH, 'utf8');
-        const parsed: unknown = JSON.parse(data);
-        if (!isTodoArray(parsed)) {
-            throw new TypeError('The saved to-do file has an invalid structure.');
-        }
-        return parsed;
-    } catch (err) {
-        if (typeof err === 'object' && err !== null && 'code' in err && err.code === 'ENOENT') {
-            return [];   // File doesn't exist yet
-        }
-        if (err instanceof SyntaxError) {
-            console.log("Warning: Corrupted todos file. Starting fresh.");
-            return [];
-        }
-        throw err;
-    }
-}
-
-function saveTodos(todos: Todo[]): void {
-    fs.writeFileSync(FILE_PATH, JSON.stringify(todos, null, 2));
-}
-
-function addTask(todos: Todo[], description: string): void {
-    todos.push({ description, completed: false, createdAt: new Date().toISOString() });
-    console.log(`Task added: "${description}"`);
-}
-
-function viewTasks(todos: Todo[]): void {
-    if (todos.length === 0) {
-        console.log("No tasks in your list.");
-        return;
-    }
-    console.log("--- Your To-Do List ---");
-    todos.forEach((task, index) => {
-        const status = task.completed ? "[X]" : "[ ]";
-        console.log(`${index + 1}. ${status} ${task.description}`);
-    });
-    console.log("-----------------------");
-}
-
-function markComplete(todos: Todo[], taskNumber: string): void {
-    const index = parseInt(taskNumber) - 1;
-    if (index >= 0 && index < todos.length) {
-        todos[index].completed = true;
-        console.log(`Completed: "${todos[index].description}"`);
-    } else {
-        console.log("Invalid task number.");
-    }
-}
-
-function deleteTask(todos: Todo[], taskNumber: string): void {
-    const index = parseInt(taskNumber) - 1;
-    if (index >= 0 && index < todos.length) {
-        const removed = todos.splice(index, 1)[0];
-        console.log(`Deleted: "${removed.description}"`);
-    } else {
-        console.log("Invalid task number.");
-    }
-}
-
-async function main(): Promise<void> {
-    let todos = loadTodos();
-    console.log("=== To-Do Manager ===");
-
-    while (true) {
-        console.log("\n1. Add Task  2. View Tasks  3. Mark Complete  4. Delete  5. Quit");
-        const choice = (await askQuestion("Choice: ")).trim();
-
-        switch (choice) {
-            case '1':
-                const desc = await askQuestion("Task description: ");
-                addTask(todos, desc);
-                saveTodos(todos);
-                break;
-            case '2':
-                viewTasks(todos);
-                break;
-            case '3':
-                viewTasks(todos);
-                const completeNum = await askQuestion("Task number: ");
-                markComplete(todos, completeNum);
-                saveTodos(todos);
-                break;
-            case '4':
-                viewTasks(todos);
-                const deleteNum = await askQuestion("Task number to delete: ");
-                deleteTask(todos, deleteNum);
-                saveTodos(todos);
-                break;
-            case '5':
-                console.log("Goodbye!");
-                close();
-                return;
-            default:
-                console.log("Invalid choice.");
-        }
-    }
-}
-
-main();
-```
-
----
-
-# Unit 11: Capstone Project — Personal Data Manager in TypeScript
+# Unit 9: Testing and Data Analysis
 
 ## Overview
 
-Build a fully functional, accessible command-line personal data manager using Node.js.
+Test functions and classes, generate random values, analyze text, and parse CSV. The TypeScript adaptation preserves the shared Python curriculum's learning objectives, datasets, expected results, and assessment criteria while teaching TypeScript's compile-time type system and JavaScript runtime behavior.
 
-## Project Options
+## Lesson 9.1: Testing a function
 
-- **Contact Manager:** name, phone, email, notes
-- **Book Tracker:** title, author, genre, read status
-- **Recipe Collection:** name, ingredients, instructions, cuisine type
-- **Budget Tracker:** category, amount, date, description
+### Reading References
+- Python source counterpart: Unit 9 lesson 9.1 in the canonical Python curriculum.
+- TypeScript Handbook: https://www.typescriptlang.org/docs/handbook/intro.html
+- Node.js documentation where terminal, file, or runtime APIs are used.
 
-## Required Features
+### Learning Objectives
+- Write built-in Node.js tests for arithmetic and grade classification functions.
+- Explain the TypeScript-specific language or runtime behavior used in the lesson.
+- Predict the example's behavior and test a boundary or invalid case.
 
-1. **Add item** — prompt for all attributes and save.
-2. **View all items** — display clearly with numbers.
-3. **Search/filter** — find items by keyword.
-4. **Edit item** — select and modify specific fields.
-5. **Delete item** — remove by number.
-6. **Persistence** — save/load to JSON file.
+### Concept Explanation
+Unit tests verify a function's contract with known inputs and expected outputs. Node's built-in node:test and node:assert/strict avoid a third-party test framework for introductory work.
 
-## Project Structure
-
-```
-my-data-manager/
-├── src/
-│   ├── models/
-│   │   └── contact.ts      (data model/class)
-│   ├── storage/
-│   │   └── dataManager.ts  (JSON file I/O)
-│   ├── ui/
-│   │   └── consoleUI.ts    (menu and display)
-│   └── utils/
-│       └── input.ts        (reusable input helper)
-├── data/
-│   └── contacts.json       (data storage)
-├── tests/
-│   └── contact.test.ts     (Jest tests)
-├── package.json
-├── README.md
-└── index.ts                (entry point)
+### Worked Example
+```typescript
+import test from "node:test";
+import assert from "node:assert/strict";
+function add(a: number, b: number): number { return a + b; }
+function getGrade(score: number): string { return score >= 90 ? "A" : score >= 80 ? "B" : score >= 70 ? "C" : score >= 60 ? "D" : "F"; }
+test("add returns the sum", () => assert.equal(add(5, 3), 8));
+test("82 receives grade B", () => assert.equal(getGrade(82), "B"));
 ```
 
-## Accessibility Guidelines
+### Expected Behavior or Output
+The test runner reports two passing tests and no failures.
 
-1. Every prompt must clearly describe what input is expected.
-2. Print a confirmation message after every action.
-3. Number all listed items for easy selection.
-4. Provide clear, specific error messages.
-5. Include a `help` command listing all available options.
-6. Use consistent separators (`---`) to group output.
+### Common Mistakes
+- Testing only one ordinary value.
+- Using an incorrect expected value copied from the implementation.
+- Failing to run tests after changing a function.
 
-## Assessment Criteria
+### Activities
+1. Test add with positive, negative, and zero values.
+2. Test every grade threshold and its lower neighbor.
+3. Run tests with node --test after compiling the TypeScript test file.
 
-### Functionality (60%)
-- [ ] All CRUD operations (Create, Read, Update, Delete) work correctly.
-- [ ] Data persists to JSON between program runs.
-- [ ] Search works by at least one field.
-- [ ] Program handles invalid input without crashing.
+### Accessibility Practice
+Use descriptive test names that read as complete sentences. All prompts, errors, and status messages must have meaningful text equivalents; keyboard operation is required.
 
-### Code Quality (20%)
-- [ ] Functions are small with single responsibilities.
-- [ ] Consistent use of `const`/`let`, arrow functions, template literals.
-- [ ] Meaningful names for all variables and functions.
-- [ ] Code is organized into modules.
-- [ ] Includes JSDoc comments for key functions.
+### Skills Checklist
+- [ ] I can write a unit test.
+- [ ] I can assert an expected result.
+- [ ] I can test normal and boundary inputs.
 
-### Accessibility & UX (15%)
-- [ ] All prompts are descriptive and clear.
-- [ ] Confirmation messages after every action.
-- [ ] Consistent, predictable output format.
-- [ ] Help system available.
+---
 
-### Documentation & Tests (5%)
-- [ ] `README.md` with setup and usage instructions.
-- [ ] At least 5 Jest unit tests for key functions.
+---
 
-## Deliverables
+## Lesson 9.2: Testing a class
 
-1. All source code files.
-2. `data/` folder with example JSON data.
-3. `README.md` including:
-   - Installation steps: `npm install`
-   - Run instructions: `npx tsc && node dist/index.js`
-   - Available commands list.
-   - Screen reader usage tips.
-   - Reflection on challenges faced.
+### Reading References
+- Python source counterpart: Unit 9 lesson 9.2 in the canonical Python curriculum.
+- TypeScript Handbook: https://www.typescriptlang.org/docs/handbook/intro.html
+- Node.js documentation where terminal, file, or runtime APIs are used.
+
+### Learning Objectives
+- Test class construction, state changes, and invalid operations.
+- Explain the TypeScript-specific language or runtime behavior used in the lesson.
+- Predict the example's behavior and test a boundary or invalid case.
+
+### Concept Explanation
+A class test checks observable behavior: constructor values, method results, state updates, and rejected invalid states. Keep tests independent and deterministic.
+
+### Worked Example
+```typescript
+import test from "node:test";
+import assert from "node:assert/strict";
+class StockItem {
+  constructor(public name: string, public quantity: number) {}
+  setQuantity(value: number): void { if (value < 0) throw new RangeError("Invalid quantity"); this.quantity = value; }
+}
+test("quantity can be updated", () => {
+  const item = new StockItem("Pencil", 10);
+  item.setQuantity(12);
+  assert.equal(item.quantity, 12);
+});
+```
+
+### Expected Behavior or Output
+The test passes when the quantity changes from 10 to 12.
+
+### Common Mistakes
+- Sharing mutable state between tests.
+- Testing private implementation details rather than behavior.
+- Failing to test invalid state changes.
+
+### Activities
+1. Test a valid quantity update.
+2. Assert that a negative quantity throws RangeError.
+3. Create a fresh instance in each test.
+
+### Accessibility Practice
+Keep test names and failure output specific to the state being checked. All prompts, errors, and status messages must have meaningful text equivalents; keyboard operation is required.
+
+### Skills Checklist
+- [ ] I can test class behavior.
+- [ ] I can test state changes.
+- [ ] I can assert that invalid operations throw.
+
+---
+
+---
+
+## Lesson 9.3: Introduction to random numbers
+
+### Reading References
+- Python source counterpart: Unit 9 lesson 9.3 in the canonical Python curriculum.
+- TypeScript Handbook: https://www.typescriptlang.org/docs/handbook/intro.html
+- Node.js documentation where terminal, file, or runtime APIs are used.
+
+### Learning Objectives
+- Generate bounded integers, decimals, and selections with Math.random.
+- Explain the TypeScript-specific language or runtime behavior used in the lesson.
+- Predict the example's behavior and test a boundary or invalid case.
+
+### Concept Explanation
+Math.random returns a pseudorandom number in the range zero inclusive to one exclusive. Scale and floor it to produce a bounded integer; do not use it for security tokens.
+
+### Worked Example
+```typescript
+const integer = Math.floor(Math.random() * 10) + 1;
+const decimal = Math.random();
+const choices = ["red", "blue", "green"];
+const choice = choices[Math.floor(Math.random() * choices.length)];
+console.log(integer >= 1 && integer <= 10);
+console.log(decimal >= 0 && decimal < 1);
+console.log(choices.includes(choice));
+```
+
+### Expected Behavior or Output
+All three checks print true; sampled values can differ on each run.
+
+### Common Mistakes
+- Using Math.round and creating uneven endpoint probabilities.
+- Forgetting that the upper bound is exclusive.
+- Using Math.random for passwords or cryptographic secrets.
+
+### Activities
+1. Generate an integer from 1 to 10.
+2. Generate a decimal in [0,1).
+3. Choose one item from a typed array.
+
+### Accessibility Practice
+Report range checks as text; explain that the actual sample changes between runs. All prompts, errors, and status messages must have meaningful text equivalents; keyboard operation is required.
+
+### Skills Checklist
+- [ ] I can describe Math.random's range.
+- [ ] I can generate a bounded integer.
+- [ ] I can select a random array element.
+
+---
+
+---
+
+## Lesson 9.4: Analyzing text data
+
+### Reading References
+- Python source counterpart: Unit 9 lesson 9.4 in the canonical Python curriculum.
+- TypeScript Handbook: https://www.typescriptlang.org/docs/handbook/intro.html
+- Node.js documentation where terminal, file, or runtime APIs are used.
+
+### Learning Objectives
+- Count words in the canonical text using normalization and a typed Map.
+- Explain the TypeScript-specific language or runtime behavior used in the lesson.
+- Predict the example's behavior and test a boundary or invalid case.
+
+### Concept Explanation
+Text analysis requires explicit normalization and tokenization rules. A Map stores each token and its frequency. The regular expression below splits on non-letter characters.
+
+### Worked Example
+```typescript
+const text = "A student studies programming. Programming develops problem-solving skills.";
+const words = text.toLowerCase().match(/[a-z]+/g) ?? [];
+const counts = new Map<string, number>();
+for (const word of words) counts.set(word, (counts.get(word) ?? 0) + 1);
+console.log(`Tokens: ${words.length}`);
+console.log(`Programming: ${counts.get("programming")}`);
+```
+
+### Expected Behavior or Output
+The sample produces 10 alphabetic tokens under this tokenization rule; programming appears twice.
+
+### Common Mistakes
+- Assuming punctuation and hyphens are words.
+- Using a plain object without considering inherited property names.
+- Failing to define how case and punctuation are normalized.
+
+### Activities
+1. Count all tokens in the canonical text.
+2. Report the frequency of programming.
+3. Compare token counts with a rule that treats problem-solving as one token.
+
+### Accessibility Practice
+State the tokenization rule before reporting counts. All prompts, errors, and status messages must have meaningful text equivalents; keyboard operation is required.
+
+### Skills Checklist
+- [ ] I can normalize text.
+- [ ] I can count tokens with a Map.
+- [ ] I can explain how tokenization affects results.
+
+---
+
+---
+
+## Lesson 9.5: Working with CSV data
+
+### Reading References
+- Python source counterpart: Unit 9 lesson 9.5 in the canonical Python curriculum.
+- TypeScript Handbook: https://www.typescriptlang.org/docs/handbook/intro.html
+- Node.js documentation where terminal, file, or runtime APIs are used.
+
+### Learning Objectives
+- Read the shared CSV columns using a standards-aware parser.
+- Explain the TypeScript-specific language or runtime behavior used in the lesson.
+- Predict the example's behavior and test a boundary or invalid case.
+
+### Concept Explanation
+CSV supports quoted fields, commas inside quotes, and escaped quotation marks. Use a maintained parser rather than splitting lines on commas. Parsed records still need validation.
+
+### Worked Example
+```typescript
+import { parse } from "csv-parse/sync";
+const csv = "student_id,first_name,last_name,score,active\n1,Avery,Stone,91,true\n2,Jordan,Lee,82,false";
+const records = parse(csv, { columns: true, skip_empty_lines: true }) as Array<Record<string, string>>;
+const average = records.reduce((sum, row) => sum + Number(row.score), 0) / records.length;
+console.log(`Records: ${records.length}`);
+console.log(`Average: ${average.toFixed(2)}`);
+```
+
+### Expected Behavior or Output
+The two sample records have scores 91 and 82; the average is 86.50.
+
+### Common Mistakes
+- Splitting CSV lines and fields manually.
+- Assuming every parsed field is already a number or boolean.
+- Ignoring malformed rows and missing columns.
+
+### Activities
+1. Parse the shared CSV columns.
+2. Calculate the score average for the sample records.
+3. Test a quoted name containing a comma.
+
+### Accessibility Practice
+Print record count and summary labels rather than a visual-only chart. All prompts, errors, and status messages must have meaningful text equivalents; keyboard operation is required.
+
+### Skills Checklist
+- [ ] I can parse CSV with a dedicated parser.
+- [ ] I can validate parsed field values.
+- [ ] I can calculate a summary from CSV records.
+
+---
+
+
+# Unit 10: Project-Based Learning — Text-Based Applications
+
+## Overview
+
+Design, build, and refine equivalent command-line projects. The TypeScript adaptation preserves the shared Python curriculum's learning objectives, datasets, expected results, and assessment criteria while teaching TypeScript's compile-time type system and JavaScript runtime behavior.
+
+---
+
+# Unit 10: Project-Based Learning — Text-Based Applications
+
+## Overview
+
+Design, build, and refine equivalent command-line projects. The TypeScript adaptation preserves the shared Python curriculum's learning objectives, datasets, expected results, and assessment criteria while teaching TypeScript's compile-time type system and JavaScript runtime behavior.
+
+## Lesson 10.1: Designing a text-based project
+
+### Reading References
+- Python source counterpart: Unit 10 lesson 10.1 in the canonical Python curriculum.
+- TypeScript Handbook: https://www.typescriptlang.org/docs/handbook/intro.html
+- Node.js documentation where terminal, file, or runtime APIs are used.
+
+### Learning Objectives
+- Plan requirements, data structures, commands, and acceptance tests before implementation.
+- Explain the TypeScript-specific language or runtime behavior used in the lesson.
+- Predict the example's behavior and test a boundary or invalid case.
+
+### Concept Explanation
+Top-down design decomposes a project into smaller responsibilities. For an accessible terminal project, define prompts, commands, textual feedback, invalid-input behavior, and a quit path before coding.
+
+### Worked Example
+```typescript
+const requirements = ["list rooms", "move by direction", "take item", "view inventory", "quit"];
+for (const requirement of requirements) console.log(`Requirement: ${requirement}`);
+```
+
+### Expected Behavior or Output
+Five requirements are printed in a stable order.
+
+### Common Mistakes
+- Starting implementation before writing acceptance criteria.
+- Designing a visual-only interaction for a text-based project.
+- Omitting error and quit behavior.
+
+### Activities
+1. Write the project requirements in plain language.
+2. Identify input, state, and output for each command.
+3. Write at least five acceptance tests before implementation.
+
+### Accessibility Practice
+Use a numbered text specification and test keyboard-only interaction. All prompts, errors, and status messages must have meaningful text equivalents; keyboard operation is required.
+
+### Skills Checklist
+- [ ] I can decompose a project.
+- [ ] I can define commands and data.
+- [ ] I can write acceptance tests before coding.
+
+---
+
+---
+
+## Lesson 10.2: Text adventure part 1: rooms and movement
+
+### Reading References
+- Python source counterpart: Unit 10 lesson 10.2 in the canonical Python curriculum.
+- TypeScript Handbook: https://www.typescriptlang.org/docs/handbook/intro.html
+- Node.js documentation where terminal, file, or runtime APIs are used.
+
+### Learning Objectives
+- Model the shared cave, tunnel, and clearing with typed exits and movement.
+- Explain the TypeScript-specific language or runtime behavior used in the lesson.
+- Predict the example's behavior and test a boundary or invalid case.
+
+### Concept Explanation
+A room has an identifier, description, and exits. A movement operation changes the current room only when the requested exit exists. A Record type can model a fixed set of room identifiers.
+
+### Worked Example
+```typescript
+type RoomId = "cave" | "tunnel" | "clearing";
+const exits: Record<RoomId, Partial<Record<string, RoomId>>> = {
+  cave: { north: "tunnel" },
+  tunnel: { south: "cave", east: "clearing" },
+  clearing: { west: "tunnel" }
+};
+function move(room: RoomId, direction: string): RoomId | null {
+  return exits[room][direction.toLowerCase()] ?? null;
+}
+console.log(move("cave", "north"));
+console.log(move("cave", "west"));
+```
+
+### Expected Behavior or Output
+Moving north from cave returns tunnel; moving west returns null.
+
+### Common Mistakes
+- Allowing movement through an exit that is not defined.
+- Changing the room before validating the direction.
+- Using arbitrary strings where a RoomId union is safer.
+
+### Activities
+1. Create all three rooms and exits.
+2. Move north from cave and east from tunnel.
+3. Attempt an invalid direction and report the result.
+
+### Accessibility Practice
+Announce current room and available exits as labeled text. All prompts, errors, and status messages must have meaningful text equivalents; keyboard operation is required.
+
+### Skills Checklist
+- [ ] I can model rooms and exits.
+- [ ] I can use a union type for room identifiers.
+- [ ] I can validate movement.
+
+---
+
+---
+
+## Lesson 10.3: Text adventure part 2: items, inventory, and puzzle
+
+### Reading References
+- Python source counterpart: Unit 10 lesson 10.3 in the canonical Python curriculum.
+- TypeScript Handbook: https://www.typescriptlang.org/docs/handbook/intro.html
+- Node.js documentation where terminal, file, or runtime APIs are used.
+
+### Learning Objectives
+- Implement item pickup and the shared magic-key puzzle.
+- Explain the TypeScript-specific language or runtime behavior used in the lesson.
+- Predict the example's behavior and test a boundary or invalid case.
+
+### Concept Explanation
+An item moves from one room to inventory as one state transition. The player can take the torch in the cave and the magic key in the clearing; the key unlocks the gate.
+
+### Worked Example
+```typescript
+const roomItems: Record<string, string[]> = { cave: ["torch"], tunnel: [], clearing: ["magic key"] };
+const inventory: string[] = [];
+function takeItem(room: string, item: string): boolean {
+  const items = roomItems[room] ?? [];
+  const index = items.findIndex(value => value.toLowerCase() === item.toLowerCase());
+  if (index < 0) return false;
+  inventory.push(items.splice(index, 1)[0]);
+  return true;
+}
+function unlockGate(items: readonly string[]): string {
+  return items.includes("magic key") ? "The gate opens." : "The gate is locked.";
+}
+console.log(takeItem("cave", "torch"));
+console.log(inventory.join(", "));
+console.log(unlockGate(["torch"]));
+console.log(unlockGate(["torch", "magic key"]));
+```
+
+### Expected Behavior or Output
+Output is true, torch, The gate is locked., and The gate opens.
+
+### Common Mistakes
+- Allowing the same item to be collected repeatedly.
+- Updating inventory without removing the room item.
+- Checking for the wrong key name or case.
+
+### Activities
+1. Take the torch from the cave.
+2. Take the magic key from the clearing.
+3. Test the gate with and without the key.
+
+### Accessibility Practice
+Confirm each pickup by item name and state whether the puzzle is locked or open. All prompts, errors, and status messages must have meaningful text equivalents; keyboard operation is required.
+
+### Skills Checklist
+- [ ] I can transfer an item into inventory.
+- [ ] I can prevent duplicate pickup.
+- [ ] I can implement the magic-key puzzle.
+
+---
+
+---
+
+## Lesson 10.4: Developing a command-line to-do tool
+
+### Reading References
+- Python source counterpart: Unit 10 lesson 10.4 in the canonical Python curriculum.
+- TypeScript Handbook: https://www.typescriptlang.org/docs/handbook/intro.html
+- Node.js documentation where terminal, file, or runtime APIs are used.
+
+### Learning Objectives
+- Implement add, view, complete, delete, and quit operations with typed tasks.
+- Explain the TypeScript-specific language or runtime behavior used in the lesson.
+- Predict the example's behavior and test a boundary or invalid case.
+
+### Concept Explanation
+A task has an id, title, description, done state, and creation timestamp. User-facing task numbers are one-based; array indexes are zero-based. Persist after every state-changing operation.
+
+### Worked Example
+```typescript
+interface Todo { id: number; title: string; description: string; done: boolean; created_at: string }
+const tasks: Todo[] = [];
+function addTask(title: string, description: string): Todo {
+  const task: Todo = { id: tasks.length + 1, title, description, done: false, created_at: new Date().toISOString() };
+  tasks.push(task);
+  return task;
+}
+console.log(addTask("Review arrays", "Practice typed collection methods").done);
+```
+
+### Expected Behavior or Output
+A new task is added with done false and an ISO timestamp.
+
+### Common Mistakes
+- Using an array index as a permanent identifier.
+- Failing to save after a state change.
+- Accepting a blank task title.
+
+### Activities
+1. Add a task and view it.
+2. Mark a task complete and delete another.
+3. Persist and reload the task array as JSON.
+
+### Accessibility Practice
+Use one task per output block with field labels and a clear confirmation. All prompts, errors, and status messages must have meaningful text equivalents; keyboard operation is required.
+
+### Skills Checklist
+- [ ] I can model a typed task.
+- [ ] I can implement task creation.
+- [ ] I can identify persistence points.
+
+---
+
+---
+
+## Lesson 10.5: Refinement and accessible text user experience
+
+### Reading References
+- Python source counterpart: Unit 10 lesson 10.5 in the canonical Python curriculum.
+- TypeScript Handbook: https://www.typescriptlang.org/docs/handbook/intro.html
+- Node.js documentation where terminal, file, or runtime APIs are used.
+
+### Learning Objectives
+- Improve validation, prompts, error messages, and recovery paths.
+- Explain the TypeScript-specific language or runtime behavior used in the lesson.
+- Predict the example's behavior and test a boundary or invalid case.
+
+### Concept Explanation
+A usable terminal interface has explicit prompts, predictable output, help text, and recoverable errors. A robust program validates untrusted values before changing state.
+
+### Worked Example
+```typescript
+function normalizeCommand(input: string): string {
+  return input.trim().toLowerCase();
+}
+function validateTitle(input: string): string | null {
+  const title = input.trim();
+  return title.length === 0 ? "Title cannot be blank." : null;
+}
+console.log(normalizeCommand("  VIEW "));
+console.log(validateTitle("   "));
+```
+
+### Expected Behavior or Output
+The output is view and Title cannot be blank.
+
+### Common Mistakes
+- Providing vague messages such as invalid input without a recovery hint.
+- Using color as the only status indicator.
+- Failing to test blank input, unknown commands, and empty collections.
+
+### Activities
+1. Add a help command.
+2. Test blank, malformed, and unknown commands.
+3. Review every message in sequential screen-reader output.
+
+### Accessibility Practice
+Provide text equivalents for every status and avoid cursor-position-dependent instructions. All prompts, errors, and status messages must have meaningful text equivalents; keyboard operation is required.
+
+### Skills Checklist
+- [ ] I can normalize command input.
+- [ ] I can validate required fields.
+- [ ] I can review a text interface for accessibility.
+
+---
+
+
+# Unit 11: Capstone — Accessible Personal Data Manager
+
+## Overview
+
+Integrate typed records, terminal interaction, persistence, CRUD, testing, and accessibility. The TypeScript adaptation preserves the shared Python curriculum's learning objectives, datasets, expected results, and assessment criteria while teaching TypeScript's compile-time type system and JavaScript runtime behavior.
+
+---
+
+# Unit 11: Capstone — Accessible Personal Data Manager
+
+## Overview
+
+Integrate typed records, terminal interaction, persistence, CRUD, testing, and accessibility. The TypeScript adaptation preserves the shared Python curriculum's learning objectives, datasets, expected results, and assessment criteria while teaching TypeScript's compile-time type system and JavaScript runtime behavior.
+
+## Lesson 11.1: Capstone interface and requirements
+
+### Reading References
+- Python source counterpart: Unit 11 lesson 11.1 in the canonical Python curriculum.
+- TypeScript Handbook: https://www.typescriptlang.org/docs/handbook/intro.html
+- Node.js documentation where terminal, file, or runtime APIs are used.
+
+### Learning Objectives
+- Plan an accessible terminal interface for the personal data manager.
+- Explain the TypeScript-specific language or runtime behavior used in the lesson.
+- Predict the example's behavior and test a boundary or invalid case.
+
+### Concept Explanation
+The Python source uses NiceGUI, but the TypeScript track uses a terminal interface to preserve the same user-facing requirements without requiring browser UI. Commands include list, add, search, update, delete, help, and quit.
+
+### Worked Example
+```typescript
+const commands = ["list", "add", "search", "update", "delete", "help", "quit"];
+console.log(commands.join(", "));
+```
+
+### Expected Behavior or Output
+The command list contains all seven required operations.
+
+### Common Mistakes
+- Copying a GUI-specific implementation when the language track requires an accessible alternative.
+- Omitting a help or quit command.
+- Designing commands without defining expected output.
+
+### Activities
+1. Choose a terminal command syntax.
+2. Write a help response for every command.
+3. Define keyboard-only acceptance tests.
+
+### Accessibility Practice
+Specify prompt order and output as linear text. Do not require mouse use. All prompts, errors, and status messages must have meaningful text equivalents; keyboard operation is required.
+
+### Skills Checklist
+- [ ] I can explain the language-specific interface adaptation.
+- [ ] I can define the required commands.
+- [ ] I can create accessibility acceptance tests.
+
+---
+
+---
+
+## Lesson 11.2: Capstone data model and JSON storage
+
+### Reading References
+- Python source counterpart: Unit 11 lesson 11.2 in the canonical Python curriculum.
+- TypeScript Handbook: https://www.typescriptlang.org/docs/handbook/intro.html
+- Node.js documentation where terminal, file, or runtime APIs are used.
+
+### Learning Objectives
+- Define the shared record schema and save/load records safely.
+- Explain the TypeScript-specific language or runtime behavior used in the lesson.
+- Predict the example's behavior and test a boundary or invalid case.
+
+### Concept Explanation
+Each record has id, title, description, category, created_at, and updated_at. TypeScript interfaces describe the expected shape, but JSON input must be validated at runtime.
+
+### Worked Example
+```typescript
+interface DataRecord { id: number; title: string; description: string; category: string; created_at: string; updated_at: string }
+const record: DataRecord = { id: 1, title: "Course notes", description: "Review arrays", category: "Study", created_at: "2026-11-01T10:00:00.000Z", updated_at: "2026-11-01T10:00:00.000Z" };
+const serialized = JSON.stringify([record], null, 2);
+console.log(serialized.includes("Course notes"));
+```
+
+### Expected Behavior or Output
+The check prints true and the JSON contains all six fields.
+
+### Common Mistakes
+- Using a type assertion instead of validating loaded JSON.
+- Reusing record identifiers.
+- Overwriting valid data after a parse failure without reporting it.
+
+### Activities
+1. Define the six-field interface.
+2. Serialize one record and inspect the JSON.
+3. Load and validate records before using them.
+
+### Accessibility Practice
+Read the schema field by field and keep timestamps in a consistent ISO format. All prompts, errors, and status messages must have meaningful text equivalents; keyboard operation is required.
+
+### Skills Checklist
+- [ ] I can define the capstone record interface.
+- [ ] I can serialize structured data.
+- [ ] I can explain runtime validation of stored JSON.
+
+---
+
+---
+
+## Lesson 11.3: Capstone list and display operations
+
+### Reading References
+- Python source counterpart: Unit 11 lesson 11.3 in the canonical Python curriculum.
+- TypeScript Handbook: https://www.typescriptlang.org/docs/handbook/intro.html
+- Node.js documentation where terminal, file, or runtime APIs are used.
+
+### Learning Objectives
+- Display records in a stable, labeled, sequential format.
+- Explain the TypeScript-specific language or runtime behavior used in the lesson.
+- Predict the example's behavior and test a boundary or invalid case.
+
+### Concept Explanation
+Listing is a read operation and should not mutate data. Stable identifiers are distinct from temporary one-based display positions.
+
+### Worked Example
+```typescript
+const records = [{ id: 7, title: "Course notes", category: "Study", done: false }];
+for (const [index, record] of records.entries()) {
+  console.log(`Item ${index + 1}`);
+  console.log(`ID: ${record.id}`);
+  console.log(`Title: ${record.title}`);
+  console.log(`Category: ${record.category}`);
+  console.log(`Done: ${record.done}`);
+}
+```
+
+### Expected Behavior or Output
+The record is displayed as Item 1 with ID 7 and its labeled fields.
+
+### Common Mistakes
+- Using the displayed list number as the permanent ID.
+- Omitting labels and making output ambiguous.
+- Failing to handle an empty collection.
+
+### Activities
+1. Display one record.
+2. Display multiple records.
+3. Display an empty list with a clear message.
+
+### Accessibility Practice
+Use stable labels and one field per line for sequential reading. All prompts, errors, and status messages must have meaningful text equivalents; keyboard operation is required.
+
+### Skills Checklist
+- [ ] I can display records with labels.
+- [ ] I can distinguish display position from record ID.
+- [ ] I can handle an empty collection.
+
+---
+
+---
+
+## Lesson 11.4: Capstone add, search, and update operations
+
+### Reading References
+- Python source counterpart: Unit 11 lesson 11.4 in the canonical Python curriculum.
+- TypeScript Handbook: https://www.typescriptlang.org/docs/handbook/intro.html
+- Node.js documentation where terminal, file, or runtime APIs are used.
+
+### Learning Objectives
+- Implement creation, case-insensitive search, and safe record updates.
+- Explain the TypeScript-specific language or runtime behavior used in the lesson.
+- Predict the example's behavior and test a boundary or invalid case.
+
+### Concept Explanation
+Create, search, and update are separate operations. Update only permitted fields and refresh updated_at. Search should not change stored records.
+
+### Worked Example
+```typescript
+interface Entry { id: number; title: string; description: string; updated_at: string }
+function search(entries: readonly Entry[], query: string): Entry[] {
+  const term = query.trim().toLowerCase();
+  return entries.filter(entry => `${entry.title} ${entry.description}`.toLowerCase().includes(term));
+}
+const entries: Entry[] = [{ id: 1, title: "Course notes", description: "Review arrays", updated_at: "2026-11-01T10:00:00.000Z" }];
+console.log(search(entries, "ARRAYS").length);
+```
+
+### Expected Behavior or Output
+The search returns one matching record.
+
+### Common Mistakes
+- Searching case-sensitively without documenting that choice.
+- Allowing edits to immutable identifiers.
+- Forgetting to refresh updated_at after an edit.
+
+### Activities
+1. Add a record with all required fields.
+2. Search by title and description.
+3. Update a title and verify the timestamp changes.
+
+### Accessibility Practice
+Confirm each successful action by record ID and field name. All prompts, errors, and status messages must have meaningful text equivalents; keyboard operation is required.
+
+### Skills Checklist
+- [ ] I can add a valid record.
+- [ ] I can search without mutating records.
+- [ ] I can update permitted fields and timestamps.
+
+---
+
+---
+
+## Lesson 11.5: Capstone delete, completion, and final verification
+
+### Reading References
+- Python source counterpart: Unit 11 lesson 11.5 in the canonical Python curriculum.
+- TypeScript Handbook: https://www.typescriptlang.org/docs/handbook/intro.html
+- Node.js documentation where terminal, file, or runtime APIs are used.
+
+### Learning Objectives
+- Implement delete and completion behavior and verify persistence and accessibility.
+- Explain the TypeScript-specific language or runtime behavior used in the lesson.
+- Predict the example's behavior and test a boundary or invalid case.
+
+### Concept Explanation
+Deletion removes a selected record by stable ID. Completion updates the record state. The capstone should have tests for CRUD behavior, JSON persistence, invalid input, and empty data.
+
+### Worked Example
+```typescript
+interface TaskRecord { id: number; title: string; done: boolean }
+function markDone(records: TaskRecord[], id: number): boolean {
+  const record = records.find(item => item.id === id);
+  if (!record) return false;
+  record.done = true;
+  return true;
+}
+const records: TaskRecord[] = [{ id: 4, title: "Test persistence", done: false }];
+console.log(markDone(records, 4));
+console.log(records[0].done);
+```
+
+### Expected Behavior or Output
+The function returns true and the record's done field becomes true.
+
+### Common Mistakes
+- Deleting by a stale array index.
+- Failing to save after a mutation.
+- Testing only the successful path.
+
+### Activities
+1. Delete a record by ID and verify it remains absent after reload.
+2. Mark a record complete and test missing IDs.
+3. Run at least five tests covering CRUD, persistence, and validation.
+
+### Accessibility Practice
+Verify keyboard-only use, help text, confirmations, errors, and sequential output with the intended access technology. All prompts, errors, and status messages must have meaningful text equivalents; keyboard operation is required.
+
+### Skills Checklist
+- [ ] I can delete by stable identifier.
+- [ ] I can update completion state.
+- [ ] I can plan end-to-end and accessibility tests.
+
+---
+
+
+# Unit 1: Foundations of Computing
+
+## Overview
+
+Introduce computer science, first programs, variables, and primitive types. The TypeScript adaptation preserves the shared Python curriculum's learning objectives, datasets, expected results, and assessment criteria while teaching TypeScript's compile-time type system and JavaScript runtime behavior.
+
+---
+

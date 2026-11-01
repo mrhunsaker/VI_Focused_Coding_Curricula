@@ -8,6 +8,10 @@ Java makes types and program structure explicit. Its compilation process and cla
 
 **Recommended sequence:** work through Units 0–11 in order. The Markdown files group related units; use the headings and lesson numbers inside each document.
 
+## Complete lesson sequence
+
+The complete standardized course, including four setup lessons and 53 numbered lessons, is available in [lessons.md](lessons.md). The original grouped unit documents remain supplementary reference material. See [validation status](VALIDATION.md) for example-check coverage and remaining verification.
+
 ## Course outcomes
 
 By the end of the curriculum, learners should be able to:
@@ -58,7 +62,7 @@ The primary audience includes students using NVDA, JAWS, VoiceOver, Narrator, br
 - [Units 9–11: Collections, Testing, and Projects](unit09-11-collections-projects.md)
 - [Teacher's guide: instructor planning, accessible instruction, assessment, and AI guidance](teachers-guide.md)
 
-Return to the [curriculum overview](../OVERALL_README.md) to compare Python, JavaScript, and Java.
+Return to the [curriculum overview](../OVERALL_README.md) to compare the independent language pathways. Kotlin is now taught in its own standalone curriculum.
 
 ## Recommended environment
 
@@ -124,10 +128,6 @@ AI assistants may explain compiler messages, suggest test cases, compare method 
 
 Follow the instructor's policy. Students must disclose AI assistance where required and explain, test, and modify every submitted line. Do not share student records, credentials, private source code, or confidential data with public AI services. AI must not replace independent work in assessments intended to measure individual skills. The [teacher's guide](teachers-guide.md) contains a fuller protocol.
 
-## Optional post-capstone extension: Kotlin
-
-After completing the Java capstone, learners who want to explore a modern JVM language can continue with the [Kotlin for Java Programmers supplement](kotlin.md). It introduces Kotlin syntax, null safety, concise data classes, collections, Java interoperability, and a practical migration path. This is supplementary material, not a required Java unit.
-
 ## Further learning
 
 Use the official [Java documentation](https://docs.oracle.com/en/java/) and [Java Language Specification](https://docs.oracle.com/javase/specs/) as authoritative references. David J. Eck's *Introduction to Programming Using Java* is an additional introductory text at [math.hws.edu/javanotes](https://math.hws.edu/javanotes/).
@@ -135,3 +135,7 @@ Use the official [Java documentation](https://docs.oracle.com/en/java/) and [Jav
 ---
 
 Java's explicit types and program structure offer a useful way to deepen understanding of how software is organized. The objective is to build independent problem-solving habits that transfer to other languages and platforms.
+
+## GUI, visualization, and workbench accessibility
+
+See the shared [GUI, visualization, and workbench accessibility reference](../DEVELOPMENT/GUI_VISUALIZATION_ACCESSIBILITY.md) for screen-reader support by toolkit, platform-specific activation settings, recommended alternatives, and interfaces that must not be required without an equivalent accessible route.

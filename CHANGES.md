@@ -182,3 +182,156 @@ All implementation changes are recorded here. Each numbered step is committed se
 - Static validation passed: all four setup documents have balanced Markdown fences; all 20 Bash-family blocks are immediately paired with Windows PowerShell blocks; each setup contains VS Code, Theia, and JetBrains advanced-option guidance; `convert_to_mdbook.json` parses successfully. mdBook build/CI verification is pending.
 - Implementation commits: `19a091e7b15683e4446307c9d8ecf72e85b8cb79`, `3018ffc98ec455de06ab106cd00b303c225a1930`, `249ec412cf2e20a2ec96b2adb3916a4e4ca92808`, `c8b35f54fbc7b38d364eef40fe15bf379aa7d9b5`.
 - Pre-checkpoint HEAD: `c8b35f54fbc7b38d364eef40fe15bf379aa7d9b5`.
+
+
+## 2026-11-01 — Standalone language pathways and terminal prerequisite
+
+- Promoted Kotlin from an optional Java supplement to a standalone beginner curriculum with a dedicated landing page, ten guided lessons, and topic index. The former Java supplement path now points learners to the standalone course.
+- Added independent introductory curricula for C, C++, C#, Julia, Swift, and Rust. Each includes a language-specific overview, primary application areas, typical data/workload fit, lesson sequence, first-program syntax, accessibility guidance, and guided lessons.
+- Added a shared preliminary terminal course with separate Bash and PowerShell lessons. It teaches command syntax, working directories, absolute and relative paths, listing, creating, reading, copying, moving, renaming, deleting safely, help, and running programs.
+- Updated mdBook navigation, the root README, and the curriculum overview to identify all eleven independent language tracks and the shared terminal prerequisite.
+- Preserved existing Python, JavaScript, TypeScript, and Java lesson content. The reference-only cs_curriculum_final/ directory remains untouched.
+- Validation: source files and relative navigation prepared; mdBook build and full link validation remain to be run before merge.
+
+
+## 2026-11-01 — Standalone IDE setup and lesson-structure audit
+
+- Added `DEVELOPMENT/IDE_SETUP.md`, a standalone, screen-reader-aware lesson with step-by-step installation instructions for Visual Studio Code, VSCodium, and Eclipse Theia on Windows, macOS, and Linux.
+- Interpreted the request's “Vicodin” as **VSCodium**, the VS Code-derived community distribution, and documented the differences in extension registries and compatibility.
+- Compared IDEs with Notepad++, BBEdit, Sublime Text, and lightweight Linux editors; documented advantages, disadvantages, accessibility considerations, and the course's AI-use restrictions.
+- Added `DEVELOPMENT/LESSON_STRUCTURE_AUDIT.md` with a heading-level audit of the Python, JavaScript, TypeScript, Java, Kotlin, C, C++, C#, Julia, Swift, Rust, Bash, and PowerShell lesson files. The audit explicitly records that the current repository is not yet fully standardized and defines a common instructional structure for a future normalization pass.
+- Added links to the standalone IDE lesson and audit in mdBook navigation, the root README, the curriculum overview, and the Python landing page.
+- Validation: checked the new lesson and audit against the repository's existing navigation and lesson organization. A complete mdBook build and rendered accessibility test have not been run in this update.
+
+
+## 2026-11-01 — Expanded language tracks, specialist modules, and Python alignment
+
+- Expanded C, C++, C#, Julia, Swift, and Rust into Unit 0–11 lesson manuscripts, with repeated familiar problem contexts, worked examples, common mistakes, activities, accessibility practice, and skills checklists.
+- Added complete Go and Lua Unit 0–11 courses, including toolchain setup, language foundations, data structures, functions, object-oriented or data-modeling concepts, files, testing, projects, and capstones.
+- Added specialist introductory modules for HTML/CSS, R, and SQL. Their distinct purposes are preserved rather than forcing them into the Python course sequence.
+- Added root-level `lesson_standardization.json`: an explicit Python unit-by-unit map, shared datasets and problem contexts, equivalence rules, course quality gates, and a reusable generation/refinement prompt.
+- Updated mdBook navigation and the curriculum overview.
+- Validation performed: confirmed the new and expanded lesson files were committed, checked their unit/lesson headings during generation, and added navigation entries. A full mdBook build, compilation/execution of every example, external-link crawl, and screen-reader test have not been run. Some generated examples are instructional starting points and require per-language review before publication.
+
+## 2026-11-01 — C curriculum alignment pass
+
+- Refined `C/lessons.md` against `lesson_standardization.json` and the canonical Python units 0–11.
+- Added lesson-specific worked examples and expected behavior across C Units 1–11; aligned the canonical student profile, calculator, grade thresholds, score array, inventory, coordinates, text sample, CSV schema, to-do task fields, and capstone record fields.
+- Reworked the C toolchain/setup material to distinguish compiler, source, executable, editor tooling, project dependencies, and terminal execution.
+- Documented C-specific adaptations: fixed and dynamic arrays, structs in place of Python records/maps, explicit parsing and error returns instead of exceptions, manual resource cleanup, third-party JSON support, CSV parser limitations, and an accessible terminal-first capstone in place of Python-only NiceGUI.
+- Added the missing C equivalent for Python Lesson 2.5 (math library).
+- Updated `C/c_README.md` and recorded refinement status and outstanding verification in `lesson_standardization.json`.
+- Validation: 52 lesson sections in C Units 1–11, four Unit 0 setup lessons, 52 worked-example sections, no generic repeated boilerplate/placeholders, and balanced fenced-code markers.
+- Not yet verified: GCC/Clang compilation and execution of every example, complete link crawl, post-change mdBook build, and hands-on screen-reader/braille testing. No such verification is claimed.
+
+
+## 2026-11-01 — C lesson-level quality pass
+
+- Replaced repeated generic common-mistake lists in all 53 numbered C lessons with C-specific pitfalls tied to each lesson's concepts.
+- Replaced generic activities with four lesson-specific tasks per lesson, using shared course datasets and expected behavior.
+- Reworked all 53 skills checklists into lesson-specific mastery statements and observable tests.
+- Expanded all four C Unit 0 lessons into a complete instructional structure, covering compiler installation, workspace and working directory, editor/accessibility workflow, dependencies, include paths, and linker flags.
+- Updated `lesson_standardization.json` + " and `DEVELOPMENT/LESSON_STRUCTURE_AUDIT.md` + " with progress and verification boundaries.
+- Structural validation is recorded; no claim is made that all C examples have been compiled or executed. A local repository clone could not be completed because github.com DNS resolution failed in the available execution environment. GCC/Clang execution, a fresh mdBook build, complete link crawling, and hands-on screen-reader/braille testing remain outstanding.
+
+
+## 2026-11-01 — C17 compiler and linker verification
+
+- Added `scripts/check_c_examples.py`, which extracts all fenced C examples, compiles and links complete programs, and syntax-checks declaration/function fragments.
+- Added `.github/workflows/c-examples.yml` with GCC and Clang matrix jobs for C17.
+- GitHub Actions run [41316160464](https://github.com/mrhunsaker/VI_Focused_Coding_Curricula/actions/runs/41316160464) passed.
+- GCC 13.3.0 and Clang 18.1.3 each passed all 49 fenced C examples with `-Wall -Wextra -Wpedantic -Werror`: 46 complete programs linked successfully; 3 fragments passed syntax-only checks.
+- Updated the C course README, lesson overview, standardization JSON, and audit to record the verification scope accurately.
+- Remaining: runtime execution with representative input and file fixtures, fresh mdBook build, complete Markdown link crawl, and hands-on screen-reader/braille testing.
+
+
+## 2026-11-01 — C++ lesson-quality and compiler verification
+
+- Expanded all four C++ Unit 0 setup lessons into complete compiler, workspace, editor/accessibility, dependency, and build workflows.
+- Added the missing Python Unit 2.5 equivalent covering C++ `<cmath>`, circle area/circumference, and distance from the origin.
+- Replaced repeated C++ worked examples with distinct lesson-specific examples across 53 numbered lessons in Units 1–11, using canonical shared datasets and project contexts.
+- Rewrote all 53 numbered lessons with three C++-specific common mistakes, four targeted activities, and five measurable skills checklist criteria each.
+- Added `scripts/check_cpp_examples.py` and a GCC/Clang C++20 GitHub Actions matrix at `.github/workflows/cpp-examples.yml`.
+- GitHub Actions run [41318426947](https://github.com/mrhunsaker/VI_Focused_Coding_Curricula/actions/runs/41318426947) passed. GCC 13.3.0 and Clang 18.1.3 compiled and linked all 54 fenced C++ examples using `-Wall -Wextra -Wpedantic -Werror`.
+- Remaining: runtime execution with representative input and file fixtures, a fresh mdBook build, complete local-link crawl, and hands-on screen-reader/braille testing.
+
+
+## 2026-11-01 — C# lesson-quality and compiler workflow
+
+- Expanded all four C# Unit 0 setup lessons into complete .NET SDK, workspace, editor/accessibility, dependency, restore, build, test, and run workflows.
+- Added the missing C# Unit 2 Lesson 2.5 covering `System.Math`, circle area/circumference, and distance from the origin.
+- Replaced repeated C# worked examples with 53 distinct examples aligned to canonical shared datasets and project contexts.
+- Rewrote all 53 numbered lessons with three C#-specific common mistakes, four practice activities, and five measurable skills checklist criteria each.
+- Standardized the examples on .NET 10 / C# 14 and added `scripts/check_csharp_examples.py` plus `.github/workflows/csharp-examples.yml`.
+- Structural validation confirms four fully structured setup lessons, 53 numbered lessons, 53 unique code examples, and the required lesson scaffolding.
+- GitHub Actions run [41320247156](https://github.com/mrhunsaker/VI_Focused_Coding_Curricula/actions/runs/41320247156) passed with .NET SDK 10.0.403; all 53 C# examples compiled, linked, and exited successfully under .NET 10 / C# 14 with nullable analysis and warnings-as-errors. This is a smoke-execution check, not full expected-output or capstone testing. mdBook/link and hands-on accessibility validation status is recorded in `lesson_standardization.json`.
+
+
+## 2026-11-01 — Julia lesson-quality and runtime-validation workflow
+
+- Expanded all four Julia Unit 0 setup lessons with installation, REPL/script execution, workspace, editor accessibility, project environments, and package-management guidance.
+- Added the missing Python Unit 2 Lesson 2.5 counterpart covering Julia's mathematical facilities, circle area/circumference, and distance from the origin.
+- Replaced repeated Julia examples with 53 distinct lesson examples aligned to the shared canonical data and problem contexts.
+- Reworked all 53 numbered lessons with Julia-specific explanations, three common mistakes, four targeted activities, accessibility practice, and five measurable skills criteria.
+- Documented Julia-specific array indexing, multiple dispatch, composite types, TOML/JSON package boundaries, and robust CSV parsing guidance.
+- Added `scripts/check_julia_examples.py` and `.github/workflows/julia-examples.yml` to execute the fenced examples under Julia 1.12. CI result is pending and will be recorded separately.
+- Remaining: runtime result confirmation, expected-output and end-to-end tests, mdBook/link validation, and hands-on screen-reader/braille testing.
+
+- GitHub Actions run [41322088371](https://github.com/mrhunsaker/VI_Focused_Coding_Curricula/actions/runs/41322088371) passed on Julia 1.12.7: all 57 fenced Julia examples executed successfully. One soft-scope issue found by the initial run was corrected before the successful run. This smoke check does not assert expected output or replace end-to-end application tests.
+
+- A final setup pass standardized all four Unit 0 Julia lessons with the full nine-section instructional sequence, including expected behavior and lesson-specific mistakes, activities, accessibility practice, and skills criteria.
+
+
+## 2026-11-01 — Swift lesson-quality and runtime-validation workflow
+
+- Expanded all four Swift Unit 0 setup lessons with installation, compiler/interpreter verification, workspace and path behavior, accessible editor setup, and Swift Package Manager guidance.
+- Added the missing Python Unit 2 Lesson 2.5 counterpart covering Foundation math, circle calculations, and distance from the origin.
+- Replaced repeated Swift examples with 53 distinct lesson-specific examples aligned to shared canonical data and problem contexts.
+- Reworked all 53 numbered lessons with Swift-specific explanations, three common mistakes, four targeted activities, accessibility practice, and five measurable skills criteria.
+- Documented value semantics, optionals, protocols, argument labels, throwing file operations, Codable, and robust CSV parsing boundaries.
+- Added `scripts/check_swift_examples.py` and `.github/workflows/swift-examples.yml` to execute all fenced examples under Swift 6. CI result is pending.
+- Remaining: runtime result confirmation, expected-output and end-to-end tests, mdBook/link validation, and hands-on screen-reader/braille testing.
+
+- GitHub Actions run [41324186133](https://github.com/mrhunsaker/VI_Focused_Coding_Curricula/actions/runs/41324186133) passed on Swift 6.0: all 57 fenced examples executed successfully. The first run caught six missing-import/argument-label issues, which were corrected before the passing run. This smoke check does not assert exact output or replace end-to-end tests.
+
+- A second run with the finalized checker, [41324246202](https://github.com/mrhunsaker/VI_Focused_Coding_Curricula/actions/runs/41324246202), also passed on Swift 6.0.3 with all 57 examples successful.
+
+
+## 2026-11-01 — Rust lesson-quality refinement
+
+- Expanded all four Unit 0 lessons with rustup/toolchain setup, Cargo workspace and dependency management, rust-analyzer, and accessible keyboard/screen-reader workflows.
+- Added the missing Unit 2 Lesson 2.5 counterpart for math functions, circle area/circumference, and distance from the origin.
+- Replaced repeated generic examples with 53 distinct lesson-specific Rust examples using the canonical student, calculator, grades, scores, inventory, coordinates, text, CSV, to-do, and capstone contexts.
+- Rewrote all 53 lessons with Rust-specific explanations, three relevant mistakes, four targeted activities, accessibility practice, and five observable checklist criteria.
+- Standardized on stable Rust / Rust 2024 edition. Added scripts/check_rust_examples.py, .github/workflows/rust-examples.yml, and RUST/VALIDATION.md.
+- GitHub Actions run [41324948920](https://github.com/mrhunsaker/VI_Focused_Coding_Curricula/actions/runs/41324948920) passed on Rust 1.99.1; all 53 examples compiled with warnings denied and smoke-executed successfully. Full output assertions, application-level persistence tests, mdBook/link checks, and hands-on screen-reader/braille tests remain outstanding.
+
+
+## 2026-11-01 — Go lesson-quality refinement
+
+- Expanded Unit 0 into four complete setup lessons with installation, modules, editor/accessibility, dependencies, and terminal workflows.
+- Added the missing Unit 2 Lesson 2.5 mathematics lesson to match the Python curriculum sequence.
+- Replaced generic/repeated examples with 53 distinct standalone Go examples using shared course datasets.
+- Rewrote all 53 numbered lessons with Go-specific explanations, three common mistakes, four activities, accessibility practice, and five measurable checklist criteria.
+- Added scripts/check_go_examples.py, .github/workflows/go-examples.yml, and GO/VALIDATION.md. GitHub Actions run [41326670760](https://github.com/mrhunsaker/VI_Focused_Coding_Curricula/actions/runs/41326670760) passed on Go 1.27.3; all 53 fenced examples were formatted with gofmt, built independently, and smoke-executed successfully.
+- Full output assertions, application-level tests, mdBook/link checks, and hands-on screen-reader/braille testing remain outstanding.
+
+
+## 2026-11-01 — Lua lesson alignment and example validation
+
+- Added Lua Unit 2 Lesson 2.5 for math-library operations, circle area/circumference, and distance from the origin.
+- Replaced repeated worked-example code with 53 distinct standalone Lua snippets aligned to the 53 numbered lessons.
+- Added `scripts/check_lua_examples.py`, a Lua 5.4 GitHub Actions workflow, `LUA/README.md`, and `LUA/VALIDATION.md`.
+- Structural verification confirms 53 numbered lessons, 53 distinct fenced Lua examples, and balanced Markdown fences. CI has been triggered; runtime success is not claimed until the workflow completes.
+- Editorial refinement of repeated lesson explanations, common mistakes, and activities remains outstanding, along with expected-output and invalid-input testing, capstone persistence, mdBook/link checks, and hands-on screen-reader/braille testing.
+
+- Follow-up editorial pass refined all 53 Lua lesson concept explanations, common mistakes, and activities against their lesson topics while retaining accessibility practice and five-item skills checklists. The final workflow run [41336626558](https://github.com/mrhunsaker/VI_Focused_Coding_Curricula/actions/runs/41336626558) passed on Lua 5.4.6; all 53 examples parsed and smoke-executed.
+
+
+## 2026-11-01 — Java complete lesson sequence and validation
+
+- Added `JAVA/lessons.md` with four Unit 0 setup lessons and 53 numbered Java lessons across Units 1–11, aligned to the shared Python curriculum contexts and JDK 25.
+- Standardized all 57 lessons with references, objectives, concept explanations, complete examples, expected behavior, three Java-specific mistakes, four topic-aligned activities, accessibility practice, and five-item skills checklists.
+- Added `scripts/check_java_examples.py` and `.github/workflows/java-examples.yml`; added `JAVA/VALIDATION.md` and linked the consolidated course from the Java README, index, and mdBook navigation.
+- Workflow run [41337711452](https://github.com/mrhunsaker/VI_Focused_Coding_Curricula/actions/runs/41337711452) passed on Temurin JDK 25.0.5, compiling and smoke-executing all 57 examples independently. Final prose-refinement CI rerun is in progress.
+- Remaining verification: exact expected-output assertions, invalid-input/file fixtures, capstone persistence/JUnit integration, fresh mdBook/link crawl, and hands-on screen-reader/braille testing.
