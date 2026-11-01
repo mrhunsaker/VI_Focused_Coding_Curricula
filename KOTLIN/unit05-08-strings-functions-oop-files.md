@@ -972,7 +972,7 @@ Kotlin is statically typed. The compiler may infer a declaration's type, but the
 #### Worked Example
 
 ```kotlin
-fun main(){ data class Task(val id:Int,val title:String,val done:Boolean); val task=Task(1,"Study Kotlin",false); val json="{\\"id\\":" + task.id + ",\\"title\\":\\"" + task.title + "\\",\\"done\\":" + task.done + "}"; println(json) }
+fun main(){ data class Task(val id:Int,val title:String,val done:Boolean); val task=Task(1,"Study Kotlin",false); val json="{\"id\":" + task.id + ",\"title\":\"" + task.title + "\",\"done\":" + task.done + "}"; println(json) }
 ```
 
 #### Expected Behavior or Output
