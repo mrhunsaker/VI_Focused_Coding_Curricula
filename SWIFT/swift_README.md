@@ -26,7 +26,7 @@ Swift suits strongly typed application models, user settings, structured records
 ~~~swift
 let name = "Avery"
 let count = 3
-print("\\(name): \\(count)")
+print("\(name): \(count)")
 ~~~
 
 Toolchain: Swift compiler and Swift Package Manager. Swift can be used on Apple platforms and on supported Linux environments; platform frameworks are not interchangeable. See [Swift lessons](lessons.md).
