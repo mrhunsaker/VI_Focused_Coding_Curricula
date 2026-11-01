@@ -155,3 +155,5 @@ This is compiler and linker verification. The examples have not all been execute
 - Outstanding: expected-output and broader behavior tests, mdBook build and local-link crawl, and hands-on screen-reader/braille testing.
 
 - GitHub Actions run [41322088371](https://github.com/mrhunsaker/VI_Focused_Coding_Curricula/actions/runs/41322088371) passed with Julia 1.12.7; all 57 fenced Julia examples executed successfully in isolated temporary directories. This is a smoke-execution check, not expected-output assertion or full application testing.
+
+- A final setup pass brought each of the four Unit 0 Julia lessons to the complete nine-section structure: references, objectives, concept explanation, worked example, expected behavior, mistakes, activities, accessibility practice, and checklist.
