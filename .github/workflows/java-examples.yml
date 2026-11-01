@@ -1,0 +1,31 @@
+name: Java 25 curriculum examples
+
+on:
+  push:
+    paths:
+      - "JAVA/**"
+      - "scripts/check_java_examples.py"
+      - ".github/workflows/java-examples.yml"
+  pull_request:
+    paths:
+      - "JAVA/**"
+      - "scripts/check_java_examples.py"
+      - ".github/workflows/java-examples.yml"
+  workflow_dispatch:
+
+jobs:
+  java-25:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Set up JDK 25
+        uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: "25"
+      - name: Verify JDK
+        run: |
+          java --version
+          javac --version
+      - name: Compile and smoke-run all lesson examples
+        run: python3 scripts/check_java_examples.py
