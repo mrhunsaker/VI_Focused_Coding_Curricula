@@ -833,6 +833,7 @@ Swift uses `Bool` conditions, `if`/`else if`/`else`, `switch`, zero-based arrays
 
 ### Worked Example
 ```swift
+import Foundation
 let rawText = "  Avery studies Swift Programming.  "
 let cleaned = rawText.trimmingCharacters(in: .whitespacesAndNewlines)
 print(cleaned.lowercased())
@@ -1463,6 +1464,7 @@ Functions declare parameter types, return types, and external argument labels. S
 
 ### Worked Example
 ```swift
+import Foundation
 func invoiceTotal(subtotal: Double, tipRate: Double = 0.15) -> Double {
     return subtotal + subtotal * tipRate
 }
@@ -1627,7 +1629,7 @@ let triple = makeMultiplier(by: 3)
 func report(_ title: String, scores: Int...) {
     print("\(title): \(scores.map(String.init).joined(separator: ", "))")
 }
-report("Tripled score", triple(82), triple(91))
+report("Tripled score", scores: triple(82), triple(91))
 ```
 
 ### Expected Behavior or Output
@@ -2717,6 +2719,7 @@ Projects begin with requirements and acceptance criteria. Implement a text-based
 ### Worked Example
 ```swift
 enum TitleError: Error { case blank }
+import Foundation
 func cleanTitle(_ raw: String) -> Result<String, TitleError> {
     let title = raw.trimmingCharacters(in: .whitespacesAndNewlines)
     return title.isEmpty ? .failure(.blank) : .success(title)
@@ -2832,6 +2835,7 @@ The capstone is a personal-record manager with stable identifiers, validated cre
 
 ### Worked Example
 ```swift
+import Foundation
 struct PersonalRecord: Codable, Identifiable {
     let id: UUID
     var title: String
@@ -2948,6 +2952,7 @@ The capstone is a personal-record manager with stable identifiers, validated cre
 
 ### Worked Example
 ```swift
+import Foundation
 func validateTitle(_ value: String) -> Bool {
     !value.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty
 }
