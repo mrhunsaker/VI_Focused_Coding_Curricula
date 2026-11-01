@@ -1,33 +1,16 @@
-# Introduction to Julia
+# Julia Curriculum
 
-## Standalone beginner curriculum
+Julia targets numerical and scientific computing, simulation, optimization, statistics, and data-intensive research.
 
-Julia is a high-level, dynamic language with multiple dispatch and just-in-time compilation. It is designed for scientific computing, numerical analysis, optimization, simulation, statistics, machine learning, and research code.
+## Course structure
 
-## What information is a good fit?
+A complete introductory sequence aligned to Python Units 0–11: setup; foundations; numeric computation; control flow; data structures; input and iteration; functions; object-oriented design; files and exceptions; testing and data analysis; projects; and capstone. The same core problem contexts recur across languages so students focus on syntax, types, runtime behavior, libraries, and idioms.
 
-Julia is especially useful for vectors, matrices, tensors, measurements, simulation outputs, statistical samples, and scientific datasets. Its array and numerical abstractions make mathematical transformations direct. Record units, missing-value conventions, precision, and reproducibility requirements explicitly.
+## Environment
 
-## Lessons
+Install Julia; verify julia --version; run julia main.jl.
 
-1. Julia REPL, scripts, and package environments.
-2. Bindings, types, and numeric expressions.
-3. Functions and multiple dispatch.
-4. Arrays, ranges, and broadcasting.
-5. Control flow and comprehensions.
-6. Tuples, named tuples, dictionaries, and structs.
-7. Modules, packages, and data input.
-8. Performance, allocation, and type stability.
-9. Testing and reproducibility.
-10. Scientific-computing capstone.
+Complete the shared [IDE setup lesson](../DEVELOPMENT/IDE_SETUP.md) and [terminal prerequisite](../TERMINAL/TERMINAL_README.md). The course supports keyboard-first work with screen readers, braille displays, magnification, or other access technology.
 
-## First program
-
-~~~julia
-name = "Avery"
-values = [1.0, 2.5, 4.0]
-println("Hello, $name")
-println(sum(values) / length(values))
-~~~
-
-Toolchain: Julia runtime and package manager. Use project environments to make dependencies reproducible. See [Julia lessons](lessons.md).
+- [Complete lessons](lessons.md)
+- [Topic index](INDEX.md)
