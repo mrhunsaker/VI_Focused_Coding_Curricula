@@ -265,3 +265,14 @@ All implementation changes are recorded here. Each numbered step is committed se
 - Standardized the examples on .NET 10 / C# 14 and added `scripts/check_csharp_examples.py` plus `.github/workflows/csharp-examples.yml`.
 - Structural validation confirms four fully structured setup lessons, 53 numbered lessons, 53 unique code examples, and the required lesson scaffolding.
 - GitHub Actions run [41320247156](https://github.com/mrhunsaker/VI_Focused_Coding_Curricula/actions/runs/41320247156) passed with .NET SDK 10.0.403; all 53 C# examples compiled, linked, and exited successfully under .NET 10 / C# 14 with nullable analysis and warnings-as-errors. This is a smoke-execution check, not full expected-output or capstone testing. mdBook/link and hands-on accessibility validation status is recorded in `lesson_standardization.json`.
+
+
+## 2026-11-01 — Julia lesson-quality and runtime-validation workflow
+
+- Expanded all four Julia Unit 0 setup lessons with installation, REPL/script execution, workspace, editor accessibility, project environments, and package-management guidance.
+- Added the missing Python Unit 2 Lesson 2.5 counterpart covering Julia's mathematical facilities, circle area/circumference, and distance from the origin.
+- Replaced repeated Julia examples with 53 distinct lesson examples aligned to the shared canonical data and problem contexts.
+- Reworked all 53 numbered lessons with Julia-specific explanations, three common mistakes, four targeted activities, accessibility practice, and five measurable skills criteria.
+- Documented Julia-specific array indexing, multiple dispatch, composite types, TOML/JSON package boundaries, and robust CSV parsing guidance.
+- Added `scripts/check_julia_examples.py` and `.github/workflows/julia-examples.yml` to execute the fenced examples under Julia 1.12. CI result is pending and will be recorded separately.
+- Remaining: runtime result confirmation, expected-output and end-to-end tests, mdBook/link validation, and hands-on screen-reader/braille testing.
