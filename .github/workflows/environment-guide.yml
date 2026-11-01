@@ -49,6 +49,11 @@ jobs:
               if any(part in {".git", "book"} for part in source.parts):
                   continue
               text = source.read_text(encoding="utf-8")
+              # Ignore fenced code blocks and inline code spans before
+              # scanning for links: code examples are not Markdown links.
+              text = re.sub(r"```.*?```", "", text, flags=re.DOTALL)
+              text = re.sub(r"~~~.*?~~~", "", text, flags=re.DOTALL)
+              text = re.sub(r"`[^`\n]*`", "", text)
               for raw in pattern.findall(text):
                   target = raw.strip().split()[0].strip("<>")
                   if not target or target.startswith(("http://", "https://", "mailto:", "#", "data:")):
