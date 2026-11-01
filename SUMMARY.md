@@ -130,7 +130,6 @@
   - [JavaScript Index](JAVASCRIPT/INDEX.md)
   - [TypeScript Index](TYPESCRIPT/INDEX.md)
   - [Java Index](JAVA/INDEX.md)
-  - [Kotlin Index](KOTLIN/INDEX.md)
 - [About The Author](backmatter/Contributors.md)
   - [Java — complete standardized lesson sequence](JAVA/lessons.md)
   - [Java validation record](JAVA/VALIDATION.md)
