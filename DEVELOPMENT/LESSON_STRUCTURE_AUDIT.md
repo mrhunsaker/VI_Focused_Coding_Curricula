@@ -143,3 +143,13 @@ This is compiler and linker verification. The examples have not all been execute
 - Standardized the examples on .NET 10 / C# 14 and added `scripts/check_csharp_examples.py` plus `.github/workflows/csharp-examples.yml`.
 - Structural validation confirms four fully structured setup lessons, 53 numbered lessons, 53 distinct C# examples, and the required three/four/five mistake/activity/checklist counts.
 - GitHub Actions run [41320247156](https://github.com/mrhunsaker/VI_Focused_Coding_Curricula/actions/runs/41320247156) passed with .NET SDK 10.0.403; all 53 C# examples compiled, linked, and exited successfully as independent .NET 10 / C# 14 console programs with nullable analysis and warnings-as-errors. This is a smoke-execution check rather than full expected-output or application testing. A fresh mdBook build/link crawl and hands-on screen-reader/braille testing remain outstanding.
+
+
+## 2026-11-01 — Julia lesson-quality pass
+
+- Expanded all four Julia Unit 0 lessons with toolchain installation, REPL and script execution, workspace and working-directory semantics, editor/accessibility workflow, and project-local package management.
+- Added the missing Python Unit 2 Lesson 2.5 counterpart for Julia's mathematical library, including circle calculations and distance from the origin.
+- Replaced repeated within-unit worked examples with 53 distinct Julia lesson examples aligned to canonical shared datasets and project contexts.
+- Rewrote all 53 numbered lessons with Julia-specific concept explanations, three common mistakes, four targeted activities, accessibility practice, and five observable checklist criteria.
+- Added a Julia 1.12 example runner and GitHub Actions workflow. CI execution is pending; no compiler/runtime success is claimed until the workflow completes.
+- Outstanding: expected-output and broader behavior tests, mdBook build and local-link crawl, and hands-on screen-reader/braille testing.
