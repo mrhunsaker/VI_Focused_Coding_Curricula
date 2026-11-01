@@ -50,6 +50,33 @@ By working through one curriculum, learners should build the ability to:
 
 These are introductory outcomes, not a claim of professional mastery.
 
+## Additional language courses and modules
+
+### Full programming-language courses
+
+Go and Lua are now included as complete introductory courses aligned to the Python Units 0–11 sequence. The C, C++, C#, Julia, Swift, and Rust tracks have also been expanded from short outlines into unit-by-unit lesson manuscripts using the same instructional progression and recurring problem contexts.
+
+- [Go](GO/GO_README.md)
+- [Lua](LUA/LUA_README.md)
+- [C](C/c_README.md)
+- [C++](CPP/cpp_README.md)
+- [C#](CSHARP/csharp_README.md)
+- [Julia](JULIA/julia_README.md)
+- [Swift](SWIFT/swift_README.md)
+- [Rust](RUST/rust_README.md)
+
+### Specialized introductory modules
+
+These subjects have different learning objectives, so they are taught as domain-specific modules rather than being forced into the Python lesson sequence.
+
+- [HTML and CSS](MODULES/HTML_CSS.md): semantic, accessible web documents and styling.
+- [R](MODULES/R.md): statistical computing, data analysis, and reproducible research.
+- [SQL](MODULES/SQL.md): relational data, querying, joins, integrity, and transactions.
+
+### Parallel-course standardization
+
+The [lesson_standardization.json](lesson_standardization.json) file specifies the Python curriculum unit by unit, defines shared datasets and example problems, and contains a reusable prompt for refining each general-purpose language course. Its objective is functional equivalence: students encounter the same concepts and problems while learning the syntax and semantics of a different language. HTML/CSS, R, and SQL remain specialized modules.
+
 ## Development environment and lesson structure
 
 Before beginning a language pathway, complete the [terminal skills prerequisite](TERMINAL/TERMINAL_README.md) and review the standalone [IDE setup lesson](DEVELOPMENT/IDE_SETUP.md). The IDE lesson provides installation steps for Visual Studio Code, VSCodium, and Eclipse Theia on Windows, macOS, and Linux; compares IDEs with lightweight text editors; and sets the course policy that AI features may be used only for personal conceptual understanding and reinforcement, not to write or complete course code.
