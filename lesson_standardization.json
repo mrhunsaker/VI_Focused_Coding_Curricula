@@ -795,7 +795,7 @@
         "unit_0_setup_lessons": 4,
         "numbered_lessons": 53,
         "unique_worked_example_patterns": 57,
-        "status": "distinct_lesson_examples_added_compile_execute_and_expected_output_ci_pending_full_project_and_accessibility_verification",
+        "status": "all_57_examples_compile_execute_and_exact_output_verified_mdbook_rebuild_pending_project_and_accessibility_verification",
         "automated_check": "scripts/check_kotlin_curriculum.mjs",
         "workflow": ".github/workflows/kotlin-curriculum.yml",
         "completed_work": [
@@ -806,17 +806,19 @@
           "Added CI setup for Kotlin 1.9.24 and JDK 21, structural validation, all-example execution/output assertions, and a complete mdBook build.",
           "Updated Kotlin README, topic index, standalone reference lessons, teacher guide, audit, and mdBook SUMMARY navigation.",
           "Preserved the shared unit order and project domains, including the terminal-first text adventure, CLI to-do tool, and accessible personal-data-manager capstone schema.",
-          "Documented Kotlin-specific semantics and substitutions: nullable types, explicit numeric conversions, data classes instead of general tuples, JVM terminal interface, and maintained JSON/CSV libraries."
+          "Documented Kotlin-specific semantics and substitutions: nullable types, explicit numeric conversions, data classes instead of general tuples, JVM terminal interface, and maintained JSON/CSV libraries.",
+          "Added Kotlin units, audit, and teacher guide to mdBook SUMMARY navigation; removed the duplicate Kotlin index entry identified by the first mdBook build."
         ],
         "validation": [
           "Four grouped files contain 57 mapped lesson sections (4 setup and 53 numbered) across Units 0–11.",
-          "All 57 fenced Kotlin examples are distinct; each lesson has one example block and one expected-behavior section.",
-          "Structural CI passed in prior runs, checking all nine required sections and local unit-file links.",
-          "Full CI using Kotlin 1.9.24/JDK 21 now compiles and runs each example independently and compares exact stdout to the fixture; latest run is pending.",
-          "Full mdBook build is included in the same CI workflow; latest run is pending."
+          "All 57 fenced Kotlin examples are distinct and independently executable through package-isolated main entry points.",
+          "Structural validation passed: all nine required lesson sections, all 57 example blocks, and local links in the lesson files were checked.",
+          "GitHub Actions run 41347575784 passed the full Kotlin 1.9.24/JDK 21 compile-and-run suite: all 57 examples compiled, executed, and matched exact expected stdout fixtures.",
+          "mdBook build was attempted in run 41347575784 and found a duplicate Kotlin index entry in SUMMARY.md; that duplicate navigation entry has been removed and the build is being rerun."
         ],
         "not_yet_verified": [
-          "Run complete Gradle/JUnit or kotlin.test integration setup and representative invalid-input, null, boundary, file, JSON, and CSV integration tests.",
+          "Confirm the rerun of the complete mdBook build after removing the duplicate SUMMARY entry.",
+          "Verify Gradle/JUnit or kotlin.test integration setup and representative invalid-input, null, boundary, file, JSON, and CSV integration cases.",
           "Run the text adventure and CLI to-do applications end to end.",
           "Run capstone CRUD and JSON persistence integration tests, including at least five automated tests.",
           "Run a complete repository-wide Markdown/local-link crawl beyond the Kotlin lesson files and mdBook's own checks.",
