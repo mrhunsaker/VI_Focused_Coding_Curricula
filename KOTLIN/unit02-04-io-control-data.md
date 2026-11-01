@@ -23,10 +23,10 @@ val scores = listOf(82, 91, 76, 88)
 val total = scores.sum()
 val average = scores.average()
 val grade = when {
-    average >= 90 -> "A"
-    average >= 80 -> "B"
-    average >= 70 -> "C"
-    average >= 60 -> "D"
+    average >= 90.0 -> "A"
+    average >= 80.0 -> "B"
+    average >= 70.0 -> "C"
+    average >= 60.0 -> "D"
     else -> "F"
 }
 println("Total=$total Average=$average Grade=$grade")
