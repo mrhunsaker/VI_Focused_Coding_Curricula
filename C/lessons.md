@@ -390,6 +390,70 @@ Navigate the complete source file by line, word, and character using the learner
 - [ ] I can identify and correct a common error.
 - [ ] I can read source and output accessibly.
 
+## Lesson 2.5: Using the C Math Library
+
+### Reading References
+- C17 standard library reference: `math.h`.
+- Python curriculum Lesson 2.5: Using the Math Library.
+
+### Learning Objectives
+- Include and use the C math library.
+- Calculate circle area and circumference.
+- Calculate distance from the origin using the Pythagorean theorem.
+- Explain radians and the platform-specific math-library linker option.
+
+### Concept Explanation
+The C math library declares functions such as `sqrt`, `pow`, `ceil`, `floor`, and trigonometric functions in `math.h`. Some GCC/Clang environments require linking with `-lm`. Trigonometric functions use radians. The standard C17 interface does not require the non-standard `M_PI` macro; `acos(-1.0)` is a portable way to obtain pi. Check function domains before calling functions such as `sqrt`.
+
+### Worked Example
+```c
+#include <stdio.h>
+#include <math.h>
+
+int main(void)
+{
+    const double pi = acos(-1.0);
+    const double radius = 5.0;
+    const double x = 3.0;
+    const double y = 4.0;
+    double area = pi * radius * radius;
+    double circumference = 2.0 * pi * radius;
+    double distance = sqrt(x * x + y * y);
+
+    printf("Area: %.2f\n", area);
+    printf("Circumference: %.2f\n", circumference);
+    printf("Distance from origin: %.2f\n", distance);
+    return 0;
+}
+```
+
+Expected output: area 78.54, circumference 31.42, and distance 5.00. Compile with `cc -std=c17 -Wall -Wextra -Wpedantic math_example.c -o math_example -lm` on systems that require explicit math-library linking.
+
+### Common Mistakes
+- Calling a math function without including `math.h`.
+- Forgetting the `-lm` linker option on systems that require it.
+- Supplying degrees to a trigonometric function that expects radians.
+- Passing a negative value to `sqrt` when a real result is expected.
+- Depending on non-standard macros such as `M_PI` without checking portability.
+
+### Activities
+1. Change the radius to 2.5 and predict the new area and circumference.
+2. Calculate `sqrt(81.0)`, `ceil(4.2)`, and `floor(4.8)`.
+3. Extend the program to read a radius and coordinates with validated numeric input.
+4. Explain why the point (3, 4) is exactly 5 units from the origin.
+
+### Accessibility Practice
+Read the complete source line by line and inspect the punctuation in the function calls and arithmetic expressions. Run the compile command in the terminal and read compiler or linker diagnostics sequentially. Confirm that each output label identifies its value without relying on visual formatting.
+
+### Skills Checklist
+- [ ] I can include `math.h` and call common math functions.
+- [ ] I can calculate circle area and circumference.
+- [ ] I can calculate Euclidean distance from the origin.
+- [ ] I can explain radians and compile with the required linker flags.
+- [ ] I can test a boundary case and read the output accessibly.
+
+---
+
 # Unit 3: Control Flow
 
 ## Overview
