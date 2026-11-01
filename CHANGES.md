@@ -305,3 +305,13 @@ All implementation changes are recorded here. Each numbered step is committed se
 - Rewrote all 53 lessons with Rust-specific explanations, three relevant mistakes, four targeted activities, accessibility practice, and five observable checklist criteria.
 - Standardized on stable Rust / Rust 2024 edition. Added scripts/check_rust_examples.py, .github/workflows/rust-examples.yml, and RUST/VALIDATION.md.
 - GitHub Actions run [41324948920](https://github.com/mrhunsaker/VI_Focused_Coding_Curricula/actions/runs/41324948920) passed on Rust 1.99.1; all 53 examples compiled with warnings denied and smoke-executed successfully. Full output assertions, application-level persistence tests, mdBook/link checks, and hands-on screen-reader/braille tests remain outstanding.
+
+
+## 2026-11-01 — Go lesson-quality refinement
+
+- Expanded Unit 0 into four complete setup lessons with installation, modules, editor/accessibility, dependencies, and terminal workflows.
+- Added the missing Unit 2 Lesson 2.5 mathematics lesson to match the Python curriculum sequence.
+- Replaced generic/repeated examples with 53 distinct standalone Go examples using shared course datasets.
+- Rewrote all 53 numbered lessons with Go-specific explanations, three common mistakes, four activities, accessibility practice, and five measurable checklist criteria.
+- Added scripts/check_go_examples.py, .github/workflows/go-examples.yml, and GO/VALIDATION.md. CI result pending; no passing result is claimed until Actions completes.
+- Full output assertions, application-level tests, mdBook/link checks, and hands-on screen-reader/braille testing remain outstanding.
