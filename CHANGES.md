@@ -313,5 +313,5 @@ All implementation changes are recorded here. Each numbered step is committed se
 - Added the missing Unit 2 Lesson 2.5 mathematics lesson to match the Python curriculum sequence.
 - Replaced generic/repeated examples with 53 distinct standalone Go examples using shared course datasets.
 - Rewrote all 53 numbered lessons with Go-specific explanations, three common mistakes, four activities, accessibility practice, and five measurable checklist criteria.
-- Added scripts/check_go_examples.py, .github/workflows/go-examples.yml, and GO/VALIDATION.md. CI result pending; no passing result is claimed until Actions completes.
+- Added scripts/check_go_examples.py, .github/workflows/go-examples.yml, and GO/VALIDATION.md. GitHub Actions run [41326670760](https://github.com/mrhunsaker/VI_Focused_Coding_Curricula/actions/runs/41326670760) passed on Go 1.27.3; all 53 fenced examples were formatted with gofmt, built independently, and smoke-executed successfully.
 - Full output assertions, application-level tests, mdBook/link checks, and hands-on screen-reader/braille testing remain outstanding.
