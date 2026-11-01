@@ -611,6 +611,18 @@ A usable text program gives the same kind of response for the same kind of actio
 ### Expected Behavior or Output
 The refined application handles blank input, unknown commands, invalid record numbers, empty lists, and malformed stored data with explicit text messages.
 
+### Worked Example
+```javascript
+function validateMenuChoice(choice) {
+  const validChoices = ["add", "view", "search", "edit", "delete", "help", "quit"];
+  if (!validChoices.includes(choice.trim().toLowerCase())) {
+    return "Invalid choice. Enter add, view, search, edit, delete, help, or quit.";
+  }
+  return "Command accepted.";
+}
+console.log(validateMenuChoice("unknown"));
+```
+
 ### Common Mistakes
 - Printing "Invalid input" without explaining valid choices.
 - Failing to confirm a successful action.
