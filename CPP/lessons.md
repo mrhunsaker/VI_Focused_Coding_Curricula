@@ -2238,8 +2238,7 @@ Command-line to-do manager is taught through the shared course datasets and requ
 
 ### Worked Example
 ```cpp
-struct Task { int id; std::string title; bool done; }; std::vector<Task> tasks{{1, "Read lesson", false}, {2, "Run tests", true}}; tasks.at(0).done = true; tasks.erase(std::remove_if(tasks.begin(), tasks.end(), [](const Task& task) { return task.id == 2; }), tasks.end()); for (const auto& task : tasks) std::cout << task.id << ": " << task.title << " [" << task.done << "]\n";
-
+struct Task { int id; std::string title; std::string description; bool done; std::string created_at; }; std::vector<Task> tasks{{1, "Read lesson", "Review the C++ lesson", false, "2026-11-01"}}; tasks.at(0).done = true; for (const auto& task : tasks) std::cout << task.id << ": " << task.title << " [" << task.done << "] " << task.created_at << '\n';
 ```
 
 **Trace:** predict the output before compiling. Identify declarations, values, control-flow decisions, and state changes in order. Then compile and compare actual output with the prediction. The lesson example is intended to be independently compilable.
@@ -2373,7 +2372,7 @@ Data model and storage is taught through the shared course datasets and requirem
 
 ### Worked Example
 ```cpp
-struct Record { int id; std::string title; std::string description; std::string category; }; const std::vector<Record> records{{1, "Course project", "Personal data manager", "education"}}; for (const auto& record : records) std::cout << record.id << "," << record.title << "," << record.description << "," << record.category << '\n';
+struct Record { int id; std::string title; std::string description; std::string category; std::string created_at; std::string updated_at; }; const std::vector<Record> records{{1, "Course project", "Personal data manager", "education", "2026-11-01", "2026-11-01"}}; for (const auto& record : records) std::cout << record.id << "," << record.title << "," << record.description << "," << record.category << "," << record.created_at << "," << record.updated_at << '\n';
 ```
 
 **Trace:** predict the output before compiling. Identify declarations, values, control-flow decisions, and state changes in order. Then compile and compare actual output with the prediction. The lesson example is intended to be independently compilable.
@@ -2415,8 +2414,7 @@ Create/read/update/delete is taught through the shared course datasets and requi
 
 ### Worked Example
 ```cpp
-struct Person { int id; std::string name; }; std::vector<Person> people; people.push_back({1, "Avery"}); people.at(0).name = "Avery H."; people.erase(std::remove_if(people.begin(), people.end(), [](const Person& p) { return p.id == 1; }), people.end()); std::cout << "Records remaining: " << people.size() << '\n';
-
+struct Record { int id; std::string title; std::string description; std::string category; std::string created_at; std::string updated_at; }; std::vector<Record> records{{1, "Course project", "Personal data manager", "education", "2026-11-01", "2026-11-01"}}; records.push_back({2, "Study C++", "Complete functions unit", "learning", "2026-11-01", "2026-11-01"}); auto found = std::find_if(records.begin(), records.end(), [](const Record& record) { return record.id == 1; }); if (found != records.end()) found->title = "Updated course project"; records.erase(std::remove_if(records.begin(), records.end(), [](const Record& record) { return record.id == 2; }), records.end()); for (const auto& record : records) std::cout << record.id << ": " << record.title << '\n';
 ```
 
 **Trace:** predict the output before compiling. Identify declarations, values, control-flow decisions, and state changes in order. Then compile and compare actual output with the prediction. The lesson example is intended to be independently compilable.
