@@ -18,7 +18,7 @@ const required = [
 const errors = [];
 let lessonCount = 0;
 let exampleCount = 0;
-const temp = fs.mkdtempSync(path.join(os.tmpdir(), "ts-curriculum-"));
+const temp = fs.mkdtempSync(path.join(process.cwd(), ".ts-curriculum-"));
 fs.writeFileSync(path.join(temp, "package.json"), JSON.stringify({ type: "module" }));
 
 try {
