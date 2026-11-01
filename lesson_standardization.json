@@ -283,16 +283,12 @@
       "lessons": [
         "11.1 Introduction to NiceGUI",
         "11.2 Data Model and Storage",
-        "11.3 Displaying and Managing Items",
-        "11.4 Updating and Deleting Items",
-        "11.5 Testing, Accessibility, and Delivery"
+        "11.3–11.5 Displaying and Managing Items"
       ],
       "parallel_examples": [
-        "Introduce an appropriate interface option; do not require NiceGUI outside Python",
-        "Same record fields, validation rules, and JSON storage format",
-        "Same add/list/search behavior",
-        "Same edit/delete behavior and confirmation rules",
-        "Same tests, keyboard/screen-reader acceptance criteria, README, and reflection"
+        "Introduce NiceGUI for the Python implementation; select an accessible, idiomatic interface approach in other languages while preserving the same user-facing requirements.",
+        "Use the same record fields, validation rules, storage format, and sample data.",
+        "Implement the same display/list, add, search, update, delete, and completion operations; use the same test cases and accessibility acceptance criteria."
       ]
     }
   ],
