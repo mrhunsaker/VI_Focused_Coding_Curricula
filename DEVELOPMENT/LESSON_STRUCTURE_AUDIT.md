@@ -200,3 +200,5 @@ This is compiler and linker verification. The examples have not all been execute
 - Replaced the repeated fenced Lua snippets with 53 distinct standard-library examples and added a Lua 5.4 syntax/smoke-execution checker and GitHub Actions workflow.
 - Added Lua README and validation-scope documentation.
 - This pass verifies distinct examples and structural counts; lesson-level concept explanations, mistakes, and activities still require deeper topic-specific editorial refinement. GitHub Actions run [41336406502](https://github.com/mrhunsaker/VI_Focused_Coding_Curricula/actions/runs/41336406502) passed on Lua 5.4.6, parsing and smoke-executing all 53 examples. Expected-output assertions, capstone persistence, mdBook/link validation, and hands-on accessibility tests remain pending.
+
+- Follow-up editorial refinement added topic-aligned Lua concept explanations, three mistake prompts, and four activities to each of the 53 numbered lessons. Each lesson retains accessibility practice and a five-item checklist. A final CI run after this prose-only refinement is pending.
