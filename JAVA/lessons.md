@@ -40,16 +40,14 @@ public class Lesson_0_1 {
 **Expected behavior:** The program compiles on JDK 25 and prints a deterministic result illustrating installing and verifying jdk 25. Run it from a terminal, compare actual output with your prediction, and change one input to test the effect.
 
 ### Common Mistakes
-- Confusing Java reference equality with value equality; compare String content with equals rather than ==.
-- Ignoring static type requirements, nullability, array bounds, or the documented return contract of an API.
-- Treating a successful compilation as proof of correctness; test boundary cases and inspect runtime behavior.
-
+- Installing a JRE-only runtime instead of a full JDK that includes javac.
+- Assuming editor extensions, terminal PATH, and configured project runtime automatically use the same JDK.
+- Depending on a visual project explorer or color highlighting without verifying source paths and terminal commands.
 ### Activities
-1. Trace the program and identify the type and value of each important variable and expression.
-2. Modify one input or data item, predict the output, then compile and run the changed program.
-3. Add a boundary or invalid-input case and handle it without silently corrupting state.
-4. Write a focused assertion or test that checks the intended behavior and one failure case.
-
+1. Verify the JDK, compiler, and runtime versions independently from both the system terminal and IDE terminal.
+2. Navigate to the source file and run the same compile/run sequence without using editor buttons.
+3. Use keyboard navigation and a screen reader to locate one compiler diagnostic and its source line.
+4. Write a short setup checklist that another learner can reproduce.
 ### Accessibility Practice
 Navigate by class, method, and line; inspect braces, parentheses, brackets, semicolons, generic delimiters, and compiler diagnostics with the preferred screen reader or braille display. Compile and run from the terminal so the workflow does not depend on color or a visual project explorer.
 
@@ -90,16 +88,14 @@ public class Lesson_0_2 {
 **Expected behavior:** The program compiles on JDK 25 and prints a deterministic result illustrating configuring vs code or theia for java. Run it from a terminal, compare actual output with your prediction, and change one input to test the effect.
 
 ### Common Mistakes
-- Confusing Java reference equality with value equality; compare String content with equals rather than ==.
-- Ignoring static type requirements, nullability, array bounds, or the documented return contract of an API.
-- Treating a successful compilation as proof of correctness; test boundary cases and inspect runtime behavior.
-
+- Installing a JRE-only runtime instead of a full JDK that includes javac.
+- Assuming editor extensions, terminal PATH, and configured project runtime automatically use the same JDK.
+- Depending on a visual project explorer or color highlighting without verifying source paths and terminal commands.
 ### Activities
-1. Trace the program and identify the type and value of each important variable and expression.
-2. Modify one input or data item, predict the output, then compile and run the changed program.
-3. Add a boundary or invalid-input case and handle it without silently corrupting state.
-4. Write a focused assertion or test that checks the intended behavior and one failure case.
-
+1. Verify the JDK, compiler, and runtime versions independently from both the system terminal and IDE terminal.
+2. Navigate to the source file and run the same compile/run sequence without using editor buttons.
+3. Use keyboard navigation and a screen reader to locate one compiler diagnostic and its source line.
+4. Write a short setup checklist that another learner can reproduce.
 ### Accessibility Practice
 Navigate by class, method, and line; inspect braces, parentheses, brackets, semicolons, generic delimiters, and compiler diagnostics with the preferred screen reader or braille display. Compile and run from the terminal so the workflow does not depend on color or a visual project explorer.
 
@@ -140,16 +136,14 @@ public class Lesson_0_3 {
 **Expected behavior:** The program compiles on JDK 25 and prints a deterministic result illustrating creating a workspace and first java project. Run it from a terminal, compare actual output with your prediction, and change one input to test the effect.
 
 ### Common Mistakes
-- Confusing Java reference equality with value equality; compare String content with equals rather than ==.
-- Ignoring static type requirements, nullability, array bounds, or the documented return contract of an API.
-- Treating a successful compilation as proof of correctness; test boundary cases and inspect runtime behavior.
-
+- Installing a JRE-only runtime instead of a full JDK that includes javac.
+- Assuming editor extensions, terminal PATH, and configured project runtime automatically use the same JDK.
+- Depending on a visual project explorer or color highlighting without verifying source paths and terminal commands.
 ### Activities
-1. Trace the program and identify the type and value of each important variable and expression.
-2. Modify one input or data item, predict the output, then compile and run the changed program.
-3. Add a boundary or invalid-input case and handle it without silently corrupting state.
-4. Write a focused assertion or test that checks the intended behavior and one failure case.
-
+1. Verify the JDK, compiler, and runtime versions independently from both the system terminal and IDE terminal.
+2. Navigate to the source file and run the same compile/run sequence without using editor buttons.
+3. Use keyboard navigation and a screen reader to locate one compiler diagnostic and its source line.
+4. Write a short setup checklist that another learner can reproduce.
 ### Accessibility Practice
 Navigate by class, method, and line; inspect braces, parentheses, brackets, semicolons, generic delimiters, and compiler diagnostics with the preferred screen reader or braille display. Compile and run from the terminal so the workflow does not depend on color or a visual project explorer.
 
@@ -190,16 +184,14 @@ public class Lesson_0_4 {
 **Expected behavior:** The program compiles on JDK 25 and prints a deterministic result illustrating terminal, packages, and build-tool foundations. Run it from a terminal, compare actual output with your prediction, and change one input to test the effect.
 
 ### Common Mistakes
-- Confusing Java reference equality with value equality; compare String content with equals rather than ==.
-- Ignoring static type requirements, nullability, array bounds, or the documented return contract of an API.
-- Treating a successful compilation as proof of correctness; test boundary cases and inspect runtime behavior.
-
+- Installing a JRE-only runtime instead of a full JDK that includes javac.
+- Assuming editor extensions, terminal PATH, and configured project runtime automatically use the same JDK.
+- Depending on a visual project explorer or color highlighting without verifying source paths and terminal commands.
 ### Activities
-1. Trace the program and identify the type and value of each important variable and expression.
-2. Modify one input or data item, predict the output, then compile and run the changed program.
-3. Add a boundary or invalid-input case and handle it without silently corrupting state.
-4. Write a focused assertion or test that checks the intended behavior and one failure case.
-
+1. Verify the JDK, compiler, and runtime versions independently from both the system terminal and IDE terminal.
+2. Navigate to the source file and run the same compile/run sequence without using editor buttons.
+3. Use keyboard navigation and a screen reader to locate one compiler diagnostic and its source line.
+4. Write a short setup checklist that another learner can reproduce.
 ### Accessibility Practice
 Navigate by class, method, and line; inspect braces, parentheses, brackets, semicolons, generic delimiters, and compiler diagnostics with the preferred screen reader or braille display. Compile and run from the terminal so the workflow does not depend on color or a visual project explorer.
 
@@ -248,16 +240,14 @@ public class Lesson_1_1 {
 **Expected behavior:** The program compiles on JDK 25 and prints a deterministic result illustrating welcome to computer science. Run it from a terminal, compare actual output with your prediction, and change one input to test the effect.
 
 ### Common Mistakes
-- Confusing Java reference equality with value equality; compare String content with equals rather than ==.
-- Ignoring static type requirements, nullability, array bounds, or the documented return contract of an API.
-- Treating a successful compilation as proof of correctness; test boundary cases and inspect runtime behavior.
-
+- Treating Java primitive values and object references as interchangeable types.
+- Using an incorrect public class/file-name pairing or omitting the main entry-point signature.
+- Reading an uninitialized local variable or narrowing a numeric value without checking for data loss.
 ### Activities
-1. Trace the program and identify the type and value of each important variable and expression.
-2. Modify one input or data item, predict the output, then compile and run the changed program.
-3. Add a boundary or invalid-input case and handle it without silently corrupting state.
-4. Write a focused assertion or test that checks the intended behavior and one failure case.
-
+1. Explain the hardware/software or algorithmic context, then express the steps as ordered Java statements.
+2. Change the learner profile values and identify the compile-time types of each field.
+3. Add a constant and a safe numeric conversion, then explain what information could be lost.
+4. Compile and run from the terminal after deliberately introducing and correcting one syntax error.
 ### Accessibility Practice
 Navigate by class, method, and line; inspect braces, parentheses, brackets, semicolons, generic delimiters, and compiler diagnostics with the preferred screen reader or braille display. Compile and run from the terminal so the workflow does not depend on color or a visual project explorer.
 
@@ -298,16 +288,14 @@ public class Lesson_1_2 {
 **Expected behavior:** The program compiles on JDK 25 and prints a deterministic result illustrating your first java program. Run it from a terminal, compare actual output with your prediction, and change one input to test the effect.
 
 ### Common Mistakes
-- Confusing Java reference equality with value equality; compare String content with equals rather than ==.
-- Ignoring static type requirements, nullability, array bounds, or the documented return contract of an API.
-- Treating a successful compilation as proof of correctness; test boundary cases and inspect runtime behavior.
-
+- Treating Java primitive values and object references as interchangeable types.
+- Using an incorrect public class/file-name pairing or omitting the main entry-point signature.
+- Reading an uninitialized local variable or narrowing a numeric value without checking for data loss.
 ### Activities
-1. Trace the program and identify the type and value of each important variable and expression.
-2. Modify one input or data item, predict the output, then compile and run the changed program.
-3. Add a boundary or invalid-input case and handle it without silently corrupting state.
-4. Write a focused assertion or test that checks the intended behavior and one failure case.
-
+1. Explain the hardware/software or algorithmic context, then express the steps as ordered Java statements.
+2. Change the learner profile values and identify the compile-time types of each field.
+3. Add a constant and a safe numeric conversion, then explain what information could be lost.
+4. Compile and run from the terminal after deliberately introducing and correcting one syntax error.
 ### Accessibility Practice
 Navigate by class, method, and line; inspect braces, parentheses, brackets, semicolons, generic delimiters, and compiler diagnostics with the preferred screen reader or braille display. Compile and run from the terminal so the workflow does not depend on color or a visual project explorer.
 
@@ -352,16 +340,14 @@ public class Lesson_1_3 {
 **Expected behavior:** The program compiles on JDK 25 and prints a deterministic result illustrating variables and primitive data types. Run it from a terminal, compare actual output with your prediction, and change one input to test the effect.
 
 ### Common Mistakes
-- Confusing Java reference equality with value equality; compare String content with equals rather than ==.
-- Ignoring static type requirements, nullability, array bounds, or the documented return contract of an API.
-- Treating a successful compilation as proof of correctness; test boundary cases and inspect runtime behavior.
-
+- Treating Java primitive values and object references as interchangeable types.
+- Using an incorrect public class/file-name pairing or omitting the main entry-point signature.
+- Reading an uninitialized local variable or narrowing a numeric value without checking for data loss.
 ### Activities
-1. Trace the program and identify the type and value of each important variable and expression.
-2. Modify one input or data item, predict the output, then compile and run the changed program.
-3. Add a boundary or invalid-input case and handle it without silently corrupting state.
-4. Write a focused assertion or test that checks the intended behavior and one failure case.
-
+1. Explain the hardware/software or algorithmic context, then express the steps as ordered Java statements.
+2. Change the learner profile values and identify the compile-time types of each field.
+3. Add a constant and a safe numeric conversion, then explain what information could be lost.
+4. Compile and run from the terminal after deliberately introducing and correcting one syntax error.
 ### Accessibility Practice
 Navigate by class, method, and line; inspect braces, parentheses, brackets, semicolons, generic delimiters, and compiler diagnostics with the preferred screen reader or braille display. Compile and run from the terminal so the workflow does not depend on color or a visual project explorer.
 
@@ -413,16 +399,14 @@ public class Lesson_2_1 {
 **Expected behavior:** The program compiles on JDK 25 and prints a deterministic result illustrating the software development process. Run it from a terminal, compare actual output with your prediction, and change one input to test the effect.
 
 ### Common Mistakes
-- Confusing Java reference equality with value equality; compare String content with equals rather than ==.
-- Ignoring static type requirements, nullability, array bounds, or the documented return contract of an API.
-- Treating a successful compilation as proof of correctness; test boundary cases and inspect runtime behavior.
-
+- Using integer division where a decimal result is required, or applying an expression in the wrong order.
+- Assuming Scanner parsing accepts malformed input or forgetting the newline left by token-based reads.
+- Using an unchecked parse result or rounding intermediate Math values before the final calculation.
 ### Activities
-1. Trace the program and identify the type and value of each important variable and expression.
-2. Modify one input or data item, predict the output, then compile and run the changed program.
-3. Add a boundary or invalid-input case and handle it without silently corrupting state.
-4. Write a focused assertion or test that checks the intended behavior and one failure case.
-
+1. Calculate the same tip, conversion, or circle result using hand arithmetic and Java, then compare precision.
+2. Test zero, a negative value, and a nonnumeric string; document which should be accepted.
+3. Compare integer and floating-point division using the same operands.
+4. Add a validation message and verify it does not print a misleading result.
 ### Accessibility Practice
 Navigate by class, method, and line; inspect braces, parentheses, brackets, semicolons, generic delimiters, and compiler diagnostics with the preferred screen reader or braille display. Compile and run from the terminal so the workflow does not depend on color or a visual project explorer.
 
@@ -465,16 +449,14 @@ public class Lesson_2_2 {
 **Expected behavior:** The program compiles on JDK 25 and prints a deterministic result illustrating expressions and assignment. Run it from a terminal, compare actual output with your prediction, and change one input to test the effect.
 
 ### Common Mistakes
-- Confusing Java reference equality with value equality; compare String content with equals rather than ==.
-- Ignoring static type requirements, nullability, array bounds, or the documented return contract of an API.
-- Treating a successful compilation as proof of correctness; test boundary cases and inspect runtime behavior.
-
+- Using integer division where a decimal result is required, or applying an expression in the wrong order.
+- Assuming Scanner parsing accepts malformed input or forgetting the newline left by token-based reads.
+- Using an unchecked parse result or rounding intermediate Math values before the final calculation.
 ### Activities
-1. Trace the program and identify the type and value of each important variable and expression.
-2. Modify one input or data item, predict the output, then compile and run the changed program.
-3. Add a boundary or invalid-input case and handle it without silently corrupting state.
-4. Write a focused assertion or test that checks the intended behavior and one failure case.
-
+1. Calculate the same tip, conversion, or circle result using hand arithmetic and Java, then compare precision.
+2. Test zero, a negative value, and a nonnumeric string; document which should be accepted.
+3. Compare integer and floating-point division using the same operands.
+4. Add a validation message and verify it does not print a misleading result.
 ### Accessibility Practice
 Navigate by class, method, and line; inspect braces, parentheses, brackets, semicolons, generic delimiters, and compiler diagnostics with the preferred screen reader or braille display. Compile and run from the terminal so the workflow does not depend on color or a visual project explorer.
 
@@ -519,16 +501,14 @@ public class Lesson_2_3 {
 **Expected behavior:** The program compiles on JDK 25 and prints a deterministic result illustrating input and output revisited. Run it from a terminal, compare actual output with your prediction, and change one input to test the effect.
 
 ### Common Mistakes
-- Confusing Java reference equality with value equality; compare String content with equals rather than ==.
-- Ignoring static type requirements, nullability, array bounds, or the documented return contract of an API.
-- Treating a successful compilation as proof of correctness; test boundary cases and inspect runtime behavior.
-
+- Using integer division where a decimal result is required, or applying an expression in the wrong order.
+- Assuming Scanner parsing accepts malformed input or forgetting the newline left by token-based reads.
+- Using an unchecked parse result or rounding intermediate Math values before the final calculation.
 ### Activities
-1. Trace the program and identify the type and value of each important variable and expression.
-2. Modify one input or data item, predict the output, then compile and run the changed program.
-3. Add a boundary or invalid-input case and handle it without silently corrupting state.
-4. Write a focused assertion or test that checks the intended behavior and one failure case.
-
+1. Calculate the same tip, conversion, or circle result using hand arithmetic and Java, then compare precision.
+2. Test zero, a negative value, and a nonnumeric string; document which should be accepted.
+3. Compare integer and floating-point division using the same operands.
+4. Add a validation message and verify it does not print a misleading result.
 ### Accessibility Practice
 Navigate by class, method, and line; inspect braces, parentheses, brackets, semicolons, generic delimiters, and compiler diagnostics with the preferred screen reader or braille display. Compile and run from the terminal so the workflow does not depend on color or a visual project explorer.
 
@@ -572,16 +552,14 @@ public class Lesson_2_4 {
 **Expected behavior:** The program compiles on JDK 25 and prints a deterministic result illustrating computing with numbers and type conversions. Run it from a terminal, compare actual output with your prediction, and change one input to test the effect.
 
 ### Common Mistakes
-- Confusing Java reference equality with value equality; compare String content with equals rather than ==.
-- Ignoring static type requirements, nullability, array bounds, or the documented return contract of an API.
-- Treating a successful compilation as proof of correctness; test boundary cases and inspect runtime behavior.
-
+- Using integer division where a decimal result is required, or applying an expression in the wrong order.
+- Assuming Scanner parsing accepts malformed input or forgetting the newline left by token-based reads.
+- Using an unchecked parse result or rounding intermediate Math values before the final calculation.
 ### Activities
-1. Trace the program and identify the type and value of each important variable and expression.
-2. Modify one input or data item, predict the output, then compile and run the changed program.
-3. Add a boundary or invalid-input case and handle it without silently corrupting state.
-4. Write a focused assertion or test that checks the intended behavior and one failure case.
-
+1. Calculate the same tip, conversion, or circle result using hand arithmetic and Java, then compare precision.
+2. Test zero, a negative value, and a nonnumeric string; document which should be accepted.
+3. Compare integer and floating-point division using the same operands.
+4. Add a validation message and verify it does not print a misleading result.
 ### Accessibility Practice
 Navigate by class, method, and line; inspect braces, parentheses, brackets, semicolons, generic delimiters, and compiler diagnostics with the preferred screen reader or braille display. Compile and run from the terminal so the workflow does not depend on color or a visual project explorer.
 
@@ -625,16 +603,14 @@ public class Lesson_2_5 {
 **Expected behavior:** The program compiles on JDK 25 and prints a deterministic result illustrating using the math library. Run it from a terminal, compare actual output with your prediction, and change one input to test the effect.
 
 ### Common Mistakes
-- Confusing Java reference equality with value equality; compare String content with equals rather than ==.
-- Ignoring static type requirements, nullability, array bounds, or the documented return contract of an API.
-- Treating a successful compilation as proof of correctness; test boundary cases and inspect runtime behavior.
-
+- Using integer division where a decimal result is required, or applying an expression in the wrong order.
+- Assuming Scanner parsing accepts malformed input or forgetting the newline left by token-based reads.
+- Using an unchecked parse result or rounding intermediate Math values before the final calculation.
 ### Activities
-1. Trace the program and identify the type and value of each important variable and expression.
-2. Modify one input or data item, predict the output, then compile and run the changed program.
-3. Add a boundary or invalid-input case and handle it without silently corrupting state.
-4. Write a focused assertion or test that checks the intended behavior and one failure case.
-
+1. Calculate the same tip, conversion, or circle result using hand arithmetic and Java, then compare precision.
+2. Test zero, a negative value, and a nonnumeric string; document which should be accepted.
+3. Compare integer and floating-point division using the same operands.
+4. Add a validation message and verify it does not print a misleading result.
 ### Accessibility Practice
 Navigate by class, method, and line; inspect braces, parentheses, brackets, semicolons, generic delimiters, and compiler diagnostics with the preferred screen reader or braille display. Compile and run from the terminal so the workflow does not depend on color or a visual project explorer.
 
@@ -685,16 +661,14 @@ public class Lesson_3_1 {
 **Expected behavior:** The program compiles on JDK 25 and prints a deterministic result illustrating boolean expressions and if statements. Run it from a terminal, compare actual output with your prediction, and change one input to test the effect.
 
 ### Common Mistakes
-- Confusing Java reference equality with value equality; compare String content with equals rather than ==.
-- Ignoring static type requirements, nullability, array bounds, or the documented return contract of an API.
-- Treating a successful compilation as proof of correctness; test boundary cases and inspect runtime behavior.
-
+- Using == for String content comparison instead of equals or equalsIgnoreCase.
+- Ordering chained score thresholds incorrectly so a higher grade is captured by a lower branch.
+- Using an incorrect loop bound, modifying a collection during enhanced iteration, or confusing array length with collection size.
 ### Activities
-1. Trace the program and identify the type and value of each important variable and expression.
-2. Modify one input or data item, predict the output, then compile and run the changed program.
-3. Add a boundary or invalid-input case and handle it without silently corrupting state.
-4. Write a focused assertion or test that checks the intended behavior and one failure case.
-
+1. Test each decision threshold immediately below, at, and above the boundary.
+2. Process the four shared scores and verify count, total, and average.
+3. Normalize a mixed-case sentence containing leading/trailing whitespace and punctuation.
+4. Explain the difference between comparing primitive values and comparing String content.
 ### Accessibility Practice
 Navigate by class, method, and line; inspect braces, parentheses, brackets, semicolons, generic delimiters, and compiler diagnostics with the preferred screen reader or braille display. Compile and run from the terminal so the workflow does not depend on color or a visual project explorer.
 
@@ -741,16 +715,14 @@ public class Lesson_3_2 {
 **Expected behavior:** The program compiles on JDK 25 and prints a deterministic result illustrating chained conditionals. Run it from a terminal, compare actual output with your prediction, and change one input to test the effect.
 
 ### Common Mistakes
-- Confusing Java reference equality with value equality; compare String content with equals rather than ==.
-- Ignoring static type requirements, nullability, array bounds, or the documented return contract of an API.
-- Treating a successful compilation as proof of correctness; test boundary cases and inspect runtime behavior.
-
+- Using == for String content comparison instead of equals or equalsIgnoreCase.
+- Ordering chained score thresholds incorrectly so a higher grade is captured by a lower branch.
+- Using an incorrect loop bound, modifying a collection during enhanced iteration, or confusing array length with collection size.
 ### Activities
-1. Trace the program and identify the type and value of each important variable and expression.
-2. Modify one input or data item, predict the output, then compile and run the changed program.
-3. Add a boundary or invalid-input case and handle it without silently corrupting state.
-4. Write a focused assertion or test that checks the intended behavior and one failure case.
-
+1. Test each decision threshold immediately below, at, and above the boundary.
+2. Process the four shared scores and verify count, total, and average.
+3. Normalize a mixed-case sentence containing leading/trailing whitespace and punctuation.
+4. Explain the difference between comparing primitive values and comparing String content.
 ### Accessibility Practice
 Navigate by class, method, and line; inspect braces, parentheses, brackets, semicolons, generic delimiters, and compiler diagnostics with the preferred screen reader or braille display. Compile and run from the terminal so the workflow does not depend on color or a visual project explorer.
 
@@ -793,16 +765,14 @@ public class Lesson_3_3 {
 **Expected behavior:** The program compiles on JDK 25 and prints a deterministic result illustrating introduction to lists. Run it from a terminal, compare actual output with your prediction, and change one input to test the effect.
 
 ### Common Mistakes
-- Confusing Java reference equality with value equality; compare String content with equals rather than ==.
-- Ignoring static type requirements, nullability, array bounds, or the documented return contract of an API.
-- Treating a successful compilation as proof of correctness; test boundary cases and inspect runtime behavior.
-
+- Using == for String content comparison instead of equals or equalsIgnoreCase.
+- Ordering chained score thresholds incorrectly so a higher grade is captured by a lower branch.
+- Using an incorrect loop bound, modifying a collection during enhanced iteration, or confusing array length with collection size.
 ### Activities
-1. Trace the program and identify the type and value of each important variable and expression.
-2. Modify one input or data item, predict the output, then compile and run the changed program.
-3. Add a boundary or invalid-input case and handle it without silently corrupting state.
-4. Write a focused assertion or test that checks the intended behavior and one failure case.
-
+1. Test each decision threshold immediately below, at, and above the boundary.
+2. Process the four shared scores and verify count, total, and average.
+3. Normalize a mixed-case sentence containing leading/trailing whitespace and punctuation.
+4. Explain the difference between comparing primitive values and comparing String content.
 ### Accessibility Practice
 Navigate by class, method, and line; inspect braces, parentheses, brackets, semicolons, generic delimiters, and compiler diagnostics with the preferred screen reader or braille display. Compile and run from the terminal so the workflow does not depend on color or a visual project explorer.
 
@@ -846,16 +816,14 @@ public class Lesson_3_4 {
 **Expected behavior:** The program compiles on JDK 25 and prints a deterministic result illustrating iterating with for loops. Run it from a terminal, compare actual output with your prediction, and change one input to test the effect.
 
 ### Common Mistakes
-- Confusing Java reference equality with value equality; compare String content with equals rather than ==.
-- Ignoring static type requirements, nullability, array bounds, or the documented return contract of an API.
-- Treating a successful compilation as proof of correctness; test boundary cases and inspect runtime behavior.
-
+- Using == for String content comparison instead of equals or equalsIgnoreCase.
+- Ordering chained score thresholds incorrectly so a higher grade is captured by a lower branch.
+- Using an incorrect loop bound, modifying a collection during enhanced iteration, or confusing array length with collection size.
 ### Activities
-1. Trace the program and identify the type and value of each important variable and expression.
-2. Modify one input or data item, predict the output, then compile and run the changed program.
-3. Add a boundary or invalid-input case and handle it without silently corrupting state.
-4. Write a focused assertion or test that checks the intended behavior and one failure case.
-
+1. Test each decision threshold immediately below, at, and above the boundary.
+2. Process the four shared scores and verify count, total, and average.
+3. Normalize a mixed-case sentence containing leading/trailing whitespace and punctuation.
+4. Explain the difference between comparing primitive values and comparing String content.
 ### Accessibility Practice
 Navigate by class, method, and line; inspect braces, parentheses, brackets, semicolons, generic delimiters, and compiler diagnostics with the preferred screen reader or braille display. Compile and run from the terminal so the workflow does not depend on color or a visual project explorer.
 
@@ -899,16 +867,14 @@ public class Lesson_3_5 {
 **Expected behavior:** The program compiles on JDK 25 and prints a deterministic result illustrating basic string operations. Run it from a terminal, compare actual output with your prediction, and change one input to test the effect.
 
 ### Common Mistakes
-- Confusing Java reference equality with value equality; compare String content with equals rather than ==.
-- Ignoring static type requirements, nullability, array bounds, or the documented return contract of an API.
-- Treating a successful compilation as proof of correctness; test boundary cases and inspect runtime behavior.
-
+- Using == for String content comparison instead of equals or equalsIgnoreCase.
+- Ordering chained score thresholds incorrectly so a higher grade is captured by a lower branch.
+- Using an incorrect loop bound, modifying a collection during enhanced iteration, or confusing array length with collection size.
 ### Activities
-1. Trace the program and identify the type and value of each important variable and expression.
-2. Modify one input or data item, predict the output, then compile and run the changed program.
-3. Add a boundary or invalid-input case and handle it without silently corrupting state.
-4. Write a focused assertion or test that checks the intended behavior and one failure case.
-
+1. Test each decision threshold immediately below, at, and above the boundary.
+2. Process the four shared scores and verify count, total, and average.
+3. Normalize a mixed-case sentence containing leading/trailing whitespace and punctuation.
+4. Explain the difference between comparing primitive values and comparing String content.
 ### Accessibility Practice
 Navigate by class, method, and line; inspect braces, parentheses, brackets, semicolons, generic delimiters, and compiler diagnostics with the preferred screen reader or braille display. Compile and run from the terminal so the workflow does not depend on color or a visual project explorer.
 
@@ -959,16 +925,14 @@ public class Lesson_4_1 {
 **Expected behavior:** The program compiles on JDK 25 and prints a deterministic result illustrating more on lists. Run it from a terminal, compare actual output with your prediction, and change one input to test the effect.
 
 ### Common Mistakes
-- Confusing Java reference equality with value equality; compare String content with equals rather than ==.
-- Ignoring static type requirements, nullability, array bounds, or the documented return contract of an API.
-- Treating a successful compilation as proof of correctness; test boundary cases and inspect runtime behavior.
-
+- Assuming ArrayList and arrays have the same resizing behavior or index limits.
+- Trying to modify a List created with List.of, which is unmodifiable.
+- Assuming Map iteration order without choosing an ordered implementation, or treating a missing key as a stored zero.
 ### Activities
-1. Trace the program and identify the type and value of each important variable and expression.
-2. Modify one input or data item, predict the output, then compile and run the changed program.
-3. Add a boundary or invalid-input case and handle it without silently corrupting state.
-4. Write a focused assertion or test that checks the intended behavior and one failure case.
-
+1. Apply add, update, remove, lookup, and iteration operations to the same inventory data.
+2. Compare a fixed-size array, mutable ArrayList, and unmodifiable List.of value.
+3. Choose HashMap or LinkedHashMap for a stated ordering requirement and justify the choice.
+4. Test a missing key and distinguish null from a legitimate stored value.
 ### Accessibility Practice
 Navigate by class, method, and line; inspect braces, parentheses, brackets, semicolons, generic delimiters, and compiler diagnostics with the preferred screen reader or braille display. Compile and run from the terminal so the workflow does not depend on color or a visual project explorer.
 
@@ -1012,16 +976,14 @@ public class Lesson_4_2 {
 **Expected behavior:** The program compiles on JDK 25 and prints a deterministic result illustrating organizing lists. Run it from a terminal, compare actual output with your prediction, and change one input to test the effect.
 
 ### Common Mistakes
-- Confusing Java reference equality with value equality; compare String content with equals rather than ==.
-- Ignoring static type requirements, nullability, array bounds, or the documented return contract of an API.
-- Treating a successful compilation as proof of correctness; test boundary cases and inspect runtime behavior.
-
+- Assuming ArrayList and arrays have the same resizing behavior or index limits.
+- Trying to modify a List created with List.of, which is unmodifiable.
+- Assuming Map iteration order without choosing an ordered implementation, or treating a missing key as a stored zero.
 ### Activities
-1. Trace the program and identify the type and value of each important variable and expression.
-2. Modify one input or data item, predict the output, then compile and run the changed program.
-3. Add a boundary or invalid-input case and handle it without silently corrupting state.
-4. Write a focused assertion or test that checks the intended behavior and one failure case.
-
+1. Apply add, update, remove, lookup, and iteration operations to the same inventory data.
+2. Compare a fixed-size array, mutable ArrayList, and unmodifiable List.of value.
+3. Choose HashMap or LinkedHashMap for a stated ordering requirement and justify the choice.
+4. Test a missing key and distinguish null from a legitimate stored value.
 ### Accessibility Practice
 Navigate by class, method, and line; inspect braces, parentheses, brackets, semicolons, generic delimiters, and compiler diagnostics with the preferred screen reader or braille display. Compile and run from the terminal so the workflow does not depend on color or a visual project explorer.
 
@@ -1064,16 +1026,14 @@ public class Lesson_4_3 {
 **Expected behavior:** The program compiles on JDK 25 and prints a deterministic result illustrating tuples and immutable lists. Run it from a terminal, compare actual output with your prediction, and change one input to test the effect.
 
 ### Common Mistakes
-- Confusing Java reference equality with value equality; compare String content with equals rather than ==.
-- Ignoring static type requirements, nullability, array bounds, or the documented return contract of an API.
-- Treating a successful compilation as proof of correctness; test boundary cases and inspect runtime behavior.
-
+- Assuming ArrayList and arrays have the same resizing behavior or index limits.
+- Trying to modify a List created with List.of, which is unmodifiable.
+- Assuming Map iteration order without choosing an ordered implementation, or treating a missing key as a stored zero.
 ### Activities
-1. Trace the program and identify the type and value of each important variable and expression.
-2. Modify one input or data item, predict the output, then compile and run the changed program.
-3. Add a boundary or invalid-input case and handle it without silently corrupting state.
-4. Write a focused assertion or test that checks the intended behavior and one failure case.
-
+1. Apply add, update, remove, lookup, and iteration operations to the same inventory data.
+2. Compare a fixed-size array, mutable ArrayList, and unmodifiable List.of value.
+3. Choose HashMap or LinkedHashMap for a stated ordering requirement and justify the choice.
+4. Test a missing key and distinguish null from a legitimate stored value.
 ### Accessibility Practice
 Navigate by class, method, and line; inspect braces, parentheses, brackets, semicolons, generic delimiters, and compiler diagnostics with the preferred screen reader or braille display. Compile and run from the terminal so the workflow does not depend on color or a visual project explorer.
 
@@ -1117,16 +1077,14 @@ public class Lesson_4_4 {
 **Expected behavior:** The program compiles on JDK 25 and prints a deterministic result illustrating introducing dictionaries with map. Run it from a terminal, compare actual output with your prediction, and change one input to test the effect.
 
 ### Common Mistakes
-- Confusing Java reference equality with value equality; compare String content with equals rather than ==.
-- Ignoring static type requirements, nullability, array bounds, or the documented return contract of an API.
-- Treating a successful compilation as proof of correctness; test boundary cases and inspect runtime behavior.
-
+- Assuming ArrayList and arrays have the same resizing behavior or index limits.
+- Trying to modify a List created with List.of, which is unmodifiable.
+- Assuming Map iteration order without choosing an ordered implementation, or treating a missing key as a stored zero.
 ### Activities
-1. Trace the program and identify the type and value of each important variable and expression.
-2. Modify one input or data item, predict the output, then compile and run the changed program.
-3. Add a boundary or invalid-input case and handle it without silently corrupting state.
-4. Write a focused assertion or test that checks the intended behavior and one failure case.
-
+1. Apply add, update, remove, lookup, and iteration operations to the same inventory data.
+2. Compare a fixed-size array, mutable ArrayList, and unmodifiable List.of value.
+3. Choose HashMap or LinkedHashMap for a stated ordering requirement and justify the choice.
+4. Test a missing key and distinguish null from a legitimate stored value.
 ### Accessibility Practice
 Navigate by class, method, and line; inspect braces, parentheses, brackets, semicolons, generic delimiters, and compiler diagnostics with the preferred screen reader or braille display. Compile and run from the terminal so the workflow does not depend on color or a visual project explorer.
 
@@ -1169,16 +1127,14 @@ public class Lesson_4_5 {
 **Expected behavior:** The program compiles on JDK 25 and prints a deterministic result illustrating looping through dictionaries. Run it from a terminal, compare actual output with your prediction, and change one input to test the effect.
 
 ### Common Mistakes
-- Confusing Java reference equality with value equality; compare String content with equals rather than ==.
-- Ignoring static type requirements, nullability, array bounds, or the documented return contract of an API.
-- Treating a successful compilation as proof of correctness; test boundary cases and inspect runtime behavior.
-
+- Assuming ArrayList and arrays have the same resizing behavior or index limits.
+- Trying to modify a List created with List.of, which is unmodifiable.
+- Assuming Map iteration order without choosing an ordered implementation, or treating a missing key as a stored zero.
 ### Activities
-1. Trace the program and identify the type and value of each important variable and expression.
-2. Modify one input or data item, predict the output, then compile and run the changed program.
-3. Add a boundary or invalid-input case and handle it without silently corrupting state.
-4. Write a focused assertion or test that checks the intended behavior and one failure case.
-
+1. Apply add, update, remove, lookup, and iteration operations to the same inventory data.
+2. Compare a fixed-size array, mutable ArrayList, and unmodifiable List.of value.
+3. Choose HashMap or LinkedHashMap for a stated ordering requirement and justify the choice.
+4. Test a missing key and distinguish null from a legitimate stored value.
 ### Accessibility Practice
 Navigate by class, method, and line; inspect braces, parentheses, brackets, semicolons, generic delimiters, and compiler diagnostics with the preferred screen reader or braille display. Compile and run from the terminal so the workflow does not depend on color or a visual project explorer.
 
@@ -1231,16 +1187,14 @@ public class Lesson_5_1 {
 **Expected behavior:** The program compiles on JDK 25 and prints a deterministic result illustrating how scanner input works. Run it from a terminal, compare actual output with your prediction, and change one input to test the effect.
 
 ### Common Mistakes
-- Confusing Java reference equality with value equality; compare String content with equals rather than ==.
-- Ignoring static type requirements, nullability, array bounds, or the documented return contract of an API.
-- Treating a successful compilation as proof of correctness; test boundary cases and inspect runtime behavior.
-
+- Mixing nextInt/next with nextLine without consuming the pending line terminator.
+- Writing a sentinel loop that fails to stop at the sentinel or does not handle end-of-input.
+- Using continue or break in a way that skips required state updates and creates a nonterminating loop.
 ### Activities
-1. Trace the program and identify the type and value of each important variable and expression.
-2. Modify one input or data item, predict the output, then compile and run the changed program.
-3. Add a boundary or invalid-input case and handle it without silently corrupting state.
-4. Write a focused assertion or test that checks the intended behavior and one failure case.
-
+1. Feed several lines of input, including an empty line and the sentinel, to the Scanner workflow.
+2. Trace the loop condition and state update for every iteration, including end-of-input.
+3. Add an attempt limit and a clear exit command to prevent an infinite prompt loop.
+4. Test that continue skips only the intended processing step and does not skip required updates.
 ### Accessibility Practice
 Navigate by class, method, and line; inspect braces, parentheses, brackets, semicolons, generic delimiters, and compiler diagnostics with the preferred screen reader or braille display. Compile and run from the terminal so the workflow does not depend on color or a visual project explorer.
 
@@ -1288,16 +1242,14 @@ public class Lesson_5_2 {
 **Expected behavior:** The program compiles on JDK 25 and prints a deterministic result illustrating the while loop in action. Run it from a terminal, compare actual output with your prediction, and change one input to test the effect.
 
 ### Common Mistakes
-- Confusing Java reference equality with value equality; compare String content with equals rather than ==.
-- Ignoring static type requirements, nullability, array bounds, or the documented return contract of an API.
-- Treating a successful compilation as proof of correctness; test boundary cases and inspect runtime behavior.
-
+- Mixing nextInt/next with nextLine without consuming the pending line terminator.
+- Writing a sentinel loop that fails to stop at the sentinel or does not handle end-of-input.
+- Using continue or break in a way that skips required state updates and creates a nonterminating loop.
 ### Activities
-1. Trace the program and identify the type and value of each important variable and expression.
-2. Modify one input or data item, predict the output, then compile and run the changed program.
-3. Add a boundary or invalid-input case and handle it without silently corrupting state.
-4. Write a focused assertion or test that checks the intended behavior and one failure case.
-
+1. Feed several lines of input, including an empty line and the sentinel, to the Scanner workflow.
+2. Trace the loop condition and state update for every iteration, including end-of-input.
+3. Add an attempt limit and a clear exit command to prevent an infinite prompt loop.
+4. Test that continue skips only the intended processing step and does not skip required updates.
 ### Accessibility Practice
 Navigate by class, method, and line; inspect braces, parentheses, brackets, semicolons, generic delimiters, and compiler diagnostics with the preferred screen reader or braille display. Compile and run from the terminal so the workflow does not depend on color or a visual project explorer.
 
@@ -1345,16 +1297,14 @@ public class Lesson_5_3 {
 **Expected behavior:** The program compiles on JDK 25 and prints a deterministic result illustrating using flags and break to exit loops. Run it from a terminal, compare actual output with your prediction, and change one input to test the effect.
 
 ### Common Mistakes
-- Confusing Java reference equality with value equality; compare String content with equals rather than ==.
-- Ignoring static type requirements, nullability, array bounds, or the documented return contract of an API.
-- Treating a successful compilation as proof of correctness; test boundary cases and inspect runtime behavior.
-
+- Mixing nextInt/next with nextLine without consuming the pending line terminator.
+- Writing a sentinel loop that fails to stop at the sentinel or does not handle end-of-input.
+- Using continue or break in a way that skips required state updates and creates a nonterminating loop.
 ### Activities
-1. Trace the program and identify the type and value of each important variable and expression.
-2. Modify one input or data item, predict the output, then compile and run the changed program.
-3. Add a boundary or invalid-input case and handle it without silently corrupting state.
-4. Write a focused assertion or test that checks the intended behavior and one failure case.
-
+1. Feed several lines of input, including an empty line and the sentinel, to the Scanner workflow.
+2. Trace the loop condition and state update for every iteration, including end-of-input.
+3. Add an attempt limit and a clear exit command to prevent an infinite prompt loop.
+4. Test that continue skips only the intended processing step and does not skip required updates.
 ### Accessibility Practice
 Navigate by class, method, and line; inspect braces, parentheses, brackets, semicolons, generic delimiters, and compiler diagnostics with the preferred screen reader or braille display. Compile and run from the terminal so the workflow does not depend on color or a visual project explorer.
 
@@ -1397,16 +1347,14 @@ public class Lesson_5_4 {
 **Expected behavior:** The program compiles on JDK 25 and prints a deterministic result illustrating using continue in loops. Run it from a terminal, compare actual output with your prediction, and change one input to test the effect.
 
 ### Common Mistakes
-- Confusing Java reference equality with value equality; compare String content with equals rather than ==.
-- Ignoring static type requirements, nullability, array bounds, or the documented return contract of an API.
-- Treating a successful compilation as proof of correctness; test boundary cases and inspect runtime behavior.
-
+- Mixing nextInt/next with nextLine without consuming the pending line terminator.
+- Writing a sentinel loop that fails to stop at the sentinel or does not handle end-of-input.
+- Using continue or break in a way that skips required state updates and creates a nonterminating loop.
 ### Activities
-1. Trace the program and identify the type and value of each important variable and expression.
-2. Modify one input or data item, predict the output, then compile and run the changed program.
-3. Add a boundary or invalid-input case and handle it without silently corrupting state.
-4. Write a focused assertion or test that checks the intended behavior and one failure case.
-
+1. Feed several lines of input, including an empty line and the sentinel, to the Scanner workflow.
+2. Trace the loop condition and state update for every iteration, including end-of-input.
+3. Add an attempt limit and a clear exit command to prevent an infinite prompt loop.
+4. Test that continue skips only the intended processing step and does not skip required updates.
 ### Accessibility Practice
 Navigate by class, method, and line; inspect braces, parentheses, brackets, semicolons, generic delimiters, and compiler diagnostics with the preferred screen reader or braille display. Compile and run from the terminal so the workflow does not depend on color or a visual project explorer.
 
@@ -1451,16 +1399,14 @@ public class Lesson_5_5 {
 **Expected behavior:** The program compiles on JDK 25 and prints a deterministic result illustrating avoiding infinite loops. Run it from a terminal, compare actual output with your prediction, and change one input to test the effect.
 
 ### Common Mistakes
-- Confusing Java reference equality with value equality; compare String content with equals rather than ==.
-- Ignoring static type requirements, nullability, array bounds, or the documented return contract of an API.
-- Treating a successful compilation as proof of correctness; test boundary cases and inspect runtime behavior.
-
+- Mixing nextInt/next with nextLine without consuming the pending line terminator.
+- Writing a sentinel loop that fails to stop at the sentinel or does not handle end-of-input.
+- Using continue or break in a way that skips required state updates and creates a nonterminating loop.
 ### Activities
-1. Trace the program and identify the type and value of each important variable and expression.
-2. Modify one input or data item, predict the output, then compile and run the changed program.
-3. Add a boundary or invalid-input case and handle it without silently corrupting state.
-4. Write a focused assertion or test that checks the intended behavior and one failure case.
-
+1. Feed several lines of input, including an empty line and the sentinel, to the Scanner workflow.
+2. Trace the loop condition and state update for every iteration, including end-of-input.
+3. Add an attempt limit and a clear exit command to prevent an infinite prompt loop.
+4. Test that continue skips only the intended processing step and does not skip required updates.
 ### Accessibility Practice
 Navigate by class, method, and line; inspect braces, parentheses, brackets, semicolons, generic delimiters, and compiler diagnostics with the preferred screen reader or braille display. Compile and run from the terminal so the workflow does not depend on color or a visual project explorer.
 
@@ -1511,16 +1457,14 @@ public class Lesson_6_1 {
 **Expected behavior:** The program compiles on JDK 25 and prints a deterministic result illustrating defining methods. Run it from a terminal, compare actual output with your prediction, and change one input to test the effect.
 
 ### Common Mistakes
-- Confusing Java reference equality with value equality; compare String content with equals rather than ==.
-- Ignoring static type requirements, nullability, array bounds, or the documented return contract of an API.
-- Treating a successful compilation as proof of correctness; test boundary cases and inspect runtime behavior.
-
+- Confusing a method's parameter list with its return type or omitting a return on one control-flow path.
+- Expecting Java to pass primitive variables by reference; arguments are passed by value.
+- Placing a varargs parameter before another parameter or using an overload that is ambiguous.
 ### Activities
-1. Trace the program and identify the type and value of each important variable and expression.
-2. Modify one input or data item, predict the output, then compile and run the changed program.
-3. Add a boundary or invalid-input case and handle it without silently corrupting state.
-4. Write a focused assertion or test that checks the intended behavior and one failure case.
-
+1. Extract repeated statements into a named method with an explicit parameter and return contract.
+2. Call the method with typical, boundary, and empty collection arguments.
+3. Add a method that accepts a List or Map and returns a computed result without modifying the input.
+4. Overload a method or add a varargs form, then explain overload resolution.
 ### Accessibility Practice
 Navigate by class, method, and line; inspect braces, parentheses, brackets, semicolons, generic delimiters, and compiler diagnostics with the preferred screen reader or braille display. Compile and run from the terminal so the workflow does not depend on color or a visual project explorer.
 
@@ -1563,16 +1507,14 @@ public class Lesson_6_2 {
 **Expected behavior:** The program compiles on JDK 25 and prints a deterministic result illustrating passing arguments. Run it from a terminal, compare actual output with your prediction, and change one input to test the effect.
 
 ### Common Mistakes
-- Confusing Java reference equality with value equality; compare String content with equals rather than ==.
-- Ignoring static type requirements, nullability, array bounds, or the documented return contract of an API.
-- Treating a successful compilation as proof of correctness; test boundary cases and inspect runtime behavior.
-
+- Confusing a method's parameter list with its return type or omitting a return on one control-flow path.
+- Expecting Java to pass primitive variables by reference; arguments are passed by value.
+- Placing a varargs parameter before another parameter or using an overload that is ambiguous.
 ### Activities
-1. Trace the program and identify the type and value of each important variable and expression.
-2. Modify one input or data item, predict the output, then compile and run the changed program.
-3. Add a boundary or invalid-input case and handle it without silently corrupting state.
-4. Write a focused assertion or test that checks the intended behavior and one failure case.
-
+1. Extract repeated statements into a named method with an explicit parameter and return contract.
+2. Call the method with typical, boundary, and empty collection arguments.
+3. Add a method that accepts a List or Map and returns a computed result without modifying the input.
+4. Overload a method or add a varargs form, then explain overload resolution.
 ### Accessibility Practice
 Navigate by class, method, and line; inspect braces, parentheses, brackets, semicolons, generic delimiters, and compiler diagnostics with the preferred screen reader or braille display. Compile and run from the terminal so the workflow does not depend on color or a visual project explorer.
 
@@ -1619,16 +1561,14 @@ public class Lesson_6_3 {
 **Expected behavior:** The program compiles on JDK 25 and prints a deterministic result illustrating return values. Run it from a terminal, compare actual output with your prediction, and change one input to test the effect.
 
 ### Common Mistakes
-- Confusing Java reference equality with value equality; compare String content with equals rather than ==.
-- Ignoring static type requirements, nullability, array bounds, or the documented return contract of an API.
-- Treating a successful compilation as proof of correctness; test boundary cases and inspect runtime behavior.
-
+- Confusing a method's parameter list with its return type or omitting a return on one control-flow path.
+- Expecting Java to pass primitive variables by reference; arguments are passed by value.
+- Placing a varargs parameter before another parameter or using an overload that is ambiguous.
 ### Activities
-1. Trace the program and identify the type and value of each important variable and expression.
-2. Modify one input or data item, predict the output, then compile and run the changed program.
-3. Add a boundary or invalid-input case and handle it without silently corrupting state.
-4. Write a focused assertion or test that checks the intended behavior and one failure case.
-
+1. Extract repeated statements into a named method with an explicit parameter and return contract.
+2. Call the method with typical, boundary, and empty collection arguments.
+3. Add a method that accepts a List or Map and returns a computed result without modifying the input.
+4. Overload a method or add a varargs form, then explain overload resolution.
 ### Accessibility Practice
 Navigate by class, method, and line; inspect braces, parentheses, brackets, semicolons, generic delimiters, and compiler diagnostics with the preferred screen reader or braille display. Compile and run from the terminal so the workflow does not depend on color or a visual project explorer.
 
@@ -1672,16 +1612,14 @@ public class Lesson_6_4 {
 **Expected behavior:** The program compiles on JDK 25 and prints a deterministic result illustrating methods with lists and maps. Run it from a terminal, compare actual output with your prediction, and change one input to test the effect.
 
 ### Common Mistakes
-- Confusing Java reference equality with value equality; compare String content with equals rather than ==.
-- Ignoring static type requirements, nullability, array bounds, or the documented return contract of an API.
-- Treating a successful compilation as proof of correctness; test boundary cases and inspect runtime behavior.
-
+- Confusing a method's parameter list with its return type or omitting a return on one control-flow path.
+- Expecting Java to pass primitive variables by reference; arguments are passed by value.
+- Placing a varargs parameter before another parameter or using an overload that is ambiguous.
 ### Activities
-1. Trace the program and identify the type and value of each important variable and expression.
-2. Modify one input or data item, predict the output, then compile and run the changed program.
-3. Add a boundary or invalid-input case and handle it without silently corrupting state.
-4. Write a focused assertion or test that checks the intended behavior and one failure case.
-
+1. Extract repeated statements into a named method with an explicit parameter and return contract.
+2. Call the method with typical, boundary, and empty collection arguments.
+3. Add a method that accepts a List or Map and returns a computed result without modifying the input.
+4. Overload a method or add a varargs form, then explain overload resolution.
 ### Accessibility Practice
 Navigate by class, method, and line; inspect braces, parentheses, brackets, semicolons, generic delimiters, and compiler diagnostics with the preferred screen reader or braille display. Compile and run from the terminal so the workflow does not depend on color or a visual project explorer.
 
@@ -1726,16 +1664,14 @@ public class Lesson_6_5 {
 **Expected behavior:** The program compiles on JDK 25 and prints a deterministic result illustrating arbitrary number of arguments. Run it from a terminal, compare actual output with your prediction, and change one input to test the effect.
 
 ### Common Mistakes
-- Confusing Java reference equality with value equality; compare String content with equals rather than ==.
-- Ignoring static type requirements, nullability, array bounds, or the documented return contract of an API.
-- Treating a successful compilation as proof of correctness; test boundary cases and inspect runtime behavior.
-
+- Confusing a method's parameter list with its return type or omitting a return on one control-flow path.
+- Expecting Java to pass primitive variables by reference; arguments are passed by value.
+- Placing a varargs parameter before another parameter or using an overload that is ambiguous.
 ### Activities
-1. Trace the program and identify the type and value of each important variable and expression.
-2. Modify one input or data item, predict the output, then compile and run the changed program.
-3. Add a boundary or invalid-input case and handle it without silently corrupting state.
-4. Write a focused assertion or test that checks the intended behavior and one failure case.
-
+1. Extract repeated statements into a named method with an explicit parameter and return contract.
+2. Call the method with typical, boundary, and empty collection arguments.
+3. Add a method that accepts a List or Map and returns a computed result without modifying the input.
+4. Overload a method or add a varargs form, then explain overload resolution.
 ### Accessibility Practice
 Navigate by class, method, and line; inspect braces, parentheses, brackets, semicolons, generic delimiters, and compiler diagnostics with the preferred screen reader or braille display. Compile and run from the terminal so the workflow does not depend on color or a visual project explorer.
 
@@ -1785,16 +1721,14 @@ public class Lesson_7_1 {
 **Expected behavior:** The program compiles on JDK 25 and prints a deterministic result illustrating why learn about classes?. Run it from a terminal, compare actual output with your prediction, and change one input to test the effect.
 
 ### Common Mistakes
-- Confusing Java reference equality with value equality; compare String content with equals rather than ==.
-- Ignoring static type requirements, nullability, array bounds, or the documented return contract of an API.
-- Treating a successful compilation as proof of correctness; test boundary cases and inspect runtime behavior.
-
+- Exposing mutable fields and allowing callers to bypass class invariants.
+- Using inheritance for a has-a relationship or failing to call the appropriate superclass constructor.
+- Confusing an overridden method with an overloaded method, or omitting @Override when overriding.
 ### Activities
-1. Trace the program and identify the type and value of each important variable and expression.
-2. Modify one input or data item, predict the output, then compile and run the changed program.
-3. Add a boundary or invalid-input case and handle it without silently corrupting state.
-4. Write a focused assertion or test that checks the intended behavior and one failure case.
-
+1. Model one shared course entity with fields, constructor validation, and behavior methods.
+2. Attempt an invalid state transition and verify encapsulation prevents it.
+3. Demonstrate a true is-a relationship with overriding and runtime dispatch.
+4. Replace an artificial inheritance relationship with composition and compare coupling.
 ### Accessibility Practice
 Navigate by class, method, and line; inspect braces, parentheses, brackets, semicolons, generic delimiters, and compiler diagnostics with the preferred screen reader or braille display. Compile and run from the terminal so the workflow does not depend on color or a visual project explorer.
 
@@ -1842,16 +1776,14 @@ public class Lesson_7_2 {
 **Expected behavior:** The program compiles on JDK 25 and prints a deterministic result illustrating creating and using a class. Run it from a terminal, compare actual output with your prediction, and change one input to test the effect.
 
 ### Common Mistakes
-- Confusing Java reference equality with value equality; compare String content with equals rather than ==.
-- Ignoring static type requirements, nullability, array bounds, or the documented return contract of an API.
-- Treating a successful compilation as proof of correctness; test boundary cases and inspect runtime behavior.
-
+- Exposing mutable fields and allowing callers to bypass class invariants.
+- Using inheritance for a has-a relationship or failing to call the appropriate superclass constructor.
+- Confusing an overridden method with an overloaded method, or omitting @Override when overriding.
 ### Activities
-1. Trace the program and identify the type and value of each important variable and expression.
-2. Modify one input or data item, predict the output, then compile and run the changed program.
-3. Add a boundary or invalid-input case and handle it without silently corrupting state.
-4. Write a focused assertion or test that checks the intended behavior and one failure case.
-
+1. Model one shared course entity with fields, constructor validation, and behavior methods.
+2. Attempt an invalid state transition and verify encapsulation prevents it.
+3. Demonstrate a true is-a relationship with overriding and runtime dispatch.
+4. Replace an artificial inheritance relationship with composition and compare coupling.
 ### Accessibility Practice
 Navigate by class, method, and line; inspect braces, parentheses, brackets, semicolons, generic delimiters, and compiler diagnostics with the preferred screen reader or braille display. Compile and run from the terminal so the workflow does not depend on color or a visual project explorer.
 
@@ -1899,16 +1831,14 @@ public class Lesson_7_3 {
 **Expected behavior:** The program compiles on JDK 25 and prints a deterministic result illustrating working with attributes and methods. Run it from a terminal, compare actual output with your prediction, and change one input to test the effect.
 
 ### Common Mistakes
-- Confusing Java reference equality with value equality; compare String content with equals rather than ==.
-- Ignoring static type requirements, nullability, array bounds, or the documented return contract of an API.
-- Treating a successful compilation as proof of correctness; test boundary cases and inspect runtime behavior.
-
+- Exposing mutable fields and allowing callers to bypass class invariants.
+- Using inheritance for a has-a relationship or failing to call the appropriate superclass constructor.
+- Confusing an overridden method with an overloaded method, or omitting @Override when overriding.
 ### Activities
-1. Trace the program and identify the type and value of each important variable and expression.
-2. Modify one input or data item, predict the output, then compile and run the changed program.
-3. Add a boundary or invalid-input case and handle it without silently corrupting state.
-4. Write a focused assertion or test that checks the intended behavior and one failure case.
-
+1. Model one shared course entity with fields, constructor validation, and behavior methods.
+2. Attempt an invalid state transition and verify encapsulation prevents it.
+3. Demonstrate a true is-a relationship with overriding and runtime dispatch.
+4. Replace an artificial inheritance relationship with composition and compare coupling.
 ### Accessibility Practice
 Navigate by class, method, and line; inspect braces, parentheses, brackets, semicolons, generic delimiters, and compiler diagnostics with the preferred screen reader or braille display. Compile and run from the terminal so the workflow does not depend on color or a visual project explorer.
 
@@ -1958,16 +1888,14 @@ public class Lesson_7_4 {
 **Expected behavior:** The program compiles on JDK 25 and prints a deterministic result illustrating inheritance and overriding. Run it from a terminal, compare actual output with your prediction, and change one input to test the effect.
 
 ### Common Mistakes
-- Confusing Java reference equality with value equality; compare String content with equals rather than ==.
-- Ignoring static type requirements, nullability, array bounds, or the documented return contract of an API.
-- Treating a successful compilation as proof of correctness; test boundary cases and inspect runtime behavior.
-
+- Exposing mutable fields and allowing callers to bypass class invariants.
+- Using inheritance for a has-a relationship or failing to call the appropriate superclass constructor.
+- Confusing an overridden method with an overloaded method, or omitting @Override when overriding.
 ### Activities
-1. Trace the program and identify the type and value of each important variable and expression.
-2. Modify one input or data item, predict the output, then compile and run the changed program.
-3. Add a boundary or invalid-input case and handle it without silently corrupting state.
-4. Write a focused assertion or test that checks the intended behavior and one failure case.
-
+1. Model one shared course entity with fields, constructor validation, and behavior methods.
+2. Attempt an invalid state transition and verify encapsulation prevents it.
+3. Demonstrate a true is-a relationship with overriding and runtime dispatch.
+4. Replace an artificial inheritance relationship with composition and compare coupling.
 ### Accessibility Practice
 Navigate by class, method, and line; inspect braces, parentheses, brackets, semicolons, generic delimiters, and compiler diagnostics with the preferred screen reader or braille display. Compile and run from the terminal so the workflow does not depend on color or a visual project explorer.
 
@@ -2011,16 +1939,14 @@ public class Lesson_7_5 {
 **Expected behavior:** The program compiles on JDK 25 and prints a deterministic result illustrating instances as attributes: composition. Run it from a terminal, compare actual output with your prediction, and change one input to test the effect.
 
 ### Common Mistakes
-- Confusing Java reference equality with value equality; compare String content with equals rather than ==.
-- Ignoring static type requirements, nullability, array bounds, or the documented return contract of an API.
-- Treating a successful compilation as proof of correctness; test boundary cases and inspect runtime behavior.
-
+- Exposing mutable fields and allowing callers to bypass class invariants.
+- Using inheritance for a has-a relationship or failing to call the appropriate superclass constructor.
+- Confusing an overridden method with an overloaded method, or omitting @Override when overriding.
 ### Activities
-1. Trace the program and identify the type and value of each important variable and expression.
-2. Modify one input or data item, predict the output, then compile and run the changed program.
-3. Add a boundary or invalid-input case and handle it without silently corrupting state.
-4. Write a focused assertion or test that checks the intended behavior and one failure case.
-
+1. Model one shared course entity with fields, constructor validation, and behavior methods.
+2. Attempt an invalid state transition and verify encapsulation prevents it.
+3. Demonstrate a true is-a relationship with overriding and runtime dispatch.
+4. Replace an artificial inheritance relationship with composition and compare coupling.
 ### Accessibility Practice
 Navigate by class, method, and line; inspect braces, parentheses, brackets, semicolons, generic delimiters, and compiler diagnostics with the preferred screen reader or braille display. Compile and run from the terminal so the workflow does not depend on color or a visual project explorer.
 
@@ -2073,16 +1999,14 @@ public class Lesson_8_1 {
 **Expected behavior:** The program compiles on JDK 25 and prints a deterministic result illustrating reading from a file. Run it from a terminal, compare actual output with your prediction, and change one input to test the effect.
 
 ### Common Mistakes
-- Confusing Java reference equality with value equality; compare String content with equals rather than ==.
-- Ignoring static type requirements, nullability, array bounds, or the documented return contract of an API.
-- Treating a successful compilation as proof of correctness; test boundary cases and inspect runtime behavior.
-
+- Leaving a stream open instead of using try-with-resources or ignoring IOException.
+- Catching Exception broadly and hiding failures that should be reported or propagated.
+- Assuming JSON parsing is built into Java SE or constructing JSON with unsafe string concatenation.
 ### Activities
-1. Trace the program and identify the type and value of each important variable and expression.
-2. Modify one input or data item, predict the output, then compile and run the changed program.
-3. Add a boundary or invalid-input case and handle it without silently corrupting state.
-4. Write a focused assertion or test that checks the intended behavior and one failure case.
-
+1. Read and write a temporary file, then verify the file content and clean up the resource.
+2. Test a missing file and malformed numeric content; distinguish checked from unchecked exceptions.
+3. Explain which resources are closed by try-with-resources and which code executes in finally.
+4. Document why production JSON requires a parser/serializer library and test malformed JSON with that library when available.
 ### Accessibility Practice
 Navigate by class, method, and line; inspect braces, parentheses, brackets, semicolons, generic delimiters, and compiler diagnostics with the preferred screen reader or braille display. Compile and run from the terminal so the workflow does not depend on color or a visual project explorer.
 
@@ -2127,16 +2051,14 @@ public class Lesson_8_2 {
 **Expected behavior:** The program compiles on JDK 25 and prints a deterministic result illustrating writing to a file. Run it from a terminal, compare actual output with your prediction, and change one input to test the effect.
 
 ### Common Mistakes
-- Confusing Java reference equality with value equality; compare String content with equals rather than ==.
-- Ignoring static type requirements, nullability, array bounds, or the documented return contract of an API.
-- Treating a successful compilation as proof of correctness; test boundary cases and inspect runtime behavior.
-
+- Leaving a stream open instead of using try-with-resources or ignoring IOException.
+- Catching Exception broadly and hiding failures that should be reported or propagated.
+- Assuming JSON parsing is built into Java SE or constructing JSON with unsafe string concatenation.
 ### Activities
-1. Trace the program and identify the type and value of each important variable and expression.
-2. Modify one input or data item, predict the output, then compile and run the changed program.
-3. Add a boundary or invalid-input case and handle it without silently corrupting state.
-4. Write a focused assertion or test that checks the intended behavior and one failure case.
-
+1. Read and write a temporary file, then verify the file content and clean up the resource.
+2. Test a missing file and malformed numeric content; distinguish checked from unchecked exceptions.
+3. Explain which resources are closed by try-with-resources and which code executes in finally.
+4. Document why production JSON requires a parser/serializer library and test malformed JSON with that library when available.
 ### Accessibility Practice
 Navigate by class, method, and line; inspect braces, parentheses, brackets, semicolons, generic delimiters, and compiler diagnostics with the preferred screen reader or braille display. Compile and run from the terminal so the workflow does not depend on color or a visual project explorer.
 
@@ -2182,16 +2104,14 @@ public class Lesson_8_3 {
 **Expected behavior:** The program compiles on JDK 25 and prints a deterministic result illustrating exceptions and handling errors. Run it from a terminal, compare actual output with your prediction, and change one input to test the effect.
 
 ### Common Mistakes
-- Confusing Java reference equality with value equality; compare String content with equals rather than ==.
-- Ignoring static type requirements, nullability, array bounds, or the documented return contract of an API.
-- Treating a successful compilation as proof of correctness; test boundary cases and inspect runtime behavior.
-
+- Leaving a stream open instead of using try-with-resources or ignoring IOException.
+- Catching Exception broadly and hiding failures that should be reported or propagated.
+- Assuming JSON parsing is built into Java SE or constructing JSON with unsafe string concatenation.
 ### Activities
-1. Trace the program and identify the type and value of each important variable and expression.
-2. Modify one input or data item, predict the output, then compile and run the changed program.
-3. Add a boundary or invalid-input case and handle it without silently corrupting state.
-4. Write a focused assertion or test that checks the intended behavior and one failure case.
-
+1. Read and write a temporary file, then verify the file content and clean up the resource.
+2. Test a missing file and malformed numeric content; distinguish checked from unchecked exceptions.
+3. Explain which resources are closed by try-with-resources and which code executes in finally.
+4. Document why production JSON requires a parser/serializer library and test malformed JSON with that library when available.
 ### Accessibility Practice
 Navigate by class, method, and line; inspect braces, parentheses, brackets, semicolons, generic delimiters, and compiler diagnostics with the preferred screen reader or braille display. Compile and run from the terminal so the workflow does not depend on color or a visual project explorer.
 
@@ -2238,16 +2158,14 @@ public class Lesson_8_4 {
 **Expected behavior:** The program compiles on JDK 25 and prints a deterministic result illustrating the catch, finally, and try-with-resources patterns. Run it from a terminal, compare actual output with your prediction, and change one input to test the effect.
 
 ### Common Mistakes
-- Confusing Java reference equality with value equality; compare String content with equals rather than ==.
-- Ignoring static type requirements, nullability, array bounds, or the documented return contract of an API.
-- Treating a successful compilation as proof of correctness; test boundary cases and inspect runtime behavior.
-
+- Leaving a stream open instead of using try-with-resources or ignoring IOException.
+- Catching Exception broadly and hiding failures that should be reported or propagated.
+- Assuming JSON parsing is built into Java SE or constructing JSON with unsafe string concatenation.
 ### Activities
-1. Trace the program and identify the type and value of each important variable and expression.
-2. Modify one input or data item, predict the output, then compile and run the changed program.
-3. Add a boundary or invalid-input case and handle it without silently corrupting state.
-4. Write a focused assertion or test that checks the intended behavior and one failure case.
-
+1. Read and write a temporary file, then verify the file content and clean up the resource.
+2. Test a missing file and malformed numeric content; distinguish checked from unchecked exceptions.
+3. Explain which resources are closed by try-with-resources and which code executes in finally.
+4. Document why production JSON requires a parser/serializer library and test malformed JSON with that library when available.
 ### Accessibility Practice
 Navigate by class, method, and line; inspect braces, parentheses, brackets, semicolons, generic delimiters, and compiler diagnostics with the preferred screen reader or braille display. Compile and run from the terminal so the workflow does not depend on color or a visual project explorer.
 
@@ -2289,16 +2207,14 @@ public class Lesson_8_5 {
 **Expected behavior:** The program compiles on JDK 25 and prints a deterministic result illustrating storing data with json. Run it from a terminal, compare actual output with your prediction, and change one input to test the effect.
 
 ### Common Mistakes
-- Confusing Java reference equality with value equality; compare String content with equals rather than ==.
-- Ignoring static type requirements, nullability, array bounds, or the documented return contract of an API.
-- Treating a successful compilation as proof of correctness; test boundary cases and inspect runtime behavior.
-
+- Leaving a stream open instead of using try-with-resources or ignoring IOException.
+- Catching Exception broadly and hiding failures that should be reported or propagated.
+- Assuming JSON parsing is built into Java SE or constructing JSON with unsafe string concatenation.
 ### Activities
-1. Trace the program and identify the type and value of each important variable and expression.
-2. Modify one input or data item, predict the output, then compile and run the changed program.
-3. Add a boundary or invalid-input case and handle it without silently corrupting state.
-4. Write a focused assertion or test that checks the intended behavior and one failure case.
-
+1. Read and write a temporary file, then verify the file content and clean up the resource.
+2. Test a missing file and malformed numeric content; distinguish checked from unchecked exceptions.
+3. Explain which resources are closed by try-with-resources and which code executes in finally.
+4. Document why production JSON requires a parser/serializer library and test malformed JSON with that library when available.
 ### Accessibility Practice
 Navigate by class, method, and line; inspect braces, parentheses, brackets, semicolons, generic delimiters, and compiler diagnostics with the preferred screen reader or braille display. Compile and run from the terminal so the workflow does not depend on color or a visual project explorer.
 
@@ -2350,16 +2266,14 @@ public class Lesson_9_1 {
 **Expected behavior:** The program compiles on JDK 25 and prints a deterministic result illustrating testing a method. Run it from a terminal, compare actual output with your prediction, and change one input to test the effect.
 
 ### Common Mistakes
-- Confusing Java reference equality with value equality; compare String content with equals rather than ==.
-- Ignoring static type requirements, nullability, array bounds, or the documented return contract of an API.
-- Treating a successful compilation as proof of correctness; test boundary cases and inspect runtime behavior.
-
+- Relying on Java's assert statements without enabling assertions, or testing implementation details instead of behavior.
+- Allowing tests to share mutable state so their order affects results.
+- Assuming a simple comma split handles quoted CSV fields or using an unseeded random source in a reproducibility exercise.
 ### Activities
-1. Trace the program and identify the type and value of each important variable and expression.
-2. Modify one input or data item, predict the output, then compile and run the changed program.
-3. Add a boundary or invalid-input case and handle it without silently corrupting state.
-4. Write a focused assertion or test that checks the intended behavior and one failure case.
-
+1. Write one passing and one failing test for a pure method, then run the tests repeatedly.
+2. Seed a Random instance and verify the exercise is reproducible.
+3. Analyze a sentence for word counts after applying a documented normalization rule.
+4. Test CSV data with quoted commas and explain why a production parser is required.
 ### Accessibility Practice
 Navigate by class, method, and line; inspect braces, parentheses, brackets, semicolons, generic delimiters, and compiler diagnostics with the preferred screen reader or braille display. Compile and run from the terminal so the workflow does not depend on color or a visual project explorer.
 
@@ -2405,16 +2319,14 @@ public class Lesson_9_2 {
 **Expected behavior:** The program compiles on JDK 25 and prints a deterministic result illustrating testing a class. Run it from a terminal, compare actual output with your prediction, and change one input to test the effect.
 
 ### Common Mistakes
-- Confusing Java reference equality with value equality; compare String content with equals rather than ==.
-- Ignoring static type requirements, nullability, array bounds, or the documented return contract of an API.
-- Treating a successful compilation as proof of correctness; test boundary cases and inspect runtime behavior.
-
+- Relying on Java's assert statements without enabling assertions, or testing implementation details instead of behavior.
+- Allowing tests to share mutable state so their order affects results.
+- Assuming a simple comma split handles quoted CSV fields or using an unseeded random source in a reproducibility exercise.
 ### Activities
-1. Trace the program and identify the type and value of each important variable and expression.
-2. Modify one input or data item, predict the output, then compile and run the changed program.
-3. Add a boundary or invalid-input case and handle it without silently corrupting state.
-4. Write a focused assertion or test that checks the intended behavior and one failure case.
-
+1. Write one passing and one failing test for a pure method, then run the tests repeatedly.
+2. Seed a Random instance and verify the exercise is reproducible.
+3. Analyze a sentence for word counts after applying a documented normalization rule.
+4. Test CSV data with quoted commas and explain why a production parser is required.
 ### Accessibility Practice
 Navigate by class, method, and line; inspect braces, parentheses, brackets, semicolons, generic delimiters, and compiler diagnostics with the preferred screen reader or braille display. Compile and run from the terminal so the workflow does not depend on color or a visual project explorer.
 
@@ -2455,16 +2367,14 @@ public class Lesson_9_3 {
 **Expected behavior:** The program compiles on JDK 25 and prints a deterministic result illustrating introduction to random numbers. Run it from a terminal, compare actual output with your prediction, and change one input to test the effect.
 
 ### Common Mistakes
-- Confusing Java reference equality with value equality; compare String content with equals rather than ==.
-- Ignoring static type requirements, nullability, array bounds, or the documented return contract of an API.
-- Treating a successful compilation as proof of correctness; test boundary cases and inspect runtime behavior.
-
+- Relying on Java's assert statements without enabling assertions, or testing implementation details instead of behavior.
+- Allowing tests to share mutable state so their order affects results.
+- Assuming a simple comma split handles quoted CSV fields or using an unseeded random source in a reproducibility exercise.
 ### Activities
-1. Trace the program and identify the type and value of each important variable and expression.
-2. Modify one input or data item, predict the output, then compile and run the changed program.
-3. Add a boundary or invalid-input case and handle it without silently corrupting state.
-4. Write a focused assertion or test that checks the intended behavior and one failure case.
-
+1. Write one passing and one failing test for a pure method, then run the tests repeatedly.
+2. Seed a Random instance and verify the exercise is reproducible.
+3. Analyze a sentence for word counts after applying a documented normalization rule.
+4. Test CSV data with quoted commas and explain why a production parser is required.
 ### Accessibility Practice
 Navigate by class, method, and line; inspect braces, parentheses, brackets, semicolons, generic delimiters, and compiler diagnostics with the preferred screen reader or braille display. Compile and run from the terminal so the workflow does not depend on color or a visual project explorer.
 
@@ -2508,16 +2418,14 @@ public class Lesson_9_4 {
 **Expected behavior:** The program compiles on JDK 25 and prints a deterministic result illustrating analyzing text data. Run it from a terminal, compare actual output with your prediction, and change one input to test the effect.
 
 ### Common Mistakes
-- Confusing Java reference equality with value equality; compare String content with equals rather than ==.
-- Ignoring static type requirements, nullability, array bounds, or the documented return contract of an API.
-- Treating a successful compilation as proof of correctness; test boundary cases and inspect runtime behavior.
-
+- Relying on Java's assert statements without enabling assertions, or testing implementation details instead of behavior.
+- Allowing tests to share mutable state so their order affects results.
+- Assuming a simple comma split handles quoted CSV fields or using an unseeded random source in a reproducibility exercise.
 ### Activities
-1. Trace the program and identify the type and value of each important variable and expression.
-2. Modify one input or data item, predict the output, then compile and run the changed program.
-3. Add a boundary or invalid-input case and handle it without silently corrupting state.
-4. Write a focused assertion or test that checks the intended behavior and one failure case.
-
+1. Write one passing and one failing test for a pure method, then run the tests repeatedly.
+2. Seed a Random instance and verify the exercise is reproducible.
+3. Analyze a sentence for word counts after applying a documented normalization rule.
+4. Test CSV data with quoted commas and explain why a production parser is required.
 ### Accessibility Practice
 Navigate by class, method, and line; inspect braces, parentheses, brackets, semicolons, generic delimiters, and compiler diagnostics with the preferred screen reader or braille display. Compile and run from the terminal so the workflow does not depend on color or a visual project explorer.
 
@@ -2559,16 +2467,14 @@ public class Lesson_9_5 {
 **Expected behavior:** The program compiles on JDK 25 and prints a deterministic result illustrating working with csv data. Run it from a terminal, compare actual output with your prediction, and change one input to test the effect.
 
 ### Common Mistakes
-- Confusing Java reference equality with value equality; compare String content with equals rather than ==.
-- Ignoring static type requirements, nullability, array bounds, or the documented return contract of an API.
-- Treating a successful compilation as proof of correctness; test boundary cases and inspect runtime behavior.
-
+- Relying on Java's assert statements without enabling assertions, or testing implementation details instead of behavior.
+- Allowing tests to share mutable state so their order affects results.
+- Assuming a simple comma split handles quoted CSV fields or using an unseeded random source in a reproducibility exercise.
 ### Activities
-1. Trace the program and identify the type and value of each important variable and expression.
-2. Modify one input or data item, predict the output, then compile and run the changed program.
-3. Add a boundary or invalid-input case and handle it without silently corrupting state.
-4. Write a focused assertion or test that checks the intended behavior and one failure case.
-
+1. Write one passing and one failing test for a pure method, then run the tests repeatedly.
+2. Seed a Random instance and verify the exercise is reproducible.
+3. Analyze a sentence for word counts after applying a documented normalization rule.
+4. Test CSV data with quoted commas and explain why a production parser is required.
 ### Accessibility Practice
 Navigate by class, method, and line; inspect braces, parentheses, brackets, semicolons, generic delimiters, and compiler diagnostics with the preferred screen reader or braille display. Compile and run from the terminal so the workflow does not depend on color or a visual project explorer.
 
@@ -2617,16 +2523,14 @@ public class Lesson_10_1 {
 **Expected behavior:** The program compiles on JDK 25 and prints a deterministic result illustrating designing your project. Run it from a terminal, compare actual output with your prediction, and change one input to test the effect.
 
 ### Common Mistakes
-- Confusing Java reference equality with value equality; compare String content with equals rather than ==.
-- Ignoring static type requirements, nullability, array bounds, or the documented return contract of an API.
-- Treating a successful compilation as proof of correctness; test boundary cases and inspect runtime behavior.
-
+- Starting implementation before writing observable requirements and acceptance tests.
+- Mixing command parsing, domain state, and persistence into one method or class.
+- Allowing invalid commands or list indexes to mutate project state without a clear error.
 ### Activities
-1. Trace the program and identify the type and value of each important variable and expression.
-2. Modify one input or data item, predict the output, then compile and run the changed program.
-3. Add a boundary or invalid-input case and handle it without silently corrupting state.
-4. Write a focused assertion or test that checks the intended behavior and one failure case.
-
+1. Write user stories and acceptance criteria before adding a feature to the text application.
+2. Implement one room transition or task operation and test the valid and invalid command paths.
+3. Separate domain logic from the input/output loop and test the domain logic without terminal input.
+4. Run a keyboard-only walkthrough and revise prompts, error messages, and help text.
 ### Accessibility Practice
 Navigate by class, method, and line; inspect braces, parentheses, brackets, semicolons, generic delimiters, and compiler diagnostics with the preferred screen reader or braille display. Compile and run from the terminal so the workflow does not depend on color or a visual project explorer.
 
@@ -2669,16 +2573,14 @@ public class Lesson_10_2 {
 **Expected behavior:** The program compiles on JDK 25 and prints a deterministic result illustrating building a text adventure: rooms and movement. Run it from a terminal, compare actual output with your prediction, and change one input to test the effect.
 
 ### Common Mistakes
-- Confusing Java reference equality with value equality; compare String content with equals rather than ==.
-- Ignoring static type requirements, nullability, array bounds, or the documented return contract of an API.
-- Treating a successful compilation as proof of correctness; test boundary cases and inspect runtime behavior.
-
+- Starting implementation before writing observable requirements and acceptance tests.
+- Mixing command parsing, domain state, and persistence into one method or class.
+- Allowing invalid commands or list indexes to mutate project state without a clear error.
 ### Activities
-1. Trace the program and identify the type and value of each important variable and expression.
-2. Modify one input or data item, predict the output, then compile and run the changed program.
-3. Add a boundary or invalid-input case and handle it without silently corrupting state.
-4. Write a focused assertion or test that checks the intended behavior and one failure case.
-
+1. Write user stories and acceptance criteria before adding a feature to the text application.
+2. Implement one room transition or task operation and test the valid and invalid command paths.
+3. Separate domain logic from the input/output loop and test the domain logic without terminal input.
+4. Run a keyboard-only walkthrough and revise prompts, error messages, and help text.
 ### Accessibility Practice
 Navigate by class, method, and line; inspect braces, parentheses, brackets, semicolons, generic delimiters, and compiler diagnostics with the preferred screen reader or braille display. Compile and run from the terminal so the workflow does not depend on color or a visual project explorer.
 
@@ -2722,16 +2624,14 @@ public class Lesson_10_3 {
 **Expected behavior:** The program compiles on JDK 25 and prints a deterministic result illustrating building a text adventure: inventory and events. Run it from a terminal, compare actual output with your prediction, and change one input to test the effect.
 
 ### Common Mistakes
-- Confusing Java reference equality with value equality; compare String content with equals rather than ==.
-- Ignoring static type requirements, nullability, array bounds, or the documented return contract of an API.
-- Treating a successful compilation as proof of correctness; test boundary cases and inspect runtime behavior.
-
+- Starting implementation before writing observable requirements and acceptance tests.
+- Mixing command parsing, domain state, and persistence into one method or class.
+- Allowing invalid commands or list indexes to mutate project state without a clear error.
 ### Activities
-1. Trace the program and identify the type and value of each important variable and expression.
-2. Modify one input or data item, predict the output, then compile and run the changed program.
-3. Add a boundary or invalid-input case and handle it without silently corrupting state.
-4. Write a focused assertion or test that checks the intended behavior and one failure case.
-
+1. Write user stories and acceptance criteria before adding a feature to the text application.
+2. Implement one room transition or task operation and test the valid and invalid command paths.
+3. Separate domain logic from the input/output loop and test the domain logic without terminal input.
+4. Run a keyboard-only walkthrough and revise prompts, error messages, and help text.
 ### Accessibility Practice
 Navigate by class, method, and line; inspect braces, parentheses, brackets, semicolons, generic delimiters, and compiler diagnostics with the preferred screen reader or braille display. Compile and run from the terminal so the workflow does not depend on color or a visual project explorer.
 
@@ -2773,16 +2673,14 @@ public class Lesson_10_4 {
 **Expected behavior:** The program compiles on JDK 25 and prints a deterministic result illustrating developing a command-line to-do tool. Run it from a terminal, compare actual output with your prediction, and change one input to test the effect.
 
 ### Common Mistakes
-- Confusing Java reference equality with value equality; compare String content with equals rather than ==.
-- Ignoring static type requirements, nullability, array bounds, or the documented return contract of an API.
-- Treating a successful compilation as proof of correctness; test boundary cases and inspect runtime behavior.
-
+- Starting implementation before writing observable requirements and acceptance tests.
+- Mixing command parsing, domain state, and persistence into one method or class.
+- Allowing invalid commands or list indexes to mutate project state without a clear error.
 ### Activities
-1. Trace the program and identify the type and value of each important variable and expression.
-2. Modify one input or data item, predict the output, then compile and run the changed program.
-3. Add a boundary or invalid-input case and handle it without silently corrupting state.
-4. Write a focused assertion or test that checks the intended behavior and one failure case.
-
+1. Write user stories and acceptance criteria before adding a feature to the text application.
+2. Implement one room transition or task operation and test the valid and invalid command paths.
+3. Separate domain logic from the input/output loop and test the domain logic without terminal input.
+4. Run a keyboard-only walkthrough and revise prompts, error messages, and help text.
 ### Accessibility Practice
 Navigate by class, method, and line; inspect braces, parentheses, brackets, semicolons, generic delimiters, and compiler diagnostics with the preferred screen reader or braille display. Compile and run from the terminal so the workflow does not depend on color or a visual project explorer.
 
@@ -2824,16 +2722,14 @@ public class Lesson_10_5 {
 **Expected behavior:** The program compiles on JDK 25 and prints a deterministic result illustrating refinement, accessibility, and user experience. Run it from a terminal, compare actual output with your prediction, and change one input to test the effect.
 
 ### Common Mistakes
-- Confusing Java reference equality with value equality; compare String content with equals rather than ==.
-- Ignoring static type requirements, nullability, array bounds, or the documented return contract of an API.
-- Treating a successful compilation as proof of correctness; test boundary cases and inspect runtime behavior.
-
+- Starting implementation before writing observable requirements and acceptance tests.
+- Mixing command parsing, domain state, and persistence into one method or class.
+- Allowing invalid commands or list indexes to mutate project state without a clear error.
 ### Activities
-1. Trace the program and identify the type and value of each important variable and expression.
-2. Modify one input or data item, predict the output, then compile and run the changed program.
-3. Add a boundary or invalid-input case and handle it without silently corrupting state.
-4. Write a focused assertion or test that checks the intended behavior and one failure case.
-
+1. Write user stories and acceptance criteria before adding a feature to the text application.
+2. Implement one room transition or task operation and test the valid and invalid command paths.
+3. Separate domain logic from the input/output loop and test the domain logic without terminal input.
+4. Run a keyboard-only walkthrough and revise prompts, error messages, and help text.
 ### Accessibility Practice
 Navigate by class, method, and line; inspect braces, parentheses, brackets, semicolons, generic delimiters, and compiler diagnostics with the preferred screen reader or braille display. Compile and run from the terminal so the workflow does not depend on color or a visual project explorer.
 
@@ -2883,16 +2779,14 @@ public class Lesson_11_1 {
 **Expected behavior:** The program compiles on JDK 25 and prints a deterministic result illustrating capstone requirements and architecture. Run it from a terminal, compare actual output with your prediction, and change one input to test the effect.
 
 ### Common Mistakes
-- Confusing Java reference equality with value equality; compare String content with equals rather than ==.
-- Ignoring static type requirements, nullability, array bounds, or the documented return contract of an API.
-- Treating a successful compilation as proof of correctness; test boundary cases and inspect runtime behavior.
-
+- Using record display or object identity as a substitute for a stable application identifier.
+- Persisting data before validating it or overwriting a valid file after a failed update.
+- Testing individual methods only and missing broken integration between menu, model, validation, and storage.
 ### Activities
-1. Trace the program and identify the type and value of each important variable and expression.
-2. Modify one input or data item, predict the output, then compile and run the changed program.
-3. Add a boundary or invalid-input case and handle it without silently corrupting state.
-4. Write a focused assertion or test that checks the intended behavior and one failure case.
-
+1. Write a record schema and identify required, optional, and unique fields before implementation.
+2. Test create, read, update, and delete operations against both in-memory and persisted data.
+3. Simulate malformed or unavailable storage and verify existing valid data is not silently lost.
+4. Demonstrate the complete manager from startup through validation, persistence, restart, and retrieval.
 ### Accessibility Practice
 Navigate by class, method, and line; inspect braces, parentheses, brackets, semicolons, generic delimiters, and compiler diagnostics with the preferred screen reader or braille display. Compile and run from the terminal so the workflow does not depend on color or a visual project explorer.
 
@@ -2935,16 +2829,14 @@ public class Lesson_11_2 {
 **Expected behavior:** The program compiles on JDK 25 and prints a deterministic result illustrating data model and storage. Run it from a terminal, compare actual output with your prediction, and change one input to test the effect.
 
 ### Common Mistakes
-- Confusing Java reference equality with value equality; compare String content with equals rather than ==.
-- Ignoring static type requirements, nullability, array bounds, or the documented return contract of an API.
-- Treating a successful compilation as proof of correctness; test boundary cases and inspect runtime behavior.
-
+- Using record display or object identity as a substitute for a stable application identifier.
+- Persisting data before validating it or overwriting a valid file after a failed update.
+- Testing individual methods only and missing broken integration between menu, model, validation, and storage.
 ### Activities
-1. Trace the program and identify the type and value of each important variable and expression.
-2. Modify one input or data item, predict the output, then compile and run the changed program.
-3. Add a boundary or invalid-input case and handle it without silently corrupting state.
-4. Write a focused assertion or test that checks the intended behavior and one failure case.
-
+1. Write a record schema and identify required, optional, and unique fields before implementation.
+2. Test create, read, update, and delete operations against both in-memory and persisted data.
+3. Simulate malformed or unavailable storage and verify existing valid data is not silently lost.
+4. Demonstrate the complete manager from startup through validation, persistence, restart, and retrieval.
 ### Accessibility Practice
 Navigate by class, method, and line; inspect braces, parentheses, brackets, semicolons, generic delimiters, and compiler diagnostics with the preferred screen reader or braille display. Compile and run from the terminal so the workflow does not depend on color or a visual project explorer.
 
@@ -2988,16 +2880,14 @@ public class Lesson_11_3 {
 **Expected behavior:** The program compiles on JDK 25 and prints a deterministic result illustrating displaying and managing records. Run it from a terminal, compare actual output with your prediction, and change one input to test the effect.
 
 ### Common Mistakes
-- Confusing Java reference equality with value equality; compare String content with equals rather than ==.
-- Ignoring static type requirements, nullability, array bounds, or the documented return contract of an API.
-- Treating a successful compilation as proof of correctness; test boundary cases and inspect runtime behavior.
-
+- Using record display or object identity as a substitute for a stable application identifier.
+- Persisting data before validating it or overwriting a valid file after a failed update.
+- Testing individual methods only and missing broken integration between menu, model, validation, and storage.
 ### Activities
-1. Trace the program and identify the type and value of each important variable and expression.
-2. Modify one input or data item, predict the output, then compile and run the changed program.
-3. Add a boundary or invalid-input case and handle it without silently corrupting state.
-4. Write a focused assertion or test that checks the intended behavior and one failure case.
-
+1. Write a record schema and identify required, optional, and unique fields before implementation.
+2. Test create, read, update, and delete operations against both in-memory and persisted data.
+3. Simulate malformed or unavailable storage and verify existing valid data is not silently lost.
+4. Demonstrate the complete manager from startup through validation, persistence, restart, and retrieval.
 ### Accessibility Practice
 Navigate by class, method, and line; inspect braces, parentheses, brackets, semicolons, generic delimiters, and compiler diagnostics with the preferred screen reader or braille display. Compile and run from the terminal so the workflow does not depend on color or a visual project explorer.
 
@@ -3039,16 +2929,14 @@ public class Lesson_11_4 {
 **Expected behavior:** The program compiles on JDK 25 and prints a deterministic result illustrating validation, testing, and error recovery. Run it from a terminal, compare actual output with your prediction, and change one input to test the effect.
 
 ### Common Mistakes
-- Confusing Java reference equality with value equality; compare String content with equals rather than ==.
-- Ignoring static type requirements, nullability, array bounds, or the documented return contract of an API.
-- Treating a successful compilation as proof of correctness; test boundary cases and inspect runtime behavior.
-
+- Using record display or object identity as a substitute for a stable application identifier.
+- Persisting data before validating it or overwriting a valid file after a failed update.
+- Testing individual methods only and missing broken integration between menu, model, validation, and storage.
 ### Activities
-1. Trace the program and identify the type and value of each important variable and expression.
-2. Modify one input or data item, predict the output, then compile and run the changed program.
-3. Add a boundary or invalid-input case and handle it without silently corrupting state.
-4. Write a focused assertion or test that checks the intended behavior and one failure case.
-
+1. Write a record schema and identify required, optional, and unique fields before implementation.
+2. Test create, read, update, and delete operations against both in-memory and persisted data.
+3. Simulate malformed or unavailable storage and verify existing valid data is not silently lost.
+4. Demonstrate the complete manager from startup through validation, persistence, restart, and retrieval.
 ### Accessibility Practice
 Navigate by class, method, and line; inspect braces, parentheses, brackets, semicolons, generic delimiters, and compiler diagnostics with the preferred screen reader or braille display. Compile and run from the terminal so the workflow does not depend on color or a visual project explorer.
 
@@ -3089,16 +2977,14 @@ public class Lesson_11_5 {
 **Expected behavior:** The program compiles on JDK 25 and prints a deterministic result illustrating integration, documentation, and demonstration. Run it from a terminal, compare actual output with your prediction, and change one input to test the effect.
 
 ### Common Mistakes
-- Confusing Java reference equality with value equality; compare String content with equals rather than ==.
-- Ignoring static type requirements, nullability, array bounds, or the documented return contract of an API.
-- Treating a successful compilation as proof of correctness; test boundary cases and inspect runtime behavior.
-
+- Using record display or object identity as a substitute for a stable application identifier.
+- Persisting data before validating it or overwriting a valid file after a failed update.
+- Testing individual methods only and missing broken integration between menu, model, validation, and storage.
 ### Activities
-1. Trace the program and identify the type and value of each important variable and expression.
-2. Modify one input or data item, predict the output, then compile and run the changed program.
-3. Add a boundary or invalid-input case and handle it without silently corrupting state.
-4. Write a focused assertion or test that checks the intended behavior and one failure case.
-
+1. Write a record schema and identify required, optional, and unique fields before implementation.
+2. Test create, read, update, and delete operations against both in-memory and persisted data.
+3. Simulate malformed or unavailable storage and verify existing valid data is not silently lost.
+4. Demonstrate the complete manager from startup through validation, persistence, restart, and retrieval.
 ### Accessibility Practice
 Navigate by class, method, and line; inspect braces, parentheses, brackets, semicolons, generic delimiters, and compiler diagnostics with the preferred screen reader or braille display. Compile and run from the terminal so the workflow does not depend on color or a visual project explorer.
 
