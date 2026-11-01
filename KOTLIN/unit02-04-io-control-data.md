@@ -18,22 +18,13 @@ This course sequence aligns Kotlin with the shared 12-unit curriculum map. Each 
 Kotlin is statically typed. The compiler may infer a declaration's type, but the type remains fixed. Prefer val for read-only bindings and var only when reassignment is required. Distinguish read-only collection interfaces from mutable interfaces, and validate data received from users, files, networks, or Java APIs. Apply the lesson concept to the shared course datasets and preserve the original problem's inputs and expected behavior.
 
 #### Worked Example
+
 ```kotlin
-val scores = listOf(82, 91, 76, 88)
-val total = scores.sum()
-val average = scores.average()
-val grade = when {
-    average >= 90.0 -> "A"
-    average >= 80.0 -> "B"
-    average >= 70.0 -> "C"
-    average >= 60.0 -> "D"
-    else -> "F"
-}
-println("Total=$total Average=$average Grade=$grade")
+fun main(){ println(listOf("specify","plan","implement","test","refine").joinToString(" -> ")) }
 ```
 
 #### Expected Behavior or Output
-Total=337, average=84.25, and grade B. Test threshold boundaries such as 89/90 and 79/80.
+Prints specify -> plan -> implement -> test -> refine.
 
 #### Common Mistakes
 - Assuming type inference makes Kotlin dynamically typed or that numeric types convert implicitly.
@@ -77,22 +68,13 @@ Total=337, average=84.25, and grade B. Test threshold boundaries such as 89/90 a
 Kotlin is statically typed. The compiler may infer a declaration's type, but the type remains fixed. Prefer val for read-only bindings and var only when reassignment is required. Distinguish read-only collection interfaces from mutable interfaces, and validate data received from users, files, networks, or Java APIs. Apply the lesson concept to the shared course datasets and preserve the original problem's inputs and expected behavior.
 
 #### Worked Example
+
 ```kotlin
-val scores = listOf(82, 91, 76, 88)
-val total = scores.sum()
-val average = scores.average()
-val grade = when {
-    average >= 90 -> "A"
-    average >= 80 -> "B"
-    average >= 70 -> "C"
-    average >= 60 -> "D"
-    else -> "F"
-}
-println("Total=$total Average=$average Grade=$grade")
+fun main(){ var balance=20; balance+=5; val afterPurchase=balance-8; println("Balance=$balance; after purchase=$afterPurchase") }
 ```
 
 #### Expected Behavior or Output
-Total=337, average=84.25, and grade B. Test threshold boundaries such as 89/90 and 79/80.
+Prints Balance=25; after purchase=17.
 
 #### Common Mistakes
 - Assuming type inference makes Kotlin dynamically typed or that numeric types convert implicitly.
@@ -136,22 +118,13 @@ Total=337, average=84.25, and grade B. Test threshold boundaries such as 89/90 a
 Kotlin is statically typed. The compiler may infer a declaration's type, but the type remains fixed. Prefer val for read-only bindings and var only when reassignment is required. Distinguish read-only collection interfaces from mutable interfaces, and validate data received from users, files, networks, or Java APIs. Apply the lesson concept to the shared course datasets and preserve the original problem's inputs and expected behavior.
 
 #### Worked Example
+
 ```kotlin
-val scores = listOf(82, 91, 76, 88)
-val total = scores.sum()
-val average = scores.average()
-val grade = when {
-    average >= 90 -> "A"
-    average >= 80 -> "B"
-    average >= 70 -> "C"
-    average >= 60 -> "D"
-    else -> "F"
-}
-println("Total=$total Average=$average Grade=$grade")
+fun main(){ fun parseAge(raw:String?):Int?=raw?.trim()?.toIntOrNull(); val age=parseAge(" 16 "); println(age?.let{"Age next year: "+(it+1)}?:"Enter a whole-number age.") }
 ```
 
 #### Expected Behavior or Output
-Total=337, average=84.25, and grade B. Test threshold boundaries such as 89/90 and 79/80.
+Prints Age next year: 17. Missing or malformed input produces the prompt message.
 
 #### Common Mistakes
 - Assuming type inference makes Kotlin dynamically typed or that numeric types convert implicitly.
@@ -195,22 +168,13 @@ Total=337, average=84.25, and grade B. Test threshold boundaries such as 89/90 a
 Kotlin is statically typed. The compiler may infer a declaration's type, but the type remains fixed. Prefer val for read-only bindings and var only when reassignment is required. Distinguish read-only collection interfaces from mutable interfaces, and validate data received from users, files, networks, or Java APIs. Apply the lesson concept to the shared course datasets and preserve the original problem's inputs and expected behavior.
 
 #### Worked Example
+
 ```kotlin
-val scores = listOf(82, 91, 76, 88)
-val total = scores.sum()
-val average = scores.average()
-val grade = when {
-    average >= 90 -> "A"
-    average >= 80 -> "B"
-    average >= 70 -> "C"
-    average >= 60 -> "D"
-    else -> "F"
-}
-println("Total=$total Average=$average Grade=$grade")
+fun main(){ val whole=15/4; val fractional=15.0/4; val converted=15.toDouble(); println("$whole | $fractional | $converted") }
 ```
 
 #### Expected Behavior or Output
-Total=337, average=84.25, and grade B. Test threshold boundaries such as 89/90 and 79/80.
+Prints 3 | 3.75 | 15.0; integer division truncates.
 
 #### Common Mistakes
 - Assuming type inference makes Kotlin dynamically typed or that numeric types convert implicitly.
@@ -254,22 +218,13 @@ Total=337, average=84.25, and grade B. Test threshold boundaries such as 89/90 a
 Kotlin is statically typed. The compiler may infer a declaration's type, but the type remains fixed. Prefer val for read-only bindings and var only when reassignment is required. Distinguish read-only collection interfaces from mutable interfaces, and validate data received from users, files, networks, or Java APIs. Apply the lesson concept to the shared course datasets and preserve the original problem's inputs and expected behavior.
 
 #### Worked Example
+
 ```kotlin
-val scores = listOf(82, 91, 76, 88)
-val total = scores.sum()
-val average = scores.average()
-val grade = when {
-    average >= 90 -> "A"
-    average >= 80 -> "B"
-    average >= 70 -> "C"
-    average >= 60 -> "D"
-    else -> "F"
-}
-println("Total=$total Average=$average Grade=$grade")
+fun main(){ val r=2.0; val area=kotlin.math.PI*r*r; val distance=kotlin.math.sqrt(3.0*3.0+4.0*4.0); println("Area="+ "%.4f".format(area)+" Distance="+ "%.1f".format(distance)) }
 ```
 
 #### Expected Behavior or Output
-Total=337, average=84.25, and grade B. Test threshold boundaries such as 89/90 and 79/80.
+Prints Area=12.5664 Distance=5.0 for radius 2 and point (3, 4).
 
 #### Common Mistakes
 - Assuming type inference makes Kotlin dynamically typed or that numeric types convert implicitly.
@@ -313,22 +268,13 @@ Total=337, average=84.25, and grade B. Test threshold boundaries such as 89/90 a
 Kotlin is statically typed. The compiler may infer a declaration's type, but the type remains fixed. Prefer val for read-only bindings and var only when reassignment is required. Distinguish read-only collection interfaces from mutable interfaces, and validate data received from users, files, networks, or Java APIs. Apply the lesson concept to the shared course datasets and preserve the original problem's inputs and expected behavior.
 
 #### Worked Example
+
 ```kotlin
-val scores = listOf(82, 91, 76, 88)
-val total = scores.sum()
-val average = scores.average()
-val grade = when {
-    average >= 90 -> "A"
-    average >= 80 -> "B"
-    average >= 70 -> "C"
-    average >= 60 -> "D"
-    else -> "F"
-}
-println("Total=$total Average=$average Grade=$grade")
+fun main(){ val score=82; println(if(score>=60)"Passing" else "Not passing") }
 ```
 
 #### Expected Behavior or Output
-Total=337, average=84.25, and grade B. Test threshold boundaries such as 89/90 and 79/80.
+Prints Passing because 82 meets the 60-point threshold.
 
 #### Common Mistakes
 - Assuming type inference makes Kotlin dynamically typed or that numeric types convert implicitly.
@@ -372,22 +318,13 @@ Total=337, average=84.25, and grade B. Test threshold boundaries such as 89/90 a
 Kotlin is statically typed. The compiler may infer a declaration's type, but the type remains fixed. Prefer val for read-only bindings and var only when reassignment is required. Distinguish read-only collection interfaces from mutable interfaces, and validate data received from users, files, networks, or Java APIs. Apply the lesson concept to the shared course datasets and preserve the original problem's inputs and expected behavior.
 
 #### Worked Example
+
 ```kotlin
-val scores = listOf(82, 91, 76, 88)
-val total = scores.sum()
-val average = scores.average()
-val grade = when {
-    average >= 90 -> "A"
-    average >= 80 -> "B"
-    average >= 70 -> "C"
-    average >= 60 -> "D"
-    else -> "F"
-}
-println("Total=$total Average=$average Grade=$grade")
+fun main(){ fun grade(s:Int)=when{ s>=90->"A"; s>=80->"B"; s>=70->"C"; s>=60->"D"; else->"F" }; println(listOf(89,90,79,80,59).map(::grade)) }
 ```
 
 #### Expected Behavior or Output
-Total=337, average=84.25, and grade B. Test threshold boundaries such as 89/90 and 79/80.
+Prints [B, A, C, B, F], checking values below and at grade thresholds.
 
 #### Common Mistakes
 - Assuming type inference makes Kotlin dynamically typed or that numeric types convert implicitly.
@@ -431,22 +368,13 @@ Total=337, average=84.25, and grade B. Test threshold boundaries such as 89/90 a
 Kotlin is statically typed. The compiler may infer a declaration's type, but the type remains fixed. Prefer val for read-only bindings and var only when reassignment is required. Distinguish read-only collection interfaces from mutable interfaces, and validate data received from users, files, networks, or Java APIs. Apply the lesson concept to the shared course datasets and preserve the original problem's inputs and expected behavior.
 
 #### Worked Example
+
 ```kotlin
-val scores = listOf(82, 91, 76, 88)
-val total = scores.sum()
-val average = scores.average()
-val grade = when {
-    average >= 90 -> "A"
-    average >= 80 -> "B"
-    average >= 70 -> "C"
-    average >= 60 -> "D"
-    else -> "F"
-}
-println("Total=$total Average=$average Grade=$grade")
+fun main(){ val names:List<String> = listOf("Avery","Jordan","Morgan"); println("First="+names.first()+" Count="+names.size) }
 ```
 
 #### Expected Behavior or Output
-Total=337, average=84.25, and grade B. Test threshold boundaries such as 89/90 and 79/80.
+Prints First=Avery Count=3; List exposes read-only operations.
 
 #### Common Mistakes
 - Assuming type inference makes Kotlin dynamically typed or that numeric types convert implicitly.
@@ -490,22 +418,13 @@ Total=337, average=84.25, and grade B. Test threshold boundaries such as 89/90 a
 Kotlin is statically typed. The compiler may infer a declaration's type, but the type remains fixed. Prefer val for read-only bindings and var only when reassignment is required. Distinguish read-only collection interfaces from mutable interfaces, and validate data received from users, files, networks, or Java APIs. Apply the lesson concept to the shared course datasets and preserve the original problem's inputs and expected behavior.
 
 #### Worked Example
+
 ```kotlin
-val scores = listOf(82, 91, 76, 88)
-val total = scores.sum()
-val average = scores.average()
-val grade = when {
-    average >= 90 -> "A"
-    average >= 80 -> "B"
-    average >= 70 -> "C"
-    average >= 60 -> "D"
-    else -> "F"
-}
-println("Total=$total Average=$average Grade=$grade")
+fun main(){ val scores=listOf(82,91,76,88); var total=0; for(s in scores) total+=s; println("Total=$total Average="+(total.toDouble()/scores.size)) }
 ```
 
 #### Expected Behavior or Output
-Total=337, average=84.25, and grade B. Test threshold boundaries such as 89/90 and 79/80.
+Prints total 337 and average 84.25.
 
 #### Common Mistakes
 - Assuming type inference makes Kotlin dynamically typed or that numeric types convert implicitly.
@@ -549,22 +468,13 @@ Total=337, average=84.25, and grade B. Test threshold boundaries such as 89/90 a
 Kotlin is statically typed. The compiler may infer a declaration's type, but the type remains fixed. Prefer val for read-only bindings and var only when reassignment is required. Distinguish read-only collection interfaces from mutable interfaces, and validate data received from users, files, networks, or Java APIs. Apply the lesson concept to the shared course datasets and preserve the original problem's inputs and expected behavior.
 
 #### Worked Example
+
 ```kotlin
-val scores = listOf(82, 91, 76, 88)
-val total = scores.sum()
-val average = scores.average()
-val grade = when {
-    average >= 90 -> "A"
-    average >= 80 -> "B"
-    average >= 70 -> "C"
-    average >= 60 -> "D"
-    else -> "F"
-}
-println("Total=$total Average=$average Grade=$grade")
+fun main(){ val phrase="Kotlin builds useful skills"; println(phrase.uppercase()); println(phrase.length); println(phrase.contains("useful")) }
 ```
 
 #### Expected Behavior or Output
-Total=337, average=84.25, and grade B. Test threshold boundaries such as 89/90 and 79/80.
+Prints KOTLIN BUILDS USEFUL SKILLS, 27, and true.
 
 #### Common Mistakes
 - Assuming type inference makes Kotlin dynamically typed or that numeric types convert implicitly.
@@ -608,22 +518,13 @@ Total=337, average=84.25, and grade B. Test threshold boundaries such as 89/90 a
 Kotlin is statically typed. The compiler may infer a declaration's type, but the type remains fixed. Prefer val for read-only bindings and var only when reassignment is required. Distinguish read-only collection interfaces from mutable interfaces, and validate data received from users, files, networks, or Java APIs. Apply the lesson concept to the shared course datasets and preserve the original problem's inputs and expected behavior.
 
 #### Worked Example
+
 ```kotlin
-val scores = listOf(82, 91, 76, 88)
-val total = scores.sum()
-val average = scores.average()
-val grade = when {
-    average >= 90 -> "A"
-    average >= 80 -> "B"
-    average >= 70 -> "C"
-    average >= 60 -> "D"
-    else -> "F"
-}
-println("Total=$total Average=$average Grade=$grade")
+fun main(){ val items=mutableListOf("Notebook","Pencil"); items.add("Folder"); items.add(1,"Eraser"); items.remove("Pencil"); println(items) }
 ```
 
 #### Expected Behavior or Output
-Total=337, average=84.25, and grade B. Test threshold boundaries such as 89/90 and 79/80.
+Prints [Notebook, Eraser, Folder].
 
 #### Common Mistakes
 - Assuming type inference makes Kotlin dynamically typed or that numeric types convert implicitly.
@@ -667,22 +568,13 @@ Total=337, average=84.25, and grade B. Test threshold boundaries such as 89/90 a
 Kotlin is statically typed. The compiler may infer a declaration's type, but the type remains fixed. Prefer val for read-only bindings and var only when reassignment is required. Distinguish read-only collection interfaces from mutable interfaces, and validate data received from users, files, networks, or Java APIs. Apply the lesson concept to the shared course datasets and preserve the original problem's inputs and expected behavior.
 
 #### Worked Example
+
 ```kotlin
-val scores = listOf(82, 91, 76, 88)
-val total = scores.sum()
-val average = scores.average()
-val grade = when {
-    average >= 90 -> "A"
-    average >= 80 -> "B"
-    average >= 70 -> "C"
-    average >= 60 -> "D"
-    else -> "F"
-}
-println("Total=$total Average=$average Grade=$grade")
+fun main(){ val scores=listOf(82,91,76,88); println(scores.sorted()); println(scores.sortedDescending()); println(scores) }
 ```
 
 #### Expected Behavior or Output
-Total=337, average=84.25, and grade B. Test threshold boundaries such as 89/90 and 79/80.
+Prints [76, 82, 88, 91], [91, 88, 82, 76], then unchanged original list.
 
 #### Common Mistakes
 - Assuming type inference makes Kotlin dynamically typed or that numeric types convert implicitly.
@@ -726,22 +618,13 @@ Total=337, average=84.25, and grade B. Test threshold boundaries such as 89/90 a
 Kotlin is statically typed. The compiler may infer a declaration's type, but the type remains fixed. Prefer val for read-only bindings and var only when reassignment is required. Distinguish read-only collection interfaces from mutable interfaces, and validate data received from users, files, networks, or Java APIs. Apply the lesson concept to the shared course datasets and preserve the original problem's inputs and expected behavior.
 
 #### Worked Example
+
 ```kotlin
-val scores = listOf(82, 91, 76, 88)
-val total = scores.sum()
-val average = scores.average()
-val grade = when {
-    average >= 90 -> "A"
-    average >= 80 -> "B"
-    average >= 70 -> "C"
-    average >= 60 -> "D"
-    else -> "F"
-}
-println("Total=$total Average=$average Grade=$grade")
+fun main(){ data class Point(val x:Int,val y:Int); val (x,y)=Point(3,4); println("x=$x y=$y") }
 ```
 
 #### Expected Behavior or Output
-Total=337, average=84.25, and grade B. Test threshold boundaries such as 89/90 and 79/80.
+Prints x=3 y=4; named data classes give coordinate fields meaning.
 
 #### Common Mistakes
 - Assuming type inference makes Kotlin dynamically typed or that numeric types convert implicitly.
@@ -785,22 +668,13 @@ Total=337, average=84.25, and grade B. Test threshold boundaries such as 89/90 a
 Kotlin is statically typed. The compiler may infer a declaration's type, but the type remains fixed. Prefer val for read-only bindings and var only when reassignment is required. Distinguish read-only collection interfaces from mutable interfaces, and validate data received from users, files, networks, or Java APIs. Apply the lesson concept to the shared course datasets and preserve the original problem's inputs and expected behavior.
 
 #### Worked Example
+
 ```kotlin
-val scores = listOf(82, 91, 76, 88)
-val total = scores.sum()
-val average = scores.average()
-val grade = when {
-    average >= 90 -> "A"
-    average >= 80 -> "B"
-    average >= 70 -> "C"
-    average >= 60 -> "D"
-    else -> "F"
-}
-println("Total=$total Average=$average Grade=$grade")
+fun main(){ val stock=mutableMapOf("Notebook" to 3,"Pencil" to 10); stock["Folder"]=4; println(stock["Pencil"]?:0); println(stock["Marker"]?:0) }
 ```
 
 #### Expected Behavior or Output
-Total=337, average=84.25, and grade B. Test threshold boundaries such as 89/90 and 79/80.
+Prints 10 and 0; Elvis fallback handles a missing key.
 
 #### Common Mistakes
 - Assuming type inference makes Kotlin dynamically typed or that numeric types convert implicitly.
@@ -844,22 +718,13 @@ Total=337, average=84.25, and grade B. Test threshold boundaries such as 89/90 a
 Kotlin is statically typed. The compiler may infer a declaration's type, but the type remains fixed. Prefer val for read-only bindings and var only when reassignment is required. Distinguish read-only collection interfaces from mutable interfaces, and validate data received from users, files, networks, or Java APIs. Apply the lesson concept to the shared course datasets and preserve the original problem's inputs and expected behavior.
 
 #### Worked Example
+
 ```kotlin
-val scores = listOf(82, 91, 76, 88)
-val total = scores.sum()
-val average = scores.average()
-val grade = when {
-    average >= 90 -> "A"
-    average >= 80 -> "B"
-    average >= 70 -> "C"
-    average >= 60 -> "D"
-    else -> "F"
-}
-println("Total=$total Average=$average Grade=$grade")
+fun main(){ val stock=mapOf("Notebook" to 3,"Pencil" to 10); for((name,qty) in stock.toSortedMap()) println("$name: $qty") }
 ```
 
 #### Expected Behavior or Output
-Total=337, average=84.25, and grade B. Test threshold boundaries such as 89/90 and 79/80.
+Prints Notebook: 3 then Pencil: 10; sorting makes order explicit.
 
 #### Common Mistakes
 - Assuming type inference makes Kotlin dynamically typed or that numeric types convert implicitly.
