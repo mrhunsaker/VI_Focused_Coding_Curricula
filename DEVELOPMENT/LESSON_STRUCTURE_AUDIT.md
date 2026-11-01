@@ -82,3 +82,17 @@ A section may be omitted when it genuinely does not apply, but the reason should
 ---
 
 The goal of standardization is predictable navigation and teaching structure, not identical prose. Keep each language's compiler, runtime, syntax, and accessibility requirements specific to that language.
+
+
+## Follow-up: expanded language tracks and machine-readable alignment plan
+
+The first expansion pass is now committed on the working branch.
+
+- C, C++, C#, Julia, Swift, Rust, Go, and Lua each have a Unit 0–11 lesson manuscript with 52 numbered lesson headings, overview pages, and topic indexes.
+- Go and Lua are now full courses rather than proposed tracks.
+- HTML/CSS, R, and SQL are separate specialist modules with their own domain-appropriate outcomes.
+- The root `lesson_standardization.json` contains the explicit Python unit map, mapped lesson names, common example datasets, functional-equivalence rules, accessibility and quality gates, and a reusable course-refinement prompt.
+
+**Important qualification:** the eight expanded lesson manuscripts are a substantive first-pass expansion, not yet a verified line-by-line translation of every Python lesson. Some lessons currently reuse a representative worked example within a unit. The JSON prompt is intended to guide a later refinement pass that assigns each Python example and activity to its exact language counterpart, verifies each expected result, and removes any repeated or insufficiently specific examples. Kotlin, Java, JavaScript, and TypeScript also require a full comparison against the JSON map before they can be declared completely aligned.
+
+The current course set should therefore be described as **expanded and mapped for standardization**, not fully validated as functionally identical. Compiler/runtime execution, complete link validation, mdBook rendering, and screen-reader testing remain outstanding.
