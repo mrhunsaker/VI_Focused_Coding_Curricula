@@ -27,7 +27,7 @@ C is appropriate when software must work directly with bytes, fixed-width intege
 #include <stdio.h>
 int main(void) {
     int count = 3;
-    printf("Count: %d\\n", count);
+    printf("Count: %d\n", count);
     return 0;
 }
 ~~~
