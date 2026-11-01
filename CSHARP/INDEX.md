@@ -1,4 +1,4 @@
-# C# Topic Index
+# CSHARP Topic Index
 
 - [Unit 0: Environment and Toolchain](lessons.md#unit-0-accessible-environment-and-toolchain)
 - [Unit 1: Foundations of Computing](lessons.md#unit-1-foundations-of-computing)
