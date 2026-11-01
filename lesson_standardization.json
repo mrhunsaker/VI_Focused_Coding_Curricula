@@ -726,17 +726,16 @@
       "examples_formatted_built_and_executed": 53
     },
     "lua": {
-      "status": "lesson_structure_distinct_examples_and_topic_refinement_complete_pending_final_ci_and_application_accessibility_verification",
+      "status": "lesson_structure_topic_refinement_and_lua_5_4_smoke_execution_verified_pending_application_and_accessibility_verification",
       "lua_version": "5.4.6",
       "unit_0_setup_lessons": 4,
       "numbered_lessons": 53,
       "unique_examples": 53,
       "automated_check": "scripts/check_lua_examples.py",
       "workflow": ".github/workflows/lua-examples.yml",
-      "ci_run": "41336406502",
+      "ci_run": "41336626558",
       "examples_parsed_and_executed": 53,
       "pending": [
-        "rerun Lua 5.4 CI after the final lesson prose refinement",
         "expected-output assertions and representative invalid-input/file fixtures",
         "capstone end-to-end persistence and JSON/CSV package integration tests",
         "fresh mdBook build and complete Markdown/local-link crawl",
