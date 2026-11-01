@@ -202,3 +202,12 @@ This is compiler and linker verification. The examples have not all been execute
 - This pass verifies distinct examples and structural counts; lesson-level concept explanations, mistakes, and activities still require deeper topic-specific editorial refinement. GitHub Actions run [41336406502](https://github.com/mrhunsaker/VI_Focused_Coding_Curricula/actions/runs/41336406502) passed on Lua 5.4.6, parsing and smoke-executing all 53 examples. Expected-output assertions, capstone persistence, mdBook/link validation, and hands-on accessibility tests remain pending.
 
 - Follow-up editorial refinement added topic-aligned Lua concept explanations, three mistake prompts, and four activities to each of the 53 numbered lessons. Each lesson retains accessibility practice and a five-item checklist. A final CI run after this prose-only refinement is pending.
+
+
+## Java standardization pass — 2026-11-01
+
+- Added `JAVA/lessons.md` as the consolidated lesson-by-lesson Java sequence: four Unit 0 setup lessons and 53 numbered lessons across Units 1–11.
+- Each of the 57 lessons has references, objectives, a concept explanation, a complete worked example with expected behavior, three Java-specific mistakes, four activities, accessibility practice, and a five-item skills checklist.
+- Retained the original grouped Java unit documents as supplementary reference material and linked the consolidated course from the Java landing page, index, and mdBook navigation.
+- Added a JDK 25 checker and GitHub Actions workflow. Run [41337711452](https://github.com/mrhunsaker/VI_Focused_Coding_Curricula/actions/runs/41337711452) passed on Temurin 25.0.5, compiling and smoke-executing all 57 examples independently. A final prose-refinement rerun is in progress.
+- Remaining work: exact output assertions, invalid-input and file fixtures, capstone persistence/JUnit integration, fresh mdBook/link crawl, and hands-on screen-reader/braille testing.
