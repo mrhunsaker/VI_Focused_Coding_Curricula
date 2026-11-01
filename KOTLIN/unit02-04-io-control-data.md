@@ -325,7 +325,8 @@ Kotlin is statically typed. The compiler may infer a declaration's type, but the
 #### Worked Example
 
 ```kotlin
-fun main(){ fun grade(s:Int)=when{ s>=90->"A"; s>=80->"B"; s>=70->"C"; s>=60->"D"; else->"F" }; println(listOf(89,90,79,80,59).map { grade(it) }) }
+fun grade(s:Int):String = when { s>=90->"A"; s>=80->"B"; s>=70->"C"; s>=60->"D"; else->"F" }
+fun main(){ println(listOf(89,90,79,80,59).map { grade(it) }) }
 ```
 
 #### Expected Behavior or Output
