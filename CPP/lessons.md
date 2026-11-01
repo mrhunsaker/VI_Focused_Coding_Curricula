@@ -205,6 +205,7 @@ std::cout << "Computer science turns problems into precise, testable steps.\n";
 **Trace:** predict the output before compiling. Identify declarations, values, control-flow decisions, and state changes in order. Then compile and compare actual output with the prediction. The lesson example is intended to be independently compilable.
 
 ### Common Mistakes
+- A successful compile does not establish that the algorithm satisfies the requirement.
 - Distinguish an algorithm from its C++ implementation.
 - A clean build does not prove algorithmic correctness.
 
@@ -247,6 +248,7 @@ const std::string greeting_name = "Avery"; std::cout << "Hello, " << greeting_na
 **Trace:** predict the output before compiling. Identify declarations, values, control-flow decisions, and state changes in order. Then compile and compare actual output with the prediction. The lesson example is intended to be independently compilable.
 
 ### Common Mistakes
+- Forgetting to rebuild after editing can leave an older executable on disk.
 - Provide main with the correct signature.
 - Include the declaration header and use std::cout.
 
@@ -338,6 +340,7 @@ const double bill = 24.50; const double tip = bill * 0.15; std::cout << "Tip: $"
 **Trace:** predict the output before compiling. Identify declarations, values, control-flow decisions, and state changes in order. Then compile and compare actual output with the prediction. The lesson example is intended to be independently compilable.
 
 ### Common Mistakes
+- Printing currency without a defined rounding/formatting policy can misrepresent fractional cents.
 - Calculate the tip from the bill and keep the rate as a fraction.
 - Separate intermediate values to make tracing possible.
 
