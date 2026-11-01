@@ -164,14 +164,8 @@ Use Swift Package Manager for multi-file applications and dependencies. Run `swi
 
 #### Worked Example
 ```swift
-import PackageDescription
-
-let package = Package(
-    name: "CourseDemo",
-    targets: [
-        .executableTarget(name: "CourseDemo")
-    ]
-)
+let manifestResponsibilities = ["package name", "products", "targets", "dependencies"]
+print("Package.swift declares: \(manifestResponsibilities.joined(separator: ", "))")
 ```
 
 #### Expected Behavior or Output
@@ -226,8 +220,8 @@ Computer science expresses problems as precise inputs, transformations, and outp
 let problem = "Calculate a class average"
 let inputs = ["82", "91", "76", "88"]
 let steps = ["collect scores", "validate each score", "calculate the mean", "report the result"]
-for (step, number) in zip(steps, 1...) {
-    print("\(number). \(step)\n")
+for (index, step) in steps.enumerated() {
+    print("\(index + 1). \(step)")
 }
 print("Problem: \(problem); inputs: \(inputs.count)\n")
 ```
@@ -430,6 +424,7 @@ Design calculations by naming inputs, deriving intermediate values, and verifyin
 
 ### Worked Example
 ```swift
+import Foundation
 let subtotal = 24.50
 let tipRate = 0.15
 let tip = subtotal * tipRate
@@ -2721,14 +2716,15 @@ Projects begin with requirements and acceptance criteria. Implement a text-based
 
 ### Worked Example
 ```swift
-func cleanTitle(_ raw: String) -> Result<String, String> {
+enum TitleError: Error { case blank }
+func cleanTitle(_ raw: String) -> Result<String, TitleError> {
     let title = raw.trimmingCharacters(in: .whitespacesAndNewlines)
-    return title.isEmpty ? .failure("Title cannot be blank") : .success(title)
+    return title.isEmpty ? .failure(.blank) : .success(title)
 }
 for raw in ["  Study Swift  ", "   "] {
     switch cleanTitle(raw) {
     case .success(let title): print("Accepted: \(title)")
-    case .failure(let message): print("Error: \(message)")
+    case .failure: print("Error: title cannot be blank")
     }
 }
 ```
