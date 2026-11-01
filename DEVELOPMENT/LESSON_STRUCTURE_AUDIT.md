@@ -157,3 +157,13 @@ This is compiler and linker verification. The examples have not all been execute
 - GitHub Actions run [41322088371](https://github.com/mrhunsaker/VI_Focused_Coding_Curricula/actions/runs/41322088371) passed with Julia 1.12.7; all 57 fenced Julia examples executed successfully in isolated temporary directories. This is a smoke-execution check, not expected-output assertion or full application testing.
 
 - A final setup pass brought each of the four Unit 0 Julia lessons to the complete nine-section structure: references, objectives, concept explanation, worked example, expected behavior, mistakes, activities, accessibility practice, and checklist.
+
+
+## 2026-11-01 — Swift lesson-quality pass
+
+- Expanded all four Swift Unit 0 lessons with installation, compiler/interpreter verification, workspace and path semantics, accessible editor and SourceKit-LSP workflow, and Swift Package Manager.
+- Added the missing Python Unit 2 Lesson 2.5 counterpart for Foundation math functions, circle area/circumference, and distance from the origin.
+- Replaced repeated worked examples with 53 distinct Swift examples aligned to canonical shared datasets and project contexts.
+- Rewrote all 53 numbered lessons with Swift-specific concept explanations, three common mistakes, four targeted activities, accessibility practice, and five observable checklist criteria.
+- Added a Swift 6 example runner and GitHub Actions workflow. CI execution is pending; no successful compile/runtime result is claimed until the workflow completes.
+- Outstanding: expected-output and broader behavior tests, mdBook build and local-link crawl, and hands-on screen-reader/braille testing.
