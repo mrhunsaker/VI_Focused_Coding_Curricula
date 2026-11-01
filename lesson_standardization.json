@@ -762,7 +762,8 @@
           "All 58 fenced TypeScript examples passed strict type-checking with TypeScript 7.0.2, Node.js 26.13.0, @types/node 26, and csv-parse 6.",
           "GitHub Actions run 41345416186 passed on commit 9223845cb45afde0c71b41d38dfbdb3f86bf64f7; the checker reported 57 lesson sections and 58 strict TypeScript examples.",
           "Relative Markdown links resolve in the README, index, teacher guide, audit, and four core course files; lesson-index anchors were checked and corrected.",
-          "Final GitHub Actions run 41345735551 passed on commit 86b5cbdad289d455110202074eea3c70874f1c57 after the updated teacher guide; 57 lesson sections and 58 TypeScript examples were validated."
+          "Final GitHub Actions run 41345735551 passed on commit 86b5cbdad289d455110202074eea3c70874f1c57 after the updated teacher guide; 57 lesson sections and 58 TypeScript examples were validated.",
+          "GitHub Actions run 41345797572 passed on commit ae30cf62045f7ed5c05b54aff602208ef57c66cd after the audit update."
         ],
         "not_yet_verified": [
           "Execute all 58 examples under Node.js 26 and assert documented outputs; the automated checker performs strict type-checking only.",
