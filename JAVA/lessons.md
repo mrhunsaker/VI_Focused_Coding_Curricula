@@ -2562,9 +2562,9 @@ Java is statically typed and class-based. Local variables have declared or infer
 ```java
 public class Lesson_10_2 {
     public static void main(String[] args) {
-        String currentRoom = "foyer";
+        String currentRoom = "start_room";
         String command = "north";
-        if (currentRoom.equals("foyer") && command.equals("north")) currentRoom = "library";
+        if (currentRoom.equals("start_room") && command.equals("north")) currentRoom = "tunnel";
         System.out.println("Current room: " + currentRoom);
     }
 }
@@ -2818,10 +2818,12 @@ Java is statically typed and class-based. Local variables have declared or infer
 ```java
 public class Lesson_11_2 {
     public static void main(String[] args) {
-        record Contact(int id, String name, String email) {}
-        java.util.List<Contact> contacts = new java.util.ArrayList<>();
-        contacts.add(new Contact(1, "Avery", "avery@example.test"));
-        System.out.println(contacts.get(0));
+        record Record(int id, String title, String description, String category,
+                      String createdAt, String updatedAt) {}
+        java.util.List<Record> records = new java.util.ArrayList<>();
+        records.add(new Record(1, "Course project", "Personal data manager", "education",
+                               "2026-11-01", "2026-11-01"));
+        System.out.println(records.get(0));
     }
 }
 ```
