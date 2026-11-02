@@ -217,8 +217,9 @@ Plan, implement, and test the same tip-calculator problem. Separate input values
 
 ```lua
 local bill_cents = 2450
-local tip_rate = 0.15
-local tip_cents = math.floor(bill_cents * tip_rate + 0.5)
+local tip_rate_percent = 15
+-- Integer arithmetic avoids binary floating-point rounding errors.
+local tip_cents = (bill_cents * tip_rate_percent + 50) // 100
 local total_cents = bill_cents + tip_cents
 print(string.format("Tip: $%.2f", tip_cents / 100))
 print(string.format("Total: $%.2f", total_cents / 100))
@@ -227,8 +228,9 @@ print(string.format("Total: $%.2f", total_cents / 100))
 ### Expected Behavior or Output
 
 ```text
-Tip: $3.67
-Total: $28.18
+Tip: $3.68
+Total: 
+```8.18
 ```
 
 ### Common Mistakes
@@ -989,10 +991,16 @@ A Lua table can act as a map or record. Use named keys for inventory fields and 
 ### Worked Example
 
 ```lua
-local item = {name = "Notebook", quantity = 3, unit_price = 2.50}
+local item = {
+  name = "Notebook",
+  quantity = 3,
+  unit_price = 2.50
+}
+local line_total = item.quantity * item.unit_price
 print(item.name)
 print(item.quantity)
 print(string.format("$%.2f", item.unit_price))
+print(string.format("Line total: $%.2f", line_total))
 ```
 
 ### Expected Behavior or Output
@@ -1000,7 +1008,9 @@ print(string.format("$%.2f", item.unit_price))
 ```text
 Notebook
 3
-$2.50
+
+```.50
+Line total: $7.50
 ```
 
 ### Common Mistakes
@@ -1047,20 +1057,38 @@ pairs iterates key-value entries without promising order. Use explicit keys or s
 ### Worked Example
 
 ```lua
-local inventory = {Notebook = 3, Pencil = 10, Folder = 4}
-local names = {"Folder", "Notebook", "Pencil"}
+local inventory = {
+  Notebook = {quantity = 3, unit_price = 2.50},
+  Pencil = {quantity = 10, unit_price = 0.50},
+  Folder = {quantity = 4, unit_price = 1.25}
+}
+local names = {"Notebook", "Pencil", "Folder"}
 table.sort(names)
+local total_cents = 0
 for _, name in ipairs(names) do
-  print(name, inventory[name])
+  local item = inventory[name]
+  local line_cents = item.quantity * math.floor(item.unit_price * 100 + 0.5)
+  total_cents = total_cents + line_cents
+  print(name, item.quantity, string.format("$%.2f", item.unit_price),
+    string.format("$%.2f", line_cents / 100))
 end
+print(string.format("Inventory total: $%.2f", total_cents / 100))
 ```
 
 ### Expected Behavior or Output
 
 ```text
-Folder	4
-Notebook	3
-Pencil	10
+Folder	4	### Expected Behavior or Output
+
+```text
+.25	$5.00
+Notebook	3	
+```.50	$7.50
+Pencil	10	$0.50	$5.00
+Inventory total: ### Expected Behavior or Output
+
+```text
+7.50
 ```
 
 ### Common Mistakes
@@ -1421,11 +1449,13 @@ Functions package a named operation. The function below calculates a tip and tot
 ### Worked Example
 
 ```lua
-local function calculate_total(bill_cents, rate)
-  local tip_cents = math.floor(bill_cents * rate + 0.5)
+local function calculate_total(bill_cents, rate_basis_points)
+  -- 10,000 basis points = 100%; add 5,000 before integer division
+  -- to implement half-up rounding to the nearest cent.
+  local tip_cents = (bill_cents * rate_basis_points + 5000) // 10000
   return tip_cents, bill_cents + tip_cents
 end
-local tip_cents, total_cents = calculate_total(2450, 0.15)
+local tip_cents, total_cents = calculate_total(2450, 1500)
 print(string.format("Tip: $%.2f", tip_cents / 100))
 print(string.format("Total: $%.2f", total_cents / 100))
 ```
@@ -1433,8 +1463,9 @@ print(string.format("Total: $%.2f", total_cents / 100))
 ### Expected Behavior or Output
 
 ```text
-Tip: $3.67
-Total: $28.18
+Tip: $3.68
+Total: 
+```8.18
 ```
 
 ### Common Mistakes
@@ -2374,11 +2405,21 @@ Test observable state changes on an object-like table. Include both normal and i
 ### Worked Example
 
 ```lua
-local function new_task(title)
-  assert(title ~= nil and title ~= "", "title is required")
-  return {title = title, done = false}
+local function new_task(id, title, description, created_at)
+  assert(type(id) == "number", "id must be numeric")
+  assert(type(title) == "string" and title:match("%S"), "title is required")
+  assert(type(description) == "string", "description must be text")
+  assert(type(created_at) == "string", "created_at must be text")
+  return {
+    id = id,
+    title = title,
+    description = description,
+    done = false,
+    created_at = created_at
+  }
 end
-local task = new_task("Practice Lua")
+local task = new_task(1, "Practice Lua", "Complete the shared exercises",
+  "2025-01-15T09:00:00Z")
 assert(task.done == false)
 task.done = true
 assert(task.done == true)
@@ -2554,9 +2595,16 @@ CSV fields can contain quoted commas and escaped quotes; naive string splitting 
 
 ```lua
 local headers = {"student_id", "first_name", "last_name", "score", "active"}
+local rows = {
+  {"1001", "Avery", "Jordan", "82", "true"},
+  {"1002", "Riley", "Chen", "91", "true"},
+  {"1003", "Sam", "Patel", "76", "false"},
+  {"1004", "Morgan", "Diaz", "88", "true"}
+}
 print(table.concat(headers, ","))
-local row = {"1001", "Avery", "Jordan", "82", "true"}
-print(table.concat(row, ","))
+for _, row in ipairs(rows) do
+  print(table.concat(row, ","))
+end
 ```
 
 ### Expected Behavior or Output
@@ -2564,6 +2612,9 @@ print(table.concat(row, ","))
 ```text
 student_id,first_name,last_name,score,active
 1001,Avery,Jordan,82,true
+1002,Riley,Chen,91,true
+1003,Sam,Patel,76,false
+1004,Morgan,Diaz,88,true
 ```
 
 ### Common Mistakes
@@ -2617,9 +2668,11 @@ Translate requirements into data structures, commands, and acceptance tests befo
 
 ```lua
 local rooms = {
-  start_room = {exits = {north = "tunnel"}},
-  tunnel = {exits = {south = "start_room", east = "clearing"}},
-  clearing = {exits = {west = "tunnel"}}
+  start_room = {exits = {north = "tunnel"}, items = {"shiny key"}},
+  tunnel = {exits = {south = "start_room", east = "clearing"}, items = {}},
+  clearing = {exits = {west = "tunnel", north = "locked_door_room"}, items = {}},
+  locked_door_room = {exits = {south = "clearing", north = "treasure_room"}, items = {}},
+  treasure_room = {exits = {}, items = {}}
 }
 print(rooms.tunnel.exits.east)
 ```
@@ -2677,7 +2730,9 @@ Represent each room by a record containing description and exits. Reject movemen
 local rooms = {
   start_room = {description = "Cave", exits = {north = "tunnel"}},
   tunnel = {description = "Tunnel", exits = {south = "start_room", east = "clearing"}},
-  clearing = {description = "Clearing", exits = {west = "tunnel"}}
+  clearing = {description = "Clearing", exits = {west = "tunnel", north = "locked_door_room"}},
+  locked_door_room = {description = "Antechamber", exits = {south = "clearing", north = "treasure_room"}},
+  treasure_room = {description = "Treasure", exits = {}}
 }
 local current = "start_room"
 local command = "north"
@@ -2735,27 +2790,78 @@ Inventory is a sequence table; room items are sequences too. A puzzle must check
 ### Worked Example
 
 ```lua
+local rooms = {
+  start_room = {exits = {north = "tunnel"}, items = {"shiny key"}},
+  tunnel = {exits = {south = "start_room", east = "clearing"}, items = {}},
+  clearing = {exits = {west = "tunnel", north = "locked_door_room"}, items = {}},
+  locked_door_room = {exits = {south = "clearing", north = "treasure_room"}, items = {}},
+  treasure_room = {exits = {}, items = {}}
+}
+local current_room = "start_room"
 local inventory = {}
-local room_items = {"shiny key"}
+local door_locked = true
+
 local function take_key()
-  for i, item in ipairs(room_items) do
+  local items = rooms[current_room].items
+  for index, item in ipairs(items) do
     if item == "shiny key" then
-      table.insert(inventory, item)
-      table.remove(room_items, i)
+      inventory[#inventory + 1] = item
+      table.remove(items, index)
       return true
     end
   end
   return false
 end
+
+local function move(direction)
+  if current_room == "locked_door_room" and direction == "north" and door_locked then
+    print("The door is locked.")
+    return
+  end
+  local destination = rooms[current_room].exits[direction]
+  if destination then
+    current_room = destination
+    print("Current room:", current_room)
+  else
+    print("You cannot go that way.")
+  end
+end
+
+local function use_key()
+  if current_room == "locked_door_room" then
+    for _, item in ipairs(inventory) do
+      if item == "shiny key" then
+        door_locked = false
+        print("Door unlocked:", not door_locked)
+        return true
+      end
+    end
+  end
+  print("The key cannot be used here.")
+  return false
+end
+
 print("Picked up key:", take_key())
-print("Inventory:", table.concat(inventory, ", "))
+move("north")
+move("east")
+move("north")
+move("north")
+use_key()
+move("north")
+print("You win:", current_room == "treasure_room")
 ```
 
 ### Expected Behavior or Output
 
 ```text
 Picked up key:	true
-Inventory:	shiny key
+Current room:	tunnel
+Current room:	clearing
+Current room:	locked_door_room
+The door is locked.
+Door unlocked:	true
+Current room:	treasure_room
+You win:	true
 ```
 
 ### Common Mistakes
