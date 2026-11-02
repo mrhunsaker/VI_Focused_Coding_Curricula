@@ -344,7 +344,7 @@ print("Hello, " .. name .. "!")
 ### Expected Behavior or Output
 
 ```text
-With input Avery: Hello, Avery!
+Enter your name: Hello, Avery!
 ```
 
 ### Common Mistakes
@@ -3323,7 +3323,7 @@ Navigate by line, word, and character; identify delimiters and nesting verbally;
 The following values must remain identical to the Python source and the other general-purpose tracks:
 
 - Student: Avery, age 16, height 1.72 meters, favorite subject Computer Science.
-- Calculator: bill 24.50, tip rate 0.15; tip displays as $3.67 and total as $28.18.
+- Calculator: bill 24.50, tip rate 0.15; round half-up to the nearest cent; tip displays as $3.68 and total as $28.18.
 - Grade thresholds: A ≥ 90, B ≥ 80, C ≥ 70, D ≥ 60, otherwise F. Scores: 82, 91, 76, 88; total 337; average 84.25.
 - Inventory: Notebook (3 at $2.50), Pencil (10 at $0.50), Folder (4 at $1.25); total $17.50.
 - Coordinates: (3, 4); distance from origin 5.
@@ -3334,7 +3334,7 @@ The following values must remain identical to the Python source and the other ge
 
 ## Course projects and acceptance criteria
 
-The text adventure uses the shared three-room graph `start_room` → `tunnel` → `clearing`, with the same reverse exits, movement commands, shiny-key inventory mechanic, locked-door puzzle, and win condition as the Python specification. The command-line to-do manager must implement create, list, update/complete, delete, save, and load with all five canonical fields. The capstone must implement list/display, add, search, update, delete, and persistence for the six-field record. A terminal interface is acceptable for Lua, but the data model, operations, acceptance tests, and keyboard/text accessibility requirements remain equivalent.
+The text adventure uses the shared five-room graph: `start_room` (north → `tunnel`, shiny key), `tunnel` (south → `start_room`, east → `clearing`), `clearing` (west → `tunnel`, north → `locked_door_room`), `locked_door_room` (south → `clearing`, north → `treasure_room` only after unlocking), and terminal `treasure_room`. The player takes the shiny key in `start_room`, travels to `locked_door_room`, uses the key there, and enters `treasure_room` to win. Commands are `north`, `south`, `east`, `west`, `take shiny key`, `use shiny key`, and `quit`. The command-line to-do manager must implement create, list, update/complete, delete, save, and load with all five canonical fields. The capstone must implement list/display, add, search, update, delete, and persistence for the six-field record. A terminal interface is acceptable for Lua, but the data model, operations, acceptance tests, and keyboard/text accessibility requirements remain equivalent.
 
 ## AI and assessment integrity
 
