@@ -2058,8 +2058,9 @@ Navigate the complete source file by line, word, and character using the learner
 Project work starts with observable requirements and acceptance criteria. Separate domain state, command parsing, validation, persistence, and output so each behavior can be tested and navigated accessibly.
 ### Worked Example
 ```cs
-var exits = new Dictionary<string, string> { ["north"] = "Library", ["east"] = "Garden" }; string room = "Atrium", direction = "north";
-if (exits.TryGetValue(direction, out string? destination)) room = destination;
+var exits = new Dictionary<string, string> { ["start_room:north"] = "tunnel" }; string room = "start_room", direction = "north";
+string transition = $"{room}:{direction}";
+if (exits.TryGetValue(transition, out string? destination)) room = destination;
 Console.WriteLine($"Current room: {room}");
 ```
 
