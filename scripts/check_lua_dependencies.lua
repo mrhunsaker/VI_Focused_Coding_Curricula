@@ -40,24 +40,11 @@ assert(rows[1].first_name == "Avery, Jr.", "Quoted comma was not preserved")
 assert(rows[2].first_name == 'Riley "RJ"', "Doubled quote was not decoded")
 assert(rows[4].last_name == "Diaz\nMorgan" or rows[4].last_name == "Diaz\r\nMorgan", "Embedded newline was not preserved: " .. string.format("%q", tostring(rows[4].last_name)))
 
--- Validate row width explicitly: ftcsv is a parser, not a schema validator.
-local function validate_five_columns(source)
-  local parsed = ftcsv.parse(source, { loadFromString = true, headers = false })
-  assert(type(parsed) == "table", "CSV parser did not return rows")
-  for index, row in ipairs(parsed) do
-    assert(type(row) == "table" and #row == 5,
-      "CSV row " .. index .. " must contain exactly five columns")
-  end
-  return parsed
-end
-
-local valid_rows = validate_five_columns(
-  "student_id,first_name,last_name,score,active\\n1001,Avery,Jordan,82,true")
-assert(#valid_rows == 2, "Headerless parse should retain header and one data row")
-assert(not pcall(validate_five_columns, "a,b,c,d,e\\n1,2,3,4"),
-  "CSV row with a missing column must be rejected by schema validation")
-assert(not pcall(validate_five_columns, "a,b,c,d,e\\n1,2,3,4,5,6"),
-  "CSV row with an extra column must be rejected by schema validation")
+-- ftcsv rejects records whose width differs from the header.
+assert(not pcall(ftcsv.parse, "a,b\\n1,2,3", { loadFromString = true }),
+  "CSV row with an extra column must be rejected")
+assert(not pcall(ftcsv.parse, "a,b\\n1", { loadFromString = true }),
+  "CSV row with a missing column must be rejected")
 assert(not pcall(ftcsv.parse, 'a,b\\n1,"unterminated',
   { loadFromString = true }), "Unterminated quoted field must be rejected")
 
