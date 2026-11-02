@@ -904,7 +904,6 @@
         "Complete and test the CLI to-do manager with all five canonical fields, CRUD operations, save/load, and malformed-data handling.",
         "Select, pin, and test a JSON dependency and a standards-aware CSV parser; test malformed JSON and quoted CSV fields.",
         "Complete capstone persistence and CRUD integration tests.",
-        "Run a fresh mdBook build and complete Markdown/local-link crawl.",
         "Perform hands-on keyboard-only, screen-reader, and braille testing with named operating systems, editors, and access technologies."
       ],
       "validation": {
@@ -916,7 +915,10 @@
         "exact_output_assertions": "passed_for_all_53_lesson_sections",
         "current_version_ci_run": "41537622785",
         "current_version_ci_url": "https://github.com/mrhunsaker/VI_Focused_Coding_Curricula/actions/runs/41537622785",
-        "current_version_ci_result": "All 53 Lua 5.4.6 lesson examples parsed, executed in isolated directories, and matched their documented stdout fixtures. Deterministic stdin and file fixtures were supplied for the input and file-reading lessons."
+        "current_version_ci_result": "All 53 Lua 5.4.6 lesson examples parsed, executed in isolated directories, and matched their documented stdout fixtures. Deterministic stdin and file fixtures were supplied for the input and file-reading lessons.",
+        "mdbook_and_local_link_check": "passed",
+        "mdbook_workflow_run": "41538167297",
+        "mdbook_workflow_url": "https://github.com/mrhunsaker/VI_Focused_Coding_Curricula/actions/runs/41538167297"
       }
     },
     "java": {
@@ -1040,7 +1042,6 @@
         "Reconcile the Unit 10 adventure room graph, inventory/puzzle state, CLI to-do CRUD and persistence behavior with the canonical project specification.",
         "Rebuild the Unit 11 capstone around the exact six-field record and test add, list, search, update, delete, and JSON persistence.",
         "Run syntax checks over all Python code fences and project-level tests, not only canonical dataset blocks.",
-        "Run a fresh mdBook build and complete Markdown/local-link crawl.",
         "Perform hands-on keyboard-only, screen-reader, and braille testing with named operating systems, editors, and access technologies.",
         "Manually verify the adventure graph and to-do scaffold against the canonical contracts; keep full project solutions out of the public student repository."
       ],
@@ -1059,7 +1060,10 @@
         "adventure_end_to_end_test": "passed",
         "latest_ci_run": "41538051184",
         "latest_ci_url": "https://github.com/mrhunsaker/VI_Focused_Coding_Curricula/actions/runs/41538051184",
-        "latest_ci_result": "Canonical profile, calculator, coordinates, grades, inventory, text, CSV, JSON task examples passed exact stdout; the scripted adventure completed the key/door/treasure-room win path."
+        "latest_ci_result": "Canonical profile, calculator, coordinates, grades, inventory, text, CSV, JSON task examples passed exact stdout; the scripted adventure completed the key/door/treasure-room win path.",
+        "mdbook_and_local_link_check": "passed",
+        "mdbook_workflow_run": "41538167297",
+        "mdbook_workflow_url": "https://github.com/mrhunsaker/VI_Focused_Coding_Curricula/actions/runs/41538167297"
       }
     },
     "repository_wide_audit": {
@@ -1117,13 +1121,13 @@
         "Latest Python CI passed after adding an end-to-end adventure run through the canonical key/door/treasure path (run 41537705769).",
         "Lua exact-output validation passed for all 53 lesson examples (run 41537622785).",
         "Added scripts/check_curriculum_contracts.py and .github/workflows/curriculum-contracts.yml; cross-language dataset, project-contract, Unit 0 mapping, and Lua fixture checks passed (run 41538051208).",
-        "Corrected the stale Python calculator expected-output fixture from $3.67 to $3.68 after the static contract audit identified it."
+        "Corrected the stale Python calculator expected-output fixture from $3.67 to $3.68 after the static contract audit identified it.",
+        "Full repository mdBook build and Markdown local-link crawl passed (run 41538167297)."
       ],
       "next_steps": [
         "Complete the Python to-do manager and capstone acceptance tests without publishing assessment solutions.",
         "Complete Lua adventure and to-do project workflow tests, including persistence and malformed-data cases.",
         "Select and pin a Lua JSON dependency and a standards-aware CSV parser; test malformed JSON and quoted CSV edge cases.",
-        "Run a fresh repository-wide mdBook build and Markdown/local-link crawl.",
         "Perform hands-on keyboard, screen-reader, and braille testing on named platforms and assistive technologies.",
         "Complete the exhaustive lesson-by-lesson content, dataset, required-section, link, and accessibility audit across all 13 general-purpose tracks.",
         "Review specialist HTML/CSS, R, and SQL modules separately using their domain-specific learning objectives."
