@@ -2409,8 +2409,8 @@ Begin projects with requirements, input/output contracts, and acceptance tests. 
 
 ### Worked Example
 ```jl
-rooms=Dict("Atrium"=>Dict("north"=>"Lab"),"Lab"=>Dict("south"=>"Atrium"))
-println(get(rooms["Atrium"],"north","No exit"))
+rooms=Dict("start_room"=>Dict("north"=>"tunnel"),"tunnel"=>Dict("south"=>"start_room"))
+println(get(rooms["start_room"],"north","No exit"))
 ```
 
 ### Expected Behavior or Output
