@@ -2181,7 +2181,7 @@ print(string.find(result, "score must be numeric") ~= nil)
 
 ```text
 false
-[string "..."]:2: score must be numeric
+true
 ```
 
 ### Common Mistakes
