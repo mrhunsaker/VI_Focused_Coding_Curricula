@@ -1,7 +1,9 @@
 name: Go examples
 on:
   push:
-    branches: [2026-11-01-curriculum-expansion]
+    branches:
+      - 2026-11-01-curriculum-expansion
+      - audit/fix-python-lua-standardization
     paths:
       - "GO/lessons.md"
       - "scripts/check_go_examples.py"
