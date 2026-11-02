@@ -13,7 +13,7 @@
 - Workflow: `.github/workflows/python-curriculum.yml`.
 - Scope: compile and execute the canonical Python code blocks and compare stdout against exact fixtures.
 - Manual execution in the current audit verified the student profile, Decimal tip calculation, coordinate distance, grade classification and average, inventory total, and canonical text counts.
-- CI status: pending the first run on this branch.
+- CI: [run 41529521712](https://github.com/mrhunsaker/VI_Focused_Coding_Curricula/actions/runs/41529521712) passed on the current audit branch. The checker compiled, executed, and matched stdout for all canonical Python examples in its fixture set.
 
 ## Not yet verified
 
