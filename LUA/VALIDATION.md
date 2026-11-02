@@ -16,7 +16,7 @@
 - Workflow: `.github/workflows/lua-examples.yml`.
 - Scope: `luac5.4 -p` syntax validation and independent smoke execution of each fenced Lua example.
 - Earlier CI run [41336626558](https://github.com/mrhunsaker/VI_Focused_Coding_Curricula/actions/runs/41336626558) passed against the prior lesson content. **That run does not validate the rewritten examples in this branch.**
-- The rewritten course has not yet had a new CI run. Do not mark the current version syntax-verified, runtime-verified, or output-verified until the workflow passes.
+- The rewritten course passed [run 41529521580](https://github.com/mrhunsaker/VI_Focused_Coding_Curricula/actions/runs/41529521580) on the current audit branch using Lua 5.4.6. All 53 fenced examples parsed and smoke-executed independently. This verifies syntax and clean process exit only; the checker does not compare stdout with the documented expected output.
 
 ## Not yet verified
 
