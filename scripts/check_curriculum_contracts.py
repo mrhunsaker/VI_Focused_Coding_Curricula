@@ -25,6 +25,10 @@ lua_source = (ROOT / "LUA" / "lessons.md").read_text(encoding="utf-8")
 go_source = (ROOT / "GO" / "lessons.md").read_text(encoding="utf-8")
 java_source = (ROOT / "JAVA" / "lessons.md").read_text(encoding="utf-8")
 cpp_source = (ROOT / "CPP" / "lessons.md").read_text(encoding="utf-8")
+csharp_source = (ROOT / "CSHARP" / "lessons.md").read_text(encoding="utf-8")
+julia_source = (ROOT / "JULIA" / "lessons.md").read_text(encoding="utf-8")
+swift_source = (ROOT / "SWIFT" / "lessons.md").read_text(encoding="utf-8")
+rust_source = (ROOT / "RUST" / "lessons.md").read_text(encoding="utf-8")
 fence = chr(96) * 3
 
 def require(condition: bool, message: str) -> None:
@@ -83,6 +87,13 @@ for field in datasets["capstone_record_fields"]:
     require(field in cpp_source, f"C++ capstone schema missing {field}")
 for field in ("id", "title", "description", "category", "createdAt", "updatedAt"):
     require(field in java_source, f"Java capstone schema missing {field}")
+for field in ("Id", "Title", "Description", "Category", "CreatedAt", "UpdatedAt"):
+    require(field in csharp_source, f"C# capstone schema missing {field}")
+for field in ("id", "title", "description", "category", "created_at", "updated_at"):
+    require(field in julia_source, f"Julia capstone schema missing {field}")
+    require(field in rust_source, f"Rust capstone schema missing {field}")
+for field in ("id", "title", "description", "category", "createdAt", "updatedAt"):
+    require(field in swift_source, f"Swift capstone schema missing {field}")
 
 # The project graph and command set must be shared across Python, Lua, and JSON.
 adventure = spec["canonical_project_contracts"]["adventure"]
@@ -98,6 +109,10 @@ require("treasure_room" in lua_source, "Lua adventure win room missing")
 for room_id in ("start_room", "tunnel"):
     require(room_id in java_source, f"Java adventure example missing canonical room {room_id}")
     require(room_id in cpp_source, f"C++ adventure example missing canonical room {room_id}")
+    require(room_id in csharp_source, f"C# adventure example missing canonical room {room_id}")
+    require(room_id in julia_source, f"Julia adventure example missing canonical room {room_id}")
+    require(room_id in swift_source, f"Swift adventure example missing canonical room {room_id}")
+require("StartRoom" in rust_source and "Tunnel" in rust_source, "Rust adventure example missing canonical start/tunnel states")
 
 lua_lessons = [
     section for section in re.split(r"(?=^## Lesson )", lua_source, flags=re.MULTILINE)
@@ -113,4 +128,4 @@ require("AI-generated code breaks your app" not in python_projects,
 require("AI-generated code" not in python_projects.split("## Canonical Shared Project Contracts")[0],
         "Python project lessons recommend AI-generated code")
 
-print("Passed: Python/Lua datasets, Go/Java/C++ project contracts, Unit 0 mapping, and 53 Lua output fixtures are aligned.")
+print("Passed: Python/Lua datasets, Go/Java/C++/C#/Julia/Swift/Rust project contracts, Unit 0 mapping, and 53 Lua output fixtures are aligned.")
