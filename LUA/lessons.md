@@ -3153,22 +3153,52 @@ Implement CRUD as separate functions. Updating a record should also update updat
 ### Worked Example
 
 ```lua
-local records = {{id = 1, title = "Notes", done = false}}
-local function update_title(id, title)
+local records = {{
+  id = 1,
+  title = "Programming notes",
+  description = "Review lists and dictionaries",
+  category = "Study",
+  created_at = "2025-01-15T09:00:00Z",
+  updated_at = "2025-01-15T09:00:00Z"
+}}
+local function find_record(id)
   for _, record in ipairs(records) do
-    if record.id == id then record.title = title; return true end
+    if record.id == id then return record end
+  end
+  return nil
+end
+local function update_title(id, title, updated_at)
+  local record = find_record(id)
+  if not record then return false end
+  record.title = title
+  record.updated_at = updated_at
+  return true
+end
+local function delete_record(id)
+  for index, record in ipairs(records) do
+    if record.id == id then
+      table.remove(records, index)
+      return true
+    end
   end
   return false
 end
-print(update_title(1, "Revised notes"), records[1].title)
-print(update_title(9, "Missing"))
+local found = find_record(1)
+print("Found:", found.title, found.category)
+print("Updated:", update_title(1, "Revised notes", "2025-01-16T09:00:00Z"))
+print("Updated title:", records[1].title)
+print("Deleted:", delete_record(1))
+print("Missing delete:", delete_record(9))
 ```
 
 ### Expected Behavior or Output
 
 ```text
-true	Revised notes
-false
+Found:	Programming notes	Study
+Updated:	true
+Updated title:	Revised notes
+Deleted:	true
+Missing delete:	false
 ```
 
 ### Common Mistakes
@@ -3342,4 +3372,4 @@ AI must not write, complete, autocomplete, repair, or generate course code or as
 
 ## Validation status
 
-The prior smoke-execution result applies to the previous version of this file, not this rewritten course. Run the Lua checker again, add exact expected-output fixtures for all 53 examples, and test project workflows and persistence before marking this course runtime- or output-verified.
+The earlier smoke-execution result applies only to the previous version of this file. The current checker now compares exact stdout for all 53 lesson examples; run the updated Lua 5.4 workflow and complete end-to-end project/persistence tests before marking the projects verified.
