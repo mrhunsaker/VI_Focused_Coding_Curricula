@@ -352,9 +352,11 @@ print(f"Distance from origin: {distance:.2f}")
 Use the canonical bill and tip rate in every parallel-language implementation.
 
 ```python
-bill = 24.50
-tip_rate = 0.15
-tip = bill * tip_rate
+from decimal import Decimal, ROUND_HALF_UP
+
+bill = Decimal("24.50")
+tip_rate = Decimal("0.15")
+tip = (bill * tip_rate).quantize(Decimal("0.01"), rounding=ROUND_HALF_UP)
 total = bill + tip
 print(f"Tip: ${tip:.2f}")
 print(f"Total: ${total:.2f}")
@@ -375,4 +377,4 @@ distance = math.sqrt(x**2 + y**2)
 print(distance)
 ```
 
-Expected output: `5.0`. The tip calculation rounds only for display; retain the numeric result internally.
+Expected output: `5.0`. The shared monetary contract rounds the tip to cents using decimal half-up rounding before adding it to the bill. Use decimal arithmetic rather than binary floating-point formatting for currency.
