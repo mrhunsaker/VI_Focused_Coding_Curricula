@@ -28,3 +28,12 @@
 - Select, pin, and test a JSON dependency; select a standards-aware CSV parser and test quoted commas, escaped quotes, and embedded newlines.
 - Run a fresh mdBook build and complete Markdown/local-link crawl.
 - Perform hands-on keyboard-only, screen-reader, and braille testing with named operating systems, editors, and access technologies.
+
+## Pinned dependency decision and integration checks
+
+- Dependency pins: [DEPENDENCIES.md](DEPENDENCIES.md) — dkjson 2.11-1 and ftcsv 1.5.0-1 for Lua 5.4.
+- Integration checker: [../scripts/check_lua_dependencies.lua](../scripts/check_lua_dependencies.lua).
+- CI workflow: [../.github/workflows/lua-dependencies.yml](../.github/workflows/lua-dependencies.yml).
+- The checker exercises JSON round-trip and malformed JSON, plus CSV quoted commas, escaped quotes, embedded newlines, CRLF records, and the canonical five-column header. These checks are pending their first CI run; dependency selection is complete, validation is not yet claimed.
+- Shared project acceptance matrix: [../PROJECT_ACCEPTANCE.md](../PROJECT_ACCEPTANCE.md). It specifies the adventure, five-field to-do manager, and six-field capstone behavioral cases without publishing assessment solutions.
+- No complete Lua adventure or CRUD application is claimed as implemented or passed. The acceptance matrix is a test specification pending executable project implementations.
