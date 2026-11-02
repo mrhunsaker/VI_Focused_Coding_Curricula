@@ -2652,8 +2652,8 @@ The capstone is an accessible personal-data manager with list/add/search/update/
 
 ### Worked Example
 ```jl
-struct Record; id::Int; title::String; description::String; category::String; end
-println(Record(1,"Study","Read arrays","learning"))
+struct Record; id::Int; title::String; description::String; category::String; created_at::String; updated_at::String; end
+println(Record(1,"Study Julia","Review arrays","learning","2026-11-01","2026-11-01"))
 ```
 
 ### Expected Behavior or Output
