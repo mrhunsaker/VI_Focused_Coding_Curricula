@@ -440,21 +440,9 @@ class Contact:
 
 ## Supplemental: AI Tools and Version Control
 
-### AI-Powered Coding Tools
+### Academic Integrity: AI and Assessment
 
-**Benefits:**
-- Increased productivity and speed.
-- Syntax and idiom discovery.
-- Rapid prototyping.
-
-**Critical Warning:** AI tools can produce code that looks correct but contains subtle bugs. **Always:**
-1. Read every line of AI-generated code.
-2. Verify the logic and intent.
-3. Look for familiar error types (indentation, name errors, type errors).
-4. Run and test incrementally.
-5. Add your own comments and docstrings.
-
-**The Golden Rule:** You are responsible for your code. Treat AI suggestions as a first draft that needs meticulous editing.
+AI tools must not write, complete, autocomplete, repair, or generate course code or assessment solutions. Students may use only instructor-authorized conceptual explanations that do not produce deliverable code. Git and version control are taught separately and are not a workaround for the assessment-integrity rule.
 
 ### Git and Version Control
 
@@ -492,3 +480,32 @@ git log                     # View history
 git diff                    # See what changed
 git restore -- file.py     # Discard changes to a file
 ```
+
+## Canonical Shared Project Contracts
+
+### Unit 10: Adventure and command-line to-do projects
+
+The adventure implementation must preserve the same room graph, movement commands, inventory/puzzle rules, and win condition across languages. Document the final room graph and command set in the student-facing project brief before implementation; do not treat a different room map as equivalent.
+
+The CLI to-do manager must store these five fields on every task: `id`, `title`, `description`, `done`, and `created_at`. It must support create, list, complete/update, delete, save, and load. Invalid identifiers, empty titles, and malformed persistence data require explicit textual errors.
+
+### Unit 11: Accessible Personal Data Manager
+
+The shared capstone record has exactly these fields:
+
+```python
+record = {
+    "id": 1,
+    "title": "Programming notes",
+    "description": "Review lists and dictionaries",
+    "category": "Study",
+    "created_at": "2025-01-15T09:00:00Z",
+    "updated_at": "2025-01-15T09:00:00Z",
+}
+```
+
+Required operations are list/display, add, search, update, delete, and completion/status management where applicable to the shared specification. Persist the same records as JSON. A GUI framework is a Python-specific implementation choice; the data model, operations, textual status/error messages, keyboard access, and acceptance tests are not optional or language-specific.
+
+### Academic integrity and AI policy
+
+AI tools must not write, complete, autocomplete, repair, or generate course code or assessment solutions. Students may use only instructor-authorized conceptual explanations that do not produce deliverable code. Remove the earlier AI-generated-code workflow advice: it conflicts with the course-wide assessment-integrity rule. Git and version control remain appropriate topics when taught independently of AI code generation.
