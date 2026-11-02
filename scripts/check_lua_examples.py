@@ -28,9 +28,9 @@ with tempfile.TemporaryDirectory(prefix="lua-curriculum-") as directory:
     work = Path(directory)
     for number, section in enumerate(sections, start=1):
         title = section.splitlines()[0]
-        code_blocks = re.findall(r"\`\`\`lua\s*\n(.*?)\n\`\`\`", section, flags=re.DOTALL)
+        code_blocks = re.findall(r"```lua\s*\n(.*?)\n```", section, flags=re.DOTALL)
         expected_match = re.search(
-            r"### Expected Behavior or Output\s*\n\s*\`\`\`text\s*\n(.*?)\n\`\`\`",
+            r"### Expected Behavior or Output\s*\n\s*```text\s*\n(.*?)\n```",
             section,
             flags=re.DOTALL,
         )
