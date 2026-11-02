@@ -23,7 +23,9 @@ CASES = {
     ],
     "PYTHON/unit07-09-oop-files.md": [
         "Words: 8\nProgramming: 2\n",
+        "1001 Avery Jordan 82 true\n1002 Riley Chen 91 true\n1003 Sam Patel 76 false\n1004 Morgan Diaz 88 true\n",
         "",
+        "1 Practice Python False\n",
     ],
     "PYTHON/unit10-11-projects-capstone.md": [
         "",
