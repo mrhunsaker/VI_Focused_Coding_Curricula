@@ -4,13 +4,13 @@ The curriculum targets Lua 5.4. Pin the following pure-Lua libraries for example
 
 | Package | Exact LuaRocks version | Purpose | License |
 |---|---:|---|---|
-| `dkjson` | `2.11-1` | JSON encoding/decoding for the task manager and capstone | MIT/X11 |
+| `dkjson` | `2.11` | JSON encoding/decoding for the task manager and capstone | MIT/X11 |
 | `ftcsv` | `1.5.0-1` | CSV parsing/encoding, including quoted fields and multiline fields | MIT |
 
 Install into the Lua 5.4 tree:
 
 ```sh
-luarocks --lua-version=5.4 install dkjson 2.11-1
+luarocks --lua-version=5.4 install dkjson 2.11
 luarocks --lua-version=5.4 install ftcsv 1.5.0-1
 ```
 
