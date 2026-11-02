@@ -21,7 +21,7 @@ if len(sections) != 53:
     raise SystemExit(f"Expected 53 numbered Lua lessons, found {len(sections)}")
 
 # Lesson 6 is an input example; lesson 34 reads a deterministic fixture file.
-INPUTS = {6: "Avery\n"}
+INPUTS = {6: "Avery\n", 19: "82\n"}
 FIXTURE_FILES = {34: {"notes.txt": "Hello"}}
 
 with tempfile.TemporaryDirectory(prefix="lua-curriculum-") as directory:
