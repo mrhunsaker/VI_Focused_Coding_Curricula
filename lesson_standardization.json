@@ -913,8 +913,8 @@
         "workflow": ".github/workflows/lua-examples.yml",
         "current_version_ci_status": "passed_exact_output",
         "exact_output_assertions": "passed_for_all_53_lesson_sections",
-        "current_version_ci_run": "41537622785",
-        "current_version_ci_url": "https://github.com/mrhunsaker/VI_Focused_Coding_Curricula/actions/runs/41537622785",
+        "current_version_ci_run": "41538333230",
+        "current_version_ci_url": "https://github.com/mrhunsaker/VI_Focused_Coding_Curricula/actions/runs/41538333230",
         "current_version_ci_result": "All 53 Lua 5.4.6 lesson examples parsed, executed in isolated directories, and matched their documented stdout fixtures. Deterministic stdin and file fixtures were supplied for the input and file-reading lessons.",
         "mdbook_and_local_link_check": "passed",
         "mdbook_workflow_run": "41538243813",
@@ -1058,8 +1058,8 @@
         "latest_extended_fixtures_ci_url": "https://github.com/mrhunsaker/VI_Focused_Coding_Curricula/actions/runs/41537458295",
         "latest_extended_fixtures_result": "Canonical Python fixtures, including CSV DictReader and JSON task round-trip, compiled, executed, and matched exact stdout.",
         "adventure_end_to_end_test": "passed",
-        "latest_ci_run": "41538051184",
-        "latest_ci_url": "https://github.com/mrhunsaker/VI_Focused_Coding_Curricula/actions/runs/41538051184",
+        "latest_ci_run": "41538333262",
+        "latest_ci_url": "https://github.com/mrhunsaker/VI_Focused_Coding_Curricula/actions/runs/41538333262",
         "latest_ci_result": "Canonical profile, calculator, coordinates, grades, inventory, text, CSV, JSON task examples passed exact stdout; the scripted adventure completed the key/door/treasure-room win path.",
         "mdbook_and_local_link_check": "passed",
         "mdbook_workflow_run": "41538243813",
@@ -1131,7 +1131,17 @@
         "Perform hands-on keyboard, screen-reader, and braille testing on named platforms and assistive technologies.",
         "Complete the exhaustive lesson-by-lesson content, dataset, required-section, link, and accessibility audit across all 13 general-purpose tracks.",
         "Review specialist HTML/CSS, R, and SQL modules separately using their domain-specific learning objectives."
-      ]
+      ],
+      "validation": {
+        "cross_language_contract_checker": "scripts/check_curriculum_contracts.py",
+        "cross_language_workflow": ".github/workflows/curriculum-contracts.yml",
+        "cross_language_status": "passed",
+        "cross_language_run": "41538333054",
+        "cross_language_url": "https://github.com/mrhunsaker/VI_Focused_Coding_Curricula/actions/runs/41538333054",
+        "mdbook_status": "passed",
+        "mdbook_run": "41538243813",
+        "mdbook_url": "https://github.com/mrhunsaker/VI_Focused_Coding_Curricula/actions/runs/41538243813"
+      }
     }
   },
   "canonical_project_contracts": {
