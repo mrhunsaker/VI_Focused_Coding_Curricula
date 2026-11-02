@@ -1179,7 +1179,22 @@
         "lua_dependencies_workflow": ".github/workflows/lua-dependencies.yml",
         "lua_dependencies_run": "41546425326",
         "lua_dependencies_url": "https://github.com/mrhunsaker/VI_Focused_Coding_Curricula/actions/runs/41546425326",
-        "project_acceptance_matrix": "PROJECT_ACCEPTANCE.md"
+        "project_acceptance_matrix": "PROJECT_ACCEPTANCE.md",
+        "latest_targeted_contract_run": "41548920289",
+        "latest_targeted_contract_url": "https://github.com/mrhunsaker/VI_Focused_Coding_Curricula/actions/runs/41548920289",
+        "latest_targeted_contract_result": "Passed on commit 2a570e0a52bac3908df1c0d7a9c702e65131390f; includes six-field Go/Java/C++ capstone coverage and Java/C++ canonical adventure room identifiers.",
+        "latest_python_run": "41548920307",
+        "latest_python_url": "https://github.com/mrhunsaker/VI_Focused_Coding_Curricula/actions/runs/41548920307",
+        "latest_python_result": "Passed on the current branch head.",
+        "latest_environment_guide_run": "41548910785",
+        "latest_environment_guide_url": "https://github.com/mrhunsaker/VI_Focused_Coding_Curricula/actions/runs/41548910785",
+        "latest_environment_guide_result": "Passed on the current branch head; includes mdBook and local-link checks.",
+        "java_run": "41548920290",
+        "java_url": "https://github.com/mrhunsaker/VI_Focused_Coding_Curricula/actions/runs/41548920290",
+        "java_status": "in_progress_when_tracker_updated",
+        "lua_run": "41548920318",
+        "lua_url": "https://github.com/mrhunsaker/VI_Focused_Coding_Curricula/actions/runs/41548920318",
+        "lua_status": "in_progress_when_tracker_updated"
       }
     }
   },
