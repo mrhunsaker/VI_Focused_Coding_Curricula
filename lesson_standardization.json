@@ -901,7 +901,8 @@
         "Selected and pinned dkjson 2.11-1 and ftcsv 1.5.0-1 for Lua 5.4; documented package purpose, licenses, install commands, and parser limitations in LUA/DEPENDENCIES.md.",
         "Added scripts/check_lua_dependencies.lua to exercise JSON round-trip/malformed input and CSV quoted commas, doubled quotes, multiline fields, CRLF, and canonical header behavior.",
         "Added .github/workflows/lua-dependencies.yml to install the exact dependency versions and run the integration checks.",
-        "Added PROJECT_ACCEPTANCE.md with deterministic cross-language adventure, to-do, and capstone test scenarios; this is a specification, not a passed project test suite."
+        "Added PROJECT_ACCEPTANCE.md with deterministic cross-language adventure, to-do, and capstone test scenarios; this is a specification, not a passed project test suite.",
+        "Extended the pinned ftcsv integration checker to reject extra-column, missing-column, and unterminated-quoted-field CSV records; execution remains pending CI."
       ],
       "not_yet_verified": [
         "Run the pinned-dependency CI workflow and resolve any API or edge-case failures before marking the JSON/CSV integration checks passed.",
@@ -927,7 +928,7 @@
         "dependencies_document": "LUA/DEPENDENCIES.md",
         "dependencies_checker": "scripts/check_lua_dependencies.lua",
         "dependencies_workflow": ".github/workflows/lua-dependencies.yml",
-        "dependencies_test_cases": "dkjson valid round-trip and malformed JSON; ftcsv quoted commas, doubled quotes, embedded newlines, CRLF, and canonical header."
+        "dependencies_test_cases": "dkjson valid round-trip and malformed JSON; ftcsv quoted commas, doubled quotes, embedded newlines, CRLF, exact canonical five-column header, and rejection of extra/missing columns and unterminated quoted fields."
       }
     },
     "java": {
@@ -1138,7 +1139,8 @@
         "Added PROJECT_ACCEPTANCE.md with deterministic cross-language project acceptance scenarios; no project implementation is represented as passed.",
         "Selected and pinned Lua 5.4 JSON/CSV dependencies and added an integration checker plus CI workflow; first CI execution is pending.",
         "Corrected Python canonical-checker failure diagnostics.",
-        "Expanded Python capstone requirements for search, strict record validation, stable identifiers, and timestamp updates."
+        "Expanded Python capstone requirements for search, strict record validation, stable identifiers, and timestamp updates.",
+        "Extended Lua dependency integration fixtures to cover malformed CSV row shapes and unterminated quoted fields."
       ],
       "next_steps": [
         "Run and pass the new pinned Lua dependency integration workflow; resolve parser/JSON edge-case failures.",
