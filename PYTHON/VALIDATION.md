@@ -16,7 +16,7 @@
 - Checker: `scripts/check_python_curriculum.py`.
 - Workflow: `.github/workflows/python-curriculum.yml`.
 - Scope: canonical profile, calculator, coordinates, grades, inventory, text analysis, CSV parsing, task schema, and capstone record examples; compile, execute, and exact stdout checks.
-- Previous passing run [41529629787](https://github.com/mrhunsaker/VI_Focused_Coding_Curricula/actions/runs/41529629787) predates the latest legacy-example and project-contract edits. A new run is required before marking the latest revision validated.
+- Previous passing run [41529629787](https://github.com/mrhunsaker/VI_Focused_Coding_Curricula/actions/runs/41529629787) predates the latest legacy-example and project-contract edits. The latest extended-fixture revision passed [run 41537223960](https://github.com/mrhunsaker/VI_Focused_Coding_Curricula/actions/runs/41537223960): the canonical examples compiled, executed, and matched their exact stdout fixtures.
 
 ## Remaining work
 
