@@ -84,12 +84,12 @@ room_descriptions = {
         "items": [],
     },
     "clearing": {
-        "description": "A quiet clearing. A locked stone door lies to the north.",
+        "description": "A quiet clearing. A small antechamber lies to the north.",
         "exits": {"west": "tunnel", "north": "locked_door_room"},
         "items": [],
     },
     "locked_door_room": {
-        "description": "A chamber beyond the stone door. The treasure room is north.",
+        "description": "A chamber with a heavy locked door to the north.",
         "exits": {"south": "clearing"},
         "items": [],
     },
@@ -130,19 +130,34 @@ while True:
 
 ```python
 rooms = {
-    "start": {
-        "description": "A dark cave. There's a SHINY KEY on the ground.",
-        "exits": {"north": "locked_door_room"},
-        "items": ["shiny key"]
+    "start_room": {
+        "description": "A dimly lit cave. A shiny key rests on the ground.",
+        "exits": {"north": "tunnel"},
+        "items": ["shiny key"],
+    },
+    "tunnel": {
+        "description": "A damp tunnel. Passages lead south and east.",
+        "exits": {"south": "start_room", "east": "clearing"},
+        "items": [],
+    },
+    "clearing": {
+        "description": "A quiet clearing. A small antechamber lies to the north.",
+        "exits": {"west": "tunnel", "north": "locked_door_room"},
+        "items": [],
     },
     "locked_door_room": {
-        "description": "A small chamber with a heavy locked door to the NORTH.",
-        "exits": {"south": "start"},
-        "items": []
-    }
+        "description": "A chamber with a heavy locked door to the north.",
+        "exits": {"south": "clearing"},
+        "items": [],
+    },
+    "treasure_room": {
+        "description": "You found the treasure. You win!",
+        "exits": {},
+        "items": [],
+    },
 }
 
-current_room = "start"
+current_room = "start_room"
 player_inventory = []
 door_locked = True
 
@@ -152,7 +167,10 @@ while True:
         print(f"You see: {', '.join(rooms[current_room]['items'])}")
     print(f"Your inventory: {', '.join(player_inventory) if player_inventory else 'empty'}")
 
-    command = input("What do you want to do? ").lower()
+    if current_room == "treasure_room":
+        break
+
+    command = input("What do you want to do? ").strip().lower()
 
     if command == "take shiny key" and "shiny key" in rooms[current_room]["items"]:
         player_inventory.append("shiny key")
@@ -168,9 +186,10 @@ while True:
         else:
             current_room = rooms[current_room]["exits"][command]
     elif command == "quit":
+        print("You quit the adventure.")
         break
     else:
-        print("I don't understand that command.")
+        print("Invalid command. Use a direction, 'take shiny key', 'use shiny key', or 'quit'.")
 ```
 
 ### Skills Checklist
