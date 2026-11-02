@@ -881,7 +881,7 @@
     },
     "lua": {
       "path": "LUA/lessons.md",
-      "status": "53_lua_examples_exact_output_verified_under_lua_5_4_project_end_to_end_persistence_accessibility_tests_pending",
+      "status": "53_lua_examples_exact_output_and_json_csv_dependency_checks_passed_project_end_to_end_persistence_accessibility_tests_pending",
       "lua_version": "5.4",
       "unit_0_setup_lessons": 4,
       "numbered_lessons": 53,
@@ -898,14 +898,14 @@
         "Aligned Lua inventory, CSV rows, task-constructor tests, and adventure lessons to the canonical shared data and five-room project graph.",
         "Expanded the Lua checker to require one output fixture per lesson and compare exact stdout, with deterministic stdin and file fixtures for the input and file-reading lessons.",
         "Lua exact-output checker remains green after the final Lua lesson edits; all 53 lesson fixtures passed.",
-        "Selected and pinned dkjson 2.11 and ftcsv 1.5.0-1 for Lua 5.4; documented package purpose, licenses, install commands, and parser limitations in LUA/DEPENDENCIES.md.",
+        "Selected and pinned dkjson 2.11-1 and ftcsv 1.5.0-1 for Lua 5.4; documented package purpose, licenses, install commands, and parser limitations in LUA/DEPENDENCIES.md.",
         "Added scripts/check_lua_dependencies.lua to exercise JSON round-trip/malformed input and CSV quoted commas, doubled quotes, multiline fields, CRLF, and canonical header behavior.",
         "Added .github/workflows/lua-dependencies.yml to install the exact dependency versions and run the integration checks.",
         "Added PROJECT_ACCEPTANCE.md with deterministic cross-language adventure, to-do, and capstone test scenarios; this is a specification, not a passed project test suite.",
-        "Extended the pinned ftcsv integration checker to reject extra-column, missing-column, and unterminated-quoted-field CSV records; execution remains pending CI."
+        "Extended the pinned ftcsv integration checker to verify rejection of extra-column, missing-column, and unterminated-quoted-field CSV records; all dependency integration cases passed in CI run 41546425326."
       ],
       "not_yet_verified": [
-        "Run the pinned-dependency CI workflow and resolve any API or edge-case failures before marking the JSON/CSV integration checks passed.",
+        
         "Complete and test the full adventure game, including movement, shiny-key pickup, locked-door puzzle, and win condition.",
         "Complete and test the CLI to-do manager with all five canonical fields, CRUD operations, save/load, and malformed-data handling.",
         "Complete capstone persistence and CRUD integration tests.",
@@ -921,10 +921,14 @@
         "current_version_ci_run": "41538333230",
         "current_version_ci_url": "https://github.com/mrhunsaker/VI_Focused_Coding_Curricula/actions/runs/41538333230",
         "current_version_ci_result": "All 53 Lua 5.4.6 lesson examples parsed, executed in isolated directories, and matched their documented stdout fixtures. Deterministic stdin and file fixtures were supplied for the input and file-reading lessons.",
+        "dependency_ci_status": "passed",
+        "dependency_ci_run": "41546425326",
+        "dependency_ci_url": "https://github.com/mrhunsaker/VI_Focused_Coding_Curricula/actions/runs/41546425326",
+        "dependency_ci_result": "Pinned dkjson 2.11-1 and ftcsv 1.5.0-1 installed under Lua 5.4; JSON round-trip/malformed input and CSV quoted commas, doubled quotes, multiline fields, CRLF, canonical five-column header, extra/missing column, and unterminated quote checks passed."
         "mdbook_and_local_link_check": "passed",
         "mdbook_workflow_run": "41538243813",
         "mdbook_workflow_url": "https://github.com/mrhunsaker/VI_Focused_Coding_Curricula/actions/runs/41538243813",
-        "dependencies": "selected_and_pinned_ci_pending",
+        "dependencies": "selected_pinned_and_integration_checks_passed",
         "dependencies_document": "LUA/DEPENDENCIES.md",
         "dependencies_checker": "scripts/check_lua_dependencies.lua",
         "dependencies_workflow": ".github/workflows/lua-dependencies.yml",
@@ -1137,13 +1141,13 @@
         "Corrected the stale Python calculator expected-output fixture from $3.67 to $3.68 after the static contract audit identified it.",
         "Full repository mdBook build and Markdown local-link crawl passed (run 41538167297).",
         "Added PROJECT_ACCEPTANCE.md with deterministic cross-language project acceptance scenarios; no project implementation is represented as passed.",
-        "Selected and pinned Lua 5.4 JSON/CSV dependencies and added an integration checker plus CI workflow; first CI execution is pending.",
+        "Selected and pinned Lua 5.4 JSON/CSV dependencies; integration checks passed in CI run 41546425326.",
         "Corrected Python canonical-checker failure diagnostics.",
         "Expanded Python capstone requirements for search, strict record validation, stable identifiers, and timestamp updates.",
         "Extended Lua dependency integration fixtures to cover malformed CSV row shapes and unterminated quoted fields."
       ],
       "next_steps": [
-        "Run and pass the new pinned Lua dependency integration workflow; resolve parser/JSON edge-case failures.",
+        
         "Implement controlled instructor-side Python and Lua project fixtures and execute the shared PROJECT_ACCEPTANCE.md cases without publishing assessment solutions.",
         "Complete the Python to-do manager and capstone acceptance tests without publishing assessment solutions.",
         "Complete Lua adventure and to-do project workflow tests, including persistence and malformed-data cases.",
@@ -1160,8 +1164,10 @@
         "mdbook_status": "passed",
         "mdbook_run": "41538243813",
         "mdbook_url": "https://github.com/mrhunsaker/VI_Focused_Coding_Curricula/actions/runs/41538243813",
-        "lua_dependencies": "pending_first_ci_run",
+        "lua_dependencies": "passed",
         "lua_dependencies_workflow": ".github/workflows/lua-dependencies.yml",
+        "lua_dependencies_run": "41546425326",
+        "lua_dependencies_url": "https://github.com/mrhunsaker/VI_Focused_Coding_Curricula/actions/runs/41546425326",
         "project_acceptance_matrix": "PROJECT_ACCEPTANCE.md"
       }
     }
