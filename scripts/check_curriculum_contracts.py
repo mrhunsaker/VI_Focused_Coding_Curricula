@@ -22,6 +22,9 @@ python_source = chr(10).join(path.read_text(encoding="utf-8") for path in python
 python_setup = python_paths[0].read_text(encoding="utf-8")
 python_projects = python_paths[-1].read_text(encoding="utf-8")
 lua_source = (ROOT / "LUA" / "lessons.md").read_text(encoding="utf-8")
+go_source = (ROOT / "GO" / "lessons.md").read_text(encoding="utf-8")
+java_source = (ROOT / "JAVA" / "lessons.md").read_text(encoding="utf-8")
+cpp_source = (ROOT / "CPP" / "lessons.md").read_text(encoding="utf-8")
 fence = chr(96) * 3
 
 def require(condition: bool, message: str) -> None:
@@ -74,6 +77,13 @@ for field in datasets["capstone_record_fields"]:
     require(field in python_source, f"Python capstone schema missing {field}")
     require(field in lua_source, f"Lua capstone schema missing {field}")
 
+# Every parallel general-purpose track uses the same capstone record contract.
+for field in datasets["capstone_record_fields"]:
+    require(field in go_source, f"Go capstone schema missing {field}")
+    require(field in cpp_source, f"C++ capstone schema missing {field}")
+for field in ("id", "title", "description", "category", "createdAt", "updatedAt"):
+    require(field in java_source, f"Java capstone schema missing {field}")
+
 # The project graph and command set must be shared across Python, Lua, and JSON.
 adventure = spec["canonical_project_contracts"]["adventure"]
 for room in adventure["rooms"]:
@@ -85,6 +95,9 @@ for command in adventure["commands"]:
     require(command in lua_source, f"Lua adventure contract missing command {command!r}")
 require("You found the treasure. You win!" in python_projects, "Python adventure win state missing")
 require("treasure_room" in lua_source, "Lua adventure win room missing")
+for room_id in ("start_room", "tunnel"):
+    require(room_id in java_source, f"Java adventure example missing canonical room {room_id}")
+    require(room_id in cpp_source, f"C++ adventure example missing canonical room {room_id}")
 
 lua_lessons = [
     section for section in re.split(r"(?=^## Lesson )", lua_source, flags=re.MULTILINE)
@@ -100,4 +113,4 @@ require("AI-generated code breaks your app" not in python_projects,
 require("AI-generated code" not in python_projects.split("## Canonical Shared Project Contracts")[0],
         "Python project lessons recommend AI-generated code")
 
-print("Passed: Python/Lua datasets, project contracts, Unit 0 mapping, and 53 Lua output fixtures are aligned.")
+print("Passed: Python/Lua datasets, Go/Java/C++ project contracts, Unit 0 mapping, and 53 Lua output fixtures are aligned.")
