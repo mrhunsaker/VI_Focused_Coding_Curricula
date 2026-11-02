@@ -41,11 +41,11 @@ assert(rows[2].first_name == 'Riley "RJ"', "Doubled quote was not decoded")
 assert(rows[4].last_name == "Diaz\nMorgan" or rows[4].last_name == "Diaz\r\nMorgan", "Embedded newline was not preserved: " .. string.format("%q", tostring(rows[4].last_name)))
 
 -- ftcsv rejects records whose width differs from the header.
-assert(not pcall(ftcsv.parse, "a,b\\n1,2,3", { loadFromString = true }),
+assert(not pcall(ftcsv.parse, "a,b\n1,2,3", { loadFromString = true }),
   "CSV row with an extra column must be rejected")
-assert(not pcall(ftcsv.parse, "a,b\\n1", { loadFromString = true }),
+assert(not pcall(ftcsv.parse, "a,b\n1", { loadFromString = true }),
   "CSV row with a missing column must be rejected")
-assert(not pcall(ftcsv.parse, 'a,b\\n1,"unterminated',
+assert(not pcall(ftcsv.parse, 'a,b\n1,"unterminated',
   { loadFromString = true }), "Unterminated quoted field must be rejected")
 
 print("Passed: dkjson round-trip and malformed-input checks; ftcsv quoted-field, escaped-quote, multiline, CRLF, canonical five-column header, and malformed-row rejection checks.")
