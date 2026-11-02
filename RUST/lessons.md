@@ -2226,7 +2226,7 @@ Build an application in vertical slices: requirements, state model, command hand
 
 ### Worked Example
 ```rust
-#[derive(Clone,Copy)]enum Room{Hall,Library,Garden}fn main(){let room=Room::Hall;let next=match room{Room::Hall=>Room::Library,Room::Library=>Room::Garden,Room::Garden=>Room::Hall};println!("entered library={}",matches!(next,Room::Library));}
+#[derive(Clone,Copy)]enum Room{StartRoom,Tunnel,Clearing,LockedDoorRoom,TreasureRoom}fn main(){let room=Room::StartRoom;let direction="north";let next=match (room,direction){(Room::StartRoom,"north")=>Some(Room::Tunnel),_=>None};println!("entered tunnel={}",matches!(next,Some(Room::Tunnel)));}
 ```
 
 **Expected behavior:** Runs independently with the standard library and prints the result of this lesson's focused operation. Predict the output, then compare it with the terminal output.
