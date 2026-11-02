@@ -62,4 +62,30 @@ for relative, expected_outputs in CASES.items():
                 f"{relative} example {number}: stdout mismatch\n"
                 f"expected: {expected!r}\nactual:   {result.stdout!r}"
             )
-print("Passed: all canonical Python examples compiled, executed, and matched expected stdout.")
+# Run the guided adventure example through the canonical key/door/win path.
+project_source = (ROOT / "PYTHON/unit10-11-projects-capstone.md").read_text(encoding="utf-8")
+adventure_section = re.search(
+    r"^## Lesson 10\\.3:.*?(?=^## Lesson |^# Unit 11:)",
+    project_source,
+    flags=re.DOTALL | re.MULTILINE,
+)
+if adventure_section is None:
+    raise SystemExit("Missing Python adventure project lesson")
+adventure_blocks = pattern.findall(adventure_section.group(0))
+if len(adventure_blocks) != 1:
+    raise SystemExit("Expected one Python adventure example in Lesson 10.3")
+adventure_input = "take shiny key\\nnorth\\neast\\nnorth\\nuse shiny key\\nnorth\\n"
+adventure = subprocess.run(
+    [sys.executable, "-c", adventure_blocks[0]], cwd=ROOT, text=True,
+    input=adventure_input, capture_output=True, timeout=10, check=False
+)
+if adventure.returncode:
+    raise SystemExit(
+        f"Adventure example failed with {adventure.returncode}\\n"
+        f"stdout:\\n{adventure.stdout}\\nstderr:\\n{adventure.stderr}"
+    )
+for required_message in ("You unlocked the door!", "You found the treasure. You win!"):
+    if required_message not in adventure.stdout:
+        raise SystemExit(f"Adventure did not reach expected state: {required_message}")
+
+print("Passed: canonical Python examples matched exact stdout and the adventure reached its win condition.")
