@@ -53,16 +53,17 @@ end
 ```
 
 ### Common Mistakes
-- Assuming Lua tables are zero-indexed or that `#table` counts arbitrary map keys.
-- Omitting `local` and unintentionally creating or changing a global variable.
-- Treating `0`, an empty string, or an empty table as false.
-- Assuming iteration order from `pairs`, or assuming a standard-library feature exists when it does not.
+
+- Copying a Python assumption into Lua without checking the Lua 5.4 semantics.
+- Changing the canonical input values and then comparing output against the shared fixture.
+- Skipping a negative or boundary case for the lesson's main operation.
 
 ### Activities
-1. Predict the exact output before running the example, then compare it with the result.
-2. Change one input while keeping the canonical dataset unchanged; explain the resulting behavior.
-3. Add one boundary or invalid-input test appropriate to this lesson.
-4. Explain one Lua-specific semantic difference from Python that affects this example.
+
+1. Trace the 1.1 Welcome to Computer Science worked example and explain each statement in Lua terms.
+2. Change one noncanonical test value while keeping the shared fixture intact; predict the result before execution.
+3. Add a boundary or invalid-input test for the main operation in this lesson.
+4. Explain one semantic difference between Lua and Python that affects 1.1 welcome to computer science.
 
 ### Accessibility Practice
 Navigate by line, word, and character; identify delimiters and nesting verbally; execute from the terminal; and read the output and any error messages sequentially. Do not rely on syntax highlighting or color to understand the example.
@@ -107,16 +108,17 @@ Lua statements run from top to bottom.
 ```
 
 ### Common Mistakes
-- Assuming Lua tables are zero-indexed or that `#table` counts arbitrary map keys.
-- Omitting `local` and unintentionally creating or changing a global variable.
-- Treating `0`, an empty string, or an empty table as false.
-- Assuming iteration order from `pairs`, or assuming a standard-library feature exists when it does not.
+
+- Copying a Python assumption into Lua without checking the Lua 5.4 semantics.
+- Changing the canonical input values and then comparing output against the shared fixture.
+- Skipping a negative or boundary case for the lesson's main operation.
 
 ### Activities
-1. Predict the exact output before running the example, then compare it with the result.
-2. Change one input while keeping the canonical dataset unchanged; explain the resulting behavior.
-3. Add one boundary or invalid-input test appropriate to this lesson.
-4. Explain one Lua-specific semantic difference from Python that affects this example.
+
+1. Trace the 1.2 Your First Lua Program worked example and explain each statement in Lua terms.
+2. Change one noncanonical test value while keeping the shared fixture intact; predict the result before execution.
+3. Add a boundary or invalid-input test for the main operation in this lesson.
+4. Explain one semantic difference between Lua and Python that affects 1.2 your first lua program.
 
 ### Accessibility Practice
 Navigate by line, word, and character; identify delimiters and nesting verbally; execute from the terminal; and read the output and any error messages sequentially. Do not rely on syntax highlighting or color to understand the example.
@@ -165,16 +167,17 @@ string	number	number	boolean
 ```
 
 ### Common Mistakes
-- Assuming Lua tables are zero-indexed or that `#table` counts arbitrary map keys.
-- Omitting `local` and unintentionally creating or changing a global variable.
-- Treating `0`, an empty string, or an empty table as false.
-- Assuming iteration order from `pairs`, or assuming a standard-library feature exists when it does not.
+
+- Copying a Python assumption into Lua without checking the Lua 5.4 semantics.
+- Changing the canonical input values and then comparing output against the shared fixture.
+- Skipping a negative or boundary case for the lesson's main operation.
 
 ### Activities
-1. Predict the exact output before running the example, then compare it with the result.
-2. Change one input while keeping the canonical dataset unchanged; explain the resulting behavior.
-3. Add one boundary or invalid-input test appropriate to this lesson.
-4. Explain one Lua-specific semantic difference from Python that affects this example.
+
+1. Trace the 1.3 Variables and Simple Data Types worked example and explain each statement in Lua terms.
+2. Change one noncanonical test value while keeping the shared fixture intact; predict the result before execution.
+3. Add a boundary or invalid-input test for the main operation in this lesson.
+4. Explain one semantic difference between Lua and Python that affects 1.3 variables and simple data types.
 
 ### Accessibility Practice
 Navigate by line, word, and character; identify delimiters and nesting verbally; execute from the terminal; and read the output and any error messages sequentially. Do not rely on syntax highlighting or color to understand the example.
@@ -229,16 +232,17 @@ Total: $28.18
 ```
 
 ### Common Mistakes
-- Assuming Lua tables are zero-indexed or that `#table` counts arbitrary map keys.
-- Omitting `local` and unintentionally creating or changing a global variable.
-- Treating `0`, an empty string, or an empty table as false.
-- Assuming iteration order from `pairs`, or assuming a standard-library feature exists when it does not.
+
+- Using binary floating-point display rounding as a substitute for a currency-rounding policy.
+- Skipping parentheses when operator precedence is not obvious.
+- Assuming tonumber succeeds for every string.
 
 ### Activities
-1. Predict the exact output before running the example, then compare it with the result.
-2. Change one input while keeping the canonical dataset unchanged; explain the resulting behavior.
-3. Add one boundary or invalid-input test appropriate to this lesson.
-4. Explain one Lua-specific semantic difference from Python that affects this example.
+
+1. Calculate the shared $24.50 bill and 15% tip using integer cents and half-up rounding.
+2. Trace each arithmetic intermediate and compare the displayed tip and total with $3.68 and $28.18.
+3. Try a nonnumeric string and handle a nil conversion result.
+4. Use coordinates (3, 4) to calculate distance 5 and explain the math-library call.
 
 ### Accessibility Practice
 Navigate by line, word, and character; identify delimiters and nesting verbally; execute from the terminal; and read the output and any error messages sequentially. Do not rely on syntax highlighting or color to understand the example.
@@ -286,16 +290,17 @@ Expression:	8.0
 ```
 
 ### Common Mistakes
-- Assuming Lua tables are zero-indexed or that `#table` counts arbitrary map keys.
-- Omitting `local` and unintentionally creating or changing a global variable.
-- Treating `0`, an empty string, or an empty table as false.
-- Assuming iteration order from `pairs`, or assuming a standard-library feature exists when it does not.
+
+- Using binary floating-point display rounding as a substitute for a currency-rounding policy.
+- Skipping parentheses when operator precedence is not obvious.
+- Assuming tonumber succeeds for every string.
 
 ### Activities
-1. Predict the exact output before running the example, then compare it with the result.
-2. Change one input while keeping the canonical dataset unchanged; explain the resulting behavior.
-3. Add one boundary or invalid-input test appropriate to this lesson.
-4. Explain one Lua-specific semantic difference from Python that affects this example.
+
+1. Calculate the shared $24.50 bill and 15% tip using integer cents and half-up rounding.
+2. Trace each arithmetic intermediate and compare the displayed tip and total with $3.68 and $28.18.
+3. Try a nonnumeric string and handle a nil conversion result.
+4. Use coordinates (3, 4) to calculate distance 5 and explain the math-library call.
 
 ### Accessibility Practice
 Navigate by line, word, and character; identify delimiters and nesting verbally; execute from the terminal; and read the output and any error messages sequentially. Do not rely on syntax highlighting or color to understand the example.
@@ -341,16 +346,17 @@ With input Avery: Hello, Avery!
 ```
 
 ### Common Mistakes
-- Assuming Lua tables are zero-indexed or that `#table` counts arbitrary map keys.
-- Omitting `local` and unintentionally creating or changing a global variable.
-- Treating `0`, an empty string, or an empty table as false.
-- Assuming iteration order from `pairs`, or assuming a standard-library feature exists when it does not.
+
+- Assuming io.read always returns a non-empty string; it can return nil at end-of-file.
+- Calling tonumber and immediately doing arithmetic without checking for nil.
+- Treating terminal input as already numeric.
 
 ### Activities
-1. Predict the exact output before running the example, then compare it with the result.
-2. Change one input while keeping the canonical dataset unchanged; explain the resulting behavior.
-3. Add one boundary or invalid-input test appropriate to this lesson.
-4. Explain one Lua-specific semantic difference from Python that affects this example.
+
+1. Run the prompt with a valid numeric string and record the converted Lua type.
+2. Run it with alphabetic input and confirm that the program prints a useful error rather than crashing.
+3. Simulate end-of-file and handle the nil result explicitly.
+4. Explain the difference between the raw string and the converted number.
 
 ### Accessibility Practice
 Navigate by line, word, and character; identify delimiters and nesting verbally; execute from the terminal; and read the output and any error messages sequentially. Do not rely on syntax highlighting or color to understand the example.
@@ -401,16 +407,17 @@ print(tostring(16) .. " years")
 ```
 
 ### Common Mistakes
-- Assuming Lua tables are zero-indexed or that `#table` counts arbitrary map keys.
-- Omitting `local` and unintentionally creating or changing a global variable.
-- Treating `0`, an empty string, or an empty table as false.
-- Assuming iteration order from `pairs`, or assuming a standard-library feature exists when it does not.
+
+- Using binary floating-point display rounding as a substitute for a currency-rounding policy.
+- Skipping parentheses when operator precedence is not obvious.
+- Assuming tonumber succeeds for every string.
 
 ### Activities
-1. Predict the exact output before running the example, then compare it with the result.
-2. Change one input while keeping the canonical dataset unchanged; explain the resulting behavior.
-3. Add one boundary or invalid-input test appropriate to this lesson.
-4. Explain one Lua-specific semantic difference from Python that affects this example.
+
+1. Calculate the shared $24.50 bill and 15% tip using integer cents and half-up rounding.
+2. Trace each arithmetic intermediate and compare the displayed tip and total with $3.68 and $28.18.
+3. Try a nonnumeric string and handle a nil conversion result.
+4. Use coordinates (3, 4) to calculate distance 5 and explain the math-library call.
 
 ### Accessibility Practice
 Navigate by line, word, and character; identify delimiters and nesting verbally; execute from the terminal; and read the output and any error messages sequentially. Do not rely on syntax highlighting or color to understand the example.
@@ -459,16 +466,17 @@ print(string.format("%.2f", circumference))
 ```
 
 ### Common Mistakes
-- Assuming Lua tables are zero-indexed or that `#table` counts arbitrary map keys.
-- Omitting `local` and unintentionally creating or changing a global variable.
-- Treating `0`, an empty string, or an empty table as false.
-- Assuming iteration order from `pairs`, or assuming a standard-library feature exists when it does not.
+
+- Using binary floating-point display rounding as a substitute for a currency-rounding policy.
+- Skipping parentheses when operator precedence is not obvious.
+- Assuming tonumber succeeds for every string.
 
 ### Activities
-1. Predict the exact output before running the example, then compare it with the result.
-2. Change one input while keeping the canonical dataset unchanged; explain the resulting behavior.
-3. Add one boundary or invalid-input test appropriate to this lesson.
-4. Explain one Lua-specific semantic difference from Python that affects this example.
+
+1. Calculate the shared $24.50 bill and 15% tip using integer cents and half-up rounding.
+2. Trace each arithmetic intermediate and compare the displayed tip and total with $3.68 and $28.18.
+3. Try a nonnumeric string and handle a nil conversion result.
+4. Use coordinates (3, 4) to calculate distance 5 and explain the math-library call.
 
 ### Accessibility Practice
 Navigate by line, word, and character; identify delimiters and nesting verbally; execute from the terminal; and read the output and any error messages sequentially. Do not rely on syntax highlighting or color to understand the example.
@@ -520,16 +528,17 @@ Score is in the B range.
 ```
 
 ### Common Mistakes
-- Assuming Lua tables are zero-indexed or that `#table` counts arbitrary map keys.
-- Omitting `local` and unintentionally creating or changing a global variable.
-- Treating `0`, an empty string, or an empty table as false.
-- Assuming iteration order from `pairs`, or assuming a standard-library feature exists when it does not.
+
+- Using binary floating-point display rounding as a substitute for a currency-rounding policy.
+- Skipping parentheses when operator precedence is not obvious.
+- Assuming tonumber succeeds for every string.
 
 ### Activities
-1. Predict the exact output before running the example, then compare it with the result.
-2. Change one input while keeping the canonical dataset unchanged; explain the resulting behavior.
-3. Add one boundary or invalid-input test appropriate to this lesson.
-4. Explain one Lua-specific semantic difference from Python that affects this example.
+
+1. Calculate the shared $24.50 bill and 15% tip using integer cents and half-up rounding.
+2. Trace each arithmetic intermediate and compare the displayed tip and total with $3.68 and $28.18.
+3. Try a nonnumeric string and handle a nil conversion result.
+4. Use coordinates (3, 4) to calculate distance 5 and explain the math-library call.
 
 ### Accessibility Practice
 Navigate by line, word, and character; identify delimiters and nesting verbally; execute from the terminal; and read the output and any error messages sequentially. Do not rely on syntax highlighting or color to understand the example.
@@ -584,16 +593,17 @@ end
 ```
 
 ### Common Mistakes
-- Assuming Lua tables are zero-indexed or that `#table` counts arbitrary map keys.
-- Omitting `local` and unintentionally creating or changing a global variable.
-- Treating `0`, an empty string, or an empty table as false.
-- Assuming iteration order from `pairs`, or assuming a standard-library feature exists when it does not.
+
+- Checking lower grade thresholds before higher thresholds, causing scores to match the wrong branch.
+- Using > where the shared boundary requires >=.
+- Testing only the sample scores and omitting exact boundary values 90, 80, 70, 60, and 59.
 
 ### Activities
-1. Predict the exact output before running the example, then compare it with the result.
-2. Change one input while keeping the canonical dataset unchanged; explain the resulting behavior.
-3. Add one boundary or invalid-input test appropriate to this lesson.
-4. Explain one Lua-specific semantic difference from Python that affects this example.
+
+1. Trace each shared score (82, 91, 76, 88) through the conditional chain and record the selected grade.
+2. Add tests for 90, 80, 70, 60, and 59; explain each branch taken.
+3. Refactor the classifier into a local function and verify the four canonical outputs.
+4. Compare the sum and average with 337 and 84.25; explain why the threshold order matters.
 
 ### Accessibility Practice
 Navigate by line, word, and character; identify delimiters and nesting verbally; execute from the terminal; and read the output and any error messages sequentially. Do not rely on syntax highlighting or color to understand the example.
@@ -640,16 +650,17 @@ print(scores[3])
 ```
 
 ### Common Mistakes
-- Assuming Lua tables are zero-indexed or that `#table` counts arbitrary map keys.
-- Omitting `local` and unintentionally creating or changing a global variable.
-- Treating `0`, an empty string, or an empty table as false.
-- Assuming iteration order from `pairs`, or assuming a standard-library feature exists when it does not.
+
+- Using index 0 for the first sequence element; Lua sequences start at index 1.
+- Assuming #table counts sparse or map keys; it is reliable for a contiguous sequence.
+- Using pairs where sequence order is required, or ipairs where arbitrary map keys are required.
 
 ### Activities
-1. Predict the exact output before running the example, then compare it with the result.
-2. Change one input while keeping the canonical dataset unchanged; explain the resulting behavior.
-3. Add one boundary or invalid-input test appropriate to this lesson.
-4. Explain one Lua-specific semantic difference from Python that affects this example.
+
+1. Print the first and last canonical score and explain the one-based indices.
+2. Insert and remove one score, then show the sequence and its length.
+3. Calculate the total and average with ipairs and compare with 337 and 84.25.
+4. Create a sparse table and explain why # and ipairs do not provide a general map traversal.
 
 ### Accessibility Practice
 Navigate by line, word, and character; identify delimiters and nesting verbally; execute from the terminal; and read the output and any error messages sequentially. Do not rely on syntax highlighting or color to understand the example.
@@ -697,16 +708,17 @@ Average:	84.25
 ```
 
 ### Common Mistakes
-- Assuming Lua tables are zero-indexed or that `#table` counts arbitrary map keys.
-- Omitting `local` and unintentionally creating or changing a global variable.
-- Treating `0`, an empty string, or an empty table as false.
-- Assuming iteration order from `pairs`, or assuming a standard-library feature exists when it does not.
+
+- Using index 0 for the first sequence element; Lua sequences start at index 1.
+- Assuming #table counts sparse or map keys; it is reliable for a contiguous sequence.
+- Using pairs where sequence order is required, or ipairs where arbitrary map keys are required.
 
 ### Activities
-1. Predict the exact output before running the example, then compare it with the result.
-2. Change one input while keeping the canonical dataset unchanged; explain the resulting behavior.
-3. Add one boundary or invalid-input test appropriate to this lesson.
-4. Explain one Lua-specific semantic difference from Python that affects this example.
+
+1. Print the first and last canonical score and explain the one-based indices.
+2. Insert and remove one score, then show the sequence and its length.
+3. Calculate the total and average with ipairs and compare with 337 and 84.25.
+4. Create a sparse table and explain why # and ipairs do not provide a general map traversal.
 
 ### Accessibility Practice
 Navigate by line, word, and character; identify delimiters and nesting verbally; execute from the terminal; and read the output and any error messages sequentially. Do not rely on syntax highlighting or color to understand the example.
@@ -755,16 +767,17 @@ Programming:	2
 ```
 
 ### Common Mistakes
-- Assuming Lua tables are zero-indexed or that `#table` counts arbitrary map keys.
-- Omitting `local` and unintentionally creating or changing a global variable.
-- Treating `0`, an empty string, or an empty table as false.
-- Assuming iteration order from `pairs`, or assuming a standard-library feature exists when it does not.
+
+- Assuming Lua patterns are full regular expressions.
+- Forgetting that string functions return additional values such as match counts.
+- Changing case or punctuation inconsistently before counting words.
 
 ### Activities
-1. Predict the exact output before running the example, then compare it with the result.
-2. Change one input while keeping the canonical dataset unchanged; explain the resulting behavior.
-3. Add one boundary or invalid-input test appropriate to this lesson.
-4. Explain one Lua-specific semantic difference from Python that affects this example.
+
+1. Normalize the exact canonical text sample and list the tokens in order.
+2. Count all eight words and verify that programming occurs twice.
+3. Add punctuation and a hyphenated word; explain the chosen pattern behavior.
+4. Read the output as plain text and explain how the counts were obtained.
 
 ### Accessibility Practice
 Navigate by line, word, and character; identify delimiters and nesting verbally; execute from the terminal; and read the output and any error messages sequentially. Do not rely on syntax highlighting or color to understand the example.
@@ -818,16 +831,17 @@ Removed:	91
 ```
 
 ### Common Mistakes
-- Assuming Lua tables are zero-indexed or that `#table` counts arbitrary map keys.
-- Omitting `local` and unintentionally creating or changing a global variable.
-- Treating `0`, an empty string, or an empty table as false.
-- Assuming iteration order from `pairs`, or assuming a standard-library feature exists when it does not.
+
+- Using index 0 for the first sequence element; Lua sequences start at index 1.
+- Assuming #table counts sparse or map keys; it is reliable for a contiguous sequence.
+- Using pairs where sequence order is required, or ipairs where arbitrary map keys are required.
 
 ### Activities
-1. Predict the exact output before running the example, then compare it with the result.
-2. Change one input while keeping the canonical dataset unchanged; explain the resulting behavior.
-3. Add one boundary or invalid-input test appropriate to this lesson.
-4. Explain one Lua-specific semantic difference from Python that affects this example.
+
+1. Print the first and last canonical score and explain the one-based indices.
+2. Insert and remove one score, then show the sequence and its length.
+3. Calculate the total and average with ipairs and compare with 337 and 84.25.
+4. Create a sparse table and explain why # and ipairs do not provide a general map traversal.
 
 ### Accessibility Practice
 Navigate by line, word, and character; identify delimiters and nesting verbally; execute from the terminal; and read the output and any error messages sequentially. Do not rely on syntax highlighting or color to understand the example.
@@ -875,16 +889,17 @@ Descending:	91, 88, 82, 76
 ```
 
 ### Common Mistakes
-- Assuming Lua tables are zero-indexed or that `#table` counts arbitrary map keys.
-- Omitting `local` and unintentionally creating or changing a global variable.
-- Treating `0`, an empty string, or an empty table as false.
-- Assuming iteration order from `pairs`, or assuming a standard-library feature exists when it does not.
+
+- Using index 0 for the first sequence element; Lua sequences start at index 1.
+- Assuming #table counts sparse or map keys; it is reliable for a contiguous sequence.
+- Using pairs where sequence order is required, or ipairs where arbitrary map keys are required.
 
 ### Activities
-1. Predict the exact output before running the example, then compare it with the result.
-2. Change one input while keeping the canonical dataset unchanged; explain the resulting behavior.
-3. Add one boundary or invalid-input test appropriate to this lesson.
-4. Explain one Lua-specific semantic difference from Python that affects this example.
+
+1. Print the first and last canonical score and explain the one-based indices.
+2. Insert and remove one score, then show the sequence and its length.
+3. Calculate the total and average with ipairs and compare with 337 and 84.25.
+4. Create a sparse table and explain why # and ipairs do not provide a general map traversal.
 
 ### Accessibility Practice
 Navigate by line, word, and character; identify delimiters and nesting verbally; execute from the terminal; and read the output and any error messages sequentially. Do not rely on syntax highlighting or color to understand the example.
@@ -931,16 +946,17 @@ Distance:	5.0
 ```
 
 ### Common Mistakes
-- Assuming Lua tables are zero-indexed or that `#table` counts arbitrary map keys.
-- Omitting `local` and unintentionally creating or changing a global variable.
-- Treating `0`, an empty string, or an empty table as false.
-- Assuming iteration order from `pairs`, or assuming a standard-library feature exists when it does not.
+
+- Copying a Python assumption into Lua without checking the Lua 5.4 semantics.
+- Changing the canonical input values and then comparing output against the shared fixture.
+- Skipping a negative or boundary case for the lesson's main operation.
 
 ### Activities
-1. Predict the exact output before running the example, then compare it with the result.
-2. Change one input while keeping the canonical dataset unchanged; explain the resulting behavior.
-3. Add one boundary or invalid-input test appropriate to this lesson.
-4. Explain one Lua-specific semantic difference from Python that affects this example.
+
+1. Trace the 4.3 Tuples — Immutable-Style Values worked example and explain each statement in Lua terms.
+2. Change one noncanonical test value while keeping the shared fixture intact; predict the result before execution.
+3. Add a boundary or invalid-input test for the main operation in this lesson.
+4. Explain one semantic difference between Lua and Python that affects 4.3 tuples — immutable-style values.
 
 ### Accessibility Practice
 Navigate by line, word, and character; identify delimiters and nesting verbally; execute from the terminal; and read the output and any error messages sequentially. Do not rely on syntax highlighting or color to understand the example.
@@ -988,16 +1004,17 @@ $2.50
 ```
 
 ### Common Mistakes
-- Assuming Lua tables are zero-indexed or that `#table` counts arbitrary map keys.
-- Omitting `local` and unintentionally creating or changing a global variable.
-- Treating `0`, an empty string, or an empty table as false.
-- Assuming iteration order from `pairs`, or assuming a standard-library feature exists when it does not.
+
+- Copying a Python assumption into Lua without checking the Lua 5.4 semantics.
+- Changing the canonical input values and then comparing output against the shared fixture.
+- Skipping a negative or boundary case for the lesson's main operation.
 
 ### Activities
-1. Predict the exact output before running the example, then compare it with the result.
-2. Change one input while keeping the canonical dataset unchanged; explain the resulting behavior.
-3. Add one boundary or invalid-input test appropriate to this lesson.
-4. Explain one Lua-specific semantic difference from Python that affects this example.
+
+1. Trace the 4.4 Introducing Dictionaries worked example and explain each statement in Lua terms.
+2. Change one noncanonical test value while keeping the shared fixture intact; predict the result before execution.
+3. Add a boundary or invalid-input test for the main operation in this lesson.
+4. Explain one semantic difference between Lua and Python that affects 4.4 introducing dictionaries.
 
 ### Accessibility Practice
 Navigate by line, word, and character; identify delimiters and nesting verbally; execute from the terminal; and read the output and any error messages sequentially. Do not rely on syntax highlighting or color to understand the example.
@@ -1047,16 +1064,17 @@ Pencil	10
 ```
 
 ### Common Mistakes
-- Assuming Lua tables are zero-indexed or that `#table` counts arbitrary map keys.
-- Omitting `local` and unintentionally creating or changing a global variable.
-- Treating `0`, an empty string, or an empty table as false.
-- Assuming iteration order from `pairs`, or assuming a standard-library feature exists when it does not.
+
+- Using index 0 for the first sequence element; Lua sequences start at index 1.
+- Assuming #table counts sparse or map keys; it is reliable for a contiguous sequence.
+- Using pairs where sequence order is required, or ipairs where arbitrary map keys are required.
 
 ### Activities
-1. Predict the exact output before running the example, then compare it with the result.
-2. Change one input while keeping the canonical dataset unchanged; explain the resulting behavior.
-3. Add one boundary or invalid-input test appropriate to this lesson.
-4. Explain one Lua-specific semantic difference from Python that affects this example.
+
+1. Print the first and last canonical score and explain the one-based indices.
+2. Insert and remove one score, then show the sequence and its length.
+3. Calculate the total and average with ipairs and compare with 337 and 84.25.
+4. Create a sparse table and explain why # and ipairs do not provide a general map traversal.
 
 ### Accessibility Practice
 Navigate by line, word, and character; identify delimiters and nesting verbally; execute from the terminal; and read the output and any error messages sequentially. Do not rely on syntax highlighting or color to understand the example.
@@ -1108,16 +1126,17 @@ With input 82: Score:	82
 ```
 
 ### Common Mistakes
-- Assuming Lua tables are zero-indexed or that `#table` counts arbitrary map keys.
-- Omitting `local` and unintentionally creating or changing a global variable.
-- Treating `0`, an empty string, or an empty table as false.
-- Assuming iteration order from `pairs`, or assuming a standard-library feature exists when it does not.
+
+- Assuming io.read always returns a non-empty string; it can return nil at end-of-file.
+- Calling tonumber and immediately doing arithmetic without checking for nil.
+- Treating terminal input as already numeric.
 
 ### Activities
-1. Predict the exact output before running the example, then compare it with the result.
-2. Change one input while keeping the canonical dataset unchanged; explain the resulting behavior.
-3. Add one boundary or invalid-input test appropriate to this lesson.
-4. Explain one Lua-specific semantic difference from Python that affects this example.
+
+1. Run the prompt with a valid numeric string and record the converted Lua type.
+2. Run it with alphabetic input and confirm that the program prints a useful error rather than crashing.
+3. Simulate end-of-file and handle the nil result explicitly.
+4. Explain the difference between the raw string and the converted number.
 
 ### Accessibility Practice
 Navigate by line, word, and character; identify delimiters and nesting verbally; execute from the terminal; and read the output and any error messages sequentially. Do not rely on syntax highlighting or color to understand the example.
@@ -1169,16 +1188,17 @@ Finished
 ```
 
 ### Common Mistakes
-- Assuming Lua tables are zero-indexed or that `#table` counts arbitrary map keys.
-- Omitting `local` and unintentionally creating or changing a global variable.
-- Treating `0`, an empty string, or an empty table as false.
-- Assuming iteration order from `pairs`, or assuming a standard-library feature exists when it does not.
+
+- Using index 0 for the first sequence element; Lua sequences start at index 1.
+- Assuming #table counts sparse or map keys; it is reliable for a contiguous sequence.
+- Using pairs where sequence order is required, or ipairs where arbitrary map keys are required.
 
 ### Activities
-1. Predict the exact output before running the example, then compare it with the result.
-2. Change one input while keeping the canonical dataset unchanged; explain the resulting behavior.
-3. Add one boundary or invalid-input test appropriate to this lesson.
-4. Explain one Lua-specific semantic difference from Python that affects this example.
+
+1. Print the first and last canonical score and explain the one-based indices.
+2. Insert and remove one score, then show the sequence and its length.
+3. Calculate the total and average with ipairs and compare with 337 and 84.25.
+4. Create a sparse table and explain why # and ipairs do not provide a general map traversal.
 
 ### Accessibility Practice
 Navigate by line, word, and character; identify delimiters and nesting verbally; execute from the terminal; and read the output and any error messages sequentially. Do not rely on syntax highlighting or color to understand the example.
@@ -1232,16 +1252,17 @@ Found:	true
 ```
 
 ### Common Mistakes
-- Assuming Lua tables are zero-indexed or that `#table` counts arbitrary map keys.
-- Omitting `local` and unintentionally creating or changing a global variable.
-- Treating `0`, an empty string, or an empty table as false.
-- Assuming iteration order from `pairs`, or assuming a standard-library feature exists when it does not.
+
+- Copying a Python assumption into Lua without checking the Lua 5.4 semantics.
+- Changing the canonical input values and then comparing output against the shared fixture.
+- Skipping a negative or boundary case for the lesson's main operation.
 
 ### Activities
-1. Predict the exact output before running the example, then compare it with the result.
-2. Change one input while keeping the canonical dataset unchanged; explain the resulting behavior.
-3. Add one boundary or invalid-input test appropriate to this lesson.
-4. Explain one Lua-specific semantic difference from Python that affects this example.
+
+1. Trace the 5.3 Flags and break worked example and explain each statement in Lua terms.
+2. Change one noncanonical test value while keeping the shared fixture intact; predict the result before execution.
+3. Add a boundary or invalid-input test for the main operation in this lesson.
+4. Explain one semantic difference between Lua and Python that affects 5.3 flags and break.
 
 ### Accessibility Practice
 Navigate by line, word, and character; identify delimiters and nesting verbally; execute from the terminal; and read the output and any error messages sequentially. Do not rely on syntax highlighting or color to understand the example.
@@ -1289,16 +1310,17 @@ Valid score:	76
 ```
 
 ### Common Mistakes
-- Assuming Lua tables are zero-indexed or that `#table` counts arbitrary map keys.
-- Omitting `local` and unintentionally creating or changing a global variable.
-- Treating `0`, an empty string, or an empty table as false.
-- Assuming iteration order from `pairs`, or assuming a standard-library feature exists when it does not.
+
+- Copying a Python assumption into Lua without checking the Lua 5.4 semantics.
+- Changing the canonical input values and then comparing output against the shared fixture.
+- Skipping a negative or boundary case for the lesson's main operation.
 
 ### Activities
-1. Predict the exact output before running the example, then compare it with the result.
-2. Change one input while keeping the canonical dataset unchanged; explain the resulting behavior.
-3. Add one boundary or invalid-input test appropriate to this lesson.
-4. Explain one Lua-specific semantic difference from Python that affects this example.
+
+1. Trace the 5.4 Using continue-equivalent logic worked example and explain each statement in Lua terms.
+2. Change one noncanonical test value while keeping the shared fixture intact; predict the result before execution.
+3. Add a boundary or invalid-input test for the main operation in this lesson.
+4. Explain one semantic difference between Lua and Python that affects 5.4 using continue-equivalent logic.
 
 ### Accessibility Practice
 Navigate by line, word, and character; identify delimiters and nesting verbally; execute from the terminal; and read the output and any error messages sequentially. Do not rely on syntax highlighting or color to understand the example.
@@ -1350,16 +1372,17 @@ Menu closed
 ```
 
 ### Common Mistakes
-- Assuming Lua tables are zero-indexed or that `#table` counts arbitrary map keys.
-- Omitting `local` and unintentionally creating or changing a global variable.
-- Treating `0`, an empty string, or an empty table as false.
-- Assuming iteration order from `pairs`, or assuming a standard-library feature exists when it does not.
+
+- Using index 0 for the first sequence element; Lua sequences start at index 1.
+- Assuming #table counts sparse or map keys; it is reliable for a contiguous sequence.
+- Using pairs where sequence order is required, or ipairs where arbitrary map keys are required.
 
 ### Activities
-1. Predict the exact output before running the example, then compare it with the result.
-2. Change one input while keeping the canonical dataset unchanged; explain the resulting behavior.
-3. Add one boundary or invalid-input test appropriate to this lesson.
-4. Explain one Lua-specific semantic difference from Python that affects this example.
+
+1. Print the first and last canonical score and explain the one-based indices.
+2. Insert and remove one score, then show the sequence and its length.
+3. Calculate the total and average with ipairs and compare with 337 and 84.25.
+4. Create a sparse table and explain why # and ipairs do not provide a general map traversal.
 
 ### Accessibility Practice
 Navigate by line, word, and character; identify delimiters and nesting verbally; execute from the terminal; and read the output and any error messages sequentially. Do not rely on syntax highlighting or color to understand the example.
@@ -1415,16 +1438,17 @@ Total: $28.18
 ```
 
 ### Common Mistakes
-- Assuming Lua tables are zero-indexed or that `#table` counts arbitrary map keys.
-- Omitting `local` and unintentionally creating or changing a global variable.
-- Treating `0`, an empty string, or an empty table as false.
-- Assuming iteration order from `pairs`, or assuming a standard-library feature exists when it does not.
+
+- Forgetting that a Lua function returns nil when it reaches the end without return.
+- Confusing multiple return values with a single table result.
+- Assuming Python keyword arguments or default-parameter syntax exists in Lua.
 
 ### Activities
-1. Predict the exact output before running the example, then compare it with the result.
-2. Change one input while keeping the canonical dataset unchanged; explain the resulting behavior.
-3. Add one boundary or invalid-input test appropriate to this lesson.
-4. Explain one Lua-specific semantic difference from Python that affects this example.
+
+1. Call the function with the canonical values and record every returned value.
+2. Add a second return value and capture it explicitly at the call site.
+3. Test a missing optional argument and apply a deliberate default.
+4. Pass a table to the function, mutate it, and explain the shared table identity.
 
 ### Accessibility Practice
 Navigate by line, word, and character; identify delimiters and nesting verbally; execute from the terminal; and read the output and any error messages sequentially. Do not rely on syntax highlighting or color to understand the example.
@@ -1474,16 +1498,17 @@ Pass
 ```
 
 ### Common Mistakes
-- Assuming Lua tables are zero-indexed or that `#table` counts arbitrary map keys.
-- Omitting `local` and unintentionally creating or changing a global variable.
-- Treating `0`, an empty string, or an empty table as false.
-- Assuming iteration order from `pairs`, or assuming a standard-library feature exists when it does not.
+
+- Forgetting that a Lua function returns nil when it reaches the end without return.
+- Confusing multiple return values with a single table result.
+- Assuming Python keyword arguments or default-parameter syntax exists in Lua.
 
 ### Activities
-1. Predict the exact output before running the example, then compare it with the result.
-2. Change one input while keeping the canonical dataset unchanged; explain the resulting behavior.
-3. Add one boundary or invalid-input test appropriate to this lesson.
-4. Explain one Lua-specific semantic difference from Python that affects this example.
+
+1. Call the function with the canonical values and record every returned value.
+2. Add a second return value and capture it explicitly at the call site.
+3. Test a missing optional argument and apply a deliberate default.
+4. Pass a table to the function, mutate it, and explain the shared table identity.
 
 ### Accessibility Practice
 Navigate by line, word, and character; identify delimiters and nesting verbally; execute from the terminal; and read the output and any error messages sequentially. Do not rely on syntax highlighting or color to understand the example.
@@ -1532,16 +1557,17 @@ print(total, average)
 ```
 
 ### Common Mistakes
-- Assuming Lua tables are zero-indexed or that `#table` counts arbitrary map keys.
-- Omitting `local` and unintentionally creating or changing a global variable.
-- Treating `0`, an empty string, or an empty table as false.
-- Assuming iteration order from `pairs`, or assuming a standard-library feature exists when it does not.
+
+- Forgetting that a Lua function returns nil when it reaches the end without return.
+- Confusing multiple return values with a single table result.
+- Assuming Python keyword arguments or default-parameter syntax exists in Lua.
 
 ### Activities
-1. Predict the exact output before running the example, then compare it with the result.
-2. Change one input while keeping the canonical dataset unchanged; explain the resulting behavior.
-3. Add one boundary or invalid-input test appropriate to this lesson.
-4. Explain one Lua-specific semantic difference from Python that affects this example.
+
+1. Call the function with the canonical values and record every returned value.
+2. Add a second return value and capture it explicitly at the call site.
+3. Test a missing optional argument and apply a deliberate default.
+4. Pass a table to the function, mutate it, and explain the shared table identity.
 
 ### Accessibility Practice
 Navigate by line, word, and character; identify delimiters and nesting verbally; execute from the terminal; and read the output and any error messages sequentially. Do not rely on syntax highlighting or color to understand the example.
@@ -1589,16 +1615,17 @@ print(#scores, scores[5])
 ```
 
 ### Common Mistakes
-- Assuming Lua tables are zero-indexed or that `#table` counts arbitrary map keys.
-- Omitting `local` and unintentionally creating or changing a global variable.
-- Treating `0`, an empty string, or an empty table as false.
-- Assuming iteration order from `pairs`, or assuming a standard-library feature exists when it does not.
+
+- Forgetting that a Lua function returns nil when it reaches the end without return.
+- Confusing multiple return values with a single table result.
+- Assuming Python keyword arguments or default-parameter syntax exists in Lua.
 
 ### Activities
-1. Predict the exact output before running the example, then compare it with the result.
-2. Change one input while keeping the canonical dataset unchanged; explain the resulting behavior.
-3. Add one boundary or invalid-input test appropriate to this lesson.
-4. Explain one Lua-specific semantic difference from Python that affects this example.
+
+1. Call the function with the canonical values and record every returned value.
+2. Add a second return value and capture it explicitly at the call site.
+3. Test a missing optional argument and apply a deliberate default.
+4. Pass a table to the function, mutate it, and explain the shared table identity.
 
 ### Accessibility Practice
 Navigate by line, word, and character; identify delimiters and nesting verbally; execute from the terminal; and read the output and any error messages sequentially. Do not rely on syntax highlighting or color to understand the example.
@@ -1647,16 +1674,17 @@ print(sum_all(82, 91, 76, 88))
 ```
 
 ### Common Mistakes
-- Assuming Lua tables are zero-indexed or that `#table` counts arbitrary map keys.
-- Omitting `local` and unintentionally creating or changing a global variable.
-- Treating `0`, an empty string, or an empty table as false.
-- Assuming iteration order from `pairs`, or assuming a standard-library feature exists when it does not.
+
+- Forgetting that a Lua function returns nil when it reaches the end without return.
+- Confusing multiple return values with a single table result.
+- Assuming Python keyword arguments or default-parameter syntax exists in Lua.
 
 ### Activities
-1. Predict the exact output before running the example, then compare it with the result.
-2. Change one input while keeping the canonical dataset unchanged; explain the resulting behavior.
-3. Add one boundary or invalid-input test appropriate to this lesson.
-4. Explain one Lua-specific semantic difference from Python that affects this example.
+
+1. Call the function with the canonical values and record every returned value.
+2. Add a second return value and capture it explicitly at the call site.
+3. Test a missing optional argument and apply a deliberate default.
+4. Pass a table to the function, mutate it, and explain the shared table identity.
 
 ### Accessibility Practice
 Navigate by line, word, and character; identify delimiters and nesting verbally; execute from the terminal; and read the output and any error messages sequentially. Do not rely on syntax highlighting or color to understand the example.
@@ -1709,16 +1737,17 @@ Avery is 16
 ```
 
 ### Common Mistakes
-- Assuming Lua tables are zero-indexed or that `#table` counts arbitrary map keys.
-- Omitting `local` and unintentionally creating or changing a global variable.
-- Treating `0`, an empty string, or an empty table as false.
-- Assuming iteration order from `pairs`, or assuming a standard-library feature exists when it does not.
+
+- Describing Lua as having a built-in class keyword; this course uses tables and metatables.
+- Forgetting that colon method syntax passes self as the first argument.
+- Creating an __index chain without explaining which table supplies the missing method.
 
 ### Activities
-1. Predict the exact output before running the example, then compare it with the result.
-2. Change one input while keeping the canonical dataset unchanged; explain the resulting behavior.
-3. Add one boundary or invalid-input test appropriate to this lesson.
-4. Explain one Lua-specific semantic difference from Python that affects this example.
+
+1. Create two independent records using the constructor and compare their fields.
+2. Add one method and call it with colon syntax, then show the equivalent explicit self call.
+3. Extend the example with a composed record and read a nested field.
+4. Trace method lookup through the metatable chain and explain the result.
 
 ### Accessibility Practice
 Navigate by line, word, and character; identify delimiters and nesting verbally; execute from the terminal; and read the output and any error messages sequentially. Do not rely on syntax highlighting or color to understand the example.
@@ -1766,16 +1795,17 @@ Avery	Riley
 ```
 
 ### Common Mistakes
-- Assuming Lua tables are zero-indexed or that `#table` counts arbitrary map keys.
-- Omitting `local` and unintentionally creating or changing a global variable.
-- Treating `0`, an empty string, or an empty table as false.
-- Assuming iteration order from `pairs`, or assuming a standard-library feature exists when it does not.
+
+- Describing Lua as having a built-in class keyword; this course uses tables and metatables.
+- Forgetting that colon method syntax passes self as the first argument.
+- Creating an __index chain without explaining which table supplies the missing method.
 
 ### Activities
-1. Predict the exact output before running the example, then compare it with the result.
-2. Change one input while keeping the canonical dataset unchanged; explain the resulting behavior.
-3. Add one boundary or invalid-input test appropriate to this lesson.
-4. Explain one Lua-specific semantic difference from Python that affects this example.
+
+1. Create two independent records using the constructor and compare their fields.
+2. Add one method and call it with colon syntax, then show the equivalent explicit self call.
+3. Extend the example with a composed record and read a nested field.
+4. Trace method lookup through the metatable chain and explain the result.
 
 ### Accessibility Practice
 Navigate by line, word, and character; identify delimiters and nesting verbally; execute from the terminal; and read the output and any error messages sequentially. Do not rely on syntax highlighting or color to understand the example.
@@ -1826,16 +1856,17 @@ Notebook: 3
 ```
 
 ### Common Mistakes
-- Assuming Lua tables are zero-indexed or that `#table` counts arbitrary map keys.
-- Omitting `local` and unintentionally creating or changing a global variable.
-- Treating `0`, an empty string, or an empty table as false.
-- Assuming iteration order from `pairs`, or assuming a standard-library feature exists when it does not.
+
+- Describing Lua as having a built-in class keyword; this course uses tables and metatables.
+- Forgetting that colon method syntax passes self as the first argument.
+- Creating an __index chain without explaining which table supplies the missing method.
 
 ### Activities
-1. Predict the exact output before running the example, then compare it with the result.
-2. Change one input while keeping the canonical dataset unchanged; explain the resulting behavior.
-3. Add one boundary or invalid-input test appropriate to this lesson.
-4. Explain one Lua-specific semantic difference from Python that affects this example.
+
+1. Create two independent records using the constructor and compare their fields.
+2. Add one method and call it with colon syntax, then show the equivalent explicit self call.
+3. Extend the example with a composed record and read a nested field.
+4. Trace method lookup through the metatable chain and explain the result.
 
 ### Accessibility Practice
 Navigate by line, word, and character; identify delimiters and nesting verbally; execute from the terminal; and read the output and any error messages sequentially. Do not rely on syntax highlighting or color to understand the example.
@@ -1882,16 +1913,17 @@ Avery (student)
 ```
 
 ### Common Mistakes
-- Assuming Lua tables are zero-indexed or that `#table` counts arbitrary map keys.
-- Omitting `local` and unintentionally creating or changing a global variable.
-- Treating `0`, an empty string, or an empty table as false.
-- Assuming iteration order from `pairs`, or assuming a standard-library feature exists when it does not.
+
+- Describing Lua as having a built-in class keyword; this course uses tables and metatables.
+- Forgetting that colon method syntax passes self as the first argument.
+- Creating an __index chain without explaining which table supplies the missing method.
 
 ### Activities
-1. Predict the exact output before running the example, then compare it with the result.
-2. Change one input while keeping the canonical dataset unchanged; explain the resulting behavior.
-3. Add one boundary or invalid-input test appropriate to this lesson.
-4. Explain one Lua-specific semantic difference from Python that affects this example.
+
+1. Create two independent records using the constructor and compare their fields.
+2. Add one method and call it with colon syntax, then show the equivalent explicit self call.
+3. Extend the example with a composed record and read a nested field.
+4. Trace method lookup through the metatable chain and explain the result.
 
 ### Accessibility Practice
 Navigate by line, word, and character; identify delimiters and nesting verbally; execute from the terminal; and read the output and any error messages sequentially. Do not rely on syntax highlighting or color to understand the example.
@@ -1937,16 +1969,17 @@ avery@example.test
 ```
 
 ### Common Mistakes
-- Assuming Lua tables are zero-indexed or that `#table` counts arbitrary map keys.
-- Omitting `local` and unintentionally creating or changing a global variable.
-- Treating `0`, an empty string, or an empty table as false.
-- Assuming iteration order from `pairs`, or assuming a standard-library feature exists when it does not.
+
+- Describing Lua as having a built-in class keyword; this course uses tables and metatables.
+- Forgetting that colon method syntax passes self as the first argument.
+- Creating an __index chain without explaining which table supplies the missing method.
 
 ### Activities
-1. Predict the exact output before running the example, then compare it with the result.
-2. Change one input while keeping the canonical dataset unchanged; explain the resulting behavior.
-3. Add one boundary or invalid-input test appropriate to this lesson.
-4. Explain one Lua-specific semantic difference from Python that affects this example.
+
+1. Create two independent records using the constructor and compare their fields.
+2. Add one method and call it with colon syntax, then show the equivalent explicit self call.
+3. Extend the example with a composed record and read a nested field.
+4. Trace method lookup through the metatable chain and explain the result.
 
 ### Accessibility Practice
 Navigate by line, word, and character; identify delimiters and nesting verbally; execute from the terminal; and read the output and any error messages sequentially. Do not rely on syntax highlighting or color to understand the example.
@@ -2002,16 +2035,17 @@ When notes.txt contains Hello: Hello
 ```
 
 ### Common Mistakes
-- Assuming Lua tables are zero-indexed or that `#table` counts arbitrary map keys.
-- Omitting `local` and unintentionally creating or changing a global variable.
-- Treating `0`, an empty string, or an empty table as false.
-- Assuming iteration order from `pairs`, or assuming a standard-library feature exists when it does not.
+
+- Ignoring the second return value from io.open when a file cannot be opened.
+- Leaving a file handle open after a successful or failed operation.
+- Assuming Lua includes a standard JSON or full CSV parser.
 
 ### Activities
-1. Predict the exact output before running the example, then compare it with the result.
-2. Change one input while keeping the canonical dataset unchanged; explain the resulting behavior.
-3. Add one boundary or invalid-input test appropriate to this lesson.
-4. Explain one Lua-specific semantic difference from Python that affects this example.
+
+1. Test the file operation with an existing file and a missing-file path.
+2. Add an explicit failure message using the error returned by io.open.
+3. Close the file on every control path and explain the resource-lifetime rule.
+4. Document the selected JSON/CSV dependency and test malformed and quoted-field inputs.
 
 ### Accessibility Practice
 Navigate by line, word, and character; identify delimiters and nesting verbally; execute from the terminal; and read the output and any error messages sequentially. Do not rely on syntax highlighting or color to understand the example.
@@ -2058,16 +2092,17 @@ Saved notes.txt
 ```
 
 ### Common Mistakes
-- Assuming Lua tables are zero-indexed or that `#table` counts arbitrary map keys.
-- Omitting `local` and unintentionally creating or changing a global variable.
-- Treating `0`, an empty string, or an empty table as false.
-- Assuming iteration order from `pairs`, or assuming a standard-library feature exists when it does not.
+
+- Ignoring the second return value from io.open when a file cannot be opened.
+- Leaving a file handle open after a successful or failed operation.
+- Assuming Lua includes a standard JSON or full CSV parser.
 
 ### Activities
-1. Predict the exact output before running the example, then compare it with the result.
-2. Change one input while keeping the canonical dataset unchanged; explain the resulting behavior.
-3. Add one boundary or invalid-input test appropriate to this lesson.
-4. Explain one Lua-specific semantic difference from Python that affects this example.
+
+1. Test the file operation with an existing file and a missing-file path.
+2. Add an explicit failure message using the error returned by io.open.
+3. Close the file on every control path and explain the resource-lifetime rule.
+4. Document the selected JSON/CSV dependency and test malformed and quoted-field inputs.
 
 ### Accessibility Practice
 Navigate by line, word, and character; identify delimiters and nesting verbally; execute from the terminal; and read the output and any error messages sequentially. Do not rely on syntax highlighting or color to understand the example.
@@ -2116,16 +2151,17 @@ false
 ```
 
 ### Common Mistakes
-- Assuming Lua tables are zero-indexed or that `#table` counts arbitrary map keys.
-- Omitting `local` and unintentionally creating or changing a global variable.
-- Treating `0`, an empty string, or an empty table as false.
-- Assuming iteration order from `pairs`, or assuming a standard-library feature exists when it does not.
+
+- Copying a Python assumption into Lua without checking the Lua 5.4 semantics.
+- Changing the canonical input values and then comparing output against the shared fixture.
+- Skipping a negative or boundary case for the lesson's main operation.
 
 ### Activities
-1. Predict the exact output before running the example, then compare it with the result.
-2. Change one input while keeping the canonical dataset unchanged; explain the resulting behavior.
-3. Add one boundary or invalid-input test appropriate to this lesson.
-4. Explain one Lua-specific semantic difference from Python that affects this example.
+
+1. Trace the 8.3 Handling Errors worked example and explain each statement in Lua terms.
+2. Change one noncanonical test value while keeping the shared fixture intact; predict the result before execution.
+3. Add a boundary or invalid-input test for the main operation in this lesson.
+4. Explain one semantic difference between Lua and Python that affects 8.3 handling errors.
 
 ### Accessibility Practice
 Navigate by line, word, and character; identify delimiters and nesting verbally; execute from the terminal; and read the output and any error messages sequentially. Do not rely on syntax highlighting or color to understand the example.
@@ -2172,16 +2208,17 @@ Write succeeded:	true
 ```
 
 ### Common Mistakes
-- Assuming Lua tables are zero-indexed or that `#table` counts arbitrary map keys.
-- Omitting `local` and unintentionally creating or changing a global variable.
-- Treating `0`, an empty string, or an empty table as false.
-- Assuming iteration order from `pairs`, or assuming a standard-library feature exists when it does not.
+
+- Copying a Python assumption into Lua without checking the Lua 5.4 semantics.
+- Changing the canonical input values and then comparing output against the shared fixture.
+- Skipping a negative or boundary case for the lesson's main operation.
 
 ### Activities
-1. Predict the exact output before running the example, then compare it with the result.
-2. Change one input while keeping the canonical dataset unchanged; explain the resulting behavior.
-3. Add one boundary or invalid-input test appropriate to this lesson.
-4. Explain one Lua-specific semantic difference from Python that affects this example.
+
+1. Trace the 8.4 Cleanup and Protected Calls worked example and explain each statement in Lua terms.
+2. Change one noncanonical test value while keeping the shared fixture intact; predict the result before execution.
+3. Add a boundary or invalid-input test for the main operation in this lesson.
+4. Explain one semantic difference between Lua and Python that affects 8.4 cleanup and protected calls.
 
 ### Accessibility Practice
 Navigate by line, word, and character; identify delimiters and nesting verbally; execute from the terminal; and read the output and any error messages sequentially. Do not rely on syntax highlighting or color to understand the example.
@@ -2229,16 +2266,17 @@ print(task.id, task.title, task.done, task.created_at)
 ```
 
 ### Common Mistakes
-- Assuming Lua tables are zero-indexed or that `#table` counts arbitrary map keys.
-- Omitting `local` and unintentionally creating or changing a global variable.
-- Treating `0`, an empty string, or an empty table as false.
-- Assuming iteration order from `pairs`, or assuming a standard-library feature exists when it does not.
+
+- Ignoring the second return value from io.open when a file cannot be opened.
+- Leaving a file handle open after a successful or failed operation.
+- Assuming Lua includes a standard JSON or full CSV parser.
 
 ### Activities
-1. Predict the exact output before running the example, then compare it with the result.
-2. Change one input while keeping the canonical dataset unchanged; explain the resulting behavior.
-3. Add one boundary or invalid-input test appropriate to this lesson.
-4. Explain one Lua-specific semantic difference from Python that affects this example.
+
+1. Test the file operation with an existing file and a missing-file path.
+2. Add an explicit failure message using the error returned by io.open.
+3. Close the file on every control path and explain the resource-lifetime rule.
+4. Document the selected JSON/CSV dependency and test malformed and quoted-field inputs.
 
 ### Accessibility Practice
 Navigate by line, word, and character; identify delimiters and nesting verbally; execute from the terminal; and read the output and any error messages sequentially. Do not rely on syntax highlighting or color to understand the example.
@@ -2293,16 +2331,17 @@ average test passed
 ```
 
 ### Common Mistakes
-- Assuming Lua tables are zero-indexed or that `#table` counts arbitrary map keys.
-- Omitting `local` and unintentionally creating or changing a global variable.
-- Treating `0`, an empty string, or an empty table as false.
-- Assuming iteration order from `pairs`, or assuming a standard-library feature exists when it does not.
+
+- Forgetting that a Lua function returns nil when it reaches the end without return.
+- Confusing multiple return values with a single table result.
+- Assuming Python keyword arguments or default-parameter syntax exists in Lua.
 
 ### Activities
-1. Predict the exact output before running the example, then compare it with the result.
-2. Change one input while keeping the canonical dataset unchanged; explain the resulting behavior.
-3. Add one boundary or invalid-input test appropriate to this lesson.
-4. Explain one Lua-specific semantic difference from Python that affects this example.
+
+1. Call the function with the canonical values and record every returned value.
+2. Add a second return value and capture it explicitly at the call site.
+3. Test a missing optional argument and apply a deliberate default.
+4. Pass a table to the function, mutate it, and explain the shared table identity.
 
 ### Accessibility Practice
 Navigate by line, word, and character; identify delimiters and nesting verbally; execute from the terminal; and read the output and any error messages sequentially. Do not rely on syntax highlighting or color to understand the example.
@@ -2353,16 +2392,17 @@ task tests passed
 ```
 
 ### Common Mistakes
-- Assuming Lua tables are zero-indexed or that `#table` counts arbitrary map keys.
-- Omitting `local` and unintentionally creating or changing a global variable.
-- Treating `0`, an empty string, or an empty table as false.
-- Assuming iteration order from `pairs`, or assuming a standard-library feature exists when it does not.
+
+- Describing Lua as having a built-in class keyword; this course uses tables and metatables.
+- Forgetting that colon method syntax passes self as the first argument.
+- Creating an __index chain without explaining which table supplies the missing method.
 
 ### Activities
-1. Predict the exact output before running the example, then compare it with the result.
-2. Change one input while keeping the canonical dataset unchanged; explain the resulting behavior.
-3. Add one boundary or invalid-input test appropriate to this lesson.
-4. Explain one Lua-specific semantic difference from Python that affects this example.
+
+1. Create two independent records using the constructor and compare their fields.
+2. Add one method and call it with colon syntax, then show the equivalent explicit self call.
+3. Extend the example with a composed record and read a nested field.
+4. Trace method lookup through the metatable chain and explain the result.
 
 ### Accessibility Practice
 Navigate by line, word, and character; identify delimiters and nesting verbally; execute from the terminal; and read the output and any error messages sequentially. Do not rely on syntax highlighting or color to understand the example.
@@ -2407,16 +2447,17 @@ Die roll is in range:	true
 ```
 
 ### Common Mistakes
-- Assuming Lua tables are zero-indexed or that `#table` counts arbitrary map keys.
-- Omitting `local` and unintentionally creating or changing a global variable.
-- Treating `0`, an empty string, or an empty table as false.
-- Assuming iteration order from `pairs`, or assuming a standard-library feature exists when it does not.
+
+- Expecting an unseeded pseudorandom sequence to reproduce exactly across runs.
+- Using a random value without checking the required range.
+- Seeding repeatedly inside a tight loop, which can reduce randomness.
 
 ### Activities
-1. Predict the exact output before running the example, then compare it with the result.
-2. Change one input while keeping the canonical dataset unchanged; explain the resulting behavior.
-3. Add one boundary or invalid-input test appropriate to this lesson.
-4. Explain one Lua-specific semantic difference from Python that affects this example.
+
+1. Generate an integer in the range 1 through 6 and assert both bounds.
+2. Seed once before a reproducibility demonstration and compare two controlled runs.
+3. Generate a random selection from the canonical score list.
+4. Explain why a statistical test should not require one specific unseeded value.
 
 ### Accessibility Practice
 Navigate by line, word, and character; identify delimiters and nesting verbally; execute from the terminal; and read the output and any error messages sequentially. Do not rely on syntax highlighting or color to understand the example.
@@ -2469,16 +2510,17 @@ Programming:	2
 ```
 
 ### Common Mistakes
-- Assuming Lua tables are zero-indexed or that `#table` counts arbitrary map keys.
-- Omitting `local` and unintentionally creating or changing a global variable.
-- Treating `0`, an empty string, or an empty table as false.
-- Assuming iteration order from `pairs`, or assuming a standard-library feature exists when it does not.
+
+- Assuming Lua patterns are full regular expressions.
+- Forgetting that string functions return additional values such as match counts.
+- Changing case or punctuation inconsistently before counting words.
 
 ### Activities
-1. Predict the exact output before running the example, then compare it with the result.
-2. Change one input while keeping the canonical dataset unchanged; explain the resulting behavior.
-3. Add one boundary or invalid-input test appropriate to this lesson.
-4. Explain one Lua-specific semantic difference from Python that affects this example.
+
+1. Normalize the exact canonical text sample and list the tokens in order.
+2. Count all eight words and verify that programming occurs twice.
+3. Add punctuation and a hyphenated word; explain the chosen pattern behavior.
+4. Read the output as plain text and explain how the counts were obtained.
 
 ### Accessibility Practice
 Navigate by line, word, and character; identify delimiters and nesting verbally; execute from the terminal; and read the output and any error messages sequentially. Do not rely on syntax highlighting or color to understand the example.
@@ -2525,16 +2567,17 @@ student_id,first_name,last_name,score,active
 ```
 
 ### Common Mistakes
-- Assuming Lua tables are zero-indexed or that `#table` counts arbitrary map keys.
-- Omitting `local` and unintentionally creating or changing a global variable.
-- Treating `0`, an empty string, or an empty table as false.
-- Assuming iteration order from `pairs`, or assuming a standard-library feature exists when it does not.
+
+- Ignoring the second return value from io.open when a file cannot be opened.
+- Leaving a file handle open after a successful or failed operation.
+- Assuming Lua includes a standard JSON or full CSV parser.
 
 ### Activities
-1. Predict the exact output before running the example, then compare it with the result.
-2. Change one input while keeping the canonical dataset unchanged; explain the resulting behavior.
-3. Add one boundary or invalid-input test appropriate to this lesson.
-4. Explain one Lua-specific semantic difference from Python that affects this example.
+
+1. Test the file operation with an existing file and a missing-file path.
+2. Add an explicit failure message using the error returned by io.open.
+3. Close the file on every control path and explain the resource-lifetime rule.
+4. Document the selected JSON/CSV dependency and test malformed and quoted-field inputs.
 
 ### Accessibility Practice
 Navigate by line, word, and character; identify delimiters and nesting verbally; execute from the terminal; and read the output and any error messages sequentially. Do not rely on syntax highlighting or color to understand the example.
@@ -2588,16 +2631,17 @@ clearing
 ```
 
 ### Common Mistakes
-- Assuming Lua tables are zero-indexed or that `#table` counts arbitrary map keys.
-- Omitting `local` and unintentionally creating or changing a global variable.
-- Treating `0`, an empty string, or an empty table as false.
-- Assuming iteration order from `pairs`, or assuming a standard-library feature exists when it does not.
+
+- Dropping one of the six required capstone record fields during serialization.
+- Updating a record without refreshing updated_at.
+- Claiming screen-reader compatibility without testing keyboard and assistive-technology workflows.
 
 ### Activities
-1. Predict the exact output before running the example, then compare it with the result.
-2. Change one input while keeping the canonical dataset unchanged; explain the resulting behavior.
-3. Add one boundary or invalid-input test appropriate to this lesson.
-4. Explain one Lua-specific semantic difference from Python that affects this example.
+
+1. Create a record containing all six canonical capstone fields and validate each field.
+2. Exercise add, list, search, update, and delete with both existing and missing IDs.
+3. Save and reload a record; compare every field before and after persistence.
+4. Write a text-only keyboard interaction guide and list the accessibility tests still required.
 
 ### Accessibility Practice
 Navigate by line, word, and character; identify delimiters and nesting verbally; execute from the terminal; and read the output and any error messages sequentially. Do not rely on syntax highlighting or color to understand the example.
@@ -2648,16 +2692,17 @@ tunnel	Tunnel
 ```
 
 ### Common Mistakes
-- Assuming Lua tables are zero-indexed or that `#table` counts arbitrary map keys.
-- Omitting `local` and unintentionally creating or changing a global variable.
-- Treating `0`, an empty string, or an empty table as false.
-- Assuming iteration order from `pairs`, or assuming a standard-library feature exists when it does not.
+
+- Accepting a movement command that is not an exit from the current room.
+- Removing an item before confirming it exists in the current room.
+- Allowing the locked-door transition without checking both location and key possession.
 
 ### Activities
-1. Predict the exact output before running the example, then compare it with the result.
-2. Change one input while keeping the canonical dataset unchanged; explain the resulting behavior.
-3. Add one boundary or invalid-input test appropriate to this lesson.
-4. Explain one Lua-specific semantic difference from Python that affects this example.
+
+1. Trace movement from start_room to tunnel to clearing and back using only defined exits.
+2. Attempt an invalid direction and confirm that the current room does not change.
+3. Pick up the shiny key, inspect inventory, and verify it is removed from the room.
+4. Attempt the puzzle without the key and then with the key; verify the win condition.
 
 ### Accessibility Practice
 Navigate by line, word, and character; identify delimiters and nesting verbally; execute from the terminal; and read the output and any error messages sequentially. Do not rely on syntax highlighting or color to understand the example.
@@ -2714,16 +2759,17 @@ Inventory:	shiny key
 ```
 
 ### Common Mistakes
-- Assuming Lua tables are zero-indexed or that `#table` counts arbitrary map keys.
-- Omitting `local` and unintentionally creating or changing a global variable.
-- Treating `0`, an empty string, or an empty table as false.
-- Assuming iteration order from `pairs`, or assuming a standard-library feature exists when it does not.
+
+- Treating a Lua table map as if it had a guaranteed iteration order.
+- Confusing a missing key (nil) with a key whose value is false.
+- Using the sequence length operator to count named inventory keys.
 
 ### Activities
-1. Predict the exact output before running the example, then compare it with the result.
-2. Change one input while keeping the canonical dataset unchanged; explain the resulting behavior.
-3. Add one boundary or invalid-input test appropriate to this lesson.
-4. Explain one Lua-specific semantic difference from Python that affects this example.
+
+1. Represent Notebook, Pencil, and Folder with name, quantity, and unit_price fields.
+2. Calculate each line value and verify the shared inventory total of $17.50.
+3. Add a missing-item lookup and print a clear message when the key is absent.
+4. Sort a separate list of item names before displaying map values in deterministic order.
 
 ### Accessibility Practice
 Navigate by line, word, and character; identify delimiters and nesting verbally; execute from the terminal; and read the output and any error messages sequentially. Do not rely on syntax highlighting or color to understand the example.
@@ -2773,16 +2819,17 @@ print(tasks[1].id, tasks[1].title, tasks[1].done)
 ```
 
 ### Common Mistakes
-- Assuming Lua tables are zero-indexed or that `#table` counts arbitrary map keys.
-- Omitting `local` and unintentionally creating or changing a global variable.
-- Treating `0`, an empty string, or an empty table as false.
-- Assuming iteration order from `pairs`, or assuming a standard-library feature exists when it does not.
+
+- Omitting one or more required task fields from a stored record.
+- Using a list position as a permanent task identifier after deletion or reordering.
+- Treating malformed persistence data as an empty task list without reporting the error.
 
 ### Activities
-1. Predict the exact output before running the example, then compare it with the result.
-2. Change one input while keeping the canonical dataset unchanged; explain the resulting behavior.
-3. Add one boundary or invalid-input test appropriate to this lesson.
-4. Explain one Lua-specific semantic difference from Python that affects this example.
+
+1. Create a task with all five canonical fields and list it in a stable format.
+2. Update its done state, then search for it by identifier.
+3. Delete an existing ID and attempt to delete a missing ID; compare the messages.
+4. Save and reload the records, then verify every field is preserved.
 
 ### Accessibility Practice
 Navigate by line, word, and character; identify delimiters and nesting verbally; execute from the terminal; and read the output and any error messages sequentially. Do not rely on syntax highlighting or color to understand the example.
@@ -2832,16 +2879,17 @@ Title is required; enter at least one non-space character.
 ```
 
 ### Common Mistakes
-- Assuming Lua tables are zero-indexed or that `#table` counts arbitrary map keys.
-- Omitting `local` and unintentionally creating or changing a global variable.
-- Treating `0`, an empty string, or an empty table as false.
-- Assuming iteration order from `pairs`, or assuming a standard-library feature exists when it does not.
+
+- Copying a Python assumption into Lua without checking the Lua 5.4 semantics.
+- Changing the canonical input values and then comparing output against the shared fixture.
+- Skipping a negative or boundary case for the lesson's main operation.
 
 ### Activities
-1. Predict the exact output before running the example, then compare it with the result.
-2. Change one input while keeping the canonical dataset unchanged; explain the resulting behavior.
-3. Add one boundary or invalid-input test appropriate to this lesson.
-4. Explain one Lua-specific semantic difference from Python that affects this example.
+
+1. Trace the 10.5 Refinement and Accessibility worked example and explain each statement in Lua terms.
+2. Change one noncanonical test value while keeping the shared fixture intact; predict the result before execution.
+3. Add a boundary or invalid-input test for the main operation in this lesson.
+4. Explain one semantic difference between Lua and Python that affects 10.5 refinement and accessibility.
 
 ### Accessibility Practice
 Navigate by line, word, and character; identify delimiters and nesting verbally; execute from the terminal; and read the output and any error messages sequentially. Do not rely on syntax highlighting or color to understand the example.
@@ -2896,16 +2944,17 @@ updated_at
 ```
 
 ### Common Mistakes
-- Assuming Lua tables are zero-indexed or that `#table` counts arbitrary map keys.
-- Omitting `local` and unintentionally creating or changing a global variable.
-- Treating `0`, an empty string, or an empty table as false.
-- Assuming iteration order from `pairs`, or assuming a standard-library feature exists when it does not.
+
+- Dropping one of the six required capstone record fields during serialization.
+- Updating a record without refreshing updated_at.
+- Claiming screen-reader compatibility without testing keyboard and assistive-technology workflows.
 
 ### Activities
-1. Predict the exact output before running the example, then compare it with the result.
-2. Change one input while keeping the canonical dataset unchanged; explain the resulting behavior.
-3. Add one boundary or invalid-input test appropriate to this lesson.
-4. Explain one Lua-specific semantic difference from Python that affects this example.
+
+1. Create a record containing all six canonical capstone fields and validate each field.
+2. Exercise add, list, search, update, and delete with both existing and missing IDs.
+3. Save and reload a record; compare every field before and after persistence.
+4. Write a text-only keyboard interaction guide and list the accessibility tests still required.
 
 ### Accessibility Practice
 Navigate by line, word, and character; identify delimiters and nesting verbally; execute from the terminal; and read the output and any error messages sequentially. Do not rely on syntax highlighting or color to understand the example.
@@ -2955,16 +3004,17 @@ print(record.id, record.title, record.category)
 ```
 
 ### Common Mistakes
-- Assuming Lua tables are zero-indexed or that `#table` counts arbitrary map keys.
-- Omitting `local` and unintentionally creating or changing a global variable.
-- Treating `0`, an empty string, or an empty table as false.
-- Assuming iteration order from `pairs`, or assuming a standard-library feature exists when it does not.
+
+- Ignoring the second return value from io.open when a file cannot be opened.
+- Leaving a file handle open after a successful or failed operation.
+- Assuming Lua includes a standard JSON or full CSV parser.
 
 ### Activities
-1. Predict the exact output before running the example, then compare it with the result.
-2. Change one input while keeping the canonical dataset unchanged; explain the resulting behavior.
-3. Add one boundary or invalid-input test appropriate to this lesson.
-4. Explain one Lua-specific semantic difference from Python that affects this example.
+
+1. Test the file operation with an existing file and a missing-file path.
+2. Add an explicit failure message using the error returned by io.open.
+3. Close the file on every control path and explain the resource-lifetime rule.
+4. Document the selected JSON/CSV dependency and test malformed and quoted-field inputs.
 
 ### Accessibility Practice
 Navigate by line, word, and character; identify delimiters and nesting verbally; execute from the terminal; and read the output and any error messages sequentially. Do not rely on syntax highlighting or color to understand the example.
@@ -3016,16 +3066,17 @@ false
 ```
 
 ### Common Mistakes
-- Assuming Lua tables are zero-indexed or that `#table` counts arbitrary map keys.
-- Omitting `local` and unintentionally creating or changing a global variable.
-- Treating `0`, an empty string, or an empty table as false.
-- Assuming iteration order from `pairs`, or assuming a standard-library feature exists when it does not.
+
+- Copying a Python assumption into Lua without checking the Lua 5.4 semantics.
+- Changing the canonical input values and then comparing output against the shared fixture.
+- Skipping a negative or boundary case for the lesson's main operation.
 
 ### Activities
-1. Predict the exact output before running the example, then compare it with the result.
-2. Change one input while keeping the canonical dataset unchanged; explain the resulting behavior.
-3. Add one boundary or invalid-input test appropriate to this lesson.
-4. Explain one Lua-specific semantic difference from Python that affects this example.
+
+1. Trace the 11.3 Create, Read, Update, Delete worked example and explain each statement in Lua terms.
+2. Change one noncanonical test value while keeping the shared fixture intact; predict the result before execution.
+3. Add a boundary or invalid-input test for the main operation in this lesson.
+4. Explain one semantic difference between Lua and Python that affects 11.3 create, read, update, delete.
 
 ### Accessibility Practice
 Navigate by line, word, and character; identify delimiters and nesting verbally; execute from the terminal; and read the output and any error messages sequentially. Do not rely on syntax highlighting or color to understand the example.
@@ -3077,16 +3128,17 @@ record validation passed
 ```
 
 ### Common Mistakes
-- Assuming Lua tables are zero-indexed or that `#table` counts arbitrary map keys.
-- Omitting `local` and unintentionally creating or changing a global variable.
-- Treating `0`, an empty string, or an empty table as false.
-- Assuming iteration order from `pairs`, or assuming a standard-library feature exists when it does not.
+
+- Dropping one of the six required capstone record fields during serialization.
+- Updating a record without refreshing updated_at.
+- Claiming screen-reader compatibility without testing keyboard and assistive-technology workflows.
 
 ### Activities
-1. Predict the exact output before running the example, then compare it with the result.
-2. Change one input while keeping the canonical dataset unchanged; explain the resulting behavior.
-3. Add one boundary or invalid-input test appropriate to this lesson.
-4. Explain one Lua-specific semantic difference from Python that affects this example.
+
+1. Create a record containing all six canonical capstone fields and validate each field.
+2. Exercise add, list, search, update, and delete with both existing and missing IDs.
+3. Save and reload a record; compare every field before and after persistence.
+4. Write a text-only keyboard interaction guide and list the accessibility tests still required.
 
 ### Accessibility Practice
 Navigate by line, word, and character; identify delimiters and nesting verbally; execute from the terminal; and read the output and any error messages sequentially. Do not rely on syntax highlighting or color to understand the example.
@@ -3136,16 +3188,17 @@ Records use the shared six-field capstone schema.
 ```
 
 ### Common Mistakes
-- Assuming Lua tables are zero-indexed or that `#table` counts arbitrary map keys.
-- Omitting `local` and unintentionally creating or changing a global variable.
-- Treating `0`, an empty string, or an empty table as false.
-- Assuming iteration order from `pairs`, or assuming a standard-library feature exists when it does not.
+
+- Dropping one of the six required capstone record fields during serialization.
+- Updating a record without refreshing updated_at.
+- Claiming screen-reader compatibility without testing keyboard and assistive-technology workflows.
 
 ### Activities
-1. Predict the exact output before running the example, then compare it with the result.
-2. Change one input while keeping the canonical dataset unchanged; explain the resulting behavior.
-3. Add one boundary or invalid-input test appropriate to this lesson.
-4. Explain one Lua-specific semantic difference from Python that affects this example.
+
+1. Create a record containing all six canonical capstone fields and validate each field.
+2. Exercise add, list, search, update, and delete with both existing and missing IDs.
+3. Save and reload a record; compare every field before and after persistence.
+4. Write a text-only keyboard interaction guide and list the accessibility tests still required.
 
 ### Accessibility Practice
 Navigate by line, word, and character; identify delimiters and nesting verbally; execute from the terminal; and read the output and any error messages sequentially. Do not rely on syntax highlighting or color to understand the example.
