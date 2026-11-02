@@ -15,6 +15,7 @@
 ## Automated validation
 
 - Checker: `scripts/check_lua_examples.py`.
+- Cross-language contract checker: `scripts/check_curriculum_contracts.py`; workflow: `.github/workflows/curriculum-contracts.yml`. [Run 41538051208](https://github.com/mrhunsaker/VI_Focused_Coding_Curricula/actions/runs/41538051208) passed the static shared-dataset, project-contract, Unit 0 mapping, and Lua fixture audit.
 - Workflow: `.github/workflows/lua-examples.yml`.
 - The checker now requires exactly 53 lesson sections, one Lua example and one expected-output fixture per lesson, parses each example, runs it in an isolated directory, supplies deterministic input/file fixtures where required, and compares stdout byte-for-byte with the documented output.
 - The exact-output checker passed [run 41537622785](https://github.com/mrhunsaker/VI_Focused_Coding_Curricula/actions/runs/41537622785): all 53 Lua 5.4.6 examples parsed, executed in isolated directories, and matched their documented stdout fixtures.
