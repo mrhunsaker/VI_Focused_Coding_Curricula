@@ -364,7 +364,7 @@ print(f"Total: ${total:.2f}")
 
 Expected output:
 ```text
-Tip: $3.67
+Tip: $3.68
 Total: $28.18
 ```
 
