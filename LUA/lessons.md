@@ -1008,7 +1008,8 @@ print(string.format("Line total: $%.2f", line_total))
 ```text
 Notebook
 3
-
+$2.50
+Line total: $7.50
 ```.50
 Line total: $7.50
 ```
@@ -1078,8 +1079,10 @@ print(string.format("Inventory total: $%.2f", total_cents / 100))
 ### Expected Behavior or Output
 
 ```text
-Folder	4	### Expected Behavior or Output
-
+Folder	4	$1.25	$5.00
+Notebook	3	$2.50	$7.50
+Pencil	10	$0.50	$5.00
+Inventory total: $17.50
 ```text
 .25	$5.00
 Notebook	3	
