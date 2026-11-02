@@ -241,7 +241,7 @@ def load_tasks(path):
     raise NotImplementedError
 ```
 
-Do not substitute list positions for IDs. Deleting or sorting a task must not change the identity of any remaining task. Use a deterministic timestamp fixture in tests; do not call the wall clock in expected-output tests.```
+Do not substitute list positions for IDs. Deleting or sorting a task must not change the identity of any remaining task. Use a deterministic timestamp fixture in tests; do not call the wall clock in expected-output tests.
 
 ### Skills Checklist
 - [ ] I can design an interactive menu system for a tool.
@@ -298,10 +298,12 @@ Students will develop a fully functional, screen-reader-accessible graphical app
 **Project Goal:** Build a simple application to manage a list of structured items.
 
 **Project Options:**
-- Contact Manager: name, phone, email, notes
-- Book/Movie Tracker: title, author/director, genre, status
-- Simple To-Do List: task description, due date, status
-- Simple Inventory: item name, quantity, location, notes
+- Contact Manager
+- Book/Movie Tracker
+- Study Notes Manager
+- Personal Inventory
+
+Every option uses the same six-field record schema (`id`, `title`, `description`, `category`, `created_at`, `updated_at`). The selected project domain changes the meaning of the field values, not the record shape or required operations.
 
 ---
 
@@ -335,7 +337,7 @@ uv add nicegui
 
 **Task 1:** Run the `app_skeleton.py` file and navigate using the keyboard and screen reader to understand the existing structure.
 
-**Task 2:** Define your data model class:
+**Task 2:** Define a data model class with all six canonical record fields:
 ```python
 class PersonalRecord:
     def __init__(self, record_id, title, description, category,
