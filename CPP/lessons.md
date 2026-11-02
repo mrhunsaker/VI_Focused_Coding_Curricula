@@ -2152,7 +2152,7 @@ Text adventure: rooms and movement is taught through the shared course datasets 
 
 ### Worked Example
 ```cpp
-const std::map<std::string, std::string> exits{{"north", "Library"}, {"east", "Garden"}}; std::string room = "Atrium"; const std::string direction = "north"; if (exits.contains(direction)) room = exits.at(direction); std::cout << "Current room: " << room << '\n';
+const std::map<std::string, std::string> exits{{"start_room:north", "tunnel"}}; std::string room = "start_room"; const std::string direction = "north"; const std::string transition = room + ":" + direction; if (exits.contains(transition)) room = exits.at(transition); std::cout << "Current room: " << room << '\n';
 
 ```
 
