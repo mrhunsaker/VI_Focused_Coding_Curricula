@@ -32,7 +32,7 @@ local csv_text = table.concat({
 }, "\r\n")
 local rows, headers = ftcsv.parse(csv_text, { loadFromString = true })
 assert(type(rows) == "table" and #rows == 4, "CSV should contain four data rows")
-assert(type(headers) == "table" and headers[1] == "student_id"
+assert(type(headers) == "table" and #headers == 5 and headers[1] == "student_id"
   and headers[2] == "first_name" and headers[3] == "last_name"
   and headers[4] == "score" and headers[5] == "active",
   "CSV header must match the canonical five-column schema")
@@ -40,4 +40,13 @@ assert(rows[1].first_name == "Avery, Jr.", "Quoted comma was not preserved")
 assert(rows[2].first_name == 'Riley "RJ"', "Doubled quote was not decoded")
 assert(rows[4].last_name == "Diaz\nMorgan", "Embedded newline was not preserved")
 
-print("Passed: dkjson round-trip and malformed-input checks; ftcsv quoted-field, escaped-quote, multiline, CRLF, and canonical-header checks.")
+local function rejects_csv(source, message)
+  local ok = pcall(ftcsv.parse, source, { loadFromString = true })
+  assert(not ok, message)
+end
+
+rejects_csv("a,b\\n1,2,3", "CSV with an extra column must be rejected")
+rejects_csv("a,b\\n1", "CSV with a missing column must be rejected")
+rejects_csv('a,b\\n1,"unterminated', "CSV with an unterminated quoted field must be rejected")
+
+print("Passed: dkjson round-trip and malformed-input checks; ftcsv quoted-field, escaped-quote, multiline, CRLF, canonical five-column header, and malformed-row rejection checks.")
