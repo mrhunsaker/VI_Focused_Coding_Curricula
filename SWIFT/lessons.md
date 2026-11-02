@@ -2556,8 +2556,8 @@ Projects begin with requirements and acceptance criteria. Implement a text-based
 
 ### Worked Example
 ```swift
-let exits = ["Atrium": ["north": "Laboratory"], "Laboratory": ["south": "Atrium"]]
-let currentRoom = "Atrium"
+let exits = ["start_room": ["north": "tunnel"], "tunnel": ["south": "start_room"]]
+let currentRoom = "start_room"
 let direction = "north"
 if let destination = exits[currentRoom]?[direction] {
     print("You move to the \(destination).")
