@@ -603,3 +603,52 @@ with open('students.csv', 'r') as f:
 - [ ] I can explain what CSV data is.
 - [ ] I can read a CSV file line by line.
 - [ ] I can split a line of CSV data into individual values.
+
+## Canonical Shared Dataset — Text, CSV, Tasks, and Tests
+
+### Text analysis
+
+Use this exact sentence for word-count and character-processing exercises:
+
+```python
+text_sample = "A student studies programming. Programming develops problem-solving skills."
+words = text_sample.lower().replace(".", "").split()
+print("Words:", len(words))
+print("Programming:", words.count("programming"))
+```
+
+Expected output:
+```text
+Words: 8
+Programming: 2
+```
+
+### CSV schema
+
+The shared CSV header is exactly `student_id,first_name,last_name,score,active`. Example rows:
+
+```csv
+student_id,first_name,last_name,score,active
+1001,Avery,Jordan,82,true
+1002,Riley,Chen,91,true
+1003,Sam,Patel,76,false
+1004,Morgan,Diaz,88,true
+```
+
+Use the `csv` module and named column positions; do not substitute a different three-column name/age/grade schema.
+
+### To-do record schema
+
+Use all five fields in every serialized task record: `id`, `title`, `description`, `done`, and `created_at`.
+
+```python
+task = {
+    "id": 1,
+    "title": "Practice Python",
+    "description": "Complete the shared dataset exercises",
+    "done": False,
+    "created_at": "2025-01-15T09:00:00Z",
+}
+```
+
+Tests should assert deterministic results for the shared tip calculator, grade classifier, inventory total, and text sample. Random-number lessons must seed the generator when an exact result is asserted.
