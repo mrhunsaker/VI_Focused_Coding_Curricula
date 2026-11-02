@@ -403,12 +403,12 @@ Use keyboard-operable commands, descriptive prompts, and predictable text output
 - Node.js documentation: readline/promises.
 
 ### Learning Objectives
-- Model rooms and exits.
-- Create a player and move between connected rooms.
-- Reject invalid directions with a clear message.
+- Model the five canonical rooms and their exits.
+- Move through connected rooms without changing state on invalid directions.
+- Explain the locked north exit from locked_door_room.
 
 ### Shared Project Specification
-Create three rooms: Dark Cave, Stone Tunnel, and Sunny Clearing. The cave connects north to the tunnel; the tunnel connects south to the cave and north to the clearing; the clearing connects south to the tunnel. The player begins in the cave. Valid commands include `go north`, `go south`, `look`, and `quit`.
+Use the canonical five-room graph: start_room north to tunnel; tunnel south to start_room and east to clearing; clearing west to tunnel and north to locked_door_room; locked_door_room south to clearing and conditionally north to treasure_room after using shiny key. The player starts in start_room. Valid commands include north, south, east, west, take shiny key, use shiny key, and quit.
 
 ### Concept Explanation
 A room is represented by its identifier, description, and a map of valid exits. Movement looks up the requested direction and changes the player's current room only when the exit exists.
@@ -416,18 +416,17 @@ A room is represented by its identifier, description, and a map of valid exits. 
 ### Worked Example
 ```javascript
 const rooms = {
-  cave: { name: "Dark Cave", description: "A dimly lit cave.", exits: { north: "tunnel" } },
-  tunnel: { name: "Stone Tunnel", description: "A narrow tunnel.", exits: { south: "cave", north: "clearing" } },
-  clearing: { name: "Sunny Clearing", description: "A bright clearing.", exits: { south: "tunnel" } }
+  start_room: { exits: { north: "tunnel" }, items: ["shiny key"] },
+  tunnel: { exits: { south: "start_room", east: "clearing" }, items: [] },
+  clearing: { exits: { west: "tunnel", north: "locked_door_room" }, items: [] },
+  locked_door_room: { exits: { south: "clearing" }, items: [] },
+  treasure_room: { exits: {}, items: [] }
 };
-
 function move(currentRoom, direction) {
-  const destination = rooms[currentRoom].exits[direction];
-  return destination ?? null;
+  return rooms[currentRoom].exits[direction] ?? null;
 }
-
-console.log(move("cave", "north"));
-console.log(move("cave", "west"));
+console.log(move("start_room", "north"));
+console.log(move("start_room", "west"));
 ```
 
 Expected output:
@@ -437,7 +436,7 @@ null
 ```
 
 ### Expected Behavior or Output
-Moving north from cave returns the room identifier tunnel. Moving west from cave returns null.
+Moving north from start_room returns tunnel. Moving west from start_room returns null; the locked-door north exit is added only after the key puzzle is solved.
 
 ### Common Mistakes
 - Adding an exit in one direction but forgetting the reverse connection.
@@ -445,10 +444,10 @@ Moving north from cave returns the room identifier tunnel. Moving west from cave
 - Confusing a room key with its display name.
 
 ### Activities
-1. Build the three canonical rooms and exits.
-2. Test every valid movement.
-3. Test an invalid movement from each room.
-4. Print the room name and description after every successful move.
+1. Build the five canonical rooms and their unconditional exits.
+2. Test north from start_room, east from tunnel, and north from clearing.
+3. Test an invalid movement without changing the current room.
+4. Add the conditional north exit from locked_door_room only after the key is used.
 
 ### Accessibility Practice
 Announce the current room, description, and available exits in a consistent order. Never make the map available only as a graphic.
@@ -466,43 +465,36 @@ Announce the current room, description, and available exits in a consistent orde
 - MDN: Array methods and object methods.
 
 ### Learning Objectives
-- Add items to rooms and player inventory.
-- Implement item pickup and inventory display.
-- Add a simple puzzle that uses the magic key.
+- Place shiny key in start_room and transfer it to inventory exactly once.
+- Require the key to be used in locked_door_room.
+- Unlock the conditional north exit to treasure_room.
 
 ### Shared Project Specification
-Place a torch in the Dark Cave and a magic key in the Sunny Clearing. The player can use `take [item]` and `inventory`. The magic key unlocks a gate or completes a clearly described puzzle. Preserve the same item names and rules across language tracks.
+Place only the shiny key in start_room. The player uses `take shiny key` and `use shiny key`. The key must be used while in locked_door_room; this unlocks its north exit to treasure_room. Preserve these item names and rules across language tracks.
 
 ### Concept Explanation
 An item belongs either to a room or to the player's inventory. Picking it up removes it from the room and adds it to inventory as one state transition.
 
 ### Worked Example
 ```javascript
-const roomItems = {
-  cave: ["torch"],
-  tunnel: [],
-  clearing: ["magic key"]
-};
+const roomItems = { start_room: ["shiny key"], tunnel: [], clearing: [], locked_door_room: [], treasure_room: [] };
 const inventory = [];
-
 function takeItem(room, requestedName) {
-  const index = roomItems[room].findIndex(
-    item => item.toLowerCase() === requestedName.toLowerCase()
-  );
+  const items = roomItems[room];
+  const index = items.findIndex(item => item.toLowerCase() === requestedName.toLowerCase());
   if (index < 0) return false;
-  inventory.push(roomItems[room].splice(index, 1)[0]);
+  inventory.push(items.splice(index, 1)[0]);
   return true;
 }
-
-console.log(takeItem("cave", "torch"));
-console.log(inventory.join(", "));
-
-function unlockGate(items) {
-  if (!items.includes("magic key")) return "The gate is locked.";
-  return "The gate opens.";
+function useKey(room, items) {
+  if (room !== "locked_door_room") return "You must be at the locked door to use the key.";
+  if (!items.includes("shiny key")) return "The door is locked.";
+  return "The door unlocks; north now leads to treasure_room.";
 }
-console.log(unlockGate(["torch"]));
-console.log(unlockGate(["torch", "magic key"]));
+console.log(takeItem("start_room", "shiny key"));
+console.log(inventory.join(", "));
+console.log(useKey("clearing", inventory));
+console.log(useKey("locked_door_room", inventory));
 ```
 
 Expected output:
@@ -514,7 +506,7 @@ The gate opens.
 ```
 
 ### Expected Behavior or Output
-Taking the torch from the cave returns true and the inventory contains torch.
+Taking shiny key from start_room returns true and inventory contains shiny key. Using it outside locked_door_room is rejected; using it there unlocks the north exit.
 
 ### Common Mistakes
 - Allowing an item to be picked up repeatedly after it has been removed.
@@ -522,10 +514,10 @@ Taking the torch from the cave returns true and the inventory contains torch.
 - Updating the room but not the inventory, or vice versa.
 
 ### Activities
-1. Pick up the torch in the cave.
-2. Travel to the clearing and pick up the magic key.
-3. Attempt to take an item that is not in the current room.
-4. Implement the puzzle rule and test both locked and unlocked states.
+1. Take shiny key from start_room.
+2. Attempt to take it a second time and verify inventory does not change.
+3. Attempt to use the key outside locked_door_room.
+4. Use the key in locked_door_room and verify the north exit leads to treasure_room.
 
 ### Accessibility Practice
 Confirm each successful pickup by item name. When pickup fails, explain whether the item is absent or the command is invalid.
