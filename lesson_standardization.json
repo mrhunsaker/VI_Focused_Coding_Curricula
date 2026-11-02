@@ -68,15 +68,17 @@
       "purpose": "Reproduce toolchain setup, editor configuration, accessibility, workspace, terminal, and first-run verification. Adapt installation steps and runtime commands to each language.",
       "lessons": [
         "0.1 Installing Python and uv",
-        "0.2 Installing and configuring VS Code or Theia IDE",
-        "0.3 Editor extensions and project workspace",
-        "0.4 Python environments and terminal usage"
+        "0.2 Configuring Your Screen Reader for VS Code or Theia IDE",
+        "0.3 Setting Up Your VS Code or Theia IDE Workspace",
+        "0.4 Python Environments and Terminal Usage",
+        "0.5 General Accessibility Tools and Strategies"
       ],
       "parallel_examples": [
         "Install and verify the language runtime/compiler",
         "Configure the same editor and keyboard/screen-reader workflow",
         "Create the same course project folder and first source file",
-        "Run a Hello World program from the terminal"
+        "Create and activate an isolated language environment and run a terminal command",
+        "Identify OS-level accessibility settings, assistive technology, and editor accessibility features"
       ]
     },
     {
@@ -1019,16 +1021,23 @@
         "Replaced AI-generated-code workflow advice in the Python capstone with the shared prohibition on AI writing, completing, repairing, or generating course and assessment code.",
         "Added scripts/check_python_curriculum.py and .github/workflows/python-curriculum.yml to compile, execute, and assert exact stdout for canonical Python examples.",
         "Added PYTHON/VALIDATION.md to distinguish completed content edits from pending automated and project verification.",
-        "Manually executed the canonical student, calculator, coordinate, grade, inventory, and text examples; their outputs matched the documented values."
+        "Manually executed the canonical student, calculator, coordinate, grade, inventory, and text examples; their outputs matched the documented values.",
+        "Replaced the unrelated Emily student dictionary with the canonical Avery four-field record and changed the dictionary iteration example to the Notebook/Pencil/Folder inventory.",
+        "Replaced the quick-brown-fox text example with the canonical text sample and replaced manual three-column CSV parsing with csv.DictReader over the canonical five-column schema.",
+        "Changed the JSON persistence lesson to serialize and validate the five-field canonical task record.",
+        "Reconciled the Unit 10 adventure examples to one five-room graph and replaced the incomplete two-field to-do implementation with a five-field project scaffold and explicit CRUD/persistence acceptance criteria.",
+        "Aligned the capstone record model and project choices to the exact six-field shared schema; removed Git advice that encouraged AI-generated code.",
+        "Corrected Unit 0 mapping to reflect the five live Python setup lessons and their actual subjects."
       ],
       "not_yet_verified": [
         "Reconcile every legacy Python example in Units 1–9 with the canonical datasets; the new canonical sections are present, but unrelated legacy examples remain and must be reviewed or replaced.",
         "Reconcile the Unit 10 adventure room graph, inventory/puzzle state, CLI to-do CRUD and persistence behavior with the canonical project specification.",
         "Rebuild the Unit 11 capstone around the exact six-field record and test add, list, search, update, delete, and JSON persistence.",
-        "Resolve the live Python Unit 0 count mismatch: unit00-setup.md contains five numbered lessons, while the mapping currently lists four.",
         "Run syntax checks over all Python code fences and project-level tests, not only canonical dataset blocks.",
         "Run a fresh mdBook build and complete Markdown/local-link crawl.",
-        "Perform hands-on keyboard-only, screen-reader, and braille testing with named operating systems, editors, and access technologies."
+        "Perform hands-on keyboard-only, screen-reader, and braille testing with named operating systems, editors, and access technologies.",
+        "Execute every changed canonical Python snippet, including JSON task validation, CSV DictReader, and inventory dictionary traversal; update exact-output fixtures.",
+        "Manually verify the adventure graph and to-do scaffold against the canonical contracts; keep full project solutions out of the public student repository."
       ],
       "validation": {
         "manual_execution": "Canonical student profile, Decimal calculator, coordinate distance, grade classifier, inventory total, and text-count examples were executed during this audit.",
@@ -1070,7 +1079,9 @@
         "Existing audit records for Java, JavaScript, TypeScript, Kotlin, C, C++, C#, Julia, Swift, Rust, and Go describe varying levels of syntax, compilation, execution, or output verification; these are repository-reported evidence and not a fresh independent rerun in this branch.",
         "Kotlin has the strongest recorded example-level evidence: all 57 examples compiled, executed, and matched exact stdout fixtures, with an mdBook build passing.",
         "JavaScript's recorded validation is syntax parsing, not Node runtime execution; TypeScript's recorded validation is strict type checking, not runtime/output verification.",
-        "The specialist HTML/CSS, R, and SQL modules are outside the 13-track parallel-language audit and require separate domain-specific review."
+        "The specialist HTML/CSS, R, and SQL modules are outside the 13-track parallel-language audit and require separate domain-specific review.",
+        "The previous Python project brief contained two incompatible adventure maps, a two-field completed-looking to-do implementation that did not meet the five-field contract, and a four-field Contact model inconsistent with the six-field capstone schema; the branch now uses one explicit room graph and contract-aligned scaffolds.",
+        "The Python Unit 0 map omitted live Lesson 0.5 and had mismatched lesson descriptions; the mapping now lists the five actual lesson titles."
       ],
       "completed_work": [
         "Focused Python and Lua source review and content changes completed on the audit branch.",
@@ -1079,16 +1090,123 @@
         "Python and Lua validation records updated to separate completed edits from pending tests.",
         "This standardization record updated with explicit statuses, historical evidence, and next steps.",
         "Current-branch Python CI passed: canonical examples compiled, executed, and matched expected stdout (run 41529521712).",
-        "Current-branch Lua CI passed: all 53 rewritten examples parsed and smoke-executed under Lua 5.4.6 (run 41529521580)."
+        "Current-branch Lua CI passed: all 53 rewritten examples parsed and smoke-executed under Lua 5.4.6 (run 41529521580).",
+        "Reconciled the Python student dictionary, inventory, text analysis, CSV parsing, JSON task record, adventure room graph, to-do requirements, and capstone data model with the shared canonical contracts.",
+        "Corrected the Unit 0 mapping from four mapped lessons to the five live Python setup lessons."
       ],
       "next_steps": [
+        "Run updated Python canonical CI and verify the changed inventory, JSON, CSV, and project contract examples.",
         "Run Python and Lua GitHub Actions workflows on the proposed branch and fix all failures.",
         "Finish full Python legacy-example and project reconciliation.",
         "Add exact expected-output fixtures and end-to-end project tests for Lua.",
-        "Resolve Python Unit 0 lesson mapping and audit all course mappings against the live files.",
         "Perform a lesson-by-lesson content, dataset, required-section, link, and accessibility audit across all 13 general-purpose tracks.",
         "Run the full repository mdBook build and Markdown/local-link crawl.",
         "Perform hands-on keyboard, screen-reader, and braille testing; record platforms and assistive technologies rather than asserting unperformed tests."
+      ]
+    }
+  },
+  "canonical_project_contracts": {
+    "adventure": {
+      "rooms": [
+        {
+          "id": "start_room",
+          "exits": {
+            "north": "tunnel"
+          },
+          "items": [
+            "shiny key"
+          ]
+        },
+        {
+          "id": "tunnel",
+          "exits": {
+            "south": "start_room",
+            "east": "clearing"
+          },
+          "items": []
+        },
+        {
+          "id": "clearing",
+          "exits": {
+            "west": "tunnel",
+            "north": "locked_door_room"
+          },
+          "items": []
+        },
+        {
+          "id": "locked_door_room",
+          "exits": {
+            "south": "clearing",
+            "north": "treasure_room"
+          },
+          "items": []
+        },
+        {
+          "id": "treasure_room",
+          "exits": {},
+          "items": []
+        }
+      ],
+      "commands": [
+        "north",
+        "south",
+        "east",
+        "west",
+        "take shiny key",
+        "use shiny key",
+        "quit"
+      ],
+      "win_condition": "Player takes the shiny key from start_room, reaches locked_door_room, uses the key to unlock its north exit, and enters treasure_room.",
+      "invalid_movement": "Must report an error and leave the current room unchanged."
+    },
+    "todo": {
+      "fields": [
+        "id",
+        "title",
+        "description",
+        "done",
+        "created_at"
+      ],
+      "operations": [
+        "create",
+        "list",
+        "complete/update",
+        "delete",
+        "save",
+        "load"
+      ],
+      "validation": [
+        "non-empty title",
+        "unique stable ID",
+        "ID lookup independent of list position",
+        "JSON top-level and record-schema validation",
+        "clear errors for missing IDs and malformed JSON"
+      ]
+    },
+    "capstone": {
+      "fields": [
+        "id",
+        "title",
+        "description",
+        "category",
+        "created_at",
+        "updated_at"
+      ],
+      "operations": [
+        "list/display",
+        "add",
+        "search",
+        "update",
+        "delete",
+        "status management",
+        "JSON save/load"
+      ],
+      "accessibility": [
+        "keyboard operation",
+        "programmatic labels",
+        "textual status and error feedback",
+        "no visual-only information",
+        "manual assistive-technology verification"
       ]
     }
   }
