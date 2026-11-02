@@ -836,7 +836,12 @@
         "ci_url": "https://github.com/mrhunsaker/VI_Focused_Coding_Curricula/actions/runs/41347726235"
       }
     },
-    "next_tracks": [],
+    "next_tracks": [
+      "Python legacy lesson and project reconciliation",
+      "Lua current-version syntax/runtime and expected-output verification",
+      "Repository-wide lesson-by-lesson audit of all 13 general-purpose tracks",
+      "Specialist HTML/CSS, R, and SQL domain-specific review"
+    ],
     "note": "Content alignment is not a claim that every code example has been compiled or runtime-tested. Preserve explicit language-specific deviations and record verification evidence.",
     "rust": {
       "status": "content_structure_and_example_compile_smoke_execution_verified_pending_full_application_and_accessibility_verification",
