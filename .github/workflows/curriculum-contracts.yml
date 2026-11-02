@@ -1,0 +1,29 @@
+name: Python and Lua standardization contracts
+
+on:
+  push:
+    paths:
+      - "PYTHON/**"
+      - "LUA/**"
+      - "lesson_standardization.json"
+      - "scripts/check_curriculum_contracts.py"
+      - ".github/workflows/curriculum-contracts.yml"
+  pull_request:
+    paths:
+      - "PYTHON/**"
+      - "LUA/**"
+      - "lesson_standardization.json"
+      - "scripts/check_curriculum_contracts.py"
+      - ".github/workflows/curriculum-contracts.yml"
+  workflow_dispatch:
+
+jobs:
+  contract-audit:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Validate canonical Python/Lua contracts
+        run: python scripts/check_curriculum_contracts.py
