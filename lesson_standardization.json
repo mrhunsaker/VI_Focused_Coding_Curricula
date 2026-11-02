@@ -897,12 +897,16 @@
         "Corrected Lua calculator rounding to integer half-up arithmetic; both $24.50 / 15% examples now target $3.68 and $28.18.",
         "Aligned Lua inventory, CSV rows, task-constructor tests, and adventure lessons to the canonical shared data and five-room project graph.",
         "Expanded the Lua checker to require one output fixture per lesson and compare exact stdout, with deterministic stdin and file fixtures for the input and file-reading lessons.",
-        "Lua exact-output checker remains green after the final Lua lesson edits; all 53 lesson fixtures passed."
+        "Lua exact-output checker remains green after the final Lua lesson edits; all 53 lesson fixtures passed.",
+        "Selected and pinned dkjson 2.11-1 and ftcsv 1.5.0-1 for Lua 5.4; documented package purpose, licenses, install commands, and parser limitations in LUA/DEPENDENCIES.md.",
+        "Added scripts/check_lua_dependencies.lua to exercise JSON round-trip/malformed input and CSV quoted commas, doubled quotes, multiline fields, CRLF, and canonical header behavior.",
+        "Added .github/workflows/lua-dependencies.yml to install the exact dependency versions and run the integration checks.",
+        "Added PROJECT_ACCEPTANCE.md with deterministic cross-language adventure, to-do, and capstone test scenarios; this is a specification, not a passed project test suite."
       ],
       "not_yet_verified": [
+        "Run the pinned-dependency CI workflow and resolve any API or edge-case failures before marking the JSON/CSV integration checks passed.",
         "Complete and test the full adventure game, including movement, shiny-key pickup, locked-door puzzle, and win condition.",
         "Complete and test the CLI to-do manager with all five canonical fields, CRUD operations, save/load, and malformed-data handling.",
-        "Select, pin, and test a JSON dependency and a standards-aware CSV parser; test malformed JSON and quoted CSV fields.",
         "Complete capstone persistence and CRUD integration tests.",
         "Perform hands-on keyboard-only, screen-reader, and braille testing with named operating systems, editors, and access technologies."
       ],
@@ -918,7 +922,12 @@
         "current_version_ci_result": "All 53 Lua 5.4.6 lesson examples parsed, executed in isolated directories, and matched their documented stdout fixtures. Deterministic stdin and file fixtures were supplied for the input and file-reading lessons.",
         "mdbook_and_local_link_check": "passed",
         "mdbook_workflow_run": "41538243813",
-        "mdbook_workflow_url": "https://github.com/mrhunsaker/VI_Focused_Coding_Curricula/actions/runs/41538243813"
+        "mdbook_workflow_url": "https://github.com/mrhunsaker/VI_Focused_Coding_Curricula/actions/runs/41538243813",
+        "dependencies": "selected_and_pinned_ci_pending",
+        "dependencies_document": "LUA/DEPENDENCIES.md",
+        "dependencies_checker": "scripts/check_lua_dependencies.lua",
+        "dependencies_workflow": ".github/workflows/lua-dependencies.yml",
+        "dependencies_test_cases": "dkjson valid round-trip and malformed JSON; ftcsv quoted commas, doubled quotes, embedded newlines, CRLF, and canonical header."
       }
     },
     "java": {
@@ -1035,15 +1044,18 @@
         "Corrected Unit 0 mapping to reflect the five live Python setup lessons and their actual subjects.",
         "Extended the canonical Python output checker to assert the four-row shared CSV and JSON round-trip of the five-field task record.",
         "Added an end-to-end scripted Python adventure test that follows the key, tunnel, clearing, locked-door, and treasure-room path; the test is included in the Python CI checker.",
-        "Corrected the Python calculator's documented expected tip from $3.67 to the canonical half-up result $3.68."
+        "Corrected the Python calculator's documented expected tip from $3.67 to the canonical half-up result $3.68.",
+        "Expanded Unit 11 requirements to include case-insensitive search across title, description, and category, strict six-field schema validation, stable IDs, and updated_at refresh on edits.",
+        "Added PROJECT_ACCEPTANCE.md with deterministic cross-language acceptance cases for the adventure, to-do manager, and capstone; the document is a specification, not evidence that project implementations passed.",
+        "Fixed the Python checker failure-diagnostic path so it reports the current example's stdout/stderr."
       ],
       "not_yet_verified": [
         "Review remaining Python examples in Units 1–9 for alignment wherever the standardization map calls for a shared dataset; retain legitimate standalone teaching examples rather than replacing them mechanically.",
-        "Reconcile the Unit 10 adventure room graph, inventory/puzzle state, CLI to-do CRUD and persistence behavior with the canonical project specification.",
         "Rebuild the Unit 11 capstone around the exact six-field record and test add, list, search, update, delete, and JSON persistence.",
         "Run syntax checks over all Python code fences and project-level tests, not only canonical dataset blocks.",
         "Perform hands-on keyboard-only, screen-reader, and braille testing with named operating systems, editors, and access technologies.",
-        "Manually verify the adventure graph and to-do scaffold against the canonical contracts; keep full project solutions out of the public student repository."
+        "Manually verify the adventure graph and to-do scaffold against the canonical contracts; keep full project solutions out of the public student repository.",
+        "Implement and execute the Unit 10 to-do and Unit 11 capstone acceptance cases in controlled instructor test fixtures; do not publish complete assessment solutions."
       ],
       "validation": {
         "manual_execution": "Canonical student profile, Decimal calculator, coordinate distance, grade classifier, inventory total, and text-count examples were executed during this audit.",
@@ -1122,12 +1134,17 @@
         "Lua exact-output validation passed for all 53 lesson examples (run 41537622785).",
         "Added scripts/check_curriculum_contracts.py and .github/workflows/curriculum-contracts.yml; cross-language dataset, project-contract, Unit 0 mapping, and Lua fixture checks passed (run 41538051208).",
         "Corrected the stale Python calculator expected-output fixture from $3.67 to $3.68 after the static contract audit identified it.",
-        "Full repository mdBook build and Markdown local-link crawl passed (run 41538167297)."
+        "Full repository mdBook build and Markdown local-link crawl passed (run 41538167297).",
+        "Added PROJECT_ACCEPTANCE.md with deterministic cross-language project acceptance scenarios; no project implementation is represented as passed.",
+        "Selected and pinned Lua 5.4 JSON/CSV dependencies and added an integration checker plus CI workflow; first CI execution is pending.",
+        "Corrected Python canonical-checker failure diagnostics.",
+        "Expanded Python capstone requirements for search, strict record validation, stable identifiers, and timestamp updates."
       ],
       "next_steps": [
+        "Run and pass the new pinned Lua dependency integration workflow; resolve parser/JSON edge-case failures.",
+        "Implement controlled instructor-side Python and Lua project fixtures and execute the shared PROJECT_ACCEPTANCE.md cases without publishing assessment solutions.",
         "Complete the Python to-do manager and capstone acceptance tests without publishing assessment solutions.",
         "Complete Lua adventure and to-do project workflow tests, including persistence and malformed-data cases.",
-        "Select and pin a Lua JSON dependency and a standards-aware CSV parser; test malformed JSON and quoted CSV edge cases.",
         "Perform hands-on keyboard, screen-reader, and braille testing on named platforms and assistive technologies.",
         "Complete the exhaustive lesson-by-lesson content, dataset, required-section, link, and accessibility audit across all 13 general-purpose tracks.",
         "Review specialist HTML/CSS, R, and SQL modules separately using their domain-specific learning objectives."
@@ -1140,7 +1157,10 @@
         "cross_language_url": "https://github.com/mrhunsaker/VI_Focused_Coding_Curricula/actions/runs/41538333054",
         "mdbook_status": "passed",
         "mdbook_run": "41538243813",
-        "mdbook_url": "https://github.com/mrhunsaker/VI_Focused_Coding_Curricula/actions/runs/41538243813"
+        "mdbook_url": "https://github.com/mrhunsaker/VI_Focused_Coding_Curricula/actions/runs/41538243813",
+        "lua_dependencies": "pending_first_ci_run",
+        "lua_dependencies_workflow": ".github/workflows/lua-dependencies.yml",
+        "project_acceptance_matrix": "PROJECT_ACCEPTANCE.md"
       }
     }
   },
