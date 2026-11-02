@@ -16,7 +16,7 @@
 - Checker: `scripts/check_python_curriculum.py`.
 - Workflow: `.github/workflows/python-curriculum.yml`.
 - Scope: canonical profile, calculator, coordinates, grades, inventory, text analysis, CSV parsing, task schema, and capstone record examples; compile, execute, and exact stdout checks.
-- Previous passing run [41529629787](https://github.com/mrhunsaker/VI_Focused_Coding_Curricula/actions/runs/41529629787) predates the latest legacy-example and project-contract edits. The latest revision, including the scripted adventure win-path test, passed [run 41537705769](https://github.com/mrhunsaker/VI_Focused_Coding_Curricula/actions/runs/41537705769). Canonical examples compiled, executed, and matched exact stdout; the adventure test completed the shiny-key, locked-door, and treasure-room path.
+- Previous passing run [41529629787](https://github.com/mrhunsaker/VI_Focused_Coding_Curricula/actions/runs/41529629787) predates the latest legacy-example and project-contract edits. The latest revision, including the scripted adventure win-path test, passed [run 41538051184](https://github.com/mrhunsaker/VI_Focused_Coding_Curricula/actions/runs/41538051184). Canonical examples compiled, executed, and matched exact stdout; the adventure test completed the shiny-key, locked-door, and treasure-room path.
 
 ## Remaining work
 
