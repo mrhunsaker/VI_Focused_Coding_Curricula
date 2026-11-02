@@ -909,8 +909,8 @@
         "workflow": ".github/workflows/lua-examples.yml",
         "current_version_ci_status": "passed",
         "exact_output_assertions": "not_implemented",
-        "current_version_ci_run": "41529521580",
-        "current_version_ci_url": "https://github.com/mrhunsaker/VI_Focused_Coding_Curricula/actions/runs/41529521580",
+        "current_version_ci_run": "41529629790",
+        "current_version_ci_url": "https://github.com/mrhunsaker/VI_Focused_Coding_Curricula/actions/runs/41529629790",
         "current_version_ci_result": "All 53 fenced Lua examples parsed and smoke-executed independently under Lua 5.4.6; no exact stdout assertions are performed."
       }
     },
@@ -1035,8 +1035,8 @@
         "checker": "scripts/check_python_curriculum.py",
         "workflow": ".github/workflows/python-curriculum.yml",
         "ci_status": "passed",
-        "ci_run": "41529521712",
-        "ci_url": "https://github.com/mrhunsaker/VI_Focused_Coding_Curricula/actions/runs/41529521712",
+        "ci_run": "41529629787",
+        "ci_url": "https://github.com/mrhunsaker/VI_Focused_Coding_Curricula/actions/runs/41529629787",
         "ci_result": "All canonical Python examples in the checker fixture set compiled, executed, and matched exact stdout."
       }
     },
