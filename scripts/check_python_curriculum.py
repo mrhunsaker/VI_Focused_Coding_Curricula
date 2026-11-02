@@ -29,7 +29,7 @@ CASES = {
         "",
     ],
 }
-pattern = re.compile(r"\`\`\`python\\s*\\n(.*?)\\n\`\`\`", re.DOTALL)
+pattern = re.compile(r"```python\s*\n(.*?)\n```", re.DOTALL)
 for relative, expected_outputs in CASES.items():
     source = (ROOT / relative).read_text(encoding="utf-8")
     marker = "## Canonical Shared Dataset"
