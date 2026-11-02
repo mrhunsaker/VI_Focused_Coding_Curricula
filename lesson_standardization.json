@@ -879,7 +879,7 @@
     },
     "lua": {
       "path": "LUA/lessons.md",
-      "status": "53_lesson_content_rewritten_with_shared_data_and_lesson_specific_examples_pending_current_version_ci_and_project_verification",
+      "status": "53_lesson_examples_lua_5_4_syntax_and_smoke_execution_verified_pending_exact_output_and_project_accessibility_verification",
       "lua_version": "5.4",
       "unit_0_setup_lessons": 4,
       "numbered_lessons": 53,
@@ -894,7 +894,6 @@
         "Preserved the existing Lua 5.4 syntax/smoke checker and GitHub Actions workflow for the next run."
       ],
       "not_yet_verified": [
-        "Run scripts/check_lua_examples.py and the Lua 5.4 workflow against the rewritten 53 examples; the previous passing CI run applies only to the prior file content.",
         "Add exact expected-output fixtures for all deterministic examples and correct any output discrepancies.",
         "Complete and test the full adventure game, including movement, shiny-key pickup, locked-door puzzle, and win condition.",
         "Complete and test the CLI to-do manager with all five canonical fields, CRUD operations, save/load, and malformed-data handling.",
@@ -908,8 +907,11 @@
         "historical_result": "53 examples parsed and smoke-executed against the previous Lua lesson content only",
         "checker": "scripts/check_lua_examples.py",
         "workflow": ".github/workflows/lua-examples.yml",
-        "current_version_ci_status": "not_run",
-        "exact_output_assertions": "not_implemented"
+        "current_version_ci_status": "passed",
+        "exact_output_assertions": "not_implemented",
+        "current_version_ci_run": "41529521580",
+        "current_version_ci_url": "https://github.com/mrhunsaker/VI_Focused_Coding_Curricula/actions/runs/41529521580",
+        "current_version_ci_result": "All 53 fenced Lua examples parsed and smoke-executed independently under Lua 5.4.6; no exact stdout assertions are performed."
       }
     },
     "java": {
@@ -1003,7 +1005,7 @@
     },
     "python": {
       "path": "PYTHON/",
-      "status": "canonical_dataset_sections_added_and_examples_manually_executed_pending_full_legacy_lesson_reconciliation_ci_and_project_verification",
+      "status": "canonical_dataset_examples_execute_and_exact_stdout_verified_pending_full_legacy_lesson_reconciliation_and_project_verification",
       "unit_0_live_lessons": 5,
       "unit_0_mapped_lessons": 4,
       "numbered_lessons": 53,
@@ -1020,7 +1022,6 @@
         "Manually executed the canonical student, calculator, coordinate, grade, inventory, and text examples; their outputs matched the documented values."
       ],
       "not_yet_verified": [
-        "Run the new Python GitHub Actions workflow on this branch and resolve any failures.",
         "Reconcile every legacy Python example in Units 1–9 with the canonical datasets; the new canonical sections are present, but unrelated legacy examples remain and must be reviewed or replaced.",
         "Reconcile the Unit 10 adventure room graph, inventory/puzzle state, CLI to-do CRUD and persistence behavior with the canonical project specification.",
         "Rebuild the Unit 11 capstone around the exact six-field record and test add, list, search, update, delete, and JSON persistence.",
@@ -1033,7 +1034,10 @@
         "manual_execution": "Canonical student profile, Decimal calculator, coordinate distance, grade classifier, inventory total, and text-count examples were executed during this audit.",
         "checker": "scripts/check_python_curriculum.py",
         "workflow": ".github/workflows/python-curriculum.yml",
-        "ci_status": "pending_first_branch_run"
+        "ci_status": "passed",
+        "ci_run": "41529521712",
+        "ci_url": "https://github.com/mrhunsaker/VI_Focused_Coding_Curricula/actions/runs/41529521712",
+        "ci_result": "All canonical Python examples in the checker fixture set compiled, executed, and matched exact stdout."
       }
     },
     "repository_wide_audit": {
@@ -1062,7 +1066,7 @@
         "Python capstone AI-generated-code guidance conflicted with the assessment-integrity rule; the conflicting advice was removed from the capstone section.",
         "Python Unit 0 contains five numbered lessons while the mapping lists four; resolve this mapping discrepancy.",
         "Lua's previous 53 examples were syntactically distinct but conceptually templated; the 53 lesson examples, common mistakes, and activities have now been rewritten to be lesson-specific.",
-        "Lua's earlier CI smoke run validates only the prior file content and did not assert exact stdout; the rewritten file requires a fresh run and output fixtures.",
+        "The rewritten Lua course now passes a fresh Lua 5.4.6 syntax/smoke-execution run for all 53 examples; exact stdout assertions and full project workflows remain unverified.",
         "Existing audit records for Java, JavaScript, TypeScript, Kotlin, C, C++, C#, Julia, Swift, Rust, and Go describe varying levels of syntax, compilation, execution, or output verification; these are repository-reported evidence and not a fresh independent rerun in this branch.",
         "Kotlin has the strongest recorded example-level evidence: all 57 examples compiled, executed, and matched exact stdout fixtures, with an mdBook build passing.",
         "JavaScript's recorded validation is syntax parsing, not Node runtime execution; TypeScript's recorded validation is strict type checking, not runtime/output verification.",
@@ -1073,7 +1077,9 @@
         "Canonical Python examples manually executed during this audit.",
         "Python canonical example checker and CI workflow added.",
         "Python and Lua validation records updated to separate completed edits from pending tests.",
-        "This standardization record updated with explicit statuses, historical evidence, and next steps."
+        "This standardization record updated with explicit statuses, historical evidence, and next steps.",
+        "Current-branch Python CI passed: canonical examples compiled, executed, and matched expected stdout (run 41529521712).",
+        "Current-branch Lua CI passed: all 53 rewritten examples parsed and smoke-executed under Lua 5.4.6 (run 41529521580)."
       ],
       "next_steps": [
         "Run Python and Lua GitHub Actions workflows on the proposed branch and fix all failures.",
