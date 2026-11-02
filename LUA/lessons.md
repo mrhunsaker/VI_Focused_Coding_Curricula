@@ -229,7 +229,7 @@ print(string.format("Total: $%.2f", total_cents / 100))
 
 ```text
 Tip: $3.68
-Total: 
+Total: $28.18
 ```8.18
 ```
 
@@ -1464,7 +1464,7 @@ print(string.format("Total: $%.2f", total_cents / 100))
 
 ```text
 Tip: $3.68
-Total: 
+Total: $28.18
 ```8.18
 ```
 
