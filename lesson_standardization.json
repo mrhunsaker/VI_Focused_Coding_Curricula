@@ -959,11 +959,16 @@
         "add capstone persistence and JUnit integration tests",
         "fresh mdBook build and complete Markdown/local-link crawl",
         "hands-on keyboard-only, screen-reader, and braille verification",
-        "Run the updated cross-language contract checker after aligning the Java Unit 10.2 room transition and Unit 11.2 six-field record example.",
-        "Compile and execute the changed Java examples under the documented JDK 25 toolchain."
+        "Run a dedicated end-to-end capstone test suite for CRUD, search, persistence, malformed JSON, and accessibility; example smoke execution is not full project verification."
       ],
       "ci_run": "41337829888",
-      "examples_compiled_and_executed": 57
+      "examples_compiled_and_executed": 57,
+      "validation": {
+        "latest_ci_run": "41548981761",
+        "latest_ci_url": "https://github.com/mrhunsaker/VI_Focused_Coding_Curricula/actions/runs/41548981761",
+        "latest_ci_status": "passed",
+        "latest_ci_result": "All Java lesson examples compiled and smoke-ran successfully under JDK 25 on commit 31641bdfa67570da0c65929740b521adbb7026e6."
+      }
     },
     "requested_additions": {
       "project_environment_and_container_guide": {
