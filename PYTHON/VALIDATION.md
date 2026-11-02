@@ -1,25 +1,27 @@
 # Python Validation
 
-## Current source alignment work
+## Current source alignment
 
-- The canonical student profile, calculator, grade thresholds and scores, inventory, coordinates, text sample, CSV header, to-do schema, and capstone schema are now explicitly used in the Python lesson files.
-- Currency calculations use `Decimal` with half-up cent rounding; expected results are a $3.68 tip and $28.18 total for the $24.50 bill.
-- The AI-generated-code advice in the capstone was replaced with the course-wide assessment-integrity restriction.
-- The complete legacy lesson set has not yet been exhaustively reconciled against the canonical examples; the canonical dataset sections are the authoritative comparison examples pending that pass.
+- Student dictionary and profile examples use the canonical Avery record: name, age 16, height 1.72 m, and Computer Science.
+- Numeric examples use the $24.50 bill and 15% tip with decimal half-up cent rounding; expected tip $3.68 and total $28.18.
+- Grade examples use thresholds A ≥ 90, B ≥ 80, C ≥ 70, D ≥ 60, otherwise F, and scores 82, 91, 76, 88.
+- List, dictionary, and function examples use the Notebook/Pencil/Folder inventory and its $17.50 total.
+- Text and CSV examples use the canonical text sample and five-column student CSV contract. CSV is parsed with `csv.DictReader`, not manual comma splitting.
+- JSON examples use the five-field to-do record. Unit 10 project instructions use the shared five-room adventure and five-field to-do contract. Unit 11 uses the six-field capstone record.
+- The conflicting AI-generated-code advice was removed from the capstone material. Git is presented independently of AI code generation.
+- Unit 0's mapping now reflects all five live Python setup lessons.
 
-## Canonical example validation
+## Automated validation
 
 - Checker: `scripts/check_python_curriculum.py`.
 - Workflow: `.github/workflows/python-curriculum.yml`.
-- Scope: compile and execute the canonical Python code blocks and compare stdout against exact fixtures.
-- Manual execution in the current audit verified the student profile, Decimal tip calculation, coordinate distance, grade classification and average, inventory total, and canonical text counts.
-- CI: [run 41529629787](https://github.com/mrhunsaker/VI_Focused_Coding_Curricula/actions/runs/41529629787) passed on the current audit branch. The checker compiled, executed, and matched stdout for all canonical Python examples in its fixture set.
+- Scope: canonical profile, calculator, coordinates, grades, inventory, text analysis, CSV parsing, task schema, and capstone record examples; compile, execute, and exact stdout checks.
+- Previous passing run [41529629787](https://github.com/mrhunsaker/VI_Focused_Coding_Curricula/actions/runs/41529629787) predates the latest legacy-example and project-contract edits. A new run is required before marking the latest revision validated.
 
-## Not yet verified
+## Remaining work
 
-- Execute the new checker in GitHub Actions and resolve any discrepancies.
-- Run syntax checks over all Python code fences, not only the canonical dataset sections.
-- Audit every legacy Python lesson example and replace unrelated or conflicting values where standardization requires the canonical dataset.
-- Run project-level tests for the adventure game, CLI to-do persistence, and capstone CRUD/JSON behavior.
+- Run the updated canonical checker in GitHub Actions and resolve failures.
+- Run syntax checks over runnable Python examples across the full track.
+- Complete the project acceptance tests without publishing full assessment solutions.
 - Run a fresh mdBook build and complete Markdown/local-link crawl.
 - Perform hands-on keyboard-only, screen-reader, and braille testing with named operating systems, editors, and access technologies.
