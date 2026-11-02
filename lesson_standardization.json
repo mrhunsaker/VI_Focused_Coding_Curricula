@@ -1010,9 +1010,9 @@
     },
     "python": {
       "path": "PYTHON/",
-      "status": "canonical_dataset_examples_aligned_and_previous_fixture_ci_passed_latest_extended_fixtures_pending_ci_project_tests_pending",
+      "status": "canonical_datasets_and_project_contracts_aligned_canonical_ci_passed_project_end_to_end_tests_pending",
       "unit_0_live_lessons": 5,
-      "unit_0_mapped_lessons": 4,
+      "unit_0_mapped_lessons": 5,
       "numbered_lessons": 53,
       "completed_work": [
         "Added canonical student-profile examples using Avery, age 16, height 1.72 m, and Computer Science to the Python foundations lesson.",
@@ -1034,7 +1034,6 @@
         "Extended the canonical Python output checker to assert the four-row shared CSV and JSON round-trip of the five-field task record."
       ],
       "not_yet_verified": [
-        "Run the updated Python canonical CI after adding CSV and JSON exact-output fixtures; the prior passing CI run predates these fixtures.",
         "Reconcile every legacy Python example in Units 1–9 with the canonical datasets; the new canonical sections are present, but unrelated legacy examples remain and must be reviewed or replaced.",
         "Reconcile the Unit 10 adventure room graph, inventory/puzzle state, CLI to-do CRUD and persistence behavior with the canonical project specification.",
         "Rebuild the Unit 11 capstone around the exact six-field record and test add, list, search, update, delete, and JSON persistence.",
@@ -1051,7 +1050,10 @@
         "ci_run": "41529629787",
         "ci_url": "https://github.com/mrhunsaker/VI_Focused_Coding_Curricula/actions/runs/41529629787",
         "ci_result": "All canonical Python examples in the checker fixture set compiled, executed, and matched exact stdout.",
-        "latest_extended_fixtures_ci_status": "pending"
+        "latest_extended_fixtures_ci_status": "passed",
+        "latest_extended_fixtures_ci_run": "41537458295",
+        "latest_extended_fixtures_ci_url": "https://github.com/mrhunsaker/VI_Focused_Coding_Curricula/actions/runs/41537458295",
+        "latest_extended_fixtures_result": "Canonical Python fixtures, including CSV DictReader and JSON task round-trip, compiled, executed, and matched exact stdout."
       }
     },
     "repository_wide_audit": {
@@ -1078,7 +1080,7 @@
       "findings": [
         "Python previously diverged from canonical shared datasets in profile, scores, inventory, text, CSV, to-do, and capstone examples; canonical examples and schemas are now present, but legacy examples still require reconciliation.",
         "Python capstone AI-generated-code guidance conflicted with the assessment-integrity rule; the conflicting advice was removed from the capstone section.",
-        "Python Unit 0 contains five numbered lessons while the mapping lists four; resolve this mapping discrepancy.",
+        "Python Unit 0's five live setup lessons are now all represented in the mapping; the omission of Lesson 0.5 is corrected.",
         "Lua's previous 53 examples were syntactically distinct but conceptually templated; the 53 lesson examples, common mistakes, and activities have now been rewritten to be lesson-specific.",
         "The rewritten Lua course now passes a fresh Lua 5.4.6 syntax/smoke-execution run for all 53 examples; exact stdout assertions and full project workflows remain unverified.",
         "Existing audit records for Java, JavaScript, TypeScript, Kotlin, C, C++, C#, Julia, Swift, Rust, and Go describe varying levels of syntax, compilation, execution, or output verification; these are repository-reported evidence and not a fresh independent rerun in this branch.",
@@ -1101,9 +1103,11 @@
         "Reconciled the Python student dictionary, inventory, text analysis, CSV parsing, JSON task record, adventure room graph, to-do requirements, and capstone data model with the shared canonical contracts.",
         "Corrected the Unit 0 mapping from four mapped lessons to the five live Python setup lessons.",
         "Aligned the Python Unit 10 adventure map and Lua adventure examples to the same five-room graph and key/door/win-condition rules.",
-        "Added exact expected-output fixture checks for all 53 Lua lessons and extended Python canonical checks to CSV and JSON examples."
+        "Added exact expected-output fixture checks for all 53 Lua lessons and extended Python canonical checks to CSV and JSON examples.",
+        "Latest Python canonical CI passed with the extended CSV and JSON task fixtures (run 41537458295)."
       ],
       "next_steps": [
+        "Complete the current Lua exact-output CI run and repair any remaining mismatches.",
         "Run the updated Python and Lua CI workflows and repair any exact-output mismatches.",
         "Run updated Python canonical CI and verify the changed inventory, JSON, CSV, and project contract examples.",
         "Run Python and Lua GitHub Actions workflows on the proposed branch and fix all failures.",
