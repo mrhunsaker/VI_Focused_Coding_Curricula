@@ -924,7 +924,7 @@
         "dependency_ci_status": "passed",
         "dependency_ci_run": "41546425326",
         "dependency_ci_url": "https://github.com/mrhunsaker/VI_Focused_Coding_Curricula/actions/runs/41546425326",
-        "dependency_ci_result": "Pinned dkjson 2.11-1 and ftcsv 1.5.0-1 installed under Lua 5.4; JSON round-trip/malformed input and CSV quoted commas, doubled quotes, multiline fields, CRLF, canonical five-column header, extra/missing column, and unterminated quote checks passed."
+        "dependency_ci_result": "Pinned dkjson 2.11-1 and ftcsv 1.5.0-1 installed under Lua 5.4; JSON round-trip/malformed input and CSV quoted commas, doubled quotes, multiline fields, CRLF, canonical five-column header, extra/missing column, and unterminated quote checks passed.",
         "mdbook_and_local_link_check": "passed",
         "mdbook_workflow_run": "41538243813",
         "mdbook_workflow_url": "https://github.com/mrhunsaker/VI_Focused_Coding_Curricula/actions/runs/41538243813",
