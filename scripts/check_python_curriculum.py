@@ -55,7 +55,7 @@ for relative, expected_outputs in CASES.items():
         if result.returncode:
             raise SystemExit(
                 f"{relative} example {number}: exited {result.returncode}\n"
-        f"stdout:\n{adventure.stdout}\nstderr:\n{adventure.stderr}"
+        f"stdout:\n{result.stdout}\nstderr:\n{result.stderr}"
             )
         if result.stdout != expected:
             raise SystemExit(
