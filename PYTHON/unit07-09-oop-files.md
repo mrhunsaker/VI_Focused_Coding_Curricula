@@ -654,6 +654,29 @@ student_id,first_name,last_name,score,active
 
 Use the `csv` module and named column positions; do not substitute a different three-column name/age/grade schema.
 
+\`\`\`python
+import csv
+from io import StringIO
+
+csv_text = """student_id,first_name,last_name,score,active
+1001,Avery,Jordan,82,true
+1002,Riley,Chen,91,true
+1003,Sam,Patel,76,false
+1004,Morgan,Diaz,88,true
+"""
+for row in csv.DictReader(StringIO(csv_text)):
+    print(row["student_id"], row["first_name"], row["last_name"],
+          row["score"], row["active"])
+\`\`\`
+
+Expected output:
+\`\`\`text
+1001 Avery Jordan 82 true
+1002 Riley Chen 91 true
+1003 Sam Patel 76 false
+1004 Morgan Diaz 88 true
+\`\`\`
+
 ### To-do record schema
 
 Use all five fields in every serialized task record: `id`, `title`, `description`, `done`, and `created_at`.
@@ -666,6 +689,21 @@ task = {
     "done": False,
     "created_at": "2025-01-15T09:00:00Z",
 }
-```
+
+\`\`\`python
+import json
+
+serialized = json.dumps([task])
+loaded_tasks = json.loads(serialized)
+loaded_task = loaded_tasks[0]
+required_fields = {"id", "title", "description", "done", "created_at"}
+assert set(loaded_task) == required_fields
+print(loaded_task["id"], loaded_task["title"], loaded_task["done"])
+\`\`\`
+
+Expected output:
+\`\`\`text
+1 Practice Python False
+\`\`\`
 
 Tests should assert deterministic results for the shared tip calculator, grade classifier, inventory total, and text sample. Random-number lessons must seed the generator when an exact result is asserted.
