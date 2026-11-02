@@ -2065,7 +2065,7 @@ end
 ### Expected Behavior or Output
 
 ```text
-When notes.txt contains Hello: Hello
+Hello
 ```
 
 ### Common Mistakes
