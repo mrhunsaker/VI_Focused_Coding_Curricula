@@ -1153,7 +1153,7 @@ if score then print("Score:", score) else print("Please enter a number.") end
 ### Expected Behavior or Output
 
 ```text
-With input 82: Score:	82
+Enter a score: Score:	82
 ```
 
 ### Common Mistakes
