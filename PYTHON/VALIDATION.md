@@ -14,6 +14,7 @@
 ## Automated validation
 
 - Checker: `scripts/check_python_curriculum.py`.
+- Cross-language contract checker: `scripts/check_curriculum_contracts.py`; workflow: `.github/workflows/curriculum-contracts.yml`. [Run 41538051208](https://github.com/mrhunsaker/VI_Focused_Coding_Curricula/actions/runs/41538051208) passed the static shared-dataset, project-contract, Unit 0 mapping, and Lua fixture audit.
 - Workflow: `.github/workflows/python-curriculum.yml`.
 - Scope: canonical profile, calculator, coordinates, grades, inventory, text analysis, CSV parsing, task schema, and capstone record examples; compile, execute, and exact stdout checks.
 - Previous passing run [41529629787](https://github.com/mrhunsaker/VI_Focused_Coding_Curricula/actions/runs/41529629787) predates the latest legacy-example and project-contract edits. The latest revision, including the scripted adventure win-path test, passed [run 41538051184](https://github.com/mrhunsaker/VI_Focused_Coding_Curricula/actions/runs/41538051184). Canonical examples compiled, executed, and matched exact stdout; the adventure test completed the shiny-key, locked-door, and treasure-room path.
