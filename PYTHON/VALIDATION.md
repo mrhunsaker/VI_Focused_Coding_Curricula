@@ -28,3 +28,10 @@
 - Complete to-do manager and capstone acceptance tests without publishing full assessment solutions.
 - Run a fresh mdBook build and complete Markdown/local-link crawl.
 - Perform hands-on keyboard-only, screen-reader, and braille testing with named operating systems, editors, and access technologies.
+
+## Project acceptance work added in the audit branch
+
+- Shared behavioral acceptance matrix: [../PROJECT_ACCEPTANCE.md](../PROJECT_ACCEPTANCE.md). It defines deterministic adventure, to-do, and six-field capstone cases for both Python and Lua without publishing completed assessment solutions.
+- Unit 11 requirements now explicitly include case-insensitive search across title, description, and category; six-field schema validation; stable IDs; and updated_at refresh on edits.
+- The Python canonical checker failure path was corrected so diagnostics report the failing example's stdout/stderr rather than referencing the unrelated adventure process.
+- Project acceptance cases are specifications only. No Python to-do manager or complete capstone implementation is claimed as built or passed. Instructor-only executable assessment tests remain gated on private solution storage.
