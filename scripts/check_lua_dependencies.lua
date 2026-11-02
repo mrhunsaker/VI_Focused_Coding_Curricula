@@ -38,7 +38,7 @@ assert(type(headers) == "table" and #headers == 5 and headers[1] == "student_id"
   "CSV header must match the canonical five-column schema")
 assert(rows[1].first_name == "Avery, Jr.", "Quoted comma was not preserved")
 assert(rows[2].first_name == 'Riley "RJ"', "Doubled quote was not decoded")
-assert(rows[4].last_name == "Diaz\nMorgan", "Embedded newline was not preserved")
+assert(rows[4].last_name == "Diaz\r\nMorgan", "Embedded newline was not preserved")
 
 -- Validate row width explicitly: ftcsv is a parser, not a schema validator.
 local function validate_five_columns(source)
