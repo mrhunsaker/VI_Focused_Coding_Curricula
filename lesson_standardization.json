@@ -896,7 +896,8 @@
         "Preserved the existing Lua 5.4 syntax/smoke checker and GitHub Actions workflow for the next run.",
         "Corrected Lua calculator rounding to integer half-up arithmetic; both $24.50 / 15% examples now target $3.68 and $28.18.",
         "Aligned Lua inventory, CSV rows, task-constructor tests, and adventure lessons to the canonical shared data and five-room project graph.",
-        "Expanded the Lua checker to require one output fixture per lesson and compare exact stdout, with deterministic stdin and file fixtures for the input and file-reading lessons."
+        "Expanded the Lua checker to require one output fixture per lesson and compare exact stdout, with deterministic stdin and file fixtures for the input and file-reading lessons.",
+        "Lua exact-output checker remains green after the final Lua lesson edits; all 53 lesson fixtures passed."
       ],
       "not_yet_verified": [
         "Complete and test the full adventure game, including movement, shiny-key pickup, locked-door puzzle, and win condition.",
@@ -1031,10 +1032,11 @@
         "Aligned the capstone record model and project choices to the exact six-field shared schema; removed Git advice that encouraged AI-generated code.",
         "Corrected Unit 0 mapping to reflect the five live Python setup lessons and their actual subjects.",
         "Extended the canonical Python output checker to assert the four-row shared CSV and JSON round-trip of the five-field task record.",
-        "Added an end-to-end scripted Python adventure test that follows the key, tunnel, clearing, locked-door, and treasure-room path; the test is included in the Python CI checker."
+        "Added an end-to-end scripted Python adventure test that follows the key, tunnel, clearing, locked-door, and treasure-room path; the test is included in the Python CI checker.",
+        "Corrected the Python calculator's documented expected tip from $3.67 to the canonical half-up result $3.68."
       ],
       "not_yet_verified": [
-        "Reconcile every legacy Python example in Units 1–9 with the canonical datasets; the new canonical sections are present, but unrelated legacy examples remain and must be reviewed or replaced.",
+        "Review remaining Python examples in Units 1–9 for alignment wherever the standardization map calls for a shared dataset; retain legitimate standalone teaching examples rather than replacing them mechanically.",
         "Reconcile the Unit 10 adventure room graph, inventory/puzzle state, CLI to-do CRUD and persistence behavior with the canonical project specification.",
         "Rebuild the Unit 11 capstone around the exact six-field record and test add, list, search, update, delete, and JSON persistence.",
         "Run syntax checks over all Python code fences and project-level tests, not only canonical dataset blocks.",
@@ -1055,9 +1057,9 @@
         "latest_extended_fixtures_ci_url": "https://github.com/mrhunsaker/VI_Focused_Coding_Curricula/actions/runs/41537458295",
         "latest_extended_fixtures_result": "Canonical Python fixtures, including CSV DictReader and JSON task round-trip, compiled, executed, and matched exact stdout.",
         "adventure_end_to_end_test": "passed",
-        "latest_ci_run": "41537705769",
-        "latest_ci_url": "https://github.com/mrhunsaker/VI_Focused_Coding_Curricula/actions/runs/41537705769",
-        "latest_ci_result": "Canonical fixture examples passed exact stdout checks, and the scripted adventure run reached the treasure-room win condition after taking and using the shiny key."
+        "latest_ci_run": "41538051184",
+        "latest_ci_url": "https://github.com/mrhunsaker/VI_Focused_Coding_Curricula/actions/runs/41538051184",
+        "latest_ci_result": "Canonical profile, calculator, coordinates, grades, inventory, text, CSV, JSON task examples passed exact stdout; the scripted adventure completed the key/door/treasure-room win path."
       }
     },
     "repository_wide_audit": {
@@ -1094,7 +1096,8 @@
         "The previous Python project brief contained two incompatible adventure maps, a two-field completed-looking to-do implementation that did not meet the five-field contract, and a four-field Contact model inconsistent with the six-field capstone schema; the branch now uses one explicit room graph and contract-aligned scaffolds.",
         "The Python Unit 0 map omitted live Lesson 0.5 and had mismatched lesson descriptions; the mapping now lists the five actual lesson titles.",
         "Lua's earlier $3.67 tip fixture was inconsistent with the canonical half-up rounding policy; Lua examples now use integer arithmetic and expect $3.68.",
-        "Lua previously documented a three-room adventure while Python's puzzle used a different two-room graph; both tracks now use the same five-room project graph."
+        "Lua previously documented a three-room adventure while Python's puzzle used a different two-room graph; both tracks now use the same five-room project graph.",
+        "The new static cross-language audit detected a stale $3.67 expected-output line in the Python calculator lesson even though the Python executable example and fixture checker passed; the documented output was corrected to $3.68."
       ],
       "completed_work": [
         "Focused Python and Lua source review and content changes completed on the audit branch.",
@@ -1112,18 +1115,18 @@
         "Lua exact-output CI passed for all 53 rewritten lesson examples under Lua 5.4.6 (run 41537622785).",
         "Python canonical CSV and JSON fixtures passed exact-output CI (run 41537458295); a scripted adventure win-path test has since been added and awaits its own CI run.",
         "Latest Python CI passed after adding an end-to-end adventure run through the canonical key/door/treasure path (run 41537705769).",
-        "Lua exact-output validation passed for all 53 lesson examples (run 41537622785)."
+        "Lua exact-output validation passed for all 53 lesson examples (run 41537622785).",
+        "Added scripts/check_curriculum_contracts.py and .github/workflows/curriculum-contracts.yml; cross-language dataset, project-contract, Unit 0 mapping, and Lua fixture checks passed (run 41538051208).",
+        "Corrected the stale Python calculator expected-output fixture from $3.67 to $3.68 after the static contract audit identified it."
       ],
       "next_steps": [
-        "Complete project acceptance tests for the Python to-do scaffold and capstone, and the Lua to-do/persistence projects; do not publish assessment solutions.",
-        "Run the updated Python and Lua CI workflows and repair any exact-output mismatches.",
-        "Run updated Python canonical CI and verify the changed inventory, JSON, CSV, and project contract examples.",
-        "Run Python and Lua GitHub Actions workflows on the proposed branch and fix all failures.",
-        "Finish full Python legacy-example and project reconciliation.",
-        "Add exact expected-output fixtures and end-to-end project tests for Lua.",
-        "Perform a lesson-by-lesson content, dataset, required-section, link, and accessibility audit across all 13 general-purpose tracks.",
-        "Run the full repository mdBook build and Markdown/local-link crawl.",
-        "Perform hands-on keyboard, screen-reader, and braille testing; record platforms and assistive technologies rather than asserting unperformed tests."
+        "Complete the Python to-do manager and capstone acceptance tests without publishing assessment solutions.",
+        "Complete Lua adventure and to-do project workflow tests, including persistence and malformed-data cases.",
+        "Select and pin a Lua JSON dependency and a standards-aware CSV parser; test malformed JSON and quoted CSV edge cases.",
+        "Run a fresh repository-wide mdBook build and Markdown/local-link crawl.",
+        "Perform hands-on keyboard, screen-reader, and braille testing on named platforms and assistive technologies.",
+        "Complete the exhaustive lesson-by-lesson content, dataset, required-section, link, and accessibility audit across all 13 general-purpose tracks.",
+        "Review specialist HTML/CSS, R, and SQL modules separately using their domain-specific learning objectives."
       ]
     }
   },
