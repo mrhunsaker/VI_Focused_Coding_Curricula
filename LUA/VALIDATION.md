@@ -1,31 +1,29 @@
 # Lua Validation
 
-## Verified source structure
+## Current source alignment
 
-- Lua baseline: 5.4.
-- Unit 0 setup lessons: 4.
+- Runtime target: Lua 5.4.
+- Unit 0 setup lessons: 4 (maintained in the Lua setup material).
 - Numbered lessons: 53 across Units 1–11.
-- Unit 2 Lesson 2.5: present (math library, circle geometry, distance).
-- Fenced Lua examples: 53; all are distinct.
-- Markdown code fences: balanced.
+- The previous generic worked-example pattern has been replaced with 53 lesson-specific examples covering the mapped topics and canonical shared data.
+- Common-mistake lists and activities have been revised by lesson topic rather than repeating one universal set of prompts.
+- Lua-specific adaptations are explicit: one-based sequences, tables as maps/records, truthiness, metatables, no built-in class/tuple/continue construct, no standard JSON module, and no general CSV parser.
+- The shared student, calculator, grade, score, inventory, coordinate, text, CSV, task, and capstone data contracts are documented in the course.
 
-## Editorial structure
-
-- Each numbered lesson has a concept explanation, three common mistakes, four activities, accessibility practice, and a five-item skills checklist.
-- Concept explanations, common-mistake prompts, and activities were refined against each lesson topic; Lua semantics remain explicit throughout.
-
-## Automated check
+## Automated validation history
 
 - Checker: `scripts/check_lua_examples.py`.
 - Workflow: `.github/workflows/lua-examples.yml`.
 - Scope: `luac5.4 -p` syntax validation and independent smoke execution of each fenced Lua example.
-- CI: [run 41336406502](https://github.com/mrhunsaker/VI_Focused_Coding_Curricula/actions/runs/41336406502) passed on Lua 5.4.6; all 53 examples parsed with luac5.4 and smoke-executed independently. This is not an expected-output assertion suite.
+- Earlier CI run [41336626558](https://github.com/mrhunsaker/VI_Focused_Coding_Curricula/actions/runs/41336626558) passed against the prior lesson content. **That run does not validate the rewritten examples in this branch.**
+- The rewritten course has not yet had a new CI run. Do not mark the current version syntax-verified, runtime-verified, or output-verified until the workflow passes.
 
 ## Not yet verified
 
-- Exact expected-output assertions and representative invalid-input cases.
-- End-to-end capstone persistence, JSON/CSV package integration, and malformed-file behavior.
-- Fresh mdBook build and complete local/external link crawl.
-- Hands-on screen-reader and braille testing across supported operating systems and editors.
-
-Final lesson prose was updated after the initial successful CI run; the final-lesson workflow run [41336626558](https://github.com/mrhunsaker/VI_Focused_Coding_Curricula/actions/runs/41336626558) passed on Lua 5.4.6; all 53 examples parsed and smoke-executed.
+- Run the Lua 5.4 workflow against the rewritten 53 examples and fix every parse/runtime failure.
+- Add exact expected-output assertions for every deterministic example; keep nondeterministic or environment-dependent examples isolated and explicitly qualified.
+- Test the adventure game and CLI to-do manager end to end, including all movement, inventory, puzzle, CRUD, and persistence cases.
+- Select, pin, and test a JSON dependency; test malformed JSON and missing-file behavior.
+- Select a standards-aware CSV parser and test quoted commas, escaped quotes, and embedded newlines.
+- Run a fresh mdBook build and complete Markdown/local-link crawl.
+- Perform hands-on keyboard-only, screen-reader, and braille testing with named operating systems, editors, and access technologies.
