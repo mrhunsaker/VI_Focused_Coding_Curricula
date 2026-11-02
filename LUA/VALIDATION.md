@@ -20,6 +20,8 @@
 - The checker now requires exactly 53 lesson sections, one Lua example and one expected-output fixture per lesson, parses each example, runs it in an isolated directory, supplies deterministic input/file fixtures where required, and compares stdout byte-for-byte with the documented output.
 - The exact-output checker passed [run 41537622785](https://github.com/mrhunsaker/VI_Focused_Coding_Curricula/actions/runs/41537622785): all 53 Lua 5.4.6 examples parsed, executed in isolated directories, and matched their documented stdout fixtures.
 
+- Repository documentation validation: [run 41538167297](https://github.com/mrhunsaker/VI_Focused_Coding_Curricula/actions/runs/41538167297) passed the complete mdBook build and repository-wide local Markdown link-target check.
+
 ## Remaining work
 
 - Add project-level tests for complete adventure and to-do workflows, including save/load and malformed data.
