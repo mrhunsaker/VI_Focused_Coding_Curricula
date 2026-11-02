@@ -694,6 +694,13 @@ task = {
 ```python
 import json
 
+task = {
+    "id": 1,
+    "title": "Practice Python",
+    "description": "Complete the shared dataset exercises",
+    "done": False,
+    "created_at": "2025-01-15T09:00:00Z",
+}
 serialized = json.dumps([task])
 loaded_tasks = json.loads(serialized)
 loaded_task = loaded_tasks[0]
