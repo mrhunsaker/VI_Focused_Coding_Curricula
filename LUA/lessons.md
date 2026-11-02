@@ -213,12 +213,12 @@ Plan, implement, and test the same tip-calculator problem. Separate input values
 ### Worked Example
 
 ```lua
-local bill = 24.50
+local bill_cents = 2450
 local tip_rate = 0.15
-local tip = bill * tip_rate
-local total = bill + tip
-print(string.format("Tip: $%.2f", tip))
-print(string.format("Total: $%.2f", total))
+local tip_cents = math.floor(bill_cents * tip_rate + 0.5)
+local total_cents = bill_cents + tip_cents
+print(string.format("Tip: $%.2f", tip_cents / 100))
+print(string.format("Total: $%.2f", total_cents / 100))
 ```
 
 ### Expected Behavior or Output
@@ -1398,13 +1398,13 @@ Functions package a named operation. The function below calculates a tip and tot
 ### Worked Example
 
 ```lua
-local function calculate_total(bill, rate)
-  local tip = bill * rate
-  return tip, bill + tip
+local function calculate_total(bill_cents, rate)
+  local tip_cents = math.floor(bill_cents * rate + 0.5)
+  return tip_cents, bill_cents + tip_cents
 end
-local tip, total = calculate_total(24.50, 0.15)
-print(string.format("Tip: $%.2f", tip))
-print(string.format("Total: $%.2f", total))
+local tip_cents, total_cents = calculate_total(2450, 0.15)
+print(string.format("Tip: $%.2f", tip_cents / 100))
+print(string.format("Total: $%.2f", total_cents / 100))
 ```
 
 ### Expected Behavior or Output
@@ -2105,7 +2105,7 @@ local ok, result = pcall(function()
   return value * 2
 end)
 print(ok)
-if not ok then print(result) end
+print(string.find(result, "score must be numeric") ~= nil)
 ```
 
 ### Expected Behavior or Output
