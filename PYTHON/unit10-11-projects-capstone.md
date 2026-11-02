@@ -314,7 +314,7 @@ print(f"You entered age: {age}")
 
 Students will develop a fully functional, screen-reader-accessible graphical application using NiceGUI that allows users to manage a collection of structured personal data.
 
-**Project Goal:** Build a simple application to manage a list of structured items.
+**Project Goal:** Build an application to manage structured records with list, add, search, update, delete, and JSON persistence operations. The interface may be GUI-based in Python; the same data contract and operation semantics apply to the Lua terminal implementation.
 
 **Project Options:**
 - Contact Manager
@@ -331,8 +331,9 @@ Every option uses the same six-field record schema (`id`, `title`, `description`
 1. **Add New Item** — A form to input details for a new item.
 2. **View All Items** — Display items in a clear, accessible list format.
 3. **Edit Item** — Select an existing item and modify its details.
-4. **Delete Item** — Remove an item from the collection.
-5. **Save/Load Data** — Persist the data to a JSON file.
+4. **Search Items** — Find records by ID and case-insensitive text in title, description, or category; report no matches explicitly.
+5. **Delete Item** — Remove an item from the collection and confirm the result.
+6. **Save/Load Data** — Persist the data to a JSON file and validate the complete six-field schema on load.
 
 ---
 
@@ -519,7 +520,7 @@ record = {
 }
 ```
 
-Required operations are list/display, add, search, update, delete, and completion/status management where applicable to the shared specification. Persist the same records as JSON. A GUI framework is a Python-specific implementation choice; the data model, operations, textual status/error messages, keyboard access, and acceptance tests are not optional or language-specific.
+Required operations are list/display, add, search, update, delete, and JSON save/load. Search is case-insensitive across title, description, and category and must report an empty result set clearly. Updating any field other than the ID must preserve the ID and refresh updated_at using the supplied timestamp. Reject blank titles, duplicate/non-positive IDs, incorrect field types, missing fields, and extra fields. A GUI framework is a Python-specific implementation choice; the data model, operations, textual status/error messages, keyboard access, and acceptance tests are not optional or language-specific.
 
 ### Academic integrity and AI policy
 
