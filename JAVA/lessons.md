@@ -2613,9 +2613,9 @@ Java is statically typed and class-based. Local variables have declared or infer
 public class Lesson_10_3 {
     public static void main(String[] args) {
         java.util.Set<String> inventory = new java.util.LinkedHashSet<>();
-        inventory.add("key");
+        inventory.add("shiny key");
         inventory.add("map");
-        String event = inventory.remove("key") ? "The door unlocks." : "The door remains locked.";
+        String event = inventory.remove("shiny key") ? "The door unlocks." : "The door remains locked.";
         System.out.println(event + " Inventory: " + inventory);
     }
 }
