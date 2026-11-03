@@ -2195,7 +2195,7 @@ Text adventure: inventory and puzzles is taught through the shared course datase
 
 ### Worked Example
 ```cpp
-std::vector<std::string> inventory{"key", "map"}; const bool has_key = std::find(inventory.begin(), inventory.end(), "key") != inventory.end(); if (has_key) inventory.push_back("chest reward"); for (const auto& item : inventory) std::cout << item << '\n';
+std::vector<std::string> inventory{"shiny key", "map"}; const bool has_key = std::find(inventory.begin(), inventory.end(), "shiny key") != inventory.end(); if (has_key) inventory.push_back("chest reward"); for (const auto& item : inventory) std::cout << item << '\n';
 
 ```
 
