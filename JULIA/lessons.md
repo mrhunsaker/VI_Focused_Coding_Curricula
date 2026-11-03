@@ -2456,8 +2456,8 @@ Begin projects with requirements, input/output contracts, and acceptance tests. 
 
 ### Worked Example
 ```jl
-inventory=Set(["key","map"])
-println("The cabinet opens: ", "key" in inventory)
+inventory=Set(["shiny key","map"])
+println("The cabinet opens: ", "shiny key" in inventory)
 ```
 
 ### Expected Behavior or Output
