@@ -327,7 +327,7 @@ Use a numbered text specification and test keyboard-only interaction. All prompt
 - Node.js documentation where terminal, file, or runtime APIs are used.
 
 ### Learning Objectives
-- Model the shared cave, tunnel, and clearing with typed exits and movement.
+- Model the five canonical rooms with typed exits and movement.
 - Explain the TypeScript-specific language or runtime behavior used in the lesson.
 - Predict the example's behavior and test a boundary or invalid case.
 
@@ -336,21 +336,23 @@ A room has an identifier, description, and exits. A movement operation changes t
 
 ### Worked Example
 ```typescript
-type RoomId = "cave" | "tunnel" | "clearing";
+type RoomId = "start_room" | "tunnel" | "clearing" | "locked_door_room" | "treasure_room";
 const exits: Record<RoomId, Partial<Record<string, RoomId>>> = {
-  cave: { north: "tunnel" },
-  tunnel: { south: "cave", east: "clearing" },
-  clearing: { west: "tunnel" }
+  start_room: { north: "tunnel" },
+  tunnel: { south: "start_room", east: "clearing" },
+  clearing: { west: "tunnel", north: "locked_door_room" },
+  locked_door_room: { south: "clearing" },
+  treasure_room: {}
 };
 function move(room: RoomId, direction: string): RoomId | null {
   return exits[room][direction.toLowerCase()] ?? null;
 }
-console.log(move("cave", "north"));
-console.log(move("cave", "west"));
+console.log(move("start_room", "north"));
+console.log(move("start_room", "west"));
 ```
 
 ### Expected Behavior or Output
-Moving north from cave returns tunnel; moving west returns null.
+Moving north from start_room returns tunnel; moving west returns null. The north exit from locked_door_room is conditional on using shiny key.
 
 ### Common Mistakes
 - Allowing movement through an exit that is not defined.
@@ -358,9 +360,10 @@ Moving north from cave returns tunnel; moving west returns null.
 - Using arbitrary strings where a RoomId union is safer.
 
 ### Activities
-1. Create all three rooms and exits.
-2. Move north from cave and east from tunnel.
+1. Create all five canonical rooms and unconditional exits.
+2. Move north from start_room and east from tunnel.
 3. Attempt an invalid direction and report the result.
+4. Add the conditional locked_door_room north exit only after the key is used.
 
 ### Accessibility Practice
 Announce current room and available exits as labeled text. All prompts, errors, and status messages must have meaningful text equivalents; keyboard operation is required.
@@ -382,16 +385,16 @@ Announce current room and available exits as labeled text. All prompts, errors, 
 - Node.js documentation where terminal, file, or runtime APIs are used.
 
 ### Learning Objectives
-- Implement item pickup and the shared magic-key puzzle.
+- Implement pickup of shiny key from start_room and the conditional locked-door puzzle.
 - Explain the TypeScript-specific language or runtime behavior used in the lesson.
 - Predict the example's behavior and test a boundary or invalid case.
 
 ### Concept Explanation
-An item moves from one room to inventory as one state transition. The player can take the torch in the cave and the magic key in the clearing; the key unlocks the gate.
+An item moves from one room to inventory as one state transition. The shiny key moves from start_room to inventory as one state transition. The player must use it in locked_door_room to unlock the north exit to treasure_room.
 
 ### Worked Example
 ```typescript
-const roomItems: Record<string, string[]> = { cave: ["torch"], tunnel: [], clearing: ["magic key"] };
+const roomItems: Record<string, string[]> = { start_room: ["shiny key"], tunnel: [], clearing: [], locked_door_room: [], treasure_room: [] };
 const inventory: string[] = [];
 function takeItem(room: string, item: string): boolean {
   const items = roomItems[room] ?? [];
@@ -400,17 +403,18 @@ function takeItem(room: string, item: string): boolean {
   inventory.push(items.splice(index, 1)[0]);
   return true;
 }
-function unlockGate(items: readonly string[]): string {
-  return items.includes("magic key") ? "The gate opens." : "The gate is locked.";
+function useKey(room: string, items: readonly string[]): string {
+  if (room !== "locked_door_room") return "You must be at the locked door to use the key.";
+  return items.includes("shiny key") ? "The door unlocks." : "The door is locked.";
 }
-console.log(takeItem("cave", "torch"));
+console.log(takeItem("start_room", "shiny key"));
 console.log(inventory.join(", "));
-console.log(unlockGate(["torch"]));
-console.log(unlockGate(["torch", "magic key"]));
+console.log(useKey("clearing", inventory));
+console.log(useKey("locked_door_room", inventory));
 ```
 
 ### Expected Behavior or Output
-Output is true, torch, The gate is locked., and The gate opens.
+Output is true, shiny key, a location error, and The door unlocks.
 
 ### Common Mistakes
 - Allowing the same item to be collected repeatedly.
@@ -418,9 +422,10 @@ Output is true, torch, The gate is locked., and The gate opens.
 - Checking for the wrong key name or case.
 
 ### Activities
-1. Take the torch from the cave.
-2. Take the magic key from the clearing.
-3. Test the gate with and without the key.
+1. Take shiny key from start_room.
+2. Attempt to take it twice and verify duplicate pickup is rejected.
+3. Attempt to use the key outside locked_door_room.
+4. Use the key in locked_door_room and verify the north exit is unlocked.
 
 ### Accessibility Practice
 Confirm each pickup by item name and state whether the puzzle is locked or open. All prompts, errors, and status messages must have meaningful text equivalents; keyboard operation is required.
