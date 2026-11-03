@@ -4,6 +4,7 @@ on:
   push:
     branches:
       - 2026-11-01-curriculum-expansion
+      - audit/fix-python-lua-standardization
     paths:
       - "JULIA/lessons.md"
       - "scripts/check_julia_examples.py"

@@ -74,17 +74,30 @@ Repeat the design process for each component, adding detail until simple enough 
 ```python
 room_descriptions = {
     "start_room": {
-        "description": "You are in a dimly lit cave. There's a narrow passage to the NORTH.",
-        "exits": {"north": "tunnel"}
+        "description": "A dimly lit cave. A shiny key rests on the ground.",
+        "exits": {"north": "tunnel"},
+        "items": ["shiny key"],
     },
     "tunnel": {
-        "description": "The tunnel is damp and cold. You can go SOUTH back to the cave or EAST to a clearing.",
-        "exits": {"south": "start_room", "east": "clearing"}
+        "description": "A damp tunnel. Passages lead south and east.",
+        "exits": {"south": "start_room", "east": "clearing"},
+        "items": [],
     },
     "clearing": {
-        "description": "You've reached a small, sunny clearing. A faint path leads WEST.",
-        "exits": {"west": "tunnel"}
-    }
+        "description": "A quiet clearing. A small antechamber lies to the north.",
+        "exits": {"west": "tunnel", "north": "locked_door_room"},
+        "items": [],
+    },
+    "locked_door_room": {
+        "description": "A chamber with a heavy locked door to the north.",
+        "exits": {"south": "clearing"},
+        "items": [],
+    },
+    "treasure_room": {
+        "description": "You found the treasure. You win!",
+        "exits": {},
+        "items": [],
+    },
 }
 
 current_room = "start_room"
@@ -117,19 +130,34 @@ while True:
 
 ```python
 rooms = {
-    "start": {
-        "description": "A dark cave. There's a SHINY KEY on the ground.",
-        "exits": {"north": "locked_door_room"},
-        "items": ["shiny key"]
+    "start_room": {
+        "description": "A dimly lit cave. A shiny key rests on the ground.",
+        "exits": {"north": "tunnel"},
+        "items": ["shiny key"],
+    },
+    "tunnel": {
+        "description": "A damp tunnel. Passages lead south and east.",
+        "exits": {"south": "start_room", "east": "clearing"},
+        "items": [],
+    },
+    "clearing": {
+        "description": "A quiet clearing. A small antechamber lies to the north.",
+        "exits": {"west": "tunnel", "north": "locked_door_room"},
+        "items": [],
     },
     "locked_door_room": {
-        "description": "A small chamber with a heavy locked door to the NORTH.",
-        "exits": {"south": "start"},
-        "items": []
-    }
+        "description": "A chamber with a heavy locked door to the north.",
+        "exits": {"south": "clearing"},
+        "items": [],
+    },
+    "treasure_room": {
+        "description": "You found the treasure. You win!",
+        "exits": {},
+        "items": [],
+    },
 }
 
-current_room = "start"
+current_room = "start_room"
 player_inventory = []
 door_locked = True
 
@@ -139,7 +167,10 @@ while True:
         print(f"You see: {', '.join(rooms[current_room]['items'])}")
     print(f"Your inventory: {', '.join(player_inventory) if player_inventory else 'empty'}")
 
-    command = input("What do you want to do? ").lower()
+    if current_room == "treasure_room":
+        break
+
+    command = input("What do you want to do? ").strip().lower()
 
     if command == "take shiny key" and "shiny key" in rooms[current_room]["items"]:
         player_inventory.append("shiny key")
@@ -155,9 +186,10 @@ while True:
         else:
             current_room = rooms[current_room]["exits"][command]
     elif command == "quit":
+        print("You quit the adventure.")
         break
     else:
-        print("I don't understand that command.")
+        print("Invalid command. Use a direction, 'take shiny key', 'use shiny key', or 'quit'.")
 ```
 
 ### Skills Checklist
@@ -170,97 +202,65 @@ while True:
 
 ## Lesson 10.4: Developing a Command-Line Tool
 
-### Simple To-Do List Tool
+### Canonical To-Do Record and Required Operations
+
+Every task must preserve exactly these fields:
 
 ```python
-import json
-
-TODO_FILE = 'todos.json'
-todos = []
-
-
-def load_todos():
-    global todos
-    try:
-        with open(TODO_FILE, 'r') as f:
-            todos = json.load(f)
-        print("Tasks loaded.")
-    except FileNotFoundError:
-        print("No existing tasks found.")
-        todos = []
-
-
-def save_todos():
-    with open(TODO_FILE, 'w') as f:
-        json.dump(todos, f, indent=4)
-    print("Tasks saved.")
-
-
-def add_task(task_description):
-    todos.append({"description": task_description, "completed": False})
-    print(f"Task '{task_description}' added.")
-
-
-def view_tasks():
-    if not todos:
-        print("No tasks in your list.")
-        return
-    print("--- Your To-Do List ---")
-    for i, task in enumerate(todos):
-        status = "[X]" if task["completed"] else "[ ]"
-        print(f"{i + 1}. {status} {task['description']}")
-    print("-----------------------")
-
-
-def mark_completed(task_number):
-    try:
-        index = int(task_number) - 1
-        if 0 <= index < len(todos):
-            todos[index]["completed"] = True
-            print(f"Task '{todos[index]['description']}' marked as complete.")
-        else:
-            print("Invalid task number.")
-    except ValueError:
-        print("Please enter a valid number.")
-
-
-def main_menu():
-    print("\n--- To-Do List Menu ---")
-    print("1. Add Task")
-    print("2. View Tasks")
-    print("3. Mark Task Complete")
-    print("4. Save Tasks")
-    print("5. Load Tasks")
-    print("6. Quit")
-    print("-----------------------")
-
-
-load_todos()
-
-while True:
-    main_menu()
-    choice = input("Enter your choice (1-6): ")
-
-    if choice == '1':
-        desc = input("Enter task description: ")
-        add_task(desc)
-    elif choice == '2':
-        view_tasks()
-    elif choice == '3':
-        view_tasks()
-        task_num = input("Enter task number to mark complete: ")
-        mark_completed(task_num)
-    elif choice == '4':
-        save_todos()
-    elif choice == '5':
-        load_todos()
-    elif choice == '6':
-        save_todos()
-        print("Goodbye!")
-        break
-    else:
-        print("Invalid choice. Please try again.")
+task = {
+    "id": 1,
+    "title": "Practice Python",
+    "description": "Complete the shared dataset exercises",
+    "done": False,
+    "created_at": "2025-01-15T09:00:00Z",
+}
 ```
+
+Design the command-line interface around these operations:
+
+| Operation | Required behavior |
+|---|---|
+| Add | Reject a blank title; assign a unique integer ID; initialize `done` to `False`; preserve all five fields |
+| List | Display tasks in ID order and state whether each is complete |
+| Complete/update | Find by ID, update `done`, and report a missing or invalid ID |
+| Delete | Remove by ID and report a missing or invalid ID |
+| Save | Serialize the complete list as JSON |
+| Load | Validate that the top level is a list and every task has exactly the five required fields and appropriate value types |
+
+Use the following function boundaries as a design scaffold. Implement and test each function as a separate exercise; this outline intentionally does not provide the project solution.
+
+```python
+def add_task(tasks, title, description, created_at):
+    # TODO: validate title, allocate a unique ID, and append a five-field record
+    raise NotImplementedError
+
+
+def list_tasks(tasks):
+    # TODO: display records in a stable order
+    raise NotImplementedError
+
+
+def update_task(tasks, task_id, *, done=None, title=None, description=None):
+    # TODO: locate by ID, validate updates, and report a missing ID
+    raise NotImplementedError
+
+
+def delete_task(tasks, task_id):
+    # TODO: remove by ID and report a missing ID
+    raise NotImplementedError
+
+
+def save_tasks(tasks, path):
+    # TODO: write all five fields as JSON
+    raise NotImplementedError
+
+
+def load_tasks(path):
+    # TODO: handle missing/malformed JSON and validate every record
+    raise NotImplementedError
+```
+
+Do not substitute list positions for IDs. Deleting or sorting a task must not change the identity of any remaining task. Use a deterministic timestamp fixture in tests; do not call the wall clock in expected-output tests.
 
 ### Skills Checklist
 - [ ] I can design an interactive menu system for a tool.
@@ -314,13 +314,15 @@ print(f"You entered age: {age}")
 
 Students will develop a fully functional, screen-reader-accessible graphical application using NiceGUI that allows users to manage a collection of structured personal data.
 
-**Project Goal:** Build a simple application to manage a list of structured items.
+**Project Goal:** Build an application to manage structured records with list, add, search, update, delete, and JSON persistence operations. The interface may be GUI-based in Python; the same data contract and operation semantics apply to the Lua terminal implementation.
 
 **Project Options:**
-- Contact Manager: name, phone, email, notes
-- Book/Movie Tracker: title, author/director, genre, status
-- Simple To-Do List: task description, due date, status
-- Simple Inventory: item name, quantity, location, notes
+- Contact Manager
+- Book/Movie Tracker
+- Study Notes Manager
+- Personal Inventory
+
+Every option uses the same six-field record schema (`id`, `title`, `description`, `category`, `created_at`, `updated_at`). The selected project domain changes the meaning of the field values, not the record shape or required operations.
 
 ---
 
@@ -329,8 +331,9 @@ Students will develop a fully functional, screen-reader-accessible graphical app
 1. **Add New Item** — A form to input details for a new item.
 2. **View All Items** — Display items in a clear, accessible list format.
 3. **Edit Item** — Select an existing item and modify its details.
-4. **Delete Item** — Remove an item from the collection.
-5. **Save/Load Data** — Persist the data to a JSON file.
+4. **Search Items** — Find records by ID and case-insensitive text in title, description, or category; report no matches explicitly.
+5. **Delete Item** — Remove an item from the collection and confirm the result.
+6. **Save/Load Data** — Persist the data to a JSON file and validate the complete six-field schema on load.
 
 ---
 
@@ -354,14 +357,17 @@ uv add nicegui
 
 **Task 1:** Run the `app_skeleton.py` file and navigate using the keyboard and screen reader to understand the existing structure.
 
-**Task 2:** Define your data model class:
+**Task 2:** Define a data model class with all six canonical record fields:
 ```python
-class Contact:
-    def __init__(self, name, phone, email, notes):
-        self.name = name
-        self.phone = phone
-        self.email = email
-        self.notes = notes
+class PersonalRecord:
+    def __init__(self, record_id, title, description, category,
+                 created_at, updated_at):
+        self.id = record_id
+        self.title = title
+        self.description = description
+        self.category = category
+        self.created_at = created_at
+        self.updated_at = updated_at
 ```
 
 **Task 3:** Implement data persistence using the `json` module within the `load_data()` and `save_data()` functions.
@@ -440,21 +446,9 @@ class Contact:
 
 ## Supplemental: AI Tools and Version Control
 
-### AI-Powered Coding Tools
+### Academic Integrity: AI and Assessment
 
-**Benefits:**
-- Increased productivity and speed.
-- Syntax and idiom discovery.
-- Rapid prototyping.
-
-**Critical Warning:** AI tools can produce code that looks correct but contains subtle bugs. **Always:**
-1. Read every line of AI-generated code.
-2. Verify the logic and intent.
-3. Look for familiar error types (indentation, name errors, type errors).
-4. Run and test incrementally.
-5. Add your own comments and docstrings.
-
-**The Golden Rule:** You are responsible for your code. Treat AI suggestions as a first draft that needs meticulous editing.
+AI tools must not write, complete, autocomplete, repair, or generate course code or assessment solutions. Students may use only instructor-authorized conceptual explanations that do not produce deliverable code. Git and version control are taught separately and are not a workaround for the assessment-integrity rule.
 
 ### Git and Version Control
 
@@ -466,11 +460,11 @@ class Contact:
 3. **Repository** — `git commit` — Save a permanent snapshot.
 4. **Remote** — `git push` / `git pull` — Sync with GitHub.
 
-**Why Git is especially valuable with AI code:**
-- **Rollback** — If AI-generated code breaks your app, revert instantly.
-- **`git blame`** — See exactly which commit introduced a bug.
-- **Branches** — Test AI experiments in isolation without affecting main code.
-- **Pull requests** — Review AI-generated code before merging.
+**Why Git is useful in collaborative development:**
+- **Rollback** — Revert a change when a regression is introduced.
+- **`git blame`** — Identify the commit that introduced a change.
+- **Branches** — Develop and test changes in isolation.
+- **Pull requests** — Review changes before merging.
 
 **Basic commands:**
 ```bash
@@ -492,3 +486,42 @@ git log                     # View history
 git diff                    # See what changed
 git restore -- file.py     # Discard changes to a file
 ```
+
+## Canonical Shared Project Contracts
+
+### Unit 10: Adventure and command-line to-do projects
+
+All parallel-language versions must use this exact adventure graph and command set.
+
+| Room | Exits | Items / state |
+|---|---|---|
+| `start_room` | north → `tunnel` | shiny key |
+| `tunnel` | south → `start_room`; east → `clearing` | none |
+| `clearing` | west → `tunnel`; north → `locked_door_room` | north exit is blocked until unlocked |
+| `locked_door_room` | south → `clearing`; north → `treasure_room` after unlocking | locked door |
+| `treasure_room` | none | terminal winning room |
+
+Commands are `north`, `south`, `east`, `west`, `take shiny key`, `use shiny key`, and `quit`. The key begins in `start_room`; the player must take it, travel to `locked_door_room`, use it there, and then enter `treasure_room` to win. Invalid movement must not change the current room.
+
+The CLI to-do manager must store these five fields on every task: `id`, `title`, `description`, `done`, and `created_at`. It must support create, list, complete/update, delete, save, and load. Invalid identifiers, empty titles, and malformed persistence data require explicit textual errors.
+
+### Unit 11: Accessible Personal Data Manager
+
+The shared capstone record has exactly these fields:
+
+```python
+record = {
+    "id": 1,
+    "title": "Programming notes",
+    "description": "Review lists and dictionaries",
+    "category": "Study",
+    "created_at": "2025-01-15T09:00:00Z",
+    "updated_at": "2025-01-15T09:00:00Z",
+}
+```
+
+Required operations are list/display, add, search, update, delete, and JSON save/load. Search is case-insensitive across title, description, and category and must report an empty result set clearly. Updating any field other than the ID must preserve the ID and refresh updated_at using the supplied timestamp. Reject blank titles, duplicate/non-positive IDs, incorrect field types, missing fields, and extra fields. A GUI framework is a Python-specific implementation choice; the data model, operations, textual status/error messages, keyboard access, and acceptance tests are not optional or language-specific.
+
+### Academic integrity and AI policy
+
+AI tools must not write, complete, autocomplete, repair, or generate course code or assessment solutions. Students may use only instructor-authorized conceptual explanations that do not produce deliverable code. Git and version control remain appropriate topics when taught independently of AI code generation.

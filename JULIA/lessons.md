@@ -2409,8 +2409,8 @@ Begin projects with requirements, input/output contracts, and acceptance tests. 
 
 ### Worked Example
 ```jl
-rooms=Dict("Atrium"=>Dict("north"=>"Lab"),"Lab"=>Dict("south"=>"Atrium"))
-println(get(rooms["Atrium"],"north","No exit"))
+rooms=Dict("start_room"=>Dict("north"=>"tunnel"),"tunnel"=>Dict("south"=>"start_room"))
+println(get(rooms["start_room"],"north","No exit"))
 ```
 
 ### Expected Behavior or Output
@@ -2456,8 +2456,8 @@ Begin projects with requirements, input/output contracts, and acceptance tests. 
 
 ### Worked Example
 ```jl
-inventory=Set(["key","map"])
-println("The cabinet opens: ", "key" in inventory)
+inventory=Set(["shiny key","map"])
+println("The cabinet opens: ", "shiny key" in inventory)
 ```
 
 ### Expected Behavior or Output
@@ -2652,8 +2652,8 @@ The capstone is an accessible personal-data manager with list/add/search/update/
 
 ### Worked Example
 ```jl
-struct Record; id::Int; title::String; description::String; category::String; end
-println(Record(1,"Study","Read arrays","learning"))
+struct Record; id::Int; title::String; description::String; category::String; created_at::String; updated_at::String; end
+println(Record(1,"Study Julia","Review arrays","learning","2026-11-01","2026-11-01"))
 ```
 
 ### Expected Behavior or Output

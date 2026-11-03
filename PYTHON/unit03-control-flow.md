@@ -321,3 +321,42 @@ print(f"Total characters: {len(full_name)}")
 - [ ] I can convert a string to uppercase/lowercase.
 - [ ] I can remove extra spaces using `.strip()`.
 - [ ] I can replace parts of a string using `.replace()`.
+
+## Canonical Shared Dataset — Grade Thresholds and Scores
+
+All tracks must classify scores using A ≥ 90, B ≥ 80, C ≥ 70, D ≥ 60, and F otherwise. Use the same score sequence.
+
+```python
+scores = [82, 91, 76, 88]
+
+def grade_for(score):
+    if score >= 90:
+        return "A"
+    if score >= 80:
+        return "B"
+    if score >= 70:
+        return "C"
+    if score >= 60:
+        return "D"
+    return "F"
+
+for score in scores:
+    print(score, grade_for(score))
+
+total = sum(scores)
+average = total / len(scores)
+print("Total:", total)
+print("Average:", average)
+```
+
+Expected output:
+```text
+82 B
+91 A
+76 C
+88 B
+Total: 337
+Average: 84.25
+```
+
+Boundary tests must include 90, 80, 70, 60, and 59. Do not silently change a threshold or replace the shared scores with a different set in a parallel example.

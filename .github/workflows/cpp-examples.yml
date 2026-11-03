@@ -4,6 +4,7 @@ on:
   push:
     branches:
       - 2026-11-01-curriculum-expansion
+      - audit/fix-python-lua-standardization
     paths:
       - "CPP/lessons.md"
       - "scripts/check_cpp_examples.py"

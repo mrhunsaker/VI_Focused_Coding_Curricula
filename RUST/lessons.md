@@ -2226,7 +2226,7 @@ Build an application in vertical slices: requirements, state model, command hand
 
 ### Worked Example
 ```rust
-#[derive(Clone,Copy)]enum Room{Hall,Library,Garden}fn main(){let room=Room::Hall;let next=match room{Room::Hall=>Room::Library,Room::Library=>Room::Garden,Room::Garden=>Room::Hall};println!("entered library={}",matches!(next,Room::Library));}
+#[derive(Clone,Copy)]enum Room{StartRoom,Tunnel,Clearing,LockedDoorRoom,TreasureRoom}fn main(){let rooms=[Room::StartRoom,Room::Tunnel,Room::Clearing,Room::LockedDoorRoom,Room::TreasureRoom];let room=rooms[0];let direction="north";let next=match (room,direction){(Room::StartRoom,"north")=>Some(Room::Tunnel),_=>None};println!("entered tunnel={} room_count={}",matches!(next,Some(Room::Tunnel)),rooms.len());}
 ```
 
 **Expected behavior:** Runs independently with the standard library and prints the result of this lesson's focused operation. Predict the output, then compare it with the terminal output.
@@ -2456,7 +2456,7 @@ The capstone is a record manager. Model records, define validation rules, implem
 
 ### Worked Example
 ```rust
-struct Record{id:u32,title:String,category:String}fn main(){let r=Record{id:1,title:"Study Rust".into(),category:"learning".into()};println!("id={}, title={}, category={}",r.id,r.title,r.category);}
+struct Record{id:u32,title:String,description:String,category:String,created_at:String,updated_at:String}fn main(){let r=Record{id:1,title:"Study Rust".into(),description:"Review ownership".into(),category:"learning".into(),created_at:"2026-11-01".into(),updated_at:"2026-11-01".into()};println!("id={}, title={}, description={}, category={}, created_at={}, updated_at={}",r.id,r.title,r.description,r.category,r.created_at,r.updated_at);}
 ```
 
 **Expected behavior:** Runs independently with the standard library and prints the result of this lesson's focused operation. Predict the output, then compare it with the terminal output.

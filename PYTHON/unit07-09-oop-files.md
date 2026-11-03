@@ -390,26 +390,30 @@ JSON (JavaScript Object Notation) is a lightweight format for storing and exchan
 import json
 
 # Save data
-user_settings = {
-    "username": "coder_kid",
-    "theme": "dark",
-    "notifications_on": True,
-    "favorite_numbers": [7, 13, 42]
+task = {
+    "id": 1,
+    "title": "Practice Python",
+    "description": "Complete the shared dataset exercises",
+    "done": False,
+    "created_at": "2025-01-15T09:00:00Z",
 }
 
-with open('user_settings.json', 'w') as f:
-    json.dump(user_settings, f, indent=4)
+with open("tasks.json", "w", encoding="utf-8") as file:
+    json.dump([task], file, indent=4)
 
-# Load data
+# Load and verify all five canonical fields.
 try:
-    with open('user_settings.json', 'r') as f:
-        loaded_settings = json.load(f)
-    print(f"Username: {loaded_settings['username']}")
-    print(f"Theme: {loaded_settings['theme']}")
+    with open("tasks.json", "r", encoding="utf-8") as file:
+        loaded_tasks = json.load(file)
+    loaded_task = loaded_tasks[0]
+    required_fields = {"id", "title", "description", "done", "created_at"}
+    if set(loaded_task) != required_fields:
+        raise ValueError("Task record does not match the five-field schema")
+    print(loaded_task["id"], loaded_task["title"], loaded_task["done"])
 except FileNotFoundError:
-    print("Settings file not found.")
-except json.JSONDecodeError:
-    print("Error: Could not decode settings file.")
+    print("Task file not found.")
+except (json.JSONDecodeError, ValueError) as error:
+    print(f"Invalid task data: {error}")
 ```
 
 ### JSON ↔ Python Mapping
@@ -547,19 +551,16 @@ print(f"Chosen color: {chosen}")
 ## Lesson 9.4: Analyzing Text Data
 
 ```python
-sentence = "the quick brown fox jumps over the lazy dog the quick brown fox"
-words = sentence.lower().split()
+sentence = "A student studies programming. Programming develops problem-solving skills."
+words = sentence.lower().replace(".", "").split()
 
 word_frequencies = {}
 for word in words:
-    if word in word_frequencies:
-        word_frequencies[word] += 1
-    else:
-        word_frequencies[word] = 1
+    word_frequencies[word] = word_frequencies.get(word, 0) + 1
 
-print("Word Frequencies:")
-for word, count in word_frequencies.items():
-    print(f"'{word}': {count}")
+print("Words:", len(words))
+print("Programming:", word_frequencies["programming"])
+print("Problem-solving:", word_frequencies["problem-solving"])
 ```
 
 ### Skills Checklist
@@ -586,20 +587,131 @@ except FileNotFoundError:
     print(f"Error: The file {filename} was not found.")
 ```
 
-### Manual CSV Parsing
+### Reading the Canonical CSV Schema
+
+Use the standard `csv` module rather than splitting rows on commas. A quoted field may itself contain a comma.
 
 ```python
-with open('students.csv', 'r') as f:
-    header = f.readline().strip()
-    for line in f:
-        data = line.strip().split(',')
-        name = data[0]
-        age = data[1]
-        grade = data[2]
-        print(f"Name: {name}, Age: {age}, Grade: {grade}")
+import csv
+from io import StringIO
+
+csv_text = """student_id,first_name,last_name,score,active
+1001,Avery,Jordan,82,true
+1002,Riley,Chen,91,true
+1003,Sam,Patel,76,false
+1004,Morgan,Diaz,88,true
+"""
+
+reader = csv.DictReader(StringIO(csv_text))
+for row in reader:
+    print(row["student_id"], row["first_name"], row["last_name"],
+          row["score"], row["active"])
+```
+
+Expected output:
+```text
+1001 Avery Jordan 82 true
+1002 Riley Chen 91 true
+1003 Sam Patel 76 false
+1004 Morgan Diaz 88 true
 ```
 
 ### Skills Checklist
 - [ ] I can explain what CSV data is.
 - [ ] I can read a CSV file line by line.
 - [ ] I can split a line of CSV data into individual values.
+
+## Canonical Shared Dataset — Text, CSV, Tasks, and Tests
+
+### Text analysis
+
+Use this exact sentence for word-count and character-processing exercises:
+
+```python
+text_sample = "A student studies programming. Programming develops problem-solving skills."
+words = text_sample.lower().replace(".", "").split()
+print("Words:", len(words))
+print("Programming:", words.count("programming"))
+```
+
+Expected output:
+```text
+Words: 8
+Programming: 2
+```
+
+### CSV schema
+
+The shared CSV header is exactly `student_id,first_name,last_name,score,active`. Example rows:
+
+```csv
+student_id,first_name,last_name,score,active
+1001,Avery,Jordan,82,true
+1002,Riley,Chen,91,true
+1003,Sam,Patel,76,false
+1004,Morgan,Diaz,88,true
+```
+
+Use the `csv` module and named column positions; do not substitute a different three-column name/age/grade schema.
+
+```python
+import csv
+from io import StringIO
+
+csv_text = """student_id,first_name,last_name,score,active
+1001,Avery,Jordan,82,true
+1002,Riley,Chen,91,true
+1003,Sam,Patel,76,false
+1004,Morgan,Diaz,88,true
+"""
+for row in csv.DictReader(StringIO(csv_text)):
+    print(row["student_id"], row["first_name"], row["last_name"],
+          row["score"], row["active"])
+```
+
+Expected output:
+```text
+1001 Avery Jordan 82 true
+1002 Riley Chen 91 true
+1003 Sam Patel 76 false
+1004 Morgan Diaz 88 true
+```
+
+### To-do record schema
+
+Use all five fields in every serialized task record: `id`, `title`, `description`, `done`, and `created_at`.
+
+```python
+task = {
+    "id": 1,
+    "title": "Practice Python",
+    "description": "Complete the shared dataset exercises",
+    "done": False,
+    "created_at": "2025-01-15T09:00:00Z",
+}
+```
+
+```python
+import json
+
+task = {
+    "id": 1,
+    "title": "Practice Python",
+    "description": "Complete the shared dataset exercises",
+    "done": False,
+    "created_at": "2025-01-15T09:00:00Z",
+}
+serialized = json.dumps([task])
+loaded_tasks = json.loads(serialized)
+loaded_task = loaded_tasks[0]
+required_fields = {"id", "title", "description", "done", "created_at"}
+assert set(loaded_task) == required_fields
+print(loaded_task["id"], loaded_task["title"], loaded_task["done"])
+```
+
+Expected output:
+```text
+1 Practice Python False
+```
+
+Tests should assert deterministic results for the shared tip calculator, grade classifier, inventory total, and text sample. Random-number lessons must seed the generator when an exact result is asserted.

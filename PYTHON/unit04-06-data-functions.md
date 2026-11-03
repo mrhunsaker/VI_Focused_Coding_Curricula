@@ -113,16 +113,20 @@ A dictionary stores **key-value pairs**. Keys must be unique and immutable (stri
 
 ```python
 student_profile = {
-    "name": "Emily",
-    "age": 13,
-    "grade": "7th",
-    "favorite_subject": "Science"
+    "name": "Avery",
+    "age": 16,
+    "height_m": 1.72,
+    "favorite_subject": "Computer Science",
 }
 
-print(student_profile["name"])      # "Emily"
-student_profile["city"] = "Springfield"   # Add new key
-student_profile["age"] = 14              # Modify existing key
-del student_profile["grade"]             # Remove key
+print(student_profile["name"])
+print(student_profile["favorite_subject"])
+
+# Demonstrate adding and removing a temporary key without changing
+# the four-field canonical student record.
+student_profile["temporary_note"] = "Dictionary example"
+del student_profile["temporary_note"]
+print(sorted(student_profile))
 ```
 
 ### Examples
@@ -157,19 +161,24 @@ print(my_book)
 ### Dictionary Iteration Methods
 
 ```python
-inventory = {"apples": 50, "bananas": 30, "oranges": 40}
+inventory = {
+    "Notebook": {"quantity": 3, "unit_price": 2.50},
+    "Pencil": {"quantity": 10, "unit_price": 0.50},
+    "Folder": {"quantity": 4, "unit_price": 1.25},
+}
 
 # Loop through keys (default)
 for item_name in inventory:
     print(item_name)
 
-# Loop through values only
-for count in inventory.values():
-    print(count)
+# Loop through quantities only
+for item in inventory.values():
+    print(item["quantity"])
 
 # Loop through key-value pairs
-for item_name, count in inventory.items():
-    print(f"{item_name}: {count} in stock")
+for item_name, item in inventory.items():
+    line_total = item["quantity"] * item["unit_price"]
+    print(f"{item_name}: {item['quantity']} in stock; value $" + f"{line_total:.2f}")
 ```
 
 ### Skills Checklist
@@ -508,3 +517,35 @@ print(profile)
 ### Skills Checklist
 - [ ] I can define a function using `*args` for arbitrary positional arguments.
 - [ ] I can define a function using `**kwargs` for arbitrary keyword arguments.
+
+## Canonical Shared Dataset — Inventory, Collections, and Functions
+
+Use the same inventory records for list, dictionary, iteration, and function examples.
+
+```python
+inventory = [
+    {"name": "Notebook", "quantity": 3, "unit_price": 2.50},
+    {"name": "Pencil", "quantity": 10, "unit_price": 0.50},
+    {"name": "Folder", "quantity": 4, "unit_price": 1.25},
+]
+
+def item_value(item):
+    return item["quantity"] * item["unit_price"]
+
+for item in inventory:
+    print(item["name"], item["quantity"], f"${item['unit_price']:.2f}",
+          f"${item_value(item):.2f}")
+
+grand_total = sum(item_value(item) for item in inventory)
+print(f"Inventory total: ${grand_total:.2f}")
+```
+
+Expected output:
+```text
+Notebook 3 $2.50 $7.50
+Pencil 10 $0.50 $5.00
+Folder 4 $1.25 $5.00
+Inventory total: $17.50
+```
+
+For sequence exercises, use the canonical scores `[82, 91, 76, 88]`. For immutable-sequence exercises, use coordinates `(3, 4)`. Keep language-specific collection types idiomatic while preserving record values and calculation results.

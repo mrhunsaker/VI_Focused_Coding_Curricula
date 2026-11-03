@@ -1,7 +1,9 @@
 name: Rust examples
 on:
   push:
-    branches: [2026-11-01-curriculum-expansion]
+    branches:
+      - 2026-11-01-curriculum-expansion
+      - audit/fix-python-lua-standardization
     paths:
       - "RUST/lessons.md"
       - "scripts/check_rust_examples.py"

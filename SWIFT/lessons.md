@@ -2556,8 +2556,8 @@ Projects begin with requirements and acceptance criteria. Implement a text-based
 
 ### Worked Example
 ```swift
-let exits = ["Atrium": ["north": "Laboratory"], "Laboratory": ["south": "Atrium"]]
-let currentRoom = "Atrium"
+let exits = ["start_room": ["north": "tunnel"], "tunnel": ["south": "start_room"]]
+let currentRoom = "start_room"
 let direction = "north"
 if let destination = exits[currentRoom]?[direction] {
     print("You move to the \(destination).")
@@ -2609,8 +2609,8 @@ Projects begin with requirements and acceptance criteria. Implement a text-based
 
 ### Worked Example
 ```swift
-var inventory: Set<String> = ["key", "map"]
-let requiredItem = "key"
+var inventory: Set<String> = ["shiny key", "map"]
+let requiredItem = "shiny key"
 if inventory.contains(requiredItem) {
     print("The cabinet unlocks.")
     inventory.remove(requiredItem)
@@ -2837,19 +2837,16 @@ The capstone is a personal-record manager with stable identifiers, validated cre
 ```swift
 import Foundation
 struct PersonalRecord: Codable, Identifiable {
-    let id: UUID
+    let id: Int
     var title: String
-    var notes: String
-    var isComplete: Bool
-    init(title: String, notes: String = "") {
-        id = UUID()
-        self.title = title
-        self.notes = notes
-        isComplete = false
-    }
+    var description: String
+    var category: String
+    let createdAt: String
+    var updatedAt: String
 }
-let record = PersonalRecord(title: "Study Swift", notes: "Review Codable")
-print("\(record.id): \(record.title), complete=\(record.isComplete)")
+let record = PersonalRecord(id: 1, title: "Study Swift", description: "Review Codable",
+                            category: "learning", createdAt: "2026-11-01", updatedAt: "2026-11-01")
+print("\(record.id): \(record.title), \(record.category), updated=\(record.updatedAt)")
 ```
 
 ### Expected Behavior or Output

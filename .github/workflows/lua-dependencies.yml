@@ -1,0 +1,32 @@
+name: Lua 5.4 pinned dependency checks
+
+on:
+  push:
+    paths:
+      - "LUA/DEPENDENCIES.md"
+      - "scripts/check_lua_dependencies.lua"
+      - ".github/workflows/lua-dependencies.yml"
+  pull_request:
+    paths:
+      - "LUA/DEPENDENCIES.md"
+      - "scripts/check_lua_dependencies.lua"
+      - ".github/workflows/lua-dependencies.yml"
+  workflow_dispatch:
+
+jobs:
+  lua-5-4-dependencies:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Install Lua 5.4 and LuaRocks
+        run: |
+          sudo apt-get update
+          sudo apt-get install --yes lua5.4 liblua5.4-dev luarocks
+      - name: Install pinned dependencies
+        run: |
+          sudo luarocks --lua-version=5.4 install dkjson 2.11-1
+          sudo luarocks --lua-version=5.4 install ftcsv 1.5.0-1
+      - name: Verify dependency integration and edge cases
+        run: |
+          eval "$(luarocks --lua-version=5.4 path)"
+          lua5.4 scripts/check_lua_dependencies.lua

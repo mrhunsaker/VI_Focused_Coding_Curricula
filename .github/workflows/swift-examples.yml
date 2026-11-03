@@ -4,6 +4,7 @@ on:
   push:
     branches:
       - 2026-11-01-curriculum-expansion
+      - audit/fix-python-lua-standardization
     paths:
       - "SWIFT/lessons.md"
       - "scripts/check_swift_examples.py"

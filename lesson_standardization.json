@@ -68,15 +68,17 @@
       "purpose": "Reproduce toolchain setup, editor configuration, accessibility, workspace, terminal, and first-run verification. Adapt installation steps and runtime commands to each language.",
       "lessons": [
         "0.1 Installing Python and uv",
-        "0.2 Installing and configuring VS Code or Theia IDE",
-        "0.3 Editor extensions and project workspace",
-        "0.4 Python environments and terminal usage"
+        "0.2 Configuring Your Screen Reader for VS Code or Theia IDE",
+        "0.3 Setting Up Your VS Code or Theia IDE Workspace",
+        "0.4 Python Environments and Terminal Usage",
+        "0.5 General Accessibility Tools and Strategies"
       ],
       "parallel_examples": [
         "Install and verify the language runtime/compiler",
         "Configure the same editor and keyboard/screen-reader workflow",
         "Create the same course project folder and first source file",
-        "Run a Hello World program from the terminal"
+        "Create and activate an isolated language environment and run a terminal command",
+        "Identify OS-level accessibility settings, assistive technology, and editor accessibility features"
       ]
     },
     {
@@ -301,7 +303,10 @@
     },
     "calculator": {
       "bill": 24.5,
-      "tip_rate": 0.15
+      "tip_rate": 0.15,
+      "rounding_policy": "Round the tip amount to the nearest cent using decimal half-up rounding before adding it to the bill.",
+      "expected_tip": 3.68,
+      "expected_total": 28.18
     },
     "grade_thresholds": [
       {
@@ -446,8 +451,8 @@
     "Update the audit with completion status and unresolved differences."
   ],
   "refinement_progress": {
-    "last_updated": "2026-11-01",
-    "current_language": "Kotlin",
+    "last_updated": "2026-11-02",
+    "current_language": "Python and Lua focused revisions; Go, Java, and C++ targeted contract corrections",
     "completed_tracks": {
       "C": {
         "path": "C/lessons.md",
@@ -525,7 +530,8 @@
           "Replaced repeated within-unit worked examples with distinct lesson-focused C++20 examples using canonical shared datasets and project contexts.",
           "Rewrote all 53 numbered Unit 1–11 lessons with C++-specific common mistakes, four targeted practice activities, and five observable mastery criteria per lesson.",
           "Added scripts/check_cpp_examples.py to compile and link every fenced C++ example as a standalone C++20 translation unit.",
-          "Added .github/workflows/cpp-examples.yml with GCC and Clang C++20 matrix validation."
+          "Added .github/workflows/cpp-examples.yml with GCC and Clang C++20 matrix validation.",
+          "Aligned the Unit 10.2 movement example with the canonical start_room → tunnel transition; extended the cross-language contract checker to verify canonical adventure identifiers and six-field capstone fields in Go, Java, and C++."
         ],
         "validation": [
           "Four Unit 0 setup lessons and all 53 numbered Unit 1–11 lesson sections are present.",
@@ -538,7 +544,8 @@
           "Execute all examples with representative input and file fixtures; compile/link success does not establish runtime behavior.",
           "Run a fresh mdBook build and a complete Markdown/local-link crawl after the latest edits.",
           "Perform hands-on screen-reader and braille testing with named operating systems, editors, compilers, and access technologies.",
-          "Review the C++ JSON and CSV lessons against selected external library/parser choices for a full application implementation."
+          "Review the C++ JSON and CSV lessons against selected external library/parser choices for a full application implementation.",
+          "Re-run C++ GCC/Clang compile/link CI after the Unit 10.2 movement example was updated to the canonical graph."
         ]
       },
       "CSHARP": {
@@ -833,8 +840,13 @@
         "ci_url": "https://github.com/mrhunsaker/VI_Focused_Coding_Curricula/actions/runs/41347726235"
       }
     },
-    "next_tracks": [],
-    "note": "Content alignment is not a claim that every code example has been compiled or runtime-tested. Preserve explicit language-specific deviations and record verification evidence.",
+    "next_tracks": [
+      "Python legacy lesson and project reconciliation",
+      "Lua current-version syntax/runtime and expected-output verification",
+      "Repository-wide lesson-by-lesson audit of all 13 general-purpose tracks",
+      "Specialist HTML/CSS, R, and SQL domain-specific review"
+    ],
+    "note": "Recent edits on the audit branch are content corrections only until the updated CI workflows pass. Keep PR #4 draft and unmerged; do not mark runtime or accessibility verification complete without evidence.",
     "rust": {
       "status": "content_structure_and_example_compile_smoke_execution_verified_pending_full_application_and_accessibility_verification",
       "edition": "Rust 2024",
@@ -863,28 +875,74 @@
         "expected-output assertions and broader invalid-input/file fixtures",
         "capstone end-to-end persistence tests and concurrency race testing",
         "fresh mdBook build and local-link crawl",
-        "hands-on screen-reader and braille testing"
+        "hands-on screen-reader and braille testing",
+        "Run the updated cross-language contract checker after the six-field Go capstone serialization example change.",
+        "Execute the Go Unit 11 capstone model and JSON round-trip against the canonical six-field schema."
       ],
       "ci_run": "41326670760",
       "go_version": "1.27.3",
       "examples_formatted_built_and_executed": 53
     },
     "lua": {
-      "status": "lesson_structure_topic_refinement_and_lua_5_4_smoke_execution_verified_pending_application_and_accessibility_verification",
-      "lua_version": "5.4.6",
+      "path": "LUA/lessons.md",
+      "status": "53_lua_examples_exact_output_and_json_csv_dependency_checks_passed_project_end_to_end_persistence_accessibility_tests_pending",
+      "lua_version": "5.4",
       "unit_0_setup_lessons": 4,
       "numbered_lessons": 53,
-      "unique_examples": 53,
-      "automated_check": "scripts/check_lua_examples.py",
-      "workflow": ".github/workflows/lua-examples.yml",
-      "ci_run": "41336626558",
-      "examples_parsed_and_executed": 53,
-      "pending": [
-        "expected-output assertions and representative invalid-input/file fixtures",
-        "capstone end-to-end persistence and JSON/CSV package integration tests",
-        "fresh mdBook build and complete Markdown/local-link crawl",
-        "hands-on screen-reader and braille testing"
-      ]
+      "completed_work": [
+        "Rewrote all 53 numbered lessons across Units 1–11 with lesson-specific worked examples rather than generic sequential-number or placeholder snippets.",
+        "Aligned Lua examples to the canonical Avery profile, calculator and currency rounding, grade thresholds, scores, inventory, coordinates, text sample, CSV schema, task fields, and capstone fields.",
+        "Replaced repeated universal common-mistake and activity prompts with lesson-topic-specific guidance for the 53 lesson sections.",
+        "Documented Lua-specific semantics and adaptations: one-based sequences, tables as arrays/maps/records, truthiness, pairs/ipairs behavior, metatables, functions as values, missing continue/class/tuple constructs, and absent standard JSON/CSV parsers.",
+        "Specified Lua 5.4 runtime and terminal commands and expanded accessibility instructions without claiming assistive-technology testing.",
+        "Added explicit shared project contracts for the text adventure, five-field CLI to-do manager, and six-field personal-data-manager capstone.",
+        "Updated LUA/VALIDATION.md to mark the prior smoke-execution run as historical and to require fresh validation against the rewritten file.",
+        "Preserved the existing Lua 5.4 syntax/smoke checker and GitHub Actions workflow for the next run.",
+        "Corrected Lua calculator rounding to integer half-up arithmetic; both $24.50 / 15% examples now target $3.68 and $28.18.",
+        "Aligned Lua inventory, CSV rows, task-constructor tests, and adventure lessons to the canonical shared data and five-room project graph.",
+        "Expanded the Lua checker to require one output fixture per lesson and compare exact stdout, with deterministic stdin and file fixtures for the input and file-reading lessons.",
+        "Lua exact-output checker remains green after the final Lua lesson edits; all 53 lesson fixtures passed.",
+        "Selected and pinned dkjson 2.11-1 and ftcsv 1.5.0-1 for Lua 5.4; documented package purpose, licenses, install commands, and parser limitations in LUA/DEPENDENCIES.md.",
+        "Added scripts/check_lua_dependencies.lua to exercise JSON round-trip/malformed input and CSV quoted commas, doubled quotes, multiline fields, CRLF, and canonical header behavior.",
+        "Added .github/workflows/lua-dependencies.yml to install the exact dependency versions and run the integration checks.",
+        "Added PROJECT_ACCEPTANCE.md with deterministic cross-language adventure, to-do, and capstone test scenarios; this is a specification, not a passed project test suite.",
+        "Extended the pinned ftcsv integration checker to verify rejection of extra-column, missing-column, and unterminated-quoted-field CSV records; all dependency integration cases passed in CI run 41546425326."
+      ],
+      "not_yet_verified": [
+        "Complete and test the full adventure game, including movement, shiny-key pickup, locked-door puzzle, and win condition.",
+        "Complete and test the CLI to-do manager with all five canonical fields, CRUD operations, save/load, and malformed-data handling.",
+        "Complete capstone persistence and CRUD integration tests.",
+        "Perform hands-on keyboard-only, screen-reader, and braille testing with named operating systems, editors, and access technologies."
+      ],
+      "validation": {
+        "historical_ci_run": "41336626558",
+        "historical_result": "53 examples parsed and smoke-executed against the previous Lua lesson content only",
+        "checker": "scripts/check_lua_examples.py",
+        "workflow": ".github/workflows/lua-examples.yml",
+        "current_version_ci_status": "passed_exact_output",
+        "exact_output_assertions": "passed_for_all_53_lesson_sections",
+        "current_version_ci_run": "41538333230",
+        "current_version_ci_url": "https://github.com/mrhunsaker/VI_Focused_Coding_Curricula/actions/runs/41538333230",
+        "current_version_ci_result": "All 53 Lua 5.4.6 lesson examples parsed, executed in isolated directories, and matched their documented stdout fixtures. Deterministic stdin and file fixtures were supplied for the input and file-reading lessons.",
+        "dependency_ci_status": "passed",
+        "dependency_ci_run": "41546425326",
+        "dependency_ci_url": "https://github.com/mrhunsaker/VI_Focused_Coding_Curricula/actions/runs/41546425326",
+        "dependency_ci_result": "Pinned dkjson 2.11-1 and ftcsv 1.5.0-1 installed under Lua 5.4; JSON round-trip/malformed input and CSV quoted commas, doubled quotes, multiline fields, CRLF, canonical five-column header, extra/missing column, and unterminated quote checks passed.",
+        "mdbook_and_local_link_check": "passed",
+        "mdbook_workflow_run": "41538243813",
+        "mdbook_workflow_url": "https://github.com/mrhunsaker/VI_Focused_Coding_Curricula/actions/runs/41538243813",
+        "dependencies": "selected_pinned_and_integration_checks_passed",
+        "dependencies_document": "LUA/DEPENDENCIES.md",
+        "dependencies_checker": "scripts/check_lua_dependencies.lua",
+        "dependencies_workflow": ".github/workflows/lua-dependencies.yml",
+        "dependencies_test_cases": "dkjson valid round-trip and malformed JSON; ftcsv quoted commas, doubled quotes, embedded newlines, CRLF, exact canonical five-column header, and rejection of extra/missing columns and unterminated quoted fields.",
+        "latest_ci_run": "41548981836",
+        "latest_ci_url": "https://github.com/mrhunsaker/VI_Focused_Coding_Curricula/actions/runs/41548981836",
+        "latest_ci_result": "All 53 Lua lesson examples passed on commit 31641bdfa67570da0c65929740b521adbb7026e6.",
+        "latest_dependency_run": "41548981748",
+        "latest_dependency_url": "https://github.com/mrhunsaker/VI_Focused_Coding_Curricula/actions/runs/41548981748",
+        "latest_dependency_result": "Pinned Lua JSON and CSV dependency checks passed on commit 31641bdfa67570da0c65929740b521adbb7026e6."
+      }
     },
     "java": {
       "status": "lesson_structure_topic_refinement_and_final_jdk_25_ci_verified_pending_application_and_accessibility_verification",
@@ -900,10 +958,17 @@
         "exercise file operations against missing, malformed, and permission-restricted paths",
         "add capstone persistence and JUnit integration tests",
         "fresh mdBook build and complete Markdown/local-link crawl",
-        "hands-on keyboard-only, screen-reader, and braille verification"
+        "hands-on keyboard-only, screen-reader, and braille verification",
+        "Run a dedicated end-to-end capstone test suite for CRUD, search, persistence, malformed JSON, and accessibility; example smoke execution is not full project verification."
       ],
       "ci_run": "41337829888",
-      "examples_compiled_and_executed": 57
+      "examples_compiled_and_executed": 57,
+      "validation": {
+        "latest_ci_run": "41548981761",
+        "latest_ci_url": "https://github.com/mrhunsaker/VI_Focused_Coding_Curricula/actions/runs/41548981761",
+        "latest_ci_status": "passed",
+        "latest_ci_result": "All Java lesson examples compiled and smoke-ran successfully under JDK 25 on commit 31641bdfa67570da0c65929740b521adbb7026e6."
+      }
     },
     "requested_additions": {
       "project_environment_and_container_guide": {
@@ -974,6 +1039,284 @@
         "extracted_activity_records": 2481,
         "solution_generation_enabled": false
       }
+    },
+    "python": {
+      "path": "PYTHON/",
+      "status": "canonical_datasets_and_project_contracts_aligned_canonical_ci_and_adventure_win_path_passed_todo_capstone_and_accessibility_tests_pending",
+      "unit_0_live_lessons": 5,
+      "unit_0_mapped_lessons": 5,
+      "numbered_lessons": 53,
+      "completed_work": [
+        "Added canonical student-profile examples using Avery, age 16, height 1.72 m, and Computer Science to the Python foundations lesson.",
+        "Added the canonical $24.50 / 15% tip calculation using Decimal and ROUND_HALF_UP; documented the expected $3.68 tip and $28.18 total.",
+        "Added the canonical (3, 4) coordinate distance example with expected distance 5.0.",
+        "Added canonical grade thresholds, scores [82, 91, 76, 88], expected grades, total 337, and average 84.25.",
+        "Added canonical Notebook/Pencil/Folder inventory records and the $17.50 expected inventory value.",
+        "Added the exact canonical text-analysis sample, five-column CSV schema and sample rows, five-field to-do record schema, and six-field capstone record schema.",
+        "Replaced AI-generated-code workflow advice in the Python capstone with the shared prohibition on AI writing, completing, repairing, or generating course and assessment code.",
+        "Added scripts/check_python_curriculum.py and .github/workflows/python-curriculum.yml to compile, execute, and assert exact stdout for canonical Python examples.",
+        "Added PYTHON/VALIDATION.md to distinguish completed content edits from pending automated and project verification.",
+        "Manually executed the canonical student, calculator, coordinate, grade, inventory, and text examples; their outputs matched the documented values.",
+        "Replaced the unrelated Emily student dictionary with the canonical Avery four-field record and changed the dictionary iteration example to the Notebook/Pencil/Folder inventory.",
+        "Replaced the quick-brown-fox text example with the canonical text sample and replaced manual three-column CSV parsing with csv.DictReader over the canonical five-column schema.",
+        "Changed the JSON persistence lesson to serialize and validate the five-field canonical task record.",
+        "Reconciled the Unit 10 adventure examples to one five-room graph and replaced the incomplete two-field to-do implementation with a five-field project scaffold and explicit CRUD/persistence acceptance criteria.",
+        "Aligned the capstone record model and project choices to the exact six-field shared schema; removed Git advice that encouraged AI-generated code.",
+        "Corrected Unit 0 mapping to reflect the five live Python setup lessons and their actual subjects.",
+        "Extended the canonical Python output checker to assert the four-row shared CSV and JSON round-trip of the five-field task record.",
+        "Added an end-to-end scripted Python adventure test that follows the key, tunnel, clearing, locked-door, and treasure-room path; the test is included in the Python CI checker.",
+        "Corrected the Python calculator's documented expected tip from $3.67 to the canonical half-up result $3.68.",
+        "Expanded Unit 11 requirements to include case-insensitive search across title, description, and category, strict six-field schema validation, stable IDs, and updated_at refresh on edits.",
+        "Added PROJECT_ACCEPTANCE.md with deterministic cross-language acceptance cases for the adventure, to-do manager, and capstone; the document is a specification, not evidence that project implementations passed.",
+        "Fixed the Python checker failure-diagnostic path so it reports the current example's stdout/stderr."
+      ],
+      "not_yet_verified": [
+        "Review remaining Python examples in Units 1–9 for alignment wherever the standardization map calls for a shared dataset; retain legitimate standalone teaching examples rather than replacing them mechanically.",
+        "Rebuild the Unit 11 capstone around the exact six-field record and test add, list, search, update, delete, and JSON persistence.",
+        "Run syntax checks over all Python code fences and project-level tests, not only canonical dataset blocks.",
+        "Perform hands-on keyboard-only, screen-reader, and braille testing with named operating systems, editors, and access technologies.",
+        "Manually verify the adventure graph and to-do scaffold against the canonical contracts; keep full project solutions out of the public student repository.",
+        "Implement and execute the Unit 10 to-do and Unit 11 capstone acceptance cases in controlled instructor test fixtures; do not publish complete assessment solutions."
+      ],
+      "validation": {
+        "manual_execution": "Canonical student profile, Decimal calculator, coordinate distance, grade classifier, inventory total, and text-count examples were executed during this audit.",
+        "checker": "scripts/check_python_curriculum.py",
+        "workflow": ".github/workflows/python-curriculum.yml",
+        "ci_status": "passed",
+        "ci_run": "41529629787",
+        "ci_url": "https://github.com/mrhunsaker/VI_Focused_Coding_Curricula/actions/runs/41529629787",
+        "ci_result": "All canonical Python examples in the checker fixture set compiled, executed, and matched exact stdout.",
+        "latest_extended_fixtures_ci_status": "passed",
+        "latest_extended_fixtures_ci_run": "41537458295",
+        "latest_extended_fixtures_ci_url": "https://github.com/mrhunsaker/VI_Focused_Coding_Curricula/actions/runs/41537458295",
+        "latest_extended_fixtures_result": "Canonical Python fixtures, including CSV DictReader and JSON task round-trip, compiled, executed, and matched exact stdout.",
+        "adventure_end_to_end_test": "passed",
+        "latest_ci_run": "41538333262",
+        "latest_ci_url": "https://github.com/mrhunsaker/VI_Focused_Coding_Curricula/actions/runs/41538333262",
+        "latest_ci_result": "Canonical profile, calculator, coordinates, grades, inventory, text, CSV, JSON task examples passed exact stdout; the scripted adventure completed the key/door/treasure-room win path.",
+        "mdbook_and_local_link_check": "passed",
+        "mdbook_workflow_run": "41538243813",
+        "mdbook_workflow_url": "https://github.com/mrhunsaker/VI_Focused_Coding_Curricula/actions/runs/41538243813"
+      }
+    },
+    "repository_wide_audit": {
+      "status": "preliminary_cross_track_inventory_reviewed_not_exhaustive_lesson_by_lesson_signoff",
+      "scope": {
+        "general_purpose_tracks": [
+          "Python",
+          "Java",
+          "JavaScript",
+          "TypeScript",
+          "Kotlin",
+          "C",
+          "C++",
+          "C#",
+          "Julia",
+          "Swift",
+          "Rust",
+          "Go",
+          "Lua"
+        ],
+        "reviewed": "13 track status records and the available source/audit evidence from the prior repository review; Python and Lua received focused source-level edits in this branch.",
+        "limitation": "This is not a claim that every source file, code fence, project, link, or accessibility workflow in all 13 tracks has been independently re-read and re-executed in this pass."
+      },
+      "findings": [
+        "Python previously diverged from canonical shared datasets in profile, scores, inventory, text, CSV, to-do, and capstone examples; canonical examples and schemas are now present, but legacy examples still require reconciliation.",
+        "Python capstone AI-generated-code guidance conflicted with the assessment-integrity rule; the conflicting advice was removed from the capstone section.",
+        "Python Unit 0's five live setup lessons are now all represented in the mapping; the omission of Lesson 0.5 is corrected.",
+        "Lua's previous 53 examples were syntactically distinct but conceptually templated; the 53 lesson examples, common mistakes, and activities have now been rewritten to be lesson-specific.",
+        "The rewritten Lua course now passes syntax, execution, and exact stdout comparison for all 53 lesson examples under Lua 5.4.6; full project persistence and accessibility workflows remain open.",
+        "Existing audit records for Java, JavaScript, TypeScript, Kotlin, C, C++, C#, Julia, Swift, Rust, and Go describe varying levels of syntax, compilation, execution, or output verification; these are repository-reported evidence and not a fresh independent rerun in this branch.",
+        "Kotlin has the strongest recorded example-level evidence: all 57 examples compiled, executed, and matched exact stdout fixtures, with an mdBook build passing.",
+        "JavaScript's recorded validation is syntax parsing, not Node runtime execution; TypeScript's recorded validation is strict type checking, not runtime/output verification.",
+        "The specialist HTML/CSS, R, and SQL modules are outside the 13-track parallel-language audit and require separate domain-specific review.",
+        "The previous Python project brief contained two incompatible adventure maps, a two-field completed-looking to-do implementation that did not meet the five-field contract, and a four-field Contact model inconsistent with the six-field capstone schema; the branch now uses one explicit room graph and contract-aligned scaffolds.",
+        "The Python Unit 0 map omitted live Lesson 0.5 and had mismatched lesson descriptions; the mapping now lists the five actual lesson titles.",
+        "Lua's earlier $3.67 tip fixture was inconsistent with the canonical half-up rounding policy; Lua examples now use integer arithmetic and expect $3.68.",
+        "Lua previously documented a three-room adventure while Python's puzzle used a different two-room graph; both tracks now use the same five-room project graph.",
+        "The new static cross-language audit detected a stale $3.67 expected-output line in the Python calculator lesson even though the Python executable example and fixture checker passed; the documented output was corrected to $3.68.",
+        "Targeted Go/Java/C++ review found stale cross-language project examples: Go Unit 11.2 and Java Unit 11.2 modeled only three capstone fields; Java Unit 10.2 used a noncanonical foyer/library transition; C++ Unit 10.2 used a noncanonical Atrium/Library/Garden graph. Go and Java capstone models now carry the six canonical fields, and Java/C++ movement examples now demonstrate start_room → tunnel."
+      ],
+      "completed_work": [
+        "Focused Python and Lua source review and content changes completed on the audit branch.",
+        "Canonical Python examples manually executed during this audit.",
+        "Python canonical example checker and CI workflow added.",
+        "Python and Lua validation records updated to separate completed edits from pending tests.",
+        "This standardization record updated with explicit statuses, historical evidence, and next steps.",
+        "Current-branch Python CI passed: canonical examples compiled, executed, and matched expected stdout (run 41529521712).",
+        "Current-branch Lua CI passed: all 53 rewritten examples parsed and smoke-executed under Lua 5.4.6 (run 41529521580).",
+        "Reconciled the Python student dictionary, inventory, text analysis, CSV parsing, JSON task record, adventure room graph, to-do requirements, and capstone data model with the shared canonical contracts.",
+        "Corrected the Unit 0 mapping from four mapped lessons to the five live Python setup lessons.",
+        "Aligned the Python Unit 10 adventure map and Lua adventure examples to the same five-room graph and key/door/win-condition rules.",
+        "Added exact expected-output fixture checks for all 53 Lua lessons and extended Python canonical checks to CSV and JSON examples.",
+        "Latest Python canonical CI passed with the extended CSV and JSON task fixtures (run 41537458295).",
+        "Lua exact-output CI passed for all 53 rewritten lesson examples under Lua 5.4.6 (run 41537622785).",
+        "Python canonical CSV and JSON fixtures passed exact-output CI (run 41537458295); a scripted adventure win-path test has since been added and awaits its own CI run.",
+        "Latest Python CI passed after adding an end-to-end adventure run through the canonical key/door/treasure path (run 41537705769).",
+        "Lua exact-output validation passed for all 53 lesson examples (run 41537622785).",
+        "Added scripts/check_curriculum_contracts.py and .github/workflows/curriculum-contracts.yml; cross-language dataset, project-contract, Unit 0 mapping, and Lua fixture checks passed (run 41538051208).",
+        "Corrected the stale Python calculator expected-output fixture from $3.67 to $3.68 after the static contract audit identified it.",
+        "Full repository mdBook build and Markdown local-link crawl passed (run 41538167297).",
+        "Added PROJECT_ACCEPTANCE.md with deterministic cross-language project acceptance scenarios; no project implementation is represented as passed.",
+        "Selected and pinned Lua 5.4 JSON/CSV dependencies; integration checks passed in CI run 41546425326.",
+        "Corrected Python canonical-checker failure diagnostics.",
+        "Expanded Python capstone requirements for search, strict record validation, stable identifiers, and timestamp updates.",
+        "Extended Lua dependency integration fixtures to cover malformed CSV row shapes and unterminated quoted fields.",
+        "Corrected Go Unit 11.2 JSON serialization to use all six canonical capstone fields, including description and both timestamps.",
+        "Corrected Java Unit 11.2 record example to use the six canonical capstone fields and aligned its Unit 10.2 movement example to start_room → tunnel.",
+        "Corrected C++ Unit 10.2 movement example to use the canonical start_room → tunnel transition.",
+        "Extended scripts/check_curriculum_contracts.py to verify Go, Java, and C++ capstone schema coverage and Java/C++ canonical adventure room identifiers; the updated workflow run is pending."
+      ],
+      "next_steps": [
+        "Run the expanded cross-language contract workflow and compile/execute changed Go, Java, and C++ examples; record exact CI run IDs before marking validation complete.",
+        "Implement controlled instructor-side Python and Lua project fixtures and execute the shared PROJECT_ACCEPTANCE.md cases without publishing assessment solutions.",
+        "Complete the Python to-do manager and capstone acceptance tests without publishing assessment solutions.",
+        "Complete Lua adventure and to-do project workflow tests, including persistence and malformed-data cases.",
+        "Perform hands-on keyboard, screen-reader, and braille testing on named platforms and assistive technologies.",
+        "Complete the exhaustive lesson-by-lesson content, dataset, required-section, link, and accessibility audit across all 13 general-purpose tracks.",
+        "Review specialist HTML/CSS, R, and SQL modules separately using their domain-specific learning objectives.",
+        "Continue targeted project-contract review across remaining language tracks, then review HTML/CSS, R, and SQL separately."
+      ],
+      "validation": {
+        "cross_language_contract_checker": "scripts/check_curriculum_contracts.py",
+        "cross_language_workflow": ".github/workflows/curriculum-contracts.yml",
+        "cross_language_status": "passed",
+        "cross_language_run": "41538333054",
+        "cross_language_url": "https://github.com/mrhunsaker/VI_Focused_Coding_Curricula/actions/runs/41538333054",
+        "mdbook_status": "passed",
+        "mdbook_run": "41538243813",
+        "mdbook_url": "https://github.com/mrhunsaker/VI_Focused_Coding_Curricula/actions/runs/41538243813",
+        "lua_dependencies": "passed",
+        "lua_dependencies_workflow": ".github/workflows/lua-dependencies.yml",
+        "lua_dependencies_run": "41548981748",
+        "lua_dependencies_url": "https://github.com/mrhunsaker/VI_Focused_Coding_Curricula/actions/runs/41548981748",
+        "project_acceptance_matrix": "PROJECT_ACCEPTANCE.md",
+        "latest_targeted_contract_run": "41548981914",
+        "latest_targeted_contract_url": "https://github.com/mrhunsaker/VI_Focused_Coding_Curricula/actions/runs/41548981914",
+        "latest_targeted_contract_result": "Passed on commit 31641bdfa67570da0c65929740b521adbb7026e6; expanded assertions for Go/Java/C++ capstone and Java/C++ adventure contracts passed.",
+        "latest_python_run": "41548981730",
+        "latest_python_url": "https://github.com/mrhunsaker/VI_Focused_Coding_Curricula/actions/runs/41548981730",
+        "latest_python_result": "Passed on commit 31641bdfa67570da0c65929740b521adbb7026e6.",
+        "latest_environment_guide_run": "41548976786",
+        "latest_environment_guide_url": "https://github.com/mrhunsaker/VI_Focused_Coding_Curricula/actions/runs/41548976786",
+        "latest_environment_guide_result": "Passed on commit 31641bdfa67570da0c65929740b521adbb7026e6; mdBook and local-link checks passed.",
+        "java_run": "41548981761",
+        "java_url": "https://github.com/mrhunsaker/VI_Focused_Coding_Curricula/actions/runs/41548981761",
+        "java_status": "compiling_and_smoke_running_all_examples; job was still active at last check",
+        "lua_run": "41548981836",
+        "lua_url": "https://github.com/mrhunsaker/VI_Focused_Coding_Curricula/actions/runs/41548981836",
+        "lua_status": "passed",
+        "lua_dependencies_status": "passed"
+      }
+    }
+  },
+  "canonical_project_contracts": {
+    "adventure": {
+      "rooms": [
+        {
+          "id": "start_room",
+          "exits": {
+            "north": "tunnel"
+          },
+          "items": [
+            "shiny key"
+          ]
+        },
+        {
+          "id": "tunnel",
+          "exits": {
+            "south": "start_room",
+            "east": "clearing"
+          },
+          "items": []
+        },
+        {
+          "id": "clearing",
+          "exits": {
+            "west": "tunnel",
+            "north": "locked_door_room"
+          },
+          "items": []
+        },
+        {
+          "id": "locked_door_room",
+          "exits": {
+            "south": "clearing"
+          },
+          "items": [],
+          "conditional_exit": {
+            "direction": "north",
+            "destination": "treasure_room",
+            "requires": "shiny key used in locked_door_room"
+          }
+        },
+        {
+          "id": "treasure_room",
+          "exits": {},
+          "items": []
+        }
+      ],
+      "commands": [
+        "north",
+        "south",
+        "east",
+        "west",
+        "take shiny key",
+        "use shiny key",
+        "quit"
+      ],
+      "win_condition": "Player takes the shiny key from start_room, reaches locked_door_room, uses the key to unlock its north exit, and enters treasure_room.",
+      "invalid_movement": "Must report an error and leave the current room unchanged."
+    },
+    "todo": {
+      "fields": [
+        "id",
+        "title",
+        "description",
+        "done",
+        "created_at"
+      ],
+      "operations": [
+        "create",
+        "list",
+        "complete/update",
+        "delete",
+        "save",
+        "load"
+      ],
+      "validation": [
+        "non-empty title",
+        "unique stable ID",
+        "ID lookup independent of list position",
+        "JSON top-level and record-schema validation",
+        "clear errors for missing IDs and malformed JSON"
+      ]
+    },
+    "capstone": {
+      "fields": [
+        "id",
+        "title",
+        "description",
+        "category",
+        "created_at",
+        "updated_at"
+      ],
+      "operations": [
+        "list/display",
+        "add",
+        "search",
+        "update",
+        "delete",
+        "status management",
+        "JSON save/load"
+      ],
+      "accessibility": [
+        "keyboard operation",
+        "programmatic labels",
+        "textual status and error feedback",
+        "no visual-only information",
+        "manual assistive-technology verification"
+      ]
     }
   }
 }

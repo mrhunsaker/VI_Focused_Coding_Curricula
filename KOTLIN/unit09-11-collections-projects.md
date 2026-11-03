@@ -321,11 +321,11 @@ Kotlin is statically typed. The compiler may infer a declaration's type, but the
 #### Worked Example
 
 ```kotlin
-fun main(){ val exits=mapOf("Hall" to mapOf("north" to "Library"),"Library" to mapOf("south" to "Hall")); val room="Hall"; val direction="north"; println(exits[room]?.get(direction)?:"You cannot go that way.") }
+fun main(){ val exits=mapOf("start_room" to mapOf("north" to "tunnel"),"tunnel" to mapOf("south" to "start_room","east" to "clearing"),"clearing" to mapOf("west" to "tunnel","north" to "locked_door_room"),"locked_door_room" to mapOf("south" to "clearing"),"treasure_room" to emptyMap<String,String>()); val room="start_room"; val direction="north"; println(exits[room]?.get(direction)?:"You cannot go that way.") }
 ```
 
 #### Expected Behavior or Output
-Prints Library; an absent exit produces the blocked-movement message.
+Prints tunnel; an absent exit produces the blocked-movement message. The locked_door_room north exit is conditional on using shiny key.
 
 #### Common Mistakes
 - Assuming type inference makes Kotlin dynamically typed or that numeric types convert implicitly.
@@ -371,11 +371,11 @@ Kotlin is statically typed. The compiler may infer a declaration's type, but the
 #### Worked Example
 
 ```kotlin
-fun main(){ val inventory=setOf("torch","magic key"); val canOpen="torch" in inventory && "magic key" in inventory; println(if(canOpen)"The door opens." else "The puzzle remains locked.") }
+fun main(){ val room="locked_door_room"; val inventory=setOf("shiny key"); val canUnlock=room=="locked_door_room" && "shiny key" in inventory; println(if(canUnlock)"The door unlocks." else "The door remains locked.") }
 ```
 
 #### Expected Behavior or Output
-Prints The door opens. because both required items are present; removing either item leaves the puzzle locked.
+Prints The door unlocks. because the shiny key is used while the player is in locked_door_room; using it elsewhere or without it leaves the door locked.
 
 #### Common Mistakes
 - Assuming type inference makes Kotlin dynamically typed or that numeric types convert implicitly.

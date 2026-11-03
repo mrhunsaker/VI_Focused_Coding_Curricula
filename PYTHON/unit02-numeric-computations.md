@@ -346,3 +346,35 @@ print(f"Distance from origin: {distance:.2f}")
 - [ ] I can import the `math` module into my program.
 - [ ] I can use `math.pi` and `math.sqrt()`.
 - [ ] I can use `math.ceil()` to round up and `math.floor()` to round down.
+
+## Canonical Shared Dataset — Calculator and Coordinates
+
+Use the canonical bill and tip rate in every parallel-language implementation.
+
+```python
+from decimal import Decimal, ROUND_HALF_UP
+
+bill = Decimal("24.50")
+tip_rate = Decimal("0.15")
+tip = (bill * tip_rate).quantize(Decimal("0.01"), rounding=ROUND_HALF_UP)
+total = bill + tip
+print(f"Tip: ${tip:.2f}")
+print(f"Total: ${total:.2f}")
+```
+
+Expected output:
+```text
+Tip: $3.68
+Total: $28.18
+```
+
+Use the same coordinate values for the math-library example:
+
+```python
+import math
+x, y = 3, 4
+distance = math.sqrt(x**2 + y**2)
+print(distance)
+```
+
+Expected output: `5.0`. The shared monetary contract rounds the tip to cents using decimal half-up rounding before adding it to the bill. Use decimal arithmetic rather than binary floating-point formatting for currency.

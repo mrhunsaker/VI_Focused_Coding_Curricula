@@ -3912,8 +3912,8 @@ import (
 	"fmt"
 )
 func main() {
- inventory := map[string]bool{"key": true}
- unlocked := inventory["key"]
+ inventory := map[string]bool{"shiny key": true}
+ unlocked := inventory["shiny key"]
  if unlocked { inventory["map"] = true }
  fmt.Println("puzzle unlocked:", unlocked, "inventory:", inventory)
 }
@@ -4132,8 +4132,15 @@ import (
 	"fmt"
 )
 func main() {
- type Record struct { ID int `json:"id"`; Title string `json:"title"`; Category string `json:"category"` }
- record := Record{ID: 1, Title: "Study Go", Category: "learning"}
+ type Record struct {
+  ID int `json:"id"`
+  Title string `json:"title"`
+  Description string `json:"description"`
+  Category string `json:"category"`
+  CreatedAt string `json:"created_at"`
+  UpdatedAt string `json:"updated_at"`
+ }
+ record := Record{ID: 1, Title: "Study Go", Description: "Complete the Go capstone", Category: "learning", CreatedAt: "2026-11-01", UpdatedAt: "2026-11-01"}
  data, err := json.Marshal(record)
  if err != nil { panic(err) }
  fmt.Println(string(data))
