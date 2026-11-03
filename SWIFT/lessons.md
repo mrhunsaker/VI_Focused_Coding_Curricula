@@ -2609,8 +2609,8 @@ Projects begin with requirements and acceptance criteria. Implement a text-based
 
 ### Worked Example
 ```swift
-var inventory: Set<String> = ["key", "map"]
-let requiredItem = "key"
+var inventory: Set<String> = ["shiny key", "map"]
+let requiredItem = "shiny key"
 if inventory.contains(requiredItem) {
     print("The cabinet unlocks.")
     inventory.remove(requiredItem)
