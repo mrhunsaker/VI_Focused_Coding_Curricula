@@ -3912,8 +3912,8 @@ import (
 	"fmt"
 )
 func main() {
- inventory := map[string]bool{"key": true}
- unlocked := inventory["key"]
+ inventory := map[string]bool{"shiny key": true}
+ unlocked := inventory["shiny key"]
  if unlocked { inventory["map"] = true }
  fmt.Println("puzzle unlocked:", unlocked, "inventory:", inventory)
 }
