@@ -2100,7 +2100,7 @@ Navigate the complete source file by line, word, and character using the learner
 Project work starts with observable requirements and acceptance criteria. Separate domain state, command parsing, validation, persistence, and output so each behavior can be tested and navigated accessibly.
 ### Worked Example
 ```cs
-var inventory = new HashSet<string> { "key", "map" }; bool canOpenChest = inventory.Contains("key");
+var inventory = new HashSet<string> { "shiny key", "map" }; bool canOpenChest = inventory.Contains("shiny key");
 if (canOpenChest) inventory.Add("chest reward");
 Console.WriteLine($"Chest opened: {canOpenChest}; items: {string.Join(", ", inventory)}");
 ```
