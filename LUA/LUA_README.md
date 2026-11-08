@@ -29,3 +29,10 @@ The examples target Lua 5.4 and the standard library. LuaRocks is introduced as 
 ## Accessibility
 
 Use keyboard-first editing and terminal workflows. Verify screen-reader output for punctuation, nesting, diagnostics, paths, and program output. The core course should not depend on visual-only game editors or graphical tools.
+
+## Recommended introductory books
+
+- Burton, Brian. *Learning Lua: A Guide for Getting Started*. Burtons Media Group, 2023. A beginner-oriented introduction to Lua scripting, with examples relevant to embedded applications and game scripting. [Publisher page](https://burtonsmediagroup.com/learning-lua/).
+- Ierusalimschy, Roberto. *Programming in Lua*, 4th edition. Lua.org, 2016. The authoritative book by Lua's chief architect, covering the language and its C API. It assumes general programming experience, though it does not assume prior Lua knowledge. [Official book page](https://www.lua.org/pil/).
+
+**Suggested use:** *Learning Lua* is the more direct first book for this track. Use *Programming in Lua* as the detailed language reference once basic programming concepts are familiar. Its fourth edition targets Lua 5.3; consult the current Lua 5.4 reference manual for version-specific differences.
