@@ -1,3 +1,12 @@
+## 2026-11-08 — Curriculum scope and language-use overview
+
+- Rewrote the main README and curriculum overview to describe the complete repository structure: 13 full language curricula, focused HTML/CSS, R, and SQL modules, shared computing foundations, and Bash and PowerShell terminal tracks.
+- Replaced the original four-language framing with domain-oriented descriptions of each language's primary uses and representative software, platforms, and projects.
+- Clarified the distinction between general-purpose programming languages, markup and style-sheet technologies, declarative SQL, and shell languages.
+- Removed language-tier framing such as beginner and advanced languages. Language selection is now described in terms of technical domain, ecosystem, deployment target, and project requirements.
+- Updated project structure, learning pathways, accessibility, and development-environment descriptions to reflect the expanded curriculum, including development containers and specialist IDE/data platforms.
+- Validation: checked both updated documents for stale four-language and beginner/advanced-language framing; repository link and mdBook build validation pending.
+
 # Change Log
 
 All implementation changes are recorded here. Each numbered step is committed separately before the next step begins.
