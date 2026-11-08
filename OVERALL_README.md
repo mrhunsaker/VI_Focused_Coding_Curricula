@@ -10,6 +10,10 @@ The textbook is published with **mdBook**. It is not a GitBook project. Markdown
 
 **Start learning:** choose a curriculum below, or read this overview to understand the sequence and how to use the materials. Each language curriculum includes its own topic index. The shared [Programming Code Glossary](backmatter/GLOSSARY.md) defines common and language-specific terminology explicitly.
 
+## Complete the terminal prerequisite first
+
+Before beginning a programming-language curriculum, complete the [Terminal Skills prerequisite](TERMINAL/TERMINAL_README.md). Choose the [Bash track for macOS and Linux](TERMINAL/bash.md) or the [PowerShell track for Windows 11](TERMINAL/powershell.md). Both tracks teach the same foundational workflow using native commands: navigating directories, managing files, reading and searching text, running programs, interpreting errors, and working safely from a project folder. This prerequisite supports every language and toolchain in the book.
+
 ## Purpose and learning philosophy
 
 The goal is not simply to teach programming syntax. Learners should develop the habits used to solve problems with computers: clarify requirements, decompose a task, represent information, design an algorithm, implement it, test it, interpret errors, revise the solution, and explain their decisions.
