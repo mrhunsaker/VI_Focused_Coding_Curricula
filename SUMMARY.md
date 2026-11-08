@@ -16,8 +16,6 @@
 
 # Foundations (complete before any language)
 
-# Python
-
 - [Foundations overview](FOUNDATIONS/FOUNDATIONS_README.md)
   - [Unit P: Computing Foundations Primer](FOUNDATIONS/unit-p-computing-foundations.md)
 
