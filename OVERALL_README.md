@@ -210,7 +210,7 @@ Read [CONTRIBUTING.md](CONTRIBUTING.md), follow [CODE_STYLE.md](CODE_STYLE.md), 
 
 ## References and acknowledgments
 
-The language landing pages and lessons identify the books, official language references, documentation, and project resources that inform each curriculum. These include materials from Python, JavaScript, TypeScript, Java, Kotlin, C, C++, C#, Julia, Swift, Rust, Go, Lua, MDN Web Docs, and relevant data and database communities. Use official documentation to confirm version-sensitive language, API, and tool details.
+The [Foundations introduction](FOUNDATIONS/FOUNDATIONS_README.md) includes a bibliography of introductory computer science texts. Each language landing page and focused technology module includes curated introductory book recommendations, with authors, editions or publication dates where verified, notes on intended use, and links to publisher, author, or free online editions. The Bash and PowerShell tracks also include shell-specific reading recommendations. These bibliographies complement—not replace—the course lessons and official language documentation. Use official documentation to confirm version-sensitive language, API, and tool details.
 
 External resources may change or have different accessibility characteristics over time; evaluate them in the learner's actual environment. Preserve appropriate attribution when improving or extending material.
 
