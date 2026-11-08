@@ -148,6 +148,8 @@ Students should follow the instructor's activity-specific policy, disclose assis
 ## Recommended introductory books
 
 - Matthes, Eric. *Python Crash Course: A Hands-On, Project-Based Introduction to Programming*, 3rd edition. No Starch Press, 2023. A practical introduction organized around core language concepts and substantial projects. [Publisher page](https://nostarch.com/python-crash-course-3rd-edition/).
+- Zelle, John M. *Python Programming: An Introduction to Computer Science*, 4th edition. Franklin, Beedle & Associates, 2024. A first-course computer science textbook that develops problem solving and programming through Python. [Book information](https://www.vanschaik.com/products/python-programming-an-introduction-to-computer-science-9781590282977).
+- Zinoviev, Dmitry, Paul Gries, Jennifer Campbell, and Jason Montojo. *Practical Programming: An Introduction to Computer Science Using Python*, 4th edition. Pragmatic Bookshelf, 2026. A current, no-prior-experience introduction to computer science and programming, with emphasis on design, algorithms, testing, and debugging. [Publisher page](https://partners.pragprog.com/catalog/820).
 - Downey, Allen B. *Think Python: How to Think Like a Computer Scientist*, 3rd edition. Green Tea Press, 2024. A free, concept-oriented introduction emphasizing computational thinking, functions, data structures, and problem solving. [Author's book site](https://greenteapress.com/wp/).
 - Sweigart, Al. *Automate the Boring Stuff with Python: Practical Programming for Total Beginners*, 3rd edition. No Starch Press, 2025. A task-oriented introduction that teaches programming through useful automation projects. [Publisher page](https://nostarch.com/AUTOMATE-BORING-STUFF-PYTHON-3RD-EDITION).
 
