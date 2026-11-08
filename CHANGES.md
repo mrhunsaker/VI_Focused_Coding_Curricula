@@ -182,3 +182,14 @@ All implementation changes are recorded here. Each numbered step is committed se
 - Static validation passed: all four setup documents have balanced Markdown fences; all 20 Bash-family blocks are immediately paired with Windows PowerShell blocks; each setup contains VS Code, Theia, and JetBrains advanced-option guidance; `convert_to_mdbook.json` parses successfully. mdBook build/CI verification is pending.
 - Implementation commits: `19a091e7b15683e4446307c9d8ecf72e85b8cb79`, `3018ffc98ec455de06ab106cd00b303c225a1930`, `249ec412cf2e20a2ec96b2adb3916a4e4ca92808`, `c8b35f54fbc7b38d364eef40fe15bf379aa7d9b5`.
 - Pre-checkpoint HEAD: `c8b35f54fbc7b38d364eef40fe15bf379aa7d9b5`.
+
+## 2026-11-08 — Terminal prerequisite curriculum
+
+- Added the missing `TERMINAL/` curriculum referenced by the book navigation: a prerequisite overview plus independent Bash (macOS/Linux) and PowerShell (Windows 11) tracks.
+- Both tracks teach equivalent outcomes through eight lessons: shell orientation; paths and navigation; file and directory operations; command syntax and efficient entry; text inspection and search; running programs and interpreting exit status; processes and help; and an integrated practice project.
+- Added explicit learning objectives, worked command sequences, expected behavior, activities, safety guidance, accessibility practices, skills checklists, and official documentation references.
+- Kept shell-specific examples native to each track and clarified this intentional exception in `CODE_STYLE.md`; cross-platform curriculum documents continue to pair Bash and PowerShell command blocks.
+- Cleaned pre-existing merge-conflict marker text from `SUMMARY.md` while retaining the Foundations navigation section and the existing terminal navigation entries.
+- No files under `cs_curriculum_final/` were modified.
+- Implementation commits: `701a6f1fbfdf669b141d1cc2fea4cac645530097` (overview), `d0aba3a2f65b9596377dc3e7135d1429a2d6049c` (Bash), `d6c548c3bbdea02f48c81dfd43b6a0091989a53a` (PowerShell), `0e5a534c9b37953c7e13ca7c59a806ebd127e862` (navigation), and `46314e57ae9dd0e179b2704c86289777460522d8` (style clarification).
+- mdBook build and GitHub Actions verification are pending.
