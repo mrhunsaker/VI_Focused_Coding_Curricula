@@ -217,7 +217,7 @@ PowerShell displays errors in the host and exposes the most recent native progra
 
 ```powershell
 Set-Location $HOME\terminal-practice
-"print('Hello from the terminal')" | Set-Content hello.py
+"print('Hello from the terminal')" | Set-Content -Encoding utf8 hello.py
 py -3 hello.py
 "Exit status: $LASTEXITCODE"
 py -3 missing-file.py
