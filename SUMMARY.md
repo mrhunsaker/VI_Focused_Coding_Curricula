@@ -19,13 +19,11 @@
 - [Foundations overview](FOUNDATIONS/FOUNDATIONS_README.md)
   - [Unit P: Computing Foundations Primer](FOUNDATIONS/unit-p-computing-foundations.md)
 
->>>>>>> 2067a20 (curriculum clearning and updates)
-# Python# Foundations (complete before any language)
+# Python
 
 - [Foundations overview](FOUNDATIONS/FOUNDATIONS_README.md)
   - [Unit P: Computing Foundations Primer](FOUNDATIONS/unit-p-computing-foundations.md)
 
->>>>>>> 2067a20 (curriculum clearning and updates)
 # Python
 
 - [Python Curriculum](PYTHON/PYTHON_README.md)
