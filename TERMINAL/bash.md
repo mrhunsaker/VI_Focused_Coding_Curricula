@@ -324,3 +324,9 @@ Explain each command in the sequence. Identify which paths are relative, what th
 - [GNU Coreutils manual](https://www.gnu.org/software/coreutils/manual/)
 - [Apple Terminal User Guide](https://support.apple.com/guide/terminal/welcome/mac)
 - [Python command-line documentation](https://docs.python.org/3/using/cmdline.html)
+
+## Recommended introductory books
+
+- Shotts, William. *The Linux Command Line: A Complete Introduction*, 3rd edition. No Starch Press, 2026. A practical introduction to shell use, files, processes, text tools, scripting, and the Linux command-line environment. [Publisher page](https://nostarch.com/linux-command-line-3e).
+
+**Suggested use:** this is the primary supplementary text for the Bash track. The book focuses on Linux; macOS users should expect some differences in available commands and utilities. Follow this course's Bash examples and your operating system's manual pages when behavior differs.
