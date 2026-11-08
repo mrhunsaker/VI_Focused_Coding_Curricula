@@ -103,7 +103,7 @@ For this lesson, use only the practice folder created in Lesson 2.
 
 ```bash
 cd ~/terminal-practice/first-project
-mkdir notes
+mkdir -p notes
 touch notes/todo.txt
 cp notes/todo.txt notes/todo-backup.txt
 mv notes/todo-backup.txt notes/archive.txt
