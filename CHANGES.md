@@ -6,7 +6,7 @@
 - Added Bash and PowerShell book recommendations to their respective terminal-track introductions.
 - Each entry identifies author(s), title, edition or publication year when verified, publisher or free online source, and a short note explaining fit, prerequisite assumptions, or version limitations.
 - Updated the curriculum overview to point readers to the new bibliographies.
-- Validation: book details and links were researched against publisher, author, official language, and maintained book-site sources. Relative-link checks and mdBook build validation remain pending.
+- Validation: book details and bibliographic links were researched against publisher, author, official language, and maintained book-site sources. Confirmed that each of the 13 language introductions, three focused modules, the shared Foundations introduction, and both terminal tracks contains a bibliography. The added bibliography links are external references; a complete mdBook build has not been run in this turn. A relative-link audit also surfaced three existing links to `DEVELOPMENT/GUI_VISUALIZATION_ACCESSIBILITY.md` in the Swift, Rust, and Go introductions; that separate target remains absent from the repository.
 
 ## 2026-11-08 — Curriculum scope and language-use overview
 
