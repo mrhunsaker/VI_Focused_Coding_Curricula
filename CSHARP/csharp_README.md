@@ -40,3 +40,10 @@ See the shared [GUI, visualization, and workbench accessibility reference](../DE
 
 AI may be used only for personal conceptual understanding and reinforcement. It must not write, complete, autocomplete, repair, or generate course code or assessment solutions.
 >>>>>>> 2067a20 (curriculum clearning and updates)
+
+## Recommended introductory books
+
+- Whitaker, R. B. *The C# Player's Guide*, 5th edition. RB Whitaker, 2021. A challenge-driven introduction to programming fundamentals, methods, types, object-oriented programming, and .NET concepts. [Author's book page](https://rbwhitaker.gumroad.com/l/zGNbnc).
+- Gaddis, Tony. *Starting Out with Visual C#*, 5th edition. Pearson. A traditional introductory textbook for readers with no prior programming experience; editions may target older versions of C# and Visual Studio. [Pearson catalog](https://www.pearson.com/).
+
+**Suggested use:** *The C# Player's Guide* is the primary language companion for this course. Check the C# language version and .NET target in any book against the curriculum's current SDK baseline. Older Visual Studio setup procedures should not override the repository's IDE guidance.
