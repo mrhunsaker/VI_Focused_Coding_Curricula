@@ -72,6 +72,13 @@ R's text console and printed summaries support text-first analysis. Graphics and
 4. Read a CSV file and inspect its dimensions and column names.
 5. Write a short paragraph interpreting the summary without overstating what the data establish.
 
+## Recommended introductory books
+
+- Grolemund, Garrett. *Hands-On Programming with R*. O'Reilly Media, 2014. Written for readers without programming experience; introduces R through small projects, data objects, functions, scripts, and practical analysis. The full text is freely available online. [Free book](https://rstudio-education.github.io/hopr/) and [publisher page](https://www.oreilly.com/library/view/hands-on-programming-with/9781449359089/).
+- Wickham, Hadley, Mine Çetinkaya-Rundel, and Garrett Grolemund. *R for Data Science*, 2nd edition. O'Reilly Media, 2023. A free guide to importing, transforming, visualizing, and communicating data with the tidyverse. [Free online book](https://r4ds.hadley.nz/).
+
+**Suggested use:** start with *Hands-On Programming with R* if programming itself is new. Use *R for Data Science* as a follow-on for data analysis workflows. The second book focuses on the tidyverse ecosystem and is not a substitute for learning base R fundamentals.
+
 ## Further learning
 
 - [The R Project](https://www.r-project.org/)
