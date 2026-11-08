@@ -85,6 +85,12 @@ Accessible HTML does not guarantee an accessible page. The complete interaction,
 4. Inspect the page using keyboard navigation and a screen reader.
 5. Explain one difference between a semantic HTML element and a generic div.
 
+## Recommended introductory books
+
+- Robbins, Jennifer. *Learning Web Design: A Beginner's Guide to HTML, CSS, JavaScript, and Web Graphics*, 5th edition. O'Reilly Media, 2018. A broad introduction to web fundamentals, semantic HTML, CSS, responsive layouts, and web design tools. [Publisher page](https://www.oreilly.com/library/view/learning-web-design/9781491960196/).
+
+**Accessibility note:** this is a visual-design-oriented book and may use diagrams, screenshots, and visual examples. Use it selectively for terminology and reference; this module's semantic, keyboard-first, and screen-reader-oriented explanations remain the required learning path. Validate examples against current HTML and CSS standards.
+
 ## Further learning
 
 - [MDN HTML documentation](https://developer.mozilla.org/en-US/docs/Web/HTML)
