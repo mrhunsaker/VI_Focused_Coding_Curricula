@@ -1,3 +1,11 @@
+## 2026-11-08 — Screen-reader-accessible GUI libraries and implementation guidance
+
+- Created `DEVELOPMENT/GUI_VISUALIZATION_ACCESSIBILITY.md`, covering accessible GUI frameworks and platform accessibility APIs for all 13 full language curricula, HTML/CSS, R, SQL, and the Bash and PowerShell terminal tracks.
+- Documented recommended libraries, implementation practices, higher-risk approaches to avoid or restrict, platform-specific screen-reader testing, automated checks, and a release checklist.
+- Clarified that no toolkit guarantees accessibility on its own; accessibility must be verified in the shipped application with the target operating systems and assistive technologies.
+- Added the guide to `SUMMARY.md`, resolving the previously identified missing target referenced by the Swift, Rust, and Go introductions.
+- Research references include W3C WCAG and ARIA guidance, platform documentation from Apple, Microsoft, Android, Qt, GTK, and toolkit-specific accessibility documentation. A complete mdBook build has not been run in this turn.
+
 ## 2026-11-08 — Introductory computer science and language bibliographies
 
 - Added a general computer science bibliography to the shared Foundations introduction, covering broad CS survey, digital-computing concepts, and introductory problem-solving texts.
@@ -6,7 +14,7 @@
 - Added Bash and PowerShell book recommendations to their respective terminal-track introductions.
 - Each entry identifies author(s), title, edition or publication year when verified, publisher or free online source, and a short note explaining fit, prerequisite assumptions, or version limitations.
 - Updated the curriculum overview to point readers to the new bibliographies.
-- Validation: book details and bibliographic links were researched against publisher, author, official language, and maintained book-site sources. Confirmed that each of the 13 language introductions, three focused modules, the shared Foundations introduction, and both terminal tracks contains a bibliography. The added bibliography links are external references; a complete mdBook build has not been run in this turn. A relative-link audit also surfaced three existing links to `DEVELOPMENT/GUI_VISUALIZATION_ACCESSIBILITY.md` in the Swift, Rust, and Go introductions; that separate target remains absent from the repository.
+- Validation: book details and bibliographic links were researched against publisher, author, official language, and maintained book-site sources. Confirmed that each of the 13 language introductions, three focused modules, the shared Foundations introduction, and both terminal tracks contains a bibliography. The added bibliography links are external references; a complete mdBook build has not been run in this turn. A relative-link audit also surfaced three links to `DEVELOPMENT/GUI_VISUALIZATION_ACCESSIBILITY.md` in the Swift, Rust, and Go introductions; the target was subsequently created as the screen-reader-accessible GUI guide.
 
 ## 2026-11-08 — Curriculum scope and language-use overview
 
