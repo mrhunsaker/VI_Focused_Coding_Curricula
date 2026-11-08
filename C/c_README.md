@@ -36,3 +36,11 @@ See the shared [GUI, visualization, and workbench accessibility reference](../DE
 
 AI may be used only for personal conceptual understanding and reinforcement. It must not write, complete, autocomplete, repair, or generate course code or assessment solutions.
 >>>>>>> 2067a20 (curriculum clearning and updates)
+
+## Recommended introductory books
+
+- King, K. N. *C Programming: A Modern Approach*, 2nd edition. W. W. Norton, 2008. A thorough first-course textbook with extensive exercises and careful explanations of C's core features. It teaches C99; use the course's C17 notes and current compiler documentation for later-standard differences.
+- Perry, Greg, and Dean Miller. *C Programming Absolute Beginner's Guide*, 3rd edition. Que Publishing, 2014. A task-oriented introduction covering program structure, expressions, functions, arrays, pointers, and input/output. It targets C11. [Publisher page](https://www.pearson.com/en-us/subject-catalog/p/c-programming-absolute-beginner-s-guide/P200000000531/9780789751980).
+- Downey, Allen B. *Think C*. Green Tea Press. A free, concise introduction to computational problem solving using C. [Book resources](https://greenteapress.com/wp/think-c/).
+
+**Suggested use:** King's text is a strong full textbook companion; Perry and Miller provide a more task-oriented alternative. C has evolved since these books were published, so follow the course's C17 baseline and consult current compiler and language references for standard-specific details.
