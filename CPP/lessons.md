@@ -1,13 +1,30 @@
 # C++: Complete Curriculum — Units 0–11
 
+<<<<<<< HEAD
+=======
 **Before you start:** complete [Unit P: Computing Foundations Primer](../FOUNDATIONS/unit-p-computing-foundations.md). It explains the language-neutral vocabulary and concepts used in every language track, using non-visual examples.
 
+>>>>>>> 2067a20 (curriculum clearning and updates)
 ## Course Overview
 
 C++ is used in game engines, simulation, robotics, finance, desktop software, and performance-critical systems.
 
 This course intentionally parallels the original Python curriculum. It reuses problem contexts—greetings, profiles, a calculator, grade decisions, score collections, inventory, functions, text files, tests, text analysis, CSV, a to-do list, and a personal-data manager—so the principal new learning target is the C++ language. The syntax and implementation remain idiomatic, not a mechanical translation.
 
+<<<<<<< HEAD
+## Unit 0: Accessible Environment and Toolchain
+
+### Overview
+Install a C++20 compiler, configure an editor, create a reproducible project workspace, and verify keyboard and assistive-technology access to source code, diagnostics, and terminal output.
+
+### Lesson 0.1: Install and Verify C++
+
+#### Reading References
+- GCC, Clang, or Microsoft C++ compiler installation documentation.
+- C++ language support and compiler-version documentation.
+
+#### Learning Objectives
+=======
 # Unit 0: Accessible Environment and Toolchain
 
 ## Overview
@@ -20,14 +37,22 @@ Install a C++20 compiler, configure an editor, create a reproducible project wor
 - C++ language support and compiler-version documentation.
 
 ### Learning Objectives
+>>>>>>> 2067a20 (curriculum clearning and updates)
 - Identify the compiler and its version.
 - Compile, link, and run a minimal C++20 program.
 - Explain the difference between a compiler diagnostic and program output.
 
+<<<<<<< HEAD
+#### Concept Explanation
+C++ is a compiled language. The compiler translates each translation unit; the linker combines object code and required libraries into an executable. The course uses C++20. Keep the compiler, editor language service, and command-line build on the same standard.
+
+#### Worked Example
+=======
 ### Concept Explanation
 C++ is a compiled language. The compiler translates each translation unit; the linker combines object code and required libraries into an executable. The course uses C++20. Keep the compiler, editor language service, and command-line build on the same standard.
 
 ### Worked Example
+>>>>>>> 2067a20 (curriculum clearning and updates)
 ```cpp
 #include <iostream>
 int main() {
@@ -38,6 +63,9 @@ int main() {
 ```
 Compile with `c++ -std=c++20 -Wall -Wextra -Wpedantic -Werror -g main.cpp -o main`; run with `./main` (or the platform executable form).
 
+<<<<<<< HEAD
+#### Common Mistakes
+=======
 ### Expected Behavior or Output
 
 The compile command prints nothing when there are no warnings. Running the program prints one line:
@@ -47,25 +75,46 @@ Hello, C++20!
 This output was observed with g++ 13.3 on Linux.
 
 ### Common Mistakes
+>>>>>>> 2067a20 (curriculum clearning and updates)
 - Installing only editor syntax highlighting and assuming it includes a compiler.
 - Omitting the C++20 standard flag and unknowingly using a different language baseline.
 - Treating a compiler error as output produced by the running program.
 
+<<<<<<< HEAD
+#### Activities
+=======
 ### Activities
+>>>>>>> 2067a20 (curriculum clearning and updates)
 1. Install GCC, Clang, or MSVC and record its exact version.
 2. Compile and run the example from the terminal.
 3. Remove the semicolon after the output statement, compile again, and locate the diagnostic.
 4. Restore the semicolon and confirm that the build succeeds.
 
+<<<<<<< HEAD
+#### Accessibility Practice
+Navigate the source by line, word, and character. Confirm that punctuation, braces, indentation, compiler diagnostics, and terminal output can be read without relying on color or mouse-only controls.
+
+#### Skills Checklist
+=======
 ### Accessibility Practice
 Navigate the source by line, word, and character. Confirm that punctuation, braces, indentation, compiler diagnostics, and terminal output can be read without relying on color or mouse-only controls.
 
 ### Skills Checklist
+>>>>>>> 2067a20 (curriculum clearning and updates)
 - [ ] I can identify the installed compiler and version.
 - [ ] I can compile and link a C++20 program from the terminal.
 - [ ] I can run the executable and distinguish its output from diagnostics.
 - [ ] I can navigate the source and diagnostic text with my access technology.
 
+<<<<<<< HEAD
+### Lesson 0.2: Workspace and First Run
+
+#### Reading References
+- Compiler command-line documentation.
+- The shared terminal prerequisite.
+
+#### Learning Objectives
+=======
 ## Lesson 0.2: Workspace and First Run
 
 ### Reading References
@@ -73,14 +122,22 @@ Navigate the source by line, word, and character. Confirm that punctuation, brac
 - The shared terminal prerequisite.
 
 ### Learning Objectives
+>>>>>>> 2067a20 (curriculum clearning and updates)
 - Create a course workspace and source file.
 - Identify the current working directory and executable path.
 - Rebuild and run a program after changing its source.
 
+<<<<<<< HEAD
+#### Concept Explanation
+A source file such as `main.cpp` is input to the compiler; it is not itself the executable. Relative paths are interpreted from the process's current working directory. Keep source files separate from generated executables and temporary build output.
+
+#### Worked Example
+=======
 ### Concept Explanation
 A source file such as `main.cpp` is input to the compiler; it is not itself the executable. Relative paths are interpreted from the process's current working directory. Keep source files separate from generated executables and temporary build output.
 
 ### Worked Example
+>>>>>>> 2067a20 (curriculum clearning and updates)
 ```sh
 mkdir -p cpp-course/hello
 cd cpp-course/hello
@@ -89,6 +146,9 @@ c++ -std=c++20 -Wall -Wextra -Wpedantic main.cpp -o hello
 ./hello
 ```
 
+<<<<<<< HEAD
+#### Common Mistakes
+=======
 ### Expected Behavior or Output
 
 Compiling prints nothing when the source is correct, and `./hello` prints:
@@ -97,25 +157,46 @@ Hello, C++20!
 ```
 
 ### Common Mistakes
+>>>>>>> 2067a20 (curriculum clearning and updates)
 - Running the compile command from a directory that does not contain the source file.
 - Editing one copy of a file while compiling a different copy.
 - Confusing the source filename with the executable filename.
 
+<<<<<<< HEAD
+#### Activities
+=======
 ### Activities
+>>>>>>> 2067a20 (curriculum clearning and updates)
 1. Create a course folder and a `hello` subfolder.
 2. Save the first program as `main.cpp` and compile it to `hello`.
 3. Change the output text, rebuild, and verify the new output.
 4. List the folder contents and identify source versus generated files.
 
+<<<<<<< HEAD
+#### Accessibility Practice
+Use terminal commands to confirm the working directory and list files. Navigate the folder tree with keyboard commands and verify the executable name from text output.
+
+#### Skills Checklist
+=======
 ### Accessibility Practice
 Use terminal commands to confirm the working directory and list files. Navigate the folder tree with keyboard commands and verify the executable name from text output.
 
 ### Skills Checklist
+>>>>>>> 2067a20 (curriculum clearning and updates)
 - [ ] I can create and navigate a project directory.
 - [ ] I can identify the current working directory.
 - [ ] I can compile a named source file into a separate executable.
 - [ ] I can rebuild after an edit and verify the changed output.
 
+<<<<<<< HEAD
+### Lesson 0.3: Editor and Accessibility Workflow
+
+#### Reading References
+- [IDE setup lesson](../DEVELOPMENT/IDE_SETUP.md).
+- Documentation for the chosen editor's C++ language extension and screen-reader support.
+
+#### Learning Objectives
+=======
 ## Lesson 0.3: Editor and Accessibility Workflow
 
 ### Reading References
@@ -123,10 +204,20 @@ Use terminal commands to confirm the working directory and list files. Navigate 
 - Documentation for the chosen editor's C++ language extension and screen-reader support.
 
 ### Learning Objectives
+>>>>>>> 2067a20 (curriculum clearning and updates)
 - Open the project root rather than an individual source file only.
 - Configure C++ language services and compiler selection.
 - Navigate source, diagnostics, terminal, and project files by keyboard.
 
+<<<<<<< HEAD
+#### Concept Explanation
+An editor provides text editing; an IDE adds integrated language services, build, debugging, and project navigation. VS Code, VSCodium, and Theia can provide C++ support through extensions, but their extension marketplaces differ. A language server is not a substitute for an installed compiler.
+
+#### Worked Example
+Open the folder containing `main.cpp`, install the appropriate C++ language extension, select the same compiler used in the terminal, and confirm that diagnostics identify a deliberately introduced syntax error.
+
+#### Common Mistakes
+=======
 ### Concept Explanation
 An editor provides text editing; an IDE adds integrated language services, build, debugging, and project navigation. VS Code, VSCodium, and Theia can provide C++ support through extensions, but their extension marketplaces differ. A language server is not a substitute for an installed compiler.
 
@@ -138,25 +229,46 @@ Open the folder containing `main.cpp`, install the appropriate C++ language exte
 The editor shows a diagnostic at the syntax error that you introduce, with a line number and message that match what the compiler prints in the terminal. After you fix the error, the editor and the compiler are both clean.
 
 ### Common Mistakes
+>>>>>>> 2067a20 (curriculum clearning and updates)
 - Opening only a file instead of the project root, preventing project-level configuration from loading.
 - Installing an extension from a marketplace unavailable to the selected editor distribution.
 - Assuming code completion or syntax highlighting proves that the compiler is configured.
 
+<<<<<<< HEAD
+#### Activities
+=======
 ### Activities
+>>>>>>> 2067a20 (curriculum clearning and updates)
 1. Open the project folder in VS Code, VSCodium, or Theia.
 2. Verify language-server diagnostics and compiler selection.
 3. Navigate to a line, inspect punctuation, and read a diagnostic using the screen reader.
 4. Build and run from the integrated terminal, then repeat from the system terminal.
 
+<<<<<<< HEAD
+#### Accessibility Practice
+Test keyboard-only access to the editor, file tree, diagnostics panel, integrated terminal, and output. Adjust punctuation verbosity and indentation announcements to a usable level.
+
+#### Skills Checklist
+=======
 ### Accessibility Practice
 Test keyboard-only access to the editor, file tree, diagnostics panel, integrated terminal, and output. Adjust punctuation verbosity and indentation announcements to a usable level.
 
 ### Skills Checklist
+>>>>>>> 2067a20 (curriculum clearning and updates)
 - [ ] I can open the project root in my chosen editor.
 - [ ] I can identify the C++ extension and compiler configuration.
 - [ ] I can navigate diagnostics and terminal output by keyboard.
 - [ ] I can complete the build/run workflow without mouse-only actions.
 
+<<<<<<< HEAD
+### Lesson 0.4: Project Environments, Dependencies, and Terminal Usage
+
+#### Reading References
+- CMake getting-started documentation.
+- Compiler and linker command-line documentation.
+
+#### Learning Objectives
+=======
 ## Lesson 0.4: Project Environments, Dependencies, and Terminal Usage
 
 ### Reading References
@@ -164,38 +276,61 @@ Test keyboard-only access to the editor, file tree, diagnostics panel, integrate
 - Compiler and linker command-line documentation.
 
 ### Learning Objectives
+>>>>>>> 2067a20 (curriculum clearning and updates)
 - Explain the working directory and the roles of source, header, object, and executable files.
 - Compile and link a multi-file project.
 - Record external dependencies and reproducible build instructions.
 
+<<<<<<< HEAD
+#### Concept Explanation
+C++ dependencies may be supplied by the standard library or external libraries. Header lookup happens during preprocessing/compilation; unresolved external symbols are generally linker errors. Larger projects should record build configuration and use an out-of-source build directory such as a CMake `build/` folder.
+
+#### Worked Example
+=======
 ### Concept Explanation
 C++ dependencies may be supplied by the standard library or external libraries. Header lookup happens during preprocessing/compilation; unresolved external symbols are generally linker errors. Larger projects should record build configuration and use an out-of-source build directory such as a CMake `build/` folder.
 
 ### Worked Example
+>>>>>>> 2067a20 (curriculum clearning and updates)
 ```sh
 c++ -std=c++20 -Wall -Wextra -Wpedantic -Werror -g main.cpp helper.cpp -o app
 ./app
 ```
 
+<<<<<<< HEAD
+#### Common Mistakes
+=======
 ### Expected Behavior or Output
 
 The compile command builds one program from both source files and prints nothing when it succeeds; `./app` then runs it. If `helper.cpp` is left off the command, the linker reports an undefined reference error.
 
 ### Common Mistakes
+>>>>>>> 2067a20 (curriculum clearning and updates)
 - Running a relative path from the wrong working directory.
 - Treating a missing header as a linker error.
 - Omitting a required implementation file or library from the link command.
 
+<<<<<<< HEAD
+#### Activities
+=======
 ### Activities
+>>>>>>> 2067a20 (curriculum clearning and updates)
 1. Compile a one-file program from the project root and record the exact command.
 2. Split a program into a header, implementation file, and `main.cpp`; compile and link all translation units.
 3. Remove one implementation file from the command and interpret the linker diagnostic.
 4. Record compiler version, standard flag, dependencies, and build steps in a README.
 
+<<<<<<< HEAD
+#### Accessibility Practice
+Navigate each project file and terminal diagnostic by keyboard. Confirm that build errors can be read sequentially and are not communicated by color alone.
+
+#### Skills Checklist
+=======
 ### Accessibility Practice
 Navigate each project file and terminal diagnostic by keyboard. Confirm that build errors can be read sequentially and are not communicated by color alone.
 
 ### Skills Checklist
+>>>>>>> 2067a20 (curriculum clearning and updates)
 - [ ] I can identify the project root and run commands from it.
 - [ ] I can explain the difference between a header error and a linker error.
 - [ ] I can compile and link a multi-file project.
@@ -229,6 +364,8 @@ std::cout << "Computer science turns problems into precise, testable steps.\n";
 
 **Trace:** predict the output before compiling. Identify declarations, values, control-flow decisions, and state changes in order. Then compile and compare actual output with the prediction. The lesson example is intended to be independently compilable.
 
+<<<<<<< HEAD
+=======
 ### Expected Behavior or Output
 
 Output observed when the worked example was run with empty standard input (g++ 13.3, C++20; the text of the output does not depend on the operating system):
@@ -237,6 +374,7 @@ Output observed when the worked example was run with empty standard input (g++ 1
 Computer science turns problems into precise, testable steps.
 ```
 
+>>>>>>> 2067a20 (curriculum clearning and updates)
 ### Common Mistakes
 - A successful compile does not establish that the algorithm satisfies the requirement.
 - Distinguish an algorithm from its C++ implementation.
@@ -280,6 +418,8 @@ const std::string greeting_name = "Avery"; std::cout << "Hello, " << greeting_na
 
 **Trace:** predict the output before compiling. Identify declarations, values, control-flow decisions, and state changes in order. Then compile and compare actual output with the prediction. The lesson example is intended to be independently compilable.
 
+<<<<<<< HEAD
+=======
 ### Expected Behavior or Output
 
 Output observed when the worked example was run with empty standard input (g++ 13.3, C++20; the text of the output does not depend on the operating system):
@@ -288,6 +428,7 @@ Output observed when the worked example was run with empty standard input (g++ 1
 Hello, Avery!
 ```
 
+>>>>>>> 2067a20 (curriculum clearning and updates)
 ### Common Mistakes
 - Forgetting to rebuild after editing can leave an older executable on disk.
 - Provide main with the correct signature.
@@ -331,6 +472,8 @@ const std::string name = "Avery"; const int age = 16; const double height_m = 1.
 
 **Trace:** predict the output before compiling. Identify declarations, values, control-flow decisions, and state changes in order. Then compile and compare actual output with the prediction. The lesson example is intended to be independently compilable.
 
+<<<<<<< HEAD
+=======
 ### Expected Behavior or Output
 
 Output observed when the worked example was run with empty standard input (g++ 13.3, C++20; the text of the output does not depend on the operating system):
@@ -339,6 +482,7 @@ Output observed when the worked example was run with empty standard input (g++ 1
 Avery, 16, 1.72 m, Computer Science
 ```
 
+>>>>>>> 2067a20 (curriculum clearning and updates)
 ### Common Mistakes
 - Initialize every built-in variable.
 - Select types that preserve fractional values.
@@ -388,6 +532,8 @@ const double bill = 24.50; const double tip = bill * 0.15; std::cout << "Tip: $"
 
 **Trace:** predict the output before compiling. Identify declarations, values, control-flow decisions, and state changes in order. Then compile and compare actual output with the prediction. The lesson example is intended to be independently compilable.
 
+<<<<<<< HEAD
+=======
 ### Expected Behavior or Output
 
 Output observed when the worked example was run with empty standard input (g++ 13.3, C++20; the text of the output does not depend on the operating system):
@@ -396,6 +542,7 @@ Output observed when the worked example was run with empty standard input (g++ 1
 Tip: $3.675; total: $28.175
 ```
 
+>>>>>>> 2067a20 (curriculum clearning and updates)
 ### Common Mistakes
 - Printing currency without a defined rounding/formatting policy can misrepresent fractional cents.
 - Calculate the tip from the bill and keep the rate as a fraction.
@@ -439,6 +586,8 @@ double score = 70.0; score += 12.5; score *= 1.1; std::cout << "Adjusted score: 
 
 **Trace:** predict the output before compiling. Identify declarations, values, control-flow decisions, and state changes in order. Then compile and compare actual output with the prediction. The lesson example is intended to be independently compilable.
 
+<<<<<<< HEAD
+=======
 ### Expected Behavior or Output
 
 Output observed when the worked example was run with empty standard input (g++ 13.3, C++20; the text of the output does not depend on the operating system):
@@ -447,6 +596,7 @@ Output observed when the worked example was run with empty standard input (g++ 1
 Adjusted score: 90.75
 ```
 
+>>>>>>> 2067a20 (curriculum clearning and updates)
 ### Common Mistakes
 - Use compound assignment without overwriting prior values.
 - Distinguish percentage rates from percentage points.
@@ -490,6 +640,8 @@ std::istringstream input("Avery 6 7"); std::string name; int first = 0, second =
 
 **Trace:** predict the output before compiling. Identify declarations, values, control-flow decisions, and state changes in order. Then compile and compare actual output with the prediction. The lesson example is intended to be independently compilable.
 
+<<<<<<< HEAD
+=======
 ### Expected Behavior or Output
 
 Output observed when the worked example was run with empty standard input (g++ 13.3, C++20; the text of the output does not depend on the operating system):
@@ -498,6 +650,7 @@ Output observed when the worked example was run with empty standard input (g++ 1
 Hello, Avery; sum: 13
 ```
 
+>>>>>>> 2067a20 (curriculum clearning and updates)
 ### Common Mistakes
 - Check stream extraction before using input.
 - Handle multiword text with getline.
@@ -541,6 +694,8 @@ const int completed = 7, total = 10; const double ratio = static_cast<double>(co
 
 **Trace:** predict the output before compiling. Identify declarations, values, control-flow decisions, and state changes in order. Then compile and compare actual output with the prediction. The lesson example is intended to be independently compilable.
 
+<<<<<<< HEAD
+=======
 ### Expected Behavior or Output
 
 Output observed when the worked example was run with empty standard input (g++ 13.3, C++20; the text of the output does not depend on the operating system):
@@ -549,6 +704,7 @@ Output observed when the worked example was run with empty standard input (g++ 1
 Percent: 70; rounded: 70
 ```
 
+>>>>>>> 2067a20 (curriculum clearning and updates)
 ### Common Mistakes
 - Cast before division to avoid integer truncation.
 - Define behavior for invalid square-root inputs.
@@ -601,6 +757,9 @@ int main() {
 
 ```
 
+<<<<<<< HEAD
+**Expected behavior:** the circle with radius 3 has area approximately 28.2743 and circumference approximately 18.8496; the point (3, 4) is 5 units from the origin.
+=======
 
 ### Expected Behavior or Output
 
@@ -611,6 +770,7 @@ Area: 28.2743
 Circumference: 18.8496
 Distance: 5
 ```
+>>>>>>> 2067a20 (curriculum clearning and updates)
 
 ### Common Mistakes
 - Calling a math function without including `<cmath>` or qualifying it with `std::`.
@@ -661,6 +821,8 @@ const int score = 82; const bool passed = score >= 60 && score <= 100; std::cout
 
 **Trace:** predict the output before compiling. Identify declarations, values, control-flow decisions, and state changes in order. Then compile and compare actual output with the prediction. The lesson example is intended to be independently compilable.
 
+<<<<<<< HEAD
+=======
 ### Expected Behavior or Output
 
 Output observed when the worked example was run with empty standard input (g++ 13.3, C++20; the text of the output does not depend on the operating system):
@@ -669,6 +831,7 @@ Output observed when the worked example was run with empty standard input (g++ 1
 Valid passing score: true
 ```
 
+>>>>>>> 2067a20 (curriculum clearning and updates)
 ### Common Mistakes
 - Use && and || for logical operations.
 - Compare with ==.
@@ -712,6 +875,8 @@ for (int score : {59, 60, 79, 80, 89, 90, 100}) { const char grade = score >= 90
 
 **Trace:** predict the output before compiling. Identify declarations, values, control-flow decisions, and state changes in order. Then compile and compare actual output with the prediction. The lesson example is intended to be independently compilable.
 
+<<<<<<< HEAD
+=======
 ### Expected Behavior or Output
 
 Output observed when the worked example was run with empty standard input (g++ 13.3, C++20; the text of the output does not depend on the operating system):
@@ -726,6 +891,7 @@ Output observed when the worked example was run with empty standard input (g++ 1
 100: A
 ```
 
+>>>>>>> 2067a20 (curriculum clearning and updates)
 ### Common Mistakes
 - Test the most restrictive grade threshold first.
 - Include exact boundary values.
@@ -769,6 +935,8 @@ std::vector<int> scores{82, 91, 76, 88}; std::cout << "First: " << scores.at(0) 
 
 **Trace:** predict the output before compiling. Identify declarations, values, control-flow decisions, and state changes in order. Then compile and compare actual output with the prediction. The lesson example is intended to be independently compilable.
 
+<<<<<<< HEAD
+=======
 ### Expected Behavior or Output
 
 Output observed when the worked example was run with empty standard input (g++ 13.3, C++20; the text of the output does not depend on the operating system):
@@ -777,6 +945,7 @@ Output observed when the worked example was run with empty standard input (g++ 1
 First: 82; fourth: 88; count: 4
 ```
 
+>>>>>>> 2067a20 (curriculum clearning and updates)
 ### Common Mistakes
 - Check vector bounds and emptiness.
 - Remember zero-based indexing.
@@ -820,6 +989,8 @@ const std::vector<int> scores{82, 91, 76, 88}; int sum = 0; for (int score : sco
 
 **Trace:** predict the output before compiling. Identify declarations, values, control-flow decisions, and state changes in order. Then compile and compare actual output with the prediction. The lesson example is intended to be independently compilable.
 
+<<<<<<< HEAD
+=======
 ### Expected Behavior or Output
 
 Output observed when the worked example was run with empty standard input (g++ 13.3, C++20; the text of the output does not depend on the operating system):
@@ -828,6 +999,7 @@ Output observed when the worked example was run with empty standard input (g++ 1
 Total: 337; average: 84.25
 ```
 
+>>>>>>> 2067a20 (curriculum clearning and updates)
 ### Common Mistakes
 - Avoid invalidating iterators while traversing.
 - Use an accumulator with a suitable type.
@@ -871,6 +1043,8 @@ std::string text = "Avery Studies Programming"; std::transform(text.begin(), tex
 
 **Trace:** predict the output before compiling. Identify declarations, values, control-flow decisions, and state changes in order. Then compile and compare actual output with the prediction. The lesson example is intended to be independently compilable.
 
+<<<<<<< HEAD
+=======
 ### Expected Behavior or Output
 
 Output observed when the worked example was run with empty standard input (g++ 13.3, C++20; the text of the output does not depend on the operating system):
@@ -879,6 +1053,7 @@ Output observed when the worked example was run with empty standard input (g++ 1
 avery studies programming; length: 25
 ```
 
+>>>>>>> 2067a20 (curriculum clearning and updates)
 ### Common Mistakes
 - Treat std::string indexing as byte-oriented.
 - Pass unsigned char to cctype functions.
@@ -928,6 +1103,8 @@ std::vector<std::string> items{"Notebook", "Pencil"}; items.insert(items.begin()
 
 **Trace:** predict the output before compiling. Identify declarations, values, control-flow decisions, and state changes in order. Then compile and compare actual output with the prediction. The lesson example is intended to be independently compilable.
 
+<<<<<<< HEAD
+=======
 ### Expected Behavior or Output
 
 Output observed when the worked example was run with empty standard input (g++ 13.3, C++20; the text of the output does not depend on the operating system):
@@ -938,6 +1115,7 @@ Pencil
 Eraser
 ```
 
+>>>>>>> 2067a20 (curriculum clearning and updates)
 ### Common Mistakes
 - Check before pop_back.
 - Do not retain references across vector reallocation.
@@ -981,6 +1159,8 @@ std::vector<int> quantities{10, 3, 4, 1}; std::sort(quantities.begin(), quantiti
 
 **Trace:** predict the output before compiling. Identify declarations, values, control-flow decisions, and state changes in order. Then compile and compare actual output with the prediction. The lesson example is intended to be independently compilable.
 
+<<<<<<< HEAD
+=======
 ### Expected Behavior or Output
 
 Output observed when the worked example was run with empty standard input (g++ 13.3, C++20; the text of the output does not depend on the operating system):
@@ -989,6 +1169,7 @@ Output observed when the worked example was run with empty standard input (g++ 1
 10 4 3 1 
 ```
 
+>>>>>>> 2067a20 (curriculum clearning and updates)
 ### Common Mistakes
 - Write a strict-weak-order comparator.
 - Sort by the field required by the task.
@@ -1032,6 +1213,8 @@ struct Coordinate { const int x; const int y; }; const Coordinate point{3, 4}; s
 
 **Trace:** predict the output before compiling. Identify declarations, values, control-flow decisions, and state changes in order. Then compile and compare actual output with the prediction. The lesson example is intended to be independently compilable.
 
+<<<<<<< HEAD
+=======
 ### Expected Behavior or Output
 
 Output observed when the worked example was run with empty standard input (g++ 13.3, C++20; the text of the output does not depend on the operating system):
@@ -1040,6 +1223,7 @@ Output observed when the worked example was run with empty standard input (g++ 1
 Point: (3, 4)
 ```
 
+>>>>>>> 2067a20 (curriculum clearning and updates)
 ### Common Mistakes
 - Understand const members' effect on assignment.
 - Avoid dangling references.
@@ -1083,6 +1267,8 @@ std::map<std::string, int> inventory{{"Notebook", 3}, {"Pencil", 10}, {"Folder",
 
 **Trace:** predict the output before compiling. Identify declarations, values, control-flow decisions, and state changes in order. Then compile and compare actual output with the prediction. The lesson example is intended to be independently compilable.
 
+<<<<<<< HEAD
+=======
 ### Expected Behavior or Output
 
 Output observed when the worked example was run with empty standard input (g++ 13.3, C++20; the text of the output does not depend on the operating system):
@@ -1091,6 +1277,7 @@ Output observed when the worked example was run with empty standard input (g++ 1
 Notebook count: 4
 ```
 
+>>>>>>> 2067a20 (curriculum clearning and updates)
 ### Common Mistakes
 - Use find/contains for non-inserting lookup.
 - Remember map orders by key.
@@ -1134,6 +1321,8 @@ const std::map<std::string, int> inventory{{"Notebook", 3}, {"Pencil", 10}, {"Fo
 
 **Trace:** predict the output before compiling. Identify declarations, values, control-flow decisions, and state changes in order. Then compile and compare actual output with the prediction. The lesson example is intended to be independently compilable.
 
+<<<<<<< HEAD
+=======
 ### Expected Behavior or Output
 
 Output observed when the worked example was run with empty standard input (g++ 13.3, C++20; the text of the output does not depend on the operating system):
@@ -1144,6 +1333,7 @@ Notebook => 3
 Pencil => 10
 ```
 
+>>>>>>> 2067a20 (curriculum clearning and updates)
 ### Common Mistakes
 - Prefer const auto& for read-only traversal.
 - Do not mutate the traversed container.
@@ -1193,6 +1383,8 @@ std::istringstream input("16"); int age = 0; if (!(input >> age) || age < 0 || a
 
 **Trace:** predict the output before compiling. Identify declarations, values, control-flow decisions, and state changes in order. Then compile and compare actual output with the prediction. The lesson example is intended to be independently compilable.
 
+<<<<<<< HEAD
+=======
 ### Expected Behavior or Output
 
 Output observed when the worked example was run with empty standard input (g++ 13.3, C++20; the text of the output does not depend on the operating system):
@@ -1201,6 +1393,7 @@ Output observed when the worked example was run with empty standard input (g++ 1
 Accepted age: 16
 ```
 
+>>>>>>> 2067a20 (curriculum clearning and updates)
 ### Common Mistakes
 - Validate extraction and the allowed range.
 - Handle conversion exceptions.
@@ -1244,6 +1437,8 @@ std::istringstream input("1 2 3 0"); int value = 0, total = 0; while (input >> v
 
 **Trace:** predict the output before compiling. Identify declarations, values, control-flow decisions, and state changes in order. Then compile and compare actual output with the prediction. The lesson example is intended to be independently compilable.
 
+<<<<<<< HEAD
+=======
 ### Expected Behavior or Output
 
 Output observed when the worked example was run with empty standard input (g++ 13.3, C++20; the text of the output does not depend on the operating system):
@@ -1252,6 +1447,7 @@ Output observed when the worked example was run with empty standard input (g++ 1
 Sum before sentinel: 6
 ```
 
+>>>>>>> 2067a20 (curriculum clearning and updates)
 ### Common Mistakes
 - Update the loop condition and sentinel correctly.
 - Decide whether the sentinel is data.
@@ -1295,6 +1491,8 @@ const std::vector<std::string> names{"Avery", "Jordan", "Sam"}; bool found = fal
 
 **Trace:** predict the output before compiling. Identify declarations, values, control-flow decisions, and state changes in order. Then compile and compare actual output with the prediction. The lesson example is intended to be independently compilable.
 
+<<<<<<< HEAD
+=======
 ### Expected Behavior or Output
 
 Output observed when the worked example was run with empty standard input (g++ 13.3, C++20; the text of the output does not depend on the operating system):
@@ -1303,6 +1501,7 @@ Output observed when the worked example was run with empty standard input (g++ 1
 Jordan found: true
 ```
 
+>>>>>>> 2067a20 (curriculum clearning and updates)
 ### Common Mistakes
 - Place break in the intended loop.
 - Handle nested-loop exit deliberately.
@@ -1346,6 +1545,8 @@ for (int value : {-2, 3, 0, 5, -1}) { if (value <= 0) continue; std::cout << val
 
 **Trace:** predict the output before compiling. Identify declarations, values, control-flow decisions, and state changes in order. Then compile and compare actual output with the prediction. The lesson example is intended to be independently compilable.
 
+<<<<<<< HEAD
+=======
 ### Expected Behavior or Output
 
 Output observed when the worked example was run with empty standard input (g++ 13.3, C++20; the text of the output does not depend on the operating system):
@@ -1354,6 +1555,7 @@ Output observed when the worked example was run with empty standard input (g++ 1
 3 5 
 ```
 
+>>>>>>> 2067a20 (curriculum clearning and updates)
 ### Common Mistakes
 - Filter before producing output.
 - Ensure continue does not skip required state updates.
@@ -1397,6 +1599,8 @@ int attempts = 0; bool valid = false; while (!valid && attempts < 3) { ++attempt
 
 **Trace:** predict the output before compiling. Identify declarations, values, control-flow decisions, and state changes in order. Then compile and compare actual output with the prediction. The lesson example is intended to be independently compilable.
 
+<<<<<<< HEAD
+=======
 ### Expected Behavior or Output
 
 Output observed when the worked example was run with empty standard input (g++ 13.3, C++20; the text of the output does not depend on the operating system):
@@ -1405,6 +1609,7 @@ Output observed when the worked example was run with empty standard input (g++ 1
 Attempts: 2; valid: true
 ```
 
+>>>>>>> 2067a20 (curriculum clearning and updates)
 ### Common Mistakes
 - Bound retries.
 - Increment the attempt count on every attempt.
@@ -1453,6 +1658,8 @@ const auto calculate_total = [](double bill, double rate) { return bill * (1.0 +
 
 **Trace:** predict the output before compiling. Identify declarations, values, control-flow decisions, and state changes in order. Then compile and compare actual output with the prediction. The lesson example is intended to be independently compilable.
 
+<<<<<<< HEAD
+=======
 ### Expected Behavior or Output
 
 Output observed when the worked example was run with empty standard input (g++ 13.3, C++20; the text of the output does not depend on the operating system):
@@ -1461,6 +1668,7 @@ Output observed when the worked example was run with empty standard input (g++ 1
 Bill plus tip: $28.175
 ```
 
+>>>>>>> 2067a20 (curriculum clearning and updates)
 ### Common Mistakes
 - Declare functions before use.
 - Ensure every non-void path returns.
@@ -1504,6 +1712,8 @@ const auto label = [](const std::string& name, int score) { return name + ": " +
 
 **Trace:** predict the output before compiling. Identify declarations, values, control-flow decisions, and state changes in order. Then compile and compare actual output with the prediction. The lesson example is intended to be independently compilable.
 
+<<<<<<< HEAD
+=======
 ### Expected Behavior or Output
 
 Output observed when the worked example was run with empty standard input (g++ 13.3, C++20; the text of the output does not depend on the operating system):
@@ -1512,6 +1722,7 @@ Output observed when the worked example was run with empty standard input (g++ 1
 Avery: 92
 ```
 
+>>>>>>> 2067a20 (curriculum clearning and updates)
 ### Common Mistakes
 - Pass large read-only objects by const reference.
 - Use non-const references only for intended mutation.
@@ -1555,6 +1766,8 @@ const auto tip_total = [](double bill, double rate) { return bill * (1.0 + rate)
 
 **Trace:** predict the output before compiling. Identify declarations, values, control-flow decisions, and state changes in order. Then compile and compare actual output with the prediction. The lesson example is intended to be independently compilable.
 
+<<<<<<< HEAD
+=======
 ### Expected Behavior or Output
 
 Output observed when the worked example was run with empty standard input (g++ 13.3, C++20; the text of the output does not depend on the operating system):
@@ -1563,6 +1776,7 @@ Output observed when the worked example was run with empty standard input (g++ 1
 Total: $28.175
 ```
 
+>>>>>>> 2067a20 (curriculum clearning and updates)
 ### Common Mistakes
 - Never return a reference to a local.
 - Document failure/sentinel behavior.
@@ -1606,6 +1820,8 @@ const auto average = [](const std::vector<int>& scores) { if (scores.empty()) re
 
 **Trace:** predict the output before compiling. Identify declarations, values, control-flow decisions, and state changes in order. Then compile and compare actual output with the prediction. The lesson example is intended to be independently compilable.
 
+<<<<<<< HEAD
+=======
 ### Expected Behavior or Output
 
 Output observed when the worked example was run with empty standard input (g++ 13.3, C++20; the text of the output does not depend on the operating system):
@@ -1614,6 +1830,7 @@ Output observed when the worked example was run with empty standard input (g++ 1
 Average: 84.25
 ```
 
+>>>>>>> 2067a20 (curriculum clearning and updates)
 ### Common Mistakes
 - Avoid copying a collection when a const reference suffices.
 - Define empty-input behavior.
@@ -1657,6 +1874,8 @@ const auto sum = []<typename... Values>(Values... values) { return (values + ...
 
 **Trace:** predict the output before compiling. Identify declarations, values, control-flow decisions, and state changes in order. Then compile and compare actual output with the prediction. The lesson example is intended to be independently compilable.
 
+<<<<<<< HEAD
+=======
 ### Expected Behavior or Output
 
 Output observed when the worked example was run with empty standard input (g++ 13.3, C++20; the text of the output does not depend on the operating system):
@@ -1665,6 +1884,7 @@ Output observed when the worked example was run with empty standard input (g++ 1
 Sum: 9
 ```
 
+>>>>>>> 2067a20 (curriculum clearning and updates)
 ### Common Mistakes
 - Respect block scope.
 - Write fold expressions that match the parameter pack.
@@ -1714,6 +1934,8 @@ struct Item { std::string name; int quantity; }; const Item notebook{"Notebook",
 
 **Trace:** predict the output before compiling. Identify declarations, values, control-flow decisions, and state changes in order. Then compile and compare actual output with the prediction. The lesson example is intended to be independently compilable.
 
+<<<<<<< HEAD
+=======
 ### Expected Behavior or Output
 
 Output observed when the worked example was run with empty standard input (g++ 13.3, C++20; the text of the output does not depend on the operating system):
@@ -1722,6 +1944,7 @@ Output observed when the worked example was run with empty standard input (g++ 1
 Notebook: 3
 ```
 
+>>>>>>> 2067a20 (curriculum clearning and updates)
 ### Common Mistakes
 - Distinguish a type declaration from an instance.
 - Understand struct-public and class-private defaults.
@@ -1765,6 +1988,8 @@ struct Item { std::string name; int quantity; }; const std::vector<Item> items{{
 
 **Trace:** predict the output before compiling. Identify declarations, values, control-flow decisions, and state changes in order. Then compile and compare actual output with the prediction. The lesson example is intended to be independently compilable.
 
+<<<<<<< HEAD
+=======
 ### Expected Behavior or Output
 
 Output observed when the worked example was run with empty standard input (g++ 13.3, C++20; the text of the output does not depend on the operating system):
@@ -1775,6 +2000,7 @@ Pencil: 10
 Folder: 4
 ```
 
+>>>>>>> 2067a20 (curriculum clearning and updates)
 ### Common Mistakes
 - Initialize objects to satisfy invariants.
 - Use . for objects and -> for pointers.
@@ -1818,6 +2044,8 @@ struct Counter { int value{0}; void increment() { ++value; } int current() const
 
 **Trace:** predict the output before compiling. Identify declarations, values, control-flow decisions, and state changes in order. Then compile and compare actual output with the prediction. The lesson example is intended to be independently compilable.
 
+<<<<<<< HEAD
+=======
 ### Expected Behavior or Output
 
 Output observed when the worked example was run with empty standard input (g++ 13.3, C++20; the text of the output does not depend on the operating system):
@@ -1826,6 +2054,7 @@ Output observed when the worked example was run with empty standard input (g++ 1
 Clicks: 2
 ```
 
+>>>>>>> 2067a20 (curriculum clearning and updates)
 ### Common Mistakes
 - Distinguish member and local state.
 - Mark read-only methods const.
@@ -1869,6 +2098,8 @@ struct Record { virtual ~Record() = default; virtual std::string kind() const { 
 
 **Trace:** predict the output before compiling. Identify declarations, values, control-flow decisions, and state changes in order. Then compile and compare actual output with the prediction. The lesson example is intended to be independently compilable.
 
+<<<<<<< HEAD
+=======
 ### Expected Behavior or Output
 
 Output observed when the worked example was run with empty standard input (g++ 13.3, C++20; the text of the output does not depend on the operating system):
@@ -1877,6 +2108,7 @@ Output observed when the worked example was run with empty standard input (g++ 1
 student
 ```
 
+>>>>>>> 2067a20 (curriculum clearning and updates)
 ### Common Mistakes
 - Give polymorphic bases virtual destructors.
 - Match override signatures.
@@ -1920,6 +2152,8 @@ struct Address { std::string city; }; struct Student { std::string name; Address
 
 **Trace:** predict the output before compiling. Identify declarations, values, control-flow decisions, and state changes in order. Then compile and compare actual output with the prediction. The lesson example is intended to be independently compilable.
 
+<<<<<<< HEAD
+=======
 ### Expected Behavior or Output
 
 Output observed when the worked example was run with empty standard input (g++ 13.3, C++20; the text of the output does not depend on the operating system):
@@ -1928,6 +2162,7 @@ Output observed when the worked example was run with empty standard input (g++ 1
 Avery lives in Farmington
 ```
 
+>>>>>>> 2067a20 (curriculum clearning and updates)
 ### Common Mistakes
 - Model has-a relationships with composition.
 - Initialize members deliberately.
@@ -1977,6 +2212,8 @@ Reading text files is taught through the shared course datasets and requirements
 
 **Trace:** predict the output before compiling. Identify declarations, values, control-flow decisions, and state changes in order. Then compile and compare actual output with the prediction. The lesson example is intended to be independently compilable.
 
+<<<<<<< HEAD
+=======
 ### Expected Behavior or Output
 
 Output observed when the worked example was run with empty standard input (g++ 13.3, C++20; the text of the output does not depend on the operating system):
@@ -1986,6 +2223,7 @@ First line
 Second line
 ```
 
+>>>>>>> 2067a20 (curriculum clearning and updates)
 ### Common Mistakes
 - Check file-open state.
 - Remember getline removes the delimiter.
@@ -2029,6 +2267,8 @@ Writing and appending files is taught through the shared course datasets and req
 
 **Trace:** predict the output before compiling. Identify declarations, values, control-flow decisions, and state changes in order. Then compile and compare actual output with the prediction. The lesson example is intended to be independently compilable.
 
+<<<<<<< HEAD
+=======
 ### Expected Behavior or Output
 
 Output observed when the worked example was run with empty standard input (g++ 13.3, C++20; the text of the output does not depend on the operating system):
@@ -2037,6 +2277,7 @@ Output observed when the worked example was run with empty standard input (g++ 1
 Appended one record
 ```
 
+>>>>>>> 2067a20 (curriculum clearning and updates)
 ### Common Mistakes
 - Choose truncation or append mode deliberately.
 - Flush/close before dependent reads.
@@ -2080,6 +2321,8 @@ try { throw std::runtime_error("invalid score"); } catch (const std::exception& 
 
 **Trace:** predict the output before compiling. Identify declarations, values, control-flow decisions, and state changes in order. Then compile and compare actual output with the prediction. The lesson example is intended to be independently compilable.
 
+<<<<<<< HEAD
+=======
 ### Expected Behavior or Output
 
 Output observed when the worked example was run with empty standard input (g++ 13.3, C++20; the text of the output does not depend on the operating system):
@@ -2088,6 +2331,7 @@ Output observed when the worked example was run with empty standard input (g++ 1
 Handled: invalid score
 ```
 
+>>>>>>> 2067a20 (curriculum clearning and updates)
 ### Common Mistakes
 - Catch standard exceptions by const reference.
 - Handle expected input errors directly.
@@ -2131,6 +2375,8 @@ Resource cleanup is taught through the shared course datasets and requirements. 
 
 **Trace:** predict the output before compiling. Identify declarations, values, control-flow decisions, and state changes in order. Then compile and compare actual output with the prediction. The lesson example is intended to be independently compilable.
 
+<<<<<<< HEAD
+=======
 ### Expected Behavior or Output
 
 Output observed when the worked example was run with empty standard input (g++ 13.3, C++20; the text of the output does not depend on the operating system):
@@ -2139,6 +2385,7 @@ Output observed when the worked example was run with empty standard input (g++ 1
 RAII released the file stream
 ```
 
+>>>>>>> 2067a20 (curriculum clearning and updates)
 ### Common Mistakes
 - Prefer RAII to manual cleanup.
 - Check stream state after writes.
@@ -2182,6 +2429,8 @@ const std::string json = "{\"name\":\"Avery\",\"score\":92}"; std::cout << json 
 
 **Trace:** predict the output before compiling. Identify declarations, values, control-flow decisions, and state changes in order. Then compile and compare actual output with the prediction. The lesson example is intended to be independently compilable.
 
+<<<<<<< HEAD
+=======
 ### Expected Behavior or Output
 
 Output observed when the worked example was run with empty standard input (g++ 13.3, C++20; the text of the output does not depend on the operating system):
@@ -2190,6 +2439,7 @@ Output observed when the worked example was run with empty standard input (g++ 1
 {"name":"Avery","score":92}
 ```
 
+>>>>>>> 2067a20 (curriculum clearning and updates)
 ### Common Mistakes
 - Distinguish JSON serialization from parsing.
 - Escape special characters.
@@ -2239,6 +2489,8 @@ const auto add = [](int a, int b) { return a + b; }; assert(add(2, 3) == 5); ass
 
 **Trace:** predict the output before compiling. Identify declarations, values, control-flow decisions, and state changes in order. Then compile and compare actual output with the prediction. The lesson example is intended to be independently compilable.
 
+<<<<<<< HEAD
+=======
 ### Expected Behavior or Output
 
 Output observed when the worked example was run with empty standard input (g++ 13.3, C++20; the text of the output does not depend on the operating system):
@@ -2247,6 +2499,7 @@ Output observed when the worked example was run with empty standard input (g++ 1
 Function tests passed
 ```
 
+>>>>>>> 2067a20 (curriculum clearning and updates)
 ### Common Mistakes
 - Do not rely solely on assert in release builds.
 - Test independent expected results.
@@ -2290,6 +2543,8 @@ struct Inventory { int quantity{0}; void add(int amount) { if (amount > 0) quant
 
 **Trace:** predict the output before compiling. Identify declarations, values, control-flow decisions, and state changes in order. Then compile and compare actual output with the prediction. The lesson example is intended to be independently compilable.
 
+<<<<<<< HEAD
+=======
 ### Expected Behavior or Output
 
 Output observed when the worked example was run with empty standard input (g++ 13.3, C++20; the text of the output does not depend on the operating system):
@@ -2298,6 +2553,7 @@ Output observed when the worked example was run with empty standard input (g++ 1
 State test passed
 ```
 
+>>>>>>> 2067a20 (curriculum clearning and updates)
 ### Common Mistakes
 - Assert state after each operation.
 - Isolate setup between tests.
@@ -2341,6 +2597,8 @@ std::mt19937 engine(42); std::uniform_int_distribution<int> die(1, 6); for (int 
 
 **Trace:** predict the output before compiling. Identify declarations, values, control-flow decisions, and state changes in order. Then compile and compare actual output with the prediction. The lesson example is intended to be independently compilable.
 
+<<<<<<< HEAD
+=======
 ### Expected Behavior or Output
 
 Output observed when the worked example was run with empty standard input (g++ 13.3, C++20; the text of the output does not depend on the operating system):
@@ -2349,6 +2607,7 @@ Output observed when the worked example was run with empty standard input (g++ 1
 3 5 6 2 5
 ```
 
+>>>>>>> 2067a20 (curriculum clearning and updates)
 ### Common Mistakes
 - Seed engines for reproducibility.
 - Use standard distributions rather than modulo.
@@ -2391,6 +2650,8 @@ const std::string sample = "A student studies programming. Programming develops 
 
 **Trace:** predict the output before compiling. Identify declarations, values, control-flow decisions, and state changes in order. Then compile and compare actual output with the prediction. The lesson example is intended to be independently compilable.
 
+<<<<<<< HEAD
+=======
 ### Expected Behavior or Output
 
 Output observed when the worked example was run with empty standard input (g++ 13.3, C++20; the text of the output does not depend on the operating system):
@@ -2399,6 +2660,7 @@ Output observed when the worked example was run with empty standard input (g++ 1
 Letters: 65; spaces: 7
 ```
 
+>>>>>>> 2067a20 (curriculum clearning and updates)
 ### Common Mistakes
 - Pass unsigned char to cctype.
 - Distinguish bytes from Unicode characters.
@@ -2441,6 +2703,8 @@ std::istringstream row("001,Avery,Student,92,true"); std::string id, first_name,
 
 **Trace:** predict the output before compiling. Identify declarations, values, control-flow decisions, and state changes in order. Then compile and compare actual output with the prediction. The lesson example is intended to be independently compilable.
 
+<<<<<<< HEAD
+=======
 ### Expected Behavior or Output
 
 Output observed when the worked example was run with empty standard input (g++ 13.3, C++20; the text of the output does not depend on the operating system):
@@ -2449,6 +2713,7 @@ Output observed when the worked example was run with empty standard input (g++ 1
 001: Avery Student, score 92, active true
 ```
 
+>>>>>>> 2067a20 (curriculum clearning and updates)
 ### Common Mistakes
 - A comma split is not a complete quoted-CSV parser.
 - Validate field count.
@@ -2498,6 +2763,8 @@ const std::vector<std::string> requirements{"create records", "search by ID", "v
 
 **Trace:** predict the output before compiling. Identify declarations, values, control-flow decisions, and state changes in order. Then compile and compare actual output with the prediction. The lesson example is intended to be independently compilable.
 
+<<<<<<< HEAD
+=======
 ### Expected Behavior or Output
 
 Output observed when the worked example was run with empty standard input (g++ 13.3, C++20; the text of the output does not depend on the operating system):
@@ -2509,6 +2776,7 @@ Output observed when the worked example was run with empty standard input (g++ 1
 4. save changes
 ```
 
+>>>>>>> 2067a20 (curriculum clearning and updates)
 ### Common Mistakes
 - Write observable acceptance criteria before implementation.
 - Include failure and empty-data scenarios.
@@ -2546,12 +2814,18 @@ Text adventure: rooms and movement is taught through the shared course datasets 
 
 ### Worked Example
 ```cpp
+<<<<<<< HEAD
+const std::map<std::string, std::string> exits{{"start_room:north", "tunnel"}}; std::string room = "start_room"; const std::string direction = "north"; const std::string transition = room + ":" + direction; if (exits.contains(transition)) room = exits.at(transition); std::cout << "Current room: " << room << '\n';
+=======
 const std::map<std::string, std::string> exits{{"north", "Library"}, {"east", "Garden"}}; std::string room = "Atrium"; const std::string direction = "north"; if (exits.contains(direction)) room = exits.at(direction); std::cout << "Current room: " << room << '\n';
+>>>>>>> 2067a20 (curriculum clearning and updates)
 
 ```
 
 **Trace:** predict the output before compiling. Identify declarations, values, control-flow decisions, and state changes in order. Then compile and compare actual output with the prediction. The lesson example is intended to be independently compilable.
 
+<<<<<<< HEAD
+=======
 ### Expected Behavior or Output
 
 Output observed when the worked example was run with empty standard input (g++ 13.3, C++20; the text of the output does not depend on the operating system):
@@ -2560,6 +2834,7 @@ Output observed when the worked example was run with empty standard input (g++ 1
 Current room: Library
 ```
 
+>>>>>>> 2067a20 (curriculum clearning and updates)
 ### Common Mistakes
 - Validate a direction before changing rooms.
 - Use consistent room identifiers.
@@ -2597,12 +2872,18 @@ Text adventure: inventory and puzzles is taught through the shared course datase
 
 ### Worked Example
 ```cpp
+<<<<<<< HEAD
+std::vector<std::string> inventory{"shiny key", "map"}; const bool has_key = std::find(inventory.begin(), inventory.end(), "shiny key") != inventory.end(); if (has_key) inventory.push_back("chest reward"); for (const auto& item : inventory) std::cout << item << '\n';
+=======
 std::vector<std::string> inventory{"key", "map"}; const bool has_key = std::find(inventory.begin(), inventory.end(), "key") != inventory.end(); if (has_key) inventory.push_back("chest reward"); for (const auto& item : inventory) std::cout << item << '\n';
+>>>>>>> 2067a20 (curriculum clearning and updates)
 
 ```
 
 **Trace:** predict the output before compiling. Identify declarations, values, control-flow decisions, and state changes in order. Then compile and compare actual output with the prediction. The lesson example is intended to be independently compilable.
 
+<<<<<<< HEAD
+=======
 ### Expected Behavior or Output
 
 Output observed when the worked example was run with empty standard input (g++ 13.3, C++20; the text of the output does not depend on the operating system):
@@ -2613,6 +2894,7 @@ map
 chest reward
 ```
 
+>>>>>>> 2067a20 (curriculum clearning and updates)
 ### Common Mistakes
 - Verify item ownership before puzzle actions.
 - Avoid erasing during unsafe traversal.
@@ -2655,6 +2937,8 @@ struct Task { int id; std::string title; std::string description; bool done; std
 
 **Trace:** predict the output before compiling. Identify declarations, values, control-flow decisions, and state changes in order. Then compile and compare actual output with the prediction. The lesson example is intended to be independently compilable.
 
+<<<<<<< HEAD
+=======
 ### Expected Behavior or Output
 
 Output observed when the worked example was run with empty standard input (g++ 13.3, C++20; the text of the output does not depend on the operating system):
@@ -2663,6 +2947,7 @@ Output observed when the worked example was run with empty standard input (g++ 1
 1: Read lesson [1] 2026-11-01
 ```
 
+>>>>>>> 2067a20 (curriculum clearning and updates)
 ### Common Mistakes
 - Use stable task IDs rather than vector positions.
 - Store completion separately.
@@ -2706,6 +2991,8 @@ std::istringstream command("add Read chapter"); std::string action; command >> a
 
 **Trace:** predict the output before compiling. Identify declarations, values, control-flow decisions, and state changes in order. Then compile and compare actual output with the prediction. The lesson example is intended to be independently compilable.
 
+<<<<<<< HEAD
+=======
 ### Expected Behavior or Output
 
 Output observed when the worked example was run with empty standard input (g++ 13.3, C++20; the text of the output does not depend on the operating system):
@@ -2714,6 +3001,7 @@ Output observed when the worked example was run with empty standard input (g++ 1
 Added task: Read chapter
 ```
 
+>>>>>>> 2067a20 (curriculum clearning and updates)
 ### Common Mistakes
 - Validate each parsed argument.
 - Make errors identify the rejected field.
@@ -2763,6 +3051,8 @@ std::cout << "Personal data manager requirements: create, list, search, update, 
 
 **Trace:** predict the output before compiling. Identify declarations, values, control-flow decisions, and state changes in order. Then compile and compare actual output with the prediction. The lesson example is intended to be independently compilable.
 
+<<<<<<< HEAD
+=======
 ### Expected Behavior or Output
 
 Output observed when the worked example was run with empty standard input (g++ 13.3, C++20; the text of the output does not depend on the operating system):
@@ -2771,6 +3061,7 @@ Output observed when the worked example was run with empty standard input (g++ 1
 Personal data manager requirements: create, list, search, update, delete, validate, persist.
 ```
 
+>>>>>>> 2067a20 (curriculum clearning and updates)
 ### Common Mistakes
 - Set measurable acceptance criteria.
 - Constrain scope.
@@ -2813,6 +3104,8 @@ struct Record { int id; std::string title; std::string description; std::string 
 
 **Trace:** predict the output before compiling. Identify declarations, values, control-flow decisions, and state changes in order. Then compile and compare actual output with the prediction. The lesson example is intended to be independently compilable.
 
+<<<<<<< HEAD
+=======
 ### Expected Behavior or Output
 
 Output observed when the worked example was run with empty standard input (g++ 13.3, C++20; the text of the output does not depend on the operating system):
@@ -2821,6 +3114,7 @@ Output observed when the worked example was run with empty standard input (g++ 1
 1,Course project,Personal data manager,education,2026-11-01,2026-11-01
 ```
 
+>>>>>>> 2067a20 (curriculum clearning and updates)
 ### Common Mistakes
 - Use stable IDs rather than vector offsets.
 - Document the persisted schema.
@@ -2863,6 +3157,8 @@ struct Record { int id; std::string title; std::string description; std::string 
 
 **Trace:** predict the output before compiling. Identify declarations, values, control-flow decisions, and state changes in order. Then compile and compare actual output with the prediction. The lesson example is intended to be independently compilable.
 
+<<<<<<< HEAD
+=======
 ### Expected Behavior or Output
 
 Output observed when the worked example was run with empty standard input (g++ 13.3, C++20; the text of the output does not depend on the operating system):
@@ -2871,6 +3167,7 @@ Output observed when the worked example was run with empty standard input (g++ 1
 1: Updated course project
 ```
 
+>>>>>>> 2067a20 (curriculum clearning and updates)
 ### Common Mistakes
 - Locate records by ID.
 - Distinguish not-found from success.
@@ -2914,6 +3211,8 @@ const auto valid_email = [](const std::string& email) { const auto at = email.fi
 
 **Trace:** predict the output before compiling. Identify declarations, values, control-flow decisions, and state changes in order. Then compile and compare actual output with the prediction. The lesson example is intended to be independently compilable.
 
+<<<<<<< HEAD
+=======
 ### Expected Behavior or Output
 
 Output observed when the worked example was run with empty standard input (g++ 13.3, C++20; the text of the output does not depend on the operating system):
@@ -2922,6 +3221,7 @@ Output observed when the worked example was run with empty standard input (g++ 1
 Validation tests passed
 ```
 
+>>>>>>> 2067a20 (curriculum clearning and updates)
 ### Common Mistakes
 - Test duplicate IDs and missing records.
 - Use temporary test files.
@@ -2965,6 +3265,8 @@ std::cout << "Build: c++ -std=c++20 -Wall -Wextra -Wpedantic -Werror main.cpp -o
 
 **Trace:** predict the output before compiling. Identify declarations, values, control-flow decisions, and state changes in order. Then compile and compare actual output with the prediction. The lesson example is intended to be independently compilable.
 
+<<<<<<< HEAD
+=======
 ### Expected Behavior or Output
 
 Output observed when the worked example was run with empty standard input (g++ 13.3, C++20; the text of the output does not depend on the operating system):
@@ -2974,6 +3276,7 @@ Build: c++ -std=c++20 -Wall -Wextra -Wpedantic -Werror main.cpp -o app
 Document: requirements, data format, tests, limitations, accessibility
 ```
 
+>>>>>>> 2067a20 (curriculum clearning and updates)
 ### Common Mistakes
 - Document exact build and run commands.
 - State actual serialization support accurately.
@@ -2999,9 +3302,15 @@ Navigate the complete source file by line, word, and character using the learner
 
 Submit runnable exercises, prediction notes, debugging notes, tests, and the text adventure and personal-data manager projects. Assessment focuses on correctness, idiomatic C++, code explanation, independent debugging, and accessible interaction—not speed or visual editor use.
 
+<<<<<<< HEAD
+## AI and Academic Integrity
+
+AI may be used only for personal conceptual explanations and reinforcement when the instructor permits. Do not use AI to write, complete, autocomplete, repair, or generate course code or assessment solutions. Students must explain every submitted statement independently.
+=======
 ## AI Policy
 
 AI may be used only for personal conceptual understanding and reinforcement. It must not write, complete, autocomplete, repair, or generate course code or assessment solutions.
+>>>>>>> 2067a20 (curriculum clearning and updates)
 
 ## Further Learning
 

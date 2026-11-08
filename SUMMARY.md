@@ -14,11 +14,14 @@
   - [Project environments, dependency management, and containers](DEVELOPMENT/ENVIRONMENT_ISOLATION.md)
 - [Lesson structure audit and standard](DEVELOPMENT/LESSON_STRUCTURE_AUDIT.md)
 
+<<<<<<< HEAD
+=======
 # Foundations (complete before any language)
 
 - [Foundations overview](FOUNDATIONS/FOUNDATIONS_README.md)
   - [Unit P: Computing Foundations Primer](FOUNDATIONS/unit-p-computing-foundations.md)
 
+>>>>>>> 2067a20 (curriculum clearning and updates)
 # Python
 
 - [Python Curriculum](PYTHON/PYTHON_README.md)

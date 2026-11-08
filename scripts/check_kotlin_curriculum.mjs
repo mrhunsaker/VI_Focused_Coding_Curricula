@@ -23,14 +23,22 @@ let lessons = 0;
 let failures = 0;
 for (const file of files) {
   const content = readFileSync(file, "utf8");
+<<<<<<< HEAD
+  const headings = [...content.matchAll(/^### Lesson (\d+)\.(\d+): .+$/gm)];
+=======
   const headings = [...content.matchAll(/^## Lesson (\d+)\.(\d+): .+$/gm)];
+>>>>>>> 2067a20 (curriculum clearning and updates)
   lessons += headings.length;
   for (let i = 0; i < headings.length; i++) {
     const start = headings[i].index;
     const end = headings[i + 1]?.index ?? content.length;
     const section = content.slice(start, end);
     for (const heading of required) {
+<<<<<<< HEAD
+      if (!section.includes(`#### ${heading}`)) {
+=======
       if (!section.includes(`### ${heading}`)) {
+>>>>>>> 2067a20 (curriculum clearning and updates)
         console.error(`${file}: lesson ${headings[i][1]}.${headings[i][2]} missing ${heading}`);
         failures++;
       }

@@ -1,7 +1,10 @@
 # Kotlin: Complete Standalone Lessons
 
+<<<<<<< HEAD
+=======
 **Before you start:** complete [Unit P: Computing Foundations Primer](../FOUNDATIONS/unit-p-computing-foundations.md). It explains the language-neutral vocabulary and concepts used in every language track, using non-visual examples.
 
+>>>>>>> 2067a20 (curriculum clearning and updates)
 This reference introduces Kotlin/JVM and complements the standardized 57-lesson sequence.
 
 ## Kotlin and Java

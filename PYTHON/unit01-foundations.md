@@ -361,4 +361,33 @@ Say variable names aloud with their underscores (`favorite_subject`) and listen 
 - [ ] I can use `print()` to display the value of a variable.
 - [ ] I can perform basic arithmetic operations with numbers in Python.
 
+<<<<<<< HEAD
+## Canonical Shared Dataset — Student Profile
+
+The parallel-language courses use the same student record. Keep these values unchanged when translating the example into another language.
+
+```python
+student_profile = {
+    "name": "Avery",
+    "age": 16,
+    "height_m": 1.72,
+    "favorite_subject": "Computer Science",
+}
+print(student_profile["name"])
+print(student_profile["age"])
+print(student_profile["height_m"])
+print(student_profile["favorite_subject"])
+```
+
+Expected output:
+```text
+Avery
+16
+1.72
+Computer Science
+```
+
+Use this record in place of unrelated personal-profile values in parallel-track comparison exercises. The earlier Hello World example remains a minimal first-program demonstration.
+=======
 ---
+>>>>>>> 2067a20 (curriculum clearning and updates)

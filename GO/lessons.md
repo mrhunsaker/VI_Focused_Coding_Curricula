@@ -1,19 +1,31 @@
 # Go: Complete Curriculum — Units 0–11
 
+<<<<<<< HEAD
+=======
 **Before you start:** complete [Unit P: Computing Foundations Primer](../FOUNDATIONS/unit-p-computing-foundations.md). It explains the language-neutral vocabulary and concepts used in every language track, using non-visual examples.
 
+>>>>>>> 2067a20 (curriculum clearning and updates)
 ## Course Overview
 
 Go is a compiled, statically typed language used for cloud services, network servers, command-line tools, infrastructure, and concurrent systems. This course follows the Python curriculum's shared examples and datasets while teaching Go idioms: packages and modules, explicit types, slices, maps, structs, interfaces, error values, goroutines, channels, and the standard library.
 
 **Toolchain baseline:** current stable Go release. Use the official Go distribution, gofmt, modules, and the go command. The examples are self-contained standard-library programs unless a lesson explicitly names a package.
 
+<<<<<<< HEAD
+## Unit 0: Accessible Environment and Toolchain
+
+### Overview
+Install Go, create a module, configure editor support, and verify keyboard and screen-reader access.
+
+### Lesson 0.1: Install and Verify Go
+=======
 # Unit 0: Accessible Environment and Toolchain
 
 ## Overview
 Install Go, create a module, configure editor support, and verify keyboard and screen-reader access.
 
 ## Lesson 0.1: Install and Verify Go
+>>>>>>> 2067a20 (curriculum clearning and updates)
 
 ### Reading References
 - [Go installation](https://go.dev/dl/)
@@ -33,11 +45,15 @@ The Go distribution includes the compiler, standard library, go command, and for
 go version\ngofmt -h
 ```
 
+<<<<<<< HEAD
+**Expected behavior:** The terminal prints the installed Go version and gofmt usage information.
+=======
 
 
 ### Expected Behavior or Output
 
 The terminal prints the installed Go version and gofmt usage information.
+>>>>>>> 2067a20 (curriculum clearning and updates)
 
 ### Common Mistakes
 - Installing Go from an unofficial source or mixing multiple PATH installations.
@@ -59,7 +75,11 @@ Verify editor and terminal focus, punctuation announcement, indentation, diagnos
 - [ ] I can run the relevant command and interpret its result.
 - [ ] I can identify a troubleshooting step from an error message.
 - [ ] I can access source code and output with assistive technology.
+<<<<<<< HEAD
+### Lesson 0.2: Modules, Workspace, and First Run
+=======
 ## Lesson 0.2: Modules, Workspace, and First Run
+>>>>>>> 2067a20 (curriculum clearning and updates)
 
 ### Reading References
 - [Go installation](https://go.dev/dl/)
@@ -79,11 +99,15 @@ A module is described by go.mod. An executable starts in package main and define
 mkdir courseapp\ncd courseapp\ngo mod init example.com/courseapp\nprintf 'package main\\nimport "fmt"\\nfunc main() { fmt.Println("Hello, Go!") }\\n' > main.go\ngo run .
 ```
 
+<<<<<<< HEAD
+**Expected behavior:** Go creates go.mod and runs main.go, printing Hello, Go!.
+=======
 
 
 ### Expected Behavior or Output
 
 Go creates go.mod and runs main.go, printing Hello, Go!.
+>>>>>>> 2067a20 (curriculum clearning and updates)
 
 ### Common Mistakes
 - Installing Go from an unofficial source or mixing multiple PATH installations.
@@ -105,7 +129,11 @@ Verify editor and terminal focus, punctuation announcement, indentation, diagnos
 - [ ] I can run the relevant command and interpret its result.
 - [ ] I can identify a troubleshooting step from an error message.
 - [ ] I can access source code and output with assistive technology.
+<<<<<<< HEAD
+### Lesson 0.3: Editor and Accessibility Workflow
+=======
 ## Lesson 0.3: Editor and Accessibility Workflow
+>>>>>>> 2067a20 (curriculum clearning and updates)
 
 ### Reading References
 - [Go installation](https://go.dev/dl/)
@@ -125,11 +153,15 @@ The Go extension and gopls provide language-aware navigation and diagnostics; th
 gofmt -w main.go\ngo test ./...\ngo build ./...
 ```
 
+<<<<<<< HEAD
+**Expected behavior:** The source is formatted, tests run (or report that none exist), and the module builds.
+=======
 
 
 ### Expected Behavior or Output
 
 The source is formatted, tests run (or report that none exist), and the module builds.
+>>>>>>> 2067a20 (curriculum clearning and updates)
 
 ### Common Mistakes
 - Installing Go from an unofficial source or mixing multiple PATH installations.
@@ -151,7 +183,11 @@ Verify editor and terminal focus, punctuation announcement, indentation, diagnos
 - [ ] I can run the relevant command and interpret its result.
 - [ ] I can identify a troubleshooting step from an error message.
 - [ ] I can access source code and output with assistive technology.
+<<<<<<< HEAD
+### Lesson 0.4: Project Environments, Dependencies, and Terminal Usage
+=======
 ## Lesson 0.4: Project Environments, Dependencies, and Terminal Usage
+>>>>>>> 2067a20 (curriculum clearning and updates)
 
 ### Reading References
 - [Go installation](https://go.dev/dl/)
@@ -171,11 +207,15 @@ Go modules record direct requirements in go.mod and checksums in go.sum. Use go 
 go env GOMOD\ngo list ./...\ngo test ./...\ngo build ./...
 ```
 
+<<<<<<< HEAD
+**Expected behavior:** The commands identify the active module, list packages, run tests, and build packages.
+=======
 
 
 ### Expected Behavior or Output
 
 The commands identify the active module, list packages, run tests, and build packages.
+>>>>>>> 2067a20 (curriculum clearning and updates)
 
 ### Common Mistakes
 - Installing Go from an unofficial source or mixing multiple PATH installations.
@@ -219,10 +259,39 @@ This unit develops foundations of computing using Go's types, packages, and stan
 - Test a relevant boundary condition and explain a common failure.
 
 ### Concept Explanation
+<<<<<<< HEAD
+package main
+import (
+	"fmt"
+)
+func main() {
+	fmt.Println("A program is a precise set of instructions.")
+},package main
+import (
+	"fmt"
+)
+func main() {
+	name := "Avery"
+	fmt.Println("Hello,", name)
+	fmt.Println("This line runs second.")
+},package main
+import (
+	"fmt"
+)
+func main() {
+	var age int = 16
+	height := 1.72
+	active := true
+	fmt.Printf("age=%d height=%.2f active=%t\n", age, height, active)
+} The lesson uses the canonical course data so learners focus on Go semantics rather than a new domain problem. Format with gofmt and use go test ./... as routine development tools.
+
+### Worked Example
+=======
 A computer follows instructions exactly, so a program must state every step. An algorithm is an ordered, finite list of clear steps; a Go program is one way of carrying it out. The examples turn the same plain-language plan into Go: store values, repeat a step, and report a result.
 ### Worked Example
 
 **Example 1.1.1**
+>>>>>>> 2067a20 (curriculum clearning and updates)
 ```go
 package main
 import (
@@ -233,6 +302,9 @@ func main() {
 }
 ```
 
+<<<<<<< HEAD
+**Expected behavior:** The standalone program demonstrates computer science and problem solving with the course's shared example data. It compiles and runs using the standard library. Predict the output first, then compare it with the terminal output.
+=======
 **Example 1.1.2**
 ```go
 package main
@@ -280,6 +352,7 @@ Example 3:
 ```text
 age=16 height=1.72 active=true
 ```
+>>>>>>> 2067a20 (curriculum clearning and updates)
 
 ### Common Mistakes
 1. Treating a computer as if it inferred unstated requirements.
@@ -317,21 +390,47 @@ Use keyboard navigation to move between the lesson heading, code fence, compiler
 - Test a relevant boundary condition and explain a common failure.
 
 ### Concept Explanation
+<<<<<<< HEAD
+=======
 Every Go executable lives in `package main` and starts at `func main()`. The `import` block names the packages the file uses, and an unused import is a compile error. `fmt.Println` writes its arguments separated by spaces and ends with a new line; `gofmt` formats the file so every Go program looks the same.
 ### Worked Example
 
 **Example 1.2.1**
 ```go
+>>>>>>> 2067a20 (curriculum clearning and updates)
 package main
 import (
 	"fmt"
 )
 func main() {
 	fmt.Println("A program is a precise set of instructions.")
+<<<<<<< HEAD
+},package main
+import (
+	"fmt"
+)
+func main() {
+	name := "Avery"
+	fmt.Println("Hello,", name)
+	fmt.Println("This line runs second.")
+},package main
+import (
+	"fmt"
+)
+func main() {
+	var age int = 16
+	height := 1.72
+	active := true
+	fmt.Printf("age=%d height=%.2f active=%t\n", age, height, active)
+} The lesson uses the canonical course data so learners focus on Go semantics rather than a new domain problem. Format with gofmt and use go test ./... as routine development tools.
+
+### Worked Example
+=======
 }
 ```
 
 **Example 1.2.2**
+>>>>>>> 2067a20 (curriculum clearning and updates)
 ```go
 package main
 import (
@@ -344,6 +443,9 @@ func main() {
 }
 ```
 
+<<<<<<< HEAD
+**Expected behavior:** The standalone program demonstrates your first go program and packages with the course's shared example data. It compiles and runs using the standard library. Predict the output first, then compare it with the terminal output.
+=======
 **Example 1.2.3**
 ```go
 package main
@@ -378,6 +480,7 @@ Example 3:
 ```text
 age=16 height=1.72 active=true
 ```
+>>>>>>> 2067a20 (curriculum clearning and updates)
 
 ### Common Mistakes
 1. Treating a computer as if it inferred unstated requirements.
@@ -415,23 +518,30 @@ Use keyboard navigation to move between the lesson heading, code fence, compiler
 - Test a relevant boundary condition and explain a common failure.
 
 ### Concept Explanation
+<<<<<<< HEAD
+=======
 Go is statically typed: every variable has a type fixed at compile time. `var age int = 16` declares the type explicitly, while `height := 1.72` declares and infers `float64` inside a function. Constants use `const`, and an unassigned variable holds its type's zero value (0, "", false) rather than an undefined value.
 ### Worked Example
 
 **Example 1.3.1**
 ```go
+>>>>>>> 2067a20 (curriculum clearning and updates)
 package main
 import (
 	"fmt"
 )
 func main() {
 	fmt.Println("A program is a precise set of instructions.")
+<<<<<<< HEAD
+},package main
+=======
 }
 ```
 
 **Example 1.3.2**
 ```go
 package main
+>>>>>>> 2067a20 (curriculum clearning and updates)
 import (
 	"fmt"
 )
@@ -439,10 +549,25 @@ func main() {
 	name := "Avery"
 	fmt.Println("Hello,", name)
 	fmt.Println("This line runs second.")
+<<<<<<< HEAD
+},package main
+import (
+	"fmt"
+)
+func main() {
+	var age int = 16
+	height := 1.72
+	active := true
+	fmt.Printf("age=%d height=%.2f active=%t\n", age, height, active)
+} The lesson uses the canonical course data so learners focus on Go semantics rather than a new domain problem. Format with gofmt and use go test ./... as routine development tools.
+
+### Worked Example
+=======
 }
 ```
 
 **Example 1.3.3**
+>>>>>>> 2067a20 (curriculum clearning and updates)
 ```go
 package main
 import (
@@ -456,6 +581,9 @@ func main() {
 }
 ```
 
+<<<<<<< HEAD
+**Expected behavior:** The standalone program demonstrates variables, constants, and primitive types with the course's shared example data. It compiles and runs using the standard library. Predict the output first, then compare it with the terminal output.
+=======
 
 ### Expected Behavior or Output
 
@@ -476,6 +604,7 @@ Example 3:
 ```text
 age=16 height=1.72 active=true
 ```
+>>>>>>> 2067a20 (curriculum clearning and updates)
 
 ### Common Mistakes
 1. Treating a computer as if it inferred unstated requirements.
@@ -518,10 +647,65 @@ This unit develops numeric computations using Go's types, packages, and standard
 - Test a relevant boundary condition and explain a common failure.
 
 ### Concept Explanation
+<<<<<<< HEAD
+package main
+import (
+	"fmt"
+)
+func main() {
+	bill := 24.50
+	rate := 0.15
+	tip := bill * rate
+	fmt.Printf("Tip: %.2f; total: %.2f\n", tip, bill+tip)
+},package main
+import (
+	"fmt"
+)
+func main() {
+	subtotal := 24.50
+	taxRate := 0.075
+	tax := subtotal * taxRate
+	fmt.Printf("Subtotal %.2f, tax %.2f, total %.2f\n", subtotal, tax, subtotal+tax)
+},package main
+import (
+	"bufio"
+	"fmt"
+	"os"
+	"strconv"
+)
+func main() {
+	reader := bufio.NewReader(os.Stdin)
+	fmt.Print("Enter a score: ")
+	text, _ := reader.ReadString('\n')
+	score, err := strconv.Atoi(text)
+	if err != nil { fmt.Println("Enter a whole number.") } else { fmt.Println("Score:", score) }
+},package main
+import (
+	"fmt"
+	"math"
+)
+func main() {
+	radius := 3.0
+	area := math.Pi * math.Pow(radius, 2)
+	circumference := 2 * math.Pi * radius
+	fmt.Printf("area=%.2f circumference=%.2f\n", area, circumference)
+},package main
+import (
+	"fmt"
+	"math"
+)
+func main() {
+	distance := math.Hypot(3, 4)
+	fmt.Println("Distance from origin:", distance)
+} The lesson uses the canonical course data so learners focus on Go semantics rather than a new domain problem. Format with gofmt and use go test ./... as routine development tools.
+
+### Worked Example
+=======
 Software is built in a cycle of understanding, designing, implementing, and testing. Design the tip calculator in steps first, then write each step as Go, and trace the values by hand before running. `fmt.Printf` with `%.2f` displays a number with two decimals, rounding the stored binary value, so the shared tip of 3.675 displays as 3.67.
 ### Worked Example
 
 **Example 2.1.1**
+>>>>>>> 2067a20 (curriculum clearning and updates)
 ```go
 package main
 import (
@@ -535,6 +719,9 @@ func main() {
 }
 ```
 
+<<<<<<< HEAD
+**Expected behavior:** The standalone program demonstrates software design and tracing with the course's shared example data. It compiles and runs using the standard library. Predict the output first, then compare it with the terminal output.
+=======
 **Example 2.1.2**
 ```go
 package main
@@ -624,6 +811,7 @@ Example 5:
 ```text
 Distance from origin: 5
 ```
+>>>>>>> 2067a20 (curriculum clearning and updates)
 
 ### Common Mistakes
 1. Confusing := declaration with = assignment.
@@ -661,11 +849,14 @@ Use keyboard navigation to move between the lesson heading, code fence, compiler
 - Test a relevant boundary condition and explain a common failure.
 
 ### Concept Explanation
+<<<<<<< HEAD
+=======
 An expression produces a value. Go's arithmetic operators are `+`, `-`, `*`, `/`, and `%`; dividing two integers truncates toward zero, so `7 / 2` is `3`. Go has no implicit numeric conversion, so an `int` and a `float64` cannot be mixed until one is converted. Assignment stores a result, and `+=` updates a variable in place.
 ### Worked Example
 
 **Example 2.2.1**
 ```go
+>>>>>>> 2067a20 (curriculum clearning and updates)
 package main
 import (
 	"fmt"
@@ -675,10 +866,56 @@ func main() {
 	rate := 0.15
 	tip := bill * rate
 	fmt.Printf("Tip: %.2f; total: %.2f\n", tip, bill+tip)
+<<<<<<< HEAD
+},package main
+import (
+	"fmt"
+)
+func main() {
+	subtotal := 24.50
+	taxRate := 0.075
+	tax := subtotal * taxRate
+	fmt.Printf("Subtotal %.2f, tax %.2f, total %.2f\n", subtotal, tax, subtotal+tax)
+},package main
+import (
+	"bufio"
+	"fmt"
+	"os"
+	"strconv"
+)
+func main() {
+	reader := bufio.NewReader(os.Stdin)
+	fmt.Print("Enter a score: ")
+	text, _ := reader.ReadString('\n')
+	score, err := strconv.Atoi(text)
+	if err != nil { fmt.Println("Enter a whole number.") } else { fmt.Println("Score:", score) }
+},package main
+import (
+	"fmt"
+	"math"
+)
+func main() {
+	radius := 3.0
+	area := math.Pi * math.Pow(radius, 2)
+	circumference := 2 * math.Pi * radius
+	fmt.Printf("area=%.2f circumference=%.2f\n", area, circumference)
+},package main
+import (
+	"fmt"
+	"math"
+)
+func main() {
+	distance := math.Hypot(3, 4)
+	fmt.Println("Distance from origin:", distance)
+} The lesson uses the canonical course data so learners focus on Go semantics rather than a new domain problem. Format with gofmt and use go test ./... as routine development tools.
+
+### Worked Example
+=======
 }
 ```
 
 **Example 2.2.2**
+>>>>>>> 2067a20 (curriculum clearning and updates)
 ```go
 package main
 import (
@@ -692,6 +929,9 @@ func main() {
 }
 ```
 
+<<<<<<< HEAD
+**Expected behavior:** The standalone program demonstrates expressions, operators, and assignment with the course's shared example data. It compiles and runs using the standard library. Predict the output first, then compare it with the terminal output.
+=======
 **Example 2.2.3**
 ```go
 package main
@@ -767,6 +1007,7 @@ Example 5:
 ```text
 Distance from origin: 5
 ```
+>>>>>>> 2067a20 (curriculum clearning and updates)
 
 ### Common Mistakes
 1. Confusing := declaration with = assignment.
@@ -804,11 +1045,14 @@ Use keyboard navigation to move between the lesson heading, code fence, compiler
 - Test a relevant boundary condition and explain a common failure.
 
 ### Concept Explanation
+<<<<<<< HEAD
+=======
 The `fmt` package writes with `Println` and `Printf` and reads with `Scanln` or a `bufio.Scanner`. Reading returns an error value as well as data, and Go programs check it: at the end of input the error is `io.EOF`. Typed text is a string, so a number needs `strconv.Atoi` or `strconv.ParseFloat`, which also return an error for invalid text.
 ### Worked Example
 
 **Example 2.3.1**
 ```go
+>>>>>>> 2067a20 (curriculum clearning and updates)
 package main
 import (
 	"fmt"
@@ -818,12 +1062,16 @@ func main() {
 	rate := 0.15
 	tip := bill * rate
 	fmt.Printf("Tip: %.2f; total: %.2f\n", tip, bill+tip)
+<<<<<<< HEAD
+},package main
+=======
 }
 ```
 
 **Example 2.3.2**
 ```go
 package main
+>>>>>>> 2067a20 (curriculum clearning and updates)
 import (
 	"fmt"
 )
@@ -832,10 +1080,47 @@ func main() {
 	taxRate := 0.075
 	tax := subtotal * taxRate
 	fmt.Printf("Subtotal %.2f, tax %.2f, total %.2f\n", subtotal, tax, subtotal+tax)
+<<<<<<< HEAD
+},package main
+import (
+	"bufio"
+	"fmt"
+	"os"
+	"strconv"
+)
+func main() {
+	reader := bufio.NewReader(os.Stdin)
+	fmt.Print("Enter a score: ")
+	text, _ := reader.ReadString('\n')
+	score, err := strconv.Atoi(text)
+	if err != nil { fmt.Println("Enter a whole number.") } else { fmt.Println("Score:", score) }
+},package main
+import (
+	"fmt"
+	"math"
+)
+func main() {
+	radius := 3.0
+	area := math.Pi * math.Pow(radius, 2)
+	circumference := 2 * math.Pi * radius
+	fmt.Printf("area=%.2f circumference=%.2f\n", area, circumference)
+},package main
+import (
+	"fmt"
+	"math"
+)
+func main() {
+	distance := math.Hypot(3, 4)
+	fmt.Println("Distance from origin:", distance)
+} The lesson uses the canonical course data so learners focus on Go semantics rather than a new domain problem. Format with gofmt and use go test ./... as routine development tools.
+
+### Worked Example
+=======
 }
 ```
 
 **Example 2.3.3**
+>>>>>>> 2067a20 (curriculum clearning and updates)
 ```go
 package main
 import (
@@ -853,6 +1138,9 @@ func main() {
 }
 ```
 
+<<<<<<< HEAD
+**Expected behavior:** The standalone program demonstrates input and output with fmt with the course's shared example data. It compiles and runs using the standard library. Predict the output first, then compare it with the terminal output.
+=======
 **Example 2.3.4**
 ```go
 package main
@@ -910,6 +1198,7 @@ Example 5:
 ```text
 Distance from origin: 5
 ```
+>>>>>>> 2067a20 (curriculum clearning and updates)
 
 ### Common Mistakes
 1. Confusing := declaration with = assignment.
@@ -947,11 +1236,14 @@ Use keyboard navigation to move between the lesson heading, code fence, compiler
 - Test a relevant boundary condition and explain a common failure.
 
 ### Concept Explanation
+<<<<<<< HEAD
+=======
 Go converts types explicitly: `float64(count)` and `int(price)`. Converting a float to an integer discards the fraction and does not round. `strconv` converts between text and numbers and reports invalid text through an error. Floating-point values are approximations, which is why `0.1 + 0.2` is not exactly `0.3`.
 ### Worked Example
 
 **Example 2.4.1**
 ```go
+>>>>>>> 2067a20 (curriculum clearning and updates)
 package main
 import (
 	"fmt"
@@ -961,12 +1253,16 @@ func main() {
 	rate := 0.15
 	tip := bill * rate
 	fmt.Printf("Tip: %.2f; total: %.2f\n", tip, bill+tip)
+<<<<<<< HEAD
+},package main
+=======
 }
 ```
 
 **Example 2.4.2**
 ```go
 package main
+>>>>>>> 2067a20 (curriculum clearning and updates)
 import (
 	"fmt"
 )
@@ -975,12 +1271,16 @@ func main() {
 	taxRate := 0.075
 	tax := subtotal * taxRate
 	fmt.Printf("Subtotal %.2f, tax %.2f, total %.2f\n", subtotal, tax, subtotal+tax)
+<<<<<<< HEAD
+},package main
+=======
 }
 ```
 
 **Example 2.4.3**
 ```go
 package main
+>>>>>>> 2067a20 (curriculum clearning and updates)
 import (
 	"bufio"
 	"fmt"
@@ -993,10 +1293,34 @@ func main() {
 	text, _ := reader.ReadString('\n')
 	score, err := strconv.Atoi(text)
 	if err != nil { fmt.Println("Enter a whole number.") } else { fmt.Println("Score:", score) }
+<<<<<<< HEAD
+},package main
+import (
+	"fmt"
+	"math"
+)
+func main() {
+	radius := 3.0
+	area := math.Pi * math.Pow(radius, 2)
+	circumference := 2 * math.Pi * radius
+	fmt.Printf("area=%.2f circumference=%.2f\n", area, circumference)
+},package main
+import (
+	"fmt"
+	"math"
+)
+func main() {
+	distance := math.Hypot(3, 4)
+	fmt.Println("Distance from origin:", distance)
+} The lesson uses the canonical course data so learners focus on Go semantics rather than a new domain problem. Format with gofmt and use go test ./... as routine development tools.
+
+### Worked Example
+=======
 }
 ```
 
 **Example 2.4.4**
+>>>>>>> 2067a20 (curriculum clearning and updates)
 ```go
 package main
 import (
@@ -1011,6 +1335,9 @@ func main() {
 }
 ```
 
+<<<<<<< HEAD
+**Expected behavior:** The standalone program demonstrates numeric conversions and math with the course's shared example data. It compiles and runs using the standard library. Predict the output first, then compare it with the terminal output.
+=======
 **Example 2.4.5**
 ```go
 package main
@@ -1053,6 +1380,7 @@ Example 5:
 ```text
 Distance from origin: 5
 ```
+>>>>>>> 2067a20 (curriculum clearning and updates)
 
 ### Common Mistakes
 1. Confusing := declaration with = assignment.
@@ -1090,11 +1418,14 @@ Use keyboard navigation to move between the lesson heading, code fence, compiler
 - Test a relevant boundary condition and explain a common failure.
 
 ### Concept Explanation
+<<<<<<< HEAD
+=======
 The `math` package provides `Pi`, `Sqrt`, `Pow`, `Floor`, and `Hypot`. Go has a built-in hypotenuse function, so the distance from the origin to (3, 4) is `math.Hypot(3, 4)`, which is exactly 5. Every `math` function takes and returns `float64`, so integers must be converted first.
 ### Worked Example
 
 **Example 2.5.1**
 ```go
+>>>>>>> 2067a20 (curriculum clearning and updates)
 package main
 import (
 	"fmt"
@@ -1104,12 +1435,16 @@ func main() {
 	rate := 0.15
 	tip := bill * rate
 	fmt.Printf("Tip: %.2f; total: %.2f\n", tip, bill+tip)
+<<<<<<< HEAD
+},package main
+=======
 }
 ```
 
 **Example 2.5.2**
 ```go
 package main
+>>>>>>> 2067a20 (curriculum clearning and updates)
 import (
 	"fmt"
 )
@@ -1118,12 +1453,16 @@ func main() {
 	taxRate := 0.075
 	tax := subtotal * taxRate
 	fmt.Printf("Subtotal %.2f, tax %.2f, total %.2f\n", subtotal, tax, subtotal+tax)
+<<<<<<< HEAD
+},package main
+=======
 }
 ```
 
 **Example 2.5.3**
 ```go
 package main
+>>>>>>> 2067a20 (curriculum clearning and updates)
 import (
 	"bufio"
 	"fmt"
@@ -1136,12 +1475,16 @@ func main() {
 	text, _ := reader.ReadString('\n')
 	score, err := strconv.Atoi(text)
 	if err != nil { fmt.Println("Enter a whole number.") } else { fmt.Println("Score:", score) }
+<<<<<<< HEAD
+},package main
+=======
 }
 ```
 
 **Example 2.5.4**
 ```go
 package main
+>>>>>>> 2067a20 (curriculum clearning and updates)
 import (
 	"fmt"
 	"math"
@@ -1151,10 +1494,24 @@ func main() {
 	area := math.Pi * math.Pow(radius, 2)
 	circumference := 2 * math.Pi * radius
 	fmt.Printf("area=%.2f circumference=%.2f\n", area, circumference)
+<<<<<<< HEAD
+},package main
+import (
+	"fmt"
+	"math"
+)
+func main() {
+	distance := math.Hypot(3, 4)
+	fmt.Println("Distance from origin:", distance)
+} The lesson uses the canonical course data so learners focus on Go semantics rather than a new domain problem. Format with gofmt and use go test ./... as routine development tools.
+
+### Worked Example
+=======
 }
 ```
 
 **Example 2.5.5**
+>>>>>>> 2067a20 (curriculum clearning and updates)
 ```go
 package main
 import (
@@ -1167,6 +1524,9 @@ func main() {
 }
 ```
 
+<<<<<<< HEAD
+**Expected behavior:** The standalone program demonstrates mathematical functions, circle geometry, and distance with the course's shared example data. It compiles and runs using the standard library. Predict the output first, then compare it with the terminal output.
+=======
 
 ### Expected Behavior or Output
 
@@ -1196,6 +1556,7 @@ Example 5:
 ```text
 Distance from origin: 5
 ```
+>>>>>>> 2067a20 (curriculum clearning and updates)
 
 ### Common Mistakes
 1. Confusing := declaration with = assignment.
@@ -1238,10 +1599,58 @@ This unit develops control flow using Go's types, packages, and standard-library
 - Test a relevant boundary condition and explain a common failure.
 
 ### Concept Explanation
+<<<<<<< HEAD
+package main
+import (
+	"fmt"
+)
+func main() {
+	score := 82
+	fmt.Printf("score=%d; passing=%t\n", score, score >= 60)
+},package main
+import (
+	"fmt"
+)
+func main() {
+	scores := []int{82, 91, 76, 88, 59}
+	for _, score := range scores {
+	 grade := "F"
+	 if score >= 90 { grade = "A" } else if score >= 80 { grade = "B" } else if score >= 70 { grade = "C" } else if score >= 60 { grade = "D" }
+	 fmt.Printf("%d: %s\n", score, grade)
+	}
+},package main
+import (
+	"fmt"
+)
+func main() {
+	scores := []int{82, 91, 76, 88}
+	fmt.Printf("first=%d last=%d count=%d\n", scores[0], scores[len(scores)-1], len(scores))
+},package main
+import (
+	"fmt"
+)
+func main() {
+	scores := []int{82, 91, 76, 88}
+	total := 0
+	for _, score := range scores { total += score }
+	fmt.Printf("total=%d average=%.1f\n", total, float64(total)/float64(len(scores)))
+},package main
+import (
+	"fmt"
+	"strings"
+)
+func main() {
+	sample := "A student studies programming."
+	fmt.Printf("bytes=%d runes=%d words=%d\n", len(sample), len([]rune(sample)), len(strings.Fields(sample)))
+} The lesson uses the canonical course data so learners focus on Go semantics rather than a new domain problem. Format with gofmt and use go test ./... as routine development tools.
+
+### Worked Example
+=======
 A Go condition must be a `bool`; the number 0 and the empty string are never treated as false. Comparisons use `==`, `!=`, `<`, `<=`, `>`, `>=`, and conditions combine with `&&`, `||`, and `!`. An `if` statement needs braces and has no parentheses around its condition, and it may start with a short statement such as `if n := len(s); n > 0 {`.
 ### Worked Example
 
 **Example 3.1.1**
+>>>>>>> 2067a20 (curriculum clearning and updates)
 ```go
 package main
 import (
@@ -1253,6 +1662,9 @@ func main() {
 }
 ```
 
+<<<<<<< HEAD
+**Expected behavior:** The standalone program demonstrates boolean expressions and if statements with the course's shared example data. It compiles and runs using the standard library. Predict the output first, then compare it with the terminal output.
+=======
 **Example 3.1.2**
 ```go
 package main
@@ -1341,6 +1753,7 @@ Example 5:
 ```text
 bytes=30 runes=30 words=4
 ```
+>>>>>>> 2067a20 (curriculum clearning and updates)
 
 ### Common Mistakes
 1. Assuming Go has while or do-while keywords instead of for forms.
@@ -1378,11 +1791,14 @@ Use keyboard navigation to move between the lesson heading, code fence, compiler
 - Test a relevant boundary condition and explain a common failure.
 
 ### Concept Explanation
+<<<<<<< HEAD
+=======
 Go chains conditions with `else if` and ends with `else`, testing from top to bottom and running only the first branch that is true. The shared grade thresholds are 90, 80, 70, 60, otherwise F, so each later test needs only a lower bound. A `switch` with no value (`switch { case score >= 90: ... }`) is an equivalent and often clearer form.
 ### Worked Example
 
 **Example 3.2.1**
 ```go
+>>>>>>> 2067a20 (curriculum clearning and updates)
 package main
 import (
 	"fmt"
@@ -1390,10 +1806,51 @@ import (
 func main() {
 	score := 82
 	fmt.Printf("score=%d; passing=%t\n", score, score >= 60)
+<<<<<<< HEAD
+},package main
+import (
+	"fmt"
+)
+func main() {
+	scores := []int{82, 91, 76, 88, 59}
+	for _, score := range scores {
+	 grade := "F"
+	 if score >= 90 { grade = "A" } else if score >= 80 { grade = "B" } else if score >= 70 { grade = "C" } else if score >= 60 { grade = "D" }
+	 fmt.Printf("%d: %s\n", score, grade)
+	}
+},package main
+import (
+	"fmt"
+)
+func main() {
+	scores := []int{82, 91, 76, 88}
+	fmt.Printf("first=%d last=%d count=%d\n", scores[0], scores[len(scores)-1], len(scores))
+},package main
+import (
+	"fmt"
+)
+func main() {
+	scores := []int{82, 91, 76, 88}
+	total := 0
+	for _, score := range scores { total += score }
+	fmt.Printf("total=%d average=%.1f\n", total, float64(total)/float64(len(scores)))
+},package main
+import (
+	"fmt"
+	"strings"
+)
+func main() {
+	sample := "A student studies programming."
+	fmt.Printf("bytes=%d runes=%d words=%d\n", len(sample), len([]rune(sample)), len(strings.Fields(sample)))
+} The lesson uses the canonical course data so learners focus on Go semantics rather than a new domain problem. Format with gofmt and use go test ./... as routine development tools.
+
+### Worked Example
+=======
 }
 ```
 
 **Example 3.2.2**
+>>>>>>> 2067a20 (curriculum clearning and updates)
 ```go
 package main
 import (
@@ -1409,6 +1866,9 @@ func main() {
 }
 ```
 
+<<<<<<< HEAD
+**Expected behavior:** The standalone program demonstrates chained conditionals and grade classification with the course's shared example data. It compiles and runs using the standard library. Predict the output first, then compare it with the terminal output.
+=======
 **Example 3.2.3**
 ```go
 package main
@@ -1481,6 +1941,7 @@ Example 5:
 ```text
 bytes=30 runes=30 words=4
 ```
+>>>>>>> 2067a20 (curriculum clearning and updates)
 
 ### Common Mistakes
 1. Assuming Go has while or do-while keywords instead of for forms.
@@ -1518,11 +1979,14 @@ Use keyboard navigation to move between the lesson heading, code fence, compiler
 - Test a relevant boundary condition and explain a common failure.
 
 ### Concept Explanation
+<<<<<<< HEAD
+=======
 An array has a fixed length that is part of its type; a slice is a view of an array that can grow with `append`. Indexes start at 0, `len` gives the length, and indexing outside the slice stops the program with a run-time panic. A slice assigned to another variable shares the same underlying elements.
 ### Worked Example
 
 **Example 3.3.1**
 ```go
+>>>>>>> 2067a20 (curriculum clearning and updates)
 package main
 import (
 	"fmt"
@@ -1530,12 +1994,16 @@ import (
 func main() {
 	score := 82
 	fmt.Printf("score=%d; passing=%t\n", score, score >= 60)
+<<<<<<< HEAD
+},package main
+=======
 }
 ```
 
 **Example 3.3.2**
 ```go
 package main
+>>>>>>> 2067a20 (curriculum clearning and updates)
 import (
 	"fmt"
 )
@@ -1546,10 +2014,40 @@ func main() {
 	 if score >= 90 { grade = "A" } else if score >= 80 { grade = "B" } else if score >= 70 { grade = "C" } else if score >= 60 { grade = "D" }
 	 fmt.Printf("%d: %s\n", score, grade)
 	}
+<<<<<<< HEAD
+},package main
+import (
+	"fmt"
+)
+func main() {
+	scores := []int{82, 91, 76, 88}
+	fmt.Printf("first=%d last=%d count=%d\n", scores[0], scores[len(scores)-1], len(scores))
+},package main
+import (
+	"fmt"
+)
+func main() {
+	scores := []int{82, 91, 76, 88}
+	total := 0
+	for _, score := range scores { total += score }
+	fmt.Printf("total=%d average=%.1f\n", total, float64(total)/float64(len(scores)))
+},package main
+import (
+	"fmt"
+	"strings"
+)
+func main() {
+	sample := "A student studies programming."
+	fmt.Printf("bytes=%d runes=%d words=%d\n", len(sample), len([]rune(sample)), len(strings.Fields(sample)))
+} The lesson uses the canonical course data so learners focus on Go semantics rather than a new domain problem. Format with gofmt and use go test ./... as routine development tools.
+
+### Worked Example
+=======
 }
 ```
 
 **Example 3.3.3**
+>>>>>>> 2067a20 (curriculum clearning and updates)
 ```go
 package main
 import (
@@ -1561,6 +2059,9 @@ func main() {
 }
 ```
 
+<<<<<<< HEAD
+**Expected behavior:** The standalone program demonstrates arrays, slices, and indexing with the course's shared example data. It compiles and runs using the standard library. Predict the output first, then compare it with the terminal output.
+=======
 **Example 3.3.4**
 ```go
 package main
@@ -1621,6 +2122,7 @@ Example 5:
 ```text
 bytes=30 runes=30 words=4
 ```
+>>>>>>> 2067a20 (curriculum clearning and updates)
 
 ### Common Mistakes
 1. Assuming Go has while or do-while keywords instead of for forms.
@@ -1658,11 +2160,14 @@ Use keyboard navigation to move between the lesson heading, code fence, compiler
 - Test a relevant boundary condition and explain a common failure.
 
 ### Concept Explanation
+<<<<<<< HEAD
+=======
 Go has one loop keyword, `for`. `for i := 0; i < n; i++` counts, `for condition {}` repeats while a condition holds, and `for index, value := range slice` visits every element. Use `_` for a value you do not need, since an unused variable is a compile error. The range stops at the end of the slice, so no index checks are needed.
 ### Worked Example
 
 **Example 3.4.1**
 ```go
+>>>>>>> 2067a20 (curriculum clearning and updates)
 package main
 import (
 	"fmt"
@@ -1670,12 +2175,16 @@ import (
 func main() {
 	score := 82
 	fmt.Printf("score=%d; passing=%t\n", score, score >= 60)
+<<<<<<< HEAD
+},package main
+=======
 }
 ```
 
 **Example 3.4.2**
 ```go
 package main
+>>>>>>> 2067a20 (curriculum clearning and updates)
 import (
 	"fmt"
 )
@@ -1686,22 +2195,49 @@ func main() {
 	 if score >= 90 { grade = "A" } else if score >= 80 { grade = "B" } else if score >= 70 { grade = "C" } else if score >= 60 { grade = "D" }
 	 fmt.Printf("%d: %s\n", score, grade)
 	}
+<<<<<<< HEAD
+},package main
+=======
 }
 ```
 
 **Example 3.4.3**
 ```go
 package main
+>>>>>>> 2067a20 (curriculum clearning and updates)
 import (
 	"fmt"
 )
 func main() {
 	scores := []int{82, 91, 76, 88}
 	fmt.Printf("first=%d last=%d count=%d\n", scores[0], scores[len(scores)-1], len(scores))
+<<<<<<< HEAD
+},package main
+import (
+	"fmt"
+)
+func main() {
+	scores := []int{82, 91, 76, 88}
+	total := 0
+	for _, score := range scores { total += score }
+	fmt.Printf("total=%d average=%.1f\n", total, float64(total)/float64(len(scores)))
+},package main
+import (
+	"fmt"
+	"strings"
+)
+func main() {
+	sample := "A student studies programming."
+	fmt.Printf("bytes=%d runes=%d words=%d\n", len(sample), len([]rune(sample)), len(strings.Fields(sample)))
+} The lesson uses the canonical course data so learners focus on Go semantics rather than a new domain problem. Format with gofmt and use go test ./... as routine development tools.
+
+### Worked Example
+=======
 }
 ```
 
 **Example 3.4.4**
+>>>>>>> 2067a20 (curriculum clearning and updates)
 ```go
 package main
 import (
@@ -1715,6 +2251,9 @@ func main() {
 }
 ```
 
+<<<<<<< HEAD
+**Expected behavior:** The standalone program demonstrates for loops and range with the course's shared example data. It compiles and runs using the standard library. Predict the output first, then compare it with the terminal output.
+=======
 **Example 3.4.5**
 ```go
 package main
@@ -1761,6 +2300,7 @@ Example 5:
 ```text
 bytes=30 runes=30 words=4
 ```
+>>>>>>> 2067a20 (curriculum clearning and updates)
 
 ### Common Mistakes
 1. Assuming Go has while or do-while keywords instead of for forms.
@@ -1798,11 +2338,14 @@ Use keyboard navigation to move between the lesson heading, code fence, compiler
 - Test a relevant boundary condition and explain a common failure.
 
 ### Concept Explanation
+<<<<<<< HEAD
+=======
 A Go string is an immutable sequence of bytes that normally holds UTF-8 text. `len` counts bytes, not characters, and indexing gives a byte. The `strings` package supplies `ToUpper`, `ToLower`, `Contains`, `Index`, `Count`, `TrimSpace`, and `Fields`. Because strings cannot be changed, each function returns a new string.
 ### Worked Example
 
 **Example 3.5.1**
 ```go
+>>>>>>> 2067a20 (curriculum clearning and updates)
 package main
 import (
 	"fmt"
@@ -1810,12 +2353,16 @@ import (
 func main() {
 	score := 82
 	fmt.Printf("score=%d; passing=%t\n", score, score >= 60)
+<<<<<<< HEAD
+},package main
+=======
 }
 ```
 
 **Example 3.5.2**
 ```go
 package main
+>>>>>>> 2067a20 (curriculum clearning and updates)
 import (
 	"fmt"
 )
@@ -1826,24 +2373,32 @@ func main() {
 	 if score >= 90 { grade = "A" } else if score >= 80 { grade = "B" } else if score >= 70 { grade = "C" } else if score >= 60 { grade = "D" }
 	 fmt.Printf("%d: %s\n", score, grade)
 	}
+<<<<<<< HEAD
+},package main
+=======
 }
 ```
 
 **Example 3.5.3**
 ```go
 package main
+>>>>>>> 2067a20 (curriculum clearning and updates)
 import (
 	"fmt"
 )
 func main() {
 	scores := []int{82, 91, 76, 88}
 	fmt.Printf("first=%d last=%d count=%d\n", scores[0], scores[len(scores)-1], len(scores))
+<<<<<<< HEAD
+},package main
+=======
 }
 ```
 
 **Example 3.5.4**
 ```go
 package main
+>>>>>>> 2067a20 (curriculum clearning and updates)
 import (
 	"fmt"
 )
@@ -1852,10 +2407,24 @@ func main() {
 	total := 0
 	for _, score := range scores { total += score }
 	fmt.Printf("total=%d average=%.1f\n", total, float64(total)/float64(len(scores)))
+<<<<<<< HEAD
+},package main
+import (
+	"fmt"
+	"strings"
+)
+func main() {
+	sample := "A student studies programming."
+	fmt.Printf("bytes=%d runes=%d words=%d\n", len(sample), len([]rune(sample)), len(strings.Fields(sample)))
+} The lesson uses the canonical course data so learners focus on Go semantics rather than a new domain problem. Format with gofmt and use go test ./... as routine development tools.
+
+### Worked Example
+=======
 }
 ```
 
 **Example 3.5.5**
+>>>>>>> 2067a20 (curriculum clearning and updates)
 ```go
 package main
 import (
@@ -1868,6 +2437,9 @@ func main() {
 }
 ```
 
+<<<<<<< HEAD
+**Expected behavior:** The standalone program demonstrates strings and common operations with the course's shared example data. It compiles and runs using the standard library. Predict the output first, then compare it with the terminal output.
+=======
 
 ### Expected Behavior or Output
 
@@ -1901,6 +2473,7 @@ Example 5:
 ```text
 bytes=30 runes=30 words=4
 ```
+>>>>>>> 2067a20 (curriculum clearning and updates)
 
 ### Common Mistakes
 1. Assuming Go has while or do-while keywords instead of for forms.
@@ -1943,10 +2516,61 @@ This unit develops data structures using Go's types, packages, and standard-libr
 - Test a relevant boundary condition and explain a common failure.
 
 ### Concept Explanation
+<<<<<<< HEAD
+package main
+import (
+	"fmt"
+)
+func main() {
+	scores := []int{82, 91, 76}
+	scores = append(scores, 88)
+	fmt.Println(scores)
+},package main
+import (
+	"fmt"
+	"slices"
+)
+func main() {
+	scores := []int{82, 91, 76, 88}
+	slices.Sort(scores)
+	fmt.Println("ascending:", scores)
+	slices.Reverse(scores)
+	fmt.Println("descending:", scores)
+},package main
+import (
+	"fmt"
+)
+func main() {
+	type Student struct { Name string; Age int; Score int }
+	s := Student{Name: "Avery", Age: 16, Score: 82}
+	fmt.Printf("%s age %d score %d\n", s.Name, s.Age, s.Score)
+},package main
+import (
+	"fmt"
+)
+func main() {
+	stock := map[string]int{"Notebook": 3, "Pencil": 10}
+	count, ok := stock["Notebook"]
+	if !ok { count = 0 }
+	fmt.Println("Notebook stock:", count)
+},package main
+import (
+	"fmt"
+)
+func main() {
+	scores := []int{82, 91, 76, 88}
+	passing := make([]int, 0)
+	for _, score := range scores { if score >= 80 { passing = append(passing, score) } }
+	fmt.Println("Passing:", passing)
+} The lesson uses the canonical course data so learners focus on Go semantics rather than a new domain problem. Format with gofmt and use go test ./... as routine development tools.
+
+### Worked Example
+=======
 `append` adds to a slice and returns the (possibly new) slice, so the result must be assigned back: `scores = append(scores, 95)`. Removing an element is done by re-slicing and appending: `scores = append(scores[:i], scores[i+1:]...)`. Because slices share memory, a change through one slice variable can appear through another.
 ### Worked Example
 
 **Example 4.1.1**
+>>>>>>> 2067a20 (curriculum clearning and updates)
 ```go
 package main
 import (
@@ -1959,6 +2583,9 @@ func main() {
 }
 ```
 
+<<<<<<< HEAD
+**Expected behavior:** The standalone program demonstrates slices and collection mutation with the course's shared example data. It compiles and runs using the standard library. Predict the output first, then compare it with the terminal output.
+=======
 **Example 4.1.2**
 ```go
 package main
@@ -2046,6 +2673,7 @@ Example 5:
 ```text
 Passing: [82 91 88]
 ```
+>>>>>>> 2067a20 (curriculum clearning and updates)
 
 ### Common Mistakes
 1. Assuming append always mutates the original backing array in place.
@@ -2083,11 +2711,14 @@ Use keyboard navigation to move between the lesson heading, code fence, compiler
 - Test a relevant boundary condition and explain a common failure.
 
 ### Concept Explanation
+<<<<<<< HEAD
+=======
 The `sort` package sorts slices in place: `sort.Ints`, `sort.Strings`, and `sort.Slice` with a comparison function. `sort.Sort(sort.Reverse(sort.IntSlice(s)))` sorts in descending order. To keep the original order, copy the slice first with `copy` or `slices.Clone`.
 ### Worked Example
 
 **Example 4.2.1**
 ```go
+>>>>>>> 2067a20 (curriculum clearning and updates)
 package main
 import (
 	"fmt"
@@ -2096,10 +2727,53 @@ func main() {
 	scores := []int{82, 91, 76}
 	scores = append(scores, 88)
 	fmt.Println(scores)
+<<<<<<< HEAD
+},package main
+import (
+	"fmt"
+	"slices"
+)
+func main() {
+	scores := []int{82, 91, 76, 88}
+	slices.Sort(scores)
+	fmt.Println("ascending:", scores)
+	slices.Reverse(scores)
+	fmt.Println("descending:", scores)
+},package main
+import (
+	"fmt"
+)
+func main() {
+	type Student struct { Name string; Age int; Score int }
+	s := Student{Name: "Avery", Age: 16, Score: 82}
+	fmt.Printf("%s age %d score %d\n", s.Name, s.Age, s.Score)
+},package main
+import (
+	"fmt"
+)
+func main() {
+	stock := map[string]int{"Notebook": 3, "Pencil": 10}
+	count, ok := stock["Notebook"]
+	if !ok { count = 0 }
+	fmt.Println("Notebook stock:", count)
+},package main
+import (
+	"fmt"
+)
+func main() {
+	scores := []int{82, 91, 76, 88}
+	passing := make([]int, 0)
+	for _, score := range scores { if score >= 80 { passing = append(passing, score) } }
+	fmt.Println("Passing:", passing)
+} The lesson uses the canonical course data so learners focus on Go semantics rather than a new domain problem. Format with gofmt and use go test ./... as routine development tools.
+
+### Worked Example
+=======
 }
 ```
 
 **Example 4.2.2**
+>>>>>>> 2067a20 (curriculum clearning and updates)
 ```go
 package main
 import (
@@ -2115,6 +2789,9 @@ func main() {
 }
 ```
 
+<<<<<<< HEAD
+**Expected behavior:** The standalone program demonstrates sorting and organizing data with the course's shared example data. It compiles and runs using the standard library. Predict the output first, then compare it with the terminal output.
+=======
 **Example 4.2.3**
 ```go
 package main
@@ -2186,6 +2863,7 @@ Example 5:
 ```text
 Passing: [82 91 88]
 ```
+>>>>>>> 2067a20 (curriculum clearning and updates)
 
 ### Common Mistakes
 1. Assuming append always mutates the original backing array in place.
@@ -2223,11 +2901,14 @@ Use keyboard navigation to move between the lesson heading, code fence, compiler
 - Test a relevant boundary condition and explain a common failure.
 
 ### Concept Explanation
+<<<<<<< HEAD
+=======
 Go has no tuples. A struct groups named fields into one value, and a function can return several values. Returning `(x, y)` and receiving `x, y := point()` covers the same need. Struct values are copied on assignment, which makes a struct a good fixed record.
 ### Worked Example
 
 **Example 4.3.1**
 ```go
+>>>>>>> 2067a20 (curriculum clearning and updates)
 package main
 import (
 	"fmt"
@@ -2236,12 +2917,16 @@ func main() {
 	scores := []int{82, 91, 76}
 	scores = append(scores, 88)
 	fmt.Println(scores)
+<<<<<<< HEAD
+},package main
+=======
 }
 ```
 
 **Example 4.3.2**
 ```go
 package main
+>>>>>>> 2067a20 (curriculum clearning and updates)
 import (
 	"fmt"
 	"slices"
@@ -2252,10 +2937,42 @@ func main() {
 	fmt.Println("ascending:", scores)
 	slices.Reverse(scores)
 	fmt.Println("descending:", scores)
+<<<<<<< HEAD
+},package main
+import (
+	"fmt"
+)
+func main() {
+	type Student struct { Name string; Age int; Score int }
+	s := Student{Name: "Avery", Age: 16, Score: 82}
+	fmt.Printf("%s age %d score %d\n", s.Name, s.Age, s.Score)
+},package main
+import (
+	"fmt"
+)
+func main() {
+	stock := map[string]int{"Notebook": 3, "Pencil": 10}
+	count, ok := stock["Notebook"]
+	if !ok { count = 0 }
+	fmt.Println("Notebook stock:", count)
+},package main
+import (
+	"fmt"
+)
+func main() {
+	scores := []int{82, 91, 76, 88}
+	passing := make([]int, 0)
+	for _, score := range scores { if score >= 80 { passing = append(passing, score) } }
+	fmt.Println("Passing:", passing)
+} The lesson uses the canonical course data so learners focus on Go semantics rather than a new domain problem. Format with gofmt and use go test ./... as routine development tools.
+
+### Worked Example
+=======
 }
 ```
 
 **Example 4.3.3**
+>>>>>>> 2067a20 (curriculum clearning and updates)
 ```go
 package main
 import (
@@ -2268,6 +2985,9 @@ func main() {
 }
 ```
 
+<<<<<<< HEAD
+**Expected behavior:** The standalone program demonstrates structs and tuple-like multiple returns with the course's shared example data. It compiles and runs using the standard library. Predict the output first, then compare it with the terminal output.
+=======
 **Example 4.3.4**
 ```go
 package main
@@ -2326,6 +3046,7 @@ Example 5:
 ```text
 Passing: [82 91 88]
 ```
+>>>>>>> 2067a20 (curriculum clearning and updates)
 
 ### Common Mistakes
 1. Assuming append always mutates the original backing array in place.
@@ -2363,11 +3084,14 @@ Use keyboard navigation to move between the lesson heading, code fence, compiler
 - Test a relevant boundary condition and explain a common failure.
 
 ### Concept Explanation
+<<<<<<< HEAD
+=======
 A map holds key-value pairs: `map[string]int`. Reading a missing key returns the zero value, so the two-value form `value, ok := m[key]` tells you whether the key exists. `delete(m, key)` removes a key, and `len(m)` counts the keys. A nil map can be read but writing to it panics, so create maps with `make` or a literal.
 ### Worked Example
 
 **Example 4.4.1**
 ```go
+>>>>>>> 2067a20 (curriculum clearning and updates)
 package main
 import (
 	"fmt"
@@ -2376,12 +3100,16 @@ func main() {
 	scores := []int{82, 91, 76}
 	scores = append(scores, 88)
 	fmt.Println(scores)
+<<<<<<< HEAD
+},package main
+=======
 }
 ```
 
 **Example 4.4.2**
 ```go
 package main
+>>>>>>> 2067a20 (curriculum clearning and updates)
 import (
 	"fmt"
 	"slices"
@@ -2392,12 +3120,16 @@ func main() {
 	fmt.Println("ascending:", scores)
 	slices.Reverse(scores)
 	fmt.Println("descending:", scores)
+<<<<<<< HEAD
+},package main
+=======
 }
 ```
 
 **Example 4.4.3**
 ```go
 package main
+>>>>>>> 2067a20 (curriculum clearning and updates)
 import (
 	"fmt"
 )
@@ -2405,10 +3137,34 @@ func main() {
 	type Student struct { Name string; Age int; Score int }
 	s := Student{Name: "Avery", Age: 16, Score: 82}
 	fmt.Printf("%s age %d score %d\n", s.Name, s.Age, s.Score)
+<<<<<<< HEAD
+},package main
+import (
+	"fmt"
+)
+func main() {
+	stock := map[string]int{"Notebook": 3, "Pencil": 10}
+	count, ok := stock["Notebook"]
+	if !ok { count = 0 }
+	fmt.Println("Notebook stock:", count)
+},package main
+import (
+	"fmt"
+)
+func main() {
+	scores := []int{82, 91, 76, 88}
+	passing := make([]int, 0)
+	for _, score := range scores { if score >= 80 { passing = append(passing, score) } }
+	fmt.Println("Passing:", passing)
+} The lesson uses the canonical course data so learners focus on Go semantics rather than a new domain problem. Format with gofmt and use go test ./... as routine development tools.
+
+### Worked Example
+=======
 }
 ```
 
 **Example 4.4.4**
+>>>>>>> 2067a20 (curriculum clearning and updates)
 ```go
 package main
 import (
@@ -2422,6 +3178,9 @@ func main() {
 }
 ```
 
+<<<<<<< HEAD
+**Expected behavior:** The standalone program demonstrates maps and key-value data with the course's shared example data. It compiles and runs using the standard library. Predict the output first, then compare it with the terminal output.
+=======
 **Example 4.4.5**
 ```go
 package main
@@ -2466,6 +3225,7 @@ Example 5:
 ```text
 Passing: [82 91 88]
 ```
+>>>>>>> 2067a20 (curriculum clearning and updates)
 
 ### Common Mistakes
 1. Assuming append always mutates the original backing array in place.
@@ -2503,11 +3263,14 @@ Use keyboard navigation to move between the lesson heading, code fence, compiler
 - Test a relevant boundary condition and explain a common failure.
 
 ### Concept Explanation
+<<<<<<< HEAD
+=======
 `for key, value := range m` visits a map, but **Go randomizes the iteration order on purpose**, so output printed straight from a map can differ between runs. For stable output, collect the keys into a slice, sort it, and then visit the keys in order. Printing a map with `fmt` is the exception: it prints keys in sorted order.
 ### Worked Example
 
 **Example 4.5.1**
 ```go
+>>>>>>> 2067a20 (curriculum clearning and updates)
 package main
 import (
 	"fmt"
@@ -2516,12 +3279,16 @@ func main() {
 	scores := []int{82, 91, 76}
 	scores = append(scores, 88)
 	fmt.Println(scores)
+<<<<<<< HEAD
+},package main
+=======
 }
 ```
 
 **Example 4.5.2**
 ```go
 package main
+>>>>>>> 2067a20 (curriculum clearning and updates)
 import (
 	"fmt"
 	"slices"
@@ -2532,12 +3299,16 @@ func main() {
 	fmt.Println("ascending:", scores)
 	slices.Reverse(scores)
 	fmt.Println("descending:", scores)
+<<<<<<< HEAD
+},package main
+=======
 }
 ```
 
 **Example 4.5.3**
 ```go
 package main
+>>>>>>> 2067a20 (curriculum clearning and updates)
 import (
 	"fmt"
 )
@@ -2545,12 +3316,16 @@ func main() {
 	type Student struct { Name string; Age int; Score int }
 	s := Student{Name: "Avery", Age: 16, Score: 82}
 	fmt.Printf("%s age %d score %d\n", s.Name, s.Age, s.Score)
+<<<<<<< HEAD
+},package main
+=======
 }
 ```
 
 **Example 4.5.4**
 ```go
 package main
+>>>>>>> 2067a20 (curriculum clearning and updates)
 import (
 	"fmt"
 )
@@ -2559,10 +3334,25 @@ func main() {
 	count, ok := stock["Notebook"]
 	if !ok { count = 0 }
 	fmt.Println("Notebook stock:", count)
+<<<<<<< HEAD
+},package main
+import (
+	"fmt"
+)
+func main() {
+	scores := []int{82, 91, 76, 88}
+	passing := make([]int, 0)
+	for _, score := range scores { if score >= 80 { passing = append(passing, score) } }
+	fmt.Println("Passing:", passing)
+} The lesson uses the canonical course data so learners focus on Go semantics rather than a new domain problem. Format with gofmt and use go test ./... as routine development tools.
+
+### Worked Example
+=======
 }
 ```
 
 **Example 4.5.5**
+>>>>>>> 2067a20 (curriculum clearning and updates)
 ```go
 package main
 import (
@@ -2576,6 +3366,9 @@ func main() {
 }
 ```
 
+<<<<<<< HEAD
+**Expected behavior:** The standalone program demonstrates collection traversal with the course's shared example data. It compiles and runs using the standard library. Predict the output first, then compare it with the terminal output.
+=======
 
 ### Expected Behavior or Output
 
@@ -2606,6 +3399,7 @@ Example 5:
 ```text
 Passing: [82 91 88]
 ```
+>>>>>>> 2067a20 (curriculum clearning and updates)
 
 ### Common Mistakes
 1. Assuming append always mutates the original backing array in place.
@@ -2648,10 +3442,65 @@ This unit develops input and iteration using Go's types, packages, and standard-
 - Test a relevant boundary condition and explain a common failure.
 
 ### Concept Explanation
+<<<<<<< HEAD
+package main
+import (
+	"bufio"
+	"fmt"
+	"os"
+	"strconv"
+	"strings"
+)
+func main() {
+	reader := bufio.NewReader(os.Stdin)
+	fmt.Print("Enter age: ")
+	text, _ := reader.ReadString('\n')
+	age, err := strconv.Atoi(strings.TrimSpace(text))
+	if err != nil || age < 0 || age > 120 { fmt.Println("Enter an age from 0 to 120.") } else { fmt.Println("Accepted:", age) }
+},package main
+import (
+	"fmt"
+)
+func main() {
+	values := []int{3, 4, 0, 5}
+	count := 0
+	for _, value := range values { if value == 0 { break }; count++ }
+	fmt.Println("Read", count, "values before sentinel.")
+},package main
+import (
+	"fmt"
+)
+func main() {
+	values := []int{4, 8, -1, 12}
+	found := false
+	for _, value := range values { if value < 0 { found = true; break } }
+	fmt.Println("negative value found:", found)
+},package main
+import (
+	"fmt"
+)
+func main() {
+	values := []int{-2, 3, 0, 7, -1, 9}
+	positives := make([]int, 0)
+	for _, value := range values { if value <= 0 { continue }; positives = append(positives, value) }
+	fmt.Println(positives)
+},package main
+import (
+	"fmt"
+)
+func main() {
+	attempts := 0
+	for attempts < 3 { attempts++; fmt.Println("attempt", attempts) }
+	fmt.Println("stopped after", attempts, "attempts")
+} The lesson uses the canonical course data so learners focus on Go semantics rather than a new domain problem. Format with gofmt and use go test ./... as routine development tools.
+
+### Worked Example
+=======
 Reading input uses `bufio.NewScanner(os.Stdin)`; `scanner.Scan()` returns false at the end of input, and `scanner.Text()` returns the line. Typed text is always a string and must be converted and checked, for example with `strconv.Atoi`, which returns an error for text such as `abc`. A program that reads input must handle the end of input as well as invalid text.
 ### Worked Example
 
 **Example 5.1.1**
+>>>>>>> 2067a20 (curriculum clearning and updates)
 ```go
 package main
 import (
@@ -2668,6 +3517,12 @@ func main() {
 	age, err := strconv.Atoi(strings.TrimSpace(text))
 	if err != nil || age < 0 || age > 120 { fmt.Println("Enter an age from 0 to 120.") } else { fmt.Println("Accepted:", age) }
 }
+<<<<<<< HEAD
+
+```
+
+**Expected behavior:** The standalone program demonstrates input and validation with the course's shared example data. It compiles and runs using the standard library. Predict the output first, then compare it with the terminal output.
+=======
 ```
 
 **Example 5.1.2**
@@ -2757,6 +3612,7 @@ attempt 2
 attempt 3
 stopped after 3 attempts
 ```
+>>>>>>> 2067a20 (curriculum clearning and updates)
 
 ### Common Mistakes
 1. Failing to trim newline and whitespace before parsing.
@@ -2794,10 +3650,64 @@ Use keyboard navigation to move between the lesson heading, code fence, compiler
 - Test a relevant boundary condition and explain a common failure.
 
 ### Concept Explanation
+<<<<<<< HEAD
+package main
+import (
+	"bufio"
+	"fmt"
+	"os"
+	"strconv"
+)
+func main() {
+	reader := bufio.NewReader(os.Stdin)
+	fmt.Print("Enter age: ")
+	text, _ := reader.ReadString('\n')
+	age, err := strconv.Atoi(strings.TrimSpace(text))
+	if err != nil || age < 0 || age > 120 { fmt.Println("Enter an age from 0 to 120.") } else { fmt.Println("Accepted:", age) }
+},package main
+import (
+	"fmt"
+)
+func main() {
+	values := []int{3, 4, 0, 5}
+	count := 0
+	for _, value := range values { if value == 0 { break }; count++ }
+	fmt.Println("Read", count, "values before sentinel.")
+},package main
+import (
+	"fmt"
+)
+func main() {
+	values := []int{4, 8, -1, 12}
+	found := false
+	for _, value := range values { if value < 0 { found = true; break } }
+	fmt.Println("negative value found:", found)
+},package main
+import (
+	"fmt"
+)
+func main() {
+	values := []int{-2, 3, 0, 7, -1, 9}
+	positives := make([]int, 0)
+	for _, value := range values { if value <= 0 { continue }; positives = append(positives, value) }
+	fmt.Println(positives)
+},package main
+import (
+	"fmt"
+)
+func main() {
+	attempts := 0
+	for attempts < 3 { attempts++; fmt.Println("attempt", attempts) }
+	fmt.Println("stopped after", attempts, "attempts")
+} The lesson uses the canonical course data so learners focus on Go semantics rather than a new domain problem. Format with gofmt and use go test ./... as routine development tools.
+
+### Worked Example
+=======
 Go has no `while` keyword; `for condition { ... }` is the while-style loop. A loop needs a way to make the condition false, normally by changing a variable inside the body. A sentinel is a special input, such as `quit`, that ends the loop; read once before the loop and again at the end of each pass, and stop when input ends.
 ### Worked Example
 
 **Example 5.2.1**
+>>>>>>> 2067a20 (curriculum clearning and updates)
 ```go
 package main
 import (
@@ -2811,6 +3721,9 @@ func main() {
 }
 ```
 
+<<<<<<< HEAD
+**Expected behavior:** The standalone program demonstrates for loops as while-style repetition with the course's shared example data. It compiles and runs using the standard library. Predict the output first, then compare it with the terminal output.
+=======
 **Example 5.2.2**
 ```go
 package main
@@ -2879,6 +3792,7 @@ attempt 2
 attempt 3
 stopped after 3 attempts
 ```
+>>>>>>> 2067a20 (curriculum clearning and updates)
 
 ### Common Mistakes
 1. Failing to trim newline and whitespace before parsing.
@@ -2916,6 +3830,23 @@ Use keyboard navigation to move between the lesson heading, code fence, compiler
 - Test a relevant boundary condition and explain a common failure.
 
 ### Concept Explanation
+<<<<<<< HEAD
+package main
+import (
+	"bufio"
+	"fmt"
+	"os"
+	"strconv"
+)
+func main() {
+	reader := bufio.NewReader(os.Stdin)
+	fmt.Print("Enter age: ")
+	text, _ := reader.ReadString('\n')
+	age, err := strconv.Atoi(strings.TrimSpace(text))
+	if err != nil || age < 0 || age > 120 { fmt.Println("Enter an age from 0 to 120.") } else { fmt.Println("Accepted:", age) }
+},package main
+import (
+=======
 A Boolean flag can control a loop, and `break` leaves the nearest enclosing `for` immediately. For a search, remember the position in a variable, `break` when found, and test the variable afterward. A labelled `break` (`break outer`) leaves an outer loop from inside an inner one.
 ### Worked Example
 
@@ -2923,6 +3854,7 @@ A Boolean flag can control a loop, and `break` leaves the nearest enclosing `for
 ```go
 package main
 import (
+>>>>>>> 2067a20 (curriculum clearning and updates)
 	"fmt"
 )
 func main() {
@@ -2930,10 +3862,42 @@ func main() {
 	count := 0
 	for _, value := range values { if value == 0 { break }; count++ }
 	fmt.Println("Read", count, "values before sentinel.")
+<<<<<<< HEAD
+},package main
+import (
+	"fmt"
+)
+func main() {
+	values := []int{4, 8, -1, 12}
+	found := false
+	for _, value := range values { if value < 0 { found = true; break } }
+	fmt.Println("negative value found:", found)
+},package main
+import (
+	"fmt"
+)
+func main() {
+	values := []int{-2, 3, 0, 7, -1, 9}
+	positives := make([]int, 0)
+	for _, value := range values { if value <= 0 { continue }; positives = append(positives, value) }
+	fmt.Println(positives)
+},package main
+import (
+	"fmt"
+)
+func main() {
+	attempts := 0
+	for attempts < 3 { attempts++; fmt.Println("attempt", attempts) }
+	fmt.Println("stopped after", attempts, "attempts")
+} The lesson uses the canonical course data so learners focus on Go semantics rather than a new domain problem. Format with gofmt and use go test ./... as routine development tools.
+
+### Worked Example
+=======
 }
 ```
 
 **Example 5.3.2**
+>>>>>>> 2067a20 (curriculum clearning and updates)
 ```go
 package main
 import (
@@ -2947,6 +3911,9 @@ func main() {
 }
 ```
 
+<<<<<<< HEAD
+**Expected behavior:** The standalone program demonstrates flags and early exits with the course's shared example data. It compiles and runs using the standard library. Predict the output first, then compare it with the terminal output.
+=======
 **Example 5.3.3**
 ```go
 package main
@@ -3001,6 +3968,7 @@ attempt 2
 attempt 3
 stopped after 3 attempts
 ```
+>>>>>>> 2067a20 (curriculum clearning and updates)
 
 ### Common Mistakes
 1. Failing to trim newline and whitespace before parsing.
@@ -3038,6 +4006,23 @@ Use keyboard navigation to move between the lesson heading, code fence, compiler
 - Test a relevant boundary condition and explain a common failure.
 
 ### Concept Explanation
+<<<<<<< HEAD
+package main
+import (
+	"bufio"
+	"fmt"
+	"os"
+	"strconv"
+)
+func main() {
+	reader := bufio.NewReader(os.Stdin)
+	fmt.Print("Enter age: ")
+	text, _ := reader.ReadString('\n')
+	age, err := strconv.Atoi(strings.TrimSpace(text))
+	if err != nil || age < 0 || age > 120 { fmt.Println("Enter an age from 0 to 120.") } else { fmt.Println("Accepted:", age) }
+},package main
+import (
+=======
 `continue` skips the rest of one pass of a `for` loop and goes to the next. Use it to skip invalid entries, such as scores below 0 or above 100, while still reporting that they were skipped. Be sure that the loop's counter is updated before `continue` in a condition-only `for` loop, or the loop will never end.
 ### Worked Example
 
@@ -3045,6 +4030,7 @@ Use keyboard navigation to move between the lesson heading, code fence, compiler
 ```go
 package main
 import (
+>>>>>>> 2067a20 (curriculum clearning and updates)
 	"fmt"
 )
 func main() {
@@ -3052,12 +4038,16 @@ func main() {
 	count := 0
 	for _, value := range values { if value == 0 { break }; count++ }
 	fmt.Println("Read", count, "values before sentinel.")
+<<<<<<< HEAD
+},package main
+=======
 }
 ```
 
 **Example 5.4.2**
 ```go
 package main
+>>>>>>> 2067a20 (curriculum clearning and updates)
 import (
 	"fmt"
 )
@@ -3066,10 +4056,33 @@ func main() {
 	found := false
 	for _, value := range values { if value < 0 { found = true; break } }
 	fmt.Println("negative value found:", found)
+<<<<<<< HEAD
+},package main
+import (
+	"fmt"
+)
+func main() {
+	values := []int{-2, 3, 0, 7, -1, 9}
+	positives := make([]int, 0)
+	for _, value := range values { if value <= 0 { continue }; positives = append(positives, value) }
+	fmt.Println(positives)
+},package main
+import (
+	"fmt"
+)
+func main() {
+	attempts := 0
+	for attempts < 3 { attempts++; fmt.Println("attempt", attempts) }
+	fmt.Println("stopped after", attempts, "attempts")
+} The lesson uses the canonical course data so learners focus on Go semantics rather than a new domain problem. Format with gofmt and use go test ./... as routine development tools.
+
+### Worked Example
+=======
 }
 ```
 
 **Example 5.4.3**
+>>>>>>> 2067a20 (curriculum clearning and updates)
 ```go
 package main
 import (
@@ -3083,6 +4096,9 @@ func main() {
 }
 ```
 
+<<<<<<< HEAD
+**Expected behavior:** The standalone program demonstrates continue and filtering with the course's shared example data. It compiles and runs using the standard library. Predict the output first, then compare it with the terminal output.
+=======
 **Example 5.4.4**
 ```go
 package main
@@ -3123,6 +4139,7 @@ attempt 2
 attempt 3
 stopped after 3 attempts
 ```
+>>>>>>> 2067a20 (curriculum clearning and updates)
 
 ### Common Mistakes
 1. Failing to trim newline and whitespace before parsing.
@@ -3160,6 +4177,23 @@ Use keyboard navigation to move between the lesson heading, code fence, compiler
 - Test a relevant boundary condition and explain a common failure.
 
 ### Concept Explanation
+<<<<<<< HEAD
+package main
+import (
+	"bufio"
+	"fmt"
+	"os"
+	"strconv"
+)
+func main() {
+	reader := bufio.NewReader(os.Stdin)
+	fmt.Print("Enter age: ")
+	text, _ := reader.ReadString('\n')
+	age, err := strconv.Atoi(strings.TrimSpace(text))
+	if err != nil || age < 0 || age > 120 { fmt.Println("Enter an age from 0 to 120.") } else { fmt.Println("Accepted:", age) }
+},package main
+import (
+=======
 An endless loop never makes its condition false. Defend against it with a progress rule and a limit, for example a maximum number of attempts, and stop when input ends. A bare `for { ... }` is an intentional endless loop that must contain a `break` or `return`. Stop a running program from the terminal with Ctrl+C.
 ### Worked Example
 
@@ -3167,6 +4201,7 @@ An endless loop never makes its condition false. Defend against it with a progre
 ```go
 package main
 import (
+>>>>>>> 2067a20 (curriculum clearning and updates)
 	"fmt"
 )
 func main() {
@@ -3174,12 +4209,16 @@ func main() {
 	count := 0
 	for _, value := range values { if value == 0 { break }; count++ }
 	fmt.Println("Read", count, "values before sentinel.")
+<<<<<<< HEAD
+},package main
+=======
 }
 ```
 
 **Example 5.5.2**
 ```go
 package main
+>>>>>>> 2067a20 (curriculum clearning and updates)
 import (
 	"fmt"
 )
@@ -3188,12 +4227,16 @@ func main() {
 	found := false
 	for _, value := range values { if value < 0 { found = true; break } }
 	fmt.Println("negative value found:", found)
+<<<<<<< HEAD
+},package main
+=======
 }
 ```
 
 **Example 5.5.3**
 ```go
 package main
+>>>>>>> 2067a20 (curriculum clearning and updates)
 import (
 	"fmt"
 )
@@ -3202,10 +4245,24 @@ func main() {
 	positives := make([]int, 0)
 	for _, value := range values { if value <= 0 { continue }; positives = append(positives, value) }
 	fmt.Println(positives)
+<<<<<<< HEAD
+},package main
+import (
+	"fmt"
+)
+func main() {
+	attempts := 0
+	for attempts < 3 { attempts++; fmt.Println("attempt", attempts) }
+	fmt.Println("stopped after", attempts, "attempts")
+} The lesson uses the canonical course data so learners focus on Go semantics rather than a new domain problem. Format with gofmt and use go test ./... as routine development tools.
+
+### Worked Example
+=======
 }
 ```
 
 **Example 5.5.4**
+>>>>>>> 2067a20 (curriculum clearning and updates)
 ```go
 package main
 import (
@@ -3218,6 +4275,9 @@ func main() {
 }
 ```
 
+<<<<<<< HEAD
+**Expected behavior:** The standalone program demonstrates preventing infinite loops with the course's shared example data. It compiles and runs using the standard library. Predict the output first, then compare it with the terminal output.
+=======
 
 ### Expected Behavior or Output
 
@@ -3245,6 +4305,7 @@ attempt 2
 attempt 3
 stopped after 3 attempts
 ```
+>>>>>>> 2067a20 (curriculum clearning and updates)
 
 ### Common Mistakes
 1. Failing to trim newline and whitespace before parsing.
@@ -3287,10 +4348,54 @@ This unit develops functions using Go's types, packages, and standard-library co
 - Test a relevant boundary condition and explain a common failure.
 
 ### Concept Explanation
+<<<<<<< HEAD
+package main
+import (
+	"fmt"
+)
+func main() {
+	greet := func(name string) { fmt.Println("Hello,", name) }
+	greet("Avery")
+},package main
+import (
+	"fmt"
+)
+func main() {
+	describe := func(name string, score int) { fmt.Printf("%s scored %d.\n", name, score) }
+	name := "Avery"
+	describe(name, 82)
+	fmt.Println("still available:", name)
+},package main
+import (
+	"fmt"
+)
+func main() {
+	grade := func(score int) string { if score >= 60 { return "pass" }; return "retry" }
+	fmt.Println(grade(82))
+},package main
+import (
+	"fmt"
+)
+func main() {
+	average := func(scores []int) float64 { total := 0; for _, score := range scores { total += score }; return float64(total)/float64(len(scores)) }
+	scores := []int{82, 91, 76, 88}
+	fmt.Printf("average=%.1f\n", average(scores))
+},package main
+import (
+	"fmt"
+)
+func main() {
+	sum := func(values ...int) int { total := 0; for _, value := range values { total += value }; return total }
+	fmt.Println("sum:", sum(82, 91, 76, 88))
+} The lesson uses the canonical course data so learners focus on Go semantics rather than a new domain problem. Format with gofmt and use go test ./... as routine development tools.
+
+### Worked Example
+=======
 A function is declared with `func name(parameters) result { ... }`. Parameters name their types, and consecutive parameters of one type can share it: `func tip(bill, rate float64) float64`. Arguments are copied into parameters. A function that does not return a value omits the result type.
 ### Worked Example
 
 **Example 6.1.1**
+>>>>>>> 2067a20 (curriculum clearning and updates)
 ```go
 package main
 import (
@@ -3302,6 +4407,9 @@ func main() {
 }
 ```
 
+<<<<<<< HEAD
+**Expected behavior:** The standalone program demonstrates defining and calling functions with the course's shared example data. It compiles and runs using the standard library. Predict the output first, then compare it with the terminal output.
+=======
 **Example 6.1.2**
 ```go
 package main
@@ -3383,6 +4491,7 @@ Example 5:
 ```text
 sum: 337
 ```
+>>>>>>> 2067a20 (curriculum clearning and updates)
 
 ### Common Mistakes
 1. Expecting a function to return a value when its signature does not.
@@ -3420,11 +4529,14 @@ Use keyboard navigation to move between the lesson heading, code fence, compiler
 - Test a relevant boundary condition and explain a common failure.
 
 ### Concept Explanation
+<<<<<<< HEAD
+=======
 Go has no default arguments or keyword arguments. Pass every argument in order, or use a struct as an options value when a call needs many named settings. A function can return several results, written `func f() (int, error)`, and the caller receives them with `a, b := f()`.
 ### Worked Example
 
 **Example 6.2.1**
 ```go
+>>>>>>> 2067a20 (curriculum clearning and updates)
 package main
 import (
 	"fmt"
@@ -3432,10 +4544,47 @@ import (
 func main() {
 	greet := func(name string) { fmt.Println("Hello,", name) }
 	greet("Avery")
+<<<<<<< HEAD
+},package main
+import (
+	"fmt"
+)
+func main() {
+	describe := func(name string, score int) { fmt.Printf("%s scored %d.\n", name, score) }
+	name := "Avery"
+	describe(name, 82)
+	fmt.Println("still available:", name)
+},package main
+import (
+	"fmt"
+)
+func main() {
+	grade := func(score int) string { if score >= 60 { return "pass" }; return "retry" }
+	fmt.Println(grade(82))
+},package main
+import (
+	"fmt"
+)
+func main() {
+	average := func(scores []int) float64 { total := 0; for _, score := range scores { total += score }; return float64(total)/float64(len(scores)) }
+	scores := []int{82, 91, 76, 88}
+	fmt.Printf("average=%.1f\n", average(scores))
+},package main
+import (
+	"fmt"
+)
+func main() {
+	sum := func(values ...int) int { total := 0; for _, value := range values { total += value }; return total }
+	fmt.Println("sum:", sum(82, 91, 76, 88))
+} The lesson uses the canonical course data so learners focus on Go semantics rather than a new domain problem. Format with gofmt and use go test ./... as routine development tools.
+
+### Worked Example
+=======
 }
 ```
 
 **Example 6.2.2**
+>>>>>>> 2067a20 (curriculum clearning and updates)
 ```go
 package main
 import (
@@ -3449,6 +4598,9 @@ func main() {
 }
 ```
 
+<<<<<<< HEAD
+**Expected behavior:** The standalone program demonstrates parameters and multiple return values with the course's shared example data. It compiles and runs using the standard library. Predict the output first, then compare it with the terminal output.
+=======
 **Example 6.2.3**
 ```go
 package main
@@ -3516,6 +4668,7 @@ Example 5:
 ```text
 sum: 337
 ```
+>>>>>>> 2067a20 (curriculum clearning and updates)
 
 ### Common Mistakes
 1. Expecting a function to return a value when its signature does not.
@@ -3553,11 +4706,14 @@ Use keyboard navigation to move between the lesson heading, code fence, compiler
 - Test a relevant boundary condition and explain a common failure.
 
 ### Concept Explanation
+<<<<<<< HEAD
+=======
 A function sends a result back with `return`. By convention, a function that can fail returns its result and an `error` as the last value, and the caller checks `if err != nil`. Create errors with `errors.New` or `fmt.Errorf`, and never ignore a returned error silently.
 ### Worked Example
 
 **Example 6.3.1**
 ```go
+>>>>>>> 2067a20 (curriculum clearning and updates)
 package main
 import (
 	"fmt"
@@ -3565,12 +4721,16 @@ import (
 func main() {
 	greet := func(name string) { fmt.Println("Hello,", name) }
 	greet("Avery")
+<<<<<<< HEAD
+},package main
+=======
 }
 ```
 
 **Example 6.3.2**
 ```go
 package main
+>>>>>>> 2067a20 (curriculum clearning and updates)
 import (
 	"fmt"
 )
@@ -3579,10 +4739,38 @@ func main() {
 	name := "Avery"
 	describe(name, 82)
 	fmt.Println("still available:", name)
+<<<<<<< HEAD
+},package main
+import (
+	"fmt"
+)
+func main() {
+	grade := func(score int) string { if score >= 60 { return "pass" }; return "retry" }
+	fmt.Println(grade(82))
+},package main
+import (
+	"fmt"
+)
+func main() {
+	average := func(scores []int) float64 { total := 0; for _, score := range scores { total += score }; return float64(total)/float64(len(scores)) }
+	scores := []int{82, 91, 76, 88}
+	fmt.Printf("average=%.1f\n", average(scores))
+},package main
+import (
+	"fmt"
+)
+func main() {
+	sum := func(values ...int) int { total := 0; for _, value := range values { total += value }; return total }
+	fmt.Println("sum:", sum(82, 91, 76, 88))
+} The lesson uses the canonical course data so learners focus on Go semantics rather than a new domain problem. Format with gofmt and use go test ./... as routine development tools.
+
+### Worked Example
+=======
 }
 ```
 
 **Example 6.3.3**
+>>>>>>> 2067a20 (curriculum clearning and updates)
 ```go
 package main
 import (
@@ -3594,6 +4782,9 @@ func main() {
 }
 ```
 
+<<<<<<< HEAD
+**Expected behavior:** The standalone program demonstrates return values and errors with the course's shared example data. It compiles and runs using the standard library. Predict the output first, then compare it with the terminal output.
+=======
 **Example 6.3.4**
 ```go
 package main
@@ -3649,6 +4840,7 @@ Example 5:
 ```text
 sum: 337
 ```
+>>>>>>> 2067a20 (curriculum clearning and updates)
 
 ### Common Mistakes
 1. Expecting a function to return a value when its signature does not.
@@ -3686,11 +4878,14 @@ Use keyboard navigation to move between the lesson heading, code fence, compiler
 - Test a relevant boundary condition and explain a common failure.
 
 ### Concept Explanation
+<<<<<<< HEAD
+=======
 A slice passed to a function shares its elements with the caller, so changing an element inside the function changes the caller's slice; appending may not be visible to the caller unless the slice is returned. A map is passed by reference and can be changed in place. To protect the caller's data, copy a slice before changing it.
 ### Worked Example
 
 **Example 6.4.1**
 ```go
+>>>>>>> 2067a20 (curriculum clearning and updates)
 package main
 import (
 	"fmt"
@@ -3698,12 +4893,16 @@ import (
 func main() {
 	greet := func(name string) { fmt.Println("Hello,", name) }
 	greet("Avery")
+<<<<<<< HEAD
+},package main
+=======
 }
 ```
 
 **Example 6.4.2**
 ```go
 package main
+>>>>>>> 2067a20 (curriculum clearning and updates)
 import (
 	"fmt"
 )
@@ -3712,22 +4911,47 @@ func main() {
 	name := "Avery"
 	describe(name, 82)
 	fmt.Println("still available:", name)
+<<<<<<< HEAD
+},package main
+=======
 }
 ```
 
 **Example 6.4.3**
 ```go
 package main
+>>>>>>> 2067a20 (curriculum clearning and updates)
 import (
 	"fmt"
 )
 func main() {
 	grade := func(score int) string { if score >= 60 { return "pass" }; return "retry" }
 	fmt.Println(grade(82))
+<<<<<<< HEAD
+},package main
+import (
+	"fmt"
+)
+func main() {
+	average := func(scores []int) float64 { total := 0; for _, score := range scores { total += score }; return float64(total)/float64(len(scores)) }
+	scores := []int{82, 91, 76, 88}
+	fmt.Printf("average=%.1f\n", average(scores))
+},package main
+import (
+	"fmt"
+)
+func main() {
+	sum := func(values ...int) int { total := 0; for _, value := range values { total += value }; return total }
+	fmt.Println("sum:", sum(82, 91, 76, 88))
+} The lesson uses the canonical course data so learners focus on Go semantics rather than a new domain problem. Format with gofmt and use go test ./... as routine development tools.
+
+### Worked Example
+=======
 }
 ```
 
 **Example 6.4.4**
+>>>>>>> 2067a20 (curriculum clearning and updates)
 ```go
 package main
 import (
@@ -3740,6 +4964,9 @@ func main() {
 }
 ```
 
+<<<<<<< HEAD
+**Expected behavior:** The standalone program demonstrates functions over slices and maps with the course's shared example data. It compiles and runs using the standard library. Predict the output first, then compare it with the terminal output.
+=======
 **Example 6.4.5**
 ```go
 package main
@@ -3782,6 +5009,7 @@ Example 5:
 ```text
 sum: 337
 ```
+>>>>>>> 2067a20 (curriculum clearning and updates)
 
 ### Common Mistakes
 1. Expecting a function to return a value when its signature does not.
@@ -3819,11 +5047,14 @@ Use keyboard navigation to move between the lesson heading, code fence, compiler
 - Test a relevant boundary condition and explain a common failure.
 
 ### Concept Explanation
+<<<<<<< HEAD
+=======
 A final parameter written `...int` accepts any number of arguments and arrives in the function as a slice. Pass an existing slice with `values...`. Variables declared inside a function or block are local to it, and an inner variable with the same name shadows an outer one, which hides the outer value inside that block.
 ### Worked Example
 
 **Example 6.5.1**
 ```go
+>>>>>>> 2067a20 (curriculum clearning and updates)
 package main
 import (
 	"fmt"
@@ -3831,12 +5062,16 @@ import (
 func main() {
 	greet := func(name string) { fmt.Println("Hello,", name) }
 	greet("Avery")
+<<<<<<< HEAD
+},package main
+=======
 }
 ```
 
 **Example 6.5.2**
 ```go
 package main
+>>>>>>> 2067a20 (curriculum clearning and updates)
 import (
 	"fmt"
 )
@@ -3845,24 +5080,32 @@ func main() {
 	name := "Avery"
 	describe(name, 82)
 	fmt.Println("still available:", name)
+<<<<<<< HEAD
+},package main
+=======
 }
 ```
 
 **Example 6.5.3**
 ```go
 package main
+>>>>>>> 2067a20 (curriculum clearning and updates)
 import (
 	"fmt"
 )
 func main() {
 	grade := func(score int) string { if score >= 60 { return "pass" }; return "retry" }
 	fmt.Println(grade(82))
+<<<<<<< HEAD
+},package main
+=======
 }
 ```
 
 **Example 6.5.4**
 ```go
 package main
+>>>>>>> 2067a20 (curriculum clearning and updates)
 import (
 	"fmt"
 )
@@ -3870,10 +5113,23 @@ func main() {
 	average := func(scores []int) float64 { total := 0; for _, score := range scores { total += score }; return float64(total)/float64(len(scores)) }
 	scores := []int{82, 91, 76, 88}
 	fmt.Printf("average=%.1f\n", average(scores))
+<<<<<<< HEAD
+},package main
+import (
+	"fmt"
+)
+func main() {
+	sum := func(values ...int) int { total := 0; for _, value := range values { total += value }; return total }
+	fmt.Println("sum:", sum(82, 91, 76, 88))
+} The lesson uses the canonical course data so learners focus on Go semantics rather than a new domain problem. Format with gofmt and use go test ./... as routine development tools.
+
+### Worked Example
+=======
 }
 ```
 
 **Example 6.5.5**
+>>>>>>> 2067a20 (curriculum clearning and updates)
 ```go
 package main
 import (
@@ -3885,6 +5141,9 @@ func main() {
 }
 ```
 
+<<<<<<< HEAD
+**Expected behavior:** The standalone program demonstrates variadic parameters and scope with the course's shared example data. It compiles and runs using the standard library. Predict the output first, then compare it with the terminal output.
+=======
 
 ### Expected Behavior or Output
 
@@ -3915,6 +5174,7 @@ Example 5:
 ```text
 sum: 337
 ```
+>>>>>>> 2067a20 (curriculum clearning and updates)
 
 ### Common Mistakes
 1. Expecting a function to return a value when its signature does not.
@@ -3957,10 +5217,67 @@ This unit develops object-oriented programming with go types using Go's types, p
 - Test a relevant boundary condition and explain a common failure.
 
 ### Concept Explanation
+<<<<<<< HEAD
+package main
+import (
+	"fmt"
+)
+func main() {
+	type Student struct { Name string; Score int }
+	type Status int
+	const ( Active Status = iota; Inactive )
+	s := Student{Name: "Avery", Score: 82}
+	state := Active
+	fmt.Printf("%s: %d; active=%t; inactive=%t\n", s.Name, s.Score, state == Active, Inactive == Inactive)
+},package main
+import (
+	"fmt"
+)
+type Student struct { Name string; Score int }
+func (s *Student) AddPoints(points int) { s.Score += points }
+func main() {
+	s := Student{Name: "Avery", Score: 82}
+	s.AddPoints(3)
+	fmt.Println(s.Name, "score:", s.Score)
+},package main
+import (
+	"fmt"
+)
+type Summarizer interface { Summary() string }
+type Task struct { Title string; Done bool }
+func (t Task) Summary() string { return fmt.Sprintf("%s: %t", t.Title, t.Done) }
+func main() {
+	var item Summarizer = Task{Title: "Study Go", Done: false}
+	fmt.Println(item.Summary())
+},package main
+import (
+	"fmt"
+)
+func main() {
+	type Contact struct { Email string }
+	type Contact struct { Email string }
+type Student struct { Name string; Contact }
+	s := Student{Name: "Avery", Contact: Contact{Email: "avery@example.test"}}
+	fmt.Println(s.Name, s.Email)
+},package main
+import (
+	"fmt"
+)
+type Reader interface { Read() string }
+type Note struct { Text string }
+func (n Note) Read() string { return n.Text }
+func display(r Reader) { fmt.Println(r.Read()) }
+func main() {
+	display(Note{Text: "Composition and interfaces"})
+} The lesson uses the canonical course data so learners focus on Go semantics rather than a new domain problem. Format with gofmt and use go test ./... as routine development tools.
+
+### Worked Example
+=======
 A struct groups named fields into a new type. `type Item struct { Name string; Quantity int; UnitPrice float64 }` models the shared inventory item, and a struct literal creates values. Fields are read and written with a dot. A struct is copied when assigned or passed, so use a pointer when a function must change the original.
 ### Worked Example
 
 **Example 7.1.1**
+>>>>>>> 2067a20 (curriculum clearning and updates)
 ```go
 package main
 import (
@@ -3976,6 +5293,9 @@ func main() {
 }
 ```
 
+<<<<<<< HEAD
+**Expected behavior:** The standalone program demonstrates structs and data modeling with the course's shared example data. It compiles and runs using the standard library. Predict the output first, then compare it with the terminal output.
+=======
 **Example 7.1.2**
 ```go
 package main
@@ -4045,6 +5365,7 @@ Example 4:
 ```text
 Composition and interfaces
 ```
+>>>>>>> 2067a20 (curriculum clearning and updates)
 
 ### Common Mistakes
 1. Using a value receiver when mutation of the original struct is required.
@@ -4099,6 +5420,9 @@ import (
 	}
 ```
 
+<<<<<<< HEAD
+**Expected behavior:** The standalone program demonstrates creating values and pointer receivers with shared course example data. It compiles and runs using the standard library. Predict the output first, then compare it with terminal output.
+=======
 
 ### Expected Behavior or Output
 
@@ -4107,6 +5431,7 @@ Output observed when the worked example was run with empty standard input (Go 1.
 ```text
 Avery score: 85
 ```
+>>>>>>> 2067a20 (curriculum clearning and updates)
 
 ### Common Mistakes
 1. Using a value receiver when mutation of the original struct is required.
@@ -4161,6 +5486,9 @@ import (
 	}
 ```
 
+<<<<<<< HEAD
+**Expected behavior:** The standalone program demonstrates methods and interfaces with shared course example data. It compiles and runs using the standard library. Predict the output first, then compare it with terminal output.
+=======
 
 ### Expected Behavior or Output
 
@@ -4169,6 +5497,7 @@ Output observed when the worked example was run with empty standard input (Go 1.
 ```text
 Study Go: false
 ```
+>>>>>>> 2067a20 (curriculum clearning and updates)
 
 ### Common Mistakes
 1. Using a value receiver when mutation of the original struct is required.
@@ -4222,6 +5551,9 @@ import (
 	}
 ```
 
+<<<<<<< HEAD
+**Expected behavior:** The standalone program demonstrates embedding and polymorphism with shared course example data. It compiles and runs using the standard library. Predict the output first, then compare it with terminal output.
+=======
 
 ### Expected Behavior or Output
 
@@ -4230,6 +5562,7 @@ Output observed when the worked example was run with empty standard input (Go 1.
 ```text
 Avery avery@example.test
 ```
+>>>>>>> 2067a20 (curriculum clearning and updates)
 
 ### Common Mistakes
 1. Using a value receiver when mutation of the original struct is required.
@@ -4282,6 +5615,9 @@ import (
 	func main() { display(Note{Text: "Composition and interfaces"}) }
 ```
 
+<<<<<<< HEAD
+**Expected behavior:** The standalone program demonstrates composition and collaboration with shared course example data. It compiles and runs using the standard library. Predict the output first, then compare it with terminal output.
+=======
 
 ### Expected Behavior or Output
 
@@ -4290,6 +5626,7 @@ Output observed when the worked example was run with empty standard input (Go 1.
 ```text
 Composition and interfaces
 ```
+>>>>>>> 2067a20 (curriculum clearning and updates)
 
 ### Common Mistakes
 1. Using a value receiver when mutation of the original struct is required.
@@ -4312,6 +5649,8 @@ Use keyboard navigation to move between the lesson heading, code fence, compiler
 - [ ] I can test a boundary case and an invalid-input or error case.
 - [ ] I can navigate source, diagnostics, and output with my keyboard and assistive technology.
 
+<<<<<<< HEAD
+=======
 # Unit 8: Files and Exceptions
 
 ## Overview
@@ -4320,6 +5659,7 @@ Read and write files, handle errors, release resources reliably, and store recor
 
 ---
 
+>>>>>>> 2067a20 (curriculum clearning and updates)
 ## Lesson 8.1: Reading text files
 
 ### Reading References
@@ -4354,6 +5694,9 @@ func main() {
 }
 ```
 
+<<<<<<< HEAD
+**Expected behavior:** The standalone program demonstrates reading text files with shared course example data. It compiles and runs using the standard library. Predict the output first, then compare it with terminal output.
+=======
 
 ### Expected Behavior or Output
 
@@ -4362,6 +5705,7 @@ Output observed when the worked example was run with empty standard input (Go 1.
 ```text
 Avery,82
 ```
+>>>>>>> 2067a20 (curriculum clearning and updates)
 
 ### Common Mistakes
 1. Ignoring errors from file operations and Close.
@@ -4419,6 +5763,9 @@ func main() {
 }
 ```
 
+<<<<<<< HEAD
+**Expected behavior:** The standalone program demonstrates writing and appending files with shared course example data. It compiles and runs using the standard library. Predict the output first, then compare it with terminal output.
+=======
 
 ### Expected Behavior or Output
 
@@ -4427,6 +5774,7 @@ Output observed when the worked example was run with empty standard input (Go 1.
 ```text
 appended inventory record
 ```
+>>>>>>> 2067a20 (curriculum clearning and updates)
 
 ### Common Mistakes
 1. Ignoring errors from file operations and Close.
@@ -4480,6 +5828,9 @@ func main() {
 }
 ```
 
+<<<<<<< HEAD
+**Expected behavior:** The standalone program demonstrates explicit error handling with shared course example data. It compiles and runs using the standard library. Predict the output first, then compare it with terminal output.
+=======
 
 ### Expected Behavior or Output
 
@@ -4488,6 +5839,7 @@ Output observed when the worked example was run with empty standard input (Go 1.
 ```text
 Could not read file: file not found: missing_course_file.txt
 ```
+>>>>>>> 2067a20 (curriculum clearning and updates)
 
 ### Common Mistakes
 1. Ignoring errors from file operations and Close.
@@ -4544,6 +5896,9 @@ func main() {
 }
 ```
 
+<<<<<<< HEAD
+**Expected behavior:** The standalone program demonstrates deferred cleanup and resource lifetime with shared course example data. It compiles and runs using the standard library. Predict the output first, then compare it with terminal output.
+=======
 
 ### Expected Behavior or Output
 
@@ -4552,6 +5907,7 @@ Output observed when the worked example was run with empty standard input (Go 1.
 ```text
 deferred cleanup is scheduled
 ```
+>>>>>>> 2067a20 (curriculum clearning and updates)
 
 ### Common Mistakes
 1. Ignoring errors from file operations and Close.
@@ -4606,6 +5962,9 @@ func main() {
 }
 ```
 
+<<<<<<< HEAD
+**Expected behavior:** The standalone program demonstrates json encoding and persistence with shared course example data. It compiles and runs using the standard library. Predict the output first, then compare it with terminal output.
+=======
 
 ### Expected Behavior or Output
 
@@ -4614,6 +5973,7 @@ Output observed when the worked example was run with empty standard input (Go 1.
 ```text
 {"name":"Avery","score":82}
 ```
+>>>>>>> 2067a20 (curriculum clearning and updates)
 
 ### Common Mistakes
 1. Ignoring errors from file operations and Close.
@@ -4636,6 +5996,8 @@ Use keyboard navigation to move between the lesson heading, code fence, compiler
 - [ ] I can test a boundary case and an invalid-input or error case.
 - [ ] I can navigate source, diagnostics, and output with my keyboard and assistive technology.
 
+<<<<<<< HEAD
+=======
 # Unit 9: Testing and Data Analysis
 
 ## Overview
@@ -4644,6 +6006,7 @@ Write tests with expected results, test random code by its properties, analyze t
 
 ---
 
+>>>>>>> 2067a20 (curriculum clearning and updates)
 ## Lesson 9.1: Testing functions with testing
 
 ### Reading References
@@ -4675,6 +6038,9 @@ func main() {
 }
 ```
 
+<<<<<<< HEAD
+**Expected behavior:** The standalone program demonstrates testing functions with testing with shared course example data. It compiles and runs using the standard library. Predict the output first, then compare it with terminal output.
+=======
 
 ### Expected Behavior or Output
 
@@ -4683,6 +6049,7 @@ Output observed when the worked example was run with empty standard input (Go 1.
 ```text
 grade boundary checks passed
 ```
+>>>>>>> 2067a20 (curriculum clearning and updates)
 
 ### Common Mistakes
 1. Testing only typical values and missing boundaries.
@@ -4739,6 +6106,9 @@ func main() {
 }
 ```
 
+<<<<<<< HEAD
+**Expected behavior:** The standalone program demonstrates testing stateful types with shared course example data. It compiles and runs using the standard library. Predict the output first, then compare it with terminal output.
+=======
 
 ### Expected Behavior or Output
 
@@ -4747,6 +6117,7 @@ Output observed when the worked example was run with empty standard input (Go 1.
 ```text
 counter state verified: 2
 ```
+>>>>>>> 2067a20 (curriculum clearning and updates)
 
 ### Common Mistakes
 1. Testing only typical values and missing boundaries.
@@ -4799,6 +6170,9 @@ func main() {
 }
 ```
 
+<<<<<<< HEAD
+**Expected behavior:** The standalone program demonstrates random values with shared course example data. It compiles and runs using the standard library. Predict the output first, then compare it with terminal output.
+=======
 
 ### Expected Behavior or Output
 
@@ -4811,6 +6185,7 @@ Output observed when the worked example was run with empty standard input (Go 1.
 12309061806813186179
 12177546622254251016
 ```
+>>>>>>> 2067a20 (curriculum clearning and updates)
 
 ### Common Mistakes
 1. Testing only typical values and missing boundaries.
@@ -4864,6 +6239,9 @@ func main() {
 }
 ```
 
+<<<<<<< HEAD
+**Expected behavior:** The standalone program demonstrates text analysis with shared course example data. It compiles and runs using the standard library. Predict the output first, then compare it with terminal output.
+=======
 
 ### Expected Behavior or Output
 
@@ -4873,6 +6251,7 @@ Output observed when the worked example was run with empty standard input (Go 1.
 words=7 characters=56
 contains programming: true
 ```
+>>>>>>> 2067a20 (curriculum clearning and updates)
 
 ### Common Mistakes
 1. Testing only typical values and missing boundaries.
@@ -4928,6 +6307,9 @@ func main() {
 }
 ```
 
+<<<<<<< HEAD
+**Expected behavior:** The standalone program demonstrates csv records with shared course example data. It compiles and runs using the standard library. Predict the output first, then compare it with terminal output.
+=======
 
 ### Expected Behavior or Output
 
@@ -4938,6 +6320,7 @@ name | score
 Avery | 82
 Jordan | 91
 ```
+>>>>>>> 2067a20 (curriculum clearning and updates)
 
 ### Common Mistakes
 1. Testing only typical values and missing boundaries.
@@ -4960,6 +6343,8 @@ Use keyboard navigation to move between the lesson heading, code fence, compiler
 - [ ] I can test a boundary case and an invalid-input or error case.
 - [ ] I can navigate source, diagnostics, and output with my keyboard and assistive technology.
 
+<<<<<<< HEAD
+=======
 # Unit 10: Project-Based Learning — Text-Based Applications
 
 ## Overview
@@ -4968,6 +6353,7 @@ Plan a text project, build the shared text adventure in two parts, build the com
 
 ---
 
+>>>>>>> 2067a20 (curriculum clearning and updates)
 ## Lesson 10.1: Requirements and top-down design
 
 ### Reading References
@@ -4997,6 +6383,9 @@ func main() {
 }
 ```
 
+<<<<<<< HEAD
+**Expected behavior:** The standalone program demonstrates requirements and top-down design with shared course example data. It compiles and runs using the standard library. Predict the output first, then compare it with terminal output.
+=======
 
 ### Expected Behavior or Output
 
@@ -5008,6 +6397,7 @@ Output observed when the worked example was run with empty standard input (Go 1.
 3. mark task complete
 4. save tasks
 ```
+>>>>>>> 2067a20 (curriculum clearning and updates)
 
 ### Common Mistakes
 1. Mixing domain logic with terminal input/output in one function.
@@ -5061,6 +6451,9 @@ func main() {
 }
 ```
 
+<<<<<<< HEAD
+**Expected behavior:** The standalone program demonstrates text adventure: rooms and movement with shared course example data. It compiles and runs using the standard library. Predict the output first, then compare it with terminal output.
+=======
 
 ### Expected Behavior or Output
 
@@ -5069,6 +6462,7 @@ Output observed when the worked example was run with empty standard input (Go 1.
 ```text
 Moved to: library
 ```
+>>>>>>> 2067a20 (curriculum clearning and updates)
 
 ### Common Mistakes
 1. Mixing domain logic with terminal input/output in one function.
@@ -5115,13 +6509,21 @@ import (
 	"fmt"
 )
 func main() {
+<<<<<<< HEAD
+ inventory := map[string]bool{"shiny key": true}
+ unlocked := inventory["shiny key"]
+=======
  inventory := map[string]bool{"key": true}
  unlocked := inventory["key"]
+>>>>>>> 2067a20 (curriculum clearning and updates)
  if unlocked { inventory["map"] = true }
  fmt.Println("puzzle unlocked:", unlocked, "inventory:", inventory)
 }
 ```
 
+<<<<<<< HEAD
+**Expected behavior:** The standalone program demonstrates text adventure: inventory and puzzles with shared course example data. It compiles and runs using the standard library. Predict the output first, then compare it with terminal output.
+=======
 
 ### Expected Behavior or Output
 
@@ -5130,6 +6532,7 @@ Output observed when the worked example was run with empty standard input (Go 1.
 ```text
 puzzle unlocked: true inventory: map[key:true map:true]
 ```
+>>>>>>> 2067a20 (curriculum clearning and updates)
 
 ### Common Mistakes
 1. Mixing domain logic with terminal input/output in one function.
@@ -5183,6 +6586,9 @@ func main() {
 }
 ```
 
+<<<<<<< HEAD
+**Expected behavior:** The standalone program demonstrates command-line to-do manager with shared course example data. It compiles and runs using the standard library. Predict the output first, then compare it with terminal output.
+=======
 
 ### Expected Behavior or Output
 
@@ -5192,6 +6598,7 @@ Output observed when the worked example was run with empty standard input (Go 1.
 1: Read lesson [true]
 2: Run example [false]
 ```
+>>>>>>> 2067a20 (curriculum clearning and updates)
 
 ### Common Mistakes
 1. Mixing domain logic with terminal input/output in one function.
@@ -5249,6 +6656,9 @@ func main() {
 }
 ```
 
+<<<<<<< HEAD
+**Expected behavior:** The standalone program demonstrates accessible interaction and validation with shared course example data. It compiles and runs using the standard library. Predict the output first, then compare it with terminal output.
+=======
 
 ### Expected Behavior or Output
 
@@ -5257,6 +6667,7 @@ Output observed when the worked example was run with empty standard input (Go 1.
 ```text
 Task title: A title is required.
 ```
+>>>>>>> 2067a20 (curriculum clearning and updates)
 
 ### Common Mistakes
 1. Mixing domain logic with terminal input/output in one function.
@@ -5279,6 +6690,8 @@ Use keyboard navigation to move between the lesson heading, code fence, compiler
 - [ ] I can test a boundary case and an invalid-input or error case.
 - [ ] I can navigate source, diagnostics, and output with my keyboard and assistive technology.
 
+<<<<<<< HEAD
+=======
 # Unit 11: Capstone — Accessible Personal Data Manager
 
 ## Overview
@@ -5287,6 +6700,7 @@ Build a personal data manager with the shared record schema, storage, search and
 
 ---
 
+>>>>>>> 2067a20 (curriculum clearning and updates)
 ## Lesson 11.1: Requirements and design
 
 ### Reading References
@@ -5317,6 +6731,9 @@ func main() {
 }
 ```
 
+<<<<<<< HEAD
+**Expected behavior:** The standalone program demonstrates requirements and design with shared course example data. It compiles and runs using the standard library. Predict the output first, then compare it with terminal output.
+=======
 
 ### Expected Behavior or Output
 
@@ -5325,6 +6742,7 @@ Output observed when the worked example was run with empty standard input (Go 1.
 ```text
 Capstone fields: id, title, description, category, created_at, updated_at
 ```
+>>>>>>> 2067a20 (curriculum clearning and updates)
 
 ### Common Mistakes
 1. Updating a record without confirming that the identifier exists.
@@ -5372,14 +6790,29 @@ import (
 	"fmt"
 )
 func main() {
+<<<<<<< HEAD
+ type Record struct {
+  ID int `json:"id"`
+  Title string `json:"title"`
+  Description string `json:"description"`
+  Category string `json:"category"`
+  CreatedAt string `json:"created_at"`
+  UpdatedAt string `json:"updated_at"`
+ }
+ record := Record{ID: 1, Title: "Study Go", Description: "Complete the Go capstone", Category: "learning", CreatedAt: "2026-11-01", UpdatedAt: "2026-11-01"}
+=======
  type Record struct { ID int `json:"id"`; Title string `json:"title"`; Category string `json:"category"` }
  record := Record{ID: 1, Title: "Study Go", Category: "learning"}
+>>>>>>> 2067a20 (curriculum clearning and updates)
  data, err := json.Marshal(record)
  if err != nil { panic(err) }
  fmt.Println(string(data))
 }
 ```
 
+<<<<<<< HEAD
+**Expected behavior:** The standalone program demonstrates data model and storage with shared course example data. It compiles and runs using the standard library. Predict the output first, then compare it with terminal output.
+=======
 
 ### Expected Behavior or Output
 
@@ -5388,6 +6821,7 @@ Output observed when the worked example was run with empty standard input (Go 1.
 ```text
 {"id":1,"title":"Study Go","category":"learning"}
 ```
+>>>>>>> 2067a20 (curriculum clearning and updates)
 
 ### Common Mistakes
 1. Updating a record without confirming that the identifier exists.
@@ -5441,6 +6875,9 @@ func main() {
 }
 ```
 
+<<<<<<< HEAD
+**Expected behavior:** The standalone program demonstrates create, read, update, delete with shared course example data. It compiles and runs using the standard library. Predict the output first, then compare it with terminal output.
+=======
 
 ### Expected Behavior or Output
 
@@ -5450,6 +6887,7 @@ Output observed when the worked example was run with empty standard input (Go 1.
 1 Draft done=true
 2 Review done=false
 ```
+>>>>>>> 2067a20 (curriculum clearning and updates)
 
 ### Common Mistakes
 1. Updating a record without confirming that the identifier exists.
@@ -5502,6 +6940,9 @@ func main() {
 }
 ```
 
+<<<<<<< HEAD
+**Expected behavior:** The standalone program demonstrates validation and tests with shared course example data. It compiles and runs using the standard library. Predict the output first, then compare it with terminal output.
+=======
 
 ### Expected Behavior or Output
 
@@ -5512,6 +6953,7 @@ Output observed when the worked example was run with empty standard input (Go 1.
 "" valid=false
 "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx" valid=false
 ```
+>>>>>>> 2067a20 (curriculum clearning and updates)
 
 ### Common Mistakes
 1. Updating a record without confirming that the identifier exists.
@@ -5566,6 +7008,9 @@ func main() {
 }
 ```
 
+<<<<<<< HEAD
+**Expected behavior:** The standalone program demonstrates documentation and presentation with shared course example data. It compiles and runs using the standard library. Predict the output first, then compare it with terminal output.
+=======
 
 ### Expected Behavior or Output
 
@@ -5578,6 +7023,7 @@ Test: go test ./...
 Run: go run .
 Document validation, storage, errors, and keyboard workflow.
 ```
+>>>>>>> 2067a20 (curriculum clearning and updates)
 
 ### Common Mistakes
 1. Updating a record without confirming that the identifier exists.
@@ -5606,7 +7052,11 @@ Submit a Go module that passes gofmt, go test ./..., and go build ./.... Documen
 
 ## AI Policy
 
+<<<<<<< HEAD
+AI tools may explain compiler diagnostics, compare data structures, and suggest test cases. Learners must explain every type, package, error path, concurrency decision, and dependency. Compile and test generated code, review dependency provenance, and do not expose private data or credentials. AI output is a draft, not evidence of correctness.
+=======
 AI may be used only for personal conceptual understanding and reinforcement. It must not write, complete, autocomplete, repair, or generate course code or assessment solutions.
+>>>>>>> 2067a20 (curriculum clearning and updates)
 
 ## Go-Specific Verification Notes
 

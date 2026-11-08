@@ -16,7 +16,11 @@ FENCE = chr(96) * 3
 lessons = {}
 for relative in FILES:
     text = (ROOT / relative).read_text(encoding="utf-8")
+<<<<<<< HEAD
+    matches = list(re.finditer(r"^### Lesson (\d+\.\d+): .+$", text, flags=re.M))
+=======
     matches = list(re.finditer(r"^## Lesson (\d+\.\d+): .+$", text, flags=re.M))
+>>>>>>> 2067a20 (curriculum clearning and updates)
     for index, match in enumerate(matches):
         end = matches[index + 1].start() if index + 1 < len(matches) else len(text)
         section = text[match.start():end]

@@ -400,6 +400,11 @@ Print the score and decision as a complete sentence. Do not use color alone to i
 - [ ] I can explain strict equality.
 
 ## Lesson 3.2: Chained Conditionals (`else if`, `else`)
+<<<<<<< HEAD
+### Concept Explanation
+A chained conditional evaluates branches in order and runs the first matching branch. JavaScript uses `else if` for intermediate alternatives. The shared thresholds are A at 90, B at 80, C at 70, D at 60, and F below 60.
+
+=======
 
 ### Reading References
 
@@ -417,7 +422,18 @@ Print the score and decision as a complete sentence. Do not use color alone to i
 A chained conditional evaluates branches in order and runs the first matching branch. JavaScript uses `else if` for intermediate alternatives. The shared thresholds are A at 90, B at 80, C at 70, D at 60, and F below 60.
 
 ### Worked Example
+>>>>>>> 2067a20 (curriculum clearning and updates)
 
+### Reading References
+- Python source counterpart: Unit 3, Lesson 3.2.
+- MDN: Conditional statements.
+
+### Learning Objectives
+- Use ordered conditional branches.
+- Apply the shared A–F grade thresholds.
+- Test branch boundaries.
+
+### Worked Example
 ```javascript
 function getGrade(score) {
   if (score >= 90) {
@@ -447,23 +463,48 @@ Score 88: B
 ```
 
 ### Expected Behavior or Output
+<<<<<<< HEAD
+The canonical scores are classified as 82:B, 91:A, 76:C, and 88:B.
+
+### Common Mistakes
+=======
 
 The canonical scores are classified as 82:B, 91:A, 76:C, and 88:B.
 
 ### Common Mistakes
 
+>>>>>>> 2067a20 (curriculum clearning and updates)
 - Testing lower thresholds before higher ones.
 - Omitting the final fallback branch.
 - Failing to reject scores outside the valid range.
 
 ### Activities
+<<<<<<< HEAD
+=======
 
+>>>>>>> 2067a20 (curriculum clearning and updates)
 1. Classify scores 82, 91, 76, and 88.
 2. Test 90, 89, 80, 79, 70, 69, 60, and 59.
 3. Add validation for scores below 0 or above 100.
 4. Explain why branch order matters.
 
 ### Accessibility Practice
+<<<<<<< HEAD
+Print the numeric score and grade together, one record per line.
+
+### Skills Checklist
+- [ ] I can write chained conditionals.
+- [ ] I can implement the shared grade thresholds.
+- [ ] I can test boundary values.
+- [ ] I can validate a score range.
+
+## Lesson 3.3: Introduction to Arrays
+
+### Reading References
+- Python source counterpart: Unit 3, Lesson 3.3.
+- MDN: Indexed collections — Arrays.
+
+=======
 
 Print the numeric score and grade together, one record per line.
 
@@ -480,6 +521,7 @@ Print the numeric score and grade together, one record per line.
 - Python source counterpart: Unit 3, Lesson 3.3.
 - MDN: Indexed collections — Arrays.
 
+>>>>>>> 2067a20 (curriculum clearning and updates)
 ### Learning Objectives
 - Create, access, and modify arrays.
 - Explain zero-based indexing and `length`.
@@ -528,13 +570,26 @@ Identify values by both position and meaning. Print one score per line.
 - [ ] I can use the length property.
 
 ## Lesson 3.4: Iterating with `for` Loops
+<<<<<<< HEAD
+### Concept Explanation
+A `for...of` loop visits each value in an iterable collection. The loop variable holds the current score, not its array index.
+
+
+### Reading References
+=======
 
 ### Reading References
 
+>>>>>>> 2067a20 (curriculum clearning and updates)
 - Python source counterpart: Unit 3, Lesson 3.4.
 - MDN: Loops and iteration.
 
 ### Learning Objectives
+<<<<<<< HEAD
+- Iterate over arrays with `for...of`.
+- Calculate a total and average.
+- Compare indexed loops with value-based iteration.
+=======
 
 - Iterate over arrays with `for...of`.
 - Calculate a total and average.
@@ -545,7 +600,9 @@ Identify values by both position and meaning. Print one score per line.
 A `for...of` loop visits each value in an iterable collection. The loop variable holds the current score, not its array index.
 
 ### Worked Example
+>>>>>>> 2067a20 (curriculum clearning and updates)
 
+### Worked Example
 ```javascript
 const scores = [82, 91, 76, 88];
 let total = 0;
@@ -565,6 +622,43 @@ Average: 84.25
 ```
 
 ### Expected Behavior or Output
+<<<<<<< HEAD
+The canonical score list totals 337 and has an average of 84.25.
+
+### Common Mistakes
+- Confusing an array index with an array value.
+- Modifying the collection while iterating without understanding the effect.
+- Using `forEach()` when early termination with `break` is required.
+
+### Activities
+1. Print each canonical score using `for...of`.
+2. Calculate the total and average.
+3. Print each score with a one-based display number.
+4. Compare `for...of`, indexed `for`, and `forEach()`.
+
+### Accessibility Practice
+Use one output line per score and include a meaningful label. Do not rely on visual alignment.
+
+### Skills Checklist
+- [ ] I can iterate over an array.
+- [ ] I can calculate a total and average.
+- [ ] I can use an indexed loop.
+- [ ] I can choose an appropriate loop form.
+
+## Lesson 3.5: Basic String Operations
+### Concept Explanation
+JavaScript strings are immutable. Methods such as `trim()`, `toUpperCase()`, and `toLowerCase()` return new strings. Template literals use backticks and `${expression}` interpolation.
+
+
+### Reading References
+- Python source counterpart: Unit 3, Lesson 3.5.
+- MDN: String.
+
+### Learning Objectives
+- Concatenate strings and use template literals.
+- Normalize text and search within it.
+- Count string length and replace text.
+=======
 
 The canonical score list totals 337 and has an average of 84.25.
 
@@ -610,7 +704,9 @@ Use one output line per score and include a meaningful label. Do not rely on vis
 JavaScript strings are immutable. Methods such as `trim()`, `toUpperCase()`, and `toLowerCase()` return new strings. Template literals use backticks and `${expression}` interpolation.
 
 ### Worked Example
+>>>>>>> 2067a20 (curriculum clearning and updates)
 
+### Worked Example
 ```javascript
 const firstName = " Avery ";
 const lastName = "Student";
@@ -632,28 +728,43 @@ Characters in name: 13
 ```
 
 ### Expected Behavior or Output
+<<<<<<< HEAD
+The example prints `Avery Student`, its uppercase form, true for the programming search, and a character count of 13.
+
+### Common Mistakes
+=======
 
 The example prints `Avery Student`, its uppercase form, true for the programming search, and a character count of 13.
 
 ### Common Mistakes
 
+>>>>>>> 2067a20 (curriculum clearning and updates)
 - Assuming string methods mutate the original string.
 - Forgetting to save the result of `trim()` or case conversion.
 - Treating UTF-16 code-unit length as the count of user-perceived characters in all Unicode text.
 
 ### Activities
+<<<<<<< HEAD
+=======
 
+>>>>>>> 2067a20 (curriculum clearning and updates)
 1. Trim extra spaces from a name.
 2. Convert the canonical text sample to lowercase.
 3. Count the occurrences of the word "programming".
 4. Replace "skills" with "abilities".
 
 ### Accessibility Practice
+<<<<<<< HEAD
+Use complete labels for string length and search results. Explain punctuation and whitespace explicitly.
+
+### Skills Checklist
+=======
 
 Use complete labels for string length and search results. Explain punctuation and whitespace explicitly.
 
 ### Skills Checklist
 
+>>>>>>> 2067a20 (curriculum clearning and updates)
 - [ ] I can concatenate strings and use template literals.
 - [ ] I can trim and change case.
 - [ ] I can search and replace text.
@@ -665,24 +776,39 @@ Use complete labels for string length and search results. Explain punctuation an
 This unit maps Python lists, tuples, and dictionaries to idiomatic JavaScript. JavaScript arrays are mutable sequences; a frozen array can express fixed-sequence intent; plain objects represent records; and `Map` represents a dynamic key-value collection.
 
 ## Lesson 4.1: More on Arrays
+<<<<<<< HEAD
+### Concept Explanation
+Array methods such as `push()`, `pop()`, and `splice()` mutate an array. Methods such as `slice()` return a new array. Numeric sorting requires a comparator because the default sort is lexicographic.
+
+
+### Reading References
+=======
 
 ### Reading References
 
+>>>>>>> 2067a20 (curriculum clearning and updates)
 - Python source counterpart: Unit 4, Lesson 4.1.
 - MDN: Array methods.
 
 ### Learning Objectives
+<<<<<<< HEAD
+=======
 
+>>>>>>> 2067a20 (curriculum clearning and updates)
 - Add, insert, update, and remove array elements.
 - Distinguish mutating methods from methods that return a new array.
 - Preserve and process the canonical score data.
 
+<<<<<<< HEAD
+### Worked Example
+=======
 ### Concept Explanation
 
 Array methods such as `push()`, `pop()`, and `splice()` mutate an array. Methods such as `slice()` return a new array. Numeric sorting requires a comparator because the default sort is lexicographic.
 
 ### Worked Example
 
+>>>>>>> 2067a20 (curriculum clearning and updates)
 ```javascript
 const scores = [82, 91, 76, 88];
 scores.push(95);
@@ -699,52 +825,82 @@ Scores: 82, 85, 91, 76, 88
 ```
 
 ### Expected Behavior or Output
+<<<<<<< HEAD
+The example removes 95 and prints the remaining scores in the order 82, 85, 91, 76, 88.
+
+### Common Mistakes
+=======
 
 The example removes 95 and prints the remaining scores in the order 82, 85, 91, 76, 88.
 
 ### Common Mistakes
 
+>>>>>>> 2067a20 (curriculum clearning and updates)
 - Confusing `splice()` (mutates) with `slice()` (returns a copy).
 - Assuming `pop()` returns the updated array rather than the removed element.
 - Sorting numbers without a numeric comparator.
 
 ### Activities
+<<<<<<< HEAD
+=======
 
+>>>>>>> 2067a20 (curriculum clearning and updates)
 1. Append 95 to the canonical scores.
 2. Insert 85 at index 1.
 3. Remove the final element and report the returned value.
 4. Sort a copy numerically with `(a, b) => a - b`.
 
 ### Accessibility Practice
+<<<<<<< HEAD
+Announce whether an operation mutates the original array or returns a new one. Read resulting values sequentially.
+
+### Skills Checklist
+=======
 
 Announce whether an operation mutates the original array or returns a new one. Read resulting values sequentially.
 
 ### Skills Checklist
 
+>>>>>>> 2067a20 (curriculum clearning and updates)
 - [ ] I can add and remove array elements.
 - [ ] I can insert at an index.
 - [ ] I can distinguish mutating and non-mutating methods.
 - [ ] I can sort numeric arrays correctly.
 
 ## Lesson 4.2: Organizing Arrays
+<<<<<<< HEAD
+### Concept Explanation
+Sorting and reversing can mutate their receiver. Spread syntax creates a shallow copy, allowing a separate primitive-value array to be sorted or reversed without changing the original.
+
+
+### Reading References
+=======
 
 ### Reading References
 
+>>>>>>> 2067a20 (curriculum clearning and updates)
 - Python source counterpart: Unit 4, Lesson 4.2.
 - MDN: Array sorting and iteration methods.
 
 ### Learning Objectives
+<<<<<<< HEAD
+=======
 
+>>>>>>> 2067a20 (curriculum clearning and updates)
 - Sort and reverse arrays.
 - Create filtered and transformed arrays.
 - Explain mutation and copying.
 
+<<<<<<< HEAD
+### Worked Example
+=======
 ### Concept Explanation
 
 Sorting and reversing can mutate their receiver. Spread syntax creates a shallow copy, allowing a separate primitive-value array to be sorted or reversed without changing the original.
 
 ### Worked Example
 
+>>>>>>> 2067a20 (curriculum clearning and updates)
 ```javascript
 const scores = [82, 91, 76, 88];
 const sorted = [...scores].sort((a, b) => a - b);
@@ -762,28 +918,43 @@ Reversed: 91, 88, 82, 76
 ```
 
 ### Expected Behavior or Output
+<<<<<<< HEAD
+The original order remains 82, 91, 76, 88; the sorted copy is 76, 82, 88, 91; the reversed copy is 91, 88, 82, 76.
+
+### Common Mistakes
+=======
 
 The original order remains 82, 91, 76, 88; the sorted copy is 76, 82, 88, 91; the reversed copy is 91, 88, 82, 76.
 
 ### Common Mistakes
 
+>>>>>>> 2067a20 (curriculum clearning and updates)
 - Calling `sort()` without a comparator for numeric data.
 - Reversing the original array when a copy was intended.
 - Assuming spread syntax makes a deep copy of nested objects.
 
 ### Activities
+<<<<<<< HEAD
+=======
 
+>>>>>>> 2067a20 (curriculum clearning and updates)
 1. Sort the canonical scores from lowest to highest.
 2. Reverse a copy and preserve the original order.
 3. Filter scores of 80 or higher.
 4. Explain why a shallow copy is sufficient for an array of primitive numbers but not necessarily for nested objects.
 
 ### Accessibility Practice
+<<<<<<< HEAD
+Label each result as original, sorted, reversed, or filtered. Avoid presenting the distinction only through visual ordering.
+
+### Skills Checklist
+=======
 
 Label each result as original, sorted, reversed, or filtered. Avoid presenting the distinction only through visual ordering.
 
 ### Skills Checklist
 
+>>>>>>> 2067a20 (curriculum clearning and updates)
 - [ ] I can sort numbers with a comparator.
 - [ ] I can reverse a copy of an array.
 - [ ] I can filter an array.
@@ -952,4 +1123,7 @@ Provide one key-value pair per line and announce when iteration begins and ends.
 - [ ] I can traverse Map entries.
 - [ ] I can choose the appropriate traversal API.
 - [ ] I can produce sequential textual reports.
+<<<<<<< HEAD
+=======
 
+>>>>>>> 2067a20 (curriculum clearning and updates)

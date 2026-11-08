@@ -9,19 +9,31 @@
 Node.js 26 LTS lets you run JavaScript on your computer (outside a browser) using the terminal. Install the current LTS line, not an obsolete tutorial version or an experimental prerelease.
 
 ### Reading References
+<<<<<<< HEAD
+- Official Node.js downloads and installation documentation.
+
+### Learning Objectives
+=======
 
 - Official Node.js downloads and installation documentation.
 
 ### Learning Objectives
 
+>>>>>>> 2067a20 (curriculum clearning and updates)
 - Install a supported Node.js LTS runtime and npm.
 - Verify the runtime from a terminal.
 
 ### Concept Explanation
+<<<<<<< HEAD
+Node.js is the JavaScript runtime used for this course. npm is the package manager distributed with Node.js. The terminal must be able to locate both commands through PATH.
+
+### Installing Node.js
+=======
 
 Node.js is the JavaScript runtime used for this course. npm is the package manager distributed with Node.js. The terminal must be able to locate both commands through PATH.
 
 #### Installing Node.js
+>>>>>>> 2067a20 (curriculum clearning and updates)
 
 Download **Node.js 26 LTS** from [https://nodejs.org/](https://nodejs.org/).
 
@@ -97,6 +109,32 @@ Use keyboard navigation in the installer and terminal. Read each installation pr
 
 ---
 
+### Expected Behavior or Output
+The terminal reports a Node.js version in the documented supported major line and an npm version. The REPL accepts a short expression and prints its result.
+
+### Worked Example
+```bash
+node --version
+npm --version
+node -e "console.log(2 + 3)"
+```
+The third command verifies that Node.js can execute a short JavaScript expression.
+
+### Common Mistakes
+- Installing a runtime but not reopening the terminal, so PATH changes are not visible.
+- Installing a version that is unsupported or inconsistent with the course baseline.
+- Confusing Node.js with npm; Node.js runs JavaScript and npm manages packages.
+
+### Activities
+1. Install Node.js using the official download or package-manager instructions for the operating system.
+2. Run `node --version` and `npm --version`.
+3. Open the Node.js REPL, evaluate `2 + 3`, and exit.
+4. If a command is not found, identify whether the runtime is installed and whether PATH is configured.
+
+### Accessibility Practice
+Use keyboard navigation in the installer and terminal. Read each installation prompt and verify the runtime with text commands rather than relying on an icon or graphical success message.
+
+
 ## Lesson 0.2: Setting Up VS Code or Theia IDE
 
 For a new project, create a package manifest with npm init -y. Choose one module system and declare it explicitly: set package.json to { "type": "commonjs" } for the CommonJS examples in the early lessons, or { "type": "module" } for the ES module examples later in the course. Do not combine the two syntaxes in one file.
@@ -108,20 +146,32 @@ For a new project, create a package manifest with npm init -y. Choose one module
 3. In VS Code, enable Screen Reader Mode: `Ctrl + Shift + P` → "Toggle Screen Reader Optimized". In Theia, enable its corresponding screen-reader setting and verify editor, terminal, diagnostics, and extension announcements.
 
 ### Reading References
+<<<<<<< HEAD
+=======
 
+>>>>>>> 2067a20 (curriculum clearning and updates)
 - Visual Studio Code accessibility documentation.
 - Theia IDE documentation and extension marketplace guidance.
 
 ### Learning Objectives
+<<<<<<< HEAD
+=======
 
+>>>>>>> 2067a20 (curriculum clearning and updates)
 - Configure an editor for JavaScript development.
 - Navigate files, editor, terminal, and diagnostics by keyboard.
 
 ### Concept Explanation
+<<<<<<< HEAD
+An editor provides source navigation and language tooling; it does not replace the Node.js runtime. Keyboard shortcuts and extension availability can differ between VS Code and Theia.
+
+### VS Code Shortcuts for JavaScript (Theia keybindings may differ)
+=======
 
 An editor provides source navigation and language tooling; it does not replace the Node.js runtime. Keyboard shortcuts and extension availability can differ between VS Code and Theia.
 
 #### VS Code Shortcuts for JavaScript (Theia keybindings may differ)
+>>>>>>> 2067a20 (curriculum clearning and updates)
 
 | Action | Shortcut |
 |--------|----------|
@@ -157,6 +207,14 @@ Experienced coders may prefer JetBrains IDEs, such as WebStorm. They are advance
 ---
 
 ### Worked Example
+<<<<<<< HEAD
+Use the keyboard to open a project folder, create `hello.js`, move focus to the integrated terminal, and run `node hello.js`.
+
+### Expected Behavior or Output
+The editor can open a JavaScript project, announce file names and diagnostics, and run the same file from its integrated terminal. The exact keyboard shortcuts may differ between VS Code and Theia.
+
+### Common Mistakes
+=======
 
 Use the keyboard to open a project folder, create `hello.js`, move focus to the integrated terminal, and run `node hello.js`.
 
@@ -166,23 +224,33 @@ The editor can open a JavaScript project, announce file names and diagnostics, a
 
 ### Common Mistakes
 
+>>>>>>> 2067a20 (curriculum clearning and updates)
 - Assuming VS Code and Theia have identical extensions or keyboard shortcuts.
 - Installing extensions without checking compatibility with the chosen editor.
 - Relying on a mouse-only run button instead of terminal execution.
 
 ### Activities
+<<<<<<< HEAD
+=======
 
+>>>>>>> 2067a20 (curriculum clearning and updates)
 1. Open the Command Palette using the keyboard.
 2. Install or verify JavaScript language support and Node.js tooling.
 3. Navigate between editor, terminal, and file explorer without a mouse.
 4. Confirm that the editor announces syntax errors and file names accessibly.
 
 ### Accessibility Practice
+<<<<<<< HEAD
+Test the learner's actual screen reader and braille display configuration. Do not claim universal accessibility; document editor, operating system, and access-technology versions used.
+
+### Skills Checklist
+=======
 
 Test the learner's actual screen reader and braille display configuration. Do not claim universal accessibility; document editor, operating system, and access-technology versions used.
 
 ### Skills Checklist
 
+>>>>>>> 2067a20 (curriculum clearning and updates)
 - [ ] I can open and navigate a JavaScript workspace.
 - [ ] I can use the keyboard to move between editor and terminal.
 - [ ] I can locate diagnostics and read their messages.
@@ -191,20 +259,32 @@ Test the learner's actual screen reader and braille display configuration. Do no
 ## Lesson 0.3: Your First JavaScript File
 
 ### Reading References
+<<<<<<< HEAD
+=======
 
+>>>>>>> 2067a20 (curriculum clearning and updates)
 - MDN: JavaScript first steps.
 - Node.js: Running JavaScript files.
 
 ### Learning Objectives
+<<<<<<< HEAD
+=======
 
+>>>>>>> 2067a20 (curriculum clearning and updates)
 - Create and save a JavaScript source file.
 - Run the file and distinguish script execution from the REPL.
 
 ### Concept Explanation
+<<<<<<< HEAD
+A source file stores a repeatable program. The Node.js REPL evaluates individual expressions interactively; running a file executes its statements in sequence.
+
+### Hello World
+=======
 
 A source file stores a repeatable program. The Node.js REPL evaluates individual expressions interactively; running a file executes its statements in sequence.
 
 #### Hello World
+>>>>>>> 2067a20 (curriculum clearning and updates)
 
 Create `hello.js`:
 ```javascript
@@ -286,6 +366,34 @@ Ensure the file name, extension, and terminal output are announced in sequence. 
 
 ---
 
+<<<<<<< HEAD
+### Expected Behavior or Output
+Running the saved file prints the exact greeting text in the terminal, in the order written in the file.
+
+### Worked Example
+```javascript
+console.log("Hello, World!");
+console.log("Welcome to JavaScript.");
+```
+Run the saved file with `node hello.js`.
+
+### Common Mistakes
+- Saving source code with a hidden extra extension such as `.js.txt`.
+- Typing smart quotes instead of straight quotation marks.
+- Running the REPL command instead of executing the saved file.
+
+### Activities
+1. Create and save `hello.js`.
+2. Run the file from the terminal.
+3. Enter a short arithmetic expression in the Node.js REPL.
+4. Explain the difference between a saved script and an interactive REPL session.
+
+### Accessibility Practice
+Ensure the file name, extension, and terminal output are announced in sequence. Keep a terminal path available even when the editor provides a run command.
+
+
+=======
+>>>>>>> 2067a20 (curriculum clearning and updates)
 ## Lesson 0.4: Node.js Projects, Terminal Execution, and Dependencies
 
 ### Reading References
@@ -382,6 +490,15 @@ This unit covers JavaScript fundamentals: variables, data types, and basic outpu
 *(See Python Unit 1.1 for conceptual content — hardware, software, algorithms, and problem-solving are language-agnostic.)*
 
 ### Reading References
+<<<<<<< HEAD
+- Python source counterpart: Unit 1, Lesson 1.1.
+- MDN: Introduction to JavaScript.
+
+### Concept Explanation
+Computer science studies computational problem-solving: representing information, designing algorithms, and evaluating solutions. JavaScript is a programming language; Node.js and web browsers are different runtime environments that host JavaScript code.
+
+### JavaScript's Role
+=======
 
 - Python source counterpart: Unit 1, Lesson 1.1.
 - MDN: Introduction to JavaScript.
@@ -397,12 +514,101 @@ This unit covers JavaScript fundamentals: variables, data types, and basic outpu
 Computer science studies computational problem-solving: representing information, designing algorithms, and evaluating solutions. JavaScript is a programming language; Node.js and web browsers are different runtime environments that host JavaScript code.
 
 #### JavaScript's Role
+>>>>>>> 2067a20 (curriculum clearning and updates)
 
 JavaScript was created by Brendan Eich at Netscape in 1995. Originally just for web browsers, it now runs everywhere thanks to Node.js (2009).
 
 ---
 
+<<<<<<< HEAD
+### Learning Objectives
+- Define computer science as the study of computational problem-solving.
+- Distinguish hardware from software.
+- Describe JavaScript's role in browser and server-side programming.
+
 ### Worked Example
+A simple algorithm for preparing a school day can be written as ordered steps: check the schedule, pack required materials, travel to school, and attend the first class. A computer program expresses a precise algorithm so that a machine can execute it consistently.
+
+### Expected Behavior or Output
+Students can explain the difference between a physical computer component and a program, and identify that JavaScript code can run in a browser or in Node.js.
+
+### Common Mistakes
+- Defining computer science as only learning a programming language.
+- Confusing a browser with JavaScript itself.
+- Assuming JavaScript running in Node.js has browser APIs such as document and window.
+
+### Activities
+1. Identify three hardware components and three software examples.
+2. Describe an everyday task as an ordered algorithm.
+3. Compare JavaScript in a browser with JavaScript in Node.js.
+4. Explain why this course starts with terminal programs.
+
+### Accessibility Practice
+Describe hardware and software with textual examples. Do not require interpreting a diagram as the only way to understand system components.
+
+### Skills Checklist
+- [ ] I can define computer science.
+- [ ] I can distinguish hardware and software.
+- [ ] I can describe JavaScript's browser and Node.js environments.
+- [ ] I can express a simple task as an algorithm.
+
+
+## Lesson 1.2: Your First JavaScript Program — Hello World
+
+### Reading References
+- Python source counterpart: Unit 1, Lesson 1.2.
+- MDN: JavaScript first steps.
+
+### Learning Objectives
+- Write and run a minimal JavaScript program.
+- Explain sequential execution and console output.
+- Run the same file from the terminal.
+
+### Concept Explanation
+A JavaScript program is a sequence of instructions. Node.js executes statements in order. The `console.log()` function writes text to standard output. JavaScript statements are commonly separated by line breaks and may optionally end with semicolons; this course uses semicolons consistently.
+
+### Worked Example
+Save as `hello.js`:
+```javascript
+console.log("Hello, World!");
+console.log("Welcome to JavaScript.");
+```
+
+Run with `node hello.js`.
+
+Expected output:
+```text
+Hello, World!
+Welcome to JavaScript.
+```
+
+### Expected Behavior or Output
+Running `node hello.js` prints `Hello, World!` followed by `Welcome to JavaScript.` on the next line.
+
+### Common Mistakes
+- Saving the file with the wrong extension.
+- Running Node.js from a directory that does not contain the file.
+- Misspelling the case-sensitive function name `console.log`.
+
+### Activities
+1. Type and run the two-line program.
+2. Add a third line that prints your name.
+3. Change the greeting and predict the output before running.
+4. Run the program from a different directory and diagnose the error.
+
+### Accessibility Practice
+Use the terminal and keyboard to create, save, and run the file. Read the output sequentially and confirm the file name and extension.
+
+### Skills Checklist
+- [ ] I can create a JavaScript source file.
+- [ ] I can print text with `console.log()`.
+- [ ] I can run a file with `node`.
+- [ ] I can explain sequential execution.
+
+## Lesson 1.3: Variables and Simple Data Types
+=======
+### Worked Example
+>>>>>>> 2067a20 (curriculum clearning and updates)
 
 A simple algorithm for preparing a school day can be written as ordered steps: check the schedule, pack required materials, travel to school, and attend the first class. A computer program expresses a precise algorithm so that a machine can execute it consistently.
 
@@ -549,6 +755,22 @@ console.log("Hello, " + name + "! You are " + age + " years old.");
 #### Additional Primitive Types and Type Conversion
 
 
+<<<<<<< HEAD
+### Additional Primitive Types and Type Conversion
+
+### Reading References
+- Python source counterpart: Unit 1, Lesson 1.3.
+- MDN: JavaScript data types and structures.
+
+### Learning Objectives
+- Declare variables with `const` and `let`.
+- Store strings, numbers, and Booleans.
+- Explain JavaScript's dynamic typing and primitive values.
+
+### Concept Explanation
+A variable name refers to a value. Use `const` when the binding will not be reassigned and `let` when reassignment is required. JavaScript is dynamically typed: a variable can refer to values of different types over time.
+=======
+>>>>>>> 2067a20 (curriculum clearning and updates)
 
 #### Primitive Types
 
@@ -712,3 +934,30 @@ Use meaningful variable names and explicit output labels. Explain punctuation su
 - [ ] I can convert between types using `Number()`, `String()`, `parseInt()`.
 - [ ] I understand `const` vs. `let`.
 
+<<<<<<< HEAD
+### Worked Example
+```javascript
+const student = { name: "Avery", age: 16, heightM: 1.72, favoriteSubject: "Computer Science" };
+console.log(`${student.name}, age ${student.age}`);
+console.log(`Height: ${student.heightM} m`);
+```
+
+### Common Mistakes
+- Using `var` when `const` or `let` expresses the intended behavior more clearly.
+- Assuming JavaScript has separate integer and floating-point primitive types.
+- Confusing `null` with `undefined`.
+- Assuming a conversion such as `Number("hello")` throws instead of returning `NaN`.
+
+### Activities
+1. Create an Avery profile with name, age 16, height 1.72, and favorite subject Computer Science.
+2. Print each property with a descriptive label.
+3. Compare `typeof 16`, `typeof 1.72`, `typeof "Avery"`, and `typeof true`.
+4. Convert the text `"16"` to a number and test the invalid text `"sixteen"`.
+
+### Accessibility Practice
+Use meaningful variable names and explicit output labels. Explain punctuation such as braces, commas, quotation marks, and semicolons when reading code aloud.
+
+### Expected Behavior or Output
+The program prints Avery's name and age, then the height with the unit metres. The profile uses the shared canonical values.
+=======
+>>>>>>> 2067a20 (curriculum clearning and updates)

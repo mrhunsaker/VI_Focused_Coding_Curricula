@@ -1,7 +1,10 @@
 # Julia Curriculum
 
+<<<<<<< HEAD
+=======
 **Before you start:** complete [Unit P: Computing Foundations Primer](../FOUNDATIONS/unit-p-computing-foundations.md). It explains the language-neutral vocabulary and concepts used in every language track, using non-visual examples.
 
+>>>>>>> 2067a20 (curriculum clearning and updates)
 Julia is a high-level, dynamically typed, JIT-compiled language for numerical and scientific computing, simulation, optimization, statistics, and data-intensive research. Multiple dispatch, expressive types, array operations, and performance-oriented compilation support both interactive analysis and high-performance numerical kernels.
 
 ## Course structure
@@ -24,7 +27,10 @@ Complete the shared [IDE setup lesson](../DEVELOPMENT/IDE_SETUP.md) and [termina
 ## GUI, visualization, and workbench accessibility
 
 See the shared [GUI, visualization, and workbench accessibility reference](../DEVELOPMENT/GUI_VISUALIZATION_ACCESSIBILITY.md) for screen-reader support by toolkit, platform-specific activation settings, recommended alternatives, and interfaces that must not be required without an equivalent accessible route.
+<<<<<<< HEAD
+=======
 
 ## AI Policy
 
 AI may be used only for personal conceptual understanding and reinforcement. It must not write, complete, autocomplete, repair, or generate course code or assessment solutions.
+>>>>>>> 2067a20 (curriculum clearning and updates)

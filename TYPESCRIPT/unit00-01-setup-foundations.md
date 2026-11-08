@@ -1,7 +1,10 @@
 # Unit 0: Accessible Development Environment
 
+<<<<<<< HEAD
+=======
 **Before you start:** complete [Unit P: Computing Foundations Primer](../FOUNDATIONS/unit-p-computing-foundations.md). It explains the language-neutral vocabulary and concepts used in every language track, using non-visual examples.
 
+>>>>>>> 2067a20 (curriculum clearning and updates)
 ## Overview
 
 Set up Node.js, TypeScript, an editor, workspace, and terminal workflow. The TypeScript adaptation preserves the shared Python curriculum's learning objectives, datasets, expected results, and assessment criteria while teaching TypeScript's compile-time type system and JavaScript runtime behavior.
@@ -224,6 +227,15 @@ Introduce computer science, first programs, variables, and primitive types. The 
 
 ## Lesson 1.1: Welcome to computer science
 
+<<<<<<< HEAD
+# Unit 1: Foundations of Computing
+
+## Overview
+
+Introduce computer science, first programs, variables, and primitive types. The TypeScript adaptation preserves the shared Python curriculum's learning objectives, datasets, expected results, and assessment criteria while teaching TypeScript's compile-time type system and JavaScript runtime behavior.
+
+## Lesson 1.1: Welcome to computer science
+
 ### Reading References
 - Python source counterpart: Unit 1 lesson 1.1 in the canonical Python curriculum.
 - TypeScript Handbook: https://www.typescriptlang.org/docs/handbook/intro.html
@@ -234,6 +246,18 @@ Introduce computer science, first programs, variables, and primitive types. The 
 - Explain the TypeScript-specific language or runtime behavior used in the lesson.
 - Predict the example's behavior and test a boundary or invalid case.
 
+=======
+### Reading References
+- Python source counterpart: Unit 1 lesson 1.1 in the canonical Python curriculum.
+- TypeScript Handbook: https://www.typescriptlang.org/docs/handbook/intro.html
+- Node.js documentation where terminal, file, or runtime APIs are used.
+
+### Learning Objectives
+- Explain computer science, hardware, software, algorithms, and the problem-solving process.
+- Explain the TypeScript-specific language or runtime behavior used in the lesson.
+- Predict the example's behavior and test a boundary or invalid case.
+
+>>>>>>> 2067a20 (curriculum clearning and updates)
 ### Concept Explanation
 Computer science studies computation and information. An algorithm is a finite, ordered set of steps for solving a problem; TypeScript is one language used to express algorithms.
 
@@ -363,3 +387,16 @@ Read property names and types aloud. Use one property per line for structured ou
 - [ ] I can model the canonical student profile.
 
 ---
+<<<<<<< HEAD
+
+
+# Unit 2: Numeric Computations
+
+## Overview
+
+Translate requirements into programs, expressions, input, conversions, and mathematical calculations. The TypeScript adaptation preserves the shared Python curriculum's learning objectives, datasets, expected results, and assessment criteria while teaching TypeScript's compile-time type system and JavaScript runtime behavior.
+
+---
+
+=======
+>>>>>>> 2067a20 (curriculum clearning and updates)

@@ -1,7 +1,10 @@
 # C Curriculum
 
+<<<<<<< HEAD
+=======
 **Before you start:** complete [Unit P: Computing Foundations Primer](../FOUNDATIONS/unit-p-computing-foundations.md). It explains the language-neutral vocabulary and concepts used in every language track, using non-visual examples.
 
+>>>>>>> 2067a20 (curriculum clearning and updates)
 C is a compiled procedural language for operating systems, embedded software, libraries, and performance-sensitive programs.
 
 ## Course structure
@@ -26,7 +29,10 @@ The lesson examples are written for C17 and should be compiled with warnings ena
 ## GUI, visualization, and workbench accessibility
 
 See the shared [GUI, visualization, and workbench accessibility reference](../DEVELOPMENT/GUI_VISUALIZATION_ACCESSIBILITY.md) for screen-reader support by toolkit, platform-specific activation settings, recommended alternatives, and interfaces that must not be required without an equivalent accessible route.
+<<<<<<< HEAD
+=======
 
 ## AI Policy
 
 AI may be used only for personal conceptual understanding and reinforcement. It must not write, complete, autocomplete, repair, or generate course code or assessment solutions.
+>>>>>>> 2067a20 (curriculum clearning and updates)
