@@ -36,3 +36,10 @@ See the shared [GUI, visualization, and workbench accessibility reference](../DE
 
 AI may be used only for personal conceptual understanding and reinforcement. It must not write, complete, autocomplete, repair, or generate course code or assessment solutions.
 >>>>>>> 2067a20 (curriculum clearning and updates)
+
+## Recommended introductory books
+
+- Mathias, Matthew, John Gallagher, and Mikey Ward. *Swift Programming: The Big Nerd Ranch Guide*, 3rd edition. Big Nerd Ranch Guides, 2020 (updated e-text edition, 2022). A structured introduction to Swift fundamentals, collections, functions, protocols, error handling, memory management, and application development. [Publisher page](https://www.pearson.com/en-us/subject-catalog/p/swift-programming-the-big-nerd-ranch-guide/P200000000450).
+- Apple. *Develop in Swift* learning materials. Apple's free curriculum materials introduce Swift and app development through guided projects. [Apple Education](https://developer.apple.com/education/).
+
+**Suggested use:** use the Big Nerd Ranch guide for language concepts and Apple's materials for platform-specific context. The book predates Swift 6 language mode; follow the curriculum's Swift 6 baseline and current Swift documentation where concurrency or compiler diagnostics differ.
