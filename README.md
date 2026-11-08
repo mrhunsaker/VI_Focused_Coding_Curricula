@@ -121,6 +121,7 @@ Read [CONTRIBUTING.md](CONTRIBUTING.md), [CODE_STYLE.md](CODE_STYLE.md), and [CO
 ├── JAVASCRIPT/             # JavaScript curriculum and units
 ├── JAVA/                   # Java curriculum, units, and Kotlin supplement
 ├── TYPESCRIPT/             # TypeScript curriculum and units
+├── TERMINAL/               # Bash and PowerShell prerequisite lessons
 ├── .github/workflows/      # mdBook build and GitHub Pages deployment
 ├── CHANGES.md              # Project change log
 ├── CONTRIBUTING.md         # Contribution process
