@@ -569,7 +569,7 @@ Round results with `:.2f` so the screen reader announces `78.54` rather than fif
 - [ ] I can use `math.pi` and `math.sqrt()`.
 - [ ] I can use `math.ceil()` to round up and `math.floor()` to round down.
 
-
+<<<<<<< HEAD
 ## Canonical Shared Dataset — Calculator and Coordinates
 
 Use the canonical bill and tip rate in every parallel-language implementation.
@@ -601,3 +601,6 @@ print(distance)
 ```
 
 Expected output: `5.0`. The shared monetary contract rounds the tip to cents using decimal half-up rounding before adding it to the bill. Use decimal arithmetic rather than binary floating-point formatting for currency.
+=======
+---
+>>>>>>> 2067a20 (curriculum clearning and updates)

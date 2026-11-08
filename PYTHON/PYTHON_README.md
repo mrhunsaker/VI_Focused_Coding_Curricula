@@ -166,4 +166,14 @@ The objective is to develop a repeatable approach to understanding problems, wri
 ## GUI, visualization, and workbench accessibility
 
 See the shared [GUI, visualization, and workbench accessibility reference](../DEVELOPMENT/GUI_VISUALIZATION_ACCESSIBILITY.md) for screen-reader support by toolkit, platform-specific activation settings, recommended alternatives, and interfaces that must not be required without an equivalent accessible route.
+<<<<<<< HEAD
+=======
 
+## AI Policy
+
+AI may be used only for personal conceptual understanding and reinforcement. It must not write, complete, autocomplete, repair, or generate course code or assessment solutions.
+
+## Capstone code
+
+The verified Unit 11 code (logic module, NiceGUI pages, and tests) is in [capstone/](capstone/README.md).
+>>>>>>> 2067a20 (curriculum clearning and updates)

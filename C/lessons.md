@@ -1,7 +1,10 @@
 # C: Complete Curriculum — Units 0–11
 
+<<<<<<< HEAD
+=======
 **Before you start:** complete [Unit P: Computing Foundations Primer](../FOUNDATIONS/unit-p-computing-foundations.md). It explains the language-neutral vocabulary and concepts used in every language track, using non-visual examples.
 
+>>>>>>> 2067a20 (curriculum clearning and updates)
 ## Course Overview
 
 C is a compiled procedural language for operating systems, embedded software, libraries, and performance-sensitive programs.
@@ -10,6 +13,7 @@ The repository includes an automated C17 compiler-check workflow for every fence
 
 This course intentionally parallels the original Python curriculum. It reuses problem contexts—greetings, profiles, a calculator, grade decisions, score collections, inventory, functions, text files, tests, text analysis, CSV, a to-do list, and a personal-data manager—so the principal new learning target is the C language. The syntax and implementation remain idiomatic, not a mechanical translation.
 
+<<<<<<< HEAD
 ## Unit 0: Accessible Environment and Toolchain
 
 ### Overview
@@ -22,6 +26,7 @@ Install and verify a C17 compiler, create a project workspace, compile and run a
 - C language version and compiler options reference.
 
 #### Learning Objectives
+=======
 # Unit 0: Accessible Environment and Toolchain
 
 ## Overview
@@ -34,18 +39,22 @@ Install and verify a C17 compiler, create a project workspace, compile and run a
 - C language version and compiler options reference.
 
 ### Learning Objectives
+>>>>>>> 2067a20 (curriculum clearning and updates)
 - Identify a C compiler and verify its version.
 - Compile a minimal C17 program with warnings enabled.
 - Distinguish compiler diagnostics from program output.
 
+<<<<<<< HEAD
 #### Concept Explanation
 C is compiled: the compiler translates source files into an executable before the program runs. Install GCC or Clang using the supported package manager or official installer for the operating system. The command `cc --version` or the compiler-specific version command verifies that a compiler is available. The `-std=c17` option selects the C17 language mode; `-Wall -Wextra -Wpedantic` enables useful diagnostics. A compiler warning is not the same as runtime output, and a successful compile does not prove that the program's logic is correct.
 
 #### Worked Example
+=======
 ### Concept Explanation
 C is compiled: the compiler translates source files into an executable before the program runs. Install GCC or Clang using the supported package manager or official installer for the operating system. The command `cc --version` or the compiler-specific version command verifies that a compiler is available. The `-std=c17` option selects the C17 language mode; `-Wall -Wextra -Wpedantic` enables useful diagnostics. A compiler warning is not the same as runtime output, and a successful compile does not prove that the program's logic is correct.
 
 ### Worked Example
+>>>>>>> 2067a20 (curriculum clearning and updates)
 Save the following as `hello.c`:
 
 ```c
@@ -59,7 +68,9 @@ int main(void)
 
 Compile with `cc -std=c17 -Wall -Wextra -Wpedantic -g hello.c -o hello`. Run with `./hello` on Unix-like systems or `hello.exe` on Windows. Expected program output: `C toolchain ready.`
 
+<<<<<<< HEAD
 #### Common Mistakes
+=======
 ### Expected Behavior or Output
 
 The compile command prints nothing when the source has no warnings. Running the program prints one line:
@@ -69,25 +80,32 @@ C toolchain ready.
 This output was observed with gcc 13.3 on Linux.
 
 ### Common Mistakes
+>>>>>>> 2067a20 (curriculum clearning and updates)
 - Installing an editor extension but not installing an actual compiler.
 - Using a compiler command that is not on the system PATH.
 - Treating warnings, compiler errors, and program output as interchangeable.
 
+<<<<<<< HEAD
 #### Activities
+=======
 ### Activities
+>>>>>>> 2067a20 (curriculum clearning and updates)
 1. Record the compiler name and version.
 2. Compile the example with all listed warning flags and save the exact command.
 3. Introduce a missing semicolon in a disposable copy, compile, and locate the diagnostic.
 4. Restore the source and confirm the expected output.
 
+<<<<<<< HEAD
 #### Accessibility Practice
 Use keyboard commands to open the terminal, type the compile command, and move through compiler diagnostics by line. Confirm that the terminal announces the command, exit status, and program output in sequence.
 
 #### Skills Checklist
+=======
 ### Accessibility Practice
 Use keyboard commands to open the terminal, type the compile command, and move through compiler diagnostics by line. Confirm that the terminal announces the command, exit status, and program output in sequence.
 
 ### Skills Checklist
+>>>>>>> 2067a20 (curriculum clearning and updates)
 - [ ] I can identify whether GCC or Clang is installed.
 - [ ] I can compile a C17 source file with warnings enabled.
 - [ ] I can distinguish compiler diagnostics from runtime output.
@@ -95,6 +113,7 @@ Use keyboard commands to open the terminal, type the compile command, and move t
 
 ---
 
+<<<<<<< HEAD
 ### Lesson 0.2: Workspace, Source Files, and First Run
 
 #### Reading References
@@ -102,6 +121,7 @@ Use keyboard commands to open the terminal, type the compile command, and move t
 - Operating-system documentation for current working directories and file paths.
 
 #### Learning Objectives
+=======
 ## Lesson 0.2: Workspace, Source Files, and First Run
 
 ### Reading References
@@ -109,18 +129,22 @@ Use keyboard commands to open the terminal, type the compile command, and move t
 - Operating-system documentation for current working directories and file paths.
 
 ### Learning Objectives
+>>>>>>> 2067a20 (curriculum clearning and updates)
 - Create a project folder and a C source file.
 - Compile from the project root and run the executable.
 - Explain the difference between source, executable, and working directory.
 
+<<<<<<< HEAD
 #### Concept Explanation
 A source file such as `main.c` contains human-readable C code. The compiler reads the source and creates an executable such as `main` or `main.exe`. The current working directory is the directory from which the process is run; relative file paths are resolved from that directory, not automatically from the source file's location. Keep source files, headers, test files, data files, and generated binaries organized so that builds and file operations are predictable.
 
 #### Worked Example
+=======
 ### Concept Explanation
 A source file such as `main.c` contains human-readable C code. The compiler reads the source and creates an executable such as `main` or `main.exe`. The current working directory is the directory from which the process is run; relative file paths are resolved from that directory, not automatically from the source file's location. Keep source files, headers, test files, data files, and generated binaries organized so that builds and file operations are predictable.
 
 ### Worked Example
+>>>>>>> 2067a20 (curriculum clearning and updates)
 Create a folder named `c-first-run`, save `main.c` inside it, and use:
 
 ```sh
@@ -131,7 +155,9 @@ cc -std=c17 -Wall -Wextra -Wpedantic main.c -o main
 
 On Windows, run `main.exe`. The executable prints the output from Lesson 0.1. The `cd` command changes the working directory before compilation and execution.
 
+<<<<<<< HEAD
 #### Common Mistakes
+=======
 ### Expected Behavior or Output
 
 The compile step prints nothing when the source is correct, and `./main` prints the output of Lesson 0.1:
@@ -140,25 +166,32 @@ C toolchain ready.
 ```
 
 ### Common Mistakes
+>>>>>>> 2067a20 (curriculum clearning and updates)
 - Running the compiler from a directory where the source file is not located.
 - Confusing the source file name with the executable name.
 - Assuming a relative data-file path is resolved relative to the source file.
 
+<<<<<<< HEAD
 #### Activities
+=======
 ### Activities
+>>>>>>> 2067a20 (curriculum clearning and updates)
 1. Create the project folder and source file using only keyboard navigation.
 2. Compile and run from the project root.
 3. Run the executable from a different directory and observe how relative paths behave.
 4. Rename the source file and update the compile command accordingly.
 
+<<<<<<< HEAD
 #### Accessibility Practice
 Verify that the editor exposes the file tree, current file name, line numbers, and terminal focus. Navigate to the compiler command and output without using a mouse.
 
 #### Skills Checklist
+=======
 ### Accessibility Practice
 Verify that the editor exposes the file tree, current file name, line numbers, and terminal focus. Navigate to the compiler command and output without using a mouse.
 
 ### Skills Checklist
+>>>>>>> 2067a20 (curriculum clearning and updates)
 - [ ] I can create and navigate to a C project folder.
 - [ ] I can identify source files and generated executables.
 - [ ] I can compile and run from the project root.
@@ -166,6 +199,7 @@ Verify that the editor exposes the file tree, current file name, line numbers, a
 
 ---
 
+<<<<<<< HEAD
 ### Lesson 0.3: Editor and Accessibility Workflow
 
 #### Reading References
@@ -173,6 +207,7 @@ Verify that the editor exposes the file tree, current file name, line numbers, a
 - Documentation for the selected editor and C language extension.
 
 #### Learning Objectives
+=======
 ## Lesson 0.3: Editor and Accessibility Workflow
 
 ### Reading References
@@ -180,27 +215,33 @@ Verify that the editor exposes the file tree, current file name, line numbers, a
 - Documentation for the selected editor and C language extension.
 
 ### Learning Objectives
+>>>>>>> 2067a20 (curriculum clearning and updates)
 - Configure an editor for C source files.
 - Navigate code, diagnostics, and terminal output with keyboard commands.
 - Distinguish editor assistance from compiler validation.
 
+<<<<<<< HEAD
 #### Concept Explanation
 A text editor edits source code; an integrated development environment may combine editing, project navigation, debugging, build commands, and language tooling. VS Code, VSCodium, and Theia can provide C language support through extensions, but the compiler remains a separate toolchain component. Configure the editor to expose diagnostics as text, preserve indentation, announce punctuation, and allow reliable keyboard movement between source, problems, and terminal panels. Extensions may provide completion and navigation, but the compiler determines whether the program is valid C for the selected language mode and target.
 
 #### Worked Example
+=======
 ### Concept Explanation
 A text editor edits source code; an integrated development environment may combine editing, project navigation, debugging, build commands, and language tooling. VS Code, VSCodium, and Theia can provide C language support through extensions, but the compiler remains a separate toolchain component. Configure the editor to expose diagnostics as text, preserve indentation, announce punctuation, and allow reliable keyboard movement between source, problems, and terminal panels. Extensions may provide completion and navigation, but the compiler determines whether the program is valid C for the selected language mode and target.
 
 ### Worked Example
+>>>>>>> 2067a20 (curriculum clearning and updates)
 1. Open the `c-first-run` folder in the selected editor.
 2. Open `main.c` and navigate by line and word.
 3. Introduce a missing semicolon in a temporary copy.
 4. Run the C17 compile command in the integrated terminal and read the diagnostic.
 5. Restore the source and compile again.
 
+<<<<<<< HEAD
 Expected result: the editor allows source navigation, the compiler reports the deliberate syntax error, and the restored file compiles and runs.
 
 #### Common Mistakes
+=======
 
 
 ### Expected Behavior or Output
@@ -208,25 +249,32 @@ Expected result: the editor allows source navigation, the compiler reports the d
 the editor allows source navigation, the compiler reports the deliberate syntax error, and the restored file compiles and runs.
 
 ### Common Mistakes
+>>>>>>> 2067a20 (curriculum clearning and updates)
 - Assuming an editor extension installs GCC or Clang automatically.
 - Relying on syntax coloring as proof that code compiles.
 - Configuring a completion engine without checking whether its diagnostics are accessible.
 
+<<<<<<< HEAD
 #### Activities
+=======
 ### Activities
+>>>>>>> 2067a20 (curriculum clearning and updates)
 1. Test keyboard-only navigation among the file tree, source editor, diagnostics, and terminal.
 2. Confirm that indentation and punctuation are announced in a usable way.
 3. Compare an editor warning with the compiler's diagnostic for the same source.
 4. Record which editor features work with the learner's screen reader, braille display, or magnification setup.
 
+<<<<<<< HEAD
 #### Accessibility Practice
 Use the learner's actual access technology and operating system. Test code navigation, punctuation verbosity, diagnostic announcements, terminal focus, and file-tree navigation. Record observed limitations rather than assuming every extension is accessible.
 
 #### Skills Checklist
+=======
 ### Accessibility Practice
 Use the learner's actual access technology and operating system. Test code navigation, punctuation verbosity, diagnostic announcements, terminal focus, and file-tree navigation. Record observed limitations rather than assuming every extension is accessible.
 
 ### Skills Checklist
+>>>>>>> 2067a20 (curriculum clearning and updates)
 - [ ] I can open and navigate a C project without relying on a mouse.
 - [ ] I can reach compiler diagnostics and terminal output.
 - [ ] I can explain the difference between editor assistance and compiler validation.
@@ -234,31 +282,40 @@ Use the learner's actual access technology and operating system. Test code navig
 
 ---
 
+<<<<<<< HEAD
 ### Lesson 0.4: Project Environments, Dependencies, and Terminal Usage
 
 #### Reading References
+=======
 ## Lesson 0.4: Project Environments, Dependencies, and Terminal Usage
 
 ### Reading References
+>>>>>>> 2067a20 (curriculum clearning and updates)
 - Compiler documentation for include paths and linker options.
 - Operating-system package manager documentation.
 - Shared [terminal prerequisite](../TERMINAL/TERMINAL_README.md).
 
+<<<<<<< HEAD
 #### Learning Objectives
+=======
 ### Learning Objectives
+>>>>>>> 2067a20 (curriculum clearning and updates)
 - Identify the project root and run commands from it.
 - Explain how C standard-library headers differ from external dependencies.
 - Recognize include paths, library paths, and linker flags.
 - Keep source, headers, build products, and project data organized.
 
+<<<<<<< HEAD
 #### Concept Explanation
 C does not use a Python-style virtual environment for its standard library. The compiler toolchain provides standard headers and libraries. When a project depends on an external library, install or vendor that dependency using a documented method, then configure its header search path and linker arguments. Keep generated object files and executables separate from source. Record compiler version, dependency versions, include options, and linker options so another learner can reproduce the build.
 
 #### Worked Example
+=======
 ### Concept Explanation
 C does not use a Python-style virtual environment for its standard library. The compiler toolchain provides standard headers and libraries. When a project depends on an external library, install or vendor that dependency using a documented method, then configure its header search path and linker arguments. Keep generated object files and executables separate from source. Record compiler version, dependency versions, include options, and linker options so another learner can reproduce the build.
 
 ### Worked Example
+>>>>>>> 2067a20 (curriculum clearning and updates)
 A simple project may contain `src/main.c`, `include/`, `data/`, and `build/`. From the project root, compile with:
 
 ```sh
@@ -267,32 +324,41 @@ cc -std=c17 -Wall -Wextra -Wpedantic -Iinclude src/main.c -o build/app
 
 The `-Iinclude` option adds a project header directory. External libraries may require additional `-L` and `-l` options. Do not add these options unless the selected dependency requires them.
 
+<<<<<<< HEAD
 #### Common Mistakes
+=======
 ### Expected Behavior or Output
 
 The compile command prints nothing when it succeeds and creates the program `build/app`. If the header directory is missing or misspelled, the compiler reports an error that names the header file it could not find.
 
 ### Common Mistakes
+>>>>>>> 2067a20 (curriculum clearning and updates)
 - Assuming C has an automatic virtual environment or dependency resolver.
 - Forgetting to document the external library version and installation method.
 - Confusing compiler include paths (`-I`) with library search paths (`-L`) and linker names (`-l`).
 - Committing generated executables or build output as if they were source files.
 
+<<<<<<< HEAD
 #### Activities
+=======
 ### Activities
+>>>>>>> 2067a20 (curriculum clearning and updates)
 1. Create the `src`, `include`, `data`, and `build` folders.
 2. Compile a source file from the project root using the `-Iinclude` option.
 3. Record the compiler version and exact build command in a README.
 4. Explain what additional information would be needed to build a project using an external JSON library.
 
+<<<<<<< HEAD
 #### Accessibility Practice
 Use terminal commands to identify the current directory, list project files, change directories, compile, and run. Ensure that folder names, command output, and errors are announced sequentially by the chosen access technology.
 
 #### Skills Checklist
+=======
 ### Accessibility Practice
 Use terminal commands to identify the current directory, list project files, change directories, compile, and run. Ensure that folder names, command output, and errors are announced sequentially by the chosen access technology.
 
 ### Skills Checklist
+>>>>>>> 2067a20 (curriculum clearning and updates)
 - [ ] I can identify the project root and run commands from it.
 - [ ] I can distinguish standard-library headers from external dependencies.
 - [ ] I can explain the purpose of `-I`, `-L`, and `-l`.
@@ -321,12 +387,15 @@ This unit covers computer science, hardware/software, algorithms, first program,
 Computer science is the study of representing problems and designing precise algorithms. Hardware includes the CPU, RAM, keyboard, and storage; software is the instructions and data executed by the machine. C is widely used for operating systems, embedded systems, libraries, and performance-sensitive programs. An algorithm must state inputs, processing steps, and outputs unambiguously.
 
 ### Worked Example
+<<<<<<< HEAD
 Plan the canonical tip-calculator problem without coding: read a bill amount, calculate 15 percent of it, add the tip to the bill, and display both amounts. For a bill of $24.50, the unrounded tip is $3.675 and the unrounded total is $28.175. Displaying two decimal places yields $3.68 and $28.18.
+=======
 Plan the canonical tip-calculator problem without coding: read a bill amount, calculate 15 percent of it, add the tip to the bill, and display both amounts. For a bill of $24.50, the unrounded tip is $3.675 and the unrounded total is $28.175. Displaying two decimal places with `printf("%.2f")` yields $3.67 and $28.18, because the stored value of the tip is 3.67499999999999982.
 
 ### Expected Behavior or Output
 
 No program is run in this lesson. The expected result is a written plan with the four steps in order. A correct hand trace with the shared values gives a tip of 3.675 and a total of 28.175; later lessons show that C displays these with two decimals as 3.67 and 28.18.
+>>>>>>> 2067a20 (curriculum clearning and updates)
 
 ### Common Mistakes
 - Confusing an algorithm's logical steps with C syntax or compiler behavior.
@@ -372,6 +441,8 @@ int main(void)
 ```
 Expected output: `Hello, World!` followed by a newline. Compile with `cc -std=c17 -Wall -Wextra -Wpedantic hello.c -o hello`.
 
+<<<<<<< HEAD
+=======
 ### Expected Behavior or Output
 
 Output observed when the worked example was run (gcc 13.3, C17; the text of the output does not depend on the operating system):
@@ -379,6 +450,7 @@ Output observed when the worked example was run (gcc 13.3, C17; the text of the 
 ```text
 Hello, World!
 ```
+>>>>>>> 2067a20 (curriculum clearning and updates)
 ### Common Mistakes
 - Using `void main` instead of the standard `int main(void)` form.
 - Omitting `#include <stdio.h>` or a statement terminator.
@@ -428,6 +500,8 @@ int main(void)
 ```
 Expected output labels Avery, 16, 1.72 m, and Computer Science on separate lines. `%s`, `%d`, and `%.2f` correspond to string, integer, and floating-point arguments.
 
+<<<<<<< HEAD
+=======
 ### Expected Behavior or Output
 
 Output observed when the worked example was run (gcc 13.3, C17; the text of the output does not depend on the operating system):
@@ -438,6 +512,7 @@ Age: 16
 Height: 1.72 m
 Favorite subject: Computer Science
 ```
+>>>>>>> 2067a20 (curriculum clearning and updates)
 ### Common Mistakes
 - Using a format string that does not match the declared type.
 - Forgetting that C strings need a null terminator and sufficient buffer capacity.
@@ -480,12 +555,15 @@ Prerequisite: Unit 1. Learners should be able to compile a C program and declare
 Use the design–implement–test cycle. Design identifies inputs, outputs, constraints, and edge cases; implementation translates the algorithm into C; testing compares actual behavior with expected behavior. Compile incrementally with warnings enabled and test both ordinary and boundary inputs.
 
 ### Worked Example
+<<<<<<< HEAD
 For the canonical calculator, input is bill = 24.50 and rate = 0.15. Calculate tip = bill * rate and total = bill + tip. Expected unrounded values are 3.675 and 28.175; formatted to cents they appear as 3.68 and 28.18. Test zero, typical, and large bills.
+=======
 For the canonical calculator, input is bill = 24.50 and rate = 0.15. Calculate tip = bill * rate and total = bill + tip. Expected unrounded values are 3.675 and 28.175; formatted to cents with `printf("%.2f")` they appear as 3.67 and 28.18 (the stored tip is 3.67499999999999982). Test zero, typical, and large bills.
 
 ### Expected Behavior or Output
 
 No program is run in this lesson. The expected result is a trace table written as sentences: bill 24.50, rate 0.15, tip 3.675, total 28.175, and test cases for zero, typical, and large bills with the result predicted before any code is written.
+>>>>>>> 2067a20 (curriculum clearning and updates)
 
 ### Common Mistakes
 - Coding before writing down the bill, rate, tip, and total as separate inputs/intermediate/output values.
@@ -536,6 +614,8 @@ int main(void)
 ```
 Expected score values are 50 and 70. The integer expression is 6; the floating expression is approximately 6.33.
 
+<<<<<<< HEAD
+=======
 ### Expected Behavior or Output
 
 Output observed when the worked example was run (gcc 13.3, C17; the text of the output does not depend on the operating system):
@@ -546,6 +626,7 @@ New score: 70
 Integer expression: 6
 Floating expression: 6.33
 ```
+>>>>>>> 2067a20 (curriculum clearning and updates)
 ### Common Mistakes
 - Using integer division in a calculation that requires cents or a fractional average.
 - Using `=` in a condition where `==` is intended.
@@ -605,6 +686,8 @@ int main(void)
 ```
 For inputs Avery, 12, and 8, output includes `Hello, Avery!` and `Sum: 20`. A production parser should also validate trailing characters and range errors.
 
+<<<<<<< HEAD
+=======
 ### Expected Behavior or Output
 
 With these lines typed as standard input:
@@ -621,6 +704,7 @@ Name: First whole number: Second whole number: Hello, Avery!
 Sum: 20
 ```
 
+>>>>>>> 2067a20 (curriculum clearning and updates)
 ### Common Mistakes
 - Reading a full name with `%s`, which stops at whitespace.
 - Ignoring the return from `fgets` or accepting a numeric prefix followed by junk.
@@ -670,6 +754,8 @@ int main(void)
 ```
 Expected values: 32, 68.5, 2, and 2.5. Extend the example to reject trailing characters and check `errno` for overflow.
 
+<<<<<<< HEAD
+=======
 ### Expected Behavior or Output
 
 Output observed when the worked example was run (gcc 13.3, C17; the text of the output does not depend on the operating system):
@@ -680,6 +766,7 @@ Weight plus age: 68.5
 Integer division: 2
 Floating division: 2.5
 ```
+>>>>>>> 2067a20 (curriculum clearning and updates)
 ### Common Mistakes
 - Assuming a cast rounds rather than truncates toward zero.
 - Passing the wrong type to `printf` or using an incompatible format specifier.
@@ -738,6 +825,8 @@ int main(void)
 
 Expected output: area 78.54, circumference 31.42, and distance 5.00. Compile with `cc -std=c17 -Wall -Wextra -Wpedantic math_example.c -o math_example -lm` on systems that require explicit math-library linking.
 
+<<<<<<< HEAD
+=======
 ### Expected Behavior or Output
 
 Output observed when the worked example was run (gcc 13.3, C17; the text of the output does not depend on the operating system):
@@ -747,6 +836,7 @@ Area: 78.54
 Circumference: 31.42
 Distance from origin: 5.00
 ```
+>>>>>>> 2067a20 (curriculum clearning and updates)
 ### Common Mistakes
 - Forgetting `math.h` or the `-lm` linker option where needed.
 - Passing degrees to trig functions that expect radians.
@@ -803,6 +893,8 @@ int main(void)
 ```
 Expected output: `Meets the course criteria.` and `Score is not negative.`
 
+<<<<<<< HEAD
+=======
 ### Expected Behavior or Output
 
 Output observed when the worked example was run (gcc 13.3, C17; the text of the output does not depend on the operating system):
@@ -811,6 +903,7 @@ Output observed when the worked example was run (gcc 13.3, C17; the text of the 
 Meets the course criteria.
 Score is not negative.
 ```
+>>>>>>> 2067a20 (curriculum clearning and updates)
 ### Common Mistakes
 - Using bitwise `&`/`|` when short-circuit logical `&&`/`||` is required.
 - Reversing the score and attendance conditions.
@@ -866,6 +959,8 @@ int main(void)
 ```
 Expected mapping: 91/A, 90/A, 82/B, 80/B, 76/C, 70/C, 60/D, 0/F; -1 and 101 are invalid (`?`).
 
+<<<<<<< HEAD
+=======
 ### Expected Behavior or Output
 
 Output observed when the worked example was run (gcc 13.3, C17; the text of the output does not depend on the operating system):
@@ -882,6 +977,7 @@ Output observed when the worked example was run (gcc 13.3, C17; the text of the 
 -1 -> ?
 101 -> ?
 ```
+>>>>>>> 2067a20 (curriculum clearning and updates)
 ### Common Mistakes
 - Checking a lower grade boundary before a higher one and making a branch unreachable.
 - Omitting the 0–100 validity check before assigning a grade.
@@ -930,6 +1026,8 @@ int main(void)
 ```
 Expected output: first 82, last 88, count 4, updated third score 80.
 
+<<<<<<< HEAD
+=======
 ### Expected Behavior or Output
 
 Output observed when the worked example was run (gcc 13.3, C17; the text of the output does not depend on the operating system):
@@ -940,6 +1038,7 @@ Last: 88
 Count: 4
 Updated third score: 80
 ```
+>>>>>>> 2067a20 (curriculum clearning and updates)
 ### Common Mistakes
 - Accessing an array at index `count` instead of `count - 1` for its last element.
 - Assuming C performs bounds checks automatically.
@@ -988,6 +1087,8 @@ int main(void)
 ```
 Expected total: 337; average: 84.25.
 
+<<<<<<< HEAD
+=======
 ### Expected Behavior or Output
 
 Output observed when the worked example was run (gcc 13.3, C17; the text of the output does not depend on the operating system):
@@ -1000,6 +1101,7 @@ Score 4: 88
 Total: 337
 Average: 84.25
 ```
+>>>>>>> 2067a20 (curriculum clearning and updates)
 ### Common Mistakes
 - Using `i <= count` and reading beyond the final score.
 - Forgetting to update the index or updating it twice.
@@ -1052,6 +1154,8 @@ int main(void)
 ```
 Expected byte length: 75; substring result: yes. The cast to `unsigned char` is required for safe use of `tolower`.
 
+<<<<<<< HEAD
+=======
 ### Expected Behavior or Output
 
 Output observed when the worked example was run (gcc 13.3, C17; the text of the output does not depend on the operating system):
@@ -1061,6 +1165,7 @@ Byte length: 75
 Lowercase: a student studies programming. programming develops problem-solving skills.
 Contains programming: yes
 ```
+>>>>>>> 2067a20 (curriculum clearning and updates)
 ### Common Mistakes
 - Writing a lowercase result into a buffer without space for the null terminator.
 - Passing a negative plain `char` to `tolower` rather than an `unsigned char` value.
@@ -1117,6 +1222,8 @@ int main(void)
 ```
 Expected output: `Count: 6; last: 84`. The array has capacity 8 and currently contains 6 values; do not confuse capacity with count.
 
+<<<<<<< HEAD
+=======
 ### Expected Behavior or Output
 
 Output observed when the worked example was run (gcc 13.3, C17; the text of the output does not depend on the operating system):
@@ -1124,6 +1231,7 @@ Output observed when the worked example was run (gcc 13.3, C17; the text of the 
 ```text
 Count: 6; last: 84
 ```
+>>>>>>> 2067a20 (curriculum clearning and updates)
 ### Common Mistakes
 - Treating array capacity as the number of currently valid elements.
 - Appending after capacity is exhausted.
@@ -1178,6 +1286,8 @@ int main(void)
 ```
 Expected ascending order: 76 82 88 91. Reverse traversal prints descending order.
 
+<<<<<<< HEAD
+=======
 ### Expected Behavior or Output
 
 Output observed when the worked example was run (gcc 13.3, C17; the text of the output does not depend on the operating system):
@@ -1185,6 +1295,7 @@ Output observed when the worked example was run (gcc 13.3, C17; the text of the 
 ```text
 76 82 88 91 
 ```
+>>>>>>> 2067a20 (curriculum clearning and updates)
 ### Common Mistakes
 - Returning `a - b` from a comparator, which can overflow.
 - Returning inconsistent results for equal values.
@@ -1231,6 +1342,8 @@ int main(void)
 ```
 Expected output: x: 3 and y: 4. `const` prevents modifying the fields through this object.
 
+<<<<<<< HEAD
+=======
 ### Expected Behavior or Output
 
 Output observed when the worked example was run (gcc 13.3, C17; the text of the output does not depend on the operating system):
@@ -1239,6 +1352,7 @@ Output observed when the worked example was run (gcc 13.3, C17; the text of the 
 x: 3
 y: 4
 ```
+>>>>>>> 2067a20 (curriculum clearning and updates)
 ### Common Mistakes
 - Assuming C structs are immutable without `const`.
 - Assuming copying a struct containing pointers also copies the pointed-to data.
@@ -1286,6 +1400,8 @@ int main(void)
 ```
 Expected records: Notebook 3 at $2.50; Pencil 10 at $0.50; Folder 4 at $1.25.
 
+<<<<<<< HEAD
+=======
 ### Expected Behavior or Output
 
 Output observed when the worked example was run (gcc 13.3, C17; the text of the output does not depend on the operating system):
@@ -1295,6 +1411,7 @@ Notebook: 3 at $2.50 each
 Pencil: 10 at $0.50 each
 Folder: 4 at $1.25 each
 ```
+>>>>>>> 2067a20 (curriculum clearning and updates)
 ### Common Mistakes
 - Expecting a built-in C dictionary or hash map.
 - Comparing string keys with `==` instead of `strcmp`.
@@ -1345,6 +1462,8 @@ int main(void)
 ```
 Expected inventory values: $7.50, $5.00, and $5.00.
 
+<<<<<<< HEAD
+=======
 ### Expected Behavior or Output
 
 Output observed when the worked example was run (gcc 13.3, C17; the text of the output does not depend on the operating system):
@@ -1354,6 +1473,7 @@ Notebook: quantity 3; value $7.50
 Pencil: quantity 10; value $5.00
 Folder: quantity 4; value $5.00
 ```
+>>>>>>> 2067a20 (curriculum clearning and updates)
 ### Common Mistakes
 - Passing an array without its count to a function.
 - Using `.` on a pointer or `->` on a non-pointer object.
@@ -1418,6 +1538,8 @@ int main(void)
 ```
 For input 82, output is `Accepted score: 82`; invalid values cause another prompt.
 
+<<<<<<< HEAD
+=======
 ### Expected Behavior or Output
 
 With these lines typed as standard input:
@@ -1435,6 +1557,7 @@ Enter a score from 0 to 100: Invalid score. Enter a whole number from 0 to 100.
 Enter a score from 0 to 100: Accepted score: 88
 ```
 
+>>>>>>> 2067a20 (curriculum clearning and updates)
 ### Common Mistakes
 - Accepting `82abc` as a valid score because `strtol` parsed the numeric prefix.
 - Failing to reject values outside 0–100 or detect overflow.
@@ -1485,6 +1608,8 @@ int main(void)
 ```
 For input 82, 91, -1, the running totals are 82 and 173; final total is 173. This compact example assumes integer tokens; the previous lesson's `fgets` parser is safer for robust input.
 
+<<<<<<< HEAD
+=======
 ### Expected Behavior or Output
 
 Output observed when the worked example was run (gcc 13.3, C17; the text of the output does not depend on the operating system):
@@ -1493,6 +1618,7 @@ Output observed when the worked example was run (gcc 13.3, C17; the text of the 
 Enter scores; enter -1 to finish.
 Final total: 0
 ```
+>>>>>>> 2067a20 (curriculum clearning and updates)
 ### Common Mistakes
 - Failing to update the sentinel-controlled loop state.
 - Ignoring `scanf`'s return value and repeatedly processing an invalid token.
@@ -1542,6 +1668,8 @@ int main(void)
 ```
 Expected output: `Score found.` Change the search value to 100 to exercise the not-found path.
 
+<<<<<<< HEAD
+=======
 ### Expected Behavior or Output
 
 Output observed when the worked example was run (gcc 13.3, C17; the text of the output does not depend on the operating system):
@@ -1549,6 +1677,7 @@ Output observed when the worked example was run (gcc 13.3, C17; the text of the 
 ```text
 Score found.
 ```
+>>>>>>> 2067a20 (curriculum clearning and updates)
 ### Common Mistakes
 - Setting the found flag before the equality test.
 - Forgetting to set the flag when the target is found.
@@ -1597,6 +1726,8 @@ int main(void)
 ```
 Expected output: Passing score: 82, 91, and 88, each on its own line.
 
+<<<<<<< HEAD
+=======
 ### Expected Behavior or Output
 
 Output observed when the worked example was run (gcc 13.3, C17; the text of the output does not depend on the operating system):
@@ -1606,6 +1737,7 @@ Passing score: 82
 Passing score: 91
 Passing score: 88
 ```
+>>>>>>> 2067a20 (curriculum clearning and updates)
 ### Common Mistakes
 - Printing a score before applying the filter condition.
 - Skipping a required state update with `continue` in a `while` loop.
@@ -1655,6 +1787,8 @@ int main(void)
 ```
 Expected output: 3, 2, 1, then Finished. Removing `--remaining` creates a non-terminating loop; diagnose it by tracing the condition and state.
 
+<<<<<<< HEAD
+=======
 ### Expected Behavior or Output
 
 Output observed when the worked example was run (gcc 13.3, C17; the text of the output does not depend on the operating system):
@@ -1665,6 +1799,7 @@ Output observed when the worked example was run (gcc 13.3, C17; the text of the 
 1
 Finished.
 ```
+>>>>>>> 2067a20 (curriculum clearning and updates)
 ### Common Mistakes
 - Leaving the variable in the loop condition unchanged.
 - Moving the counter in the wrong direction or using a condition that cannot become false.
@@ -1720,8 +1855,10 @@ int main(void)
     return 0;
 }
 ```
+<<<<<<< HEAD
 Expected tip display: $3.68. The function returns a value and does not print it itself.
 
+=======
 Expected tip display: $3.67 (the exact product 3.675 is stored as 3.67499999999999982, so `%.2f` rounds down). The function returns a value and does not print it itself.
 
 ### Expected Behavior or Output
@@ -1731,6 +1868,7 @@ Output observed when the worked example was run (gcc 13.3, C17; the text of the 
 ```text
 Tip: $3.67
 ```
+>>>>>>> 2067a20 (curriculum clearning and updates)
 ### Common Mistakes
 - Calling a function before its prototype is visible.
 - Declaring a non-void function but failing to return a value on every path.
@@ -1779,6 +1917,8 @@ int main(void)
 ```
 Expected total display: $28.18. Swap the two arguments and explain why the result changes; C uses positional arguments.
 
+<<<<<<< HEAD
+=======
 ### Expected Behavior or Output
 
 Output observed when the worked example was run (gcc 13.3, C17; the text of the output does not depend on the operating system):
@@ -1786,6 +1926,7 @@ Output observed when the worked example was run (gcc 13.3, C17; the text of the 
 ```text
 Total: $28.18
 ```
+>>>>>>> 2067a20 (curriculum clearning and updates)
 ### Common Mistakes
 - Assuming C passes ordinary arguments by reference.
 - Swapping positional arguments with the same type and expecting the compiler to detect intent.
@@ -1837,6 +1978,8 @@ int main(void)
 ```
 Expected total: 337. The function receives the array pointer and its length separately.
 
+<<<<<<< HEAD
+=======
 ### Expected Behavior or Output
 
 Output observed when the worked example was run (gcc 13.3, C17; the text of the output does not depend on the operating system):
@@ -1844,6 +1987,7 @@ Output observed when the worked example was run (gcc 13.3, C17; the text of the 
 ```text
 Total: 337
 ```
+>>>>>>> 2067a20 (curriculum clearning and updates)
 ### Common Mistakes
 - Omitting a return on one control-flow path.
 - Returning a pointer to a local automatic variable.
@@ -1895,6 +2039,8 @@ int main(void)
 ```
 Expected average: 84.25. Add a separate function that searches the inventory array by item name.
 
+<<<<<<< HEAD
+=======
 ### Expected Behavior or Output
 
 Output observed when the worked example was run (gcc 13.3, C17; the text of the output does not depend on the operating system):
@@ -1902,6 +2048,7 @@ Output observed when the worked example was run (gcc 13.3, C17; the text of the 
 ```text
 Average: 84.25
 ```
+>>>>>>> 2067a20 (curriculum clearning and updates)
 ### Common Mistakes
 - Assuming an array parameter carries its length.
 - Passing a count larger than the actual array.
@@ -1956,6 +2103,8 @@ int main(void)
 ```
 Expected sum: 337. The caller must pass the correct count and types; variadic arguments are not type-checked by the function signature.
 
+<<<<<<< HEAD
+=======
 ### Expected Behavior or Output
 
 Output observed when the worked example was run (gcc 13.3, C17; the text of the output does not depend on the operating system):
@@ -1963,6 +2112,7 @@ Output observed when the worked example was run (gcc 13.3, C17; the text of the 
 ```text
 Sum: 337
 ```
+>>>>>>> 2067a20 (curriculum clearning and updates)
 ### Common Mistakes
 - Using a block-local variable outside its scope.
 - Passing the wrong promoted type to `va_arg`.
@@ -2014,10 +2164,13 @@ typedef struct {
 ```
 This record models one inventory item with the same fields used throughout the course: name, quantity, and unit price. A C struct stores fields; it does not automatically provide constructors, methods, or memory management.
 
+<<<<<<< HEAD
+=======
 ### Expected Behavior or Output
 
 The struct definition prints nothing by itself, and it is not a complete program. Use it in a program that creates an `Item` (see Lesson 7.2) to see output. A correct answer to the activities lists the three fields and says that C leaves construction, validation, and cleanup to your own functions.
 
+>>>>>>> 2067a20 (curriculum clearning and updates)
 ### Common Mistakes
 - Describing a C struct as a class with built-in methods and constructors.
 - Failing to separate public declarations from implementation details in headers and source files.
@@ -2065,6 +2218,8 @@ int main(void)
 ```
 Expected output: Notebook: 3; Pencil: 10. The two variables are separate struct instances.
 
+<<<<<<< HEAD
+=======
 ### Expected Behavior or Output
 
 Output observed when the worked example was run (gcc 13.3, C17; the text of the output does not depend on the operating system):
@@ -2072,6 +2227,7 @@ Output observed when the worked example was run (gcc 13.3, C17; the text of the 
 ```text
 Notebook: 3; Pencil: 10
 ```
+>>>>>>> 2067a20 (curriculum clearning and updates)
 ### Common Mistakes
 - Using field-order initialization incorrectly.
 - Leaving a field unintentionally uninitialized in an automatic object.
@@ -2122,6 +2278,8 @@ int main(void)
 ```
 Expected output: Notebook inventory value: $7.50.
 
+<<<<<<< HEAD
+=======
 ### Expected Behavior or Output
 
 Output observed when the worked example was run (gcc 13.3, C17; the text of the output does not depend on the operating system):
@@ -2129,6 +2287,7 @@ Output observed when the worked example was run (gcc 13.3, C17; the text of the 
 ```text
 Notebook inventory value: $7.50
 ```
+>>>>>>> 2067a20 (curriculum clearning and updates)
 ### Common Mistakes
 - Confusing `.` and `->` member access.
 - Dereferencing a null pointer.
@@ -2181,6 +2340,8 @@ int main(void)
 ```
 Expected output: Notebook reorder required: yes. This is composition, not language-level inheritance.
 
+<<<<<<< HEAD
+=======
 ### Expected Behavior or Output
 
 Output observed when the worked example was run (gcc 13.3, C17; the text of the output does not depend on the operating system):
@@ -2188,6 +2349,7 @@ Output observed when the worked example was run (gcc 13.3, C17; the text of the 
 ```text
 Notebook reorder required: yes
 ```
+>>>>>>> 2067a20 (curriculum clearning and updates)
 ### Common Mistakes
 - Claiming C has native class inheritance or virtual dispatch.
 - Treating an embedded struct as automatically substitutable for its containing type.
@@ -2236,6 +2398,8 @@ int main(void)
 ```
 Expected output lists the two tasks and their completion states.
 
+<<<<<<< HEAD
+=======
 ### Expected Behavior or Output
 
 Output observed when the worked example was run (gcc 13.3, C17; the text of the output does not depend on the operating system):
@@ -2244,6 +2408,7 @@ Output observed when the worked example was run (gcc 13.3, C17; the text of the 
 Review C arrays: not done
 Practice functions: done
 ```
+>>>>>>> 2067a20 (curriculum clearning and updates)
 ### Common Mistakes
 - Calling composition inheritance.
 - Allowing the task count to exceed the fixed array capacity.
@@ -2301,6 +2466,8 @@ int main(void)
 ```
 Create `notes.txt` with two lines before running. The program reproduces those lines. A missing file produces a diagnostic and a nonzero exit status.
 
+<<<<<<< HEAD
+=======
 ### Expected Behavior or Output
 
 With `notes.txt` in the working directory, containing:
@@ -2316,6 +2483,7 @@ Practice C.
 Review arrays and functions.
 ```
 
+>>>>>>> 2067a20 (curriculum clearning and updates)
 ### Common Mistakes
 - Using a `FILE *` after `fopen` returned `NULL`.
 - Treating every failed `fgets` as normal EOF without checking `ferror`.
@@ -2366,6 +2534,8 @@ int main(void)
 ```
 Expected output: `Note appended.` The new line is added to the end of `notes.txt`.
 
+<<<<<<< HEAD
+=======
 ### Expected Behavior or Output
 
 Output observed when the worked example was run (gcc 13.3, C17; the text of the output does not depend on the operating system):
@@ -2373,6 +2543,7 @@ Output observed when the worked example was run (gcc 13.3, C17; the text of the 
 ```text
 Note appended.
 ```
+>>>>>>> 2067a20 (curriculum clearning and updates)
 ### Common Mistakes
 - Opening in `w` mode and truncating a file that should have been appended.
 - Ignoring `fprintf` and `fclose` failure results.
@@ -2422,6 +2593,8 @@ int main(void)
 ```
 If the file is absent, the program prints an operating-system diagnostic and exits with status 1. This is explicit error handling, not a thrown exception.
 
+<<<<<<< HEAD
+=======
 ### Expected Behavior or Output
 
 Output observed when the worked example was run (gcc 13.3, C17; the text of the output does not depend on the operating system):
@@ -2430,6 +2603,7 @@ Output observed when the worked example was run (gcc 13.3, C17; the text of the 
 Unable to open missing_notes.txt: No such file or directory
 ```
 
+>>>>>>> 2067a20 (curriculum clearning and updates)
 ### Common Mistakes
 - Expecting C to provide language-level exceptions.
 - Ignoring a function's documented error return convention or `errno`.
@@ -2480,6 +2654,8 @@ cleanup:
 ```
 The cleanup path closes the file exactly once if opening succeeded. In larger programs, structure functions so cleanup remains easy to audit.
 
+<<<<<<< HEAD
+=======
 ### Expected Behavior or Output
 
 With `notes.txt` in the working directory, containing:
@@ -2494,6 +2670,7 @@ Output observed when the worked example was run (gcc 13.3, C17; the text of the 
 File opened successfully.
 ```
 
+>>>>>>> 2067a20 (curriculum clearning and updates)
 ### Common Mistakes
 - Returning from a function after acquiring a resource without releasing it.
 - Closing a file twice or using it after close.
@@ -2540,10 +2717,13 @@ typedef struct {
 ```
 This C struct is the in-memory shape of one capstone record. The JSON library layer must serialize every field and validate required fields when loading. Record the selected library and its build/link instructions in the project README.
 
+<<<<<<< HEAD
+=======
 ### Expected Behavior or Output
 
 The struct definition prints nothing by itself, and it is not a complete program. The expected result of this lesson is a written plan that names the JSON library you chose, lists every field that must be saved and loaded, and says what happens when a field is missing.
 
+>>>>>>> 2067a20 (curriculum clearning and updates)
 ### Common Mistakes
 - Trying to parse arbitrary JSON with comma splitting or substring search.
 - Failing to validate required fields and JSON value types.
@@ -2599,11 +2779,14 @@ int main(void)
 ```
 No output and exit status 0 indicate that all assertions passed. An assertion failure prints a diagnostic and terminates the test executable.
 
+<<<<<<< HEAD
+=======
 ### Expected Behavior or Output
 
 Output observed when the worked example was run (gcc 13.3, C17; the text of the output does not depend on the operating system):
 
 The program prints nothing and exits normally.
+>>>>>>> 2067a20 (curriculum clearning and updates)
 ### Common Mistakes
 - Testing only one ordinary input and omitting boundaries and invalid cases.
 - Writing assertions that duplicate implementation details instead of checking expected behavior.
@@ -2654,11 +2837,14 @@ int main(void)
 ```
 The assertions verify that a positive restock changes quantity and a negative restock is rejected.
 
+<<<<<<< HEAD
+=======
 ### Expected Behavior or Output
 
 Output observed when the worked example was run (gcc 13.3, C17; the text of the output does not depend on the operating system):
 
 The program prints nothing and exits normally.
+>>>>>>> 2067a20 (curriculum clearning and updates)
 ### Common Mistakes
 - Allowing one test's mutation to leak into another test.
 - Checking only the function result rather than the changed item state.
@@ -2706,6 +2892,8 @@ int main(void)
 ```
 The output is reproducible for a given C library implementation and seed, but the exact value may differ across implementations. Do not use `rand` for passwords or security tokens.
 
+<<<<<<< HEAD
+=======
 ### Expected Behavior or Output
 
 Output observed when the worked example was run (gcc 13.3, C17; the text of the output does not depend on the operating system):
@@ -2713,6 +2901,7 @@ Output observed when the worked example was run (gcc 13.3, C17; the text of the 
 ```text
 Die roll: 1
 ```
+>>>>>>> 2067a20 (curriculum clearning and updates)
 ### Common Mistakes
 - Treating `rand()` as cryptographically secure.
 - Assuming `% 6` produces perfectly unbiased die rolls.
@@ -2765,6 +2954,8 @@ int main(void)
 ```
 Expected output: 2 occurrences. This counts substring matches, not general word tokens; extend it to tokenize and count all words.
 
+<<<<<<< HEAD
+=======
 ### Expected Behavior or Output
 
 Output observed when the worked example was run (gcc 13.3, C17; the text of the output does not depend on the operating system):
@@ -2772,6 +2963,7 @@ Output observed when the worked example was run (gcc 13.3, C17; the text of the 
 ```text
 Occurrences of programming: 2
 ```
+>>>>>>> 2067a20 (curriculum clearning and updates)
 ### Common Mistakes
 - Counting substring matches as whole words.
 - Passing a negative plain `char` to `tolower`.
@@ -2822,6 +3014,8 @@ int main(void)
 ```
 Create a header with `student_id,first_name,last_name,score,active` and at least two rows. The program prints the header and each record line. A production parser must handle CSV quoting correctly.
 
+<<<<<<< HEAD
+=======
 ### Expected Behavior or Output
 
 With `students.csv` in the working directory, containing:
@@ -2841,6 +3035,7 @@ Record: 2,Jordan,Lee,82,true
 Record: 3,Casey,Smith,76,false
 ```
 
+>>>>>>> 2067a20 (curriculum clearning and updates)
 ### Common Mistakes
 - Splitting every CSV line on commas despite quoted commas and escaped quotes.
 - Ignoring overlong lines or malformed rows.
@@ -2885,10 +3080,13 @@ Use top-down design to break an application into input, processing, storage, and
 ### Worked Example
 Design the to-do manager around the operations add task, view tasks, mark task complete, save tasks, load tasks, and quit. Define the task fields as `id`, `title`, `description`, `done`, and `created_at`. Specify the behavior for an empty list, an invalid task number, and a missing data file.
 
+<<<<<<< HEAD
+=======
 ### Expected Behavior or Output
 
 No program is run in this lesson. The expected result is a written design: the six operations, the five task fields, and the exact messages for an empty list, an invalid task number, and a missing data file.
 
+>>>>>>> 2067a20 (curriculum clearning and updates)
 ### Common Mistakes
 - Starting implementation without defining acceptance criteria and failure cases.
 - Omitting empty-list, duplicate-ID, invalid-input, and unavailable-storage behavior.
@@ -2943,6 +3141,8 @@ int main(void)
 ```
 The first room leads north to the tunnel; the tunnel leads east to the clearing and south back to the cave. Extend this model with a command parser and a `quit` command. `-1` means that no exit exists in that direction.
 
+<<<<<<< HEAD
+=======
 ### Expected Behavior or Output
 
 Output observed when the worked example was run (gcc 13.3, C17; the text of the output does not depend on the operating system):
@@ -2951,6 +3151,7 @@ Output observed when the worked example was run (gcc 13.3, C17; the text of the 
 You are in a dimly lit cave. A passage leads NORTH.
 The tunnel is damp and cold. You can go SOUTH or EAST.
 ```
+>>>>>>> 2067a20 (curriculum clearning and updates)
 ### Common Mistakes
 - Using a room exit index without checking that it is valid.
 - Changing the current room before confirming the requested exit exists.
@@ -3005,6 +3206,8 @@ int main(void)
 ```
 This is a small state-transition demonstration, not the complete game. Extend it with the same room movement rules from Lesson 10.2, then test taking the key twice, trying to unlock without the key, and using the key in the wrong room.
 
+<<<<<<< HEAD
+=======
 ### Expected Behavior or Output
 
 With these lines typed as standard input:
@@ -3020,6 +3223,7 @@ Command (take key): You picked up the shiny key.
 The key can unlock the door.
 ```
 
+>>>>>>> 2067a20 (curriculum clearning and updates)
 ### Common Mistakes
 - Allowing the key to be collected more than once.
 - Unlocking the door without checking both the inventory and the player's room.
@@ -3085,6 +3289,8 @@ int main(void)
 ```
 This starter implements add, view, and quit with a fixed capacity of 50 tasks. Extend it with completion and persistence, checking every input and file operation.
 
+<<<<<<< HEAD
+=======
 ### Expected Behavior or Output
 
 Output observed when the worked example was run (gcc 13.3, C17; the text of the output does not depend on the operating system):
@@ -3093,6 +3299,7 @@ Output observed when the worked example was run (gcc 13.3, C17; the text of the 
 1 Add task  2 View tasks  3 Quit
 Choice: 
 ```
+>>>>>>> 2067a20 (curriculum clearning and updates)
 ### Common Mistakes
 - Writing beyond the fixed task array's capacity.
 - Treating the first character of a menu line as fully validated input.
@@ -3147,6 +3354,8 @@ int main(void)
 ```
 The program repeats until it receives a positive integer. Improve it by rejecting trailing non-whitespace characters and checking `errno` for overflow.
 
+<<<<<<< HEAD
+=======
 ### Expected Behavior or Output
 
 With these lines typed as standard input:
@@ -3164,6 +3373,7 @@ Enter your age as a positive whole number: Invalid age. Enter a whole number gre
 Enter your age as a positive whole number: You entered age: 16
 ```
 
+>>>>>>> 2067a20 (curriculum clearning and updates)
 ### Common Mistakes
 - Using color or a symbol as the only indication of completion.
 - Displaying an error without telling the user how to correct it.
@@ -3208,10 +3418,13 @@ The Python capstone uses NiceGUI, but that framework is Python-specific. The C c
 ### Worked Example
 Choose one collection: contacts, books/movies, to-do tasks, or inventory. Define fields, required values, validation rules, and the five required operations: add, view, edit, delete, save/load. For the to-do option, use `id`, `title`, `description`, `done`, and `created_at`. Document that the reference Python GUI is replaced by an accessible terminal interface in this C implementation.
 
+<<<<<<< HEAD
+=======
 ### Expected Behavior or Output
 
 No program is run in this lesson. The expected result is a written specification that names the chosen collection, lists the shared record fields, states the validation rules, and describes the five required operations and the terminal interface.
 
+>>>>>>> 2067a20 (curriculum clearning and updates)
 ### Common Mistakes
 - Omitting one of add, view, edit, delete, save, or load from the requirements.
 - Designing a GUI-specific solution despite selecting a terminal interface.
@@ -3259,10 +3472,13 @@ typedef struct {
 ```
 The record contains the exact canonical capstone fields. Define which fields are required, how empty strings are handled, and how IDs and timestamps are generated. The serialization layer must preserve all fields when saving and loading.
 
+<<<<<<< HEAD
+=======
 ### Expected Behavior or Output
 
 The struct definition prints nothing by itself, and it is not a complete program. The expected result is a written storage design: which fields are required, how empty strings are treated, how IDs and timestamps are produced, and how a save followed by a load preserves every field.
 
+>>>>>>> 2067a20 (curriculum clearning and updates)
 ### Common Mistakes
 - Using fixed-size fields without documenting maximum lengths and truncation policy.
 - Generating duplicate IDs or inconsistent timestamp formats.
@@ -3319,6 +3535,8 @@ int main(void)
 ```
 Expected state: task 1 is renamed to Review C arrays and marked done; task 2 is unchanged. Add bounds-safe input and implement add/delete operations using the same ID lookup.
 
+<<<<<<< HEAD
+=======
 ### Expected Behavior or Output
 
 Output observed when the worked example was run (gcc 13.3, C17; the text of the output does not depend on the operating system):
@@ -3327,6 +3545,7 @@ Output observed when the worked example was run (gcc 13.3, C17; the text of the 
 1: Review C arrays (done)
 2: Practice arrays (done)
 ```
+>>>>>>> 2067a20 (curriculum clearning and updates)
 ### Common Mistakes
 - Using an unchecked lookup result as an array index.
 - Copying a title into a fixed-size buffer without checking length.
@@ -3378,11 +3597,14 @@ int main(void)
 ```
 All assertions pass with exit status 0. Add tests for the full CRUD functions and compile a debug build with `-fsanitize=address,undefined -fno-omit-frame-pointer` where supported.
 
+<<<<<<< HEAD
+=======
 ### Expected Behavior or Output
 
 Output observed when the worked example was run (gcc 13.3, C17; the text of the output does not depend on the operating system):
 
 The program prints nothing and exits normally.
+>>>>>>> 2067a20 (curriculum clearning and updates)
 ### Common Mistakes
 - Testing only successful operations and ignoring malformed input or missing files.
 - Ignoring compiler warnings or sanitizer diagnostics.
@@ -3419,10 +3641,13 @@ The deliverable includes source code, sample data, a README, build/run instructi
 ### Worked Example
 README acceptance checklist: explain the selected data-manager domain; list the exact fields; document add/view/edit/delete/save/load; provide compile and run commands; describe how to navigate the menu by keyboard; explain how to recover from invalid input; include sample data and known limitations; record the screen reader and operating-system tests actually performed.
 
+<<<<<<< HEAD
+=======
 ### Expected Behavior or Output
 
 No program is run in this lesson. The expected result is a README that satisfies the acceptance checklist, with compile and run commands that another person can follow from an empty folder, and a record of the screen reader and operating-system tests you actually performed.
 
+>>>>>>> 2067a20 (curriculum clearning and updates)
 ### Common Mistakes
 - Omitting compiler version, build command, or dependency setup from the README.
 - Claiming assistive-technology compatibility without testing a named screen reader and OS.
@@ -3442,7 +3667,10 @@ Navigate the complete source file by line, word, and character using the learner
 - [ ] I can complete the lesson-specific boundary or extension tests above and explain the result.
 - [ ] I can recognize the three C-specific failure modes listed in this lesson and apply a correction.
 - [ ] I can navigate, compile, run, and inspect the source and output using my chosen access technology.
+<<<<<<< HEAD
+=======
 
 ## AI Policy
 
 AI may be used only for personal conceptual understanding and reinforcement. It must not write, complete, autocomplete, repair, or generate course code or assessment solutions.
+>>>>>>> 2067a20 (curriculum clearning and updates)

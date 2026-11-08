@@ -62,4 +62,1411 @@
   },
   "unit_map": [
     {
-
+<<<<<<< HEAD
+=======
+      "unit": "P",
+      "title": "Computing Foundations Primer",
+      "source_file": "FOUNDATIONS/unit-p-computing-foundations.md",
+      "placement": "Completed before Unit 0 of every general-purpose language track; not repeated per language.",
+      "purpose": "Teach the language-neutral vocabulary and computer-science background shared by every language track: what a computer does, how data is represented as bits, algorithms and tracing, core programming vocabulary, how source code becomes a running program, and files and data formats. All examples and explanations are non-visual.",
+      "lessons": [
+        "P.1 What a Computer Does",
+        "P.2 Representing Information as Bits",
+        "P.3 Algorithms, Pseudocode, and Tracing",
+        "P.4 The Shared Vocabulary of Programming",
+        "P.5 From Source Code to Running Program",
+        "P.6 Files, Data Formats, and Reading Code Without Sight"
+      ],
+      "parallel_examples": [
+        "Input, processing, output, and storage traced with the tip calculator (bill 24.50, tip rate 0.15)",
+        "Binary, bytes, and text encoding explained with braille cells and the letters A and a",
+        "Total and average of the scores 82, 91, 76, 88 written as pseudocode and traced as numbered sentences",
+        "Student profile (Avery, 16, 1.72, Computer Science) used to name variables, types, values, and statements",
+        "Error kinds and terminal vocabulary described as spoken text, not screen layout",
+        "Inventory item Notebook written as plain text, CSV, and JSON read aloud"
+      ],
+      "accessibility_notes": "No diagrams, tables, or color cues; traces are numbered sentences; lists replace tables; code is read aloud with named punctuation."
+    },
+    {
+>>>>>>> 2067a20 (curriculum clearning and updates)
+      "unit": 0,
+      "title": "Accessible Development Environment",
+      "source_file": "PYTHON/unit00-setup.md",
+      "purpose": "Reproduce toolchain setup, editor configuration, accessibility, workspace, terminal, and first-run verification. Adapt installation steps and runtime commands to each language.",
+      "lessons": [
+        "0.1 Installing Python and uv",
+        "0.2 Configuring Your Screen Reader for VS Code or Theia IDE",
+        "0.3 Setting Up Your VS Code or Theia IDE Workspace",
+<<<<<<< HEAD
+        "0.4 Python Environments and Terminal Usage",
+        "0.5 General Accessibility Tools and Strategies"
+=======
+        "0.4 Python Environments, Terminal Usage, and Accessibility Tools"
+>>>>>>> 2067a20 (curriculum clearning and updates)
+      ],
+      "parallel_examples": [
+        "Install and verify the language runtime/compiler",
+        "Configure the same editor and keyboard/screen-reader workflow",
+        "Create the same course project folder and first source file",
+<<<<<<< HEAD
+        "Create and activate an isolated language environment and run a terminal command",
+        "Identify OS-level accessibility settings, assistive technology, and editor accessibility features"
+      ]
+=======
+        "Run a Hello World program from the terminal"
+      ],
+      "lessons_note": "Titles shown are the Python lesson titles; other tracks adapt them to their own toolchain. Python's former Lesson 0.5 was merged into 0.4 so every track has four Unit 0 lessons."
+>>>>>>> 2067a20 (curriculum clearning and updates)
+    },
+    {
+      "unit": 1,
+      "title": "Foundations of Computing",
+      "source_file": "PYTHON/unit01-foundations.md",
+      "purpose": "Teach the same introductory computing concepts, first program, variables, and primitive values.",
+      "lessons": [
+        "1.1 Welcome to Computer Science",
+        "1.2 Your First Python Program — Hello World",
+        "1.3 Variables and Simple Data Types"
+      ],
+      "parallel_examples": [
+        "Hardware/software and algorithmic problem solving",
+        "Hello World output and sequential execution",
+        "Student profile using name, age, height, and favorite item; compare types and declarations"
+      ]
+    },
+    {
+      "unit": 2,
+      "title": "Numeric Computations",
+      "source_file": "PYTHON/unit02-numeric-computations.md",
+      "purpose": "Preserve the same software-development process, expressions, input/output, conversions, and mathematical problems.",
+      "lessons": [
+        "2.1 The Software Development Process",
+        "2.2 Elements of Programs — Expressions and Assignment",
+        "2.3 Input and Output Revisited",
+        "2.4 Computing with Numbers and Type Conversions",
+        "2.5 Using the Math Library"
+      ],
+      "parallel_examples": [
+        "Design/implement/test cycle and pseudocode for a tip calculator",
+        "Expression precedence and updating a score",
+        "Prompt for a name and two numbers; print a greeting and sum",
+        "Convert numeric text and calculate age/weight/measurement values",
+        "Circle area/circumference and distance from origin"
+      ]
+    },
+    {
+      "unit": 3,
+      "title": "Control Flow — Decisions and Loops",
+      "source_file": "PYTHON/unit03-control-flow.md",
+      "purpose": "Keep the same boolean reasoning, grade classification, score list, iteration, and text-processing examples.",
+      "lessons": [
+        "3.1 Boolean Expressions and if Statements",
+        "3.2 Chained Conditionals (elif, else)",
+        "3.3 Introduction to Lists",
+        "3.4 Iterating with for Loops",
+        "3.5 Basic String Operations"
+      ],
+      "parallel_examples": [
+        "Compare numeric scores and combine Boolean conditions",
+        "Use identical grade thresholds and boundary scores",
+        "Create, index, and modify the same list of four scores",
+        "Iterate through scores and calculate total/average",
+        "Normalize a name or sentence, count characters, and search text"
+      ]
+    },
+    {
+      "unit": 4,
+      "title": "Data Structures — Lists and Dictionaries",
+      "source_file": "PYTHON/unit04-06-data-functions.md",
+      "purpose": "Use the same collection operations and inventory/grade data in each general-purpose language; explain language-specific equivalents.",
+      "lessons": [
+        "4.1 More on Lists",
+        "4.2 Organizing Lists",
+        "4.3 Tuples — Immutable Lists",
+        "4.4 Introducing Dictionaries",
+        "4.5 Looping Through Dictionaries"
+      ],
+      "parallel_examples": [
+        "Append, insert, update, remove, and inspect a sequence",
+        "Sort and reverse the same numeric values",
+        "Represent immutable coordinates or a student record",
+        "Represent an inventory item with name, quantity, and price using a map/record/type appropriate to the language",
+        "Traverse keys, values, and key-value pairs"
+      ]
+    },
+    {
+      "unit": 5,
+      "title": "User Input and while Loops",
+      "source_file": "PYTHON/unit04-06-data-functions.md",
+      "purpose": "Use the same prompt/validation loop and sentinel-controlled interaction. Explain language-specific input parsing and loop syntax.",
+      "lessons": [
+        "5.1 How the input() Function Works",
+        "5.2 The while Loop in Action",
+        "5.3 Using Flags and break to Exit Loops",
+        "5.4 Using continue in Loops",
+        "5.5 Avoiding Infinite Loops"
+      ],
+      "parallel_examples": [
+        "Prompt for and parse user input; explain string conversion or typed input",
+        "Repeat a menu until a sentinel command is entered",
+        "Use a Boolean flag and break to stop a search",
+        "Skip invalid or unwanted entries with continue or equivalent",
+        "Diagnose loop termination and boundary conditions"
+      ]
+    },
+    {
+      "unit": 6,
+      "title": "Functions",
+      "source_file": "PYTHON/unit04-06-data-functions.md",
+      "purpose": "Use the same calculation and collection-processing functions. Preserve input/output contracts and decomposition while explaining parameter semantics.",
+      "lessons": [
+        "6.1 Defining Functions",
+        "6.2 Passing Arguments",
+        "6.3 Return Values",
+        "6.4 Functions with Lists and Dictionaries",
+        "6.5 Arbitrary Number of Arguments"
+      ],
+      "parallel_examples": [
+        "Define a reusable tip/total calculator",
+        "Call with positional, named, and default arguments where language supports them; explain alternatives where it does not",
+        "Return a computed result rather than only printing it",
+        "Pass and process the same scores list and inventory map",
+        "Teach variadic arguments or the closest idiomatic language-specific pattern"
+      ]
+    },
+    {
+      "unit": 7,
+      "title": "Classes and Object-Oriented Programming",
+      "source_file": "PYTHON/unit07-09-oop-files.md",
+      "purpose": "Keep the same Student, Item, or Task domain model while translating the design to idiomatic types, classes, structs, interfaces, or composition.",
+      "lessons": [
+        "7.1 Why Learn About Classes?",
+        "7.2 Creating and Using a Class",
+        "7.3 Working with Attributes and Methods",
+        "7.4 Inheritance",
+        "7.5 Instances as Attributes (Composition)"
+      ],
+      "parallel_examples": [
+        "Model a student or inventory item and explain encapsulation",
+        "Create several instances with the same fields",
+        "Add methods for display, update, and validation",
+        "Model a specialized item/student type using inheritance, interfaces, traits, protocols, or embedding as appropriate",
+        "Compose a personal data manager from related objects"
+      ]
+    },
+    {
+      "unit": 8,
+      "title": "Files and Exceptions",
+      "source_file": "PYTHON/unit07-09-oop-files.md",
+      "purpose": "Use the same notes.txt and structured task/student records; teach idiomatic resource lifetime and error propagation.",
+      "lessons": [
+        "8.1 Reading from a File",
+        "8.2 Writing to a File",
+        "8.3 Exceptions — Handling Errors",
+        "8.4 The else and finally Blocks",
+        "8.5 Storing Data with JSON"
+      ],
+      "parallel_examples": [
+        "Read the same line-oriented text file and report its contents",
+        "Write and append the same notes or task records",
+        "Handle missing file, invalid input, and malformed data",
+        "Guarantee resource cleanup using language-specific constructs",
+        "Serialize and reload the same structured records as JSON"
+      ]
+    },
+    {
+      "unit": 9,
+      "title": "Testing and Data Analysis",
+      "source_file": "PYTHON/unit07-09-oop-files.md",
+      "purpose": "Reuse the same deterministic functions, records, text sample, random selection, and CSV dataset.",
+      "lessons": [
+        "9.1 Testing a Function",
+        "9.2 Testing a Class",
+        "9.3 Introduction to Random Numbers",
+        "9.4 Analyzing Text Data",
+        "9.5 Working with CSV Data"
+      ],
+      "parallel_examples": [
+        "Test add, tip, and classification functions with identical inputs/expected results",
+        "Test Task or Item state and methods",
+        "Generate a random integer, decimal, and selection; seed when reproducibility is needed",
+        "Count words and character frequencies in the same short text",
+        "Read the same CSV columns and compute identical summaries"
+      ]
+    },
+    {
+      "unit": 10,
+      "title": "Project-Based Learning — Text-Based Applications",
+      "source_file": "PYTHON/unit10-11-projects-capstone.md",
+      "purpose": "Keep the exact project specification and user interaction consistent so language implementation is the principal variable.",
+      "lessons": [
+        "10.1 Designing Your Project",
+        "10.2 Building a Text-Based Adventure Game (Part 1)",
+        "10.3 Building a Text-Based Adventure Game (Part 2)",
+        "10.4 Developing a Command-Line Tool",
+        "10.5 Refinement and User Experience"
+      ],
+      "parallel_examples": [
+        "Same requirements, pseudocode, inputs, outputs, and accessibility criteria",
+        "Same rooms, exits, and movement commands",
+        "Same inventory, item pickup, and puzzle rules",
+        "Same command-line to-do operations and persistence",
+        "Same validation, prompt wording, error cases, and text-only accessibility review"
+      ]
+    },
+    {
+      "unit": 11,
+      "title": "Capstone — Accessible Personal Data Manager",
+      "source_file": "PYTHON/unit10-11-projects-capstone.md",
+      "purpose": "Use one shared capstone specification across general-purpose languages. Framework/UI choices may differ, but core data model, operations, and acceptance tests must remain equivalent.",
+      "lessons": [
+        "11.1 Introduction to NiceGUI",
+        "11.2 Data Model and Storage",
+<<<<<<< HEAD
+        "11.3–11.5 Displaying and Managing Items"
+=======
+        "11.3 Displaying and Searching Items",
+        "11.4 Changing, Completing, and Deleting Items",
+        "11.5 Testing, Documentation, and Final Submission"
+>>>>>>> 2067a20 (curriculum clearning and updates)
+      ],
+      "parallel_examples": [
+        "Introduce NiceGUI for the Python implementation; select an accessible, idiomatic interface approach in other languages while preserving the same user-facing requirements.",
+        "Use the same record fields, validation rules, storage format, and sample data.",
+        "Implement the same display/list, add, search, update, delete, and completion operations; use the same test cases and accessibility acceptance criteria."
+<<<<<<< HEAD
+      ]
+=======
+      ],
+      "verified_code": "PYTHON/capstone/ (records.py, app.py, app_v1.py, hello_app.py, and tests); run with Python 3.12 and NiceGUI 3.19.0"
+>>>>>>> 2067a20 (curriculum clearning and updates)
+    }
+  ],
+  "canonical_shared_datasets": {
+    "student_profile": {
+      "name": "Avery",
+      "age": 16,
+      "height_m": 1.72,
+      "favorite_subject": "Computer Science"
+    },
+    "calculator": {
+      "bill": 24.5,
+<<<<<<< HEAD
+      "tip_rate": 0.15,
+      "rounding_policy": "Round the tip amount to the nearest cent using decimal half-up rounding before adding it to the bill.",
+      "expected_tip": 3.68,
+      "expected_total": 28.18
+=======
+      "tip_rate": 0.15
+>>>>>>> 2067a20 (curriculum clearning and updates)
+    },
+    "grade_thresholds": [
+      {
+        "minimum": 90,
+        "grade": "A"
+      },
+      {
+        "minimum": 80,
+        "grade": "B"
+      },
+      {
+        "minimum": 70,
+        "grade": "C"
+      },
+      {
+        "minimum": 60,
+        "grade": "D"
+      },
+      {
+        "minimum": 0,
+        "grade": "F"
+      }
+    ],
+    "scores": [
+      82,
+      91,
+      76,
+      88
+    ],
+    "inventory": [
+      {
+        "name": "Notebook",
+        "quantity": 3,
+        "unit_price": 2.5
+      },
+      {
+        "name": "Pencil",
+        "quantity": 10,
+        "unit_price": 0.5
+      },
+      {
+        "name": "Folder",
+        "quantity": 4,
+        "unit_price": 1.25
+      }
+    ],
+    "coordinates": {
+      "x": 3,
+      "y": 4
+    },
+    "text_sample": "A student studies programming. Programming develops problem-solving skills.",
+    "csv_columns": [
+      "student_id",
+      "first_name",
+      "last_name",
+      "score",
+      "active"
+    ],
+    "todo_fields": [
+      "id",
+      "title",
+      "description",
+      "done",
+      "created_at"
+    ],
+    "capstone_record_fields": [
+      "id",
+      "title",
+      "description",
+      "category",
+      "created_at",
+      "updated_at"
+<<<<<<< HEAD
+    ]
+=======
+    ],
+    "csv_rows": [
+      [
+        1,
+        "Avery",
+        "Student",
+        91,
+        true
+      ],
+      [
+        2,
+        "Jordan",
+        "Lee",
+        82,
+        true
+      ],
+      [
+        3,
+        "Casey",
+        "Smith",
+        76,
+        false
+      ]
+    ],
+    "csv_note": "Canonical sample rows for students.csv, in the column order given by csv_columns. active is written as the text true or false.",
+    "notes_file": {
+      "name": "notes.txt",
+      "pattern": "Two lines: 'Practice <language>.' and 'Review <topic> and <topic>.' (for example, Python: 'Practice Python.' and 'Review lists and functions.')"
+    },
+    "capstone_optional_fields": [
+      "done"
+    ],
+    "calculator_display_rounding": {
+      "exact_stored_tip": "3.67499999999999982 (24.5 * 0.15 in IEEE double precision)",
+      "two_decimal_display": {
+        "3.67": [
+          "Python (f-string :.2f)",
+          "C (printf)",
+          "C++ (fixed, setprecision(2))",
+          "Go (Printf)",
+          "Rust (format {:.2})",
+          "JavaScript and TypeScript (toFixed(2))",
+          "Lua (string.format)",
+          "C# (ToString F2)"
+        ],
+        "3.68": [
+          "Java (printf and String.format round half up on the decimal digits of the double)",
+          "Kotlin (String.format and format; verified with kotlinc 1.9.24)"
+        ]
+      },
+      "other_total_display": "28.18 in every language that was run",
+      "not_verified_here": [
+        "Swift",
+        "Julia"
+      ],
+      "other_ways_to_get_3.68": [
+        "C# custom format 0.00 and Math.Round(tip, 2)",
+        "JavaScript Intl.NumberFormat"
+      ],
+      "rule": "A lesson may state the exact tip display only for a language where that display was run. Where languages differ, the lesson should say so rather than show one value everywhere."
+    }
+>>>>>>> 2067a20 (curriculum clearning and updates)
+  },
+  "equivalence_rules": [
+    "Preserve the same unit order and the same learning objective in every general-purpose track.",
+    "Preserve the same example problem, input values, dataset, boundary cases, and expected output wherever technically possible.",
+    "Use idiomatic language syntax; never produce awkward literal translations solely to resemble Python.",
+    "When a language has no direct equivalent, teach the closest idiomatic construct and explicitly explain the semantic difference.",
+    "Do not introduce unrelated examples that make the learner solve a new domain problem while learning new syntax.",
+    "Keep code examples small, runnable, and independently understandable; introduce complexity incrementally.",
+    "For compiled languages, include compile and run commands and explain compiler diagnostics. For interpreted languages, explain interpreter execution.",
+    "For statically typed languages, explicitly teach type declarations/inference and conversion. For memory-safe or ownership-oriented languages, explain ownership/borrowing where relevant.",
+    "For C and C++, include memory, arrays, pointers/references, and resource-lifetime lessons without changing the shared problem context.",
+    "For Julia, emphasize arrays, broadcasting, multiple dispatch, and numerical workloads while retaining shared general-programming examples.",
+    "For Rust, explain ownership, borrowing, Result/Option, and traits in the context of the shared examples.",
+    "For Swift, explain optionals, value semantics, protocols, and Codable in the context of the shared examples.",
+    "For Go, explain packages, slices, maps, structs, interfaces, explicit errors, and concurrency as appropriate.",
+<<<<<<< HEAD
+    "For Lua, explain tables, dynamic values, functions as values, modules, and metatables using the shared examples."
+=======
+    "For Lua, explain tables, dynamic values, functions as values, modules, and metatables using the shared examples.",
+    "Every general-purpose track assumes the learner has completed Unit P (FOUNDATIONS/unit-p-computing-foundations.md) and may refer to it by lesson number instead of repeating language-neutral definitions."
+>>>>>>> 2067a20 (curriculum clearning and updates)
+  ],
+  "lesson_template": {
+    "required_sections": [
+      "Overview at unit level",
+      "Reading References",
+      "Learning Objectives",
+      "Concept Explanation",
+      "Worked Example",
+      "Expected Behavior or Output",
+      "Common Mistakes",
+      "Activities",
+      "Accessibility Practice",
+      "Skills Checklist"
+    ],
+    "optional_sections": [
+      "Compatibility Notes",
+      "Language-Specific Semantics",
+      "Debugging Walkthrough",
+      "Extension Challenge",
+      "Project Milestone"
+    ],
+    "accessibility_requirements": [
+      "Keyboard-first instructions; do not require mouse-only operation.",
+      "Ensure code and output can be read sequentially with screen readers and braille displays.",
+      "Explain punctuation, indentation, braces, delimiters, and nesting when they affect code interpretation.",
+      "Do not use color as the only way to communicate meaning.",
+      "Use descriptive prompts and explicit textual errors; provide textual equivalents for charts and visual outputs.",
+      "Include terminal execution paths even when an IDE run command exists.",
+      "Test examples with common screen-reader workflows where practical; do not claim testing unless it was performed."
+    ]
+  },
+  "course_quality_gates": [
+    "Every unit 0–11 exists in each general-purpose course.",
+    "Every Python lesson has an explicit mapped counterpart or a documented language-specific reason for adaptation.",
+    "Every substantive lesson contains a worked example, expected behavior, common mistakes, activities, accessibility practice, and a skills checklist.",
+    "The same shared datasets and expected results are used across parallel tracks.",
+    "Examples compile or execute under the documented language version; do not claim validation unless actually run.",
+    "All code uses idiomatic conventions for the target language and explains non-equivalent constructs.",
+    "The course includes text adventure, command-line to-do, and personal-data manager projects with equivalent requirements.",
+    "The final assessment checks understanding of the target language rather than visual IDE fluency.",
+    "AI policy is consistent: AI may support personal conceptual understanding and reinforcement only; it may not write, autocomplete, repair, complete, or generate course code or assessment solutions."
+  ],
+  "generation_prompt": "You are an expert computer science curriculum author and accessibility specialist. Refine the target language course in this repository using the original Python curriculum as the canonical instructional blueprint. Read every Python unit file listed in source_curriculum and map each lesson, example, dataset, activity, common mistake, skills checklist, project requirement, and assessment criterion to the corresponding target-language lesson. Follow unit_map exactly and preserve the sequence from Unit 0 through Unit 11. The learner should solve functionally the same problems in each general-purpose language: same student profile, calculator values, grade thresholds, score list, inventory records, text sample, CSV columns, to-do requirements, text-adventure rules, and personal-data-manager capstone. Do not change the problem merely to demonstrate a language feature. Teach the same concept with idiomatic target-language syntax, type rules, standard-library facilities, compiler/interpreter workflow, and language-specific semantics. Explain when a construct has no direct equivalent and choose the closest idiomatic alternative without pretending the languages behave identically. Expand outline-only lessons into full instructional lessons using lesson_template.required_sections. Include complete runnable code examples, expected output, common mistakes, step-by-step activities, and measurable skills checklists. Keep the shared accessibility requirements and terminal workflow. Keep HTML/CSS, R, and SQL as separate specialized modules; do not force those subjects into the Python sequence. Do not use AI to produce learner assignment answers: the course policy permits AI only for personal conceptual explanations and reinforcement, not for writing, completing, autocompleting, repairing, or generating course code. Before editing, inventory the target course files and identify missing units or lessons. After editing, validate file coverage against unit_map, inspect code syntax and expected outputs, verify navigation links, and report exactly which checks were and were not run. Never claim a build, execution test, or screen-reader test unless it actually occurred.",
+  "future_refinement_workflow": [
+    "Select one target language at a time.",
+    "Read the canonical Python source files in full.",
+    "Read the target course's current README, lessons, and index.",
+    "Create a mapping table from every Python lesson to a target-language lesson.",
+    "Revise in manageable unit batches, preserving existing useful language-specific material.",
+    "Use the shared canonical datasets and compare expected outputs.",
+    "Run compiler/interpreter checks when the environment is available; otherwise mark code as not executed.",
+    "Check headings, links, file names, and navigation.",
+    "Update the audit with completion status and unresolved differences."
+  ],
+  "refinement_progress": {
+<<<<<<< HEAD
+    "last_updated": "2026-11-02",
+    "current_language": "Python and Lua focused revisions; Go, Java, and C++ targeted contract corrections",
+=======
+    "last_updated": "2026-11-05",
+    "current_language": "Kotlin",
+>>>>>>> 2067a20 (curriculum clearning and updates)
+    "completed_tracks": {
+      "C": {
+        "path": "C/lessons.md",
+        "units": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11
+        ],
+        "mapped_python_lessons": 55,
+        "target_course_lesson_sections": 53,
+        "status": "content_and_compile_link_verification_complete_pending_runtime_and_full_accessibility_verification",
+        "completed_work": [
+          "Expanded Unit 0 to four explicit C compiler, editor, workspace, compile/run, and project-environment lessons.",
+          "Replaced generic worked examples and repeated concept text with lesson-specific C examples across Units 1–11.",
+          "Aligned the shared Avery profile, calculator, grade thresholds, scores, inventory, coordinates, text sample, CSV fields, to-do project, and capstone record schema.",
+          "Documented C-specific adaptations for arrays/structs, input parsing, manual resource lifetime, error returns, no built-in JSON library, and the terminal-based capstone interface.",
+          "Added the missing C counterpart for Python Lesson 2.5.",
+          "Rewrote common-mistake lists, independent activities, and mastery checklists for all 53 Unit 1–11 lesson sections with C-specific failure modes and tests tied to canonical examples.",
+          "Expanded all four Unit 0 setup lessons into the full lesson structure, including toolchain, workspace, editor accessibility, dependency management, terminal workflow, activities, and checklists.",
+          "Added scripts/check_c_examples.py and a GitHub Actions matrix that checks the C17 examples with GCC and Clang."
+        ],
+        "validation": [
+          "52 C lesson sections in Units 1–11; four Unit 0 setup lessons.",
+          "52 worked-example sections and required lesson scaffolding present.",
+          "No generic repeated C boilerplate or placeholder project examples remain in the lesson sections.",
+          "Code fence markers are balanced.",
+          "All 53 Unit 1–11 lesson sections have exactly one Common Mistakes section, four lesson-specific Activities, and one Skills Checklist.",
+          "All four Unit 0 setup lessons have structured objectives, concept explanations, worked instructions, common mistakes, activities, accessibility practice, and checklists.",
+          "Activities and common-mistake content are lesson-specific rather than the repeated generic prompts from the first pass.",
+          "GitHub Actions run 41316160464 passed on both GCC 13.3.0 and Clang 18.1.3.",
+          "All 49 fenced C examples passed with -Wall -Wextra -Wpedantic -Werror; 46 complete programs compiled and linked, and 3 declaration/function fragments passed syntax-only checks."
+        ],
+        "not_yet_verified": [
+          "Compile and execute every C example on GCC and Clang.",
+          "Run a complete Markdown link crawl and mdBook build after this update.",
+          "Test screen-reader and braille workflows with learners.",
+          "Review external JSON and CSV library choices and pin versions for any implementation project.",
+          "Run the compiled examples with representative input and file fixtures; interactive and file-processing behavior has not been runtime-tested.",
+          "Run a fresh mdBook build and a complete Markdown link crawl after the latest edits.",
+          "Perform hands-on screen-reader and braille testing with named operating systems and access technologies."
+        ]
+      },
+      "CPP": {
+        "path": "CPP/lessons.md",
+        "units": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11
+        ],
+        "mapped_python_lessons": 55,
+        "target_course_lesson_sections": 57,
+        "numbered_unit_lesson_sections": 53,
+        "status": "content_and_compile_link_verification_complete_pending_runtime_and_full_accessibility_verification",
+        "completed_work": [
+          "Expanded all four Unit 0 lessons into complete C++20 compiler, workspace, editor/accessibility, and project/dependency workflows.",
+          "Added the missing C++ equivalent of Python Unit 2 Lesson 2.5 for <cmath>, circle area/circumference, and distance from the origin.",
+          "Replaced repeated within-unit worked examples with distinct lesson-focused C++20 examples using canonical shared datasets and project contexts.",
+          "Rewrote all 53 numbered Unit 1–11 lessons with C++-specific common mistakes, four targeted practice activities, and five observable mastery criteria per lesson.",
+          "Added scripts/check_cpp_examples.py to compile and link every fenced C++ example as a standalone C++20 translation unit.",
+<<<<<<< HEAD
+          "Added .github/workflows/cpp-examples.yml with GCC and Clang C++20 matrix validation.",
+          "Aligned the Unit 10.2 movement example with the canonical start_room → tunnel transition; extended the cross-language contract checker to verify canonical adventure identifiers and six-field capstone fields in Go, Java, and C++."
+=======
+          "Added .github/workflows/cpp-examples.yml with GCC and Clang C++20 matrix validation."
+>>>>>>> 2067a20 (curriculum clearning and updates)
+        ],
+        "validation": [
+          "Four Unit 0 setup lessons and all 53 numbered Unit 1–11 lesson sections are present.",
+          "All 53 numbered lessons have three common mistakes, four activities, and five skills checklist criteria.",
+          "The 53 numbered lessons have distinct worked examples; there are 54 fenced C++ blocks including the Unit 0 first-run example.",
+          "GitHub Actions run 41318426947 passed with GCC 13.3.0 and Clang 18.1.3.",
+          "All 54 fenced C++ examples compiled and linked as C++20 with -Wall -Wextra -Wpedantic -Werror."
+        ],
+        "not_yet_verified": [
+          "Execute all examples with representative input and file fixtures; compile/link success does not establish runtime behavior.",
+          "Run a fresh mdBook build and a complete Markdown/local-link crawl after the latest edits.",
+          "Perform hands-on screen-reader and braille testing with named operating systems, editors, compilers, and access technologies.",
+<<<<<<< HEAD
+          "Review the C++ JSON and CSV lessons against selected external library/parser choices for a full application implementation.",
+          "Re-run C++ GCC/Clang compile/link CI after the Unit 10.2 movement example was updated to the canonical graph."
+=======
+          "Review the C++ JSON and CSV lessons against selected external library/parser choices for a full application implementation."
+>>>>>>> 2067a20 (curriculum clearning and updates)
+        ]
+      },
+      "CSHARP": {
+        "path": "CSHARP/lessons.md",
+        "units": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11
+        ],
+        "mapped_python_lessons": 55,
+        "target_course_lesson_sections": 57,
+        "numbered_unit_lesson_sections": 53,
+        "status": "content_and_compile_link_smoke_execution_complete_pending_full_application_and_accessibility_verification",
+        "completed_work": [
+          "Expanded all four Unit 0 setup lessons into complete .NET SDK, workspace, editor/accessibility, dependency, restore, build, test, and run workflows.",
+          "Added the missing C# equivalent of Python Unit 2 Lesson 2.5 for System.Math, circle area/circumference, and distance from the origin.",
+          "Replaced repeated worked examples with 53 distinct C# examples aligned to the shared Avery profile, calculator, grade thresholds, score collection, inventory, coordinates, text sample, CSV columns, task fields, and capstone record fields.",
+          "Rewrote all 53 numbered lessons with three C#-specific common mistakes, four practice activities, and five observable mastery criteria per lesson.",
+          "Aligned the C# course with .NET 10 and C# 14, using typed APIs, generic collections, records, interfaces, LINQ, System.Text.Json, and deterministic IDisposable cleanup where appropriate.",
+          "Added scripts/check_csharp_examples.py to build each fenced C# example as an independent .NET 10 console program with nullable analysis and warnings treated as errors.",
+          "Added .github/workflows/csharp-examples.yml to run the C# compiler validation in GitHub Actions.",
+          "Extended the checker to execute each successfully built example; all 53 examples now compile, link, and exit successfully under the .NET 10 SDK."
+        ],
+        "validation": [
+          "Four Unit 0 setup lessons and all 53 numbered Unit 1–11 lesson sections are present.",
+          "All 53 numbered lessons have exactly three C#-specific common mistakes, four practice activities, and five skills checklist criteria.",
+          "All 53 worked examples are distinct C# code blocks.",
+          "GitHub Actions run 41319979071 passed initial compile/link validation using .NET SDK 10.0.403.",
+          "GitHub Actions run 41320247156 passed: all 53 fenced C# examples compiled, linked, and executed as independent .NET 10 / C# 14 console programs with nullable analysis enabled and warnings treated as errors."
+        ],
+        "not_yet_verified": [
+          "Run broader behavioral tests with representative invalid input, missing files, malformed JSON, and persistence fixtures; the current execution pass verifies clean process exit, not expected-output assertions or full interactive workflows.",
+          "Test the complete capstone application end to end, including JSON save/reload and CRUD behavior.",
+          "Run a fresh mdBook build and a complete Markdown/local-link crawl after the latest edits.",
+          "Perform hands-on screen-reader and braille testing with named operating systems, editors, SDKs, and access technologies.",
+          "Use a standards-aware CSV parser rather than string splitting for production CSV files with quoted commas, escaped quotes, or embedded newlines."
+        ]
+      },
+      "Julia": {
+        "path": "JULIA/lessons.md",
+        "units": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11
+        ],
+        "mapped_python_lessons": 55,
+        "target_course_lesson_sections": 57,
+        "numbered_unit_lesson_sections": 53,
+        "status": "content_and_julia_1_12_compile_execution_smoke_verification_complete_pending_full_application_and_accessibility_verification",
+        "completed_work": [
+          "Expanded all four Unit 0 lessons with Julia installation, REPL/runtime verification, workspace and working-directory behavior, editor accessibility, and project-local dependency management.",
+          "Added the missing Python Unit 2 Lesson 2.5 counterpart for Julia mathematical constants, circle area/circumference, and distance using hypot.",
+          "Replaced repeated within-unit example blocks with 53 distinct lesson-specific examples, aligned to canonical profile, calculator, scores, inventory, coordinates, text, CSV, task, and capstone contexts.",
+          "Rewrote all 53 numbered lessons with Julia-specific concept explanations, three language-specific common mistakes, four targeted activities, accessibility practice, and five measurable checklist statements.",
+          "Documented Julia-specific adaptations: one-based indexing, multiple dispatch, composite types, mutation conventions, TOML versus JSON dependencies, and standards-aware CSV parsing.",
+          "Added scripts/check_julia_examples.py and a Julia 1.12 GitHub Actions workflow to execute every fenced Julia example independently.",
+          "Completed the full nine-section instructional structure for each of the four Unit 0 setup lessons."
+        ],
+        "validation": [
+          "Four Unit 0 setup lessons and all 53 numbered Unit 1–11 lesson sections are present.",
+          "All 53 numbered lessons contain the required lesson sections, three Julia-specific mistakes, four activities, and five checklist statements.",
+          "All 53 numbered lesson examples are distinct; with four Unit 0 examples, the course contains 57 fenced Julia examples.",
+          "Structural validation confirms balanced Markdown fences and the missing Unit 2 Lesson 2.5 counterpart is now present.",
+          "GitHub Actions run 41322088371 passed on Julia 1.12.7; all 57 fenced Julia examples executed successfully in isolated temporary directories.",
+          "All four Unit 0 lessons now include Reading References, Learning Objectives, Concept Explanation, Worked Example, Expected Behavior or Output, Common Mistakes, Activities, Accessibility Practice, and Skills Checklist."
+        ],
+        "not_yet_verified": [
+          "Expected-output assertions and broader behavioral tests with representative invalid input and file fixtures; the current checker verifies successful process exit, not exact output.",
+          "Expected-output assertions and broader behavioral tests with representative invalid input and file fixtures.",
+          "A fresh mdBook build and complete Markdown/local-link crawl after the latest edits.",
+          "Hands-on screen-reader and braille testing with named operating systems, editors, Julia versions, and access technologies.",
+          "Full JSON3.jl persistence and CSV.jl parsing workflows in the end-to-end capstone."
+        ]
+      },
+      "Swift": {
+        "path": "SWIFT/lessons.md",
+        "units": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11
+        ],
+        "mapped_python_lessons": 55,
+        "target_course_lesson_sections": 57,
+        "numbered_unit_lesson_sections": 53,
+        "status": "content_and_swift_6_example_execution_smoke_verification_complete_pending_full_application_and_accessibility_verification",
+        "completed_work": [
+          "Expanded all four Unit 0 setup lessons with Swift installation and version verification, workspace/path behavior, accessible editor and SourceKit-LSP setup, and Swift Package Manager guidance.",
+          "Added the missing Python Unit 2 Lesson 2.5 counterpart for Foundation mathematical functions, circle area/circumference, and distance using hypot.",
+          "Replaced repeated worked examples with 53 distinct lesson-specific Swift examples aligned to shared course datasets and project contexts.",
+          "Rewrote all 53 numbered lessons with Swift-specific explanations, three common mistakes, four targeted activities, accessibility practice, and five measurable skills checklist criteria.",
+          "Documented Swift-specific value semantics, optionals, argument labels, protocols, throwing file operations, Codable, and CSV package boundaries.",
+          "Added scripts/check_swift_examples.py and a Swift 6 GitHub Actions workflow to execute every fenced Swift example independently."
+        ],
+        "validation": [
+          "Structural checks confirm Units 1–11, all 53 numbered lessons including Unit 2 Lesson 2.5, and four Unit 0 setup lessons.",
+          "All 53 numbered lessons have exactly three common mistakes, four activities, and five checklist criteria.",
+          "All 53 numbered lesson examples are distinct; with four Unit 0 examples, the course contains 57 distinct fenced Swift examples.",
+          "All four Unit 0 lessons contain the full nine-section setup lesson structure.",
+          "Markdown fences are balanced.",
+          "GitHub Actions run 41324186133 passed on Swift 6.0; all 57 fenced Swift examples executed successfully as independent scripts.",
+          "A second CI run, 41324246202, also passed on Swift 6.0.3; all 57 examples executed successfully with the finalized checker."
+        ],
+        "not_yet_verified": [
+          "Expected-output assertions and broader behavioral tests with invalid input, file fixtures, and package integration; current checker verifies successful process exit, not exact output.",
+          "Expected-output assertions and broader behavioral tests with invalid input, file fixtures, and package integration.",
+          "A fresh mdBook build and complete Markdown/local-link crawl after the latest edits.",
+          "Hands-on screen-reader and braille testing with named operating systems, editors, Swift versions, and access technologies.",
+          "End-to-end capstone persistence, XCTest coverage, and Apple-platform build testing."
+        ]
+      },
+      "JAVASCRIPT": {
+        "path": "JAVASCRIPT/",
+        "units": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11
+        ],
+        "mapped_python_lessons": 57,
+        "target_course_lesson_sections": 57,
+        "unique_examples": 63,
+        "status": "content_structure_and_v8_syntax_parse_verified_pending_node_runtime_and_full_accessibility_verification",
+        "runtime": "Node.js 26.x",
+        "completed_work": [
+          "Expanded Unit 0 to four explicit Node.js installation, accessible editor, first-file, project, terminal, npm, and module-mode lessons.",
+          "Mapped all Python lessons across Units 0–11 to 57 JavaScript lesson sections, including the previously missing Unit 2.5 mathematics lesson and Unit 0.4 project/terminal lesson.",
+          "Reorganized Units 2–4 to preserve the canonical sequence for software design, expressions, input/output, conversions, Math, Boolean logic, grade classification, arrays, iteration, strings, objects, fixed sequences, and Map.",
+          "Rebuilt Units 5–8 around terminal input, while loops, flags, break/continue, functions, classes, inheritance, composition, files, exceptions, and JSON.",
+          "Rebuilt Units 9–11 around function/class tests, random values, text analysis, CSV parsing, the canonical text adventure, command-line to-do tool, and accessible personal-data-manager capstone.",
+          "Aligned the Avery profile, calculator values, grade thresholds, scores, inventory, coordinates, canonical text, CSV columns, task fields, and capstone record fields.",
+          "Documented JavaScript-specific adaptations for asynchronous Node.js input, Number conversion, frozen arrays instead of Python tuples, object/Map data structures, Node.js built-in testing, standards-aware CSV parsing, and terminal-based capstone interface.",
+          "Updated the JavaScript README, topic index, and teacher guide; aligned student AI use with the shared restriction to conceptual explanations and reinforcement only."
+        ],
+        "validation": [
+          "All 57 mapped lesson sections contain all nine required lesson-template sections.",
+          "All 63 fenced JavaScript examples in the four core lesson files passed a V8 syntax parse; no syntax parse errors were reported.",
+          "Relative Markdown links in the README, index, teacher guide, and four core lesson files resolve against the branch tree.",
+          "Canonical calculations were checked for the tip example, score total and average, and inventory value; the JavaScript floating-point display and inventory expected outputs were corrected.",
+          "GitHub Actions run 41344284538 passed on commit 593759ad2256991256272da8a81056e46d4d49ba using the committed structural and syntax checker."
+        ],
+        "not_yet_verified": [
+          "Execute all 63 examples under the documented Node.js 26 runtime; V8 syntax parsing is not a Node.js runtime test.",
+          "Add exact expected-output assertions and representative invalid-input, missing-file, malformed-JSON, and CSV edge-case fixtures.",
+          "Run the complete text-adventure and command-line to-do applications end to end.",
+          "Run the personal-data-manager capstone end to end, including CRUD operations, JSON persistence, and at least five unit tests.",
+          "Run a fresh mdBook build and complete Markdown/local-link crawl for the full repository.",
+          "Perform hands-on keyboard-only, screen-reader, and braille verification with named operating systems, editors, and access technologies."
+        ]
+      },
+      "TYPESCRIPT": {
+        "path": "TYPESCRIPT/",
+        "units": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11
+        ],
+        "mapped_python_lessons": 57,
+        "target_course_lesson_sections": 57,
+        "unique_examples": 58,
+        "runtime": "Node.js 26.13.0 LTS",
+        "compiler": "TypeScript 7.0.2",
+        "status": "content_structure_and_strict_typescript_example_check_complete_pending_runtime_and_full_accessibility_verification",
+        "completed_work": [
+          "Rebuilt the TypeScript course around all 57 mapped lesson sections across Units 0–11, with one occurrence of each lesson.",
+          "Added all nine required lesson sections to every mapped lesson: references, objectives, concept explanation, worked example, expected behavior, common mistakes, activities, accessibility practice, and skills checklist.",
+          "Preserved canonical student, calculator, grade, score, inventory, coordinate, text, CSV, to-do, and capstone data.",
+          "Added TypeScript-specific treatment of strict types, inference, interfaces, readonly tuples, generic types, discriminated unions, type guards, runtime validation, and explicit module configuration.",
+          "Adapted Node.js terminal input and file I/O using readline/promises, async/await, and node:fs/promises.",
+          "Preserved the shared text adventure, torch and magic-key puzzle, command-line to-do tool, and personal-data-manager capstone requirements; the capstone uses a text-first terminal interface instead of Python NiceGUI.",
+          "Aligned testing with node:test and node:assert/strict; documented Jest as optional and csv-parse as the standards-aware CSV parser.",
+          "Updated the TypeScript README, 57-entry topic index, teacher guide, and standardization audit.",
+          "Aligned student and instructor AI use with the shared restriction to conceptual understanding and reinforcement only; AI must not generate or repair course code or assessment solutions.",
+          "Added scripts/check_typescript_curriculum.mjs and .github/workflows/typescript-curriculum.yml."
+        ],
+        "validation": [
+          "All 57 mapped lesson sections are present exactly once and include all nine required lesson sections.",
+          "All 58 fenced TypeScript examples passed strict type-checking with TypeScript 7.0.2, Node.js 26.13.0, @types/node 26, and csv-parse 6.",
+          "GitHub Actions run 41345416186 passed on commit 9223845cb45afde0c71b41d38dfbdb3f86bf64f7; the checker reported 57 lesson sections and 58 strict TypeScript examples.",
+          "Relative Markdown links resolve in the README, index, teacher guide, audit, and four core course files; lesson-index anchors were checked and corrected.",
+          "Final GitHub Actions run 41345735551 passed on commit 86b5cbdad289d455110202074eea3c70874f1c57 after the updated teacher guide; 57 lesson sections and 58 TypeScript examples were validated.",
+          "GitHub Actions run 41345797572 passed on commit ae30cf62045f7ed5c05b54aff602208ef57c66cd after the audit update."
+        ],
+        "not_yet_verified": [
+          "Execute all 58 examples under Node.js 26 and assert documented outputs; the automated checker performs strict type-checking only.",
+          "Test invalid input, boundaries, missing files, malformed JSON, and CSV fixtures.",
+          "Run the complete text adventure and command-line to-do applications end to end.",
+          "Run the personal-data-manager capstone end to end, including CRUD, JSON persistence, and at least five tests.",
+          "Run a fresh mdBook build and complete repository Markdown/local-link crawl.",
+          "Perform hands-on keyboard-only, screen-reader, and braille verification with named operating systems, editors, and access technologies."
+        ]
+      },
+      "KOTLIN": {
+        "path": "KOTLIN/",
+        "units": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11
+        ],
+        "mapped_python_lessons": 57,
+        "target_course_lesson_sections": 57,
+        "unit_0_setup_lessons": 4,
+        "numbered_lessons": 53,
+        "unique_worked_example_patterns": 57,
+        "status": "all_57_examples_compile_execute_exact_output_verified_and_mdbook_build_passed_pending_full_project_and_accessibility_verification",
+        "automated_check": "scripts/check_kotlin_curriculum.mjs",
+        "workflow": ".github/workflows/kotlin-curriculum.yml",
+        "completed_work": [
+          "Added four grouped Kotlin/JVM lesson files covering Units 0–11 and all 57 mapped lesson headings.",
+          "Added all nine standard lesson-template sections to every mapped lesson.",
+          "Replaced the repeated unit-level example scaffolds with 57 distinct lesson-specific Kotlin/JVM programs.",
+          "Added an exact expected-stdout fixture for each of the 57 examples and a Python checker that compiles, executes, and compares every output.",
+          "Added CI setup for Kotlin 1.9.24 and JDK 21, structural validation, all-example execution/output assertions, and a complete mdBook build.",
+          "Updated Kotlin README, topic index, standalone reference lessons, teacher guide, audit, and mdBook SUMMARY navigation.",
+          "Preserved the shared unit order and project domains, including the terminal-first text adventure, CLI to-do tool, and accessible personal-data-manager capstone schema.",
+          "Documented Kotlin-specific semantics and substitutions: nullable types, explicit numeric conversions, data classes instead of general tuples, JVM terminal interface, and maintained JSON/CSV libraries.",
+          "Added Kotlin units, audit, and teacher guide to mdBook SUMMARY navigation; removed the duplicate Kotlin index entry identified by the first mdBook build."
+        ],
+        "validation": [
+          "Four grouped files contain 57 mapped lesson sections (4 setup and 53 numbered) across Units 0–11.",
+          "All 57 fenced Kotlin examples are distinct and have exact expected stdout fixtures in KOTLIN/examples_expected.json.",
+          "GitHub Actions run 41347726235 passed with Kotlin 1.9.24 and JDK 21: all examples compiled in one package-isolated build, each main function executed independently, and all 57 stdout results matched exactly.",
+          "The same run passed the structural checker for all nine required lesson sections and the complete mdBook build.",
+          "SUMMARY.md now includes all four Kotlin unit files, reference lessons, index, audit, and teacher guide; duplicate Kotlin and pre-existing duplicate Java navigation entries were removed so mdBook can build."
+        ],
+        "not_yet_verified": [
+          "Verify Gradle/JUnit or kotlin.test integration setup and representative invalid-input, null, boundary, file, JSON, and CSV integration cases.",
+          "Run the text adventure and CLI to-do applications end to end.",
+          "Run capstone CRUD and JSON persistence integration tests, including at least five automated tests.",
+          "Run a complete repository-wide Markdown/local-link crawl beyond the Kotlin lesson checks and mdBook build.",
+          "Perform hands-on keyboard-only, screen-reader, and braille verification with named operating systems, editors, and access technologies."
+        ],
+        "example_output_fixtures": "KOTLIN/examples_expected.json",
+        "runtime_checker": "scripts/check_kotlin_examples.py",
+        "toolchain": {
+          "kotlin": "1.9.24",
+          "jdk": "21"
+        },
+        "ci_run": "41347726235",
+        "ci_url": "https://github.com/mrhunsaker/VI_Focused_Coding_Curricula/actions/runs/41347726235"
+      }
+    },
+<<<<<<< HEAD
+    "next_tracks": [
+      "Python legacy lesson and project reconciliation",
+      "Lua current-version syntax/runtime and expected-output verification",
+      "Repository-wide lesson-by-lesson audit of all 13 general-purpose tracks",
+      "Specialist HTML/CSS, R, and SQL domain-specific review"
+    ],
+    "note": "Recent edits on the audit branch are content corrections only until the updated CI workflows pass. Keep PR #4 draft and unmerged; do not mark runtime or accessibility verification complete without evidence.",
+=======
+    "next_tracks": [],
+    "note": "Content alignment is not a claim that every code example has been compiled or runtime-tested. Preserve explicit language-specific deviations and record verification evidence.",
+>>>>>>> 2067a20 (curriculum clearning and updates)
+    "rust": {
+      "status": "content_structure_and_example_compile_smoke_execution_verified_pending_full_application_and_accessibility_verification",
+      "edition": "Rust 2024",
+      "unit_0_setup_lessons": 4,
+      "numbered_lessons": 53,
+      "automated_check": "scripts/check_rust_examples.py",
+      "workflow": ".github/workflows/rust-examples.yml",
+      "pending": [
+        "expected-output assertions and broader invalid-input/file fixtures",
+        "capstone end-to-end persistence tests",
+        "fresh mdBook build and local-link crawl",
+        "hands-on screen-reader and braille testing"
+      ],
+      "ci_run": "41324948920",
+      "rust_version": "1.99.1",
+      "examples_compiled_and_executed": 53
+    },
+    "go": {
+      "status": "content_structure_and_example_format_build_smoke_execution_verified_pending_full_application_and_accessibility_verification",
+      "toolchain": "current stable Go",
+      "unit_0_setup_lessons": 4,
+      "numbered_lessons": 53,
+      "automated_check": "scripts/check_go_examples.py",
+      "workflow": ".github/workflows/go-examples.yml",
+      "pending": [
+        "expected-output assertions and broader invalid-input/file fixtures",
+        "capstone end-to-end persistence tests and concurrency race testing",
+        "fresh mdBook build and local-link crawl",
+<<<<<<< HEAD
+        "hands-on screen-reader and braille testing",
+        "Run the updated cross-language contract checker after the six-field Go capstone serialization example change.",
+        "Execute the Go Unit 11 capstone model and JSON round-trip against the canonical six-field schema."
+=======
+        "hands-on screen-reader and braille testing"
+>>>>>>> 2067a20 (curriculum clearning and updates)
+      ],
+      "ci_run": "41326670760",
+      "go_version": "1.27.3",
+      "examples_formatted_built_and_executed": 53
+    },
+    "lua": {
+<<<<<<< HEAD
+      "path": "LUA/lessons.md",
+      "status": "53_lua_examples_exact_output_and_json_csv_dependency_checks_passed_project_end_to_end_persistence_accessibility_tests_pending",
+      "lua_version": "5.4",
+      "unit_0_setup_lessons": 4,
+      "numbered_lessons": 53,
+      "completed_work": [
+        "Rewrote all 53 numbered lessons across Units 1–11 with lesson-specific worked examples rather than generic sequential-number or placeholder snippets.",
+        "Aligned Lua examples to the canonical Avery profile, calculator and currency rounding, grade thresholds, scores, inventory, coordinates, text sample, CSV schema, task fields, and capstone fields.",
+        "Replaced repeated universal common-mistake and activity prompts with lesson-topic-specific guidance for the 53 lesson sections.",
+        "Documented Lua-specific semantics and adaptations: one-based sequences, tables as arrays/maps/records, truthiness, pairs/ipairs behavior, metatables, functions as values, missing continue/class/tuple constructs, and absent standard JSON/CSV parsers.",
+        "Specified Lua 5.4 runtime and terminal commands and expanded accessibility instructions without claiming assistive-technology testing.",
+        "Added explicit shared project contracts for the text adventure, five-field CLI to-do manager, and six-field personal-data-manager capstone.",
+        "Updated LUA/VALIDATION.md to mark the prior smoke-execution run as historical and to require fresh validation against the rewritten file.",
+        "Preserved the existing Lua 5.4 syntax/smoke checker and GitHub Actions workflow for the next run.",
+        "Corrected Lua calculator rounding to integer half-up arithmetic; both $24.50 / 15% examples now target $3.68 and $28.18.",
+        "Aligned Lua inventory, CSV rows, task-constructor tests, and adventure lessons to the canonical shared data and five-room project graph.",
+        "Expanded the Lua checker to require one output fixture per lesson and compare exact stdout, with deterministic stdin and file fixtures for the input and file-reading lessons.",
+        "Lua exact-output checker remains green after the final Lua lesson edits; all 53 lesson fixtures passed.",
+        "Selected and pinned dkjson 2.11-1 and ftcsv 1.5.0-1 for Lua 5.4; documented package purpose, licenses, install commands, and parser limitations in LUA/DEPENDENCIES.md.",
+        "Added scripts/check_lua_dependencies.lua to exercise JSON round-trip/malformed input and CSV quoted commas, doubled quotes, multiline fields, CRLF, and canonical header behavior.",
+        "Added .github/workflows/lua-dependencies.yml to install the exact dependency versions and run the integration checks.",
+        "Added PROJECT_ACCEPTANCE.md with deterministic cross-language adventure, to-do, and capstone test scenarios; this is a specification, not a passed project test suite.",
+        "Extended the pinned ftcsv integration checker to verify rejection of extra-column, missing-column, and unterminated-quoted-field CSV records; all dependency integration cases passed in CI run 41546425326."
+      ],
+      "not_yet_verified": [
+        "Complete and test the full adventure game, including movement, shiny-key pickup, locked-door puzzle, and win condition.",
+        "Complete and test the CLI to-do manager with all five canonical fields, CRUD operations, save/load, and malformed-data handling.",
+        "Complete capstone persistence and CRUD integration tests.",
+        "Perform hands-on keyboard-only, screen-reader, and braille testing with named operating systems, editors, and access technologies."
+      ],
+      "validation": {
+        "historical_ci_run": "41336626558",
+        "historical_result": "53 examples parsed and smoke-executed against the previous Lua lesson content only",
+        "checker": "scripts/check_lua_examples.py",
+        "workflow": ".github/workflows/lua-examples.yml",
+        "current_version_ci_status": "passed_exact_output",
+        "exact_output_assertions": "passed_for_all_53_lesson_sections",
+        "current_version_ci_run": "41538333230",
+        "current_version_ci_url": "https://github.com/mrhunsaker/VI_Focused_Coding_Curricula/actions/runs/41538333230",
+        "current_version_ci_result": "All 53 Lua 5.4.6 lesson examples parsed, executed in isolated directories, and matched their documented stdout fixtures. Deterministic stdin and file fixtures were supplied for the input and file-reading lessons.",
+        "dependency_ci_status": "passed",
+        "dependency_ci_run": "41546425326",
+        "dependency_ci_url": "https://github.com/mrhunsaker/VI_Focused_Coding_Curricula/actions/runs/41546425326",
+        "dependency_ci_result": "Pinned dkjson 2.11-1 and ftcsv 1.5.0-1 installed under Lua 5.4; JSON round-trip/malformed input and CSV quoted commas, doubled quotes, multiline fields, CRLF, canonical five-column header, extra/missing column, and unterminated quote checks passed.",
+        "mdbook_and_local_link_check": "passed",
+        "mdbook_workflow_run": "41538243813",
+        "mdbook_workflow_url": "https://github.com/mrhunsaker/VI_Focused_Coding_Curricula/actions/runs/41538243813",
+        "dependencies": "selected_pinned_and_integration_checks_passed",
+        "dependencies_document": "LUA/DEPENDENCIES.md",
+        "dependencies_checker": "scripts/check_lua_dependencies.lua",
+        "dependencies_workflow": ".github/workflows/lua-dependencies.yml",
+        "dependencies_test_cases": "dkjson valid round-trip and malformed JSON; ftcsv quoted commas, doubled quotes, embedded newlines, CRLF, exact canonical five-column header, and rejection of extra/missing columns and unterminated quoted fields.",
+        "latest_ci_run": "41548981836",
+        "latest_ci_url": "https://github.com/mrhunsaker/VI_Focused_Coding_Curricula/actions/runs/41548981836",
+        "latest_ci_result": "All 53 Lua lesson examples passed on commit 31641bdfa67570da0c65929740b521adbb7026e6.",
+        "latest_dependency_run": "41548981748",
+        "latest_dependency_url": "https://github.com/mrhunsaker/VI_Focused_Coding_Curricula/actions/runs/41548981748",
+        "latest_dependency_result": "Pinned Lua JSON and CSV dependency checks passed on commit 31641bdfa67570da0c65929740b521adbb7026e6."
+      }
+=======
+      "status": "rewritten_with_distinct_lesson_specific_content_and_expected_output_verified_pending_accessibility_verification",
+      "lua_version_tested": "5.4.6",
+      "unit_0_setup_lessons": 4,
+      "numbered_lessons": 57,
+      "note_on_numbered_lessons": "57 lessons in total: 4 Unit 0 lessons plus 53 lessons in Units 1-11, matching the Python lesson count.",
+      "fenced_lua_examples": 56,
+      "examples_parsed_and_executed": 56,
+      "expected_output_blocks_match_a_fresh_run": 56,
+      "distinct_concept_mistakes_activities_accessibility_sections": "57 of 57",
+      "automated_check": "scripts/check_lua_examples.py",
+      "workflow": ".github/workflows/lua-examples.yml",
+      "pending": [
+        "fresh CI run of the rewritten file",
+        "fresh mdBook build and complete Markdown/local-link crawl",
+        "hands-on screen-reader and braille testing",
+        "review of the teaching JSON helper by a second Lua reader"
+      ]
+>>>>>>> 2067a20 (curriculum clearning and updates)
+    },
+    "java": {
+      "status": "lesson_structure_topic_refinement_and_final_jdk_25_ci_verified_pending_application_and_accessibility_verification",
+      "java_version": "25.0.5",
+      "unit_0_setup_lessons": 4,
+      "numbered_lessons": 53,
+      "unique_examples": 57,
+      "course_file": "JAVA/lessons.md",
+      "automated_check": "scripts/check_java_examples.py",
+      "workflow": ".github/workflows/java-examples.yml",
+      "pending": [
+        "add exact expected-output assertions and systematic invalid-input/boundary fixtures",
+        "exercise file operations against missing, malformed, and permission-restricted paths",
+        "add capstone persistence and JUnit integration tests",
+        "fresh mdBook build and complete Markdown/local-link crawl",
+<<<<<<< HEAD
+        "hands-on keyboard-only, screen-reader, and braille verification",
+        "Run a dedicated end-to-end capstone test suite for CRUD, search, persistence, malformed JSON, and accessibility; example smoke execution is not full project verification."
+      ],
+      "ci_run": "41337829888",
+      "examples_compiled_and_executed": 57,
+      "validation": {
+        "latest_ci_run": "41548981761",
+        "latest_ci_url": "https://github.com/mrhunsaker/VI_Focused_Coding_Curricula/actions/runs/41548981761",
+        "latest_ci_status": "passed",
+        "latest_ci_result": "All Java lesson examples compiled and smoke-ran successfully under JDK 25 on commit 31641bdfa67570da0c65929740b521adbb7026e6."
+      }
+=======
+        "hands-on keyboard-only, screen-reader, and braille verification"
+      ],
+      "ci_run": "41337829888",
+      "examples_compiled_and_executed": 57
+>>>>>>> 2067a20 (curriculum clearning and updates)
+    },
+    "requested_additions": {
+      "project_environment_and_container_guide": {
+        "path": "DEVELOPMENT/ENVIRONMENT_ISOLATION.md",
+        "status": "guide_and_navigation_committed_ci_workflow_added_awaiting_first_run",
+        "completed_work": [
+          "Explains local environment isolation, dependency manifests, lockfiles, reproducibility, and the differences between version managers, package managers, virtual environments, application installers, containers, and editor settings.",
+          "Covers Python venv/virtualenv, pip, pip-tools, pipx, pyenv, Poetry, uv, and Twine, including their distinct purposes.",
+          "Adds Conda advantages, disadvantages, and guidance for mixing Conda and pip.",
+          "Covers npm/npx and related JavaScript tooling, Cargo/rustup, and representative dependency/build tools for the other language tracks.",
+          "Compares Docker and Podman, specifies Docker for documented VS Code Dev Containers instructions, and treats Podman as an optional compatibility-qualified alternative.",
+          "Adds optional VS Code Dev Containers setup and a qualified Theia container workflow.",
+          "Clarifies that containers isolate project runtimes/dependencies but do not themselves isolate host screen-reader or OS accessibility settings; recommends editor profiles and workspace settings for editor-level separation.",
+          "Adds the guide to SUMMARY.md and links it from OVERALL_README.md.",
+          "Added a GitHub Actions workflow to validate tracker JSON, build the complete mdBook, and check local Markdown link targets on relevant pushes."
+        ],
+        "not_yet_verified": [
+          "Confirm the first GitHub Actions run of .github/workflows/environment-guide.yml passes its full mdBook build and local-link check.",
+          "Review current vendor documentation and exact installation commands for Docker, Podman, Conda, uv, Poetry, npm, Cargo, VS Code Dev Containers, and Theia before treating version-specific instructions as permanent.",
+          "Perform hands-on keyboard-only, screen-reader, and braille verification of the guide and optional container workflows."
+        ],
+        "validation_workflow": ".github/workflows/environment-guide.yml",
+        "validation": [
+          "lesson_standardization.json parses successfully as JSON after the new request records were added.",
+          "SUMMARY.md contains the environment guide navigation entry.",
+          "OVERALL_README.md links to the environment guide.",
+          "The guide file is present on the target branch; the Windows PowerShell venv activation command was reviewed and corrected to use native single backslashes."
+        ]
+      },
+      "instructor_assessment_solutions": {
+        "requested_scope": "Create an instructor-only repository section containing assessment solutions for all languages and assignments, excluded from the published student website.",
+        "status": "initial_assessment_inventory_generated_pending_human_review",
+        "reason": "The dedicated solutions repository is public temporarily so the current LLM workflow can work with it. Only non-answer schema, manifest, and workflow documentation have been committed. Actual instructor solutions, tests containing expected answers, and grading keys must wait until repository visibility is changed to private and access is verified.",
+        "safe_implementation_requirements": [
+          "Create a separate private instructor repository and store assessment solutions there, or change this repository's visibility to private before adding solutions.",
+          "Do not add answer files or a discoverable solution directory to this public repository.",
+          "Once private storage is available, inventory every language, unit, assignment, quiz, project, and capstone; create instructor-only solution files and validation tests.",
+          "Keep student-facing prompts and assessment specifications separate from solution artifacts; preserve the course policy that AI must not generate or complete student assessment work."
+        ],
+        "not_yet_verified": [
+          "Manually inspect all source lessons for assessment language outside recognized section patterns, including prose instructions, project specifications, deliverables, rubrics, quizzes, and capstone criteria.",
+          "Review repeated generic activity templates to determine whether each repeated prompt is a distinct assessment or one reusable activity.",
+          "Manually inspect Java, HTML/CSS, and SQL source files because the automated pattern pass extracted few or no activity records for those tracks.",
+          "Validate every inventory record against complete source context and approve the inventory before any generation setting is enabled.",
+          "Change the dedicated solutions repository visibility to private and verify access before creating any answer content.",
+          "Validate generate_solutions.json against schemas/solution-manifest.schema.json using a Draft 2020-12 validator."
+        ],
+        "schema_repository": "mrhunsaker/VI_Focused_Coding_Curricula_Solutions",
+        "schema_path": "schemas/solution-manifest.schema.json",
+        "manifest_path": "generate_solutions.json",
+        "completed_work": [
+          "Created a strict JSON Schema Draft 2020-12 definition for the instructor solution generation manifest.",
+          "Created generate_solutions.json covering all 13 general-purpose language tracks and the HTML/CSS, R, and SQL specialist modules.",
+          "Defined inventory-first discovery, stable assessment IDs, source traceability, manual review/approval gate, instructor solution output layout, test expectations, and student-integrity constraints.",
+          "Set generation.enabled to false so answer content is not generated before inventory approval and private storage readiness.",
+          "Added repository README documenting the temporary public status and the required private-repository workflow.",
+          "Scanned published lesson files for explicit Activities/Exercises/Practice sections across all 13 language tracks and 3 specialist modules; created a source-traceable inventory index and per-track/module JSON shards in the dedicated solutions repository.",
+          "Extracted 2,481 activity records with source paths, source line numbers, lesson headings, requirement excerpts, and needs_human_review status; no solution or answer content was generated.",
+          "Set discovery workflow to inventory_only, kept generation.enabled false, and documented extraction limitations and manual-review flags."
+        ],
+        "safe_public_contents": [
+          "schemas/solution-manifest.schema.json",
+          "generate_solutions.json",
+          "README.md"
+        ],
+        "inventory_index": "inventory/assessment-inventory.json",
+        "inventory_shards_directory": "inventory/assessments/",
+        "extracted_activity_records": 2481,
+        "solution_generation_enabled": false
+      }
+    },
+<<<<<<< HEAD
+    "python": {
+      "path": "PYTHON/",
+      "status": "canonical_datasets_and_project_contracts_aligned_canonical_ci_and_adventure_win_path_passed_todo_capstone_and_accessibility_tests_pending",
+      "unit_0_live_lessons": 5,
+      "unit_0_mapped_lessons": 5,
+      "numbered_lessons": 53,
+      "completed_work": [
+        "All 57 Python lessons now use the nine standard sections in order, with Learning Objectives derived from each Skills Checklist and a Worked Example plus an Expected Behavior or Output section in every lesson.",
+        "Python Lesson 0.5 merged into 0.4; Unit 11 split into five lessons (11.1-11.5).",
+        "Replaced the skeleton capstone with real code: PYTHON/capstone/records.py, app.py, app_v1.py, hello_app.py, and tests. 9 unit tests and 3 NiceGUI user-simulation page tests pass (Python 3.12, NiceGUI 3.19.0); the final app was also started and returned HTTP 200.",
+        "Expected-output blocks in the Python lessons were produced by running the code (interactive examples use scripted input).",
+        "Fixed the Lesson 10.3 adventure, replaced the AI-assisted coding section with the course AI policy, and aligned the teachers guide."
+      ],
+      "pending": [
+        "Run the full Python example suite in CI",
+        "Test the NiceGUI page in a real browser with a screen reader and braille display",
+        "Python Lessons 10.2 and 10.3 use different room names (cave/tunnel/clearing and start/locked_door_room/treasure_room)",
+        "Concept sections of some Python lessons are still short and could be expanded"
+      ]
+    },
+    "audit_2026_11_03": {
+      "scope": "Static structure audit of all tracks; code execution for Python, C, C++, Go, and Lua only.",
+      "open_findings": [
+        "Go concept text is now short and generic for the 29 repaired lessons.",
+        "TypeScript describes a torch-and-magic-key adventure; Python and Lua use a shiny key.",
+        "cs_curriculum_final/ and the two zip files duplicate live content and can drift.",
+        "Java record in this file sits outside completed_tracks; several not_yet_verified lists contain duplicate entries.",
+        "scripts/check_rust_examples.py needs a Rust toolchain that supports edition 2024; scripts/check_typescript_curriculum.mjs needs node_modules/.bin/tsc to be installed.",
+        "Swift, Julia, JavaScript, and TypeScript expected-output text was not regenerated by running the code (Swift and Julia toolchains unavailable here).",
+        "C++, C#, Swift, Julia, and Go concept, mistakes, and activities text is still largely templated with few distinct sections.",
+        "JAVA/unit*.md (grouped reference files) still contain older examples with non-canonical data."
+      ]
+    },
+    "standardization_pass_2026_11_04": {
+      "applied_to_all_tracks": [
+        "Unit P prerequisite pointer in each track's README and first file",
+        "One uniform AI policy sentence in each track's lesson file and README",
+        "Tip rounding statements corrected (C, JavaScript, TypeScript); Java documented as printing 3.68"
+      ],
+      "structure": "All 13 tracks have 57 lessons with the nine sections in the standard order and one unit H1 with an Overview for each of the 12 units (verified by script).",
+      "layout_fixes": [
+        "Unit 0 headings normalized in C, C++, C#, Julia, Swift, Rust, and Go",
+        "Unit headings and overviews added to Go (Units 8-11), Java (Unit 0), and Kotlin (all units); Kotlin lessons promoted to the standard heading levels and the two Kotlin check scripts updated",
+        "Duplicate unit headings removed from TypeScript",
+        "Eleven JavaScript lessons reordered into the standard section order"
+      ],
+      "go_repairs": "29 Go lessons had program listings in place of the Concept Explanation. The listings were moved into Worked Example (all now compile and run: 158 Go examples pass) and short Go-specific concept text was written. Five listings that did not compile were removed.",
+      "captured_expected_output": "Real output captured by running the worked examples: Java (57, JDK 21), C (45), C++ (53, g++ 13.3), Go (53+, Go 1.22), Rust (53, rustc 1.75 edition 2021), C# (53, .NET 8). Other tracks keep their existing expected-output text.",
+      "toolchain_versions_differ_from_course_baseline": "The captured runs used older toolchains than the course baselines (JDK 21 vs 25, .NET 8 vs 10, rustc 1.75 vs 1.99, Go 1.22 vs 1.27); output of these examples is not expected to differ, but re-run them on the baseline versions."
+    },
+    "kotlin_rewrite_2026_11_05": {
+      "status": "rewritten_with_lesson_specific_content_and_expected_output_verified_pending_accessibility_verification",
+      "kotlin_version_tested": "1.9.24 (JDK 21)",
+      "lessons": 57,
+      "examples_compiled_together_and_matching_exact_stdout": 57,
+      "distinct_concept_mistakes_activities_accessibility_sections": "57 of 57",
+      "automated_checks": [
+        "scripts/check_kotlin_examples.py",
+        "scripts/check_kotlin_curriculum.mjs"
+      ],
+      "notes": [
+        "Each lesson has one Kotlin example; interactive lessons show scripted standard input in the Expected section while examples_expected.json holds the output with empty standard input.",
+        "Lessons 8.5, 10.4, and 11.2 include a small teaching JSON helper because the Kotlin standard library has no JSON support; it was tested with a round trip and six malformed inputs.",
+        "Kotlin's String.format and format() print the tip as 3.68 (verified), the same as Java."
+      ],
+      "pending": [
+        "Fresh CI run with the repository's pinned toolchain",
+        "Hands-on screen-reader and braille testing",
+        "Second-reader review of the JSON helper"
+      ]
+    },
+    "java_rewrite_2026_11_05": {
+      "status": "lessons_md_rewritten_with_lesson_specific_content_and_captured_output_pending_accessibility_verification",
+      "java_version_tested": "JDK 21 (javac --release 21); baseline is JDK 25",
+      "lessons": 57,
+      "examples_compiled_and_run": 57,
+      "distinct_concept_mistakes_activities_accessibility_sections": "57 of 57",
+      "average_example_lines": 53,
+      "automated_check": "scripts/check_java_examples.py (run with --release 21)",
+      "notes": [
+        "Only JAVA/lessons.md was rewritten. The four grouped unit files were not changed and still contain older examples with non-canonical data.",
+        "Java prints the shared tip as 3.68; lessons 2.1 states this and why.",
+        "Lessons 8.5, 10.4, and 11.2 include a teaching JSON helper tested with a round trip and six malformed inputs.",
+        "The capstone class is named Entry because Record would hide java.lang.Record."
+      ],
+      "pending": [
+        "Run the checker on JDK 25",
+        "Add expected-output comparison to the checker",
+        "Hands-on screen-reader and braille testing",
+        "Second-reader review of the JSON helper",
+        "Decide whether the four grouped unit files should be updated or retired"
+      ]
+    },
+    "rust_rewrite_2026_11_05": {
+      "status": "rewritten_with_lesson_specific_content_and_captured_output_pending_baseline_toolchain_run_and_accessibility_verification",
+      "rustc_version_tested": "1.75 (edition 2021, -D warnings); baseline is Rust 1.99 with edition 2024",
+      "lessons": 57,
+      "programs_compiled_and_run": 57,
+      "distinct_concept_mistakes_activities_accessibility_sections": "57 of 57",
+      "average_example_lines": 55,
+      "test_modules_verified": [
+        "9.1",
+        "9.2"
+      ],
+      "notes": [
+        "scripts/check_rust_examples.py could not be run: it needs edition 2024.",
+        "Lessons 8.5, 10.4, and 11.2 include a teaching JSON helper tested with a round trip and six malformed inputs.",
+        "The standard library has no RNG; Lesson 9.3 uses a small xorshift generator that is not secure.",
+        "Rust prints the shared tip as 3.67."
+      ],
+      "validation": [
+        "non-empty title",
+        "unique stable ID",
+        "ID lookup independent of list position",
+        "JSON top-level and record-schema validation",
+        "clear errors for missing IDs and malformed JSON"
+      ]
+    },
+    "capstone": {
+      "fields": [
+        "id",
+        "title",
+        "description",
+        "category",
+        "created_at",
+        "updated_at"
+      ],
+      "operations": [
+        "list/display",
+        "add",
+        "search",
+        "update",
+        "delete",
+        "status management",
+        "JSON save/load"
+      ],
+      "accessibility": [
+        "keyboard operation",
+        "programmatic labels",
+        "textual status and error feedback",
+        "no visual-only information",
+        "manual assistive-technology verification"
+=======
+    "python_canonical_dataset_alignment": {
+      "status": "converted_to_standard_nine_section_template_with_canonical_datasets_and_verified_capstone",
+      "lessons": 57,
+      "completed_work": [
+        "All 57 Python lessons now use the nine standard sections in order, with Learning Objectives derived from each Skills Checklist and a Worked Example plus an Expected Behavior or Output section in every lesson.",
+        "Python Lesson 0.5 merged into 0.4; Unit 11 split into five lessons (11.1-11.5).",
+        "Replaced the skeleton capstone with real code: PYTHON/capstone/records.py, app.py, app_v1.py, hello_app.py, and tests. 9 unit tests and 3 NiceGUI user-simulation page tests pass (Python 3.12, NiceGUI 3.19.0); the final app was also started and returned HTTP 200.",
+        "Expected-output blocks in the Python lessons were produced by running the code (interactive examples use scripted input).",
+        "Fixed the Lesson 10.3 adventure, replaced the AI-assisted coding section with the course AI policy, and aligned the teachers guide."
+      ],
+      "pending": [
+        "Run the full Python example suite in CI",
+        "Test the NiceGUI page in a real browser with a screen reader and braille display",
+        "Python Lessons 10.2 and 10.3 use different room names (cave/tunnel/clearing and start/locked_door_room/treasure_room)",
+        "Concept sections of some Python lessons are still short and could be expanded"
+      ]
+    },
+    "audit_2026_11_03": {
+      "scope": "Static structure audit of all tracks; code execution for Python, C, C++, Go, and Lua only.",
+      "open_findings": [
+        "Go concept text is now short and generic for the 29 repaired lessons.",
+        "TypeScript describes a torch-and-magic-key adventure; Python and Lua use a shiny key.",
+        "cs_curriculum_final/ and the two zip files duplicate live content and can drift.",
+        "Java record in this file sits outside completed_tracks; several not_yet_verified lists contain duplicate entries.",
+        "scripts/check_rust_examples.py needs a Rust toolchain that supports edition 2024; scripts/check_typescript_curriculum.mjs needs node_modules/.bin/tsc to be installed.",
+        "Swift, Julia, JavaScript, and TypeScript expected-output text was not regenerated by running the code (Swift and Julia toolchains unavailable here).",
+        "C++, C#, Swift, Julia, and Go concept, mistakes, and activities text is still largely templated with few distinct sections.",
+        "JAVA/unit*.md (grouped reference files) still contain older examples with non-canonical data."
+      ]
+    },
+    "standardization_pass_2026_11_04": {
+      "applied_to_all_tracks": [
+        "Unit P prerequisite pointer in each track's README and first file",
+        "One uniform AI policy sentence in each track's lesson file and README",
+        "Tip rounding statements corrected (C, JavaScript, TypeScript); Java documented as printing 3.68"
+      ],
+      "structure": "All 13 tracks have 57 lessons with the nine sections in the standard order and one unit H1 with an Overview for each of the 12 units (verified by script).",
+      "layout_fixes": [
+        "Unit 0 headings normalized in C, C++, C#, Julia, Swift, Rust, and Go",
+        "Unit headings and overviews added to Go (Units 8-11), Java (Unit 0), and Kotlin (all units); Kotlin lessons promoted to the standard heading levels and the two Kotlin check scripts updated",
+        "Duplicate unit headings removed from TypeScript",
+        "Eleven JavaScript lessons reordered into the standard section order"
+      ],
+      "go_repairs": "29 Go lessons had program listings in place of the Concept Explanation. The listings were moved into Worked Example (all now compile and run: 158 Go examples pass) and short Go-specific concept text was written. Five listings that did not compile were removed.",
+      "captured_expected_output": "Real output captured by running the worked examples: Java (57, JDK 21), C (45), C++ (53, g++ 13.3), Go (53+, Go 1.22), Rust (53, rustc 1.75 edition 2021), C# (53, .NET 8). Other tracks keep their existing expected-output text.",
+      "toolchain_versions_differ_from_course_baseline": "The captured runs used older toolchains than the course baselines (JDK 21 vs 25, .NET 8 vs 10, rustc 1.75 vs 1.99, Go 1.22 vs 1.27); output of these examples is not expected to differ, but re-run them on the baseline versions."
+    },
+    "kotlin_rewrite_2026_11_05": {
+      "status": "rewritten_with_lesson_specific_content_and_expected_output_verified_pending_accessibility_verification",
+      "kotlin_version_tested": "1.9.24 (JDK 21)",
+      "lessons": 57,
+      "examples_compiled_together_and_matching_exact_stdout": 57,
+      "distinct_concept_mistakes_activities_accessibility_sections": "57 of 57",
+      "automated_checks": [
+        "scripts/check_kotlin_examples.py",
+        "scripts/check_kotlin_curriculum.mjs"
+      ],
+      "notes": [
+        "Each lesson has one Kotlin example; interactive lessons show scripted standard input in the Expected section while examples_expected.json holds the output with empty standard input.",
+        "Lessons 8.5, 10.4, and 11.2 include a small teaching JSON helper because the Kotlin standard library has no JSON support; it was tested with a round trip and six malformed inputs.",
+        "Kotlin's String.format and format() print the tip as 3.68 (verified), the same as Java."
+      ],
+      "pending": [
+        "Fresh CI run with the repository's pinned toolchain",
+        "Hands-on screen-reader and braille testing",
+        "Second-reader review of the JSON helper"
+      ]
+    },
+    "java_rewrite_2026_11_05": {
+      "status": "lessons_md_rewritten_with_lesson_specific_content_and_captured_output_pending_accessibility_verification",
+      "java_version_tested": "JDK 21 (javac --release 21); baseline is JDK 25",
+      "lessons": 57,
+      "examples_compiled_and_run": 57,
+      "distinct_concept_mistakes_activities_accessibility_sections": "57 of 57",
+      "average_example_lines": 53,
+      "automated_check": "scripts/check_java_examples.py (run with --release 21)",
+      "notes": [
+        "Only JAVA/lessons.md was rewritten. The four grouped unit files were not changed and still contain older examples with non-canonical data.",
+        "Java prints the shared tip as 3.68; lessons 2.1 states this and why.",
+        "Lessons 8.5, 10.4, and 11.2 include a teaching JSON helper tested with a round trip and six malformed inputs.",
+        "The capstone class is named Entry because Record would hide java.lang.Record."
+      ],
+      "pending": [
+        "Run the checker on JDK 25",
+        "Add expected-output comparison to the checker",
+        "Hands-on screen-reader and braille testing",
+        "Second-reader review of the JSON helper",
+        "Decide whether the four grouped unit files should be updated or retired"
+      ]
+    },
+    "rust_rewrite_2026_11_05": {
+      "status": "rewritten_with_lesson_specific_content_and_captured_output_pending_baseline_toolchain_run_and_accessibility_verification",
+      "rustc_version_tested": "1.75 (edition 2021, -D warnings); baseline is Rust 1.99 with edition 2024",
+      "lessons": 57,
+      "programs_compiled_and_run": 57,
+      "distinct_concept_mistakes_activities_accessibility_sections": "57 of 57",
+      "average_example_lines": 55,
+      "test_modules_verified": [
+        "9.1",
+        "9.2"
+      ],
+      "notes": [
+        "scripts/check_rust_examples.py could not be run: it needs edition 2024.",
+        "Lessons 8.5, 10.4, and 11.2 include a teaching JSON helper tested with a round trip and six malformed inputs.",
+        "The standard library has no RNG; Lesson 9.3 uses a small xorshift generator that is not secure.",
+        "Rust prints the shared tip as 3.67."
+      ],
+      "pending": [
+        "Run scripts/check_rust_examples.py on the baseline toolchain (edition 2024)",
+        "Hands-on screen-reader and braille testing",
+        "Second-reader review of the JSON helper and the date algorithm"
+>>>>>>> 2067a20 (curriculum clearning and updates)
+      ]
+    }
+  }
+}

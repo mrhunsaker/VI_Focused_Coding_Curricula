@@ -510,7 +510,7 @@ Strings with many quotation marks are hard to read by ear. Say 'single quote' an
 - [ ] I can remove extra spaces using `.strip()`.
 - [ ] I can replace parts of a string using `.replace()`.
 
-
+<<<<<<< HEAD
 ## Canonical Shared Dataset — Grade Thresholds and Scores
 
 All tracks must classify scores using A ≥ 90, B ≥ 80, C ≥ 70, D ≥ 60, and F otherwise. Use the same score sequence.
@@ -549,3 +549,6 @@ Average: 84.25
 ```
 
 Boundary tests must include 90, 80, 70, 60, and 59. Do not silently change a threshold or replace the shared scores with a different set in a parallel example.
+=======
+---
+>>>>>>> 2067a20 (curriculum clearning and updates)
