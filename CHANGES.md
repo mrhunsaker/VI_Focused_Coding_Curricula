@@ -1,3 +1,9 @@
+## 2026-11-08 — Standalone topics section introduction and summary audit
+
+- Created `MODULES/README.md` as the introduction to the standalone topics section, describing HTML/CSS, R, and SQL; explaining how these focused modules relate to the full language curricula; and providing prerequisites, suggested study order, accessibility expectations, and navigation to the section index.
+- Audited every relative Markdown link in the reorganized `SUMMARY.md` against the repository's current file tree. The only missing target was `MODULES/README.md`; it has now been created. All Summary links now resolve to existing files.
+- Checked the new section introduction's relative links against the repository tree; all resolve. No other Summary targets required creation.
+
 ## 2026-11-08 — Screen-reader-accessible GUI libraries and implementation guidance
 
 - Created `DEVELOPMENT/GUI_VISUALIZATION_ACCESSIBILITY.md`, covering accessible GUI frameworks and platform accessibility APIs for all 13 full language curricula, HTML/CSS, R, SQL, and the Bash and PowerShell terminal tracks.
