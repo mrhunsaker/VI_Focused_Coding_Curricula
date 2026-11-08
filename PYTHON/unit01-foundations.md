@@ -19,13 +19,21 @@ This unit covers basic computer science concepts, setting up the Python environm
 - Zelle: Chapter 1, pages 1–7
 - Matthes: Chapter 1, pages 3–14
 
-### What Is Computer Science?
+### Learning Objectives
+- Define what computer science is.
+- Distinguish between computer hardware and software.
+- Explain what a computer program is.
+- Identify Python as a programming language.
+
+### Concept Explanation
+
+#### What Is Computer Science?
 
 A computer is a **universal machine** — it can be programmed to solve any problem that can be broken down into a series of precise, logical steps. The true power of a computer doesn't come from its hardware but from the software we create.
 
 **Computer science** is the study of problem-solving, not just programming. It's an interdisciplinary field involving breaking down complex problems, designing algorithms, and implementing efficient solutions.
 
-### Hardware vs. Software
+#### Hardware vs. Software
 
 | Component | Description |
 |-----------|-------------|
@@ -37,20 +45,50 @@ A computer is a **universal machine** — it can be programmed to solve any prob
 
 **Analogy:** Think of a kitchen. The stove, refrigerator, and pots are **hardware**. A cookie recipe is **software** — it provides precise steps for the "hardware" (the cook) to follow.
 
-### Why Python?
+#### Why Python?
 
 Python is an ideal language for beginners because of its:
 - **Readability** — English-like syntax makes code easy to understand.
 - **Simplicity** — Less "boilerplate" code than other languages.
 - **Versatility** — Used in web development, data science, AI, and more.
 
-### The Problem-Solving Approach
+#### The Problem-Solving Approach
 
 1. Understand the problem.
 2. Break it down into smaller pieces.
 3. Design a step-by-step solution (an algorithm).
 4. Implement the solution in Python.
 5. Test and refine your code.
+
+### Worked Example
+
+The problem-solving approach applied to a small task: find the total and average of the shared scores 82, 91, 76, and 88.
+
+Algorithm in plain steps: set the total to 0; for each score, add it to the total; divide the total by the number of scores; report both.
+
+```python
+scores = [82, 91, 76, 88]
+total = 0
+for score in scores:
+    total = total + score
+average = total / len(scores)
+print("Total:", total)
+print("Average:", average)
+```
+
+### Expected Behavior or Output
+
+Output of example 1:
+```
+Total: 337
+Average: 84.25
+```
+
+### Common Mistakes
+
+1. Writing code before writing the steps, then forgetting to divide by the number of scores.
+2. Confusing the program with the algorithm. The algorithm is the plan; the program is one way of carrying it out.
+3. Expecting a computer to fill in a step you did not state.
 
 ### Activities
 
@@ -64,7 +102,12 @@ Python is an ideal language for beginners because of its:
 - List five items you use daily.
 - For each, identify whether it is hardware or software and explain your choice.
 
+### Accessibility Practice
+
+Write the plain-language steps as a numbered list and read it back with your screen reader before coding. Trace the loop by hand as numbered sentences (82, then 173, then 249, then 337) rather than as a table, so every state is read in order.
+
 ### Skills Checklist
+
 - [ ] I can define what computer science is.
 - [ ] I can distinguish between computer hardware and software.
 - [ ] I can explain what a computer program is.
@@ -78,7 +121,15 @@ Python is an ideal language for beginners because of its:
 - Zelle: Chapter 1, pages 7–13
 - Matthes: Chapter 1, pages 3–14
 
-### The `print()` Function
+### Learning Objectives
+- Write a `print()` statement in Python.
+- Save a Python file with the `.py` extension.
+- Execute a Python script from the terminal.
+- Understand that the output of `print()` appears in the terminal.
+
+### Concept Explanation
+
+#### The `print()` Function
 
 The `print()` function is Python's primary method for displaying output to the user.
 
@@ -91,13 +142,13 @@ print("Hello, World!")
 Hello, World!
 ```
 
-### Key Concepts
+#### Key Concepts
 
 - **Strings** are text data enclosed in quotation marks (single or double).
 - **Comments** start with `#` and are ignored by Python.
 - Python executes code **line by line**, from top to bottom.
 
-### Examples
+### Worked Example
 
 **Example 1.2.1: Simple Greeting**
 ```python
@@ -108,13 +159,15 @@ print("Hello, World!")
 **Example 1.2.2: Personalized Message**
 ```python
 # This program prints a message with your name.
-print("Hello, Alice!")
+print("Hello, Avery!")
 print("Welcome to Python programming!")
 ```
 
+### Expected Behavior or Output
+
 Expected output:
 ```
-Hello, Alice!
+Hello, Avery!
 Welcome to Python programming!
 ```
 
@@ -144,7 +197,12 @@ Print("Hello")              # Capital P — NameError
    - Printing sentences with punctuation.
    - Omitting quotes: `print(Hello)` — expect a `NameError`.
 
+### Accessibility Practice
+
+Run the file from the terminal and read the output line by line. Check that your screen reader announces the quotation marks and parentheses in `print("Hello, Avery!")`, because a missing closing quotation mark is the most common first error. If the error message is long, jump to its last line, which names the problem.
+
 ### Skills Checklist
+
 - [ ] I can write a `print()` statement in Python.
 - [ ] I can save a Python file with the `.py` extension.
 - [ ] I can execute a Python script from the terminal.
@@ -158,14 +216,24 @@ Print("Hello")              # Capital P — NameError
 - Zelle: Chapter 2, pages 24–26
 - Matthes: Chapter 2, pages 15–32
 
-### What Is a Variable?
+### Learning Objectives
+- Define what a variable is in programming.
+- Create a valid variable name in Python.
+- Assign string, integer, and float values to variables.
+- Use `print()` to display the value of a variable.
+- Perform basic arithmetic operations with numbers in Python.
+
+### Concept Explanation
+
+#### What Is a Variable?
 
 A **variable** is a name that refers to a value stored in the computer's memory. The **assignment operator** `=` creates a connection between a name and a value.
 
 ```python
-age = 25
-name = "Alice"
-height = 5.6
+name = "Avery"
+age = 16
+height = 1.72
+favorite_subject = "Computer Science"
 ```
 
 **Rules for variable names:**
@@ -178,7 +246,7 @@ height = 5.6
 - Use descriptive names: `student_count`, not `sc`
 - Use lowercase with underscores: `first_name`
 
-### Essential Data Types
+#### Essential Data Types
 
 | Type | Description | Examples |
 |------|-------------|---------|
@@ -187,37 +255,64 @@ height = 5.6
 | `float` (Float) | Numbers with decimals | `3.14`, `9.99` |
 | `bool` (Boolean) | True or False | `True`, `False` |
 
-### Examples
+#### Key Table: Python Data Types and Operations
+
+| Data Type | Description | Example Value | Common Operations |
+|-----------|-------------|---------------|------------------|
+| `str` | Text, words, sentences | `"Hello"`, `"Python"` | `+` (concatenation), `len()`, `.upper()` |
+| `int` | Whole numbers | `10`, `-5`, `0` | `+`, `-`, `*`, `/`, `%` |
+| `float` | Numbers with decimals | `3.14`, `9.99`, `0.0` | `+`, `-`, `*`, `/` |
+
+### Worked Example
 
 **Example 1.3.1: Storing and Printing a String**
 ```python
-student_name = "Charlie"
+student_name = "Avery"
 print("Hello, " + student_name + "!")
 ```
-Output:
-```
-Hello, Charlie!
-```
 
-**Example 1.3.2: Storing and Printing Numbers**
+
+**Example 1.3.2: The Shared Student Profile and Notebook Cost**
+The same student profile and inventory item are used in every language track, so you can compare how each language declares the same data.
 ```python
-apple_count = 5
-orange_count = 3
-total_fruit = apple_count + orange_count
-print("You have", total_fruit, "fruits in total.")
+name = "Avery"
+age = 16
+height = 1.72
+favorite_subject = "Computer Science"
 
-price_per_item = 2.50
-quantity = 4
-total_cost = price_per_item * quantity
-print("The total cost is:", total_cost)
+print("Name:", name)
+print("Age:", age)
+print("Height in meters:", height)
+print("Favorite subject:", favorite_subject)
+print(type(name), type(age), type(height), type(favorite_subject))
+
+notebook_price = 2.50
+notebook_quantity = 3
+notebook_total = notebook_price * notebook_quantity
+print("Notebook total:", notebook_total)
 ```
+
+
+Python decides each variable's type from the value you assign (dynamic typing). `type()` reports it: `str`, `int`, `float`, `str`.
+
+### Expected Behavior or Output
+
 Output:
 ```
-You have 8 fruits in total.
-The total cost is: 10.0
+Hello, Avery!
 ```
 
-### Common Errors
+Expected output:
+```
+Name: Avery
+Age: 16
+Height in meters: 1.72
+Favorite subject: Computer Science
+<class 'str'> <class 'int'> <class 'float'> <class 'str'>
+Notebook total: 7.5
+```
+
+### Common Mistakes
 
 ```python
 2nd_number = 10         # Invalid variable name — starts with digit
@@ -228,9 +323,9 @@ print("Result: " + 42)  # TypeError — can't concatenate str and int
 
 **Activity 1.3.1: Personal Information Variables**
 ```python
-my_name = "Jamie"
+my_name = "Avery"
 favorite_number = 7
-height_in_meters = 1.75
+height_in_meters = 1.72
 favorite_food = "pizza"
 
 print("My name is:", my_name)
@@ -254,17 +349,16 @@ print("Product:", product)
 print("Quotient:", quotient)
 ```
 
-### Key Table: Python Data Types and Operations
+### Accessibility Practice
 
-| Data Type | Description | Example Value | Common Operations |
-|-----------|-------------|---------------|------------------|
-| `str` | Text, words, sentences | `"Hello"`, `"Python"` | `+` (concatenation), `len()`, `.upper()` |
-| `int` | Whole numbers | `10`, `-5`, `0` | `+`, `-`, `*`, `/`, `%` |
-| `float` | Numbers with decimals | `3.14`, `9.99`, `0.0` | `+`, `-`, `*`, `/` |
+Say variable names aloud with their underscores (`favorite_subject`) and listen for the pause so you can tell one name from two words. Print each value on its own labelled line so the screen reader announces the name and the value together, and avoid relying on the spacing between printed items.
 
 ### Skills Checklist
+
 - [ ] I can define what a variable is in programming.
 - [ ] I can create a valid variable name in Python.
 - [ ] I can assign string, integer, and float values to variables.
 - [ ] I can use `print()` to display the value of a variable.
 - [ ] I can perform basic arithmetic operations with numbers in Python.
+
+---

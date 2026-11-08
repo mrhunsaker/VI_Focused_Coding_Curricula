@@ -1,408 +1,365 @@
-# Unit 0: Setting Up Your TypeScript Development Environment
+# Unit 0: Accessible Development Environment
+
+**Before you start:** complete [Unit P: Computing Foundations Primer](../FOUNDATIONS/unit-p-computing-foundations.md). It explains the language-neutral vocabulary and concepts used in every language track, using non-visual examples.
+
+## Overview
+
+Set up Node.js, TypeScript, an editor, workspace, and terminal workflow. The TypeScript adaptation preserves the shared Python curriculum's learning objectives, datasets, expected results, and assessment criteria while teaching TypeScript's compile-time type system and JavaScript runtime behavior.
+
+## Lesson 0.1: Installing Node.js, npm, and TypeScript
+
+### Reading References
+- Python source counterpart: Unit 0 lesson 0.1 in the canonical Python curriculum.
+- TypeScript Handbook: https://www.typescriptlang.org/docs/handbook/intro.html
+- Node.js documentation where terminal, file, or runtime APIs are used.
+
+### Learning Objectives
+- Install and verify the Node.js runtime, npm, and a project-local TypeScript compiler.
+- Explain the TypeScript-specific language or runtime behavior used in the lesson.
+- Predict the example's behavior and test a boundary or invalid case.
+
+### Concept Explanation
+Node.js executes JavaScript. TypeScript is checked and compiled before execution in this course. npm installs project-local tools so learners use a reproducible compiler version.
+
+### Worked Example
+```typescript
+const runtime = "Node.js 26 LTS";
+const compiler = "TypeScript 7.x";
+console.log(`Runtime: ${runtime}`);
+console.log(`Compiler: ${compiler}`);
+```
+
+### Expected Behavior or Output
+The two lines identify the runtime and compiler separately. `node --version`, `npm --version`, and `npx tsc --version` verify the actual installations.
+
+### Common Mistakes
+- Confusing the TypeScript compiler with the Node.js runtime.
+- Installing tools globally and losing project reproducibility.
+- Assuming a Node.js REPL type-checks TypeScript annotations.
+
+### Activities
+1. Verify Node.js and npm versions in a terminal.
+2. Create a project folder and initialize npm.
+3. Install TypeScript as a development dependency and verify it with npx.
+
+### Accessibility Practice
+Read each command and its purpose before running it. Keep terminal output in a sequential log. All prompts, errors, and status messages must have meaningful text equivalents; keyboard operation is required.
+
+### Skills Checklist
+- [ ] I can distinguish Node.js from TypeScript.
+- [ ] I can verify the runtime, npm, and compiler.
+- [ ] I can install a project-local compiler.
 
 ---
 
-## Lesson 0.1: Installing Node.js
+---
 
-TypeScript is compiled to JavaScript; Node.js 26 LTS runs the emitted JavaScript in the terminal. Install the current LTS line, not an obsolete tutorial version or an experimental prerelease.
+## Lesson 0.2: Configuring VS Code or Theia for accessible TypeScript work
 
-### Installing Node.js
+### Reading References
+- Python source counterpart: Unit 0 lesson 0.2 in the canonical Python curriculum.
+- TypeScript Handbook: https://www.typescriptlang.org/docs/handbook/intro.html
+- Node.js documentation where terminal, file, or runtime APIs are used.
 
-Download **Node.js 26 LTS** from [https://nodejs.org/](https://nodejs.org/).
+### Learning Objectives
+- Configure an editor, TypeScript language service, terminal, and keyboard-first navigation.
+- Explain the TypeScript-specific language or runtime behavior used in the lesson.
+- Predict the example's behavior and test a boundary or invalid case.
 
-#### Windows
-1. Download the `.msi` installer.
-2. **CRUCIAL STEP:** Ensure "Add to PATH" is checked during installation.
-3. Activate "Install" and "Finish".
+### Concept Explanation
+The editor provides navigation, diagnostics, and refactoring support; the compiler remains the authoritative type checker. VS Code and Theia may differ in shortcuts and extension availability.
 
-#### macOS
-1. Download the `.pkg` installer and follow the prompts.
-2. Or use Homebrew: `brew install node`
-
-#### Linux (Debian/Ubuntu)
-```bash
-curl -fsSL https://deb.nodesource.com/setup_26.x | sudo -E bash -
-sudo apt install nodejs
+### Worked Example
+```typescript
+const editor = "VS Code or Theia";
+const languageService = "TypeScript";
+console.log(`${editor}: ${languageService} support enabled`);
 ```
 
-Windows Powershell
+### Expected Behavior or Output
+The message confirms the intended editor and language support; verify actual navigation and diagnostic announcements with the learner's access technology.
 
-```powershell
-winget install --id OpenJS.NodeJS.LTS -e
+### Common Mistakes
+- Assuming the editor's visual layout is required for completing tasks.
+- Using mouse-only instructions or undocumented shortcuts.
+- Treating a language-service suggestion as proof that a program is correct.
+
+### Activities
+1. Open a workspace using the keyboard.
+2. Navigate to a diagnostic by keyboard and read its full message.
+3. Run a TypeScript build from the integrated terminal.
+
+### Accessibility Practice
+Test line, word, character, symbol, and diagnostic navigation with the learner's screen reader or braille display. All prompts, errors, and status messages must have meaningful text equivalents; keyboard operation is required.
+
+### Skills Checklist
+- [ ] I can navigate the editor by keyboard.
+- [ ] I can locate and understand a TypeScript diagnostic.
+- [ ] I can run a build without relying on mouse-only controls.
+
+---
+
+---
+
+## Lesson 0.3: Creating the course workspace and editor extensions
+
+### Reading References
+- Python source counterpart: Unit 0 lesson 0.3 in the canonical Python curriculum.
+- TypeScript Handbook: https://www.typescriptlang.org/docs/handbook/intro.html
+- Node.js documentation where terminal, file, or runtime APIs are used.
+
+### Learning Objectives
+- Create a consistent workspace and configure TypeScript formatting and project navigation.
+- Explain the TypeScript-specific language or runtime behavior used in the lesson.
+- Predict the example's behavior and test a boundary or invalid case.
+
+### Concept Explanation
+A workspace groups source files and configuration. TypeScript projects use `package.json` for scripts and dependencies and `tsconfig.json` for compiler behavior.
+
+### Worked Example
+```typescript
+const project = { name: "typescript-course", source: "src", output: "dist" };
+console.log(`${project.name}: ${project.source} -> ${project.output}`);
 ```
 
-### Install TypeScript in a project
+### Expected Behavior or Output
+The project name and source/output folders are announced as text. A standard project keeps editable TypeScript in src and emitted JavaScript in dist.
 
-Create a project directory, initialize npm, and install TypeScript and Node.js type declarations locally:
+### Common Mistakes
+- Editing generated JavaScript instead of TypeScript source.
+- Placing course files in an unknown working directory.
+- Installing editor extensions without checking publisher and availability.
 
-```bash
-npm init -y
-npm install --save-dev typescript @types/node
-npx tsc --version
-```
+### Activities
+1. Create src and dist folders.
+2. Open the project folder rather than an individual file.
+3. Enable TypeScript language support and verify its version.
 
-Windows Powershell
+### Accessibility Practice
+Use descriptive folder and file names. Announce the current working directory before running project commands. All prompts, errors, and status messages must have meaningful text equivalents; keyboard operation is required.
 
-```powershell
-npm init -y
-npm install --save-dev typescript @types/node
-npx tsc --version
-```
+### Skills Checklist
+- [ ] I can create and open a project workspace.
+- [ ] I can identify source and generated-output folders.
+- [ ] I can verify TypeScript editor support.
 
-Use a local project installation rather than relying on a globally installed compiler. The version reported by npm may be newer than the one used when this page was written; commit the lockfile so a class or team shares a reproducible toolchain.
+---
 
-Create a tsconfig.json with strict checking:
+---
+### Project configuration and module mode
+
+Use a project-local TypeScript compiler and strict checking. A representative `tsconfig.json` is:
 
 ```json
 {
   "compilerOptions": {
-    "target": "ES2024",
+    "target": "ES2022",
     "module": "NodeNext",
     "moduleResolution": "NodeNext",
-    "rootDir": "src",
-    "outDir": "dist",
     "strict": true,
     "noEmitOnError": true,
-    "exactOptionalPropertyTypes": true,
-    "esModuleInterop": true,
-    "forceConsistentCasingInFileNames": true,
-    "skipLibCheck": true
+    "outDir": "dist",
+    "rootDir": "src"
   },
   "include": ["src/**/*.ts"]
 }
 ```
 
-For the CommonJS examples in the early units, set type to commonjs in package.json; for ES module examples, set type to module and keep NodeNext module settings. Do not mix CommonJS and ES module syntax in one file.
-### Verify Installation
-```bash
-node --version     # Should show v26.x.x (26.13.0 or a newer 26.x maintenance release)
-npm --version      # Should show npm version
-```
+For the compiled Node.js workflow, set `"type": "module"` in package.json and use ES module imports consistently. If a project uses CommonJS instead, set `"type": "commonjs"` and use matching compiler settings. Do not mix `require()` and `import` in one module.
 
-Windows Powershell
+A typical script is `"build": "tsc"` and `"start": "node dist/hello.js"`. Run `npm run build` before `npm start`.
 
-```powershell
-node --version     # Should show v26.x.x (26.13.0 or a newer 26.x maintenance release)
-npm --version      # Should show npm version
-```
 
-### Skills Checklist
-- [ ] Running `node --version` shows the version number.
-- [ ] Running `npm --version` shows the npm version.
+## Lesson 0.4: Your first TypeScript file and terminal workflow
 
----
+### Reading References
+- Python source counterpart: Unit 0 lesson 0.4 in the canonical Python curriculum.
+- TypeScript Handbook: https://www.typescriptlang.org/docs/handbook/intro.html
+- Node.js documentation where terminal, file, or runtime APIs are used.
 
-## Lesson 0.2: Setting Up VS Code or Theia IDE
+### Learning Objectives
+- Write, compile, and execute a small TypeScript program from the terminal.
+- Explain the TypeScript-specific language or runtime behavior used in the lesson.
+- Predict the example's behavior and test a boundary or invalid case.
 
-VS Code includes TypeScript language support. Ensure the workspace uses the project's local TypeScript version when available.
+### Concept Explanation
+The compiler checks `.ts` source and emits `.js`. Node.js runs the emitted JavaScript. A package script makes the workflow repeatable.
 
-For a new project, create a package manifest with npm init -y. Choose one module system and declare it explicitly: set package.json to { "type": "commonjs" } for the CommonJS examples in the early lessons, or { "type": "module" } for the ES module examples later in the course. Do not combine the two syntaxes in one file.
-
-1. Install [Visual Studio Code](https://code.visualstudio.com/) or [Theia IDE](https://theia-ide.org/#theiaide). Theia supports many VS Code extensions through Open VSX, but check that the required extensions are available and test them with the learner's screen reader.
-2. In VS Code, press `Ctrl + Shift + X` to open Extensions. In Theia, open View → Extensions or run Toggle Extensions View. Install:
-   - **TypeScript (ES6) code snippets** — Handy code shortcuts.
-   - **ESLint** — Catches common errors.
-3. In VS Code, enable Screen Reader Mode: `Ctrl + Shift + P` → "Toggle Screen Reader Optimized". In Theia, enable its corresponding screen-reader setting and verify editor, terminal, diagnostics, and extension announcements.
-
-### VS Code Shortcuts for TypeScript (Theia keybindings may differ)
-
-| Action | Shortcut |
-|--------|----------|
-| Compile and run file (via terminal) | `Ctrl + \`` then `npx tsc` followed by `node dist/filename.js` |
-| Command Palette | `Ctrl + Shift + P` |
-| Problems View | `Ctrl + Shift + M` |
-| Next Error | `F8` |
-| Format Code | `Shift + Alt + F` |
-| Go to Definition | `F12` |
-
-### Verify editor tooling and the TypeScript project environment
-
-**Visual Studio Code**
-- TypeScript language support is built in. Confirm that the built-in TypeScript and JavaScript language features are enabled for the workspace.
-- Install **ESLint** from the Extensions view when the project uses ESLint. Code snippets are optional; they are not a substitute for the compiler.
-- In the Command Palette, use **TypeScript: Select TypeScript Version** and choose **Use Workspace Version** so editor diagnostics match the TypeScript compiler installed in this project's `node_modules`.
-- Open the project root (the folder containing `package.json` and `tsconfig.json`) as the workspace.
-
-**Theia IDE**
-- Open the Extensions view and use the configured Open VSX registry to find TypeScript/JavaScript language tooling, ESLint integration, and (if needed) Node.js debugging support.
-- Verify that the editor can use the project's local TypeScript installation for language services. If it only uses a bundled or global TypeScript version, be aware that editor diagnostics may differ from the project's compiler; use `npx tsc` as the authoritative project check.
-- Test TypeScript diagnostics, completion, navigation, terminal operation, and screen-reader announcements. Do not assume every Visual Studio Marketplace extension is available through Open VSX.
-
-**Use the project's local toolchain consistently**
-- Keep `package.json`, `package-lock.json`, `tsconfig.json`, and `node_modules` in the project root. Install TypeScript and project tools locally with `npm install --save-dev typescript @types/node`; do not depend on a global `tsc`.
-- Run compiler checks with `npx tsc --noEmit` and compile with `npx tsc`. Run the emitted JavaScript with `node dist/filename.js`. Node.js executes JavaScript, not TypeScript source; TypeScript annotations are removed during compilation.
-- Use the integrated terminal opened at the project root so `npx` resolves the local compiler. Confirm the integrated terminal and system terminal resolve the same Node.js 26 LTS runtime.
-- Keep the editor's selected TypeScript project and the terminal's `tsconfig.json` aligned. Do not treat editor-only diagnostics as a substitute for a clean local compiler run.
-
-### Advanced editor options
-
-Experienced coders may prefer JetBrains IDEs, such as WebStorm or IntelliJ IDEA. They are advanced alternatives, not the recommended starting point for this beginner curriculum. This course does not provide JetBrains installation or usage instructions.
-
----
-
-## Lesson 0.3: Your First TypeScript File
-
-### Hello World
-
-Create `src/hello.ts`:
+### Worked Example
 ```typescript
-console.log("Hello, World!");
-console.log("Welcome to TypeScript!");
+const greeting: string = "Hello, World!";
+console.log(greeting);
+console.log("Welcome to TypeScript.");
 ```
 
-Compile and run it:
-```bash
-npx tsc
-node dist/hello.js
-```
+### Expected Behavior or Output
+Compilation succeeds and Node.js prints `Hello, World!` and `Welcome to TypeScript.` on separate lines.
 
-Windows Powershell
+### Common Mistakes
+- Trying to run a TypeScript file as though it were ordinary JavaScript.
+- Running Node.js from the wrong working directory.
+- Ignoring compiler errors and executing stale output.
 
-```powershell
-npx tsc
-node dist/hello.js
-```
+### Activities
+1. Save the example as src/hello.ts.
+2. Compile with the project tsconfig.
+3. Run the emitted JavaScript with Node.js.
 
-### The Node.js REPL
-
-For JavaScript runtime experiments, open an interactive session. Type annotations are not available in the Node.js REPL; use a TypeScript playground or the compiler to experiment with types:
-```bash
-node
-```
-
-Windows Powershell
-
-```powershell
-node
-```
-Type TypeScript directly and press Enter to execute. Type `.exit` to quit.
-
-### Key Differences from Python
-
-| Python | TypeScript |
-|--------|-----------|
-| `print()` | `console.log()` |
-| `#` for comments | `//` for single-line, `/* */` for multi-line |
-| No semicolons required | Semicolons optional but recommended |
-| Indentation defines blocks | Curly braces `{}` define blocks |
-| `def` for functions | `function` or `=>` for functions |
-| `True`/`False` | `true`/`false` (lowercase) |
-| `None` | `null` and `undefined` |
-| `len(x)` | `x.length` |
+### Accessibility Practice
+Read compiler diagnostics before running the program. Keep source and output paths explicit. All prompts, errors, and status messages must have meaningful text equivalents; keyboard operation is required.
 
 ### Skills Checklist
-- [ ] I can create a `.ts` file, compile it with `npx tsc`, and run the emitted `.js` file with Node.js.
-- [ ] I can use the Node.js REPL for quick experiments.
+- [ ] I can write a .ts file.
+- [ ] I can compile it with tsc.
+- [ ] I can run emitted JavaScript with Node.js.
 
 ---
 
-# Unit 1: Foundations — Getting Started with TypeScript
+
+# Unit 1: Foundations of Computing
 
 ## Overview
 
-This unit covers TypeScript fundamentals: variables, data types, and basic output.
+Introduce computer science, first programs, variables, and primitive types. The TypeScript adaptation preserves the shared Python curriculum's learning objectives, datasets, expected results, and assessment criteria while teaching TypeScript's compile-time type system and JavaScript runtime behavior.
 
----
+## Lesson 1.1: Welcome to computer science
 
-## Lesson 1.1: Welcome to Computer Science
+### Reading References
+- Python source counterpart: Unit 1 lesson 1.1 in the canonical Python curriculum.
+- TypeScript Handbook: https://www.typescriptlang.org/docs/handbook/intro.html
+- Node.js documentation where terminal, file, or runtime APIs are used.
 
-*(See Python Unit 1.1 for conceptual content — hardware, software, algorithms, and problem-solving are language-agnostic.)*
+### Learning Objectives
+- Explain computer science, hardware, software, algorithms, and the problem-solving process.
+- Explain the TypeScript-specific language or runtime behavior used in the lesson.
+- Predict the example's behavior and test a boundary or invalid case.
 
-### TypeScript's Role
+### Concept Explanation
+Computer science studies computation and information. An algorithm is a finite, ordered set of steps for solving a problem; TypeScript is one language used to express algorithms.
 
-JavaScript was created by Brendan Eich at Netscape in 1995. TypeScript was developed later as a statically typed superset of JavaScript and is compiled to JavaScript before execution.
-
----
-
-## Lesson 1.2: Variables and Output
-
-TypeScript supports the same runtime values as JavaScript, but variables can also carry compile-time types. Type annotations do not change the emitted JavaScript:
-
+### Worked Example
 ```typescript
-const studentName: string = "Avery";
-let completedLessons: number = 4;
-completedLessons += 1;
-const isEnrolled: boolean = true;
-console.log(studentName, completedLessons, isEnrolled);
+const steps = ["understand the problem", "design steps", "implement", "test"];
+for (const [index, step] of steps.entries()) {
+  console.log(`${index + 1}. ${step}`);
+}
 ```
 
-Use const by default, let when reassignment is necessary, and explicit types when they communicate intent. TypeScript can infer many local variable types from their initial values.
+### Expected Behavior or Output
+Four ordered steps are printed, from understanding the problem through testing.
 
-### `console.log()`
-
-```typescript
-console.log("Hello, World!");
-console.log(42);
-console.log(true);
-console.log("Value:", 42, "and", "text");
-```
-
-### Declaring Variables
-
-TypeScript has three ways to declare variables:
-
-| Keyword | Scope | Reassignable | Use When |
-|---------|-------|-------------|----------|
-| `const` | Block | No | Value won't change (default choice) |
-| `let` | Block | Yes | Value will change |
-| `var` | Function | Yes | Legacy — avoid in modern code |
-
-```typescript
-const PI = 3.14159;               // Cannot be reassigned
-let score = 100;                  // Can change
-score = 150;                      // OK
-
-// var is function-scoped (legacy)
-var oldWay = "avoid this";
-```
-
-**Best practice:** Use `const` by default; use `let` only when you need to reassign.
-
-### Template Literals
-
-```typescript
-const name = "Alice";
-const age = 15;
-
-// Template literal (backticks — preferred)
-console.log(`Hello, ${name}! You are ${age} years old.`);
-
-// Concatenation (older style)
-console.log("Hello, " + name + "! You are " + age + " years old.");
-```
-
-### Skills Checklist
-- [ ] I can use `console.log()` to display output.
-- [ ] I can declare variables using `const` and `let`.
-- [ ] I can use template literals with `${}`.
-
----
-
-## Lesson 1.3: Data Types
-
-### Primitive Types
-
-```typescript
-// Number (integers and floats use the same type)
-let integer = 42;
-let decimal = 3.14;
-let negative = -10;
-
-// String
-let name = "Alice";
-let greeting = 'Hello';
-let multiLine = `Line 1
-Line 2`;
-
-// Boolean
-let isRaining = false;
-let isLoggedIn = true;
-
-// null (intentional absence of value)
-let emptyValue = null;
-
-// undefined (value not assigned)
-let notAssigned;
-console.log(notAssigned);  // undefined
-
-// Check type
-console.log(typeof 42);           // "number"
-console.log(typeof "hello");      // "string"
-console.log(typeof true);         // "boolean"
-console.log(typeof null);         // "object" (known quirk!)
-console.log(typeof undefined);    // "undefined"
-```
-
-### Arithmetic Operators
-
-```typescript
-console.log(5 + 3);   // 8
-console.log(10 - 4);  // 6
-console.log(7 * 6);   // 42
-console.log(15 / 4);  // 3.75  (always decimal, unlike Python 2 or Java)
-console.log(10 % 3);  // 1  (remainder)
-console.log(2 ** 10); // 1024  (exponentiation)
-
-// Math.floor for integer division equivalent
-console.log(Math.floor(15 / 4));  // 3
-```
-
-### Type Conversion
-
-```typescript
-// String to Number
-let str = "123";
-let num = Number(str);          // 123
-let numParsed = parseInt(str);  // 123
-let floatParsed = parseFloat("3.14"); // 3.14
-
-// Number to String
-let n = 42;
-let s = String(n);              // "42"
-let s2 = n.toString();          // "42"
-let s3 = `${n}`;               // "42" (template literal)
-
-// Checking
-console.log(isNaN("abc"));     // true — "not a number"
-console.log(isNaN(42));        // false
-console.log(Number("abc"));    // NaN
-```
-
-### Constants
-
-```typescript
-const MAX_SIZE = 100;
-const APP_NAME = "My App";
-const PI = Math.PI;  // Use Math.PI — already defined
-```
-
-### Examples
-
-**Example 1.3.1: Personal Information**
-```typescript
-const myName = "Jamie";
-const favoriteNumber = 7;
-const heightInMeters = 1.75;
-const likesPizza = true;
-
-console.log(`Name: ${myName}`);
-console.log(`Favorite number: ${favoriteNumber}`);
-console.log(`Height: ${heightInMeters} meters`);
-console.log(`Likes pizza: ${likesPizza}`);
-```
-
-**Example 1.3.2: Simple Math**
-```typescript
-const num1 = 15;
-const num2 = 7;
-
-console.log(`Sum: ${num1 + num2}`);
-console.log(`Difference: ${num1 - num2}`);
-console.log(`Product: ${num1 * num2}`);
-console.log(`Quotient: ${(num1 / num2).toFixed(2)}`);
-console.log(`Remainder: ${num1 % num2}`);
-```
+### Common Mistakes
+- Equating computer science with learning syntax only.
+- Beginning implementation before defining the problem.
+- Treating one programming language as the only way to express an algorithm.
 
 ### Activities
+1. Describe an everyday algorithm in plain language.
+2. Identify input, processing, and output for a tip calculator.
+3. Explain how testing provides evidence about a solution.
 
-**Activity 1.3.1: Area Calculator**
-```typescript
-const length = 12;
-const width = 5;
-const height = 8;
-
-const rectangleArea = length * width;
-const boxVolume = length * width * height;
-const circleArea = Math.PI * (length / 2) ** 2;
-
-console.log(`Rectangle area: ${rectangleArea}`);
-console.log(`Box volume: ${boxVolume}`);
-console.log(`Circle area: ${circleArea.toFixed(2)}`);
-```
+### Accessibility Practice
+Present algorithms as numbered text steps. Do not rely on flowchart colors or spatial layout alone. All prompts, errors, and status messages must have meaningful text equivalents; keyboard operation is required.
 
 ### Skills Checklist
-- [ ] I can identify TypeScript's primitive data types.
-- [ ] I can perform arithmetic operations in TypeScript.
-- [ ] I understand that TypeScript's `/` always gives a decimal result.
-- [ ] I can convert between types using `Number()`, `String()`, `parseInt()`.
-- [ ] I understand `const` vs. `let`.
+- [ ] I can define computer science and an algorithm.
+- [ ] I can identify input, processing, and output.
+- [ ] I can describe a testable solution plan.
+
+---
+
+---
+
+## Lesson 1.2: Your first TypeScript program: Hello World
+
+### Reading References
+- Python source counterpart: Unit 1 lesson 1.2 in the canonical Python curriculum.
+- TypeScript Handbook: https://www.typescriptlang.org/docs/handbook/intro.html
+- Node.js documentation where terminal, file, or runtime APIs are used.
+
+### Learning Objectives
+- Create a source file, compile it, and explain sequential execution and output.
+- Explain the TypeScript-specific language or runtime behavior used in the lesson.
+- Predict the example's behavior and test a boundary or invalid case.
+
+### Concept Explanation
+Statements execute in sequence unless control flow changes that order. `console.log` writes a line of text to standard output.
+
+### Worked Example
+```typescript
+console.log("Hello, World!");
+console.log("Welcome to TypeScript.");
+```
+
+### Expected Behavior or Output
+The terminal prints the two messages in source order, one per line.
+
+### Common Mistakes
+- Forgetting to save the source file before compiling.
+- Expecting TypeScript annotations to appear in runtime output.
+- Changing capitalization or punctuation in an exact-output exercise.
+
+### Activities
+1. Change the second message and compile again.
+2. Add a third line and predict its position.
+3. Explain the difference between source code and terminal output.
+
+### Accessibility Practice
+Read one statement at a time and compare source order with output order. All prompts, errors, and status messages must have meaningful text equivalents; keyboard operation is required.
+
+### Skills Checklist
+- [ ] I can create and run a first program.
+- [ ] I can predict sequential output.
+- [ ] I can distinguish source text from program output.
+
+---
+
+---
+
+## Lesson 1.3: Variables and simple data types
+
+### Reading References
+- Python source counterpart: Unit 1 lesson 1.3 in the canonical Python curriculum.
+- TypeScript Handbook: https://www.typescriptlang.org/docs/handbook/intro.html
+- Node.js documentation where terminal, file, or runtime APIs are used.
+
+### Learning Objectives
+- Declare typed variables and represent the canonical student profile.
+- Explain the TypeScript-specific language or runtime behavior used in the lesson.
+- Predict the example's behavior and test a boundary or invalid case.
+
+### Concept Explanation
+TypeScript can infer many local types, but annotations make contracts explicit. `const` prevents reassignment of a binding; it does not deeply freeze an object.
+
+### Worked Example
+```typescript
+const student: { name: string; age: number; heightM: number; favoriteSubject: string } = {
+  name: "Avery", age: 16, heightM: 1.72, favoriteSubject: "Computer Science"
+};
+console.log(`${student.name}, age ${student.age}`);
+console.log(`Height: ${student.heightM} m`);
+console.log(student.favoriteSubject);
+```
+
+### Expected Behavior or Output
+The output identifies Avery, age 16, height 1.72 m, and Computer Science.
+
+### Common Mistakes
+- Using a string where a number is required.
+- Assuming const makes object properties immutable.
+- Using any to bypass a type error rather than correcting the type.
+
+### Activities
+1. Declare string, number, and boolean values.
+2. Add a field to the student profile and update its type.
+3. Explain type inference versus an explicit annotation.
+
+### Accessibility Practice
+Read property names and types aloud. Use one property per line for structured output. All prompts, errors, and status messages must have meaningful text equivalents; keyboard operation is required.
+
+### Skills Checklist
+- [ ] I can declare typed variables.
+- [ ] I can explain const and type inference.
+- [ ] I can model the canonical student profile.
+
+---

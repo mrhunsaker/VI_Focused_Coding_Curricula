@@ -1139,6 +1139,8 @@ Traditional programming assessments (written tests, timed coding) create unneces
 
 AI-assisted coding is an optional source of explanation and critique, not an authority, substitute teacher, or replacement for learning to program. The course should remain fully teachable without paid AI access or a student account.
 
+**Course AI policy (shared by all language tracks).** Students may use AI only for personal conceptual understanding and reinforcement. AI may not write, autocomplete, repair, complete, or generate course code or assessment solutions. The rest of this section should be read within that limit.
+
 ### Instructor use of AI during preparation
 
 An instructor may use an approved AI tool to brainstorm alternative explanations, generate draft practice inputs, propose misconceptions, or review a lesson outline. The instructor remains responsible for the content. Verify every technical statement against the target Python version and official documentation; execute code examples and tests; inspect accessibility with the intended tools; and check references, licensing, bias, and reading level. Never upload identifiable student work, accommodation plans, assessment answers, or confidential school material. Do not use AI-generated feedback as the sole basis for grading or placement. Keep a record of substantive AI assistance when institutional policy or the publication process requires it.
@@ -1150,11 +1152,11 @@ Students should be able to explain what an AI coding assistant can and cannot re
 
 ### Appropriate uses
 
-When an activity permits it, students may ask AI to explain a Python concept in another way, interpret a traceback after reading it themselves, suggest edge cases, compare short implementations, or provide hints that preserve the learner's problem-solving role. Model these uses. Ask students to state their own understanding before requesting a suggestion.
+Within the course policy, students may ask an AI tool to explain a Python concept in another way, for example what a dictionary is or why indexes start at zero, or to restate in plain words what an error category means. Students must not paste course code or assignment prompts into an AI tool and must not accept generated, repaired, or completed code. Model the permitted uses, and ask students to state their own understanding before and after consulting any explanation, and to check it against the official documentation and their own tests.
 
 ### Uses that undermine learning or assessment
 
-Do not permit AI to complete an individual assessment when the purpose is to measure independent design, implementation, code reading, or debugging. Do not accept generated code as evidence of mastery merely because it runs or passes one test. If an assignment permits AI, define the scope in advance and require a process record.
+Do not permit AI to complete an individual assessment when the purpose is to measure independent design, implementation, code reading, or debugging. Do not accept generated code as evidence of mastery merely because it runs or passes one test. Because the course policy limits AI to conceptual explanation, no assignment or assessment permits AI-written code.
 
 A student must be able to explain every submitted statement, identify dependencies, predict behavior for new inputs, modify the code, and debug a failure. Inability to do so is a learning need to address instructionally.
 

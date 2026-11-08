@@ -1,5 +1,7 @@
 # Introduction to Computer Science with Java
 
+**Before you start:** complete [Unit P: Computing Foundations Primer](../FOUNDATIONS/unit-p-computing-foundations.md). It explains the language-neutral vocabulary and concepts used in every language track, using non-visual examples.
+
 ## Accessible beginner curriculum
 
 The Java curriculum introduces programming, problem-solving, and object-oriented design using the Java language and Java Development Kit (JDK). It is designed for blind and visually impaired learners who use screen readers, braille displays, magnification, keyboard navigation, or combinations of access technologies. It is also appropriate for sighted beginners and mixed-vision classrooms.
@@ -7,6 +9,10 @@ The Java curriculum introduces programming, problem-solving, and object-oriented
 Java makes types and program structure explicit. Its compilation process and class-based organization require more syntax than some introductory languages, but they also provide opportunities to teach how programs are organized, how types constrain operations, and how a compiler helps detect errors.
 
 **Recommended sequence:** work through Units 0–11 in order. The Markdown files group related units; use the headings and lesson numbers inside each document.
+
+## Complete lesson sequence
+
+The complete standardized course, including four setup lessons and 53 numbered lessons, is available in [lessons.md](lessons.md). The original grouped unit documents remain supplementary reference material. See [validation status](VALIDATION.md) for example-check coverage and remaining verification.
 
 ## Course outcomes
 
@@ -58,7 +64,7 @@ The primary audience includes students using NVDA, JAWS, VoiceOver, Narrator, br
 - [Units 9–11: Collections, Testing, and Projects](unit09-11-collections-projects.md)
 - [Teacher's guide: instructor planning, accessible instruction, assessment, and AI guidance](teachers-guide.md)
 
-Return to the [curriculum overview](../OVERALL_README.md) to compare Python, JavaScript, and Java.
+Return to the [curriculum overview](../OVERALL_README.md) to compare the independent language pathways. Kotlin is now taught in its own standalone curriculum.
 
 ## Recommended environment
 
@@ -120,13 +126,11 @@ The capstone should have a written problem statement, user requirements, class o
 
 ## Teaching with AI
 
+The student-facing AI Policy above and in the lesson file takes precedence over the instructor guidance in this section.
+
 AI assistants may explain compiler messages, suggest test cases, compare method designs, or provide alternative explanations. They can also invent Java APIs, use unsupported language features, omit imports, produce incorrect generic types, mishandle exceptions, or generate a class hierarchy more complex than the learning objective requires.
 
 Follow the instructor's policy. Students must disclose AI assistance where required and explain, test, and modify every submitted line. Do not share student records, credentials, private source code, or confidential data with public AI services. AI must not replace independent work in assessments intended to measure individual skills. The [teacher's guide](teachers-guide.md) contains a fuller protocol.
-
-## Optional post-capstone extension: Kotlin
-
-After completing the Java capstone, learners who want to explore a modern JVM language can continue with the [Kotlin for Java Programmers supplement](kotlin.md). It introduces Kotlin syntax, null safety, concise data classes, collections, Java interoperability, and a practical migration path. This is supplementary material, not a required Java unit.
 
 ## Further learning
 
@@ -135,3 +139,11 @@ Use the official [Java documentation](https://docs.oracle.com/en/java/) and [Jav
 ---
 
 Java's explicit types and program structure offer a useful way to deepen understanding of how software is organized. The objective is to build independent problem-solving habits that transfer to other languages and platforms.
+
+## GUI, visualization, and workbench accessibility
+
+See the shared [GUI, visualization, and workbench accessibility reference](../DEVELOPMENT/GUI_VISUALIZATION_ACCESSIBILITY.md) for screen-reader support by toolkit, platform-specific activation settings, recommended alternatives, and interfaces that must not be required without an equivalent accessible route.
+
+## AI Policy
+
+AI may be used only for personal conceptual understanding and reinforcement. It must not write, complete, autocomplete, repair, or generate course code or assessment solutions.

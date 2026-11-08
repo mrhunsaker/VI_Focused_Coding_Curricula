@@ -1,5 +1,7 @@
 # Introduction to Computer Science with Python
 
+**Before you start:** complete [Unit P: Computing Foundations Primer](../FOUNDATIONS/unit-p-computing-foundations.md). It explains the language-neutral vocabulary and concepts used in every language track, using non-visual examples.
+
 ## Accessible beginner curriculum
 
 The Python curriculum is a complete introductory pathway in programming and core computer science. It is designed to be usable by blind and visually impaired learners who use screen readers, braille displays, magnification, keyboard navigation, or combinations of access technologies. It is also suitable for sighted beginners and mixed-vision classrooms.
@@ -64,7 +66,7 @@ Return to the [curriculum overview](../OVERALL_README.md) to compare the three l
 
 ## Recommended environment
 
-The setup unit contains the authoritative instructions. In general, learners need:
+The setup unit contains the Python-specific runtime and project instructions. For a cross-language comparison and detailed installation steps for Visual Studio Code, VSCodium, and Theia IDE, see the standalone [IDE setup lesson](../DEVELOPMENT/IDE_SETUP.md). In general, learners need:
 
 - A currently supported Python 3 release compatible with the course examples.
 - Visual Studio Code or [Theia IDE](https://theia-ide.org/#theiaide), or another keyboard-accessible editor that supports Python and the learner's screen reader.
@@ -150,3 +152,15 @@ Use the official [Python documentation](https://docs.python.org/3/) as the refer
 ---
 
 The objective is to develop a repeatable approach to understanding problems, writing clear programs, testing behavior, and learning new tools independently.
+
+## GUI, visualization, and workbench accessibility
+
+See the shared [GUI, visualization, and workbench accessibility reference](../DEVELOPMENT/GUI_VISUALIZATION_ACCESSIBILITY.md) for screen-reader support by toolkit, platform-specific activation settings, recommended alternatives, and interfaces that must not be required without an equivalent accessible route.
+
+## AI Policy
+
+AI may be used only for personal conceptual understanding and reinforcement. It must not write, complete, autocomplete, repair, or generate course code or assessment solutions.
+
+## Capstone code
+
+The verified Unit 11 code (logic module, NiceGUI pages, and tests) is in [capstone/](capstone/README.md).
