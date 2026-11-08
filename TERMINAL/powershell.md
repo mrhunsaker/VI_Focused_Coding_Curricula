@@ -327,3 +327,9 @@ Explain each command in the sequence. Identify which paths are relative, what th
 - [PowerShell about topics](https://learn.microsoft.com/powershell/module/microsoft.powershell.core/about/about)
 - [Windows Terminal documentation](https://learn.microsoft.com/windows/terminal/)
 - [Python on Windows](https://docs.python.org/3/using/windows.html)
+
+## Recommended introductory books
+
+- Plunk, Travis, James Petty, Tyler Leonhardt, Don Jones, and Jeffery Hicks. *Learn PowerShell in a Month of Lunches*, 4th edition. Manning, 2022. A hands-on introduction to PowerShell commands, the help system, the object pipeline, variables, scripts, loops, errors, and debugging. It covers Windows, Linux, and macOS. [Publisher page](https://www.manning.com/books/learn-powershell-in-a-month-of-lunches).
+
+**Suggested use:** this is a practical companion for the PowerShell track and does not require prior scripting experience. Its examples span multiple PowerShell versions and operating systems; use the course's PowerShell version baseline and current Microsoft documentation when details differ.
