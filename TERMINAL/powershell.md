@@ -103,7 +103,7 @@ For this lesson, use only the practice folder created in Lesson 2.
 
 ```powershell
 Set-Location "$HOME\terminal-practice\first-project"
-New-Item -ItemType Directory -Path notes
+New-Item -ItemType Directory -Path notes -Force | Out-Null
 New-Item -ItemType File -Path notes\todo.txt
 Copy-Item notes\todo.txt notes\todo-backup.txt
 Move-Item notes\todo-backup.txt notes\archive.txt
