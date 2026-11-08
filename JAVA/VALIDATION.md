@@ -23,26 +23,7 @@ The checker extracts every fenced Java example, writes it into an isolated tempo
 
 This is a compile and smoke-execution check. It does not assert exact output, prove robust behavior for malformed input, or substitute for end-to-end project tests.
 
-<<<<<<< HEAD
+
 ## Remaining verification
 
 - Add exact expected-output assertions and systematic invalid-input/boundary fixtures.
-=======
-## Rewrite verification (5 November 2026)
-
-- All 57 lessons in `JAVA/lessons.md` were rewritten with lesson-specific concept text, common mistakes, activities, and accessibility practice, using the shared datasets. All 57 are distinct in every section, and the worked examples average about 53 lines.
-- Each "Expected Behavior or Output" block is the captured output of the lesson's program, run with the standard input shown (and with empty standard input, which is what the checker uses). Interactive programs show the scripted input in the lesson.
-- `scripts/check_java_examples.py` was run with `--release 21` on JDK 21: 57 of 57 examples compile and run. It has not been run here with JDK 25.
-- Lessons 8.5, 10.4, and 11.2 include a small teaching JSON helper (the Java standard library has no JSON). It was tested with a round trip and six malformed inputs only.
-- Java prints the shared tip as 3.68 (its formatter rounds half up); most other tracks print 3.67.
-- The four grouped unit files (`unit*.md`) were not changed; they remain supplementary reference material and still contain older, non-canonical examples.
-- Not tested with screen readers or braille displays.
-
-## Remaining verification
-
-- Add exact expected-output assertions to the repository checker (the lesson text now contains captured output, but the checker does not compare it) and systematic invalid-input/boundary fixtures.
->>>>>>> 2067a20 (curriculum clearning and updates)
-- Exercise file operations against missing, malformed, and permission-restricted paths.
-- Add end-to-end capstone persistence and test-framework integration.
-- Run a fresh mdBook build and complete Markdown/local-link crawl.
-- Perform hands-on keyboard-only, screen-reader, and braille testing with supported IDE/runtime combinations.
