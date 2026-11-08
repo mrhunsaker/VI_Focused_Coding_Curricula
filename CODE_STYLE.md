@@ -18,6 +18,8 @@ These conventions apply to Markdown, explanations, examples, and project code. T
 
 - Every executable fenced `bash`, `sh`, or `shell` command block must be followed immediately by a matching fenced `powershell` block for Windows 11.
 - Keep the Bash-family block first for macOS and Linux. Place the PowerShell block directly after it, with a clear Windows Powershell label.
+
+- **Shell-specific prerequisite tracks:** files dedicated to teaching one shell (for example, `TERMINAL/bash.md` and `TERMINAL/powershell.md`) intentionally contain executable examples only for that shell. Their paired track pages must teach equivalent outcomes. The immediate Bash/PowerShell pairing rule applies to cross-platform lesson documents, not to these intentionally separate shell tracks.
 - The two blocks must perform the same task, use the same project paths and filenames, and preserve the same learning objective. Do not translate Linux-only commands literally: provide a Windows-native alternative such as `winget`, `Set-Location`, or the Gradle `.bat` wrapper as appropriate.
 - Do not install Python course dependencies with bare/global `pip` or `python -m pip`. Prefer `uv` project environments and dependency declarations (`uv init`, `uv add`, `uv run`, `uv sync`). For Node.js/TypeScript, use project-local npm dependencies and `npx`/npm scripts; avoid global package installs. For Java, prefer the project Maven/Gradle wrapper so build tools and dependencies are project-scoped.
 - Do not recommend Volta for Node.js version management. Use the Node.js LTS installer or another actively maintained, documented version manager.
