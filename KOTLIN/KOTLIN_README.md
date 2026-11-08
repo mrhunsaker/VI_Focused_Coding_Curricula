@@ -57,3 +57,11 @@ AI may be used only for personal conceptual understanding and reinforcement. It 
 
 Every lesson has one Kotlin example that uses the shared datasets. All 57 examples compile together with `kotlinc` 1.9.24, run independently with empty standard input, and match the exact output in `examples_expected.json` (`scripts/check_kotlin_examples.py`; checked on JDK 21). The "Expected Behavior or Output" blocks in the lessons are captured from runs of the same examples, with the standard input shown where a program reads input. This has not been tested with screen readers or braille displays.
 >>>>>>> 2067a20 (curriculum clearning and updates)
+
+## Recommended introductory books
+
+- Griffiths, Dawn, and David Griffiths. *Head First Kotlin: A Brain-Friendly Guide*. O'Reilly Media, 2019. A hands-on introduction to Kotlin syntax and programming concepts. [Publisher catalog](https://www.oreilly.com/search/?q=Head%20First%20Kotlin).
+- Eckel, Bruce, and Svetlana Isakova. *Atomic Kotlin*. Mindview, 2021. Presents Kotlin concepts in small, focused lessons with exercises; intended for both beginning and experienced programmers. [Author-maintained learning resources](https://www.atomickotlin.com/atomickotlin/).
+- Aigner, Sebastian, Roman Elizarov, Svetlana Isakova, and Dmitry Jemerov. *Kotlin in Action*, 2nd edition. Manning, 2024. A comprehensive treatment aimed primarily at readers familiar with Java or another object-oriented language. [Kotlin documentation's book recommendations](https://kotlinlang.org/docs/books.html).
+
+**Suggested use:** *Head First Kotlin* or *Atomic Kotlin* is the more suitable first companion. Treat *Kotlin in Action* as a follow-on reference, not a prerequisite. Check current Kotlin documentation when book examples differ from the course baseline.
