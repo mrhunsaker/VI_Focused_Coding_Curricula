@@ -1,3 +1,10 @@
+## 2026-11-08 — Foundations lesson on self-documenting code
+
+- Added Lesson P.7, **Self-Documenting Code, Naming, Types, and Comments**, to the Computing Foundations Primer.
+- Covers meaningful names for variables, functions, classes, and constants; focused function responsibilities; side effects; type systems and annotations across statically and dynamically typed languages; useful API documentation; and comments that explain intent, assumptions, and constraints rather than restating code.
+- Includes a before-and-after Python example, practical review questions for code revisited months later, activities, screen-reader-oriented naming guidance, and a skills checklist.
+- Updated the Foundations overview to list the new lesson. Existing Summary links remain unchanged; no new file or navigation entry was required.
+
 ## 2026-11-08 — Standalone topics section introduction and summary audit
 
 - Created `MODULES/README.md` as the introduction to the standalone topics section, describing HTML/CSS, R, and SQL; explaining how these focused modules relate to the full language curricula; and providing prerequisites, suggested study order, accessibility expectations, and navigation to the section index.
