@@ -34,3 +34,9 @@ See the shared [GUI, visualization, and workbench accessibility reference](../DE
 
 AI may be used only for personal conceptual understanding and reinforcement. It must not write, complete, autocomplete, repair, or generate course code or assessment solutions.
 >>>>>>> 2067a20 (curriculum clearning and updates)
+
+## Recommended introductory books
+
+- Lauwens, Ben, and Allen B. Downey. *Think Julia: How to Think Like a Computer Scientist*. O'Reilly Media, 2019. A no-prerequisite introduction to programming with Julia, covering variables, expressions, functions, conditionals, iteration, and data structures. The complete text is freely available online. [Online book](https://benlauwens.github.io/ThinkJulia.jl/latest/book.html) and [publisher page](https://www.oreilly.com/library/view/think-julia/9781492045021/).
+
+**Suggested use:** *Think Julia* is a natural companion for learners new to programming. It was written against an earlier Julia release; compare package APIs and version-sensitive syntax with the course's Julia baseline and current documentation.
