@@ -12,6 +12,7 @@
 
 - [Standalone IDE setup: VS Code, VSCodium, and Theia](DEVELOPMENT/IDE_SETUP.md)
   - [Project environments, dependency management, and containers](DEVELOPMENT/ENVIRONMENT_ISOLATION.md)
+  - [Screen-reader-accessible GUI libraries and implementation guidance](DEVELOPMENT/GUI_VISUALIZATION_ACCESSIBILITY.md)
 - [Lesson structure audit and standard](DEVELOPMENT/LESSON_STRUCTURE_AUDIT.md)
 
 # Foundations (complete before any language)
