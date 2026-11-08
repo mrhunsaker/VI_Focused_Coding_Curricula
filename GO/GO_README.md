@@ -37,3 +37,10 @@ See the shared [GUI, visualization, and workbench accessibility reference](../DE
 
 AI may be used only for personal conceptual understanding and reinforcement. It must not write, complete, autocomplete, repair, or generate course code or assessment solutions.
 >>>>>>> 2067a20 (curriculum clearning and updates)
+
+## Recommended introductory books
+
+- McGavren, Jay. *Head First Go*. O'Reilly Media, 2019. A hands-on introduction to Go syntax, types, functions, collections, interfaces, concurrency, and common development practices. The author recommends some prior programming experience. [Publisher page](https://www.oreilly.com/library/view/head-first-go/9781491969540/).
+- Donovan, Alan A. A., and Brian W. Kernighan. *The Go Programming Language*. Addison-Wesley, 2015. A systematic introduction to Go with substantial examples; it is most useful after learners understand basic programming concepts. [Official book site](https://www.gopl.io/).
+
+**Suggested use:** learners new to programming should complete the shared foundations and another introductory programming sequence before using these books as a primary text. *Head First Go* provides a more activity-oriented route; Donovan and Kernighan provide a deeper reference. Compare examples with the current Go version used by the course.
