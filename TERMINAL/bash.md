@@ -250,7 +250,7 @@ Use `command --help` when supported. Use `man command` for a manual page; press 
 ### Try it
 
 ```bash
-ls --help
+man ls
 man pwd
 command -v python3
 ```
