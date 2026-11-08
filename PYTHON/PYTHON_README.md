@@ -145,6 +145,14 @@ AI assistants can explain a Python traceback, suggest test cases, compare altern
 
 Students should follow the instructor's activity-specific policy, disclose assistance where required, and explain and modify every submitted line. Do not enter student records, credentials, private code, or sensitive data into public AI services. AI must not replace independent work in assessments designed to measure individual skills. The [teacher's guide](teachers-guide.md) contains a fuller protocol.
 
+## Recommended introductory books
+
+- Matthes, Eric. *Python Crash Course: A Hands-On, Project-Based Introduction to Programming*, 3rd edition. No Starch Press, 2023. A practical introduction organized around core language concepts and substantial projects. [Publisher page](https://nostarch.com/python-crash-course-3rd-edition/).
+- Downey, Allen B. *Think Python: How to Think Like a Computer Scientist*, 3rd edition. Green Tea Press, 2024. A free, concept-oriented introduction emphasizing computational thinking, functions, data structures, and problem solving. [Author's book site](https://greenteapress.com/wp/).
+- Sweigart, Al. *Automate the Boring Stuff with Python: Practical Programming for Total Beginners*, 3rd edition. No Starch Press, 2025. A task-oriented introduction that teaches programming through useful automation projects. [Publisher page](https://nostarch.com/AUTOMATE-BORING-STUFF-PYTHON-3RD-EDITION).
+
+**Suggested use:** select one primary text rather than attempting all three at once. *Think Python* is useful for conceptual reinforcement; *Python Crash Course* offers a project-based sequence; *Automate the Boring Stuff* connects fundamentals to practical tasks. The curriculum's own examples and exercises remain authoritative for course requirements.
+
 ## Further learning
 
 Use the official [Python documentation](https://docs.python.org/3/) as the reference for language behavior and standard-library APIs. The curriculum also draws on *Python Crash Course* by Eric Matthes and *Python Programming: An Introduction to Computer Science* by John Zelle. See the unit materials and teacher's guide for additional references.
