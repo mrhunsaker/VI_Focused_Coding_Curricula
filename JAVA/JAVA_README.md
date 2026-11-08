@@ -135,7 +135,7 @@ Follow the instructor's policy. Students must disclose AI assistance where requi
 ## Recommended introductory books
 
 - Eck, David J. *Introduction to Programming Using Java*. A free online textbook introducing programming fundamentals, object-oriented concepts, and data structures. [Author-maintained online text](https://math.hws.edu/javanotes/).
-- Downey, Allen B., and Chris Mayfield. *Think Java: How to Think Like a Computer Scientist*, 2nd edition. O'Reilly Media, 2016. A free, structured introduction that develops programming and computer science concepts step by step. [Book site](https://greenteapress.com/wp/think-java/) and [publisher page](https://www.oreilly.com/library/view/think-java/9781491929551/).
+- Downey, Allen B., and Chris Mayfield. *Think Java: How to Think Like a Computer Scientist*, 2nd edition. O'Reilly Media, 2016. A free, structured introduction that develops programming and computer science concepts step by step. [Book site](https://greenteapress.com/thinkjava7/html/index.html) and [publisher page](https://www.oreilly.com/library/view/think-java/9781491929551/).
 - Gaddis, Tony. *Starting Out with Java: From Control Structures Through Objects*, 7th edition. Pearson, 2019. A traditional introductory course text with worked examples and exercises. [Publisher catalog](https://www.pearson.com/).
 
 **Suggested use:** Eck and *Think Java* are suitable companions for self-study and conceptual review. Gaddis is an alternative structured textbook. Check the Java version used in any book against the course's JDK baseline; older editions may use APIs or conventions that differ from the current toolchain.
