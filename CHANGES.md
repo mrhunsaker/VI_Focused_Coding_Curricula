@@ -1,3 +1,13 @@
+## 2026-11-08 — Introductory computer science and language bibliographies
+
+- Added a general computer science bibliography to the shared Foundations introduction, covering broad CS survey, digital-computing concepts, and introductory problem-solving texts.
+- Added curated introductory book recommendations to all 13 language curriculum introductions: Python, JavaScript, TypeScript, Java, Kotlin, C, C++, C#, Julia, Swift, Rust, Go, and Lua.
+- Added relevant reading recommendations to the HTML/CSS, R, and SQL focused modules.
+- Added Bash and PowerShell book recommendations to their respective terminal-track introductions.
+- Each entry identifies author(s), title, edition or publication year when verified, publisher or free online source, and a short note explaining fit, prerequisite assumptions, or version limitations.
+- Updated the curriculum overview to point readers to the new bibliographies.
+- Validation: book details and links were researched against publisher, author, official language, and maintained book-site sources. Relative-link checks and mdBook build validation remain pending.
+
 ## 2026-11-08 — Curriculum scope and language-use overview
 
 - Rewrote the main README and curriculum overview to describe the complete repository structure: 13 full language curricula, focused HTML/CSS, R, and SQL modules, shared computing foundations, and Bash and PowerShell terminal tracks.
