@@ -43,3 +43,11 @@ See the shared [GUI, visualization, and workbench accessibility reference](../DE
 
 AI may be used only for personal conceptual understanding and reinforcement. It must not write, complete, autocomplete, repair, or generate course code or assessment solutions.
 >>>>>>> 2067a20 (curriculum clearning and updates)
+
+## Recommended introductory books
+
+- Stroustrup, Bjarne. *Programming: Principles and Practice Using C++*, 3rd edition. Addison-Wesley, 2024. An introduction to programming principles through C++, covering procedural, object-oriented, and generic programming. [Author's book page](https://stroustrup.com/programming.html).
+- Gaddis, Tony. *Starting Out with C++: From Control Structures Through Objects*, 10th edition. Pearson, 2020. A structured first-course text introducing control flow, functions, arrays, pointers, and object-oriented programming. [Publisher catalog](https://www.pearson.com/).
+- Downey, Allen B. *Think C++: How to Think Like a Computer Scientist*. Green Tea Press. A free introductory text emphasizing problem solving and computational thinking. [Book page](https://greenteapress.com/wp/think-c/).
+
+**Suggested use:** Stroustrup's third edition is the most current full introduction in this list. Gaddis offers a conventional course sequence. *Think C++* is freely available but uses an older C++ teaching context; use it for transferable problem-solving concepts rather than as the authority for modern C++20 syntax and libraries.
