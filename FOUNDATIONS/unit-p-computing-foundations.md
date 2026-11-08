@@ -528,6 +528,255 @@ Create a small text file with three lines, save it, and read it back in the term
 
 ---
 
+---
+
+## Lesson P.7: Self-Documenting Code, Naming, Types, and Comments
+
+### Learning Objectives
+
+By the end of this lesson, learners should be able to:
+
+- Explain what self-documenting code is and why code must communicate intent to another person and to their future self.
+- Choose clear, specific names for variables, constants, functions, classes, and files.
+- Break complex work into small, purpose-named functions with clear inputs, outputs, and side effects.
+- Use type annotations, signatures, contracts, and documentation features when a language supports them.
+- Distinguish useful comments from comments that merely repeat the code.
+- Improve an unclear code example without changing its behavior.
+
+### Why readability is a correctness and maintenance concern
+
+Programs are read many more times than they are written. A person may need to understand a program months or years after its author last worked on it. That person may be a teammate—or the original author returning after forgetting the details.
+
+Readable code reduces the amount of context a reader must reconstruct. It makes defects easier to find, changes safer to make, and reviews more effective. The goal is not to make every line verbose. The goal is to make the purpose, assumptions, and important decisions apparent with the least unnecessary effort.
+
+A useful rule is: **write code for the next reader, including the future version of yourself.** Do not assume that you will remember why a calculation, condition, workaround, or unusual choice was made.
+
+### Names communicate purpose
+
+Choose names that describe meaning rather than merely recording a type, position, or implementation detail.
+
+Prefer:
+
+- `student_score` over `x` when the value represents a student's score.
+- `active_student_count` over `n` when the value counts active students.
+- `calculate_average_score` over `do_stuff` for a function that calculates an average.
+- `is_file_readable` over `check` for a function that returns whether a file can be read.
+- `MAX_RETRY_ATTEMPTS` over `m` for a constant that defines a retry limit.
+
+Names should be precise and honest. A variable called `total_price` should not hold a quantity; a function called `save_record` should not also send an email unless that behavior is clear in its name and documentation.
+
+Follow the naming conventions of the language and project. Examples include snake_case in Python and many C projects, camelCase in JavaScript, TypeScript, Java, and Kotlin, PascalCase for many class and type names in C# and other ecosystems, and the conventions of the relevant standard library. Consistency within a project is more valuable than imposing a personal style that conflicts with its conventions.
+
+Avoid both extremes:
+
+- Names that are too short to convey meaning, except for conventional short-lived loop indices or established mathematical notation.
+- Names that repeat obvious context or become entire sentences. A name should be informative, not a paragraph.
+
+Use domain vocabulary consistently. If the project calls a person a `student`, do not alternate among `learner`, `user`, `record`, and `person` for the same concept without a reason.
+
+### Functions should have clear responsibilities
+
+A function name should describe the action or result. Its parameters should make the required inputs clear, and its return value should communicate the result. Prefer a function with one coherent responsibility over a long function that validates input, calculates a result, writes a file, prints a report, and changes unrelated state.
+
+For example, the following pseudocode hides its purpose:
+
+```text
+function process(a, b):
+    return a * b * 0.15
+```
+
+A clearer version communicates the domain meaning:
+
+```text
+function calculate_sales_tax(item_price, tax_rate):
+    return item_price * tax_rate
+```
+
+The second version also avoids hiding the tax rate inside the function. A caller can see which rate is being used and tests can supply different rates.
+
+A function should make its important behavior predictable. Be especially clear about whether it changes data, writes files, sends network requests, prints output, or modifies shared state. These are side effects; they should not be surprising.
+
+### Use types and contracts to make assumptions visible
+
+When a language supports static types, use them to express the kinds of values a function expects and returns. Types help readers, editors, compilers, and static-analysis tools detect mistakes before a program runs.
+
+For example, a TypeScript function can make its contract explicit:
+
+```typescript
+function calculateAverage(scores: number[]): number {
+    if (scores.length === 0) {
+        throw new Error("At least one score is required.");
+    }
+
+    const total = scores.reduce((sum, score) => sum + score, 0);
+    return total / scores.length;
+}
+```
+
+The parameter type says that `scores` is an array of numbers; the return type says that the function produces a number. The empty-list check documents and enforces an important precondition.
+
+Python is dynamically typed, but it supports optional type annotations:
+
+```python
+def calculate_average(scores: list[float]) -> float:
+    """Return the arithmetic mean of a non-empty list of scores."""
+    if not scores:
+        raise ValueError("At least one score is required.")
+
+    return sum(scores) / len(scores)
+```
+
+Python does not enforce these annotations at runtime by default. Tools such as type checkers and IDEs can use them to find inconsistencies. Runtime validation is still necessary when data comes from files, users, networks, or other untrusted sources.
+
+Other languages express contracts in different ways:
+
+- Java, Kotlin, C#, Swift, Go, Rust, C, and C++ use declarations and type systems to communicate parameter, return, field, and variable types. Use the language's normal type system rather than obscuring it with unnecessary conversions or overly broad types.
+- JavaScript does not have built-in static type annotations in ordinary JavaScript syntax. Use clear object shapes, JSDoc annotations where useful, runtime validation for external data, or TypeScript when static checking is appropriate.
+- Lua and R are dynamically typed. Use clear names, documentation, assertions or validation at boundaries, and any maintained static-analysis or annotation conventions adopted by the project.
+- SQL schemas communicate data types, nullability, keys, and constraints. Give columns meaningful names and declare constraints that express valid data.
+- Bash and PowerShell benefit from descriptive parameter names, parameter types or validation attributes where supported, and explicit checks for required inputs.
+
+Do not add annotations merely to decorate code. They should make a real contract clearer. A type annotation is not a substitute for validating untrusted input, and a declared type does not explain business rules such as allowed ranges or relationships between values.
+
+### Comments: explain what the code cannot say clearly
+
+Self-documenting code does not mean comment-free code. It means that names and structure explain the straightforward parts, leaving comments to explain information that code alone cannot communicate well.
+
+Useful comments explain:
+
+- **Why:** the reason for a non-obvious decision, trade-off, workaround, or constraint.
+- **Assumptions:** conditions the code relies on but cannot fully enforce.
+- **Risks:** important edge cases, security concerns, or data-integrity requirements.
+- **Intent:** why a particular algorithm or unusual approach was chosen instead of an obvious alternative.
+- **Public behavior:** how a reusable function, module, or API should be called, including meaningful preconditions, return values, exceptions, and side effects.
+
+For example, this comment adds little:
+
+```python
+# Add one to count.
+count += 1
+```
+
+The code already says exactly that. A more useful comment records the reason for a less obvious rule:
+
+```python
+# The source file numbers its first record as 1; convert to
+# Python's zero-based index before selecting the row.
+row_index = source_record_number - 1
+```
+
+Do not write comments that merely paraphrase each line. They become stale when code changes and can mislead the next reader. If a comment is needed to explain a complicated block, first consider whether clearer names, a smaller function, or a simpler algorithm would make the code easier to understand.
+
+Keep comments accurate. Update or remove them when behavior changes. A wrong comment is worse than no comment because it teaches the reader an incorrect explanation.
+
+### Documentation for reusable code
+
+Use the documentation conventions of the language and project:
+
+- Python: docstrings for public modules, classes, and functions; type annotations for parameters and return values.
+- Java: Javadoc for public APIs and meaningful method contracts.
+- JavaScript and TypeScript: JSDoc where it adds information beyond the code and TypeScript signatures.
+- C and C++: project-standard API comments, often in header files, with clear ownership and lifetime expectations where relevant.
+- C#: XML documentation comments for public APIs.
+- Kotlin: KDoc for public declarations.
+- Swift: documentation comments for public APIs, including parameter and return descriptions where useful.
+- Go: doc comments for exported identifiers, following Go conventions.
+- Rust: rustdoc comments for public items, including examples when they clarify usage.
+- Julia: docstrings for functions and types.
+- Lua: project-consistent API comments and examples.
+- R: roxygen2 or the documentation convention used by the package.
+- SQL: schema comments and migration notes where supported, plus clear query and report documentation.
+- Bash and PowerShell: comments and help metadata for scripts and reusable functions; PowerShell functions can use comment-based help.
+
+Document public contracts and surprising behavior. Do not write a paragraph for every obvious private helper. Documentation should answer questions a caller cannot reliably infer from the signature: what the function does, what inputs mean, what it returns, what it changes, and what errors or limitations matter.
+
+### Worked Example: make a future change understandable
+
+Consider this deliberately unclear Python code:
+
+```python
+def f(a, b):
+    c = 0
+    for x in a:
+        if x >= b:
+            c += x
+    return c
+```
+
+A reader must infer what `a`, `b`, `c`, and `x` represent, what the comparison means, and why only some values are included.
+
+A more maintainable version is:
+
+```python
+def sum_scores_at_or_above(
+    scores: list[int],
+    minimum_score: int
+) -> int:
+    """Return the sum of scores meeting the inclusive minimum."""
+    qualifying_score_total = 0
+
+    for score in scores:
+        if score >= minimum_score:
+            qualifying_score_total += score
+
+    return qualifying_score_total
+```
+
+The function name, parameter names, local variable, type annotations, and docstring communicate the intent. The comparison is inclusive, and the docstring records that contract. A separate comment is unnecessary because the code already expresses the rule clearly.
+
+If a future requirement changes the threshold rule, a maintainer can find the comparison quickly and understand what it means. Good names and structure reduce the chance of changing the wrong behavior.
+
+### Practical rules for code you will revisit in six months
+
+Before considering a piece of code finished, ask:
+
+1. Can a reader understand the purpose of each important variable without tracing every assignment?
+2. Does each function name describe its behavior accurately?
+3. Are parameters and return values clear from names and types?
+4. Are important assumptions, valid ranges, and failure cases explicit?
+5. Are side effects—file access, output, network calls, and state changes—obvious?
+6. Does each comment explain a reason, constraint, or contract rather than repeat syntax?
+7. Would a comment become misleading if the implementation changed?
+8. Can a complicated block be simplified or given a meaningful helper function?
+9. Are names and formatting consistent with the language and project?
+10. Could you safely make a small change after not seeing this code for six months?
+
+Readable code is not necessarily the code with the most comments or the longest names. It is code whose intent and constraints are easy to recover.
+
+### Common Mistakes
+
+- Using single-letter names for values whose meaning is not conventional or obvious.
+- Naming a function after its implementation rather than its purpose.
+- Using vague verbs such as `process`, `handle`, or `do_work` when a more precise name is possible.
+- Writing comments that repeat the next line of code.
+- Leaving comments in place after the implementation has changed.
+- Treating type annotations as runtime validation of external data.
+- Giving a function several unrelated responsibilities and relying on comments to explain the complexity.
+- Omitting important side effects, assumptions, units, or boundary conditions from public API documentation.
+- Renaming code inconsistently so the same concept has several names in one project.
+
+### Activities
+
+1. **Name the intent.** Rewrite these names for a program that manages student scores: `x`, `do_it`, `temp2`, `n`, and `flag`. State what each value or operation represents.
+2. **Comment audit.** Write three lines of code with comments that simply repeat them. Remove the comments and improve the names instead. Then write one comment that explains a non-obvious reason or constraint.
+3. **Function contract.** Design a function that converts a temperature from Celsius to Fahrenheit. Write a clear function name, parameter name, return type or type annotation where supported, and a one-sentence description of its behavior.
+4. **Six-month test.** Select an earlier exercise. Without running it first, read the code and write down what each function and important variable does. Revise unclear names and add only comments that explain intent or assumptions.
+5. **Language comparison.** In your chosen language, identify how a function declares parameter types and return types, and how public functions or modules are documented. If the language is dynamically typed, identify the validation and documentation conventions used instead.
+
+### Accessibility Practice
+
+Read one of your programs from top to bottom using your normal screen-reader or text-navigation workflow. Check that names are pronounceable and distinguishable when spoken, that abbreviations are understandable, and that comments do not create unnecessary noise. Avoid names that differ only by capitalization or a single easily confused character. Use punctuation and underscores consistently so names are easier to navigate and dictate. Ask another learner to explain the program using only its names, signatures, and documentation before consulting the implementation.
+
+### Skills Checklist
+
+- [ ] I can explain why code must be understandable to a future reader and to my future self.
+- [ ] I can choose meaningful names for variables, functions, classes, and constants.
+- [ ] I can describe the purpose and side effects of a function.
+- [ ] I can use the type system or annotation conventions of my language to clarify contracts.
+- [ ] I can distinguish useful comments from comments that merely restate the code.
+- [ ] I can document public behavior, assumptions, and important constraints.
+- [ ] I can review an earlier program and improve its readability without changing its behavior.
+
 ## Unit P Glossary (Quick Reference)
 
 - **Algorithm:** an ordered, finite set of clear steps that solves a problem.
@@ -542,6 +791,9 @@ Create a small text file with three lines, save it, and read it back in the term
 - **Function:** a named, reusable block of code.
 - **Index:** a position in an ordered collection.
 - **Interpreter:** a tool that carries out source code while the program runs.
+- **Self-documenting code:** code whose names, structure, types, and interfaces communicate its intent with minimal need for explanatory comments.
+- **Side effect:** an observable change made by a function beyond returning a value, such as writing a file, printing output, or modifying shared state.
+- **Type annotation:** optional or required syntax that states the expected type of a variable, parameter, or return value.
 - **Parameter:** a name in a function's definition for an expected input.
 - **Pseudocode:** structured plain-language description of an algorithm.
 - **Statement:** a complete instruction that performs an action.
