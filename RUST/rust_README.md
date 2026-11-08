@@ -37,3 +37,9 @@ See the shared [GUI, visualization, and workbench accessibility reference](../DE
 
 AI may be used only for personal conceptual understanding and reinforcement. It must not write, complete, autocomplete, repair, or generate course code or assessment solutions.
 >>>>>>> 2067a20 (curriculum clearning and updates)
+
+## Recommended introductory books
+
+- Klabnik, Steve, Carol Nichols, and Chris Krycho, with contributions from the Rust community. *The Rust Programming Language*. No Starch Press; continuously maintained online edition. The official Rust book introduces ownership, borrowing, types, structs, enums, pattern matching, error handling, generics, and Cargo through sequential explanations and projects. [Free official online edition](https://doc.rust-lang.org/book/).
+
+**Prerequisite note:** the official Rust book explicitly recommends that readers who are entirely new to programming first study a general programming introduction. Complete the shared computing foundations and an introductory language pathway if concepts such as variables, functions, collections, and control flow are unfamiliar. Then use this book alongside the course's Rust lessons. Check its stated Rust version against the course toolchain.
