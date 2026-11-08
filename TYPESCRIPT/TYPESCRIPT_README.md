@@ -180,6 +180,12 @@ node scripts/check_typescript_curriculum.mjs
 
 The checker verifies all 57 lesson structures and type-checks isolated TypeScript examples in strict mode. It does not execute examples or assert their expected output; runtime and end-to-end testing remain separate verification tasks.
 
+## Recommended introductory books
+
+- Goldberg, Josh. *Learning TypeScript*. O'Reilly Media, 2022. A practical guide to TypeScript's type system, inference, unions, narrowing, generics, and integration with JavaScript. [Publisher page](https://www.oreilly.com/library/view/learning-typescript/9781098110321/).
+
+**Prerequisite note:** this book is most useful after learners understand basic JavaScript syntax, values, functions, arrays, objects, and modules. Complete the JavaScript foundations first or use the JavaScript curriculum as a companion. TypeScript's types are primarily checked at compile time; pair the book with this curriculum's explanations of runtime validation and JavaScript execution.
+
 ## Further learning
 
 Use [MDN's TypeScript Guide](https://developer.mozilla.org/en-US/docs/Web/TypeScript/Guide) for language concepts and the [Node.js documentation](https://nodejs.org/docs/) for runtime APIs. [Eloquent TypeScript](https://eloquenttypescript.net/) is a further introductory text. Check version-specific documentation when examples depend on newer features.
