@@ -143,6 +143,12 @@ The capstone should include a written problem statement, requirements, input/out
 
 AI may be used by students only for personal conceptual explanations and reinforcement. It may not write, autocomplete, repair, complete, or generate course code or assessment solutions. Students must independently produce and explain submitted code. Never enter personal information, student records, credentials, private code, or confidential data into public AI services. The [teacher's guide](teachers-guide.md) provides the instructor protocol.
 
+## Recommended introductory books
+
+- Haverbeke, Marijn. *Eloquent JavaScript: A Modern Introduction to Programming*, 4th edition. No Starch Press, 2024. A current, exercise-rich introduction to JavaScript fundamentals, browser programming, and Node.js. The full text is available online. [Book site](https://eloquentjavascript.net/) and [publisher page](https://nostarch.com/eloquent-javascript-4th-edition/).
+
+**Suggested use:** this is the primary supplementary book for the JavaScript track. Its examples include browser-based work; learners following this course should prioritize the language fundamentals and Node.js-compatible examples before attempting activities that depend on browser interfaces. Pair it with the course lessons for the specific accessible terminal workflow and assessment expectations.
+
 ## Further learning
 
 Use [MDN's JavaScript Guide](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide) for language concepts and the [Node.js documentation](https://nodejs.org/docs/) for runtime APIs. [Eloquent JavaScript](https://eloquentjavascript.net/) is a further introductory text. Check version-specific documentation when examples depend on newer features.
