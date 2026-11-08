@@ -9,7 +9,7 @@
 [![PRs welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg)](CONTRIBUTING.md)
 [![Build and deploy mdBook](https://github.com/mrhunsaker/VI_Focused_Coding_Curricula/actions/workflows/mdbook.yml/badge.svg)](https://github.com/mrhunsaker/VI_Focused_Coding_Curricula/actions/workflows/mdbook.yml)
 
-An accessibility-first, open educational resource for learning introductory computer science through **Python, JavaScript, TypeScript, and Java**. It is designed especially for learners who are blind or visually impaired and use screen readers, while remaining useful to anyone who prefers keyboard-first, text-based instruction.
+An accessibility-first, open educational resource for learning computer science and software development. The repository brings together **13 language curricula**, focused modules in **HTML/CSS, R, and SQL**, and prerequisite **Bash and PowerShell** terminal tracks. It is designed especially for learners who are blind or visually impaired and use screen readers, while remaining useful to anyone who prefers keyboard-first, text-based instruction.
 
 **Read the living textbook:** [https://mrhunsaker.github.io/VI_Focused_Coding_Curricula/](https://mrhunsaker.github.io/VI_Focused_Coding_Curricula/)
 
@@ -17,16 +17,12 @@ An accessibility-first, open educational resource for learning introductory comp
 
 This repository is a **living textbook published with mdBook**. It is intentionally an **mdBook project, not a GitBook project**. mdBook turns the repository's Markdown lessons into a structured, navigable book and static website. GitHub Actions builds the book and publishes it to GitHub Pages.
 
-The textbook is intended to evolve continuously. Explanations, examples, exercises, accessibility guidance, references, and learning paths can be corrected and extended over time. The Markdown files and configuration in this repository are the source of truth; the published site is the rendered reading experience. Contributions should improve the source materials and their accessibility, not edit generated website output.
-
-## Student reference tools
-
-Each language curriculum has a topic index mapping terms, APIs, setup tasks, and concepts to the lessons where they are taught. The shared [Programming Code Glossary](backmatter/GLOSSARY.md) provides explicit definitions organized by language, with cross-language distinctions. These references are intended for use throughout the course.
+The Markdown files and configuration in this repository are the maintained source of truth. The textbook is intended to evolve continuously as explanations, examples, exercises, accessibility guidance, references, and learning pathways are reviewed and improved. Contributions should improve the source materials and their accessibility, not edit generated website output.
 
 ## Purpose and principles
 
 - **Accessible by design:** prioritize screen-reader compatibility, semantic structure, descriptive links, keyboard operation, and text-based workflows.
-- **Teach transferable computer science:** introduce core programming concepts through four widely used languages.
+- **Teach transferable computer science:** explain programming, data, algorithms, software design, development tools, testing, and debugging through languages used in different technical domains.
 - **Practice-first learning:** support concepts with runnable examples, guided exercises, projects, and capstone work.
 - **Keep it living:** welcome corrections, clearer explanations, new examples, improved exercises, and updates as tools and language ecosystems change.
 - **Build in the open:** invite learners, educators, developers, and accessibility practitioners to participate.
@@ -34,39 +30,89 @@ Each language curriculum has a topic index mapping terms, APIs, setup tasks, and
 
 ## Intended audience
 
-The primary audience is beginning programmers, including students who are blind or visually impaired and use screen readers such as NVDA, JAWS, VoiceOver, or Narrator. Educators adapting introductory computer science instruction and self-directed learners may also use the material.
+The primary audience includes learners who are blind or visually impaired and use screen readers such as NVDA, JAWS, VoiceOver, or Narrator. Educators adapting computer science instruction and self-directed learners may also use the material. The curriculum assumes no previous programming experience for its introductory learning paths, while its broader language coverage also supports learners pursuing particular technical interests.
 
-The lessons emphasize keyboard-first development, accessible editor and terminal workflows, text output, explicit instructions, and interpreting error messages. Visual Studio Code is the primary editor in many examples; [Theia IDE](https://theia-ide.org/#theiaide) is another option and supports the keyboard- and screen-reader-oriented workflows used in this course. Verify the specific language extensions and screen-reader behavior in your environment. JetBrains IDEs are intentionally not recommended for this introductory course because their feature depth can overwhelm beginning learners. Accessibility support varies across operating systems, editor versions, screen readers, and language tooling; consult the relevant tool documentation when your environment differs from the examples.
+The lessons emphasize keyboard-first development, accessible editor and terminal workflows, text output, explicit instructions, and interpreting error messages. Visual Studio Code is the primary editor in many examples; [Theia IDE](https://theia-ide.org/#theiaide) is another option. Project-defined development containers are emphasized where a consistent compiler, runtime, linter, formatter, and test toolchain is required. The IDE guide also discusses JetBrains products, Databricks, and other specialist environments by their professional roles; it does not provide setup instructions for those products.
 
-## What's in the textbook
+Accessibility support varies across operating systems, editor versions, screen readers, and language tooling. Consult the relevant tool documentation and validate workflows in the learner's actual environment.
 
-The current book includes an overview and four language curricula, organized into 19 unit documents, plus an optional post-capstone Kotlin supplement for Java learners.
+## Curriculum scope
 
-| Curriculum | Coverage |
+The textbook is organized into three complementary kinds of learning material:
+
+1. **Full language curricula:** structured courses with language-specific lesson sequences, examples, indexes, and supporting materials.
+2. **Focused technology modules:** targeted introductions to web structure and styling, statistical computing, and relational databases.
+3. **Shared prerequisites and development practices:** computing foundations, terminal skills, editors, project environments, containers, and cross-language workflow.
+
+### Full language curricula
+
+| Language | Primary usage and domain | Representative software, platforms, or projects associated with it |
+| --- | --- | --- |
+| [Python](PYTHON/PYTHON_README.md) | Automation, scripting, web services, scientific computing, data analysis, and machine learning | Django and Flask services; scientific and data ecosystems such as NumPy, pandas, and PyTorch; automation tools |
+| [JavaScript](JAVASCRIPT/JAVASCRIPT_README.md) | Browser-based interaction, web applications, server-side JavaScript, and developer tooling | Node.js, React-based applications, browser applications, and tools such as ESLint |
+| [TypeScript](TYPESCRIPT/TYPESCRIPT_README.md) | Statically checked application development across large JavaScript codebases, web front ends, and server applications | Visual Studio Code, Angular applications, and TypeScript-based Node.js services |
+| [Java](JAVA/JAVA_README.md) | Enterprise services, large application systems, backend platforms, and Android ecosystem development | Minecraft: Java Edition, Elasticsearch, and many Spring-based enterprise services |
+| [Kotlin](KOTLIN/KOTLIN_README.md) | Android application development, JVM services, and multiplatform application development | Android applications, Gradle build tooling, and Kotlin-based server services |
+| [C](C/c_README.md) | Operating systems, embedded systems, systems interfaces, and performance-sensitive libraries | Linux kernel components, CPython implementation components, and embedded firmware |
+| [C++](CPP/cpp_README.md) | Game engines, graphics, browsers, desktop software, and performance-intensive systems | Unreal Engine, Chromium components, and major desktop or graphics applications |
+| [C#](CSHARP/csharp_README.md) | .NET business applications, cloud services, desktop software, and game development | Unity projects, ASP.NET Core services, and .NET desktop applications |
+| [Julia](JULIA/julia_README.md) | Numerical computing, scientific simulation, optimization, and technical research | Julia scientific-computing packages and SciML ecosystem projects |
+| [Swift](SWIFT/swift_README.md) | Apple-platform applications and systems programming | iOS, iPadOS, macOS, watchOS, and tvOS applications |
+| [Rust](RUST/rust_README.md) | Systems software, command-line tools, infrastructure, and performance-sensitive services | ripgrep, parts of Firefox, and infrastructure tooling |
+| [Go](GO/GO_README.md) | Cloud infrastructure, network services, command-line tools, and concurrent backend systems | Docker, Kubernetes, and Prometheus |
+| [Lua](LUA/LUA_README.md) | Embedded scripting, game logic, configuration, and extensible applications | Roblox experiences, Neovim configuration, and applications embedding Lua |
+
+These examples illustrate common uses and notable projects; they do not imply that an entire product is written in one language. Production systems routinely combine languages and technologies.
+
+### Focused technology modules
+
+| Technology | Primary usage and role | Representative software or platforms |
+| --- | --- | --- |
+| [HTML and CSS](MODULES/HTML_CSS.md) | HTML structures web content; CSS controls presentation, layout, and responsive styling. They are foundational web technologies rather than general-purpose programming languages. | Websites, web applications, browser interfaces, and design systems |
+| [R](MODULES/R.md) | Statistical analysis, data visualization, research computing, and reproducible reports | RStudio/Posit, the tidyverse, and Bioconductor |
+| [SQL](MODULES/SQL.md) | Declarative querying, defining, and managing relational data | PostgreSQL, SQLite, MySQL, SQL Server, and applications backed by relational databases |
+
+### Terminal and shared development foundations
+
+| Material | Role |
 | --- | --- |
-| [Python](PYTHON/PYTHON_README.md) | Accessible setup; computing foundations; numeric programs; control flow; data structures; input and functions; object-oriented programming; files, exceptions, and testing; projects and capstone |
-| [JavaScript](JAVASCRIPT/JAVASCRIPT_README.md) | Setup and foundations; numbers and input; control flow; arrays and objects; functions; classes; files and errors; modules, collections, testing, projects, and capstone |
-| [TypeScript](TYPESCRIPT/TYPESCRIPT_README.md) | Node.js and TypeScript setup; type annotations and inference; input; control flow; data structures; functions; classes; files; modules; collections; testing; projects and capstone |
-| [Java](JAVA/JAVA_README.md) | Setup and foundations; numeric programs; control flow; arrays and collections; input and strings; methods; object-oriented programming; files and exceptions; projects and capstone |
+| [Computing foundations](FOUNDATIONS/FOUNDATIONS_README.md) | Concepts and vocabulary that apply across languages and tools |
+| [Bash track](TERMINAL/bash.md) | Shell commands and scripting workflows commonly used on macOS and Linux |
+| [PowerShell track](TERMINAL/powershell.md) | Cross-platform and Windows administration and development workflows |
+| [IDE and editor guide](DEVELOPMENT/IDE_SETUP.md) | VS Code and Theia workflows, plus professional IDE and data-platform context |
+| [Environment isolation guide](DEVELOPMENT/ENVIRONMENT_ISOLATION.md) | Project dependencies, reproducibility, development containers, Docker, and Podman |
 
-Start with the [curriculum overview](OVERALL_README.md), then choose a language:
+Bash and PowerShell are shell languages used to operate systems and automate workflows. They are taught as shared prerequisites because learners need to navigate projects, run tools, inspect files, and interpret command output across the language curricula.
 
-- [Python curriculum and units](PYTHON/PYTHON_README.md)
-- [JavaScript curriculum and units](JAVASCRIPT/JAVASCRIPT_README.md)
-- [TypeScript curriculum and units](TYPESCRIPT/TYPESCRIPT_README.md)
-- [Java curriculum and units](JAVA/JAVA_README.md)
-- [Optional Kotlin post-capstone supplement](JAVA/kotlin.md)
+## How to use the curriculum
 
-The [mdBook table of contents](SUMMARY.md) defines the published book's navigation.
+Start with the [curriculum overview](OVERALL_README.md), complete the [terminal prerequisite](TERMINAL/TERMINAL_README.md), and review the computing foundations. Then select a language or focused module according to the work you want to understand. The curricula are not a ranking and are not intended to be completed all at once. A learner should select a relevant path, build a solid working understanding, and then compare concepts across other languages as useful.
+
+Examples of choosing by intended use:
+
+- **Automation, data work, or machine learning:** Python; add R for statistical analysis or Julia for numerical and scientific computing.
+- **Web application development:** JavaScript and TypeScript, alongside the HTML/CSS module and SQL when persistent relational data is needed.
+- **Enterprise and JVM applications:** Java or Kotlin.
+- **Android and Apple platforms:** Kotlin for Android-focused development; Swift for Apple-platform development.
+- **Operating systems, embedded devices, and systems software:** C, C++, or Rust, depending on ecosystem, constraints, and safety requirements.
+- **Cloud services and infrastructure tooling:** Go, Java, Python, Rust, or C# depending on the platform and system requirements.
+- **Game development and embedded application scripting:** C++, C#, and Lua have distinct roles across engines, application code, and scripting.
+- **Relational data:** SQL is a focused companion to application languages rather than a replacement for them.
+
+These are orientation points, not exclusive boundaries. Language selection should reflect the problem domain, deployment target, existing codebase, team expertise, performance and safety requirements, and available libraries.
+
+## Student reference tools
+
+Each language curriculum includes a topic index mapping terms, APIs, setup tasks, and concepts to the lessons where they are taught. The shared [Programming Code Glossary](backmatter/GLOSSARY.md) defines common and language-specific terminology. The [mdBook table of contents](SUMMARY.md) is the authoritative navigation for the published textbook.
 
 ## Accessibility approach
 
 The curricula share these practical principles:
 
-1. Use editor accessibility features such as Visual Studio Code's Screen Reader Optimized Mode or the corresponding accessibility settings in Theia IDE where available.
+1. Use editor accessibility features such as Visual Studio Code's Screen Reader Optimized Mode or corresponding accessibility settings in Theia IDE where available.
 2. Prefer keyboard navigation and document relevant commands where they are part of a lesson.
 3. Explain indentation, braces, punctuation, and other code structure that assistive technologies may announce differently.
-4. Keep core exercises runnable in a terminal and make program output text-based.
+4. Keep core exercises runnable in a terminal and make program output text-based wherever practical.
 5. Use descriptive headings, ordered steps, meaningful link labels, and properly fenced code blocks.
 6. Treat debugging and reading error messages as teachable skills; do not rely on screenshots or color alone to convey essential information.
 
@@ -78,7 +124,7 @@ Accessibility is an ongoing quality goal, not a claim that every page or third-p
 - **Content:** Markdown files in this repository
 - **Hosting:** GitHub Pages
 - **Automation:** GitHub Actions
-- **Curriculum languages:** Python, JavaScript (Node.js), TypeScript (compiled to JavaScript and run with Node.js), and Java
+- **Curriculum:** 13 full language curricula, focused HTML/CSS, R, and SQL modules, and Bash/PowerShell terminal tracks
 
 To build locally:
 
@@ -90,7 +136,7 @@ To build locally:
 mdbook build
 ```
 
-Windows Powershell
+On Windows PowerShell, the command is the same:
 
 ```powershell
 mdbook build
@@ -102,7 +148,7 @@ The generated `book/` directory is build output and is intentionally ignored by 
 
 ## Contribute to the living textbook
 
-Contributions are welcome. You do not need to be an expert in all four curricula. A focused correction to one explanation, a reproducible example, a screen-reader usability report, or a better exercise can make the book more useful.
+Contributions are welcome. You do not need to work across every language or technology. A focused correction to one explanation, a reproducible example, a screen-reader usability report, or a better exercise can make the book more useful.
 
 - **Discussions:** ask questions, propose ideas, compare learning approaches, and discuss the textbook's direction in [GitHub Discussions](https://github.com/mrhunsaker/VI_Focused_Coding_Curricula/discussions).
 - **Issues:** report errors, broken links, outdated setup instructions, unclear explanations, missing topics, or accessibility barriers in [GitHub Issues](https://github.com/mrhunsaker/VI_Focused_Coding_Curricula/issues).
@@ -115,20 +161,33 @@ Read [CONTRIBUTING.md](CONTRIBUTING.md), [CODE_STYLE.md](CODE_STYLE.md), and [CO
 ```text
 .
 ├── OVERALL_README.md       # Curriculum overview included in the mdBook
-├── SUMMARY.md              # mdBook table of contents
+├── SUMMARY.md              # Complete mdBook table of contents
 ├── book.toml               # mdBook configuration
-├── PYTHON/                 # Python curriculum and units
-├── JAVASCRIPT/             # JavaScript curriculum and units
-├── JAVA/                   # Java curriculum, units, and Kotlin supplement
-├── TYPESCRIPT/             # TypeScript curriculum and units
-├── TERMINAL/               # Bash and PowerShell prerequisite lessons
+├── FOUNDATIONS/            # Shared computing foundations
+├── TERMINAL/               # Bash and PowerShell prerequisite tracks
+├── DEVELOPMENT/            # IDE, project environments, containers, and audits
+├── PYTHON/                 # Python curriculum
+├── JAVASCRIPT/             # JavaScript curriculum
+├── TYPESCRIPT/             # TypeScript curriculum
+├── JAVA/                   # Java curriculum
+├── KOTLIN/                 # Kotlin curriculum
+├── C/                      # C curriculum
+├── CPP/                    # C++ curriculum
+├── CSHARP/                 # C# curriculum
+├── JULIA/                  # Julia curriculum
+├── SWIFT/                  # Swift curriculum
+├── RUST/                   # Rust curriculum
+├── GO/                     # Go curriculum
+├── LUA/                    # Lua curriculum
+├── MODULES/                # HTML/CSS, R, and SQL focused modules
+├── backmatter/             # Glossary, indexes, and teacher resources
 ├── .github/workflows/      # mdBook build and GitHub Pages deployment
 ├── CHANGES.md              # Project change log
 ├── CONTRIBUTING.md         # Contribution process
 ├── CODE_STYLE.md           # Editorial and code-example conventions
 ├── CODE_OF_CONDUCT.md      # Community standards
 ├── SECURITY.md             # Security reporting policy
-└── LICENSE                 # Apache License 2.0
+└── LICENSE                 # Project license
 ```
 
 `cs_curriculum_final/` is a reference-only directory from the original conversion work. It is not part of the published book and must not be modified during routine curriculum contributions.
@@ -139,12 +198,12 @@ Read [CONTRIBUTING.md](CONTRIBUTING.md), [CODE_STYLE.md](CODE_STYLE.md), and [CO
 - [Contribution Guide](CONTRIBUTING.md)
 - [Code and Editorial Style](CODE_STYLE.md)
 - [Security Policy](SECURITY.md)
-- [Apache License 2.0](LICENSE)
+- [Project License](LICENSE)
 
 ## Acknowledgments and learning references
 
-The curriculum overview identifies source texts and documentation that informed the materials, including Python programming texts, *Introduction to Programming Using Java*, and MDN Web Docs. See [OVERALL_README.md](OVERALL_README.md) and each language landing page for curriculum-specific references. Preserve appropriate attribution when improving or extending material.
+The curriculum overview and individual language pages identify source texts and official documentation that inform the materials. Preserve appropriate attribution when improving or extending material.
 
 ---
 
-This is an open, evolving textbook. If you find it useful, help make the next version clearer, more accessible, and more complete.
+This is an open, evolving textbook. Contributions can improve any language path, focused module, shared prerequisite, or accessibility practice.
