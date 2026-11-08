@@ -79,6 +79,13 @@ A database client should expose query editors, result grids, errors, and schema 
 5. Join two tables using a foreign-key relationship.
 6. Explain how a parameterized query protects user-supplied values.
 
+## Recommended introductory books
+
+- Beaulieu, Alan. *Learning SQL*, 3rd edition. O'Reilly Media, 2020. A beginner-oriented introduction to relational database concepts, schema creation, data manipulation, joins, and querying. [Publisher page](https://www.oreilly.com/library/view/learning-sql-3rd/9781492057604/).
+- Viescas, John L. *SQL Queries for Mere Mortals: A Hands-On Guide to Data Manipulation in SQL*, 4th edition. Addison-Wesley Professional, 2018. A step-by-step treatment of relational thinking and query construction. [Publisher page](https://www.pearson.com/en-us/subject-catalog/p/sql-queries-for-mere-mortals-a-hands-on-guide-to-data-manipulation-in-sql/P200000000665).
+
+**Suggested use:** *Learning SQL* is a suitable primary companion for the module. *SQL Queries for Mere Mortals* provides additional practice in reasoning about queries and relational structures. Both books discuss particular database implementations; SQL dialects differ, so check syntax against the database engine used in a project.
+
 ## Further learning
 
 - [PostgreSQL documentation](https://www.postgresql.org/docs/)
