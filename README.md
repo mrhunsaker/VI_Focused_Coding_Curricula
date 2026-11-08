@@ -103,7 +103,7 @@ These are orientation points, not exclusive boundaries. Language selection shoul
 
 ## Student reference tools
 
-Each language curriculum includes a topic index mapping terms, APIs, setup tasks, and concepts to the lessons where they are taught. The shared [Programming Code Glossary](backmatter/GLOSSARY.md) defines common and language-specific terminology. The [mdBook table of contents](SUMMARY.md) is the authoritative navigation for the published textbook.
+Each language curriculum includes a topic index mapping terms, APIs, setup tasks, and concepts to the lessons where they are taught. Each language and focused-module introduction also provides a curated bibliography of introductory books, with notes on edition, prerequisites, and version differences where relevant. The Foundations introduction and Bash/PowerShell tracks include their own reading recommendations. The shared [Programming Code Glossary](backmatter/GLOSSARY.md) defines common and language-specific terminology. The [mdBook table of contents](SUMMARY.md) is the authoritative navigation for the published textbook.
 
 ## Accessibility approach
 
