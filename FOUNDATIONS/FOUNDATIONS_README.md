@@ -23,6 +23,7 @@ The following books provide complementary views of computer science. They are no
 - P.4 The Shared Vocabulary of Programming
 - P.5 From Source Code to Running Program
 - P.6 Files, Data Formats, and Reading Code Without Sight
+- P.7 Self-Documenting Code, Naming, Types, and Comments
 
 ## Design notes
 
