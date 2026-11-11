@@ -26,8 +26,6 @@ std::istringstream input("16"); int age = 0; if (!(input >> age) || age < 0 || a
 
 **Trace:** predict the output before compiling. Identify declarations, values, control-flow decisions, and state changes in order. Then compile and compare actual output with the prediction. The lesson example is intended to be independently compilable.
 
-<<<<<<< HEAD
-=======
 ### Expected Behavior or Output
 
 Output observed when the worked example was run with empty standard input (g++ 13.3, C++20; the text of the output does not depend on the operating system):
@@ -36,7 +34,6 @@ Output observed when the worked example was run with empty standard input (g++ 1
 Accepted age: 16
 ```
 
->>>>>>> 2067a20 (curriculum clearning and updates)
 ### Common Mistakes
 - Validate extraction and the allowed range.
 - Handle conversion exceptions.
@@ -80,8 +77,6 @@ std::istringstream input("1 2 3 0"); int value = 0, total = 0; while (input >> v
 
 **Trace:** predict the output before compiling. Identify declarations, values, control-flow decisions, and state changes in order. Then compile and compare actual output with the prediction. The lesson example is intended to be independently compilable.
 
-<<<<<<< HEAD
-=======
 ### Expected Behavior or Output
 
 Output observed when the worked example was run with empty standard input (g++ 13.3, C++20; the text of the output does not depend on the operating system):
@@ -90,7 +85,6 @@ Output observed when the worked example was run with empty standard input (g++ 1
 Sum before sentinel: 6
 ```
 
->>>>>>> 2067a20 (curriculum clearning and updates)
 ### Common Mistakes
 - Update the loop condition and sentinel correctly.
 - Decide whether the sentinel is data.
@@ -134,8 +128,6 @@ const std::vector<std::string> names{"Avery", "Jordan", "Sam"}; bool found = fal
 
 **Trace:** predict the output before compiling. Identify declarations, values, control-flow decisions, and state changes in order. Then compile and compare actual output with the prediction. The lesson example is intended to be independently compilable.
 
-<<<<<<< HEAD
-=======
 ### Expected Behavior or Output
 
 Output observed when the worked example was run with empty standard input (g++ 13.3, C++20; the text of the output does not depend on the operating system):
@@ -144,7 +136,6 @@ Output observed when the worked example was run with empty standard input (g++ 1
 Jordan found: true
 ```
 
->>>>>>> 2067a20 (curriculum clearning and updates)
 ### Common Mistakes
 - Place break in the intended loop.
 - Handle nested-loop exit deliberately.
@@ -188,8 +179,6 @@ for (int value : {-2, 3, 0, 5, -1}) { if (value <= 0) continue; std::cout << val
 
 **Trace:** predict the output before compiling. Identify declarations, values, control-flow decisions, and state changes in order. Then compile and compare actual output with the prediction. The lesson example is intended to be independently compilable.
 
-<<<<<<< HEAD
-=======
 ### Expected Behavior or Output
 
 Output observed when the worked example was run with empty standard input (g++ 13.3, C++20; the text of the output does not depend on the operating system):
@@ -198,7 +187,6 @@ Output observed when the worked example was run with empty standard input (g++ 1
 3 5 
 ```
 
->>>>>>> 2067a20 (curriculum clearning and updates)
 ### Common Mistakes
 - Filter before producing output.
 - Ensure continue does not skip required state updates.
@@ -242,8 +230,6 @@ int attempts = 0; bool valid = false; while (!valid && attempts < 3) { ++attempt
 
 **Trace:** predict the output before compiling. Identify declarations, values, control-flow decisions, and state changes in order. Then compile and compare actual output with the prediction. The lesson example is intended to be independently compilable.
 
-<<<<<<< HEAD
-=======
 ### Expected Behavior or Output
 
 Output observed when the worked example was run with empty standard input (g++ 13.3, C++20; the text of the output does not depend on the operating system):
@@ -252,7 +238,6 @@ Output observed when the worked example was run with empty standard input (g++ 1
 Attempts: 2; valid: true
 ```
 
->>>>>>> 2067a20 (curriculum clearning and updates)
 ### Common Mistakes
 - Bound retries.
 - Increment the attempt count on every attempt.
