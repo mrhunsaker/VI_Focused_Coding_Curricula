@@ -78,7 +78,7 @@ def main():
             elif language == "C#":
                 project = work / "AdventureRuntime.csproj"
                 execute(["dotnet", "new", "console", "--framework", "net8.0",
-                    "--output", str(work), "--no-restore"])
+                    "--output", str(work), "--name", "AdventureRuntime", "--no-restore"])
                 (work / "Program.cs").write_text(one_source, encoding="utf-8")
                 output_one = execute(["dotnet", "run", "--project", str(project),
                     "--verbosity", "quiet", "--no-launch-profile"], PART_ONE)
