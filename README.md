@@ -5,11 +5,11 @@
 [![Documentation](https://img.shields.io/badge/docs-mdBook-blue)](https://mrhunsaker.github.io/VI_Focused_Coding_Curricula/)
 [![Last commit](https://img.shields.io/github/last-commit/mrhunsaker/VI_Focused_Coding_Curricula)](https://github.com/mrhunsaker/VI_Focused_Coding_Curricula/commits/main)
 ![GitHub Release](https://img.shields.io/github/v/release/mrhunsaker/VI_Focused_Coding_Curricula)
-[![Contributors](https://img.shields.io/github/contributors/mrhunsaker/VI_Focused_Coding_Curricula)](https://github.com/mrhunsaker/VI_Focused_Coding_Curricula/graphs/contributors)
+[![Contributors](https://img.shields.io/github/contributors/mrhunsaker/VI_Focused_Coding_Curricula/graphs/contributors)](https://github.com/mrhunsaker/VI_Focused_Coding_Curricula/graphs/contributors)
 [![PRs welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg)](CONTRIBUTING.md)
 [![Build and deploy mdBook](https://github.com/mrhunsaker/VI_Focused_Coding_Curricula/actions/workflows/mdbook.yml/badge.svg)](https://github.com/mrhunsaker/VI_Focused_Coding_Curricula/actions/workflows/mdbook.yml)
 
-An accessibility-first, open educational resource for learning computer science and software development. The repository brings together **13 language curricula**, focused modules in **HTML/CSS, R, and SQL**, and prerequisite **Bash and PowerShell** terminal tracks. It is designed especially for learners who are blind or visually impaired and use screen readers, while remaining useful to anyone who prefers keyboard-first, text-based instruction.
+An accessibility-first, open educational resource for learning computer science and software development. The repository brings together **13 language curricula**, focused modules in **Git, HTML/CSS, Markdown, R, regular expressions, SQL, structured data formats, and web accessibility**, and prerequisite **Bash and PowerShell** terminal tracks. It is designed especially for learners who are blind or visually impaired and use screen readers, while remaining useful to anyone who prefers keyboard-first, text-based instruction.
 
 **Read the living textbook:** [https://mrhunsaker.github.io/VI_Focused_Coding_Curricula/](https://mrhunsaker.github.io/VI_Focused_Coding_Curricula/)
 
@@ -41,7 +41,7 @@ Accessibility support varies across operating systems, editor versions, screen r
 The textbook is organized into three complementary kinds of learning material:
 
 1. **Full language curricula:** structured courses with language-specific lesson sequences, examples, indexes, and supporting materials.
-2. **Focused technology modules:** targeted introductions to web structure and styling, statistical computing, and relational databases.
+2. **Focused technology modules:** targeted introductions to version control, web structure and styling, technical documentation, statistical computing, pattern-based text processing, relational databases, structured data formats, and web accessibility.
 3. **Shared prerequisites and development practices:** computing foundations, terminal skills, editors, project environments, containers, and cross-language workflow.
 
 ### Full language curricula
@@ -68,9 +68,14 @@ These examples illustrate common uses and notable projects; they do not imply th
 
 | Technology | Primary usage and role | Representative software or platforms |
 | --- | --- | --- |
+| [Git](MODULES/GIT.md) | Distributed version control: commits, branches, merges, remotes, and pull-request collaboration | Git, GitHub, GitLab, and the GitHub CLI (`gh`) |
 | [HTML and CSS](MODULES/HTML_CSS.md) | HTML structures web content; CSS controls presentation, layout, and responsive styling. They are foundational web technologies rather than general-purpose programming languages. | Websites, web applications, browser interfaces, and design systems |
+| [Markdown](MODULES/MARKDOWN.md) | Lightweight plain-text markup for documentation, README files, and technical notes | GitHub documentation, static site generators, and Pandoc |
 | [R](MODULES/R.md) | Statistical analysis, data visualization, research computing, and reproducible reports | RStudio/Posit, the tidyverse, and Bioconductor |
+| [Regular expressions](MODULES/REGEX.md) | Pattern-based finding, extracting, validating, and replacing of text | `grep`, `sed`, ripgrep, and regex support in every mainstream language |
 | [SQL](MODULES/SQL.md) | Declarative querying, defining, and managing relational data | PostgreSQL, SQLite, MySQL, SQL Server, and applications backed by relational databases |
+| [Structured data formats](MODULES/STRUCTURED_DATA.md) | JSON for data interchange, YAML for configuration, and TOML for application settings | APIs, GitHub Actions, Kubernetes, `pyproject.toml`, and `Cargo.toml` |
+| [Web accessibility](MODULES/WEB_ACCESSIBILITY.md) | Building websites and applications usable with screen readers, keyboard-only interaction, and other access technologies | WCAG, ARIA, NVDA, VoiceOver, JAWS, and axe DevTools |
 
 ### Terminal and shared development foundations
 
@@ -91,13 +96,14 @@ Start with the [curriculum overview](OVERALL_README.md), complete the [terminal 
 Examples of choosing by intended use:
 
 - **Automation, data work, or machine learning:** Python; add R for statistical analysis or Julia for numerical and scientific computing.
-- **Web application development:** JavaScript and TypeScript, alongside the HTML/CSS module and SQL when persistent relational data is needed.
+- **Web application development:** JavaScript and TypeScript, alongside the HTML/CSS and web accessibility modules, and SQL when persistent relational data is needed.
 - **Enterprise and JVM applications:** Java or Kotlin.
 - **Android and Apple platforms:** Kotlin for Android-focused development; Swift for Apple-platform development.
 - **Operating systems, embedded devices, and systems software:** C, C++, or Rust, depending on ecosystem, constraints, and safety requirements.
 - **Cloud services and infrastructure tooling:** Go, Java, Python, Rust, or C# depending on the platform and system requirements.
 - **Game development and embedded application scripting:** C++, C#, and Lua have distinct roles across engines, application code, and scripting.
 - **Relational data:** SQL is a focused companion to application languages rather than a replacement for them.
+- **Professional workflow skills:** the Git, Markdown, regular expressions, and structured data formats modules support every other path in the textbook.
 
 These are orientation points, not exclusive boundaries. Language selection should reflect the problem domain, deployment target, existing codebase, team expertise, performance and safety requirements, and available libraries.
 
@@ -124,7 +130,7 @@ Accessibility is an ongoing quality goal, not a claim that every page or third-p
 - **Content:** Markdown files in this repository
 - **Hosting:** GitHub Pages
 - **Automation:** GitHub Actions
-- **Curriculum:** 13 full language curricula, focused HTML/CSS, R, and SQL modules, and Bash/PowerShell terminal tracks
+- **Curriculum:** 13 full language curricula, focused Git, HTML/CSS, Markdown, R, regular expressions, SQL, structured data, and web accessibility modules, and Bash/PowerShell terminal tracks
 
 To build locally:
 
@@ -179,7 +185,7 @@ Read [CONTRIBUTING.md](CONTRIBUTING.md), [CODE_STYLE.md](CODE_STYLE.md), and [CO
 ├── RUST/                   # Rust curriculum
 ├── GO/                     # Go curriculum
 ├── LUA/                    # Lua curriculum
-├── MODULES/                # HTML/CSS, R, and SQL focused modules
+├── MODULES/                # Git, HTML/CSS, Markdown, R, regex, SQL, structured data, and web accessibility modules
 ├── backmatter/             # Glossary, indexes, and teacher resources
 ├── .github/workflows/      # mdBook build and GitHub Pages deployment
 ├── CHANGES.md              # Project change log
