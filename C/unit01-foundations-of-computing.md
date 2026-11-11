@@ -19,15 +19,11 @@ This unit covers computer science, hardware/software, algorithms, first program,
 Computer science is the study of representing problems and designing precise algorithms. Hardware includes the CPU, RAM, keyboard, and storage; software is the instructions and data executed by the machine. C is widely used for operating systems, embedded systems, libraries, and performance-sensitive programs. An algorithm must state inputs, processing steps, and outputs unambiguously.
 
 ### Worked Example
-<<<<<<< HEAD
-Plan the canonical tip-calculator problem without coding: read a bill amount, calculate 15 percent of it, add the tip to the bill, and display both amounts. For a bill of $24.50, the unrounded tip is $3.675 and the unrounded total is $28.175. Displaying two decimal places yields $3.68 and $28.18.
-=======
 Plan the canonical tip-calculator problem without coding: read a bill amount, calculate 15 percent of it, add the tip to the bill, and display both amounts. For a bill of $24.50, the unrounded tip is $3.675 and the unrounded total is $28.175. Displaying two decimal places with `printf("%.2f")` yields $3.67 and $28.18, because the stored value of the tip is 3.67499999999999982.
 
 ### Expected Behavior or Output
 
 No program is run in this lesson. The expected result is a written plan with the four steps in order. A correct hand trace with the shared values gives a tip of 3.675 and a total of 28.175; later lessons show that C displays these with two decimals as 3.67 and 28.18.
->>>>>>> 2067a20 (curriculum clearning and updates)
 
 ### Common Mistakes
 - Confusing an algorithm's logical steps with C syntax or compiler behavior.
@@ -73,8 +69,6 @@ int main(void)
 ```
 Expected output: `Hello, World!` followed by a newline. Compile with `cc -std=c17 -Wall -Wextra -Wpedantic hello.c -o hello`.
 
-<<<<<<< HEAD
-=======
 ### Expected Behavior or Output
 
 Output observed when the worked example was run (gcc 13.3, C17; the text of the output does not depend on the operating system):
@@ -82,7 +76,6 @@ Output observed when the worked example was run (gcc 13.3, C17; the text of the 
 ```text
 Hello, World!
 ```
->>>>>>> 2067a20 (curriculum clearning and updates)
 ### Common Mistakes
 - Using `void main` instead of the standard `int main(void)` form.
 - Omitting `#include <stdio.h>` or a statement terminator.
@@ -132,8 +125,6 @@ int main(void)
 ```
 Expected output labels Avery, 16, 1.72 m, and Computer Science on separate lines. `%s`, `%d`, and `%.2f` correspond to string, integer, and floating-point arguments.
 
-<<<<<<< HEAD
-=======
 ### Expected Behavior or Output
 
 Output observed when the worked example was run (gcc 13.3, C17; the text of the output does not depend on the operating system):
@@ -144,7 +135,6 @@ Age: 16
 Height: 1.72 m
 Favorite subject: Computer Science
 ```
->>>>>>> 2067a20 (curriculum clearning and updates)
 ### Common Mistakes
 - Using a format string that does not match the declared type.
 - Forgetting that C strings need a null terminator and sufficient buffer capacity.
