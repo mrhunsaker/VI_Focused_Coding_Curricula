@@ -18,7 +18,6 @@ This unit develops data structures using Go's types, packages, and standard-libr
 - Test a relevant boundary condition and explain a common failure.
 
 ### Concept Explanation
-<<<<<<< HEAD
 package main
 import (
 	"fmt"
@@ -67,12 +66,6 @@ func main() {
 } The lesson uses the canonical course data so learners focus on Go semantics rather than a new domain problem. Format with gofmt and use go test ./... as routine development tools.
 
 ### Worked Example
-=======
-`append` adds to a slice and returns the (possibly new) slice, so the result must be assigned back: `scores = append(scores, 95)`. Removing an element is done by re-slicing and appending: `scores = append(scores[:i], scores[i+1:]...)`. Because slices share memory, a change through one slice variable can appear through another.
-### Worked Example
-
-**Example 4.1.1**
->>>>>>> 2067a20 (curriculum clearning and updates)
 ```go
 package main
 import (
@@ -85,9 +78,6 @@ func main() {
 }
 ```
 
-<<<<<<< HEAD
-**Expected behavior:** The standalone program demonstrates slices and collection mutation with the course's shared example data. It compiles and runs using the standard library. Predict the output first, then compare it with the terminal output.
-=======
 **Example 4.1.2**
 ```go
 package main
@@ -175,7 +165,6 @@ Example 5:
 ```text
 Passing: [82 91 88]
 ```
->>>>>>> 2067a20 (curriculum clearning and updates)
 
 ### Common Mistakes
 1. Assuming append always mutates the original backing array in place.
@@ -213,14 +202,11 @@ Use keyboard navigation to move between the lesson heading, code fence, compiler
 - Test a relevant boundary condition and explain a common failure.
 
 ### Concept Explanation
-<<<<<<< HEAD
-=======
 The `sort` package sorts slices in place: `sort.Ints`, `sort.Strings`, and `sort.Slice` with a comparison function. `sort.Sort(sort.Reverse(sort.IntSlice(s)))` sorts in descending order. To keep the original order, copy the slice first with `copy` or `slices.Clone`.
 ### Worked Example
 
 **Example 4.2.1**
 ```go
->>>>>>> 2067a20 (curriculum clearning and updates)
 package main
 import (
 	"fmt"
@@ -229,7 +215,6 @@ func main() {
 	scores := []int{82, 91, 76}
 	scores = append(scores, 88)
 	fmt.Println(scores)
-<<<<<<< HEAD
 },package main
 import (
 	"fmt"
@@ -270,12 +255,6 @@ func main() {
 } The lesson uses the canonical course data so learners focus on Go semantics rather than a new domain problem. Format with gofmt and use go test ./... as routine development tools.
 
 ### Worked Example
-=======
-}
-```
-
-**Example 4.2.2**
->>>>>>> 2067a20 (curriculum clearning and updates)
 ```go
 package main
 import (
@@ -291,9 +270,6 @@ func main() {
 }
 ```
 
-<<<<<<< HEAD
-**Expected behavior:** The standalone program demonstrates sorting and organizing data with the course's shared example data. It compiles and runs using the standard library. Predict the output first, then compare it with the terminal output.
-=======
 **Example 4.2.3**
 ```go
 package main
@@ -365,7 +341,6 @@ Example 5:
 ```text
 Passing: [82 91 88]
 ```
->>>>>>> 2067a20 (curriculum clearning and updates)
 
 ### Common Mistakes
 1. Assuming append always mutates the original backing array in place.
@@ -403,14 +378,11 @@ Use keyboard navigation to move between the lesson heading, code fence, compiler
 - Test a relevant boundary condition and explain a common failure.
 
 ### Concept Explanation
-<<<<<<< HEAD
-=======
 Go has no tuples. A struct groups named fields into one value, and a function can return several values. Returning `(x, y)` and receiving `x, y := point()` covers the same need. Struct values are copied on assignment, which makes a struct a good fixed record.
 ### Worked Example
 
 **Example 4.3.1**
 ```go
->>>>>>> 2067a20 (curriculum clearning and updates)
 package main
 import (
 	"fmt"
@@ -419,16 +391,12 @@ func main() {
 	scores := []int{82, 91, 76}
 	scores = append(scores, 88)
 	fmt.Println(scores)
-<<<<<<< HEAD
-},package main
-=======
 }
 ```
 
 **Example 4.3.2**
 ```go
 package main
->>>>>>> 2067a20 (curriculum clearning and updates)
 import (
 	"fmt"
 	"slices"
@@ -439,7 +407,6 @@ func main() {
 	fmt.Println("ascending:", scores)
 	slices.Reverse(scores)
 	fmt.Println("descending:", scores)
-<<<<<<< HEAD
 },package main
 import (
 	"fmt"
@@ -469,12 +436,6 @@ func main() {
 } The lesson uses the canonical course data so learners focus on Go semantics rather than a new domain problem. Format with gofmt and use go test ./... as routine development tools.
 
 ### Worked Example
-=======
-}
-```
-
-**Example 4.3.3**
->>>>>>> 2067a20 (curriculum clearning and updates)
 ```go
 package main
 import (
@@ -487,9 +448,6 @@ func main() {
 }
 ```
 
-<<<<<<< HEAD
-**Expected behavior:** The standalone program demonstrates structs and tuple-like multiple returns with the course's shared example data. It compiles and runs using the standard library. Predict the output first, then compare it with the terminal output.
-=======
 **Example 4.3.4**
 ```go
 package main
@@ -548,7 +506,6 @@ Example 5:
 ```text
 Passing: [82 91 88]
 ```
->>>>>>> 2067a20 (curriculum clearning and updates)
 
 ### Common Mistakes
 1. Assuming append always mutates the original backing array in place.
@@ -586,14 +543,11 @@ Use keyboard navigation to move between the lesson heading, code fence, compiler
 - Test a relevant boundary condition and explain a common failure.
 
 ### Concept Explanation
-<<<<<<< HEAD
-=======
 A map holds key-value pairs: `map[string]int`. Reading a missing key returns the zero value, so the two-value form `value, ok := m[key]` tells you whether the key exists. `delete(m, key)` removes a key, and `len(m)` counts the keys. A nil map can be read but writing to it panics, so create maps with `make` or a literal.
 ### Worked Example
 
 **Example 4.4.1**
 ```go
->>>>>>> 2067a20 (curriculum clearning and updates)
 package main
 import (
 	"fmt"
@@ -602,16 +556,12 @@ func main() {
 	scores := []int{82, 91, 76}
 	scores = append(scores, 88)
 	fmt.Println(scores)
-<<<<<<< HEAD
-},package main
-=======
 }
 ```
 
 **Example 4.4.2**
 ```go
 package main
->>>>>>> 2067a20 (curriculum clearning and updates)
 import (
 	"fmt"
 	"slices"
@@ -622,16 +572,12 @@ func main() {
 	fmt.Println("ascending:", scores)
 	slices.Reverse(scores)
 	fmt.Println("descending:", scores)
-<<<<<<< HEAD
-},package main
-=======
 }
 ```
 
 **Example 4.4.3**
 ```go
 package main
->>>>>>> 2067a20 (curriculum clearning and updates)
 import (
 	"fmt"
 )
@@ -639,7 +585,6 @@ func main() {
 	type Student struct { Name string; Age int; Score int }
 	s := Student{Name: "Avery", Age: 16, Score: 82}
 	fmt.Printf("%s age %d score %d\n", s.Name, s.Age, s.Score)
-<<<<<<< HEAD
 },package main
 import (
 	"fmt"
@@ -661,12 +606,6 @@ func main() {
 } The lesson uses the canonical course data so learners focus on Go semantics rather than a new domain problem. Format with gofmt and use go test ./... as routine development tools.
 
 ### Worked Example
-=======
-}
-```
-
-**Example 4.4.4**
->>>>>>> 2067a20 (curriculum clearning and updates)
 ```go
 package main
 import (
@@ -680,9 +619,6 @@ func main() {
 }
 ```
 
-<<<<<<< HEAD
-**Expected behavior:** The standalone program demonstrates maps and key-value data with the course's shared example data. It compiles and runs using the standard library. Predict the output first, then compare it with the terminal output.
-=======
 **Example 4.4.5**
 ```go
 package main
@@ -727,7 +663,6 @@ Example 5:
 ```text
 Passing: [82 91 88]
 ```
->>>>>>> 2067a20 (curriculum clearning and updates)
 
 ### Common Mistakes
 1. Assuming append always mutates the original backing array in place.
@@ -765,14 +700,11 @@ Use keyboard navigation to move between the lesson heading, code fence, compiler
 - Test a relevant boundary condition and explain a common failure.
 
 ### Concept Explanation
-<<<<<<< HEAD
-=======
 `for key, value := range m` visits a map, but **Go randomizes the iteration order on purpose**, so output printed straight from a map can differ between runs. For stable output, collect the keys into a slice, sort it, and then visit the keys in order. Printing a map with `fmt` is the exception: it prints keys in sorted order.
 ### Worked Example
 
 **Example 4.5.1**
 ```go
->>>>>>> 2067a20 (curriculum clearning and updates)
 package main
 import (
 	"fmt"
@@ -781,16 +713,12 @@ func main() {
 	scores := []int{82, 91, 76}
 	scores = append(scores, 88)
 	fmt.Println(scores)
-<<<<<<< HEAD
-},package main
-=======
 }
 ```
 
 **Example 4.5.2**
 ```go
 package main
->>>>>>> 2067a20 (curriculum clearning and updates)
 import (
 	"fmt"
 	"slices"
@@ -801,16 +729,12 @@ func main() {
 	fmt.Println("ascending:", scores)
 	slices.Reverse(scores)
 	fmt.Println("descending:", scores)
-<<<<<<< HEAD
-},package main
-=======
 }
 ```
 
 **Example 4.5.3**
 ```go
 package main
->>>>>>> 2067a20 (curriculum clearning and updates)
 import (
 	"fmt"
 )
@@ -818,16 +742,12 @@ func main() {
 	type Student struct { Name string; Age int; Score int }
 	s := Student{Name: "Avery", Age: 16, Score: 82}
 	fmt.Printf("%s age %d score %d\n", s.Name, s.Age, s.Score)
-<<<<<<< HEAD
-},package main
-=======
 }
 ```
 
 **Example 4.5.4**
 ```go
 package main
->>>>>>> 2067a20 (curriculum clearning and updates)
 import (
 	"fmt"
 )
@@ -836,7 +756,6 @@ func main() {
 	count, ok := stock["Notebook"]
 	if !ok { count = 0 }
 	fmt.Println("Notebook stock:", count)
-<<<<<<< HEAD
 },package main
 import (
 	"fmt"
@@ -849,12 +768,6 @@ func main() {
 } The lesson uses the canonical course data so learners focus on Go semantics rather than a new domain problem. Format with gofmt and use go test ./... as routine development tools.
 
 ### Worked Example
-=======
-}
-```
-
-**Example 4.5.5**
->>>>>>> 2067a20 (curriculum clearning and updates)
 ```go
 package main
 import (
@@ -867,10 +780,6 @@ func main() {
 	fmt.Println("Passing:", passing)
 }
 ```
-
-<<<<<<< HEAD
-**Expected behavior:** The standalone program demonstrates collection traversal with the course's shared example data. It compiles and runs using the standard library. Predict the output first, then compare it with the terminal output.
-=======
 
 ### Expected Behavior or Output
 
@@ -901,7 +810,6 @@ Example 5:
 ```text
 Passing: [82 91 88]
 ```
->>>>>>> 2067a20 (curriculum clearning and updates)
 
 ### Common Mistakes
 1. Assuming append always mutates the original backing array in place.
