@@ -26,8 +26,6 @@ Console.WriteLine(string.Join(", ", items));
 
 **Trace:** identify declarations, expressions, control flow, and observable output. Predict the result, run the example, and compare the actual output with the prediction.
 
-<<<<<<< HEAD
-=======
 ### Expected Behavior or Output
 
 Output observed when the worked example was run (.NET 8; the text of the output does not depend on the operating system):
@@ -36,7 +34,6 @@ Output observed when the worked example was run (.NET 8; the text of the output 
 Journal, Folder, Eraser
 ```
 
->>>>>>> 2067a20 (curriculum clearning and updates)
 ### Common Mistakes
 - Choosing a collection whose mutability or lookup behavior does not fit the task.
 - Using an invalid index or missing dictionary key without checking it.
@@ -78,8 +75,6 @@ Console.WriteLine(string.Join(" ", quantities));
 
 **Trace:** identify declarations, expressions, control flow, and observable output. Predict the result, run the example, and compare the actual output with the prediction.
 
-<<<<<<< HEAD
-=======
 ### Expected Behavior or Output
 
 Output observed when the worked example was run (.NET 8; the text of the output does not depend on the operating system):
@@ -88,7 +83,6 @@ Output observed when the worked example was run (.NET 8; the text of the output 
 10 4 3 1
 ```
 
->>>>>>> 2067a20 (curriculum clearning and updates)
 ### Common Mistakes
 - Choosing a collection whose mutability or lookup behavior does not fit the task.
 - Using an invalid index or missing dictionary key without checking it.
@@ -130,8 +124,6 @@ readonly record struct Coordinate(int X, int Y);
 
 **Trace:** identify declarations, expressions, control flow, and observable output. Predict the result, run the example, and compare the actual output with the prediction.
 
-<<<<<<< HEAD
-=======
 ### Expected Behavior or Output
 
 Output observed when the worked example was run (.NET 8; the text of the output does not depend on the operating system):
@@ -140,7 +132,6 @@ Output observed when the worked example was run (.NET 8; the text of the output 
 Point: (3, 4); distance: 5.00
 ```
 
->>>>>>> 2067a20 (curriculum clearning and updates)
 ### Common Mistakes
 - Choosing a collection whose mutability or lookup behavior does not fit the task.
 - Using an invalid index or missing dictionary key without checking it.
@@ -182,8 +173,6 @@ Console.WriteLine($"Notebook quantity: {inventory["Notebook"]}");
 
 **Trace:** identify declarations, expressions, control flow, and observable output. Predict the result, run the example, and compare the actual output with the prediction.
 
-<<<<<<< HEAD
-=======
 ### Expected Behavior or Output
 
 Output observed when the worked example was run (.NET 8; the text of the output does not depend on the operating system):
@@ -192,7 +181,6 @@ Output observed when the worked example was run (.NET 8; the text of the output 
 Notebook quantity: 4
 ```
 
->>>>>>> 2067a20 (curriculum clearning and updates)
 ### Common Mistakes
 - Choosing a collection whose mutability or lookup behavior does not fit the task.
 - Using an invalid index or missing dictionary key without checking it.
@@ -233,8 +221,6 @@ foreach (KeyValuePair<string, int> entry in inventory) Console.WriteLine($"{entr
 
 **Trace:** identify declarations, expressions, control flow, and observable output. Predict the result, run the example, and compare the actual output with the prediction.
 
-<<<<<<< HEAD
-=======
 ### Expected Behavior or Output
 
 Output observed when the worked example was run (.NET 8; the text of the output does not depend on the operating system):
@@ -245,7 +231,6 @@ Pencil => 10
 Folder => 4
 ```
 
->>>>>>> 2067a20 (curriculum clearning and updates)
 ### Common Mistakes
 - Choosing a collection whose mutability or lookup behavior does not fit the task.
 - Using an invalid index or missing dictionary key without checking it.
