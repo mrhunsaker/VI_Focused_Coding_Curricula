@@ -2,520 +2,7 @@
 
 ## Overview
 
-This unit develops the concepts in the same order and with the same problem context as the Python reference. Predict the output before running each example. Use Lua 5.4 semantics, not assumptions imported from Python.
-
-## Lesson 4.1 More on Lists
-
-### Reading References
-- Lua 5.4 Reference Manual: https://www.lua.org/manual/5.4/
-- Programming in Lua: https://www.lua.org/pil/
-- Corresponding Python lesson in the canonical course map.
-
-### Learning Objectives
-- Explain the concept using Lua terminology.
-- Trace the worked example and predict its behavior.
-- Modify and test the example while preserving the shared data contract.
-
-### Concept Explanation
-
-table.insert appends or inserts at a position; table.remove deletes and returns an element. Preserve sequence order.
-
-### Worked Example
-
-```lua
-local scores = {82, 91, 76, 88}
-table.insert(scores, 2, 85)
-local removed = table.remove(scores, 3)
-print(table.concat(scores, ", "))
-print("Removed:", removed)
-```
-
-### Expected Behavior or Output
-
-```text
-82, 85, 76, 88
-Removed:	91
-```
-
-### Common Mistakes
-
-- Using index 0 for the first sequence element; Lua sequences start at index 1.
-- Assuming #table counts sparse or map keys; it is reliable for a contiguous sequence.
-- Using pairs where sequence order is required, or ipairs where arbitrary map keys are required.
-
-### Activities
-
-1. Print the first and last canonical score and explain the one-based indices.
-2. Insert and remove one score, then show the sequence and its length.
-3. Calculate the total and average with ipairs and compare with 337 and 84.25.
-4. Create a sparse table and explain why # and ipairs do not provide a general map traversal.
-
-### Accessibility Practice
-Navigate by line, word, and character; identify delimiters and nesting verbally; execute from the terminal; and read the output and any error messages sequentially. Do not rely on syntax highlighting or color to understand the example.
-
-### Skills Checklist
-- [ ] I can explain the concept in Lua terminology.
-- [ ] I can trace and predict the example's behavior.
-- [ ] I can run and modify the example from the terminal.
-- [ ] I can test a boundary or invalid case.
-- [ ] I can explain the relevant Lua-specific semantic difference.
-
----
-
-## Lesson 4.2 Organizing Lists
-
-### Reading References
-- Lua 5.4 Reference Manual: https://www.lua.org/manual/5.4/
-- Programming in Lua: https://www.lua.org/pil/
-- Corresponding Python lesson in the canonical course map.
-
-### Learning Objectives
-- Explain the concept using Lua terminology.
-- Trace the worked example and predict its behavior.
-- Modify and test the example while preserving the shared data contract.
-
-### Concept Explanation
-
-table.sort sorts a sequence in place. Supply a comparator when descending order is required.
-
-### Worked Example
-
-```lua
-local scores = {82, 91, 76, 88}
-table.sort(scores)
-print("Ascending:", table.concat(scores, ", "))
-table.sort(scores, function(a, b) return a > b end)
-print("Descending:", table.concat(scores, ", "))
-```
-
-### Expected Behavior or Output
-
-```text
-Ascending:	76, 82, 88, 91
-Descending:	91, 88, 82, 76
-```
-
-### Common Mistakes
-
-- Using index 0 for the first sequence element; Lua sequences start at index 1.
-- Assuming #table counts sparse or map keys; it is reliable for a contiguous sequence.
-- Using pairs where sequence order is required, or ipairs where arbitrary map keys are required.
-
-### Activities
-
-1. Print the first and last canonical score and explain the one-based indices.
-2. Insert and remove one score, then show the sequence and its length.
-3. Calculate the total and average with ipairs and compare with 337 and 84.25.
-4. Create a sparse table and explain why # and ipairs do not provide a general map traversal.
-
-### Accessibility Practice
-Navigate by line, word, and character; identify delimiters and nesting verbally; execute from the terminal; and read the output and any error messages sequentially. Do not rely on syntax highlighting or color to understand the example.
-
-### Skills Checklist
-- [ ] I can explain the concept in Lua terminology.
-- [ ] I can trace and predict the example's behavior.
-- [ ] I can run and modify the example from the terminal.
-- [ ] I can test a boundary or invalid case.
-- [ ] I can explain the relevant Lua-specific semantic difference.
-
----
-
-## Lesson 4.3 Tuples — Immutable-Style Values
-
-### Reading References
-- Lua 5.4 Reference Manual: https://www.lua.org/manual/5.4/
-- Programming in Lua: https://www.lua.org/pil/
-- Corresponding Python lesson in the canonical course map.
-
-### Learning Objectives
-- Explain the concept using Lua terminology.
-- Trace the worked example and predict its behavior.
-- Modify and test the example while preserving the shared data contract.
-
-### Concept Explanation
-
-Lua has no built-in tuple type. Multiple assignment can bind coordinate values; do not mutate a value intended to be treated as a fixed pair.
-
-### Worked Example
-
-```lua
-local x, y = 3, 4
-local distance = math.sqrt(x * x + y * y)
-print("Coordinates:", x, y)
-print("Distance:", distance)
-```
-
-### Expected Behavior or Output
-
-```text
-Coordinates:	3	4
-Distance:	5.0
-```
-
-### Common Mistakes
-
-- Copying a Python assumption into Lua without checking the Lua 5.4 semantics.
-- Changing the canonical input values and then comparing output against the shared fixture.
-- Skipping a negative or boundary case for the lesson's main operation.
-
-### Activities
-
-1. Trace the 4.3 Tuples — Immutable-Style Values worked example and explain each statement in Lua terms.
-2. Change one noncanonical test value while keeping the shared fixture intact; predict the result before execution.
-3. Add a boundary or invalid-input test for the main operation in this lesson.
-4. Explain one semantic difference between Lua and Python that affects 4.3 tuples — immutable-style values.
-
-### Accessibility Practice
-Navigate by line, word, and character; identify delimiters and nesting verbally; execute from the terminal; and read the output and any error messages sequentially. Do not rely on syntax highlighting or color to understand the example.
-
-### Skills Checklist
-- [ ] I can explain the concept in Lua terminology.
-- [ ] I can trace and predict the example's behavior.
-- [ ] I can run and modify the example from the terminal.
-- [ ] I can test a boundary or invalid case.
-- [ ] I can explain the relevant Lua-specific semantic difference.
-
----
-
-## Lesson 4.4 Introducing Dictionaries
-
-### Reading References
-- Lua 5.4 Reference Manual: https://www.lua.org/manual/5.4/
-- Programming in Lua: https://www.lua.org/pil/
-- Corresponding Python lesson in the canonical course map.
-
-### Learning Objectives
-- Explain the concept using Lua terminology.
-- Trace the worked example and predict its behavior.
-- Modify and test the example while preserving the shared data contract.
-
-### Concept Explanation
-
-A Lua table can act as a map or record. Use named keys for inventory fields and numeric values for quantities and prices.
-
-### Worked Example
-
-```lua
-local item = {
-  name = "Notebook",
-  quantity = 3,
-  unit_price = 2.50
-}
-local line_total = item.quantity * item.unit_price
-print(item.name)
-print(item.quantity)
-print(string.format("$%.2f", item.unit_price))
-print(string.format("Line total: $%.2f", line_total))
-```
-
-### Expected Behavior or Output
-
-```text
-Notebook
-3
-$2.50
-Line total: $7.50
-```.50
-Line total: $7.50
-```
-
-### Common Mistakes
-
-- Copying a Python assumption into Lua without checking the Lua 5.4 semantics.
-- Changing the canonical input values and then comparing output against the shared fixture.
-- Skipping a negative or boundary case for the lesson's main operation.
-
-### Activities
-
-1. Trace the 4.4 Introducing Dictionaries worked example and explain each statement in Lua terms.
-2. Change one noncanonical test value while keeping the shared fixture intact; predict the result before execution.
-3. Add a boundary or invalid-input test for the main operation in this lesson.
-4. Explain one semantic difference between Lua and Python that affects 4.4 introducing dictionaries.
-
-### Accessibility Practice
-Navigate by line, word, and character; identify delimiters and nesting verbally; execute from the terminal; and read the output and any error messages sequentially. Do not rely on syntax highlighting or color to understand the example.
-
-### Skills Checklist
-- [ ] I can explain the concept in Lua terminology.
-- [ ] I can trace and predict the example's behavior.
-- [ ] I can run and modify the example from the terminal.
-- [ ] I can test a boundary or invalid case.
-- [ ] I can explain the relevant Lua-specific semantic difference.
-
----
-
-## Lesson 4.5 Looping Through Dictionaries
-
-### Reading References
-- Lua 5.4 Reference Manual: https://www.lua.org/manual/5.4/
-- Programming in Lua: https://www.lua.org/pil/
-- Corresponding Python lesson in the canonical course map.
-
-### Learning Objectives
-- Explain the concept using Lua terminology.
-- Trace the worked example and predict its behavior.
-- Modify and test the example while preserving the shared data contract.
-
-### Concept Explanation
-
-pairs iterates key-value entries without promising order. Use explicit keys or sort keys when output order matters.
-
-### Worked Example
-
-=======
-The program prints:
-```text
-90 A
-89 B
-80 B
-79 C
-70 C
-69 D
-60 D
-59 F
-```
-
-### Common Mistakes
-1. Writing `else if` and forgetting the extra `end` it requires.
-2. Putting the conditions in the wrong order, such as testing `score >= 60` first so every passing score is a D.
-3. Using `>` instead of `>=`, so exactly 90 receives a B.
-
-### Activities
-1. Trace the score 82 by hand through each test and say which block runs.
-2. Add the score 100 and the score 0 to the test list and predict their grades.
-3. Reorder the tests so that `score >= 60` comes first, run it, and explain the wrong output.
-4. Write a function that returns `true` when a grade is passing (D or better).
-
-### Accessibility Practice
-Read the eight output lines in order. Each line is a number, a space, and a letter, so the pairs are easy to follow with a screen reader and a braille display.
-
-### Skills Checklist
-- [ ] I can write an `if`/`elseif`/`else` chain.
-- [ ] I can explain why test order matters.
-- [ ] I can classify with the shared thresholds.
-- [ ] I can choose boundary test values.
-- [ ] I can explain `elseif` versus `else if`.
-
-## Lesson 3.3: Tables as Lists
-
-### Reading References
-- Programming in Lua, 4th edition (Roberto Ierusalimschy): Chapter 5 (Tables)
-- Lua 5.4 Reference Manual: Section 3.4.7 (Table Constructors) and Section 3.4.7 (Length Operator)
-- Matching Python lesson: Lesson 3.3 Introduction to Lists
-
-### Learning Objectives
-- Create a list with a table constructor.
-- Index a list starting at 1 and use `#` for its length.
-- Change an element.
-
-### Concept Explanation
-Lua has one structure for collections, the *table*. A table used as a list is written with braces, such as `{82, 91, 76, 88}`. **Lua indexes lists from 1**, so the first score is `scores[1]` and the last is `scores[#scores]`. `scores[0]` does not exist and yields `nil`.
-
-The *length operator* `#` gives the number of items in a list: `#scores` is 4. It is reliable for lists with no gaps; do not assign `nil` into the middle of a list.
-
-A table is changed in place: `scores[3] = 80` replaces the third score. Tables are *references*: a second variable assigned from the first refers to the same table, not a copy.
-
-`table.concat(list, ", ")` joins the items into one string for display. It is an efficient way to show a whole list on one line.
-
-The shared list is 82, 91, 76, 88. Python indexes the same list from 0, so Python's `scores[2]` is Lua's `scores[3]`.
-
-### Worked Example
-```lua
-local scores = {82, 91, 76, 88}
-
-print(scores[1])
-print(scores[#scores])
-print(#scores)
-print(scores[0])
-
-scores[3] = 80
-print(table.concat(scores, ", "))
-
-local alias = scores
-alias[1] = 100
-print(scores[1])
-```
-
-### Expected Behavior or Output
-The program prints:
-```text
-82
-88
-4
-nil
-82, 91, 80, 88
-100
-```
-
-### Common Mistakes
-1. Using `scores[0]` for the first item. It is `nil` in Lua.
-2. Assuming `alias = scores` makes a copy. Both names refer to the same table.
-3. Leaving a gap by assigning `nil` in the middle of a list and then trusting `#`.
-
-### Activities
-1. Predict each of the six outputs before running.
-2. Replace the second score with 95 and print the whole list with `table.concat`.
-3. Print the third score using `scores[3]` and then explain how the same value is reached in a zero-based language.
-4. Make a real copy of the list using a loop and show that changing the copy does not change the original.
-
-### Accessibility Practice
-When reading `scores[#scores]` aloud, say 'scores, open bracket, hash scores, close bracket' so the nesting of the brackets is clear.
-
-### Skills Checklist
-- [ ] I can create a list in a table constructor.
-- [ ] I can use 1-based indexing and `#`.
-- [ ] I can change an element.
-- [ ] I know that tables are references.
-- [ ] I can display a list with `table.concat`.
-
-## Lesson 3.4: Iterating with for Loops
-
-### Reading References
-- Programming in Lua, 4th edition (Roberto Ierusalimschy): Chapter 1 and Chapter 18 (Iterators and the Generic for)
-- Lua 5.4 Reference Manual: Section 3.3.5 (For Statement)
-- Matching Python lesson: Lesson 3.4 Iterating with for Loops
-
-### Learning Objectives
-- Use the numeric `for` loop with start, stop, and step.
-- Use `ipairs` to visit a list in order.
-- Compute the total and average of the shared scores.
-
-### Concept Explanation
-Lua has two `for` loops. The *numeric* `for` counts: `for i = 1, 5 do ... end` runs with `i` equal to 1 through 5, inclusive of both ends. A third value is the step: `for i = 10, 1, -3` counts down by 3. Lua evaluates the limits once and the loop variable is local to the loop.
-
-The *generic* `for` walks a collection. `for index, value in ipairs(list) do ... end` visits positions 1, 2, 3, ... in order and stops at the first `nil`. Use `ipairs` for lists and `pairs` for tables with named keys (Unit 4).
-
-Looping to total and average is the same algorithm as Unit 1, now with a loop you can explain: the total starts at 0, each pass adds one score, and the average is the total divided by `#scores`.
-
-Strings can be walked one character at a time with `for char in word:gmatch(".") do ... end`, though most work uses string functions (Lesson 3.5).
-
-### Worked Example
-```lua
-local scores = {82, 91, 76, 88}
-local total = 0
-for index, score in ipairs(scores) do
-  print(string.format("Adding score %d: %d", index, score))
-  total = total + score
-end
-print("Total: " .. total)
-print("Average: " .. total / #scores)
-
-for i = 1, 3 do print("Count: " .. i) end
-for i = 10, 1, -3 do print("Step: " .. i) end
-```
-
-### Expected Behavior or Output
-The program prints:
-```text
-Adding score 1: 82
-Adding score 2: 91
-Adding score 3: 76
-Adding score 4: 88
-Total: 337
-Average: 84.25
-Count: 1
-Count: 2
-Count: 3
-Step: 10
-Step: 7
-Step: 4
-Step: 1
-```
-
-### Common Mistakes
-1. Using `for i = 0, #scores` and reading past the end of the list, which yields `nil`.
-2. Forgetting that the loop limit is inclusive, so `for i = 1, 3` runs three times.
-3. Using `pairs` on a list and assuming the order matches the list order.
-
-### Activities
-1. Predict the last four lines of output before running.
-2. Change the loop to print only the scores above 80.
-3. Write a loop that counts from 20 down to 0 by 5.
-4. Explain why the average prints as `84.25` and not `84`.
-
-### Accessibility Practice
-Each output line starts with a label and a number, so a screen reader can read the running total step by step. Count the lines to check that the loop ran four times.
-
-### Skills Checklist
-- [ ] I can write a numeric `for` loop with a step.
-- [ ] I can use `ipairs` on a list.
-- [ ] I know the numeric limit is inclusive.
-- [ ] I can total and average a list.
-- [ ] I can explain the difference between `ipairs` and `pairs`.
-
-## Lesson 3.5: Basic String Operations
-
-### Reading References
-- Programming in Lua, 4th edition (Roberto Ierusalimschy): Chapter 4 (Strings)
-- Lua 5.4 Reference Manual: Section 6.4 (String Manipulation)
-- Matching Python lesson: Lesson 3.5 Basic String Operations
-
-### Learning Objectives
-- Use `#`, `string.lower`, `string.upper`, `string.sub`, and `string.find`.
-- Normalize a name and search the shared text sample.
-- Explain that strings are immutable.
-
-### Concept Explanation
-A Lua string is a sequence of bytes. `#text` gives its length in bytes, which equals the number of characters for ordinary ASCII text. Strings are *immutable*: functions such as `text:upper()` return a new string and never change the original. The colon call `text:upper()` is shorthand for `string.upper(text)`.
-
-Useful functions: `lower`, `upper`, `sub(i, j)` (positions start at 1 and are inclusive), `find(pattern, init, plain)` (returns the start and end positions, or `nil`), `gsub` (replace; also returns a count), `rep` (repeat), and `format`.
-
-`find` treats its second argument as a *pattern* with special characters. Pass `true` as the fourth argument for a plain text search. Positions are 1-based, so the first character is at position 1.
-
-The example normalizes the name "  avery  " by trimming spaces with a pattern and capitalizing the first letter, then explores the shared text sample: its length, whether it contains "programming", where the first match starts, and how many times it appears.
-
-### Worked Example
-```lua
-local raw_name = "  avery  "
-local clean = raw_name:match("^%s*(.-)%s*$")
-clean = clean:sub(1, 1):upper() .. clean:sub(2)
-print("Name: '" .. clean .. "'")
-
-local text = "A student studies programming. Programming develops problem-solving skills."
-local lowered = text:lower()
-print("Characters:", #text)
-print("Contains 'programming':", lowered:find("programming", 1, true) ~= nil)
-print("First position of 'programming':", (lowered:find("programming", 1, true)))
-local _, count = lowered:gsub("programming", "")
-print("Times 'programming' appears:", count)
-print(("ab"):rep(3), text:sub(1, 9))
-```
-
-### Expected Behavior or Output
-The program prints:
-```text
-Name: 'Avery'
-Characters:	75
-Contains 'programming':	true
-First position of 'programming':	19
-Times 'programming' appears:	2
-ababab	A student
-```
-
-### Common Mistakes
-1. Expecting `text:upper()` to change `text`. Strings are immutable; assign the result.
-2. Counting positions from 0. The first character is at position 1.
-3. Searching for text that contains pattern characters such as `.` or `-` without passing `true` for a plain search.
-
-### Activities
-1. Predict the printed values, then run and compare.
-2. Find the position of the word `student` in the sample text.
-3. Use `gsub` to replace every `programming` with `coding` and print the result.
-4. Write code that trims and capitalizes the name "  riley  ".
-
-### Accessibility Practice
-Pattern strings such as `^%s*(.-)%s*$` are punctuation-dense. Read them one symbol at a time and say 'caret', 'percent s', 'star', 'open parenthesis', 'dot', 'dash', so you can check each piece.
-
-### Skills Checklist
-- [ ] I can find a string's length and substrings.
-- [ ] I can search text plainly and by position.
-- [ ] I can transform case and trim a string.
-- [ ] I know strings are immutable.
-- [ ] I can read a pattern one symbol at a time.
-
-## Overview
-
-Work with list tables, sorting, fixed and read-only records, dictionaries, and stable traversal of the shared inventory.
+Work with sequence tables, sorting, fixed and read-only records, dictionaries, and stable traversal of the shared inventory.
 
 ## Lesson 4.1: More on Sequence Tables
 
@@ -836,80 +323,67 @@ Use field names that read well aloud, such as `unit_price`. Read records one key
 - Matching Python lesson: Lesson 4.5 Looping Through Dictionaries
 
 ### Learning Objectives
-- Traverse keys, values, and key-value pairs.
+- Traverse keys and values with `pairs`.
 - Explain why `pairs` order is not guaranteed.
-- Produce stable, sorted output.
+- Produce stable, sorted output from a table.
 
 ### Concept Explanation
-`pairs(table)` visits every key and value, but **the order is not defined** and can differ between runs or Lua versions. Code that prints such a traversal can give different output on different computers, which hurts testing and makes output confusing to follow by ear.
+`pairs(table)` visits every key and value, but its iteration order is not defined. Do not use that order for output that must be stable. Collect the keys into a sequence, sort the sequence with `table.sort`, and then visit the values in that order. Use `ipairs` for a contiguous sequence whose order is defined from index 1 upward.
 
-To produce stable output, collect the keys in a list, sort the list, then visit the keys in order. `ipairs` is different: it visits list positions 1, 2, 3, ... in a guaranteed order.
-
-A common stable design is a list of records, each with its own name, when order matters, or a dictionary plus a sorted key list when lookup by name matters.
-
-The shared inventory is Notebook (quantity 3, price 2.50), Pencil (10, 0.50), and Folder (4, 1.25). The total value is 7.50 + 5.00 + 5.00 = 17.50.
+The shared inventory contains Notebook (quantity 3, unit price 2.50), Pencil (quantity 10, unit price 0.50), and Folder (quantity 4, unit price 1.25). Its total value is 17.50.
 
 ### Worked Example
->>>>>>> 2067a20 (curriculum clearning and updates)
 ```lua
 local inventory = {
   Notebook = {quantity = 3, unit_price = 2.50},
   Pencil = {quantity = 10, unit_price = 0.50},
-<<<<<<< HEAD
-  Folder = {quantity = 4, unit_price = 1.25}
+  Folder = {quantity = 4, unit_price = 1.25},
 }
-local names = {"Notebook", "Pencil", "Folder"}
+
+local names = {}
+for name in pairs(inventory) do
+  names[#names + 1] = name
+end
 table.sort(names)
+
 local total_cents = 0
 for _, name in ipairs(names) do
   local item = inventory[name]
   local line_cents = item.quantity * math.floor(item.unit_price * 100 + 0.5)
   total_cents = total_cents + line_cents
-  print(name, item.quantity, string.format("$%.2f", item.unit_price),
-    string.format("$%.2f", line_cents / 100))
+  print(string.format("%s\t%d\t$%.2f\t$%.2f",
+    name, item.quantity, item.unit_price, line_cents / 100))
 end
 print(string.format("Inventory total: $%.2f", total_cents / 100))
 ```
 
 ### Expected Behavior or Output
-
 ```text
 Folder	4	$1.25	$5.00
 Notebook	3	$2.50	$7.50
 Pencil	10	$0.50	$5.00
 Inventory total: $17.50
-```text
-.25	$5.00
-Notebook	3	
-```.50	$7.50
-Pencil	10	$0.50	$5.00
-Inventory total: ### Expected Behavior or Output
-
-```text
-7.50
 ```
 
 ### Common Mistakes
-
-- Using index 0 for the first sequence element; Lua sequences start at index 1.
-- Assuming #table counts sparse or map keys; it is reliable for a contiguous sequence.
-- Using pairs where sequence order is required, or ipairs where arbitrary map keys are required.
+1. Assuming `pairs` visits keys in alphabetical or insertion order.
+2. Printing values directly from `pairs` when exact output order matters.
+3. Using `#` to count named keys; it is intended for sequence length, not arbitrary maps.
 
 ### Activities
-
-1. Print the first and last canonical score and explain the one-based indices.
-2. Insert and remove one score, then show the sequence and its length.
-3. Calculate the total and average with ipairs and compare with 337 and 84.25.
-4. Create a sparse table and explain why # and ipairs do not provide a general map traversal.
+1. Run the example and explain why the keys are sorted before printing.
+2. Add a fourth item and verify the total.
+3. Remove the sort and explain why output order is no longer guaranteed.
+4. Explain the difference between `pairs` and `ipairs`.
 
 ### Accessibility Practice
-Navigate by line, word, and character; identify delimiters and nesting verbally; execute from the terminal; and read the output and any error messages sequentially. Do not rely on syntax highlighting or color to understand the example.
+Keep each inventory item on one line with its name, quantity, unit price, and line value. Read the final total after all item lines so the result is clear in sequential screen-reader output.
 
 ### Skills Checklist
-- [ ] I can explain the concept in Lua terminology.
-- [ ] I can trace and predict the example's behavior.
-- [ ] I can run and modify the example from the terminal.
-- [ ] I can test a boundary or invalid case.
-- [ ] I can explain the relevant Lua-specific semantic difference.
+- [ ] I can traverse a table with `pairs`.
+- [ ] I know that `pairs` order is not guaranteed.
+- [ ] I can sort keys for stable output.
+- [ ] I can traverse a sequence with `ipairs`.
+- [ ] I can calculate the shared inventory total.
 
 ---
