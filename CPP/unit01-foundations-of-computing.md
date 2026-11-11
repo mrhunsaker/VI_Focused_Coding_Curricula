@@ -26,8 +26,6 @@ std::cout << "Computer science turns problems into precise, testable steps.\n";
 
 **Trace:** predict the output before compiling. Identify declarations, values, control-flow decisions, and state changes in order. Then compile and compare actual output with the prediction. The lesson example is intended to be independently compilable.
 
-<<<<<<< HEAD
-=======
 ### Expected Behavior or Output
 
 Output observed when the worked example was run with empty standard input (g++ 13.3, C++20; the text of the output does not depend on the operating system):
@@ -36,7 +34,6 @@ Output observed when the worked example was run with empty standard input (g++ 1
 Computer science turns problems into precise, testable steps.
 ```
 
->>>>>>> 2067a20 (curriculum clearning and updates)
 ### Common Mistakes
 - A successful compile does not establish that the algorithm satisfies the requirement.
 - Distinguish an algorithm from its C++ implementation.
@@ -80,8 +77,6 @@ const std::string greeting_name = "Avery"; std::cout << "Hello, " << greeting_na
 
 **Trace:** predict the output before compiling. Identify declarations, values, control-flow decisions, and state changes in order. Then compile and compare actual output with the prediction. The lesson example is intended to be independently compilable.
 
-<<<<<<< HEAD
-=======
 ### Expected Behavior or Output
 
 Output observed when the worked example was run with empty standard input (g++ 13.3, C++20; the text of the output does not depend on the operating system):
@@ -90,7 +85,6 @@ Output observed when the worked example was run with empty standard input (g++ 1
 Hello, Avery!
 ```
 
->>>>>>> 2067a20 (curriculum clearning and updates)
 ### Common Mistakes
 - Forgetting to rebuild after editing can leave an older executable on disk.
 - Provide main with the correct signature.
@@ -134,8 +128,6 @@ const std::string name = "Avery"; const int age = 16; const double height_m = 1.
 
 **Trace:** predict the output before compiling. Identify declarations, values, control-flow decisions, and state changes in order. Then compile and compare actual output with the prediction. The lesson example is intended to be independently compilable.
 
-<<<<<<< HEAD
-=======
 ### Expected Behavior or Output
 
 Output observed when the worked example was run with empty standard input (g++ 13.3, C++20; the text of the output does not depend on the operating system):
@@ -144,7 +136,6 @@ Output observed when the worked example was run with empty standard input (g++ 1
 Avery, 16, 1.72 m, Computer Science
 ```
 
->>>>>>> 2067a20 (curriculum clearning and updates)
 ### Common Mistakes
 - Initialize every built-in variable.
 - Select types that preserve fractional values.
