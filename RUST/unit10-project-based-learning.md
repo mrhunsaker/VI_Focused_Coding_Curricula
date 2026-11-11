@@ -120,26 +120,24 @@ Prompts and responses are on separate lines and every response is a complete sen
 
 ---
 
-## Lesson 10.2: Text adventure: rooms and movement
+## Lesson 10.2: Text Adventure, Part 1: Five Rooms and Movement
 
 ### Reading References
 - [The Rust Programming Language: Hash Maps](https://doc.rust-lang.org/book/ch08-03-hash-maps.html)
 - [The Rust Programming Language: Structs](https://doc.rust-lang.org/book/ch05-01-defining-structs.html)
 - [Rust standard library documentation](https://doc.rust-lang.org/std/)
-- Matching Python lesson: Lesson 10.2: Building a Text-Based Adventure Game (Part 1)
+- Canonical shared project specification: Python Unit 10, Lesson 10.3
 
 ### Learning Objectives
-- Represent rooms and exits with a struct and a map.
-- Move the player by command.
-- Handle impossible moves and the end of input.
+- Represent the five canonical rooms and their exits with Rust structs and hash maps.
+- Move through valid exits without changing location after an invalid command.
+- Explain why the north exit from the locked-door room is not available yet.
 
 ### Concept Explanation
 
-A room is a struct with a `description` and an `exits` map from a direction to the *name* of another room. The program remembers the player's location in one variable. A move looks up the command in the current room's exits; `get` returns an `Option`, so a missing direction is `None` and the program explains that the move is impossible.
+The shared adventure has five rooms: start_room, tunnel, clearing, locked_door_room, and treasure_room. The unconditional connections are start north to tunnel; tunnel south to start and east to clearing; clearing west to tunnel and north to the locked-door room; and locked-door room south to clearing. The north exit to the treasure room is conditional and is added in Part 2 only after the shiny-key puzzle is solved.
 
-This is the same three-room layout as the Python course: a cave, a tunnel, and a clearing. Part 2 adds items and a locked door.
-
-The example is played with north, east, west, up, south, and quit. The command `up` is not an exit anywhere, so it prints the help message.
+A Room struct stores a description and a HashMap of exits. HashMap::get returns an Option; a missing direction must not change the current room.
 
 ### Worked Example
 
@@ -156,38 +154,48 @@ fn next_line() -> Option<String> {
     let mut line = String::new();
     match io::stdin().read_line(&mut line) {
         Ok(0) | Err(_) => None,
-        Ok(_) => Some(line.trim().to_string()),
+        Ok(_) => Some(line.trim().to_lowercase()),
     }
 }
 
 fn main() {
-    let mut rooms: HashMap<&str, Room> = HashMap::new();
-    rooms.insert("start_room", Room {
-        description: "You are in a dimly lit cave. There's a narrow passage to the NORTH.",
-        exits: HashMap::from([("north", "tunnel")]),
-    });
-    rooms.insert("tunnel", Room {
-        description: "The tunnel is damp and cold. You can go SOUTH back to the cave or EAST to a clearing.",
-        exits: HashMap::from([("south", "start_room"), ("east", "clearing")]),
-    });
-    rooms.insert("clearing", Room {
-        description: "You've reached a small, sunny clearing. A faint path leads WEST.",
-        exits: HashMap::from([("west", "tunnel")]),
-    });
+    let rooms = HashMap::from([
+        ("start_room", Room {
+            description: "A dimly lit cave. A narrow passage leads north.",
+            exits: HashMap::from([("north", "tunnel")]),
+        }),
+        ("tunnel", Room {
+            description: "A damp tunnel. Passages lead south and east.",
+            exits: HashMap::from([("south", "start_room"), ("east", "clearing")]),
+        }),
+        ("clearing", Room {
+            description: "A quiet clearing. An antechamber lies to the north.",
+            exits: HashMap::from([("west", "tunnel"), ("north", "locked_door_room")]),
+        }),
+        ("locked_door_room", Room {
+            description: "A chamber with a heavy door to the north.",
+            exits: HashMap::from([("south", "clearing")]),
+        }),
+        ("treasure_room", Room {
+            description: "You found the treasure. You win!",
+            exits: HashMap::new(),
+        }),
+    ]);
 
-    let mut current = "start_room";
+    let mut current_room = "start_room";
     loop {
+        let room = rooms.get(current_room).expect("current room must exist");
         println!("---");
-        println!("{}", rooms[current].description);
+        println!("{}", room.description);
         println!("What do you want to do?");
-        let command = next_line().unwrap_or_else(|| "quit".to_string()).to_lowercase();
-        if let Some(next) = rooms[current].exits.get(command.as_str()) {
-            current = next;
-        } else if command == "quit" {
+        let command = next_line().unwrap_or_else(|| "quit".to_string());
+        if command == "quit" {
             println!("Exiting game. Goodbye!");
             break;
-        } else {
-            println!("I don't understand that command or you can't go that way.");
+        }
+        match room.exits.get(command.as_str()) {
+            Some(destination) => current_room = destination,
+            None => println!("You cannot go that way. Enter a listed direction or quit."),
         }
     }
 }
@@ -195,92 +203,52 @@ fn main() {
 
 ### Expected Behavior or Output
 
-With the following lines typed as standard input (piped input is not echoed, so it does not appear in the output):
-```text
-north
-east
-west
-up
-south
-quit
-```
-
-the program prints:
-```text
----
-You are in a dimly lit cave. There's a narrow passage to the NORTH.
-What do you want to do?
----
-The tunnel is damp and cold. You can go SOUTH back to the cave or EAST to a clearing.
-What do you want to do?
----
-You've reached a small, sunny clearing. A faint path leads WEST.
-What do you want to do?
----
-The tunnel is damp and cold. You can go SOUTH back to the cave or EAST to a clearing.
-What do you want to do?
-I don't understand that command or you can't go that way.
----
-The tunnel is damp and cold. You can go SOUTH back to the cave or EAST to a clearing.
-What do you want to do?
----
-You are in a dimly lit cave. There's a narrow passage to the NORTH.
-What do you want to do?
-Exiting game. Goodbye!
-```
-
-With no standard input at all, the program ends cleanly and prints:
-```text
----
-You are in a dimly lit cave. There's a narrow passage to the NORTH.
-What do you want to do?
-Exiting game. Goodbye!
-```
+With north, east, north, north, quit entered as separate input lines, the player visits tunnel, clearing, and locked_door_room. The second north from locked_door_room is rejected and the current room does not change. The treasure room exists in the model but cannot be reached in Part 1.
 
 ### Common Mistakes
-1. Indexing `exits[command]` with a direction that is missing, which panics. Use `get`.
-2. Forgetting to treat the end of input as `quit`, so the program loops forever when input is piped in.
-3. Misspelling a room name in `exits`, so a move leads to a room that does not exist and `rooms[current]` panics.
+1. Adding the treasure-room north exit before implementing the key puzzle.
+2. Updating current_room before confirming that the requested exit exists.
+3. Assuming a direction is present instead of handling None from HashMap::get.
+4. Defining an exit whose destination is not one of the five room identifiers.
 
 ### Activities
-1. Trace the six commands by hand and write the room after each one.
-2. Add a fourth room reached from the clearing and test it.
-3. Add the aliases `n`, `s`, `e`, and `w`.
-4. Write a loop that checks that every exit names a real room.
+1. Trace north, east, north, north and record the room after each command.
+2. Try west from start_room; confirm that the location does not change.
+3. Check that every destination in every unconditional exit exists in rooms.
+4. Explain why treasure_room has no incoming exit in Part 1.
 
 ### Accessibility Practice
 
-Each turn prints a separator line, the description, and the prompt, so a whole turn can be read in order. Listen to one turn from start to finish to confirm that a player could follow it without seeing the screen.
+Read the separator, room description, and prompt in order. The invalid-movement response explains what happened and how to continue. Test the sequence by listening to terminal output; do not rely on a visual map.
 
 ### Skills Checklist
-- [ ] I can represent rooms with a struct.
-- [ ] I can move the player by command.
-- [ ] I can handle an impossible move.
-- [ ] I treat end of input as quit.
-- [ ] I can trace a game by hand.
+- [ ] I can model all five canonical rooms.
+- [ ] I can represent exits with a hash map.
+- [ ] I can move only when an exit exists.
+- [ ] I can reject an invalid direction without changing state.
+- [ ] I can explain why the treasure room is not yet reachable.
 
 ---
 
-## Lesson 10.3: Text adventure: inventory and puzzles
+## Lesson 10.3: Text Adventure, Part 2: Shiny Key and Locked Door
 
 ### Reading References
 - [The Rust Programming Language: Vectors](https://doc.rust-lang.org/book/ch08-01-vectors.html)
 - [The Rust Programming Language: References and Borrowing](https://doc.rust-lang.org/book/ch04-02-references-and-borrowing.html)
 - [Rust standard library documentation](https://doc.rust-lang.org/std/)
-- Matching Python lesson: Lesson 10.3: Building a Text-Based Adventure Game (Part 2)
+- Canonical shared project specification: Python Unit 10, Lesson 10.3
 
 ### Learning Objectives
-- Keep items in rooms and in an inventory.
-- Implement take and use commands.
-- Block and then allow a move through a locked door.
+- Place the shiny key in start_room and transfer it to inventory exactly once.
+- Require the player to use the key while in locked_door_room.
+- Unlock the north exit to treasure_room only after the puzzle succeeds.
+- End the game when the player reaches the treasure room.
 
 ### Concept Explanation
 
-Part 2 adds *state*: items in rooms, an inventory, and a door that is locked until the player uses the key. This is the shared specification used by every language track: three rooms (`start`, `locked_door_room`, `treasure_room`); the commands `north`, `south`, `east`, `west`, `take shiny key`, `use shiny key`, and `quit`; the door between the chamber and the treasure room stays locked until the key is used there; reaching the treasure room ends the game.
+Part 2 keeps the same five-room graph. The shiny key begins in start_room. The take shiny key command removes it from that room and adds it to inventory. The use shiny key command works only in locked_door_room and only when the key is in inventory. Attempting north from the locked-door room before that action prints a locked-door message and leaves the player in place. After the key is used, north leads to treasure_room.
 
-Items are a `Vec` of names inside each room. Taking an item removes it from the room's list with `get_mut` (a mutable borrow) and adds it to the inventory. The borrow checker needs the immutable borrow of the room to end before the mutable one begins, which is why each command reads what it needs first. The locked door is a `bool` variable.
-
-The example is played with: north (into the chamber), north (the locked door refuses), south, take shiny key, north, use shiny key, north (the treasure room).
+Room descriptions do not claim that an item is still present. Room items and inventory are announced on separate lines.
 
 ### Worked Example
 
@@ -298,69 +266,107 @@ fn next_line() -> Option<String> {
     let mut line = String::new();
     match io::stdin().read_line(&mut line) {
         Ok(0) | Err(_) => None,
-        Ok(_) => Some(line.trim().to_string()),
+        Ok(_) => Some(line.trim().to_lowercase()),
     }
 }
 
 fn main() {
-    let mut rooms: HashMap<&str, Room> = HashMap::new();
-    rooms.insert("start", Room {
-        description: "A dark cave.",
-        exits: HashMap::from([("north", "locked_door_room")]),
-        items: vec!["shiny key"],
-    });
-    rooms.insert("locked_door_room", Room {
-        description: "A small chamber with a heavy door to the NORTH.",
-        exits: HashMap::from([("south", "start"), ("north", "treasure_room")]),
-        items: Vec::new(),
-    });
-    rooms.insert("treasure_room", Room {
-        description: "A glittering room full of treasure. You win!",
-        exits: HashMap::from([("south", "locked_door_room")]),
-        items: Vec::new(),
-    });
+    let mut rooms = HashMap::from([
+        ("start_room", Room {
+            description: "A dimly lit cave.",
+            exits: HashMap::from([("north", "tunnel")]),
+            items: vec!["shiny key"],
+        }),
+        ("tunnel", Room {
+            description: "A damp tunnel. Passages lead south and east.",
+            exits: HashMap::from([("south", "start_room"), ("east", "clearing")]),
+            items: Vec::new(),
+        }),
+        ("clearing", Room {
+            description: "A quiet clearing. An antechamber lies to the north.",
+            exits: HashMap::from([("west", "tunnel"), ("north", "locked_door_room")]),
+            items: Vec::new(),
+        }),
+        ("locked_door_room", Room {
+            description: "A chamber with a heavy door to the north.",
+            exits: HashMap::from([("south", "clearing"), ("north", "treasure_room")]),
+            items: Vec::new(),
+        }),
+        ("treasure_room", Room {
+            description: "You found the treasure. You win!",
+            exits: HashMap::new(),
+            items: Vec::new(),
+        }),
+    ]);
 
-    let mut current = "start";
-    let mut inventory: Vec<&str> = Vec::new();
+    let mut current_room = "start_room";
+    let mut inventory: Vec<&'static str> = Vec::new();
     let mut door_locked = true;
 
     loop {
+        let room = rooms.get(current_room).expect("current room must exist");
         println!();
-        println!("{}", rooms[current].description);
-        if current == "treasure_room" {
+        println!("{}", room.description);
+        if current_room == "treasure_room" {
             break;
         }
-        if !rooms[current].items.is_empty() {
-            println!("You see: {}", rooms[current].items.join(", "));
+        if !room.items.is_empty() {
+            println!("You see: {}", room.items.join(", "));
         }
-        let held = if inventory.is_empty() { "empty".to_string() } else { inventory.join(", ") };
-        println!("Your inventory: {held}");
+        println!(
+            "Your inventory: {}",
+            if inventory.is_empty() { "empty" } else { "shiny key" }
+        );
         println!("What do you want to do?");
 
-        let command = next_line().unwrap_or_else(|| "quit".to_string()).to_lowercase();
-        let has_key_here = rooms[current].items.contains(&"shiny key");
-        let next_room = rooms[current].exits.get(command.as_str()).copied();
-
-        if command == "take shiny key" && has_key_here {
-            if let Some(room) = rooms.get_mut(current) {
-                room.items.retain(|&item| item != "shiny key");
+        let command = next_line().unwrap_or_else(|| "quit".to_string());
+        match command.as_str() {
+            "quit" => {
+                println!("You quit the adventure.");
+                break;
             }
-            inventory.push("shiny key");
-            println!("You picked up the shiny key.");
-        } else if command == "use shiny key" && current == "locked_door_room" && inventory.contains(&"shiny key") {
-            door_locked = false;
-            println!("You unlocked the door!");
-        } else if let Some(next) = next_room {
-            if current == "locked_door_room" && command == "north" && door_locked {
-                println!("The door is locked! You need a key.");
-            } else {
-                current = next;
+            "take shiny key" => {
+                let taken = {
+                    let room = rooms.get_mut(current_room).expect("current room must exist");
+                    if let Some(index) = room.items.iter().position(|item| *item == "shiny key") {
+                        room.items.remove(index);
+                        true
+                    } else {
+                        false
+                    }
+                };
+                if taken {
+                    inventory.push("shiny key");
+                    println!("You picked up the shiny key.");
+                } else {
+                    println!("There is no shiny key here to take.");
+                }
             }
-        } else if command == "quit" {
-            println!("Exiting game. Goodbye!");
-            break;
-        } else {
-            println!("I don't understand that command.");
+            "use shiny key" => {
+                if current_room != "locked_door_room" {
+                    println!("You must be at the locked door to use the key.");
+                } else if !inventory.contains(&"shiny key") {
+                    println!("You do not have the shiny key.");
+                } else {
+                    door_locked = false;
+                    println!("You unlocked the door!");
+                }
+            }
+            "north" if current_room == "locked_door_room" && door_locked => {
+                println!("The door is locked! You need to use the shiny key here.");
+            }
+            direction => {
+                let destination = rooms
+                    .get(current_room)
+                    .and_then(|room| room.exits.get(direction))
+                    .copied();
+                match destination {
+                    Some(next_room) => current_room = next_room,
+                    None => println!(
+                        "Invalid command. Enter north, south, east, west, take shiny key, use shiny key, or quit."
+                    ),
+                }
+            }
         }
     }
 }
@@ -368,87 +374,35 @@ fn main() {
 
 ### Expected Behavior or Output
 
-With the following lines typed as standard input (piped input is not echoed, so it does not appear in the output):
-```text
-north
-north
-south
-take shiny key
-north
-use shiny key
-north
-```
+Use this sequence to verify the puzzle: north, east, north, north, south, west, south, take shiny key, north, east, north, use shiny key, north.
 
-the program prints:
-```text
-
-A dark cave.
-You see: shiny key
-Your inventory: empty
-What do you want to do?
-
-A small chamber with a heavy door to the NORTH.
-Your inventory: empty
-What do you want to do?
-The door is locked! You need a key.
-
-A small chamber with a heavy door to the NORTH.
-Your inventory: empty
-What do you want to do?
-
-A dark cave.
-You see: shiny key
-Your inventory: empty
-What do you want to do?
-You picked up the shiny key.
-
-A dark cave.
-Your inventory: shiny key
-What do you want to do?
-
-A small chamber with a heavy door to the NORTH.
-Your inventory: shiny key
-What do you want to do?
-You unlocked the door!
-
-A small chamber with a heavy door to the NORTH.
-Your inventory: shiny key
-What do you want to do?
-
-A glittering room full of treasure. You win!
-```
-
-With no standard input at all, the program ends cleanly and prints:
-```text
-
-A dark cave.
-You see: shiny key
-Your inventory: empty
-What do you want to do?
-Exiting game. Goodbye!
-```
+The first north attempt from locked_door_room must be rejected. Taking the key removes it from start_room and adds it to inventory. Using it outside locked_door_room must be rejected. Using it there prints You unlocked the door!; the next north reaches treasure_room and prints You found the treasure. You win!. End-of-file is treated as quit.
 
 ### Common Mistakes
-1. Making the door's locked state part of the exits so that the "locked" message can never be reached.
-2. Holding a reference to a room while calling `get_mut`, which the borrow checker rejects; read what you need first.
-3. Printing a fixed room description that still mentions an item after the player has taken it.
+1. Leaving the shiny key in the room after adding it to inventory.
+2. Unlocking the door outside locked_door_room.
+3. Unlocking the door without checking inventory.
+4. Allowing north movement before door_locked becomes false.
+5. Describing the key as still on the floor after it has been collected.
 
 ### Activities
-1. Play the program with the shown commands and follow each turn on paper.
-2. Try `use shiny key` in the cave and describe what happens.
-3. Add a second item and require both to open the door.
-4. List the game's state (location, inventory, door) and say which command changes each part.
+1. Run the full sequence and record room, room items, inventory, and door state after every command.
+2. Try take shiny key twice; the second attempt must not duplicate the item.
+3. Try use shiny key in start_room and clearing; both attempts must be rejected.
+4. Try north from locked_door_room before and after unlocking.
+5. Add a look command that announces room, visible items, inventory, and exits in a consistent order.
 
 ### Accessibility Practice
 
-The room description never mentions the key. A separate 'You see:' line lists items, so the description stays true after the key is taken and the screen reader announces the current state.
+Announce room description, visible items, inventory, and prompt as separate text lines. Every failed action explains why it failed. Listen to the full puzzle sequence and verify that key location and door state are unambiguous.
 
 ### Skills Checklist
-- [ ] I can store items in rooms and an inventory.
-- [ ] I can implement take and use commands.
-- [ ] I can block and allow a move.
-- [ ] I can explain the borrow-checker constraint.
-- [ ] I can keep descriptions true after state changes.
+- [ ] I can model the five canonical rooms.
+- [ ] I can transfer the shiny key from a room to inventory.
+- [ ] I can prevent duplicate pickup.
+- [ ] I can require key use in the locked-door room.
+- [ ] I can block and unlock the north exit.
+- [ ] I can end the game when the treasure room is reached.
 
 ---
 
