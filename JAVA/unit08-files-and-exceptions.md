@@ -9,32 +9,6 @@ This unit develops files and exceptions through the same shared problem contexts
 ## Lesson 8.1: Reading from a File
 
 ### Reading References
-<<<<<<< HEAD
-- [Java SE 25 documentation](https://docs.oracle.com/en/java/).
-- [Java Language Specification, Java SE 25](https://docs.oracle.com/javase/specs/jls/se25/html/index.html).
-
-
-### Learning Objectives
-- Explain the purpose and vocabulary of reading from a file.
-- Apply the relevant Java syntax and APIs in a small, complete program.
-- Compile, run, inspect, and adapt the example using keyboard-accessible tools.
-
-### Concept Explanation
-This lesson develops reading from a file through Java's class-based structure and standard library. Identify the input, output, state changes, and relevant type constraints before coding. Keep declarations local where possible, separate computation from presentation, and state preconditions and postconditions. File APIs can fail with IOException; use Path and Files for common operations and try-with-resources for closeable streams. Catch only failures you can handle. JSON is not built into the Java SE standard library, so robust JSON parsing requires a documented external library such as Jackson or Gson.
-
-Java is statically typed and class-based. Local variables have declared or inferred compile-time types, reference values may be null, and methods and fields are governed by access and scope rules. The compiler checks syntax and type compatibility before execution; runtime behavior still requires testing. Follow Java naming conventions, use explicit imports in beginner work, and prefer small methods with clear contracts.
-
-### Worked Example
-```java
-public class Lesson_8_1 {
-    public static void main(String[] args) {
-        try {
-            java.nio.file.Path file = java.nio.file.Files.createTempFile("java-lesson", ".txt");
-            java.nio.file.Files.writeString(file, "first line\\nsecond line\\n");
-            for (String line : java.nio.file.Files.readAllLines(file)) System.out.println(line);
-            java.nio.file.Files.deleteIfExists(file);
-        } catch (java.io.IOException ex) { System.out.println(ex.getMessage()); }
-=======
 - [Java SE 25 API documentation](https://docs.oracle.com/en/java/javase/25/docs/api/)
 - [Dev.java learning paths](https://dev.java/learn/)
 - Matching Python lesson: Lesson 8.1: Reading from a File
@@ -80,12 +54,10 @@ public class Lesson_8_1 {
         if (!Files.exists(missing)) {
             System.out.println("missing_notes.txt was not found.");
         }
->>>>>>> 2067a20 (curriculum clearning and updates)
     }
 }
 ```
 
-<<<<<<< HEAD
 **Expected behavior:** The program compiles on JDK 25 and prints a deterministic result illustrating reading from a file. Run it from a terminal, compare actual output with your prediction, and change one input to test the effect.
 
 ### Common Mistakes
@@ -106,51 +78,10 @@ Navigate by class, method, and line; inspect braces, parentheses, brackets, semi
 - [ ] I can compile and run the example from the terminal.
 - [ ] I can identify and correct a Java-specific mistake.
 - [ ] I can test a boundary case and navigate the workflow accessibly.
-=======
-### Expected Behavior or Output
-
-The program prints:
-```text
-Practice Java.
-Review lists and methods.
-
-Practice Java.
-Review lists and methods.
-2
-PRACTICE JAVA.
-REVIEW LISTS AND METHODS.
-missing_notes.txt was not found.
-```
-
-### Common Mistakes
-1. Reading a file that does not exist without checking or catching the error.
-2. Forgetting `throws IOException` or a `catch`, which is a compile error for file methods.
-3. Using `Files.lines` without closing the stream.
-
-### Activities
-1. Run the program and describe each block of output.
-2. Add a third line to the file text and predict the new count.
-3. Print each line with its line number.
-4. Print a friendly message that includes the missing file's name.
-
-### Accessibility Practice
-
-Read the output aloud in order. Make an error message a complete sentence that includes the file name so it is clear without seeing the screen.
-
-### Skills Checklist
-- [ ] I can read a file whole and by line.
-- [ ] I can check that a file exists.
-- [ ] I know checked exceptions must be handled or declared.
-- [ ] I can report a missing file.
-- [ ] I can close a stream with try-with-resources.
-
----
->>>>>>> 2067a20 (curriculum clearning and updates)
 
 ## Lesson 8.2: Writing to a File
 
 ### Reading References
-<<<<<<< HEAD
 - [Java SE 25 documentation](https://docs.oracle.com/en/java/).
 - [Java Language Specification, Java SE 25](https://docs.oracle.com/javase/specs/jls/se25/html/index.html).
 
@@ -175,43 +106,10 @@ public class Lesson_8_2 {
             System.out.println(java.nio.file.Files.size(file) + " bytes written");
             java.nio.file.Files.deleteIfExists(file);
         } catch (java.io.IOException ex) { System.out.println(ex.getMessage()); }
-=======
-- [Java SE 25 API documentation](https://docs.oracle.com/en/java/javase/25/docs/api/)
-- [Dev.java learning paths](https://dev.java/learn/)
-- Matching Python lesson: Lesson 8.2: Writing to a File
-
-### Learning Objectives
-- Write with `Files.writeString` and append with `StandardOpenOption.APPEND`.
-- Include line endings correctly.
-- Read the file back to verify it.
-
-### Concept Explanation
-
-`Files.writeString(path, text)` creates the file or **replaces** its contents. To add to the end, pass the option `StandardOpenOption.APPEND`. Neither adds a line ending for you, so end each line with `\n`. `Files.newBufferedWriter` writes in pieces and must be closed (Lesson 8.4).
-
-Reading the file back is the simplest way to confirm what was saved. The example writes the first notes line, appends the second, and reads the file back.
-
-### Worked Example
-
-```java
-import java.io.IOException;
-import java.nio.file.Files;
-import java.nio.file.Path;
-import java.nio.file.StandardOpenOption;
-
-public class Lesson_8_2 {
-    public static void main(String[] args) throws IOException {
-        Path file = Path.of("notes.txt");
-        Files.writeString(file, "Practice Java.\n");
-        Files.writeString(file, "Review lists and methods.\n", StandardOpenOption.APPEND);
-        System.out.print(Files.readString(file));
-        System.out.println("Lines: " + Files.readAllLines(file).size());
->>>>>>> 2067a20 (curriculum clearning and updates)
     }
 }
 ```
 
-<<<<<<< HEAD
 **Expected behavior:** The program compiles on JDK 25 and prints a deterministic result illustrating writing to a file. Run it from a terminal, compare actual output with your prediction, and change one input to test the effect.
 
 ### Common Mistakes
@@ -260,157 +158,11 @@ public class Lesson_8_3 {
             System.out.println(value);
         } catch (NumberFormatException ex) {
             System.out.println("Invalid integer: " + raw);
-=======
-### Expected Behavior or Output
-
-The program prints:
-```text
-Practice Java.
-Review lists and methods.
-Lines: 2
-```
-
-### Common Mistakes
-1. Using the replacing form when appending was intended, which erases earlier content.
-2. Forgetting `\n`, so all written lines run together.
-3. Not reading the file back to check what was actually saved.
-
-### Activities
-1. Predict the output, then run.
-2. Remove the `APPEND` option and explain the difference.
-3. Append a third line with the current number of lines.
-4. Write the shared scores, one per line, then read them back and total them.
-
-### Accessibility Practice
-
-Always read a written file back in the terminal to confirm it, using line navigation, so you do not depend on assumptions about what was saved.
-
-### Skills Checklist
-- [ ] I can write and append.
-- [ ] I know the default write replaces.
-- [ ] I can include line endings.
-- [ ] I can verify by reading back.
-- [ ] I can count lines in a file.
-
----
-
-## Lesson 8.3: Exceptions
-
-### Reading References
-- [Java SE 25 API documentation](https://docs.oracle.com/en/java/javase/25/docs/api/)
-- [Java Language Specification, Java SE 25](https://docs.oracle.com/javase/specs/jls/se25/html/index.html)
-- [Dev.java learning paths](https://dev.java/learn/)
-- Matching Python lesson: Lesson 8.3: Exceptions - Handling Errors
-
-### Learning Objectives
-- Catch specific exceptions with `try` and `catch`.
-- Use `finally` and multi-catch.
-- Explain checked versus unchecked exceptions.
-
-### Concept Explanation
-
-An *exception* is an error that stops the program unless it is caught. `try { ... } catch (SomeException e) { ... }` runs the risky code and handles the failure. Catch the **specific** exception you expect, never `Exception` for everything, so mistakes in your own code are not hidden. A `finally` block runs whether or not an exception happened. One `catch` may name several types: `catch (NumberFormatException | ArithmeticException e)`.
-
-*Checked* exceptions such as `IOException` must be caught or declared; *unchecked* exceptions such as `NumberFormatException`, `ArithmeticException`, and `IllegalStateException` need not be. Integer division by zero throws an `ArithmeticException`; division of `double` values by zero gives infinity instead.
-
-`e.getMessage()` returns the message. Some library messages depend on the Java version and the operating system, so the example prints only the messages that Java guarantees.
-
-### Worked Example
-
-```java
-import java.io.IOException;
-import java.nio.file.Files;
-import java.nio.file.NoSuchFileException;
-import java.nio.file.Path;
-
-public class Lesson_8_3 {
-    public static void main(String[] args) {
-        try {
-            Files.readString(Path.of("missing_notes.txt"));
-        } catch (NoSuchFileException e) {
-            System.out.println("Error: missing_notes.txt was not found.");
-        } catch (IOException e) {
-            System.out.println("Error: could not read the file.");
-        }
-
-        try {
-            Integer.parseInt("abc");
-        } catch (NumberFormatException e) {
-            System.out.println("Error: 'abc' is not a valid score.");
-        }
-
-        int zero = 0;
-        try {
-            System.out.println(10 / zero);
-        } catch (ArithmeticException e) {
-            System.out.println("Error: " + e.getMessage());
-        }
-        System.out.println(10.0 / zero);
-
-        try {
-            throw new IllegalStateException("raised on purpose");
-        } catch (IllegalStateException | IllegalArgumentException e) {
-            System.out.println(e.getMessage());
-        } finally {
-            System.out.println("Cleanup runs either way.");
->>>>>>> 2067a20 (curriculum clearning and updates)
         }
     }
 }
 ```
 
-<<<<<<< HEAD
-**Expected behavior:** The program compiles on JDK 25 and prints a deterministic result illustrating exceptions and handling errors. Run it from a terminal, compare actual output with your prediction, and change one input to test the effect.
-
-### Common Mistakes
-- Leaving a stream open instead of using try-with-resources or ignoring IOException.
-- Catching Exception broadly and hiding failures that should be reported or propagated.
-- Assuming JSON parsing is built into Java SE or constructing JSON with unsafe string concatenation.
-### Activities
-1. Read and write a temporary file, then verify the file content and clean up the resource.
-2. Test a missing file and malformed numeric content; distinguish checked from unchecked exceptions.
-3. Explain which resources are closed by try-with-resources and which code executes in finally.
-4. Document why production JSON requires a parser/serializer library and test malformed JSON with that library when available.
-### Accessibility Practice
-Navigate by class, method, and line; inspect braces, parentheses, brackets, semicolons, generic delimiters, and compiler diagnostics with the preferred screen reader or braille display. Compile and run from the terminal so the workflow does not depend on color or a visual project explorer.
-
-### Skills Checklist
-- [ ] I can explain the key concept in Java terms.
-- [ ] I can trace and predict the worked example.
-- [ ] I can compile and run the example from the terminal.
-- [ ] I can identify and correct a Java-specific mistake.
-- [ ] I can test a boundary case and navigate the workflow accessibly.
-
-## Lesson 8.4: The catch, finally, and try-with-resources Patterns
-
-### Reading References
-- [Java SE 25 documentation](https://docs.oracle.com/en/java/).
-- [Java Language Specification, Java SE 25](https://docs.oracle.com/javase/specs/jls/se25/html/index.html).
-
-
-### Learning Objectives
-- Explain the purpose and vocabulary of the catch, finally, and try-with-resources patterns.
-- Apply the relevant Java syntax and APIs in a small, complete program.
-- Compile, run, inspect, and adapt the example using keyboard-accessible tools.
-
-### Concept Explanation
-This lesson develops the catch, finally, and try-with-resources patterns through Java's class-based structure and standard library. Identify the input, output, state changes, and relevant type constraints before coding. Keep declarations local where possible, separate computation from presentation, and state preconditions and postconditions. File APIs can fail with IOException; use Path and Files for common operations and try-with-resources for closeable streams. Catch only failures you can handle. JSON is not built into the Java SE standard library, so robust JSON parsing requires a documented external library such as Jackson or Gson.
-
-Java is statically typed and class-based. Local variables have declared or inferred compile-time types, reference values may be null, and methods and fields are governed by access and scope rules. The compiler checks syntax and type compatibility before execution; runtime behavior still requires testing. Follow Java naming conventions, use explicit imports in beginner work, and prefer small methods with clear contracts.
-
-### Worked Example
-```java
-public class Lesson_8_4 {
-    public static void main(String[] args) {
-        try {
-            int divisor = 0;
-            System.out.println(12 / divisor);
-        } catch (ArithmeticException ex) {
-            System.out.println("Cannot divide by zero");
-        } finally {
-            System.out.println("Cleanup runs after the try/catch");
-        }
-=======
 ### Expected Behavior or Output
 
 The program prints:
@@ -512,12 +264,10 @@ public class Lesson_8_4 {
             refused = true;
         }
         System.out.println(refused);
->>>>>>> 2067a20 (curriculum clearning and updates)
     }
 }
 ```
 
-<<<<<<< HEAD
 **Expected behavior:** The program compiles on JDK 25 and prints a deterministic result illustrating the catch, finally, and try-with-resources patterns. Run it from a terminal, compare actual output with your prediction, and change one input to test the effect.
 
 ### Common Mistakes
@@ -538,70 +288,10 @@ Navigate by class, method, and line; inspect braces, parentheses, brackets, semi
 - [ ] I can compile and run the example from the terminal.
 - [ ] I can identify and correct a Java-specific mistake.
 - [ ] I can test a boundary case and navigate the workflow accessibly.
-=======
-### Expected Behavior or Output
-
-The program prints:
-```text
-Some data.
-Some data.
-failure while reading
-working
-finally block ran
-true
-```
-
-### Common Mistakes
-1. Opening a reader or writer and forgetting to close it.
-2. Putting `return` in a `finally` block, which can hide an earlier exception.
-3. Using the reader after try-with-resources has closed it.
-
-### Activities
-1. Predict the six printed lines.
-2. Rewrite the first example with an explicit `try` and `finally` and compare the length.
-3. Throw an exception before the write and confirm that the file is still closed.
-4. Explain why cleanup matters even if the program is about to end.
-
-### Accessibility Practice
-
-Print a short labelled line after each step, so the screen reader announces which path ran. Labelled lines make the order of cleanup audible.
-
-### Skills Checklist
-- [ ] I can close files with try-with-resources.
-- [ ] I can use `finally`.
-- [ ] I know the resource closes after an error.
-- [ ] I can show a closed reader refuses to read.
-- [ ] I can explain why cleanup matters.
-
----
->>>>>>> 2067a20 (curriculum clearning and updates)
 
 ## Lesson 8.5: Storing Data with JSON
 
 ### Reading References
-<<<<<<< HEAD
-- [Java SE 25 documentation](https://docs.oracle.com/en/java/).
-- [Java Language Specification, Java SE 25](https://docs.oracle.com/javase/specs/jls/se25/html/index.html).
-
-
-### Learning Objectives
-- Explain the purpose and vocabulary of storing data with json.
-- Apply the relevant Java syntax and APIs in a small, complete program.
-- Compile, run, inspect, and adapt the example using keyboard-accessible tools.
-
-### Concept Explanation
-This lesson develops storing data with json through Java's class-based structure and standard library. Identify the input, output, state changes, and relevant type constraints before coding. Keep declarations local where possible, separate computation from presentation, and state preconditions and postconditions. File APIs can fail with IOException; use Path and Files for common operations and try-with-resources for closeable streams. Catch only failures you can handle. JSON is not built into the Java SE standard library, so robust JSON parsing requires a documented external library such as Jackson or Gson.
-
-Java is statically typed and class-based. Local variables have declared or inferred compile-time types, reference values may be null, and methods and fields are governed by access and scope rules. The compiler checks syntax and type compatibility before execution; runtime behavior still requires testing. Follow Java naming conventions, use explicit imports in beginner work, and prefer small methods with clear contracts.
-
-### Worked Example
-```java
-public class Lesson_8_5 {
-    public static void main(String[] args) {
-        String json = "{\\\"name\\\":\\\"Avery\\\",\\\"score\\\":92}";
-        System.out.println(json);
-        System.out.println("JSON is text; use a JSON library for robust parsing and escaping.");
-=======
 - [Java SE 25 API documentation](https://docs.oracle.com/en/java/javase/25/docs/api/)
 - JSON specification: https://www.json.org
 - Matching Python lesson: Lesson 8.5: Storing Data with JSON
@@ -888,12 +578,10 @@ public class Lesson_8_5 {
         } catch (IllegalArgumentException e) {
             System.out.println(e.getMessage());
         }
->>>>>>> 2067a20 (curriculum clearning and updates)
     }
 }
 ```
 
-<<<<<<< HEAD
 **Expected behavior:** The program compiles on JDK 25 and prints a deterministic result illustrating storing data with json. Run it from a terminal, compare actual output with your prediction, and change one input to test the effect.
 
 ### Common Mistakes
@@ -914,37 +602,3 @@ Navigate by class, method, and line; inspect braces, parentheses, brackets, semi
 - [ ] I can compile and run the example from the terminal.
 - [ ] I can identify and correct a Java-specific mistake.
 - [ ] I can test a boundary case and navigate the workflow accessibly.
-=======
-### Expected Behavior or Output
-
-The program prints:
-```text
-1: Study programming (not done)
-2: Review scores (done)
-expected a key at position 10
-```
-
-### Common Mistakes
-1. Assuming Java has built-in JSON support.
-2. Trusting decoded data without checking that each field exists and has the right type.
-3. Overwriting a good data file with an empty list after a failed load.
-
-### Activities
-1. Run the program and read the saved JSON text from `tasks.json`.
-2. Edit `tasks.json` by hand to remove a closing bracket and run the loading part again. Read the message.
-3. Add a third task and confirm that it is saved and loaded.
-4. Explain why a production project should use a maintained JSON library.
-
-### Accessibility Practice
-
-Open `tasks.json` in the terminal and read it as text. JSON in a single line is difficult to navigate, so practise stepping through it by word or character.
-
-### Skills Checklist
-- [ ] I know Java has no built-in JSON.
-- [ ] I can encode and decode records.
-- [ ] I handle missing and malformed files.
-- [ ] I check decoded fields.
-- [ ] I know when to use a library.
-
----
->>>>>>> 2067a20 (curriculum clearning and updates)
