@@ -6,6 +6,12 @@ TRACKS = {
     "KOTLIN": ("KOTLIN/unit10-project-based-learning-text-based-applications.md", "kotlin"),
     "LUA": ("LUA/unit10-project-based-learning-text-based-applications.md", "lua"),
     "RUST": ("RUST/unit10-project-based-learning.md", "rust"),
+    "C": ("C/unit10-applied-projects.md", "c"),
+    "CPP": ("CPP/unit10-project-based-learning.md", "cpp"),
+    "CSHARP": ("CSHARP/unit10-project-based-learning.md", "csharp"),
+    "GO": ("GO/unit10-project-based-learning-text-based-applications.md", "go"),
+    "JULIA": ("JULIA/unit10-project-based-learning.md", "julia"),
+    "SWIFT": ("SWIFT/unit10-project-based-learning.md", "swift"),
 }
 ROOMS = ("start_room", "tunnel", "clearing", "locked_door_room", "treasure_room")
 REQUIRED = (
@@ -80,4 +86,4 @@ for track, (filename, language) in TRACKS.items():
 if failures:
     print("\n".join(failures))
     sys.exit(1)
-print("Five-room adventure contract passed for Kotlin, Lua, and Rust Unit 10 Lessons 10.2 and 10.3.")
+print("Five-room adventure contract passed for all nine validated language tracks in Unit 10 Lessons 10.2 and 10.3.")
