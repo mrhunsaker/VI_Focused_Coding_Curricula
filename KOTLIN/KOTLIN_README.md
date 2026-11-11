@@ -1,10 +1,7 @@
 # Introduction to Kotlin
 
-<<<<<<< HEAD
-=======
 **Before you start:** complete [Unit P: Computing Foundations Primer](../FOUNDATIONS/unit-p-computing-foundations.md). It explains the language-neutral vocabulary and concepts used in every language track, using non-visual examples.
 
->>>>>>> 2067a20 (curriculum clearning and updates)
 ## Standardized beginner curriculum
 
 This course is a Kotlin/JVM parallel track aligned to the shared 12-unit, 57-lesson sequence. It assumes no prior Java experience. Kotlin is statically typed, supports nullable and non-nullable types, and interoperates with Java libraries on the JVM.
@@ -46,9 +43,6 @@ The lesson files provide the aligned instructional structure. The audit records 
 ## GUI, visualization, and workbench accessibility
 
 See the shared [GUI, visualization, and workbench accessibility reference](../DEVELOPMENT/GUI_VISUALIZATION_ACCESSIBILITY.md) for screen-reader support by toolkit, platform-specific activation settings, recommended alternatives, and interfaces that must not be required without an equivalent accessible route.
-<<<<<<< HEAD
-=======
-
 ## AI Policy
 
 AI may be used only for personal conceptual understanding and reinforcement. It must not write, complete, autocomplete, repair, or generate course code or assessment solutions.
@@ -56,7 +50,6 @@ AI may be used only for personal conceptual understanding and reinforcement. It 
 ## Verification status
 
 Every lesson has one Kotlin example that uses the shared datasets. All 57 examples compile together with `kotlinc` 1.9.24, run independently with empty standard input, and match the exact output in `examples_expected.json` (`scripts/check_kotlin_examples.py`; checked on JDK 21). The "Expected Behavior or Output" blocks in the lessons are captured from runs of the same examples, with the standard input shown where a program reads input. This has not been tested with screen readers or braille displays.
->>>>>>> 2067a20 (curriculum clearning and updates)
 
 ## Recommended introductory books
 
