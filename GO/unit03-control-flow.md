@@ -18,7 +18,6 @@ This unit develops control flow using Go's types, packages, and standard-library
 - Test a relevant boundary condition and explain a common failure.
 
 ### Concept Explanation
-<<<<<<< HEAD
 package main
 import (
 	"fmt"
@@ -64,12 +63,6 @@ func main() {
 } The lesson uses the canonical course data so learners focus on Go semantics rather than a new domain problem. Format with gofmt and use go test ./... as routine development tools.
 
 ### Worked Example
-=======
-A Go condition must be a `bool`; the number 0 and the empty string are never treated as false. Comparisons use `==`, `!=`, `<`, `<=`, `>`, `>=`, and conditions combine with `&&`, `||`, and `!`. An `if` statement needs braces and has no parentheses around its condition, and it may start with a short statement such as `if n := len(s); n > 0 {`.
-### Worked Example
-
-**Example 3.1.1**
->>>>>>> 2067a20 (curriculum clearning and updates)
 ```go
 package main
 import (
@@ -81,9 +74,6 @@ func main() {
 }
 ```
 
-<<<<<<< HEAD
-**Expected behavior:** The standalone program demonstrates boolean expressions and if statements with the course's shared example data. It compiles and runs using the standard library. Predict the output first, then compare it with the terminal output.
-=======
 **Example 3.1.2**
 ```go
 package main
@@ -172,7 +162,6 @@ Example 5:
 ```text
 bytes=30 runes=30 words=4
 ```
->>>>>>> 2067a20 (curriculum clearning and updates)
 
 ### Common Mistakes
 1. Assuming Go has while or do-while keywords instead of for forms.
@@ -210,14 +199,11 @@ Use keyboard navigation to move between the lesson heading, code fence, compiler
 - Test a relevant boundary condition and explain a common failure.
 
 ### Concept Explanation
-<<<<<<< HEAD
-=======
 Go chains conditions with `else if` and ends with `else`, testing from top to bottom and running only the first branch that is true. The shared grade thresholds are 90, 80, 70, 60, otherwise F, so each later test needs only a lower bound. A `switch` with no value (`switch { case score >= 90: ... }`) is an equivalent and often clearer form.
 ### Worked Example
 
 **Example 3.2.1**
 ```go
->>>>>>> 2067a20 (curriculum clearning and updates)
 package main
 import (
 	"fmt"
@@ -225,7 +211,6 @@ import (
 func main() {
 	score := 82
 	fmt.Printf("score=%d; passing=%t\n", score, score >= 60)
-<<<<<<< HEAD
 },package main
 import (
 	"fmt"
@@ -264,12 +249,6 @@ func main() {
 } The lesson uses the canonical course data so learners focus on Go semantics rather than a new domain problem. Format with gofmt and use go test ./... as routine development tools.
 
 ### Worked Example
-=======
-}
-```
-
-**Example 3.2.2**
->>>>>>> 2067a20 (curriculum clearning and updates)
 ```go
 package main
 import (
@@ -285,9 +264,6 @@ func main() {
 }
 ```
 
-<<<<<<< HEAD
-**Expected behavior:** The standalone program demonstrates chained conditionals and grade classification with the course's shared example data. It compiles and runs using the standard library. Predict the output first, then compare it with the terminal output.
-=======
 **Example 3.2.3**
 ```go
 package main
@@ -360,7 +336,6 @@ Example 5:
 ```text
 bytes=30 runes=30 words=4
 ```
->>>>>>> 2067a20 (curriculum clearning and updates)
 
 ### Common Mistakes
 1. Assuming Go has while or do-while keywords instead of for forms.
@@ -398,14 +373,11 @@ Use keyboard navigation to move between the lesson heading, code fence, compiler
 - Test a relevant boundary condition and explain a common failure.
 
 ### Concept Explanation
-<<<<<<< HEAD
-=======
 An array has a fixed length that is part of its type; a slice is a view of an array that can grow with `append`. Indexes start at 0, `len` gives the length, and indexing outside the slice stops the program with a run-time panic. A slice assigned to another variable shares the same underlying elements.
 ### Worked Example
 
 **Example 3.3.1**
 ```go
->>>>>>> 2067a20 (curriculum clearning and updates)
 package main
 import (
 	"fmt"
@@ -413,16 +385,12 @@ import (
 func main() {
 	score := 82
 	fmt.Printf("score=%d; passing=%t\n", score, score >= 60)
-<<<<<<< HEAD
-},package main
-=======
 }
 ```
 
 **Example 3.3.2**
 ```go
 package main
->>>>>>> 2067a20 (curriculum clearning and updates)
 import (
 	"fmt"
 )
@@ -433,7 +401,6 @@ func main() {
 	 if score >= 90 { grade = "A" } else if score >= 80 { grade = "B" } else if score >= 70 { grade = "C" } else if score >= 60 { grade = "D" }
 	 fmt.Printf("%d: %s\n", score, grade)
 	}
-<<<<<<< HEAD
 },package main
 import (
 	"fmt"
@@ -461,12 +428,6 @@ func main() {
 } The lesson uses the canonical course data so learners focus on Go semantics rather than a new domain problem. Format with gofmt and use go test ./... as routine development tools.
 
 ### Worked Example
-=======
-}
-```
-
-**Example 3.3.3**
->>>>>>> 2067a20 (curriculum clearning and updates)
 ```go
 package main
 import (
@@ -478,9 +439,6 @@ func main() {
 }
 ```
 
-<<<<<<< HEAD
-**Expected behavior:** The standalone program demonstrates arrays, slices, and indexing with the course's shared example data. It compiles and runs using the standard library. Predict the output first, then compare it with the terminal output.
-=======
 **Example 3.3.4**
 ```go
 package main
@@ -541,7 +499,6 @@ Example 5:
 ```text
 bytes=30 runes=30 words=4
 ```
->>>>>>> 2067a20 (curriculum clearning and updates)
 
 ### Common Mistakes
 1. Assuming Go has while or do-while keywords instead of for forms.
@@ -579,14 +536,11 @@ Use keyboard navigation to move between the lesson heading, code fence, compiler
 - Test a relevant boundary condition and explain a common failure.
 
 ### Concept Explanation
-<<<<<<< HEAD
-=======
 Go has one loop keyword, `for`. `for i := 0; i < n; i++` counts, `for condition {}` repeats while a condition holds, and `for index, value := range slice` visits every element. Use `_` for a value you do not need, since an unused variable is a compile error. The range stops at the end of the slice, so no index checks are needed.
 ### Worked Example
 
 **Example 3.4.1**
 ```go
->>>>>>> 2067a20 (curriculum clearning and updates)
 package main
 import (
 	"fmt"
@@ -594,16 +548,12 @@ import (
 func main() {
 	score := 82
 	fmt.Printf("score=%d; passing=%t\n", score, score >= 60)
-<<<<<<< HEAD
-},package main
-=======
 }
 ```
 
 **Example 3.4.2**
 ```go
 package main
->>>>>>> 2067a20 (curriculum clearning and updates)
 import (
 	"fmt"
 )
@@ -614,23 +564,18 @@ func main() {
 	 if score >= 90 { grade = "A" } else if score >= 80 { grade = "B" } else if score >= 70 { grade = "C" } else if score >= 60 { grade = "D" }
 	 fmt.Printf("%d: %s\n", score, grade)
 	}
-<<<<<<< HEAD
-},package main
-=======
 }
 ```
 
 **Example 3.4.3**
 ```go
 package main
->>>>>>> 2067a20 (curriculum clearning and updates)
 import (
 	"fmt"
 )
 func main() {
 	scores := []int{82, 91, 76, 88}
 	fmt.Printf("first=%d last=%d count=%d\n", scores[0], scores[len(scores)-1], len(scores))
-<<<<<<< HEAD
 },package main
 import (
 	"fmt"
@@ -651,12 +596,6 @@ func main() {
 } The lesson uses the canonical course data so learners focus on Go semantics rather than a new domain problem. Format with gofmt and use go test ./... as routine development tools.
 
 ### Worked Example
-=======
-}
-```
-
-**Example 3.4.4**
->>>>>>> 2067a20 (curriculum clearning and updates)
 ```go
 package main
 import (
@@ -670,9 +609,6 @@ func main() {
 }
 ```
 
-<<<<<<< HEAD
-**Expected behavior:** The standalone program demonstrates for loops and range with the course's shared example data. It compiles and runs using the standard library. Predict the output first, then compare it with the terminal output.
-=======
 **Example 3.4.5**
 ```go
 package main
@@ -719,7 +655,6 @@ Example 5:
 ```text
 bytes=30 runes=30 words=4
 ```
->>>>>>> 2067a20 (curriculum clearning and updates)
 
 ### Common Mistakes
 1. Assuming Go has while or do-while keywords instead of for forms.
@@ -757,14 +692,11 @@ Use keyboard navigation to move between the lesson heading, code fence, compiler
 - Test a relevant boundary condition and explain a common failure.
 
 ### Concept Explanation
-<<<<<<< HEAD
-=======
 A Go string is an immutable sequence of bytes that normally holds UTF-8 text. `len` counts bytes, not characters, and indexing gives a byte. The `strings` package supplies `ToUpper`, `ToLower`, `Contains`, `Index`, `Count`, `TrimSpace`, and `Fields`. Because strings cannot be changed, each function returns a new string.
 ### Worked Example
 
 **Example 3.5.1**
 ```go
->>>>>>> 2067a20 (curriculum clearning and updates)
 package main
 import (
 	"fmt"
@@ -772,16 +704,12 @@ import (
 func main() {
 	score := 82
 	fmt.Printf("score=%d; passing=%t\n", score, score >= 60)
-<<<<<<< HEAD
-},package main
-=======
 }
 ```
 
 **Example 3.5.2**
 ```go
 package main
->>>>>>> 2067a20 (curriculum clearning and updates)
 import (
 	"fmt"
 )
@@ -792,32 +720,24 @@ func main() {
 	 if score >= 90 { grade = "A" } else if score >= 80 { grade = "B" } else if score >= 70 { grade = "C" } else if score >= 60 { grade = "D" }
 	 fmt.Printf("%d: %s\n", score, grade)
 	}
-<<<<<<< HEAD
-},package main
-=======
 }
 ```
 
 **Example 3.5.3**
 ```go
 package main
->>>>>>> 2067a20 (curriculum clearning and updates)
 import (
 	"fmt"
 )
 func main() {
 	scores := []int{82, 91, 76, 88}
 	fmt.Printf("first=%d last=%d count=%d\n", scores[0], scores[len(scores)-1], len(scores))
-<<<<<<< HEAD
-},package main
-=======
 }
 ```
 
 **Example 3.5.4**
 ```go
 package main
->>>>>>> 2067a20 (curriculum clearning and updates)
 import (
 	"fmt"
 )
@@ -826,7 +746,6 @@ func main() {
 	total := 0
 	for _, score := range scores { total += score }
 	fmt.Printf("total=%d average=%.1f\n", total, float64(total)/float64(len(scores)))
-<<<<<<< HEAD
 },package main
 import (
 	"fmt"
@@ -838,12 +757,6 @@ func main() {
 } The lesson uses the canonical course data so learners focus on Go semantics rather than a new domain problem. Format with gofmt and use go test ./... as routine development tools.
 
 ### Worked Example
-=======
-}
-```
-
-**Example 3.5.5**
->>>>>>> 2067a20 (curriculum clearning and updates)
 ```go
 package main
 import (
@@ -855,10 +768,6 @@ func main() {
 	fmt.Printf("bytes=%d runes=%d words=%d\n", len(sample), len([]rune(sample)), len(strings.Fields(sample)))
 }
 ```
-
-<<<<<<< HEAD
-**Expected behavior:** The standalone program demonstrates strings and common operations with the course's shared example data. It compiles and runs using the standard library. Predict the output first, then compare it with the terminal output.
-=======
 
 ### Expected Behavior or Output
 
@@ -892,7 +801,6 @@ Example 5:
 ```text
 bytes=30 runes=30 words=4
 ```
->>>>>>> 2067a20 (curriculum clearning and updates)
 
 ### Common Mistakes
 1. Assuming Go has while or do-while keywords instead of for forms.
