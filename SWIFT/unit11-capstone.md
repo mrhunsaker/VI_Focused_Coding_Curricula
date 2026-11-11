@@ -35,7 +35,11 @@ capstoneRequirements.forEach { print("- \($0)") }
 ```
 
 ### Expected Behavior or Output
-The example is a self-contained Swift program. Predict the output from the stated values before running it, then compare the actual result. Examples that read input accept a line from standard input; file examples use temporary paths.
+The encoder emits the six shared record fields using the canonical snake_case JSON names. Sorted keys make the captured output deterministic.
+
+```text
+{"category":"learning","created_at":"2026-11-01","description":"Review Codable","id":1,"title":"Study Swift","updated_at":"2026-11-01"}
+```
 
 ### Common Mistakes
 - Keep stable identifiers separate from editable record fields.
@@ -88,7 +92,15 @@ struct PersonalRecord: Codable, Identifiable {
 }
 let record = PersonalRecord(id: 1, title: "Study Swift", description: "Review Codable",
                             category: "learning", createdAt: "2026-11-01", updatedAt: "2026-11-01")
-print("\(record.id): \(record.title), \(record.category), updated=\(record.updatedAt)")
+do {
+    let encoder = JSONEncoder()
+    encoder.keyEncodingStrategy = .convertToSnakeCase
+    encoder.outputFormatting = [.sortedKeys]
+    let json = try encoder.encode(record)
+    print(String(decoding: json, as: UTF8.self))
+} catch {
+    print("Encoding failed: \(error)")
+}
 ```
 
 ### Expected Behavior or Output
