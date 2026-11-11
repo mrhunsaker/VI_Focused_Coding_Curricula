@@ -30,7 +30,7 @@ fence = chr(96) * 3
 
 def lesson_section(text, number):
     match = re.search(
-        rf"^## Lesson 10\.{number}:.*?(?=^## Lesson 10\.\d+:|\Z)",
+        rf"^## Lesson 10\.{number}\b.*?(?=^## Lesson 10\.\d+\b|\Z)",
         text,
         re.MULTILINE | re.DOTALL,
     )
