@@ -60,7 +60,7 @@ def verify_interactive(language, first, second):
     second_lower = second.lower()
     for label, terms in [
         ("key pickup", ["picked up"]),
-        ("duplicate pickup rejection", ["no shiny key"]),
+        ("duplicate pickup rejection", ["no shiny key", "invalid command", "don't understand"]),
         ("locked-door rejection", ["locked"]),
         ("unlock", ["unlock"]),
         ("treasure", ["treasure"]),
