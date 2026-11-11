@@ -4,7 +4,7 @@
 
 This book is a structured introduction to computer science and software development. It is designed with blind and visually impaired learners who use screen readers, braille displays, magnification, keyboard navigation, or combinations of access technologies in mind. It is also intended for sighted learners, educators, and anyone who benefits from explicit, text-first instruction.
 
-The repository contains 13 full language curricula, focused modules in HTML/CSS, R, and SQL, and shared Bash and PowerShell terminal tracks. The languages are presented by their common technical uses and ecosystems, not as a hierarchy. No single language is the best choice for every problem.
+The repository contains 13 full language curricula, focused modules in Git, HTML/CSS, Markdown, R, regular expressions, SQL, structured data formats, and web accessibility, and shared Bash and PowerShell terminal tracks. The languages are presented by their common technical uses and ecosystems, not as a hierarchy. No single language is the best choice for every problem.
 
 The textbook is published with **mdBook**. Markdown files in this repository are the maintained source; mdBook builds them into the navigable online textbook hosted on GitHub Pages. The book is intended to remain a living resource: lessons, examples, exercises, accessibility notes, and teaching materials can be reviewed and improved as learners and educators use them.
 
@@ -94,11 +94,16 @@ Some important technologies are not general-purpose programming languages. They 
 
 | Module | Primary usage and role | Representative software or platforms |
 | --- | --- | --- |
+| [Git](MODULES/GIT.md) | Distributed version control: repositories, commits, branches, merges, remotes, and pull-request collaboration | Git, GitHub, GitLab, and the GitHub CLI (`gh`) |
 | [HTML and CSS](MODULES/HTML_CSS.md) | HTML structures web content; CSS controls presentation, layout, and responsive styling | Websites, browser interfaces, web applications, design systems |
+| [Markdown](MODULES/MARKDOWN.md) | Lightweight plain-text markup for documentation, README files, and technical notes | GitHub documentation, static site generators, Pandoc |
 | [R](MODULES/R.md) | Statistical analysis, data visualization, research computing, and reproducible reports | RStudio/Posit, tidyverse, Bioconductor |
+| [Regular expressions](MODULES/REGEX.md) | Pattern-based finding, extracting, validating, and replacing of text | `grep`, `sed`, ripgrep, and regex support in mainstream languages |
 | [SQL](MODULES/SQL.md) | Declarative querying, defining, and managing relational data | PostgreSQL, SQLite, MySQL, SQL Server |
+| [Structured data formats](MODULES/STRUCTURED_DATA.md) | JSON for data interchange, YAML for configuration, and TOML for application settings | APIs, GitHub Actions, Kubernetes, `pyproject.toml`, `Cargo.toml` |
+| [Web accessibility](MODULES/WEB_ACCESSIBILITY.md) | Building websites and applications usable with screen readers, keyboard-only interaction, and other access technologies | WCAG, ARIA, NVDA, VoiceOver, JAWS, axe DevTools |
 
-HTML is a markup language and CSS is a style-sheet language; together they form the structure and presentation layer of the web. SQL is a declarative query language for relational data. R is a programming language used extensively in statistics and data analysis.
+HTML is a markup language and CSS is a style-sheet language; together they form the structure and presentation layer of the web. SQL is a declarative query language for relational data. R is a programming language used extensively in statistics and data analysis. Git is a version control system, Markdown is a documentation markup language, regular expressions are a pattern language embedded in many tools, JSON, YAML, and TOML are structured text formats, and web accessibility is an engineering discipline built on the web platform's accessibility APIs.
 
 ### Shared terminal tracks
 
@@ -109,13 +114,14 @@ HTML is a markup language and CSS is a style-sheet language; together they form 
 Choose a path according to the problem domain, deployment target, ecosystem, and learning objectives:
 
 - **Automation, data analysis, and machine learning:** Python; consider R for statistical analysis and Julia for numerical or scientific computing.
-- **Web application development:** JavaScript and TypeScript, alongside HTML/CSS; add SQL when the application stores relational data.
+- **Web application development:** JavaScript and TypeScript, alongside HTML/CSS and the web accessibility module; add SQL when the application stores relational data.
 - **Enterprise and JVM applications:** Java or Kotlin.
 - **Android and Apple platforms:** Kotlin is widely used for Android development; Swift is the primary language for modern native Apple-platform development.
 - **Operating systems, embedded devices, and systems software:** C, C++, or Rust, depending on hardware, ecosystem, performance, and safety requirements.
 - **Cloud services and infrastructure tooling:** Go, Java, Python, Rust, or C# depending on platform and system requirements.
 - **Game development and application scripting:** C++, C#, and Lua have distinct roles across engines, application logic, and embedded scripting.
 - **Relational data systems:** SQL is a companion to application languages, not a replacement for them.
+- **Professional workflow skills:** the Git, Markdown, regular expressions, and structured data formats modules support every other path in the textbook.
 
 These categories overlap. A real product may use several languages, and a language may serve multiple domains. Selection should reflect the problem being solved, the existing codebase, team expertise, operational constraints, and available libraries.
 
@@ -128,7 +134,7 @@ The [mdBook table of contents](SUMMARY.md) is the authoritative navigation for t
 | Shared foundations | Computing foundations and terminal skills in Bash and PowerShell |
 | Development guidance | IDE and editor roles, project dependency management, environment isolation, development containers, Docker, and Podman |
 | Full language curricula | Python, JavaScript, TypeScript, Java, Kotlin, C, C++, C#, Julia, Swift, Rust, Go, and Lua |
-| Focused modules | HTML/CSS, R, and SQL |
+| Focused modules | Git, HTML/CSS, Markdown, R, regular expressions, SQL, structured data formats, and web accessibility |
 | Backmatter | Teacher resources, programming glossary, topic indexes, validation records, and other references |
 
 Each full language curriculum has its own landing page and supporting lesson materials. Depending on the language, it may also include a topic index, teacher's guide, standardization audit, or validation record. The focused modules provide a narrower introduction to a particular technology. Follow the sequence and scope documented on the corresponding landing page and in the [table of contents](SUMMARY.md).
