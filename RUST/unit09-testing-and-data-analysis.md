@@ -6,49 +6,6 @@ This unit develops testing and data analysis through Rust's type system and stan
 ## Lesson 9.1: Unit tests
 
 ### Reading References
-<<<<<<< HEAD
-- [The Rust Programming Language](https://doc.rust-lang.org/book/)
-- [Rust standard library](https://doc.rust-lang.org/std/)
-- [Cargo Book](https://doc.rust-lang.org/cargo/)
-- Matching Python curriculum lesson for the shared problem context.
-
-### Learning Objectives
-- Explain Unit tests using Rust's types, ownership model, and standard-library conventions.
-- Select an idiomatic Rust construct rather than transliterating Python syntax.
-- Predict, compile, and verify the example's behavior.
-- Test a relevant boundary condition and explain a common failure.
-
-### Concept Explanation
-Tests are executable specifications. Put unit tests in cfg(test) modules and run cargo test. Test pure functions and state transitions separately. Use deterministic inputs for reproducibility; inject or seed randomness for tests. This lesson retains the canonical course data so learners practice Rust rather than a new domain problem. Use cargo fmt, cargo check, and cargo test as routine development tools.
-
-### Worked Example
-```rust
-fn is_passing(s:i32)->bool{s>=60}fn main(){assert!(is_passing(82));assert!(!is_passing(59));println!("grade boundary checks passed");}
-```
-
-**Expected behavior:** Runs independently with the standard library and prints the result of this lesson's focused operation. Predict the output, then compare it with the terminal output.
-
-### Common Mistakes
-1. Testing only the happy path and omitting boundaries.
-2. Using nondeterministic values in tests without a fixed seed or injected source.
-3. Sharing mutable test state and relying on execution order.
-
-### Activities
-1. Run the worked example unchanged; trace each binding, expression, ownership transfer, and output line.
-2. Change the canonical inventory and CSV records and predict the result before running it.
-3. Add one boundary case and one invalid or missing-data case; state expected behavior before implementing the change.
-4. Refactor one part using the Rust feature named in this lesson (unit tests); run cargo check and explain the diagnostic output.
-
-### Accessibility Practice
-Use keyboard navigation to move between the lesson heading, code fence, compiler output, and terminal. With a screen reader, inspect punctuation in ownership and borrowing expressions (&, &mut, ::, ->, ?). Do not rely on syntax highlighting or color to distinguish errors. Read prompts and validation messages in document order and verify that output is announced without unexpected focus movement.
-
-### Skills Checklist
-- [ ] I can explain unit tests using Rust terminology.
-- [ ] I can compile and run the example with cargo run.
-- [ ] I can explain the ownership, borrowing, and type decisions used here.
-- [ ] I can test a boundary case and an invalid-input or error case.
-- [ ] I can navigate source, diagnostics, and output with my keyboard and assistive technology.
-=======
 - [The Rust Programming Language: How to Write Tests](https://doc.rust-lang.org/book/ch11-01-writing-tests.html)
 - [The Rust Programming Language: Test Organization](https://doc.rust-lang.org/book/ch11-03-test-organization.html)
 - [Rust standard library documentation](https://doc.rust-lang.org/std/)
@@ -206,54 +163,10 @@ Each check prints one complete line that starts with PASS or FAIL, and the last 
 - [ ] I know how to signal failure with an exit status.
 
 ---
->>>>>>> 2067a20 (curriculum clearning and updates)
 
 ## Lesson 9.2: Testing stateful types
 
 ### Reading References
-<<<<<<< HEAD
-- [The Rust Programming Language](https://doc.rust-lang.org/book/)
-- [Rust standard library](https://doc.rust-lang.org/std/)
-- [Cargo Book](https://doc.rust-lang.org/cargo/)
-- Matching Python curriculum lesson for the shared problem context.
-
-### Learning Objectives
-- Explain Testing stateful types using Rust's types, ownership model, and standard-library conventions.
-- Select an idiomatic Rust construct rather than transliterating Python syntax.
-- Predict, compile, and verify the example's behavior.
-- Test a relevant boundary condition and explain a common failure.
-
-### Concept Explanation
-Tests are executable specifications. Put unit tests in cfg(test) modules and run cargo test. Test pure functions and state transitions separately. Use deterministic inputs for reproducibility; inject or seed randomness for tests. This lesson retains the canonical course data so learners practice Rust rather than a new domain problem. Use cargo fmt, cargo check, and cargo test as routine development tools.
-
-### Worked Example
-```rust
-struct Counter{value:u32}impl Counter{fn increment(&mut self){self.value+=1;}}fn main(){let mut c=Counter{value:0};c.increment();c.increment();assert_eq!(c.value,2);println!("counter state verified");}
-```
-
-**Expected behavior:** Runs independently with the standard library and prints the result of this lesson's focused operation. Predict the output, then compare it with the terminal output.
-
-### Common Mistakes
-1. Testing only the happy path and omitting boundaries.
-2. Using nondeterministic values in tests without a fixed seed or injected source.
-3. Sharing mutable test state and relying on execution order.
-
-### Activities
-1. Run the worked example unchanged; trace each binding, expression, ownership transfer, and output line.
-2. Change the canonical inventory and CSV records and predict the result before running it.
-3. Add one boundary case and one invalid or missing-data case; state expected behavior before implementing the change.
-4. Refactor one part using the Rust feature named in this lesson (testing stateful types); run cargo check and explain the diagnostic output.
-
-### Accessibility Practice
-Use keyboard navigation to move between the lesson heading, code fence, compiler output, and terminal. With a screen reader, inspect punctuation in ownership and borrowing expressions (&, &mut, ::, ->, ?). Do not rely on syntax highlighting or color to distinguish errors. Read prompts and validation messages in document order and verify that output is announced without unexpected focus movement.
-
-### Skills Checklist
-- [ ] I can explain testing stateful types using Rust terminology.
-- [ ] I can compile and run the example with cargo run.
-- [ ] I can explain the ownership, borrowing, and type decisions used here.
-- [ ] I can test a boundary case and an invalid-input or error case.
-- [ ] I can navigate source, diagnostics, and output with my keyboard and assistive technology.
-=======
 - [The Rust Programming Language: How to Write Tests](https://doc.rust-lang.org/book/ch11-01-writing-tests.html)
 - [The Rust Programming Language: Checking for Panics with should_panic](https://doc.rust-lang.org/book/ch11-01-writing-tests.html)
 - [Rust standard library documentation](https://doc.rust-lang.org/std/)
@@ -408,54 +321,10 @@ Name each test as a short sentence that says what it checks, so the PASS and FAI
 - [ ] I can write a clear test name.
 
 ---
->>>>>>> 2067a20 (curriculum clearning and updates)
 
 ## Lesson 9.3: Random values
 
 ### Reading References
-<<<<<<< HEAD
-- [The Rust Programming Language](https://doc.rust-lang.org/book/)
-- [Rust standard library](https://doc.rust-lang.org/std/)
-- [Cargo Book](https://doc.rust-lang.org/cargo/)
-- Matching Python curriculum lesson for the shared problem context.
-
-### Learning Objectives
-- Explain Random values using Rust's types, ownership model, and standard-library conventions.
-- Select an idiomatic Rust construct rather than transliterating Python syntax.
-- Predict, compile, and verify the example's behavior.
-- Test a relevant boundary condition and explain a common failure.
-
-### Concept Explanation
-Tests are executable specifications. Put unit tests in cfg(test) modules and run cargo test. Test pure functions and state transitions separately. Use deterministic inputs for reproducibility; inject or seed randomness for tests. This lesson retains the canonical course data so learners practice Rust rather than a new domain problem. Use cargo fmt, cargo check, and cargo test as routine development tools.
-
-### Worked Example
-```rust
-fn next(seed:u64)->u64{seed.wrapping_mul(6364136223846793005).wrapping_add(1)>>32}fn main(){let v:Vec<u64>=(1..=5).map(next).collect();println!("deterministic sample: {v:?}");}
-```
-
-**Expected behavior:** Runs independently with the standard library and prints the result of this lesson's focused operation. Predict the output, then compare it with the terminal output.
-
-### Common Mistakes
-1. Testing only the happy path and omitting boundaries.
-2. Using nondeterministic values in tests without a fixed seed or injected source.
-3. Sharing mutable test state and relying on execution order.
-
-### Activities
-1. Run the worked example unchanged; trace each binding, expression, ownership transfer, and output line.
-2. Change the canonical inventory and CSV records and predict the result before running it.
-3. Add one boundary case and one invalid or missing-data case; state expected behavior before implementing the change.
-4. Refactor one part using the Rust feature named in this lesson (random values); run cargo check and explain the diagnostic output.
-
-### Accessibility Practice
-Use keyboard navigation to move between the lesson heading, code fence, compiler output, and terminal. With a screen reader, inspect punctuation in ownership and borrowing expressions (&, &mut, ::, ->, ?). Do not rely on syntax highlighting or color to distinguish errors. Read prompts and validation messages in document order and verify that output is announced without unexpected focus movement.
-
-### Skills Checklist
-- [ ] I can explain random values using Rust terminology.
-- [ ] I can compile and run the example with cargo run.
-- [ ] I can explain the ownership, borrowing, and type decisions used here.
-- [ ] I can test a boundary case and an invalid-input or error case.
-- [ ] I can navigate source, diagnostics, and output with my keyboard and assistive technology.
-=======
 - [The rand crate](https://docs.rs/rand/)
 - [The Rust Programming Language: Method Syntax](https://doc.rust-lang.org/book/ch05-03-method-syntax.html)
 - [Rust standard library documentation](https://doc.rust-lang.org/std/)
@@ -555,54 +424,10 @@ Print yes or no style results for random behavior, so the announced output is th
 - [ ] I can pick a random list item.
 
 ---
->>>>>>> 2067a20 (curriculum clearning and updates)
 
 ## Lesson 9.4: Text analysis
 
 ### Reading References
-<<<<<<< HEAD
-- [The Rust Programming Language](https://doc.rust-lang.org/book/)
-- [Rust standard library](https://doc.rust-lang.org/std/)
-- [Cargo Book](https://doc.rust-lang.org/cargo/)
-- Matching Python curriculum lesson for the shared problem context.
-
-### Learning Objectives
-- Explain Text analysis using Rust's types, ownership model, and standard-library conventions.
-- Select an idiomatic Rust construct rather than transliterating Python syntax.
-- Predict, compile, and verify the example's behavior.
-- Test a relevant boundary condition and explain a common failure.
-
-### Concept Explanation
-Tests are executable specifications. Put unit tests in cfg(test) modules and run cargo test. Test pure functions and state transitions separately. Use deterministic inputs for reproducibility; inject or seed randomness for tests. This lesson retains the canonical course data so learners practice Rust rather than a new domain problem. Use cargo fmt, cargo check, and cargo test as routine development tools.
-
-### Worked Example
-```rust
-fn main(){let s="A student studies programming. Programming builds skill.";println!("words={}, characters={}",s.split_whitespace().count(),s.chars().count());}
-```
-
-**Expected behavior:** Runs independently with the standard library and prints the result of this lesson's focused operation. Predict the output, then compare it with the terminal output.
-
-### Common Mistakes
-1. Testing only the happy path and omitting boundaries.
-2. Using nondeterministic values in tests without a fixed seed or injected source.
-3. Sharing mutable test state and relying on execution order.
-
-### Activities
-1. Run the worked example unchanged; trace each binding, expression, ownership transfer, and output line.
-2. Change the canonical inventory and CSV records and predict the result before running it.
-3. Add one boundary case and one invalid or missing-data case; state expected behavior before implementing the change.
-4. Refactor one part using the Rust feature named in this lesson (text analysis); run cargo check and explain the diagnostic output.
-
-### Accessibility Practice
-Use keyboard navigation to move between the lesson heading, code fence, compiler output, and terminal. With a screen reader, inspect punctuation in ownership and borrowing expressions (&, &mut, ::, ->, ?). Do not rely on syntax highlighting or color to distinguish errors. Read prompts and validation messages in document order and verify that output is announced without unexpected focus movement.
-
-### Skills Checklist
-- [ ] I can explain text analysis using Rust terminology.
-- [ ] I can compile and run the example with cargo run.
-- [ ] I can explain the ownership, borrowing, and type decisions used here.
-- [ ] I can test a boundary case and an invalid-input or error case.
-- [ ] I can navigate source, diagnostics, and output with my keyboard and assistive technology.
-=======
 - [The Rust Programming Language: Hash Maps](https://doc.rust-lang.org/book/ch08-03-hash-maps.html)
 - [The Rust Programming Language: Strings](https://doc.rust-lang.org/book/ch08-02-strings.html)
 - [Rust standard library documentation](https://doc.rust-lang.org/std/)
@@ -698,54 +523,10 @@ Read the frequency list in its fixed order. Because the order is stable, you can
 - [ ] I can read a stable report.
 
 ---
->>>>>>> 2067a20 (curriculum clearning and updates)
 
 ## Lesson 9.5: CSV records
 
 ### Reading References
-<<<<<<< HEAD
-- [The Rust Programming Language](https://doc.rust-lang.org/book/)
-- [Rust standard library](https://doc.rust-lang.org/std/)
-- [Cargo Book](https://doc.rust-lang.org/cargo/)
-- Matching Python curriculum lesson for the shared problem context.
-
-### Learning Objectives
-- Explain CSV records using Rust's types, ownership model, and standard-library conventions.
-- Select an idiomatic Rust construct rather than transliterating Python syntax.
-- Predict, compile, and verify the example's behavior.
-- Test a relevant boundary condition and explain a common failure.
-
-### Concept Explanation
-Tests are executable specifications. Put unit tests in cfg(test) modules and run cargo test. Test pure functions and state transitions separately. Use deterministic inputs for reproducibility; inject or seed randomness for tests. This lesson retains the canonical course data so learners practice Rust rather than a new domain problem. Use cargo fmt, cargo check, and cargo test as routine development tools.
-
-### Worked Example
-```rust
-fn parse(row:&str)->Option<(&str,u8)>{let(n,v)=row.split_once(',')?;Some((n,v.parse().ok()?))}fn main(){for row in ["Avery,82","Jordan,91","Invalid,x"]{match parse(row){Some((n,s))=>println!("{n}: {s}"),None=>println!("skipped malformed row")}}}
-```
-
-**Expected behavior:** Runs independently with the standard library and prints the result of this lesson's focused operation. Predict the output, then compare it with the terminal output.
-
-### Common Mistakes
-1. Testing only the happy path and omitting boundaries.
-2. Using nondeterministic values in tests without a fixed seed or injected source.
-3. Sharing mutable test state and relying on execution order.
-
-### Activities
-1. Run the worked example unchanged; trace each binding, expression, ownership transfer, and output line.
-2. Change the canonical inventory and CSV records and predict the result before running it.
-3. Add one boundary case and one invalid or missing-data case; state expected behavior before implementing the change.
-4. Refactor one part using the Rust feature named in this lesson (csv records); run cargo check and explain the diagnostic output.
-
-### Accessibility Practice
-Use keyboard navigation to move between the lesson heading, code fence, compiler output, and terminal. With a screen reader, inspect punctuation in ownership and borrowing expressions (&, &mut, ::, ->, ?). Do not rely on syntax highlighting or color to distinguish errors. Read prompts and validation messages in document order and verify that output is announced without unexpected focus movement.
-
-### Skills Checklist
-- [ ] I can explain csv records using Rust terminology.
-- [ ] I can compile and run the example with cargo run.
-- [ ] I can explain the ownership, borrowing, and type decisions used here.
-- [ ] I can test a boundary case and an invalid-input or error case.
-- [ ] I can navigate source, diagnostics, and output with my keyboard and assistive technology.
-=======
 - [The Rust Programming Language: Reading a File](https://doc.rust-lang.org/book/ch12-02-reading-a-file.html)
 - [The csv crate](https://docs.rs/csv/)
 - [Rust standard library documentation](https://doc.rust-lang.org/std/)
@@ -849,4 +630,3 @@ Print one student per line with the same wording each time, so the screen reader
 - [ ] I know when `split` is not enough.
 
 ---
->>>>>>> 2067a20 (curriculum clearning and updates)
