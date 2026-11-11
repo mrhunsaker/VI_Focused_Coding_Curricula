@@ -39,6 +39,7 @@ The encoder emits the six shared record fields using the canonical snake_case JS
 
 ```text
 {"category":"learning","created_at":"2026-11-01","description":"Review Codable","id":1,"title":"Study Swift","updated_at":"2026-11-01"}
+Decoded record: 1, Study Swift, learning
 ```
 
 ### Common Mistakes
@@ -98,8 +99,12 @@ do {
     encoder.outputFormatting = [.sortedKeys]
     let json = try encoder.encode(record)
     print(String(decoding: json, as: UTF8.self))
+    let decoder = JSONDecoder()
+    decoder.keyDecodingStrategy = .convertFromSnakeCase
+    let restored = try decoder.decode(PersonalRecord.self, from: json)
+    print("Decoded record: \(restored.id), \(restored.title), \(restored.category)")
 } catch {
-    print("Encoding failed: \(error)")
+    print("JSON round trip failed: \(error)")
 }
 ```
 
