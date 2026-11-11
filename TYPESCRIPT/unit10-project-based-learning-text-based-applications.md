@@ -296,9 +296,3 @@ Provide text equivalents for every status and avoid cursor-position-dependent in
 - [ ] I can normalize command input.
 - [ ] I can validate required fields.
 - [ ] I can review a text interface for accessibility.
-
----
-
-## Overview
-
-Design, build, and refine equivalent command-line projects. The TypeScript adaptation preserves the shared Python curriculum's learning objectives, datasets, expected results, and assessment criteria while teaching TypeScript's compile-time type system and JavaScript runtime behavior.
