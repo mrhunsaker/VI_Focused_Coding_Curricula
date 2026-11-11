@@ -1,10 +1,7 @@
 # C# Curriculum
 
-<<<<<<< HEAD
-=======
 **Before you start:** complete [Unit P: Computing Foundations Primer](../FOUNDATIONS/unit-p-computing-foundations.md). It explains the language-neutral vocabulary and concepts used in every language track, using non-visual examples.
 
->>>>>>> 2067a20 (curriculum clearning and updates)
 C# is a modern managed language for .NET services, web apps, desktop software, cloud systems, and Unity games.
 
 ## Course structure
@@ -33,13 +30,9 @@ The automated check builds and executes every fenced C# example as a separate .N
 ## GUI, visualization, and workbench accessibility
 
 See the shared [GUI, visualization, and workbench accessibility reference](../DEVELOPMENT/GUI_VISUALIZATION_ACCESSIBILITY.md) for screen-reader support by toolkit, platform-specific activation settings, recommended alternatives, and interfaces that must not be required without an equivalent accessible route.
-<<<<<<< HEAD
-=======
-
 ## AI Policy
 
 AI may be used only for personal conceptual understanding and reinforcement. It must not write, complete, autocomplete, repair, or generate course code or assessment solutions.
->>>>>>> 2067a20 (curriculum clearning and updates)
 
 ## Recommended introductory books
 
