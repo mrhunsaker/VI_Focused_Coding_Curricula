@@ -928,7 +928,7 @@
       }
     },
     "next_tracks": [
-      "Review and merge PR #34 after confirming the indexing setup JSON and all 48 configured lesson paths; its PR validation run passed. Confirm the subsequent main-push validation workflow is green.",
+      "Confirm the mdBook build/deployment workflow completes successfully on main commit 908cfa6ab3c6ca496118ad2344510978095504ca.",
       "Review and merge PR #32 only after reviewing the revised Kotlin checker and baseline PR-validation workflow; observe its first PR run before treating the new checks as operational.",
       "Complete all-blob conflict and malformed-file scan; prior conflict recheck was targeted only.",
       "Reconcile all 13 language tracks lesson-by-lesson and verify shared project contracts.",
@@ -1619,7 +1619,7 @@
   "project_state_2026_11_11": {
     "status": "active_curriculum_alignment_and_validation_project",
     "as_of": "2026-11-11",
-    "main_commit": "2e97924e2ee8a9d6451c536782a311131115c4b5",
+    "main_commit": "908cfa6ab3c6ca496118ad2344510978095504ca",
     "merged_pull_requests": [
       {
         "number": 23,
@@ -1682,6 +1682,13 @@
         "scope": "Current CI/capstone audit tracker update",
         "status": "merged",
         "merge_commit": "2e97924e2ee8a9d6451c536782a311131115c4b5"
+      },
+      {
+        "number": 34,
+        "url": "https://github.com/mrhunsaker/VI_Focused_Coding_Curricula/pull/34",
+        "scope": "Repair indexing setup JSON and refresh current lesson paths",
+        "status": "merged",
+        "merge_commit": "908cfa6ab3c6ca496118ad2344510978095504ca"
       }
     ],
     "repository_inventory": {
@@ -1699,10 +1706,10 @@
       "repository_wide_scan": "not_completed"
     },
     "build_status": {
-      "mdbook": "passed_on_latest_main_commit",
-      "workflow_url": "https://github.com/mrhunsaker/VI_Focused_Coding_Curricula/actions/runs/43092415618",
-      "commit": "2e97924e2ee8a9d6451c536782a311131115c4b5",
-      "scope": "mdBook build and GitHub Pages deployment only; separate pull-request validation workflow failed on invalid indexing_setup.json."
+      "mdbook": "in_progress_on_latest_main_commit",
+      "workflow_url": "https://github.com/mrhunsaker/VI_Focused_Coding_Curricula/actions/runs/43092679349",
+      "commit": "908cfa6ab3c6ca496118ad2344510978095504ca",
+      "scope": "mdBook build and GitHub Pages deployment; run was still in progress at the time of this tracker update."
     },
     "verified_current_source_observations": [
       "Python Unit 10 has no conflict markers but contains an internal contradiction: five-room shiny-key implementation/examples coexist with a three-room project-specification paragraph.",
@@ -1711,7 +1718,7 @@
       "Java Unit 10 describes the canonical five-room shiny-key graph; Java Unit 11 documents the shared six-field record schema and a text-interface adaptation."
     ],
     "outstanding_work": [
-      "Review and merge PR #34 after confirming the indexing setup JSON and all 48 configured lesson paths; its PR validation run passed. Confirm the subsequent main-push validation workflow is green.",
+      "Confirm the mdBook build/deployment workflow completes successfully on main commit 908cfa6ab3c6ca496118ad2344510978095504ca.",
       "Review and merge PR #32 only after reviewing the revised Kotlin checker and baseline PR-validation workflow; observe its first PR run before treating the new checks as operational.",
       "Complete all-blob conflict and malformed-file scan; prior conflict recheck was targeted only.",
       "Reconcile all 13 language tracks lesson-by-lesson and verify shared project contracts.",
@@ -1774,12 +1781,10 @@
     },
     "open_pull_requests": [
       {
-        "number": 34,
-        "url": "https://github.com/mrhunsaker/VI_Focused_Coding_Curricula/pull/34",
-        "scope": "Repair indexing setup JSON and refresh current lesson paths",
-        "status": "open",
-        "validation_run": 43092557131,
-        "validation_conclusion": "success"
+        "number": 35,
+        "url": "https://github.com/mrhunsaker/VI_Focused_Coding_Curricula/pull/35",
+        "scope": "Record first PR validation results and indexing metadata defect",
+        "status": "open"
       }
     ],
     "ci_inventory_2026_11_11": {
@@ -1823,7 +1828,14 @@
         "scripts/check_kotlin_curriculum.mjs",
         "scripts/check_kotlin_examples.py"
       ],
-      "local_execution": "Local git clone remains unavailable in the assistant execution environment because github.com DNS resolution fails; GitHub Actions now supplies the baseline CI."
+      "local_execution": "Local git clone remains unavailable in the assistant execution environment because github.com DNS resolution fails; GitHub Actions now supplies the baseline CI.",
+      "main_validation_run_after_index_fix": {
+        "id": 43092679242,
+        "url": "https://github.com/mrhunsaker/VI_Focused_Coding_Curricula/actions/runs/43092679242",
+        "commit": "908cfa6ab3c6ca496118ad2344510978095504ca",
+        "conclusion": "success",
+        "scope": "JSON validation, text-source conflict-marker scan, Python capstone record tests, Kotlin structural/local-link checker, and mdBook build."
+      }
     },
     "assessment_inventory_status": {
       "reported_record_count": 2481,
@@ -1842,16 +1854,27 @@
     "indexing_setup_audit": {
       "path": "backmatter/indexing_setup.json",
       "before_status": "invalid_json_due_to_trailing_comma_and_stale_merged_lesson_file_paths",
-      "proposed_fix_pr": 34,
-      "current_pr_validation": "passed",
+      "fix_pr": 34,
+      "status": "merged_and_corrected",
+      "merge_commit": "908cfa6ab3c6ca496118ad2344510978095504ca",
+      "validation_run": {
+        "id": 43092557131,
+        "url": "https://github.com/mrhunsaker/VI_Focused_Coding_Curricula/actions/runs/43092557131",
+        "conclusion": "success"
+      },
+      "main_validation_run": {
+        "id": 43092679242,
+        "url": "https://github.com/mrhunsaker/VI_Focused_Coding_Curricula/actions/runs/43092679242",
+        "commit": "908cfa6ab3c6ca496118ad2344510978095504ca",
+        "conclusion": "success"
+      },
       "corrected_index_counts": {
         "Python": 12,
         "JavaScript": 12,
         "TypeScript": 12,
         "Java": 12
       },
-      "all_listed_paths_exist_in_main_tree": true,
-      "merge_status": "pending"
+      "all_listed_paths_exist_in_tree": true
     }
   }
 }
