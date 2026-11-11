@@ -1758,15 +1758,15 @@
     },
     "open_pull_requests": [
       {
-        "number": 31,
-        "url": "https://github.com/mrhunsaker/VI_Focused_Coding_Curricula/pull/31",
-        "scope": "CI and assessment inventory audit metadata",
-        "status": "open_superseded_by_rebased_tracker_update"
-      },
-      {
         "number": 32,
         "url": "https://github.com/mrhunsaker/VI_Focused_Coding_Curricula/pull/32",
         "scope": "PR validation workflow and Kotlin checker repair",
+        "status": "open"
+      },
+      {
+        "number": 33,
+        "url": "https://github.com/mrhunsaker/VI_Focused_Coding_Curricula/pull/33",
+        "scope": "Final CI and capstone audit tracker update",
         "status": "open"
       }
     ],
@@ -1800,6 +1800,14 @@
       "status": "unverified_source_and_location_not_found",
       "tree_filename_scan": "No distinct assessment/question/exam/answer/solution inventory file was found by current tree filename scan; only Kotlin expected-output fixtures and checker matched.",
       "required_follow_up": "Identify authoritative inventory path/source and verify count, schema, access controls, privacy, and solution leakage before use."
-    }
+    },
+    "closed_superseded_pull_requests": [
+      {
+        "number": 31,
+        "url": "https://github.com/mrhunsaker/VI_Focused_Coding_Curricula/pull/31",
+        "status": "closed_superseded",
+        "superseded_by": 33
+      }
+    ]
   }
 }
