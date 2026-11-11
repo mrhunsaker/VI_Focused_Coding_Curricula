@@ -1,9 +1,6 @@
 # Unit 0: Accessible Environment and Toolchain
 
 ## Course overview
-
-# Lua 5.4 — Parallel Introductory Computer Science Course
-
 ## Course alignment and implementation notes
 
 This course follows the Python canonical sequence in `lesson_standardization.json`. The shared problem contexts, inputs, records, boundaries, and expected results are preserved; Lua syntax and idioms are taught directly rather than transliterated from Python. Lua tables represent sequences, maps, and records; sequences are one-indexed; only `false` and `nil` are false; `pairs` does not guarantee order; `ipairs` traverses a consecutive sequence. Lua has no built-in class, tuple, continue statement, or JSON library. These differences are taught explicitly.
@@ -15,25 +12,6 @@ This course follows the Python canonical sequence in `lesson_standardization.jso
 Use the terminal and keyboard for every exercise. Read code and output sequentially; describe braces, brackets, quotes, punctuation, and indentation in prose. Do not communicate status through color alone. Provide explicit prompts, errors, confirmations, and textual equivalents for any visual output. The course does not claim screen-reader or braille verification until those workflows have been tested on named platforms.
 
 Each lesson includes a focused explanation, runnable worked example, expected behavior, common mistakes, practice, accessibility practice, and a skills check. Save each fenced example to a separate file or copy it into the Lua REPL.
-=======
-# Lua: Complete Curriculum — Units 0–11
-
-## Course Overview
-
-Lua is a lightweight embeddable scripting language used in games, embedded applications, configuration, automation, and extensible software. This course follows the Python curriculum's problem contexts and shared datasets so learners can focus on Lua syntax and semantics. It teaches Lua 5.4's tables (used as lists, records, dictionaries, and objects), functions as values, multiple returns, metatables, closures, modules, file handling, error handling with `pcall`, and testing, using only the standard library.
-
-**Before you start:** complete [Unit P: Computing Foundations Primer](../FOUNDATIONS/unit-p-computing-foundations.md), which explains the language-neutral vocabulary and concepts used in this track.
-
-**Shared data.** The examples use the same data as every language track: student Avery (age 16, height 1.72 meters, favorite subject Computer Science); a bill of 24.50 with a tip rate of 0.15; the scores 82, 91, 76, and 88; the inventory Notebook (3 at 2.50), Pencil (10 at 0.50), and Folder (4 at 1.25); and the text sample "A student studies programming. Programming develops problem-solving skills."
-
-**Lua-specific points that differ from the Python course.**
-- Lists start at index 1, and `#` gives a list's length.
-- Only `nil` and `false` are false. The number 0 and the empty string are true.
-- Tables are the only collection type. There are no tuples, no `continue` keyword, no keyword arguments, and no JSON library in the standard library; each lesson shows the Lua idiom.
-- `pairs` does not guarantee an order, so lessons sort keys before printing.
-- Floating-point display follows the C library: the shared tip of 3.675 displays as 3.67 with `%.2f`.
-
-**Verification status.** Every example in this track was run with Lua 5.4.6, and the "Expected Behavior or Output" blocks are the captured output of those runs (with the standard input shown where a program reads input). This has not been tested with screen readers or braille displays; see [VALIDATION.md](VALIDATION.md).
 
 ## Overview
 
@@ -274,4 +252,3 @@ Keep one project per folder and begin every session by confirming your working d
 - [ ] I can explain what `package.path` contains.
 - [ ] I can say when LuaRocks is needed.
 - [ ] I can run a program from the terminal and read its output.
->>>>>>> 2067a20 (curriculum clearning and updates)
