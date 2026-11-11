@@ -4,15 +4,12 @@
 
 Read and write files, handle errors, and persist validated JSON. The TypeScript adaptation preserves the shared Python curriculum's learning objectives, datasets, expected results, and assessment criteria while teaching TypeScript's compile-time type system and JavaScript runtime behavior.
 
-<<<<<<< HEAD
 ---
 
 ## Overview
 
 Read and write files, handle errors, and persist validated JSON. The TypeScript adaptation preserves the shared Python curriculum's learning objectives, datasets, expected results, and assessment criteria while teaching TypeScript's compile-time type system and JavaScript runtime behavior.
 
-=======
->>>>>>> 2067a20 (curriculum clearning and updates)
 ## Lesson 8.1: Reading from a file
 
 ### Reading References
@@ -280,4 +277,3 @@ Print field names and validation errors as text. Never rely on color-only succes
 - [ ] I can validate external data with a type guard.
 
 ---
-<<<<<<< HEAD
