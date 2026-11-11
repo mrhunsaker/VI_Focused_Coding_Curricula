@@ -18,7 +18,6 @@ This unit develops numeric computations using Go's types, packages, and standard
 - Test a relevant boundary condition and explain a common failure.
 
 ### Concept Explanation
-<<<<<<< HEAD
 package main
 import (
 	"fmt"
@@ -71,12 +70,6 @@ func main() {
 } The lesson uses the canonical course data so learners focus on Go semantics rather than a new domain problem. Format with gofmt and use go test ./... as routine development tools.
 
 ### Worked Example
-=======
-Software is built in a cycle of understanding, designing, implementing, and testing. Design the tip calculator in steps first, then write each step as Go, and trace the values by hand before running. `fmt.Printf` with `%.2f` displays a number with two decimals, rounding the stored binary value, so the shared tip of 3.675 displays as 3.67.
-### Worked Example
-
-**Example 2.1.1**
->>>>>>> 2067a20 (curriculum clearning and updates)
 ```go
 package main
 import (
@@ -90,9 +83,6 @@ func main() {
 }
 ```
 
-<<<<<<< HEAD
-**Expected behavior:** The standalone program demonstrates software design and tracing with the course's shared example data. It compiles and runs using the standard library. Predict the output first, then compare it with the terminal output.
-=======
 **Example 2.1.2**
 ```go
 package main
@@ -182,7 +172,6 @@ Example 5:
 ```text
 Distance from origin: 5
 ```
->>>>>>> 2067a20 (curriculum clearning and updates)
 
 ### Common Mistakes
 1. Confusing := declaration with = assignment.
@@ -220,14 +209,11 @@ Use keyboard navigation to move between the lesson heading, code fence, compiler
 - Test a relevant boundary condition and explain a common failure.
 
 ### Concept Explanation
-<<<<<<< HEAD
-=======
 An expression produces a value. Go's arithmetic operators are `+`, `-`, `*`, `/`, and `%`; dividing two integers truncates toward zero, so `7 / 2` is `3`. Go has no implicit numeric conversion, so an `int` and a `float64` cannot be mixed until one is converted. Assignment stores a result, and `+=` updates a variable in place.
 ### Worked Example
 
 **Example 2.2.1**
 ```go
->>>>>>> 2067a20 (curriculum clearning and updates)
 package main
 import (
 	"fmt"
@@ -237,7 +223,6 @@ func main() {
 	rate := 0.15
 	tip := bill * rate
 	fmt.Printf("Tip: %.2f; total: %.2f\n", tip, bill+tip)
-<<<<<<< HEAD
 },package main
 import (
 	"fmt"
@@ -281,12 +266,6 @@ func main() {
 } The lesson uses the canonical course data so learners focus on Go semantics rather than a new domain problem. Format with gofmt and use go test ./... as routine development tools.
 
 ### Worked Example
-=======
-}
-```
-
-**Example 2.2.2**
->>>>>>> 2067a20 (curriculum clearning and updates)
 ```go
 package main
 import (
@@ -300,9 +279,6 @@ func main() {
 }
 ```
 
-<<<<<<< HEAD
-**Expected behavior:** The standalone program demonstrates expressions, operators, and assignment with the course's shared example data. It compiles and runs using the standard library. Predict the output first, then compare it with the terminal output.
-=======
 **Example 2.2.3**
 ```go
 package main
@@ -378,7 +354,6 @@ Example 5:
 ```text
 Distance from origin: 5
 ```
->>>>>>> 2067a20 (curriculum clearning and updates)
 
 ### Common Mistakes
 1. Confusing := declaration with = assignment.
@@ -416,14 +391,11 @@ Use keyboard navigation to move between the lesson heading, code fence, compiler
 - Test a relevant boundary condition and explain a common failure.
 
 ### Concept Explanation
-<<<<<<< HEAD
-=======
 The `fmt` package writes with `Println` and `Printf` and reads with `Scanln` or a `bufio.Scanner`. Reading returns an error value as well as data, and Go programs check it: at the end of input the error is `io.EOF`. Typed text is a string, so a number needs `strconv.Atoi` or `strconv.ParseFloat`, which also return an error for invalid text.
 ### Worked Example
 
 **Example 2.3.1**
 ```go
->>>>>>> 2067a20 (curriculum clearning and updates)
 package main
 import (
 	"fmt"
@@ -433,16 +405,12 @@ func main() {
 	rate := 0.15
 	tip := bill * rate
 	fmt.Printf("Tip: %.2f; total: %.2f\n", tip, bill+tip)
-<<<<<<< HEAD
-},package main
-=======
 }
 ```
 
 **Example 2.3.2**
 ```go
 package main
->>>>>>> 2067a20 (curriculum clearning and updates)
 import (
 	"fmt"
 )
@@ -451,7 +419,6 @@ func main() {
 	taxRate := 0.075
 	tax := subtotal * taxRate
 	fmt.Printf("Subtotal %.2f, tax %.2f, total %.2f\n", subtotal, tax, subtotal+tax)
-<<<<<<< HEAD
 },package main
 import (
 	"bufio"
@@ -486,12 +453,6 @@ func main() {
 } The lesson uses the canonical course data so learners focus on Go semantics rather than a new domain problem. Format with gofmt and use go test ./... as routine development tools.
 
 ### Worked Example
-=======
-}
-```
-
-**Example 2.3.3**
->>>>>>> 2067a20 (curriculum clearning and updates)
 ```go
 package main
 import (
@@ -509,9 +470,6 @@ func main() {
 }
 ```
 
-<<<<<<< HEAD
-**Expected behavior:** The standalone program demonstrates input and output with fmt with the course's shared example data. It compiles and runs using the standard library. Predict the output first, then compare it with the terminal output.
-=======
 **Example 2.3.4**
 ```go
 package main
@@ -569,7 +527,6 @@ Example 5:
 ```text
 Distance from origin: 5
 ```
->>>>>>> 2067a20 (curriculum clearning and updates)
 
 ### Common Mistakes
 1. Confusing := declaration with = assignment.
@@ -607,14 +564,11 @@ Use keyboard navigation to move between the lesson heading, code fence, compiler
 - Test a relevant boundary condition and explain a common failure.
 
 ### Concept Explanation
-<<<<<<< HEAD
-=======
 Go converts types explicitly: `float64(count)` and `int(price)`. Converting a float to an integer discards the fraction and does not round. `strconv` converts between text and numbers and reports invalid text through an error. Floating-point values are approximations, which is why `0.1 + 0.2` is not exactly `0.3`.
 ### Worked Example
 
 **Example 2.4.1**
 ```go
->>>>>>> 2067a20 (curriculum clearning and updates)
 package main
 import (
 	"fmt"
@@ -624,16 +578,12 @@ func main() {
 	rate := 0.15
 	tip := bill * rate
 	fmt.Printf("Tip: %.2f; total: %.2f\n", tip, bill+tip)
-<<<<<<< HEAD
-},package main
-=======
 }
 ```
 
 **Example 2.4.2**
 ```go
 package main
->>>>>>> 2067a20 (curriculum clearning and updates)
 import (
 	"fmt"
 )
@@ -642,16 +592,12 @@ func main() {
 	taxRate := 0.075
 	tax := subtotal * taxRate
 	fmt.Printf("Subtotal %.2f, tax %.2f, total %.2f\n", subtotal, tax, subtotal+tax)
-<<<<<<< HEAD
-},package main
-=======
 }
 ```
 
 **Example 2.4.3**
 ```go
 package main
->>>>>>> 2067a20 (curriculum clearning and updates)
 import (
 	"bufio"
 	"fmt"
@@ -664,7 +610,6 @@ func main() {
 	text, _ := reader.ReadString('\n')
 	score, err := strconv.Atoi(text)
 	if err != nil { fmt.Println("Enter a whole number.") } else { fmt.Println("Score:", score) }
-<<<<<<< HEAD
 },package main
 import (
 	"fmt"
@@ -686,12 +631,6 @@ func main() {
 } The lesson uses the canonical course data so learners focus on Go semantics rather than a new domain problem. Format with gofmt and use go test ./... as routine development tools.
 
 ### Worked Example
-=======
-}
-```
-
-**Example 2.4.4**
->>>>>>> 2067a20 (curriculum clearning and updates)
 ```go
 package main
 import (
@@ -706,9 +645,6 @@ func main() {
 }
 ```
 
-<<<<<<< HEAD
-**Expected behavior:** The standalone program demonstrates numeric conversions and math with the course's shared example data. It compiles and runs using the standard library. Predict the output first, then compare it with the terminal output.
-=======
 **Example 2.4.5**
 ```go
 package main
@@ -751,7 +687,6 @@ Example 5:
 ```text
 Distance from origin: 5
 ```
->>>>>>> 2067a20 (curriculum clearning and updates)
 
 ### Common Mistakes
 1. Confusing := declaration with = assignment.
@@ -789,14 +724,11 @@ Use keyboard navigation to move between the lesson heading, code fence, compiler
 - Test a relevant boundary condition and explain a common failure.
 
 ### Concept Explanation
-<<<<<<< HEAD
-=======
 The `math` package provides `Pi`, `Sqrt`, `Pow`, `Floor`, and `Hypot`. Go has a built-in hypotenuse function, so the distance from the origin to (3, 4) is `math.Hypot(3, 4)`, which is exactly 5. Every `math` function takes and returns `float64`, so integers must be converted first.
 ### Worked Example
 
 **Example 2.5.1**
 ```go
->>>>>>> 2067a20 (curriculum clearning and updates)
 package main
 import (
 	"fmt"
@@ -806,16 +738,12 @@ func main() {
 	rate := 0.15
 	tip := bill * rate
 	fmt.Printf("Tip: %.2f; total: %.2f\n", tip, bill+tip)
-<<<<<<< HEAD
-},package main
-=======
 }
 ```
 
 **Example 2.5.2**
 ```go
 package main
->>>>>>> 2067a20 (curriculum clearning and updates)
 import (
 	"fmt"
 )
@@ -824,16 +752,12 @@ func main() {
 	taxRate := 0.075
 	tax := subtotal * taxRate
 	fmt.Printf("Subtotal %.2f, tax %.2f, total %.2f\n", subtotal, tax, subtotal+tax)
-<<<<<<< HEAD
-},package main
-=======
 }
 ```
 
 **Example 2.5.3**
 ```go
 package main
->>>>>>> 2067a20 (curriculum clearning and updates)
 import (
 	"bufio"
 	"fmt"
@@ -846,16 +770,12 @@ func main() {
 	text, _ := reader.ReadString('\n')
 	score, err := strconv.Atoi(text)
 	if err != nil { fmt.Println("Enter a whole number.") } else { fmt.Println("Score:", score) }
-<<<<<<< HEAD
-},package main
-=======
 }
 ```
 
 **Example 2.5.4**
 ```go
 package main
->>>>>>> 2067a20 (curriculum clearning and updates)
 import (
 	"fmt"
 	"math"
@@ -865,7 +785,6 @@ func main() {
 	area := math.Pi * math.Pow(radius, 2)
 	circumference := 2 * math.Pi * radius
 	fmt.Printf("area=%.2f circumference=%.2f\n", area, circumference)
-<<<<<<< HEAD
 },package main
 import (
 	"fmt"
@@ -877,12 +796,6 @@ func main() {
 } The lesson uses the canonical course data so learners focus on Go semantics rather than a new domain problem. Format with gofmt and use go test ./... as routine development tools.
 
 ### Worked Example
-=======
-}
-```
-
-**Example 2.5.5**
->>>>>>> 2067a20 (curriculum clearning and updates)
 ```go
 package main
 import (
@@ -894,10 +807,6 @@ func main() {
 	fmt.Println("Distance from origin:", distance)
 }
 ```
-
-<<<<<<< HEAD
-**Expected behavior:** The standalone program demonstrates mathematical functions, circle geometry, and distance with the course's shared example data. It compiles and runs using the standard library. Predict the output first, then compare it with the terminal output.
-=======
 
 ### Expected Behavior or Output
 
@@ -927,7 +836,6 @@ Example 5:
 ```text
 Distance from origin: 5
 ```
->>>>>>> 2067a20 (curriculum clearning and updates)
 
 ### Common Mistakes
 1. Confusing := declaration with = assignment.
