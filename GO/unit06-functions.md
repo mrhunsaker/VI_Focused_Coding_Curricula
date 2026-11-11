@@ -18,7 +18,6 @@ This unit develops functions using Go's types, packages, and standard-library co
 - Test a relevant boundary condition and explain a common failure.
 
 ### Concept Explanation
-<<<<<<< HEAD
 package main
 import (
 	"fmt"
@@ -60,12 +59,6 @@ func main() {
 } The lesson uses the canonical course data so learners focus on Go semantics rather than a new domain problem. Format with gofmt and use go test ./... as routine development tools.
 
 ### Worked Example
-=======
-A function is declared with `func name(parameters) result { ... }`. Parameters name their types, and consecutive parameters of one type can share it: `func tip(bill, rate float64) float64`. Arguments are copied into parameters. A function that does not return a value omits the result type.
-### Worked Example
-
-**Example 6.1.1**
->>>>>>> 2067a20 (curriculum clearning and updates)
 ```go
 package main
 import (
@@ -77,9 +70,6 @@ func main() {
 }
 ```
 
-<<<<<<< HEAD
-**Expected behavior:** The standalone program demonstrates defining and calling functions with the course's shared example data. It compiles and runs using the standard library. Predict the output first, then compare it with the terminal output.
-=======
 **Example 6.1.2**
 ```go
 package main
@@ -161,7 +151,6 @@ Example 5:
 ```text
 sum: 337
 ```
->>>>>>> 2067a20 (curriculum clearning and updates)
 
 ### Common Mistakes
 1. Expecting a function to return a value when its signature does not.
@@ -199,14 +188,11 @@ Use keyboard navigation to move between the lesson heading, code fence, compiler
 - Test a relevant boundary condition and explain a common failure.
 
 ### Concept Explanation
-<<<<<<< HEAD
-=======
 Go has no default arguments or keyword arguments. Pass every argument in order, or use a struct as an options value when a call needs many named settings. A function can return several results, written `func f() (int, error)`, and the caller receives them with `a, b := f()`.
 ### Worked Example
 
 **Example 6.2.1**
 ```go
->>>>>>> 2067a20 (curriculum clearning and updates)
 package main
 import (
 	"fmt"
@@ -214,7 +200,6 @@ import (
 func main() {
 	greet := func(name string) { fmt.Println("Hello,", name) }
 	greet("Avery")
-<<<<<<< HEAD
 },package main
 import (
 	"fmt"
@@ -249,12 +234,6 @@ func main() {
 } The lesson uses the canonical course data so learners focus on Go semantics rather than a new domain problem. Format with gofmt and use go test ./... as routine development tools.
 
 ### Worked Example
-=======
-}
-```
-
-**Example 6.2.2**
->>>>>>> 2067a20 (curriculum clearning and updates)
 ```go
 package main
 import (
@@ -268,9 +247,6 @@ func main() {
 }
 ```
 
-<<<<<<< HEAD
-**Expected behavior:** The standalone program demonstrates parameters and multiple return values with the course's shared example data. It compiles and runs using the standard library. Predict the output first, then compare it with the terminal output.
-=======
 **Example 6.2.3**
 ```go
 package main
@@ -338,7 +314,6 @@ Example 5:
 ```text
 sum: 337
 ```
->>>>>>> 2067a20 (curriculum clearning and updates)
 
 ### Common Mistakes
 1. Expecting a function to return a value when its signature does not.
@@ -376,14 +351,11 @@ Use keyboard navigation to move between the lesson heading, code fence, compiler
 - Test a relevant boundary condition and explain a common failure.
 
 ### Concept Explanation
-<<<<<<< HEAD
-=======
 A function sends a result back with `return`. By convention, a function that can fail returns its result and an `error` as the last value, and the caller checks `if err != nil`. Create errors with `errors.New` or `fmt.Errorf`, and never ignore a returned error silently.
 ### Worked Example
 
 **Example 6.3.1**
 ```go
->>>>>>> 2067a20 (curriculum clearning and updates)
 package main
 import (
 	"fmt"
@@ -391,16 +363,12 @@ import (
 func main() {
 	greet := func(name string) { fmt.Println("Hello,", name) }
 	greet("Avery")
-<<<<<<< HEAD
-},package main
-=======
 }
 ```
 
 **Example 6.3.2**
 ```go
 package main
->>>>>>> 2067a20 (curriculum clearning and updates)
 import (
 	"fmt"
 )
@@ -409,7 +377,6 @@ func main() {
 	name := "Avery"
 	describe(name, 82)
 	fmt.Println("still available:", name)
-<<<<<<< HEAD
 },package main
 import (
 	"fmt"
@@ -435,12 +402,6 @@ func main() {
 } The lesson uses the canonical course data so learners focus on Go semantics rather than a new domain problem. Format with gofmt and use go test ./... as routine development tools.
 
 ### Worked Example
-=======
-}
-```
-
-**Example 6.3.3**
->>>>>>> 2067a20 (curriculum clearning and updates)
 ```go
 package main
 import (
@@ -452,9 +413,6 @@ func main() {
 }
 ```
 
-<<<<<<< HEAD
-**Expected behavior:** The standalone program demonstrates return values and errors with the course's shared example data. It compiles and runs using the standard library. Predict the output first, then compare it with the terminal output.
-=======
 **Example 6.3.4**
 ```go
 package main
@@ -510,7 +468,6 @@ Example 5:
 ```text
 sum: 337
 ```
->>>>>>> 2067a20 (curriculum clearning and updates)
 
 ### Common Mistakes
 1. Expecting a function to return a value when its signature does not.
@@ -548,14 +505,11 @@ Use keyboard navigation to move between the lesson heading, code fence, compiler
 - Test a relevant boundary condition and explain a common failure.
 
 ### Concept Explanation
-<<<<<<< HEAD
-=======
 A slice passed to a function shares its elements with the caller, so changing an element inside the function changes the caller's slice; appending may not be visible to the caller unless the slice is returned. A map is passed by reference and can be changed in place. To protect the caller's data, copy a slice before changing it.
 ### Worked Example
 
 **Example 6.4.1**
 ```go
->>>>>>> 2067a20 (curriculum clearning and updates)
 package main
 import (
 	"fmt"
@@ -563,16 +517,12 @@ import (
 func main() {
 	greet := func(name string) { fmt.Println("Hello,", name) }
 	greet("Avery")
-<<<<<<< HEAD
-},package main
-=======
 }
 ```
 
 **Example 6.4.2**
 ```go
 package main
->>>>>>> 2067a20 (curriculum clearning and updates)
 import (
 	"fmt"
 )
@@ -581,23 +531,18 @@ func main() {
 	name := "Avery"
 	describe(name, 82)
 	fmt.Println("still available:", name)
-<<<<<<< HEAD
-},package main
-=======
 }
 ```
 
 **Example 6.4.3**
 ```go
 package main
->>>>>>> 2067a20 (curriculum clearning and updates)
 import (
 	"fmt"
 )
 func main() {
 	grade := func(score int) string { if score >= 60 { return "pass" }; return "retry" }
 	fmt.Println(grade(82))
-<<<<<<< HEAD
 },package main
 import (
 	"fmt"
@@ -616,12 +561,6 @@ func main() {
 } The lesson uses the canonical course data so learners focus on Go semantics rather than a new domain problem. Format with gofmt and use go test ./... as routine development tools.
 
 ### Worked Example
-=======
-}
-```
-
-**Example 6.4.4**
->>>>>>> 2067a20 (curriculum clearning and updates)
 ```go
 package main
 import (
@@ -634,9 +573,6 @@ func main() {
 }
 ```
 
-<<<<<<< HEAD
-**Expected behavior:** The standalone program demonstrates functions over slices and maps with the course's shared example data. It compiles and runs using the standard library. Predict the output first, then compare it with the terminal output.
-=======
 **Example 6.4.5**
 ```go
 package main
@@ -679,7 +615,6 @@ Example 5:
 ```text
 sum: 337
 ```
->>>>>>> 2067a20 (curriculum clearning and updates)
 
 ### Common Mistakes
 1. Expecting a function to return a value when its signature does not.
@@ -717,14 +652,11 @@ Use keyboard navigation to move between the lesson heading, code fence, compiler
 - Test a relevant boundary condition and explain a common failure.
 
 ### Concept Explanation
-<<<<<<< HEAD
-=======
 A final parameter written `...int` accepts any number of arguments and arrives in the function as a slice. Pass an existing slice with `values...`. Variables declared inside a function or block are local to it, and an inner variable with the same name shadows an outer one, which hides the outer value inside that block.
 ### Worked Example
 
 **Example 6.5.1**
 ```go
->>>>>>> 2067a20 (curriculum clearning and updates)
 package main
 import (
 	"fmt"
@@ -732,16 +664,12 @@ import (
 func main() {
 	greet := func(name string) { fmt.Println("Hello,", name) }
 	greet("Avery")
-<<<<<<< HEAD
-},package main
-=======
 }
 ```
 
 **Example 6.5.2**
 ```go
 package main
->>>>>>> 2067a20 (curriculum clearning and updates)
 import (
 	"fmt"
 )
@@ -750,32 +678,24 @@ func main() {
 	name := "Avery"
 	describe(name, 82)
 	fmt.Println("still available:", name)
-<<<<<<< HEAD
-},package main
-=======
 }
 ```
 
 **Example 6.5.3**
 ```go
 package main
->>>>>>> 2067a20 (curriculum clearning and updates)
 import (
 	"fmt"
 )
 func main() {
 	grade := func(score int) string { if score >= 60 { return "pass" }; return "retry" }
 	fmt.Println(grade(82))
-<<<<<<< HEAD
-},package main
-=======
 }
 ```
 
 **Example 6.5.4**
 ```go
 package main
->>>>>>> 2067a20 (curriculum clearning and updates)
 import (
 	"fmt"
 )
@@ -783,7 +703,6 @@ func main() {
 	average := func(scores []int) float64 { total := 0; for _, score := range scores { total += score }; return float64(total)/float64(len(scores)) }
 	scores := []int{82, 91, 76, 88}
 	fmt.Printf("average=%.1f\n", average(scores))
-<<<<<<< HEAD
 },package main
 import (
 	"fmt"
@@ -794,12 +713,6 @@ func main() {
 } The lesson uses the canonical course data so learners focus on Go semantics rather than a new domain problem. Format with gofmt and use go test ./... as routine development tools.
 
 ### Worked Example
-=======
-}
-```
-
-**Example 6.5.5**
->>>>>>> 2067a20 (curriculum clearning and updates)
 ```go
 package main
 import (
@@ -810,10 +723,6 @@ func main() {
 	fmt.Println("sum:", sum(82, 91, 76, 88))
 }
 ```
-
-<<<<<<< HEAD
-**Expected behavior:** The standalone program demonstrates variadic parameters and scope with the course's shared example data. It compiles and runs using the standard library. Predict the output first, then compare it with the terminal output.
-=======
 
 ### Expected Behavior or Output
 
@@ -844,7 +753,6 @@ Example 5:
 ```text
 sum: 337
 ```
->>>>>>> 2067a20 (curriculum clearning and updates)
 
 ### Common Mistakes
 1. Expecting a function to return a value when its signature does not.
