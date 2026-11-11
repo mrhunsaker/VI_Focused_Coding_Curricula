@@ -436,7 +436,6 @@ Read variadic signatures aloud: 'define average, open parenthesis, star scores, 
 - [ ] I can define a function using `*args` for arbitrary positional arguments.
 - [ ] I can define a function using `**kwargs` for arbitrary keyword arguments.
 
-<<<<<<< HEAD
 ## Canonical Shared Dataset — Inventory, Collections, and Functions
 
 Use the same inventory records for list, dictionary, iteration, and function examples.
@@ -468,6 +467,3 @@ Inventory total: $17.50
 ```
 
 For sequence exercises, use the canonical scores `[82, 91, 76, 88]`. For immutable-sequence exercises, use coordinates `(3, 4)`. Keep language-specific collection types idiomatic while preserving record values and calculation results.
-=======
----
->>>>>>> 2067a20 (curriculum clearning and updates)
