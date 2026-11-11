@@ -6,32 +6,6 @@ This unit develops capstone — accessible personal data manager through the sam
 
 **Unit objectives:** explain the core concepts, write and test complete Java programs, diagnose errors, and apply the ideas to accessible projects.
 
-<<<<<<< HEAD
-## Lesson 11.1: Capstone Requirements and Architecture
-
-### Reading References
-- [Java SE 25 documentation](https://docs.oracle.com/en/java/).
-- [Java Language Specification, Java SE 25](https://docs.oracle.com/javase/specs/jls/se25/html/index.html).
-
-
-### Learning Objectives
-- Explain the purpose and vocabulary of capstone requirements and architecture.
-- Apply the relevant Java syntax and APIs in a small, complete program.
-- Compile, run, inspect, and adapt the example using keyboard-accessible tools.
-
-### Concept Explanation
-This lesson develops capstone requirements and architecture through Java's class-based structure and standard library. Identify the input, output, state changes, and relevant type constraints before coding. Keep declarations local where possible, separate computation from presentation, and state preconditions and postconditions. Treat the project as a set of observable requirements and milestones. Keep domain logic separate from command parsing and persistence, validate before mutation, report errors in plain language, and test normal, boundary, and failure paths.
-
-Java is statically typed and class-based. Local variables have declared or inferred compile-time types, reference values may be null, and methods and fields are governed by access and scope rules. The compiler checks syntax and type compatibility before execution; runtime behavior still requires testing. Follow Java naming conventions, use explicit imports in beginner work, and prefer small methods with clear contracts.
-
-### Worked Example
-```java
-public class Lesson_11_1 {
-    public static void main(String[] args) {
-        java.util.List<String> features = java.util.List.of("keyboard-driven menu", "named records", "validated fields", "file persistence", "automated tests");
-        System.out.println("Personal data manager requirements:");
-        features.forEach(feature -> System.out.println("- " + feature));
-=======
 ## Lesson 11.1: Capstone: Requirements and Design
 
 ### Reading References
@@ -86,61 +60,10 @@ public class Lesson_11_1 {
 
         System.out.println(validate("  ", "supplies"));
         System.out.println(validate("Ruler", ""));
->>>>>>> 2067a20 (curriculum clearning and updates)
     }
 }
 ```
 
-<<<<<<< HEAD
-**Expected behavior:** The program compiles on JDK 25 and prints a deterministic result illustrating capstone requirements and architecture. Run it from a terminal, compare actual output with your prediction, and change one input to test the effect.
-
-### Common Mistakes
-- Using record display or object identity as a substitute for a stable application identifier.
-- Persisting data before validating it or overwriting a valid file after a failed update.
-- Testing individual methods only and missing broken integration between menu, model, validation, and storage.
-### Activities
-1. Write a record schema and identify required, optional, and unique fields before implementation.
-2. Test create, read, update, and delete operations against both in-memory and persisted data.
-3. Simulate malformed or unavailable storage and verify existing valid data is not silently lost.
-4. Demonstrate the complete manager from startup through validation, persistence, restart, and retrieval.
-### Accessibility Practice
-Navigate by class, method, and line; inspect braces, parentheses, brackets, semicolons, generic delimiters, and compiler diagnostics with the preferred screen reader or braille display. Compile and run from the terminal so the workflow does not depend on color or a visual project explorer.
-
-### Skills Checklist
-- [ ] I can explain the key concept in Java terms.
-- [ ] I can trace and predict the worked example.
-- [ ] I can compile and run the example from the terminal.
-- [ ] I can identify and correct a Java-specific mistake.
-- [ ] I can test a boundary case and navigate the workflow accessibly.
-
-## Lesson 11.2: Data Model and Storage
-
-### Reading References
-- [Java SE 25 documentation](https://docs.oracle.com/en/java/).
-- [Java Language Specification, Java SE 25](https://docs.oracle.com/javase/specs/jls/se25/html/index.html).
-
-
-### Learning Objectives
-- Explain the purpose and vocabulary of data model and storage.
-- Apply the relevant Java syntax and APIs in a small, complete program.
-- Compile, run, inspect, and adapt the example using keyboard-accessible tools.
-
-### Concept Explanation
-This lesson develops data model and storage through Java's class-based structure and standard library. Identify the input, output, state changes, and relevant type constraints before coding. Keep declarations local where possible, separate computation from presentation, and state preconditions and postconditions. Treat the project as a set of observable requirements and milestones. Keep domain logic separate from command parsing and persistence, validate before mutation, report errors in plain language, and test normal, boundary, and failure paths.
-
-Java is statically typed and class-based. Local variables have declared or inferred compile-time types, reference values may be null, and methods and fields are governed by access and scope rules. The compiler checks syntax and type compatibility before execution; runtime behavior still requires testing. Follow Java naming conventions, use explicit imports in beginner work, and prefer small methods with clear contracts.
-
-### Worked Example
-```java
-public class Lesson_11_2 {
-    public static void main(String[] args) {
-        record Record(int id, String title, String description, String category,
-                      String createdAt, String updatedAt) {}
-        java.util.List<Record> records = new java.util.ArrayList<>();
-        records.add(new Record(1, "Course project", "Personal data manager", "education",
-                               "2026-11-01", "2026-11-01"));
-        System.out.println(records.get(0));
-=======
 ### Expected Behavior or Output
 
 The program prints:
@@ -507,60 +430,10 @@ public class Lesson_11_2 {
 
         Files.writeString(Path.of("broken.json"), "[{\"id\": 1,");
         System.out.println(loadEntries(Path.of("broken.json")).problem());
->>>>>>> 2067a20 (curriculum clearning and updates)
     }
 }
 ```
 
-<<<<<<< HEAD
-**Expected behavior:** The program compiles on JDK 25 and prints a deterministic result illustrating data model and storage. Run it from a terminal, compare actual output with your prediction, and change one input to test the effect.
-
-### Common Mistakes
-- Using record display or object identity as a substitute for a stable application identifier.
-- Persisting data before validating it or overwriting a valid file after a failed update.
-- Testing individual methods only and missing broken integration between menu, model, validation, and storage.
-### Activities
-1. Write a record schema and identify required, optional, and unique fields before implementation.
-2. Test create, read, update, and delete operations against both in-memory and persisted data.
-3. Simulate malformed or unavailable storage and verify existing valid data is not silently lost.
-4. Demonstrate the complete manager from startup through validation, persistence, restart, and retrieval.
-### Accessibility Practice
-Navigate by class, method, and line; inspect braces, parentheses, brackets, semicolons, generic delimiters, and compiler diagnostics with the preferred screen reader or braille display. Compile and run from the terminal so the workflow does not depend on color or a visual project explorer.
-
-### Skills Checklist
-- [ ] I can explain the key concept in Java terms.
-- [ ] I can trace and predict the worked example.
-- [ ] I can compile and run the example from the terminal.
-- [ ] I can identify and correct a Java-specific mistake.
-- [ ] I can test a boundary case and navigate the workflow accessibly.
-
-## Lesson 11.3: Displaying and Managing Records
-
-### Reading References
-- [Java SE 25 documentation](https://docs.oracle.com/en/java/).
-- [Java Language Specification, Java SE 25](https://docs.oracle.com/javase/specs/jls/se25/html/index.html).
-
-
-### Learning Objectives
-- Explain the purpose and vocabulary of displaying and managing records.
-- Apply the relevant Java syntax and APIs in a small, complete program.
-- Compile, run, inspect, and adapt the example using keyboard-accessible tools.
-
-### Concept Explanation
-This lesson develops displaying and managing records through Java's class-based structure and standard library. Identify the input, output, state changes, and relevant type constraints before coding. Keep declarations local where possible, separate computation from presentation, and state preconditions and postconditions. Treat the project as a set of observable requirements and milestones. Keep domain logic separate from command parsing and persistence, validate before mutation, report errors in plain language, and test normal, boundary, and failure paths.
-
-Java is statically typed and class-based. Local variables have declared or inferred compile-time types, reference values may be null, and methods and fields are governed by access and scope rules. The compiler checks syntax and type compatibility before execution; runtime behavior still requires testing. Follow Java naming conventions, use explicit imports in beginner work, and prefer small methods with clear contracts.
-
-### Worked Example
-```java
-public class Lesson_11_3 {
-    public static void main(String[] args) {
-        java.util.List<String> names = new java.util.ArrayList<>(java.util.List.of("Avery", "Riley"));
-        System.out.println("Records: " + names.size());
-        for (int i = 0; i < names.size(); i++) System.out.println((i + 1) + ": " + names.get(i));
-        names.remove("Riley");
-        System.out.println("After deletion: " + names);
-=======
 ### Expected Behavior or Output
 
 The program prints:
@@ -773,58 +646,10 @@ public class Lesson_11_3 {
         String second = manager.delete(99);
         System.out.println(second == null ? "Deleted record 99." : second);
         show(manager);
->>>>>>> 2067a20 (curriculum clearning and updates)
     }
 }
 ```
 
-<<<<<<< HEAD
-**Expected behavior:** The program compiles on JDK 25 and prints a deterministic result illustrating displaying and managing records. Run it from a terminal, compare actual output with your prediction, and change one input to test the effect.
-
-### Common Mistakes
-- Using record display or object identity as a substitute for a stable application identifier.
-- Persisting data before validating it or overwriting a valid file after a failed update.
-- Testing individual methods only and missing broken integration between menu, model, validation, and storage.
-### Activities
-1. Write a record schema and identify required, optional, and unique fields before implementation.
-2. Test create, read, update, and delete operations against both in-memory and persisted data.
-3. Simulate malformed or unavailable storage and verify existing valid data is not silently lost.
-4. Demonstrate the complete manager from startup through validation, persistence, restart, and retrieval.
-### Accessibility Practice
-Navigate by class, method, and line; inspect braces, parentheses, brackets, semicolons, generic delimiters, and compiler diagnostics with the preferred screen reader or braille display. Compile and run from the terminal so the workflow does not depend on color or a visual project explorer.
-
-### Skills Checklist
-- [ ] I can explain the key concept in Java terms.
-- [ ] I can trace and predict the worked example.
-- [ ] I can compile and run the example from the terminal.
-- [ ] I can identify and correct a Java-specific mistake.
-- [ ] I can test a boundary case and navigate the workflow accessibly.
-
-## Lesson 11.4: Validation, Testing, and Error Recovery
-
-### Reading References
-- [Java SE 25 documentation](https://docs.oracle.com/en/java/).
-- [Java Language Specification, Java SE 25](https://docs.oracle.com/javase/specs/jls/se25/html/index.html).
-
-
-### Learning Objectives
-- Explain the purpose and vocabulary of validation, testing, and error recovery.
-- Apply the relevant Java syntax and APIs in a small, complete program.
-- Compile, run, inspect, and adapt the example using keyboard-accessible tools.
-
-### Concept Explanation
-This lesson develops validation, testing, and error recovery through Java's class-based structure and standard library. Identify the input, output, state changes, and relevant type constraints before coding. Keep declarations local where possible, separate computation from presentation, and state preconditions and postconditions. Treat the project as a set of observable requirements and milestones. Keep domain logic separate from command parsing and persistence, validate before mutation, report errors in plain language, and test normal, boundary, and failure paths.
-
-Java is statically typed and class-based. Local variables have declared or inferred compile-time types, reference values may be null, and methods and fields are governed by access and scope rules. The compiler checks syntax and type compatibility before execution; runtime behavior still requires testing. Follow Java naming conventions, use explicit imports in beginner work, and prefer small methods with clear contracts.
-
-### Worked Example
-```java
-public class Lesson_11_4 {
-    public static void main(String[] args) {
-        java.util.function.Predicate<String> validName = name -> name != null && !name.isBlank();
-        for (String name : new String[] {"Avery", "", "Riley"})
-            System.out.println("\"" + name + "\" valid=" + validName.test(name));
-=======
 ### Expected Behavior or Output
 
 The program prints:
@@ -1094,57 +919,10 @@ public class Lesson_11_4 {
         });
 
         System.out.println(failures == 0 ? "All acceptance tests passed." : failures + " test(s) failed.");
->>>>>>> 2067a20 (curriculum clearning and updates)
     }
 }
 ```
 
-<<<<<<< HEAD
-**Expected behavior:** The program compiles on JDK 25 and prints a deterministic result illustrating validation, testing, and error recovery. Run it from a terminal, compare actual output with your prediction, and change one input to test the effect.
-
-### Common Mistakes
-- Using record display or object identity as a substitute for a stable application identifier.
-- Persisting data before validating it or overwriting a valid file after a failed update.
-- Testing individual methods only and missing broken integration between menu, model, validation, and storage.
-### Activities
-1. Write a record schema and identify required, optional, and unique fields before implementation.
-2. Test create, read, update, and delete operations against both in-memory and persisted data.
-3. Simulate malformed or unavailable storage and verify existing valid data is not silently lost.
-4. Demonstrate the complete manager from startup through validation, persistence, restart, and retrieval.
-### Accessibility Practice
-Navigate by class, method, and line; inspect braces, parentheses, brackets, semicolons, generic delimiters, and compiler diagnostics with the preferred screen reader or braille display. Compile and run from the terminal so the workflow does not depend on color or a visual project explorer.
-
-### Skills Checklist
-- [ ] I can explain the key concept in Java terms.
-- [ ] I can trace and predict the worked example.
-- [ ] I can compile and run the example from the terminal.
-- [ ] I can identify and correct a Java-specific mistake.
-- [ ] I can test a boundary case and navigate the workflow accessibly.
-
-## Lesson 11.5: Integration, Documentation, and Demonstration
-
-### Reading References
-- [Java SE 25 documentation](https://docs.oracle.com/en/java/).
-- [Java Language Specification, Java SE 25](https://docs.oracle.com/javase/specs/jls/se25/html/index.html).
-
-
-### Learning Objectives
-- Explain the purpose and vocabulary of integration, documentation, and demonstration.
-- Apply the relevant Java syntax and APIs in a small, complete program.
-- Compile, run, inspect, and adapt the example using keyboard-accessible tools.
-
-### Concept Explanation
-This lesson develops integration, documentation, and demonstration through Java's class-based structure and standard library. Identify the input, output, state changes, and relevant type constraints before coding. Keep declarations local where possible, separate computation from presentation, and state preconditions and postconditions. Treat the project as a set of observable requirements and milestones. Keep domain logic separate from command parsing and persistence, validate before mutation, report errors in plain language, and test normal, boundary, and failure paths.
-
-Java is statically typed and class-based. Local variables have declared or inferred compile-time types, reference values may be null, and methods and fields are governed by access and scope rules. The compiler checks syntax and type compatibility before execution; runtime behavior still requires testing. Follow Java naming conventions, use explicit imports in beginner work, and prefer small methods with clear contracts.
-
-### Worked Example
-```java
-public class Lesson_11_5 {
-    public static void main(String[] args) {
-        java.util.List<String> milestones = java.util.List.of("model", "implement", "test", "document", "demonstrate");
-        for (String milestone : milestones) System.out.println("Completed: " + milestone);
-=======
 ### Expected Behavior or Output
 
 The program prints:
@@ -1243,34 +1021,10 @@ public class Lesson_11_5 {
         for (String check : checks) {
             System.out.println(check);
         }
->>>>>>> 2067a20 (curriculum clearning and updates)
     }
 }
 ```
 
-<<<<<<< HEAD
-**Expected behavior:** The program compiles on JDK 25 and prints a deterministic result illustrating integration, documentation, and demonstration. Run it from a terminal, compare actual output with your prediction, and change one input to test the effect.
-
-### Common Mistakes
-- Using record display or object identity as a substitute for a stable application identifier.
-- Persisting data before validating it or overwriting a valid file after a failed update.
-- Testing individual methods only and missing broken integration between menu, model, validation, and storage.
-### Activities
-1. Write a record schema and identify required, optional, and unique fields before implementation.
-2. Test create, read, update, and delete operations against both in-memory and persisted data.
-3. Simulate malformed or unavailable storage and verify existing valid data is not silently lost.
-4. Demonstrate the complete manager from startup through validation, persistence, restart, and retrieval.
-### Accessibility Practice
-Navigate by class, method, and line; inspect braces, parentheses, brackets, semicolons, generic delimiters, and compiler diagnostics with the preferred screen reader or braille display. Compile and run from the terminal so the workflow does not depend on color or a visual project explorer.
-
-### Skills Checklist
-- [ ] I can explain the key concept in Java terms.
-- [ ] I can trace and predict the worked example.
-- [ ] I can compile and run the example from the terminal.
-- [ ] I can identify and correct a Java-specific mistake.
-- [ ] I can test a boundary case and navigate the workflow accessibly.
-
-=======
 ### Expected Behavior or Output
 
 The program prints:
@@ -1316,4 +1070,3 @@ This is the final accessibility lesson. Read your own documentation aloud from s
 ## AI Policy
 
 AI may be used only for personal conceptual understanding and reinforcement. It must not write, complete, autocomplete, repair, or generate course code or assessment solutions.
->>>>>>> 2067a20 (curriculum clearning and updates)
