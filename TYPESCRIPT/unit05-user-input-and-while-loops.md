@@ -6,10 +6,7 @@ Build input validation and sentinel-controlled loops. The TypeScript adaptation 
 
 ---
 
-=======
->>>>>>> 2067a20 (curriculum clearning and updates)
 
-<<<<<<< HEAD
 
 ## Overview
 
@@ -65,40 +62,24 @@ Use one prompt and one response at a time. State validation failures explicitly.
 - [ ] I can collect a string from terminal input.
 - [ ] I can reject blank input.
 - [ ] I can close the readline interface.
-=======
->>>>>>> 2067a20 (curriculum clearning and updates)
 
 ## Overview
 
-<<<<<<< HEAD
----
-
-## Lesson 5.2: The while loop in action
-
-### Reading References
-- Python source counterpart: Unit 5 lesson 5.2 in the canonical Python curriculum.
-=======
 Build input validation and sentinel-controlled loops. The TypeScript adaptation preserves the shared Python curriculum's learning objectives, datasets, expected results, and assessment criteria while teaching TypeScript's compile-time type system and JavaScript runtime behavior.
 
 ## Lesson 5.1: How terminal input works
 
 ### Reading References
 - Python source counterpart: Unit 5 lesson 5.1 in the canonical Python curriculum.
->>>>>>> 2067a20 (curriculum clearning and updates)
 - TypeScript Handbook: https://www.typescriptlang.org/docs/handbook/intro.html
 - Node.js documentation where terminal, file, or runtime APIs are used.
 
 ### Learning Objectives
-<<<<<<< HEAD
-- Repeat a prompt until a sentinel command is entered.
-=======
 - Collect text from the user and validate it before using it.
->>>>>>> 2067a20 (curriculum clearning and updates)
 - Explain the TypeScript-specific language or runtime behavior used in the lesson.
 - Predict the example's behavior and test a boundary or invalid case.
 
 ### Concept Explanation
-<<<<<<< HEAD
 A while loop repeats while its condition is true. The loop body must eventually change the state used by the condition or exit explicitly.
 
 ### Worked Example
