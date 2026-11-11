@@ -940,7 +940,9 @@
       "Review specialist HTML/CSS, R, SQL modules and instructor assessment materials.",
       "Verify reported 2,481-record assessment inventory and access/privacy controls.",
       "Conduct human keyboard-only, screen-reader and braille testing; no repository automation can establish this.",
-      "After PR #28 and PR #29, run .NET and Swift compile/runtime checks for their canonical JSON encode/decode examples."
+      "After PR #28 and PR #29, run .NET and Swift compile/runtime checks for their canonical JSON encode/decode examples.",
+      "Review and expand specialist HTML/CSS, R, and SQL modules with runnable environment setup, sample fixtures, deterministic expected results, and domain-specific assessment; preserve their specialized learning goals.",
+      "Locate the reported 2,481-record assessment inventory outside the current searchable text tree or inspect the repository ZIP archives using an appropriate binary/archive workflow; verify privacy and access controls before use."
     ],
     "note": "Historical per-track records and CI run identifiers below are retained as evidence snapshots, not assumed to describe the current default branch. Treat a check as verified only when its referenced commit/run is still applicable to the current branch. The conflict-resolution pass on 2026-11-11 made the JSON parseable; review the recorded merge choices and revalidate any status affected by competing historical edits. Do not generate instructor answers while the solutions repository is public or inventory approval is incomplete.",
     "rust": {
@@ -1618,7 +1620,7 @@
   "project_state_2026_11_11": {
     "status": "active_curriculum_alignment_and_validation_project",
     "as_of": "2026-11-11",
-    "main_commit": "908cfa6ab3c6ca496118ad2344510978095504ca",
+    "main_commit": "8667f3b526f9583ac0a2081c73a3a05afec8c9d4",
     "merged_pull_requests": [
       {
         "number": 23,
@@ -1688,6 +1690,13 @@
         "scope": "Repair indexing setup JSON and refresh current lesson paths",
         "status": "merged",
         "merge_commit": "908cfa6ab3c6ca496118ad2344510978095504ca"
+      },
+      {
+        "number": 36,
+        "url": "https://github.com/mrhunsaker/VI_Focused_Coding_Curricula/pull/36",
+        "scope": "Final tracker update after indexing repair and baseline CI validation",
+        "status": "merged",
+        "merge_commit": "8667f3b526f9583ac0a2081c73a3a05afec8c9d4"
       }
     ],
     "repository_inventory": {
@@ -1706,9 +1715,9 @@
     },
     "build_status": {
       "mdbook": "passed_on_latest_main_commit",
-      "workflow_url": "https://github.com/mrhunsaker/VI_Focused_Coding_Curricula/actions/runs/43092679349",
-      "commit": "908cfa6ab3c6ca496118ad2344510978095504ca",
-      "scope": "mdBook build and GitHub Pages deployment only; separate pull-request validation workflow passed its baseline checks."
+      "workflow_url": "https://github.com/mrhunsaker/VI_Focused_Coding_Curricula/actions/runs/43092952267",
+      "commit": "8667f3b526f9583ac0a2081c73a3a05afec8c9d4",
+      "scope": "mdBook build and GitHub Pages deployment."
     },
     "verified_current_source_observations": [
       "Python Unit 10 has no conflict markers but contains an internal contradiction: five-room shiny-key implementation/examples coexist with a three-room project-specification paragraph.",
@@ -1729,7 +1738,9 @@
       "Review specialist HTML/CSS, R, SQL modules and instructor assessment materials.",
       "Verify reported 2,481-record assessment inventory and access/privacy controls.",
       "Conduct human keyboard-only, screen-reader and braille testing; no repository automation can establish this.",
-      "After PR #28 and PR #29, run .NET and Swift compile/runtime checks for their canonical JSON encode/decode examples."
+      "After PR #28 and PR #29, run .NET and Swift compile/runtime checks for their canonical JSON encode/decode examples.",
+      "Review and expand specialist HTML/CSS, R, and SQL modules with runnable environment setup, sample fixtures, deterministic expected results, and domain-specific assessment; preserve their specialized learning goals.",
+      "Locate the reported 2,481-record assessment inventory outside the current searchable text tree or inspect the repository ZIP archives using an appropriate binary/archive workflow; verify privacy and access controls before use."
     ],
     "unit10_contract_scan": {
       "scope": "Focused keyword and selected surrounding-line inspection of all 13 general-purpose Unit 10 lesson files on current main; not full code-behavior verification.",
@@ -1777,14 +1788,7 @@
       },
       "conclusion": "The canonical schema is explicit in the Python reference and several tracks, but parity and round-trip behavior are not yet verified repository-wide. C# and Swift have identified serialization mapping gaps with proposed fixes in PRs #28 and #29; C++ requires deeper persistence inspection."
     },
-    "open_pull_requests": [
-      {
-        "number": 36,
-        "url": "https://github.com/mrhunsaker/VI_Focused_Coding_Curricula/pull/36",
-        "scope": "Final tracker update after indexing repair and baseline CI validation",
-        "status": "open"
-      }
-    ],
+    "open_pull_requests": [],
     "ci_inventory_2026_11_11": {
       "workflow_files": [
         ".github/workflows/mdbook.yml",
@@ -1833,13 +1837,24 @@
         "commit": "908cfa6ab3c6ca496118ad2344510978095504ca",
         "conclusion": "success",
         "scope": "JSON validation, text-source conflict-marker scan, Python capstone record tests, Kotlin structural/local-link checker, and mdBook build."
+      },
+      "main_validation_run_after_tracker_merge": {
+        "id": 43092952239,
+        "url": "https://github.com/mrhunsaker/VI_Focused_Coding_Curricula/actions/runs/43092952239",
+        "commit": "8667f3b526f9583ac0a2081c73a3a05afec8c9d4",
+        "conclusion": "success",
+        "scope": "JSON validation, text-source conflict-marker scan, Python capstone record tests, Kotlin structural/local-link checker, and mdBook build."
       }
     },
     "assessment_inventory_status": {
       "reported_record_count": 2481,
-      "status": "unverified_source_and_location_not_found",
-      "tree_filename_scan": "No distinct assessment/question/exam/answer/solution inventory file was found by current tree filename scan; only Kotlin expected-output fixtures and checker matched.",
-      "required_follow_up": "Identify authoritative inventory path/source and verify count, schema, access controls, privacy, and solution leakage before use."
+      "status": "not_located_in_current_text_repository_inventory",
+      "searches": [
+        "Repository tree filename scan for assessment/question/exam/answer/solution",
+        "Generated cs_curriculum_final/output/all_curricula.md text search for 2481/2,481 and assessment inventory terms"
+      ],
+      "findings": "No distinct assessment inventory file or 2,481-record reference was found in the current text tree or generated all_curricula.md. The repository contains cs_curriculum_complete.zip and cs_curriculum_final.zip, but their binary contents were not inspectable through the available text-file retrieval path.",
+      "required_follow_up": "Identify the authoritative inventory source/path, inspect archive contents if it is there, verify record count/schema/duplicates/access controls/privacy/solution leakage, and do not expose private answers."
     },
     "closed_superseded_pull_requests": [
       {
@@ -1879,6 +1894,54 @@
         "Java": 12
       },
       "all_listed_paths_exist_in_tree": true
+    },
+    "specialist_modules_scan_2026_11_11": {
+      "scope": "First-pass source review of the three configured specialist modules on current main; not a complete instructional, technical, or assistive-technology audit.",
+      "findings": {
+        "HTML_CSS": {
+          "path": "MODULES/HTML_CSS.md",
+          "bytes": 4858,
+          "structure": "Purpose, objectives, semantic HTML, CSS, accessibility principles, practice sequence, books, further learning.",
+          "examples": [
+            "semantic HTML document",
+            "basic CSS rules"
+          ],
+          "accessibility_topics": [
+            "semantic HTML",
+            "heading hierarchy",
+            "labels",
+            "keyboard access and visible focus",
+            "contrast",
+            "zoom",
+            "alternative text",
+            "dynamic content and focus"
+          ],
+          "remaining": "No explicit expected-output assertions or scored assessment; browser/screen-reader validation and keyboard interaction tests remain human tasks."
+        },
+        "R": {
+          "path": "MODULES/R.md",
+          "bytes": 5391,
+          "structure": "Purpose, objectives, R environment, core values, data structures, functions and analysis, data import/reproducibility, accessibility/visualization, practice sequence, books, further learning.",
+          "examples": [
+            "vector mean/count",
+            "summary, median, standard deviation"
+          ],
+          "remaining": "No concrete sample CSV fixture, package lock/version manifest, expected-output assertions, or test suite is included in this module; R console and accessible output should be tested with actual screen readers."
+        },
+        "SQL": {
+          "path": "MODULES/SQL.md",
+          "bytes": 5522,
+          "structure": "Purpose, objectives, relational concepts, SELECT/filter/sort, aggregation, joins, DDL/DML, security, accessibility, practice sequence, books, further learning.",
+          "examples": [
+            "filtered SELECT",
+            "GROUP BY aggregate",
+            "INNER JOIN"
+          ],
+          "remaining": "No database engine/version or runnable training database/fixture is selected; add deterministic expected result sets, transaction/error exercises, and test keyboard/screen-reader behavior in a real SQL client."
+        }
+      },
+      "common_result": "No standard merge-conflict marker lines found in the three fetched module files.",
+      "limitation": "The modules use domain-specific objectives and should not be forced into the general-purpose nine-section lesson template; this was a content review, not a code execution or accessibility test."
     }
   }
 }
