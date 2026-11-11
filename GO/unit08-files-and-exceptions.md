@@ -6,7 +6,6 @@ Read and write files, handle errors, release resources reliably, and store recor
 
 ---
 
->>>>>>> 2067a20 (curriculum clearning and updates)
 ## Lesson 8.1: Reading text files
 
 ### Reading References
@@ -41,18 +40,7 @@ func main() {
 }
 ```
 
-<<<<<<< HEAD
 **Expected behavior:** The standalone program demonstrates reading text files with shared course example data. It compiles and runs using the standard library. Predict the output first, then compare it with terminal output.
-=======
-
-### Expected Behavior or Output
-
-Output observed when the worked example was run with empty standard input (Go 1.22; the text of the output does not depend on the operating system):
-
-```text
-Avery,82
-```
->>>>>>> 2067a20 (curriculum clearning and updates)
 
 ### Common Mistakes
 1. Ignoring errors from file operations and Close.
@@ -110,18 +98,7 @@ func main() {
 }
 ```
 
-<<<<<<< HEAD
 **Expected behavior:** The standalone program demonstrates writing and appending files with shared course example data. It compiles and runs using the standard library. Predict the output first, then compare it with terminal output.
-=======
-
-### Expected Behavior or Output
-
-Output observed when the worked example was run with empty standard input (Go 1.22; the text of the output does not depend on the operating system):
-
-```text
-appended inventory record
-```
->>>>>>> 2067a20 (curriculum clearning and updates)
 
 ### Common Mistakes
 1. Ignoring errors from file operations and Close.
@@ -175,10 +152,6 @@ func main() {
 }
 ```
 
-<<<<<<< HEAD
-**Expected behavior:** The standalone program demonstrates explicit error handling with shared course example data. It compiles and runs using the standard library. Predict the output first, then compare it with terminal output.
-=======
-
 ### Expected Behavior or Output
 
 Output observed when the worked example was run with empty standard input (Go 1.22; the text of the output does not depend on the operating system):
@@ -186,7 +159,6 @@ Output observed when the worked example was run with empty standard input (Go 1.
 ```text
 Could not read file: file not found: missing_course_file.txt
 ```
->>>>>>> 2067a20 (curriculum clearning and updates)
 
 ### Common Mistakes
 1. Ignoring errors from file operations and Close.
@@ -243,18 +215,7 @@ func main() {
 }
 ```
 
-<<<<<<< HEAD
 **Expected behavior:** The standalone program demonstrates deferred cleanup and resource lifetime with shared course example data. It compiles and runs using the standard library. Predict the output first, then compare it with terminal output.
-=======
-
-### Expected Behavior or Output
-
-Output observed when the worked example was run with empty standard input (Go 1.22; the text of the output does not depend on the operating system):
-
-```text
-deferred cleanup is scheduled
-```
->>>>>>> 2067a20 (curriculum clearning and updates)
 
 ### Common Mistakes
 1. Ignoring errors from file operations and Close.
@@ -309,18 +270,7 @@ func main() {
 }
 ```
 
-<<<<<<< HEAD
 **Expected behavior:** The standalone program demonstrates json encoding and persistence with shared course example data. It compiles and runs using the standard library. Predict the output first, then compare it with terminal output.
-=======
-
-### Expected Behavior or Output
-
-Output observed when the worked example was run with empty standard input (Go 1.22; the text of the output does not depend on the operating system):
-
-```text
-{"name":"Avery","score":82}
-```
->>>>>>> 2067a20 (curriculum clearning and updates)
 
 ### Common Mistakes
 1. Ignoring errors from file operations and Close.
@@ -343,5 +293,3 @@ Use keyboard navigation to move between the lesson heading, code fence, compiler
 - [ ] I can test a boundary case and an invalid-input or error case.
 - [ ] I can navigate source, diagnostics, and output with my keyboard and assistive technology.
 
-<<<<<<< HEAD
-=======
