@@ -144,9 +144,9 @@ Write the design as a numbered list and read it aloud before coding. Decide the 
 ```python
 room_descriptions = {
     "start_room": {
-        "description": "A dimly lit cave. A shiny key rests on the ground.",
+        "description": "A dimly lit cave. A narrow passage leads north.",
         "exits": {"north": "tunnel"},
-        "items": ["shiny key"],
+        "items": [],
     },
     "tunnel": {
         "description": "A damp tunnel. Passages lead south and east.",
@@ -188,26 +188,23 @@ while True:
 
 ### Expected Behavior or Output
 
-Sample run typing `north`, `east`, `west`, `up`, `south`, `quit` (typed input shown after each prompt):
+Sample run typing `north`, `east`, `north`, `north`, `quit` (typed input shown after each prompt):
 ```
 ---
-You are in a dimly lit cave. There's a narrow passage to the NORTH.
+A dimly lit cave. A narrow passage leads north.
 What do you want to do? north
 ---
-The tunnel is damp and cold. You can go SOUTH back to the cave or EAST to a clearing.
+A damp tunnel. Passages lead south and east.
 What do you want to do? east
 ---
-You've reached a small, sunny clearing. A faint path leads WEST.
-What do you want to do? west
+A quiet clearing. A small antechamber lies to the north.
+What do you want to do? north
 ---
-The tunnel is damp and cold. You can go SOUTH back to the cave or EAST to a clearing.
-What do you want to do? up
+A chamber with a heavy locked door to the north.
+What do you want to do? north
 I don't understand that command or you can't go that way.
 ---
-The tunnel is damp and cold. You can go SOUTH back to the cave or EAST to a clearing.
-What do you want to do? south
----
-You are in a dimly lit cave. There's a narrow passage to the NORTH.
+A chamber with a heavy locked door to the north.
 What do you want to do? quit
 Exiting game. Goodbye!
 ```
@@ -220,9 +217,9 @@ Exiting game. Goodbye!
 
 ### Activities
 
-1. Trace the six commands in the sample run by hand and write the room after each one.
-2. Add a fourth room reached from the clearing and test it.
-3. Add the short commands `n`, `s`, `e`, and `w`.
+1. Trace north, east, north, north, quit and record the room after each command.
+2. Try west from start_room and verify that the location does not change.
+3. Verify that north from locked_door_room is rejected and leaves the player in that room.
 4. Write a loop that checks that every exit names a real room.
 
 ### Accessibility Practice
@@ -276,7 +273,7 @@ rooms = {
     },
     "locked_door_room": {
         "description": "A chamber with a heavy locked door to the north.",
-        "exits": {"south": "clearing"},
+        "exits": {"south": "clearing", "north": "treasure_room"},
         "items": [],
     },
     "treasure_room": {

@@ -146,7 +146,7 @@ public class Lesson_10_2 {
                 Map.of("west", "tunnel", "north", "locked_door_room")),
             "locked_door_room", new Room(
                 "A small chamber with a heavy door to the NORTH.",
-                Map.of("south", "clearing", "north", "treasure_room")),
+                Map.of("south", "clearing")),
             "treasure_room", new Room(
                 "A glittering room full of treasure. You win!",
                 Map.of("south", "locked_door_room")));
@@ -182,7 +182,7 @@ With the following lines supplied as standard input (piped input is not echoed):
 north
 east
 north
-up
+north
 quit
 ```
 

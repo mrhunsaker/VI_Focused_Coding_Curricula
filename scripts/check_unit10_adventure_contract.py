@@ -3,6 +3,10 @@ import re
 import sys
 
 TRACKS = {
+    "PYTHON": ("PYTHON/unit10-project-based-learning-building-text-based-applications.md", "python"),
+    "JAVA": ("JAVA/unit10-project-based-learning-text-applications.md", "java"),
+    "JAVASCRIPT": ("JAVASCRIPT/unit10-project-based-learning-text-based-applications.md", "javascript"),
+    "TYPESCRIPT": ("TYPESCRIPT/unit10-project-based-learning-text-based-applications.md", "typescript"),
     "KOTLIN": ("KOTLIN/unit10-project-based-learning-text-based-applications.md", "kotlin"),
     "LUA": ("LUA/unit10-project-based-learning-text-based-applications.md", "lua"),
     "RUST": ("RUST/unit10-project-based-learning.md", "rust"),
