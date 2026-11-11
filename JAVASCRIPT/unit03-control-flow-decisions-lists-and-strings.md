@@ -59,12 +59,6 @@ Print the score and decision as a complete sentence. Do not use color alone to i
 - [ ] I can explain strict equality.
 
 ## Lesson 3.2: Chained Conditionals (`else if`, `else`)
-<<<<<<< HEAD
-### Concept Explanation
-A chained conditional evaluates branches in order and runs the first matching branch. JavaScript uses `else if` for intermediate alternatives. The shared thresholds are A at 90, B at 80, C at 70, D at 60, and F below 60.
-
-=======
-
 ### Reading References
 
 - Python source counterpart: Unit 3, Lesson 3.2.
@@ -81,7 +75,6 @@ A chained conditional evaluates branches in order and runs the first matching br
 A chained conditional evaluates branches in order and runs the first matching branch. JavaScript uses `else if` for intermediate alternatives. The shared thresholds are A at 90, B at 80, C at 70, D at 60, and F below 60.
 
 ### Worked Example
->>>>>>> 2067a20 (curriculum clearning and updates)
 
 ### Reading References
 - Python source counterpart: Unit 3, Lesson 3.2.
@@ -122,49 +115,21 @@ Score 88: B
 ```
 
 ### Expected Behavior or Output
-<<<<<<< HEAD
-The canonical scores are classified as 82:B, 91:A, 76:C, and 88:B.
-
-### Common Mistakes
-=======
-
 The canonical scores are classified as 82:B, 91:A, 76:C, and 88:B.
 
 ### Common Mistakes
 
->>>>>>> 2067a20 (curriculum clearning and updates)
 - Testing lower thresholds before higher ones.
 - Omitting the final fallback branch.
 - Failing to reject scores outside the valid range.
 
 ### Activities
-<<<<<<< HEAD
-=======
-
->>>>>>> 2067a20 (curriculum clearning and updates)
 1. Classify scores 82, 91, 76, and 88.
 2. Test 90, 89, 80, 79, 70, 69, 60, and 59.
 3. Add validation for scores below 0 or above 100.
 4. Explain why branch order matters.
 
 ### Accessibility Practice
-<<<<<<< HEAD
-Print the numeric score and grade together, one record per line.
-
-### Skills Checklist
-- [ ] I can write chained conditionals.
-- [ ] I can implement the shared grade thresholds.
-- [ ] I can test boundary values.
-- [ ] I can validate a score range.
-
-## Lesson 3.3: Introduction to Arrays
-
-### Reading References
-- Python source counterpart: Unit 3, Lesson 3.3.
-- MDN: Indexed collections — Arrays.
-
-=======
-
 Print the numeric score and grade together, one record per line.
 
 ### Skills Checklist
@@ -180,7 +145,6 @@ Print the numeric score and grade together, one record per line.
 - Python source counterpart: Unit 3, Lesson 3.3.
 - MDN: Indexed collections — Arrays.
 
->>>>>>> 2067a20 (curriculum clearning and updates)
 ### Learning Objectives
 - Create, access, and modify arrays.
 - Explain zero-based indexing and `length`.
@@ -229,27 +193,15 @@ Identify values by both position and meaning. Print one score per line.
 - [ ] I can use the length property.
 
 ## Lesson 3.4: Iterating with `for` Loops
-<<<<<<< HEAD
 ### Concept Explanation
 A `for...of` loop visits each value in an iterable collection. The loop variable holds the current score, not its array index.
 
 
 ### Reading References
-=======
-
-### Reading References
-
->>>>>>> 2067a20 (curriculum clearning and updates)
 - Python source counterpart: Unit 3, Lesson 3.4.
 - MDN: Loops and iteration.
 
 ### Learning Objectives
-<<<<<<< HEAD
-- Iterate over arrays with `for...of`.
-- Calculate a total and average.
-- Compare indexed loops with value-based iteration.
-=======
-
 - Iterate over arrays with `for...of`.
 - Calculate a total and average.
 - Compare indexed loops with value-based iteration.
@@ -259,7 +211,6 @@ A `for...of` loop visits each value in an iterable collection. The loop variable
 A `for...of` loop visits each value in an iterable collection. The loop variable holds the current score, not its array index.
 
 ### Worked Example
->>>>>>> 2067a20 (curriculum clearning and updates)
 
 ### Worked Example
 ```javascript
@@ -281,44 +232,6 @@ Average: 84.25
 ```
 
 ### Expected Behavior or Output
-<<<<<<< HEAD
-The canonical score list totals 337 and has an average of 84.25.
-
-### Common Mistakes
-- Confusing an array index with an array value.
-- Modifying the collection while iterating without understanding the effect.
-- Using `forEach()` when early termination with `break` is required.
-
-### Activities
-1. Print each canonical score using `for...of`.
-2. Calculate the total and average.
-3. Print each score with a one-based display number.
-4. Compare `for...of`, indexed `for`, and `forEach()`.
-
-### Accessibility Practice
-Use one output line per score and include a meaningful label. Do not rely on visual alignment.
-
-### Skills Checklist
-- [ ] I can iterate over an array.
-- [ ] I can calculate a total and average.
-- [ ] I can use an indexed loop.
-- [ ] I can choose an appropriate loop form.
-
-## Lesson 3.5: Basic String Operations
-### Concept Explanation
-JavaScript strings are immutable. Methods such as `trim()`, `toUpperCase()`, and `toLowerCase()` return new strings. Template literals use backticks and `${expression}` interpolation.
-
-
-### Reading References
-- Python source counterpart: Unit 3, Lesson 3.5.
-- MDN: String.
-
-### Learning Objectives
-- Concatenate strings and use template literals.
-- Normalize text and search within it.
-- Count string length and replace text.
-=======
-
 The canonical score list totals 337 and has an average of 84.25.
 
 ### Common Mistakes
@@ -363,7 +276,6 @@ Use one output line per score and include a meaningful label. Do not rely on vis
 JavaScript strings are immutable. Methods such as `trim()`, `toUpperCase()`, and `toLowerCase()` return new strings. Template literals use backticks and `${expression}` interpolation.
 
 ### Worked Example
->>>>>>> 2067a20 (curriculum clearning and updates)
 
 ### Worked Example
 ```javascript
@@ -387,43 +299,25 @@ Characters in name: 13
 ```
 
 ### Expected Behavior or Output
-<<<<<<< HEAD
-The example prints `Avery Student`, its uppercase form, true for the programming search, and a character count of 13.
-
-### Common Mistakes
-=======
-
 The example prints `Avery Student`, its uppercase form, true for the programming search, and a character count of 13.
 
 ### Common Mistakes
 
->>>>>>> 2067a20 (curriculum clearning and updates)
 - Assuming string methods mutate the original string.
 - Forgetting to save the result of `trim()` or case conversion.
 - Treating UTF-16 code-unit length as the count of user-perceived characters in all Unicode text.
 
 ### Activities
-<<<<<<< HEAD
-=======
-
->>>>>>> 2067a20 (curriculum clearning and updates)
 1. Trim extra spaces from a name.
 2. Convert the canonical text sample to lowercase.
 3. Count the occurrences of the word "programming".
 4. Replace "skills" with "abilities".
 
 ### Accessibility Practice
-<<<<<<< HEAD
-Use complete labels for string length and search results. Explain punctuation and whitespace explicitly.
-
-### Skills Checklist
-=======
-
 Use complete labels for string length and search results. Explain punctuation and whitespace explicitly.
 
 ### Skills Checklist
 
->>>>>>> 2067a20 (curriculum clearning and updates)
 - [ ] I can concatenate strings and use template literals.
 - [ ] I can trim and change case.
 - [ ] I can search and replace text.
