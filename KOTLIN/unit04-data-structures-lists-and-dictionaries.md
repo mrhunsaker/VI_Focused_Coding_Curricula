@@ -422,6 +422,5 @@ Printing each inventory line as one sentence lets the screen reader announce the
 - [ ] I can sort keys.
 - [ ] I can total with `sumOf`.
 - [ ] I can total the shared inventory.
->>>>>>> 2067a20 (curriculum clearning and updates)
 
 ---
