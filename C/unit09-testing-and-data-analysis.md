@@ -34,14 +34,11 @@ int main(void)
 ```
 No output and exit status 0 indicate that all assertions passed. An assertion failure prints a diagnostic and terminates the test executable.
 
-<<<<<<< HEAD
-=======
 ### Expected Behavior or Output
 
 Output observed when the worked example was run (gcc 13.3, C17; the text of the output does not depend on the operating system):
 
 The program prints nothing and exits normally.
->>>>>>> 2067a20 (curriculum clearning and updates)
 ### Common Mistakes
 - Testing only one ordinary input and omitting boundaries and invalid cases.
 - Writing assertions that duplicate implementation details instead of checking expected behavior.
@@ -92,14 +89,11 @@ int main(void)
 ```
 The assertions verify that a positive restock changes quantity and a negative restock is rejected.
 
-<<<<<<< HEAD
-=======
 ### Expected Behavior or Output
 
 Output observed when the worked example was run (gcc 13.3, C17; the text of the output does not depend on the operating system):
 
 The program prints nothing and exits normally.
->>>>>>> 2067a20 (curriculum clearning and updates)
 ### Common Mistakes
 - Allowing one test's mutation to leak into another test.
 - Checking only the function result rather than the changed item state.
@@ -147,8 +141,6 @@ int main(void)
 ```
 The output is reproducible for a given C library implementation and seed, but the exact value may differ across implementations. Do not use `rand` for passwords or security tokens.
 
-<<<<<<< HEAD
-=======
 ### Expected Behavior or Output
 
 Output observed when the worked example was run (gcc 13.3, C17; the text of the output does not depend on the operating system):
@@ -156,7 +148,6 @@ Output observed when the worked example was run (gcc 13.3, C17; the text of the 
 ```text
 Die roll: 1
 ```
->>>>>>> 2067a20 (curriculum clearning and updates)
 ### Common Mistakes
 - Treating `rand()` as cryptographically secure.
 - Assuming `% 6` produces perfectly unbiased die rolls.
@@ -209,8 +200,6 @@ int main(void)
 ```
 Expected output: 2 occurrences. This counts substring matches, not general word tokens; extend it to tokenize and count all words.
 
-<<<<<<< HEAD
-=======
 ### Expected Behavior or Output
 
 Output observed when the worked example was run (gcc 13.3, C17; the text of the output does not depend on the operating system):
@@ -218,7 +207,6 @@ Output observed when the worked example was run (gcc 13.3, C17; the text of the 
 ```text
 Occurrences of programming: 2
 ```
->>>>>>> 2067a20 (curriculum clearning and updates)
 ### Common Mistakes
 - Counting substring matches as whole words.
 - Passing a negative plain `char` to `tolower`.
@@ -269,8 +257,6 @@ int main(void)
 ```
 Create a header with `student_id,first_name,last_name,score,active` and at least two rows. The program prints the header and each record line. A production parser must handle CSV quoting correctly.
 
-<<<<<<< HEAD
-=======
 ### Expected Behavior or Output
 
 With `students.csv` in the working directory, containing:
@@ -290,7 +276,6 @@ Record: 2,Jordan,Lee,82,true
 Record: 3,Casey,Smith,76,false
 ```
 
->>>>>>> 2067a20 (curriculum clearning and updates)
 ### Common Mistakes
 - Splitting every CSV line on commas despite quoted commas and escaped quotes.
 - Ignoring overlong lines or malformed rows.
