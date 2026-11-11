@@ -6,49 +6,6 @@ This unit develops data modeling and traits through Rust's type system and stand
 ## Lesson 7.1: Structs, enums, and data modeling
 
 ### Reading References
-<<<<<<< HEAD
-- [The Rust Programming Language](https://doc.rust-lang.org/book/)
-- [Rust standard library](https://doc.rust-lang.org/std/)
-- [Cargo Book](https://doc.rust-lang.org/cargo/)
-- Matching Python curriculum lesson for the shared problem context.
-
-### Learning Objectives
-- Explain Structs, enums, and data modeling using Rust's types, ownership model, and standard-library conventions.
-- Select an idiomatic Rust construct rather than transliterating Python syntax.
-- Predict, compile, and verify the example's behavior.
-- Test a relevant boundary condition and explain a common failure.
-
-### Concept Explanation
-Rust models data with structs and enums rather than class inheritance. impl blocks define methods and associated functions; traits define shared behavior. Composition and explicit ownership make relationships and lifetimes visible. This lesson retains the canonical course data so learners practice Rust rather than a new domain problem. Use cargo fmt, cargo check, and cargo test as routine development tools.
-
-### Worked Example
-```rust
-#[derive(Debug)] struct Student{name:String,score:u8} enum Status{Active,Inactive} fn main(){let s=Student{name:"Avery".into(),score:82};let st=Status::Active;let archived=Status::Inactive;println!("{}: {}; active={}; archived={}",s.name,s.score,matches!(st,Status::Active),matches!(archived,Status::Inactive));}
-```
-
-**Expected behavior:** Runs independently with the standard library and prints the result of this lesson's focused operation. Predict the output, then compare it with the terminal output.
-
-### Common Mistakes
-1. Moving a non-Copy field out of a borrowed struct.
-2. Confusing associated functions with methods that receive self.
-3. Implementing a trait method with a mismatched signature.
-
-### Activities
-1. Run the worked example unchanged; trace each binding, expression, ownership transfer, and output line.
-2. Change the canonical inventory and CSV records and predict the result before running it.
-3. Add one boundary case and one invalid or missing-data case; state expected behavior before implementing the change.
-4. Refactor one part using the Rust feature named in this lesson (structs, enums, and data modeling); run cargo check and explain the diagnostic output.
-
-### Accessibility Practice
-Use keyboard navigation to move between the lesson heading, code fence, compiler output, and terminal. With a screen reader, inspect punctuation in ownership and borrowing expressions (&, &mut, ::, ->, ?). Do not rely on syntax highlighting or color to distinguish errors. Read prompts and validation messages in document order and verify that output is announced without unexpected focus movement.
-
-### Skills Checklist
-- [ ] I can explain structs, enums, and data modeling using Rust terminology.
-- [ ] I can compile and run the example with cargo run.
-- [ ] I can explain the ownership, borrowing, and type decisions used here.
-- [ ] I can test a boundary case and an invalid-input or error case.
-- [ ] I can navigate source, diagnostics, and output with my keyboard and assistive technology.
-=======
 - [The Rust Programming Language: Defining and Instantiating Structs](https://doc.rust-lang.org/book/ch05-01-defining-structs.html)
 - [The Rust Programming Language: Defining an Enum](https://doc.rust-lang.org/book/ch06-01-defining-an-enum.html)
 - [The Rust Programming Language: Modules and Privacy](https://doc.rust-lang.org/book/ch07-02-defining-modules-to-control-scope-and-privacy.html)
@@ -150,54 +107,10 @@ Describe a data type as a list read in order: the name, then each field, then ea
 - [ ] I can match every enum variant.
 
 ---
->>>>>>> 2067a20 (curriculum clearning and updates)
 
 ## Lesson 7.2: Creating instances and methods
 
 ### Reading References
-<<<<<<< HEAD
-- [The Rust Programming Language](https://doc.rust-lang.org/book/)
-- [Rust standard library](https://doc.rust-lang.org/std/)
-- [Cargo Book](https://doc.rust-lang.org/cargo/)
-- Matching Python curriculum lesson for the shared problem context.
-
-### Learning Objectives
-- Explain Creating instances and methods using Rust's types, ownership model, and standard-library conventions.
-- Select an idiomatic Rust construct rather than transliterating Python syntax.
-- Predict, compile, and verify the example's behavior.
-- Test a relevant boundary condition and explain a common failure.
-
-### Concept Explanation
-Rust models data with structs and enums rather than class inheritance. impl blocks define methods and associated functions; traits define shared behavior. Composition and explicit ownership make relationships and lifetimes visible. This lesson retains the canonical course data so learners practice Rust rather than a new domain problem. Use cargo fmt, cargo check, and cargo test as routine development tools.
-
-### Worked Example
-```rust
-struct Student{name:String,score:u8} impl Student{fn passed(&self)->bool{self.score>=60}} fn main(){let s=Student{name:"Avery".into(),score:82};println!("{} passed={}",s.name,s.passed());}
-```
-
-**Expected behavior:** Runs independently with the standard library and prints the result of this lesson's focused operation. Predict the output, then compare it with the terminal output.
-
-### Common Mistakes
-1. Moving a non-Copy field out of a borrowed struct.
-2. Confusing associated functions with methods that receive self.
-3. Implementing a trait method with a mismatched signature.
-
-### Activities
-1. Run the worked example unchanged; trace each binding, expression, ownership transfer, and output line.
-2. Change the canonical inventory and CSV records and predict the result before running it.
-3. Add one boundary case and one invalid or missing-data case; state expected behavior before implementing the change.
-4. Refactor one part using the Rust feature named in this lesson (creating instances and methods); run cargo check and explain the diagnostic output.
-
-### Accessibility Practice
-Use keyboard navigation to move between the lesson heading, code fence, compiler output, and terminal. With a screen reader, inspect punctuation in ownership and borrowing expressions (&, &mut, ::, ->, ?). Do not rely on syntax highlighting or color to distinguish errors. Read prompts and validation messages in document order and verify that output is announced without unexpected focus movement.
-
-### Skills Checklist
-- [ ] I can explain creating instances and methods using Rust terminology.
-- [ ] I can compile and run the example with cargo run.
-- [ ] I can explain the ownership, borrowing, and type decisions used here.
-- [ ] I can test a boundary case and an invalid-input or error case.
-- [ ] I can navigate source, diagnostics, and output with my keyboard and assistive technology.
-=======
 - [The Rust Programming Language: Method Syntax](https://doc.rust-lang.org/book/ch05-03-method-syntax.html)
 - [The Rust Programming Language: Recoverable Errors with Result](https://doc.rust-lang.org/book/ch09-02-recoverable-errors-with-result.html)
 - [Rust standard library documentation](https://doc.rust-lang.org/std/)
@@ -288,54 +201,10 @@ Say the signature aloud in order: 'fn new, open parenthesis, name colon ampersan
 - [ ] I can tell `&self` from `&mut self`.
 
 ---
->>>>>>> 2067a20 (curriculum clearning and updates)
 
 ## Lesson 7.3: Associated functions and impl blocks
 
 ### Reading References
-<<<<<<< HEAD
-- [The Rust Programming Language](https://doc.rust-lang.org/book/)
-- [Rust standard library](https://doc.rust-lang.org/std/)
-- [Cargo Book](https://doc.rust-lang.org/cargo/)
-- Matching Python curriculum lesson for the shared problem context.
-
-### Learning Objectives
-- Explain Associated functions and impl blocks using Rust's types, ownership model, and standard-library conventions.
-- Select an idiomatic Rust construct rather than transliterating Python syntax.
-- Predict, compile, and verify the example's behavior.
-- Test a relevant boundary condition and explain a common failure.
-
-### Concept Explanation
-Rust models data with structs and enums rather than class inheritance. impl blocks define methods and associated functions; traits define shared behavior. Composition and explicit ownership make relationships and lifetimes visible. This lesson retains the canonical course data so learners practice Rust rather than a new domain problem. Use cargo fmt, cargo check, and cargo test as routine development tools.
-
-### Worked Example
-```rust
-struct Point{x:f64,y:f64} impl Point{fn origin()->Self{Self{x:0.0,y:0.0}}} fn main(){let p=Point::origin();println!("({}, {})",p.x,p.y);}
-```
-
-**Expected behavior:** Runs independently with the standard library and prints the result of this lesson's focused operation. Predict the output, then compare it with the terminal output.
-
-### Common Mistakes
-1. Moving a non-Copy field out of a borrowed struct.
-2. Confusing associated functions with methods that receive self.
-3. Implementing a trait method with a mismatched signature.
-
-### Activities
-1. Run the worked example unchanged; trace each binding, expression, ownership transfer, and output line.
-2. Change the canonical inventory and CSV records and predict the result before running it.
-3. Add one boundary case and one invalid or missing-data case; state expected behavior before implementing the change.
-4. Refactor one part using the Rust feature named in this lesson (associated functions and impl blocks); run cargo check and explain the diagnostic output.
-
-### Accessibility Practice
-Use keyboard navigation to move between the lesson heading, code fence, compiler output, and terminal. With a screen reader, inspect punctuation in ownership and borrowing expressions (&, &mut, ::, ->, ?). Do not rely on syntax highlighting or color to distinguish errors. Read prompts and validation messages in document order and verify that output is announced without unexpected focus movement.
-
-### Skills Checklist
-- [ ] I can explain associated functions and impl blocks using Rust terminology.
-- [ ] I can compile and run the example with cargo run.
-- [ ] I can explain the ownership, borrowing, and type decisions used here.
-- [ ] I can test a boundary case and an invalid-input or error case.
-- [ ] I can navigate source, diagnostics, and output with my keyboard and assistive technology.
-=======
 - [The Rust Programming Language: Method Syntax](https://doc.rust-lang.org/book/ch05-03-method-syntax.html)
 - [The Rust Programming Language: Implementing a Trait on a Type](https://doc.rust-lang.org/book/ch10-02-traits.html)
 - [Rust standard library documentation](https://doc.rust-lang.org/std/)
@@ -444,54 +313,10 @@ Name methods after actions (`restock`) so a call reads as a sentence. A good `Di
 - [ ] I can validate in a method.
 
 ---
->>>>>>> 2067a20 (curriculum clearning and updates)
 
 ## Lesson 7.4: Traits and polymorphic behavior
 
 ### Reading References
-<<<<<<< HEAD
-- [The Rust Programming Language](https://doc.rust-lang.org/book/)
-- [Rust standard library](https://doc.rust-lang.org/std/)
-- [Cargo Book](https://doc.rust-lang.org/cargo/)
-- Matching Python curriculum lesson for the shared problem context.
-
-### Learning Objectives
-- Explain Traits and polymorphic behavior using Rust's types, ownership model, and standard-library conventions.
-- Select an idiomatic Rust construct rather than transliterating Python syntax.
-- Predict, compile, and verify the example's behavior.
-- Test a relevant boundary condition and explain a common failure.
-
-### Concept Explanation
-Rust models data with structs and enums rather than class inheritance. impl blocks define methods and associated functions; traits define shared behavior. Composition and explicit ownership make relationships and lifetimes visible. This lesson retains the canonical course data so learners practice Rust rather than a new domain problem. Use cargo fmt, cargo check, and cargo test as routine development tools.
-
-### Worked Example
-```rust
-trait Summary{fn summary(&self)->String;} struct Task{title:String,done:bool} impl Summary for Task{fn summary(&self)->String{format!("{}: {}",self.title,if self.done {"done"}else{"open"})}} fn main(){let t=Task{title:"Study Rust".into(),done:false};println!("{}",t.summary());}
-```
-
-**Expected behavior:** Runs independently with the standard library and prints the result of this lesson's focused operation. Predict the output, then compare it with the terminal output.
-
-### Common Mistakes
-1. Moving a non-Copy field out of a borrowed struct.
-2. Confusing associated functions with methods that receive self.
-3. Implementing a trait method with a mismatched signature.
-
-### Activities
-1. Run the worked example unchanged; trace each binding, expression, ownership transfer, and output line.
-2. Change the canonical inventory and CSV records and predict the result before running it.
-3. Add one boundary case and one invalid or missing-data case; state expected behavior before implementing the change.
-4. Refactor one part using the Rust feature named in this lesson (traits and polymorphic behavior); run cargo check and explain the diagnostic output.
-
-### Accessibility Practice
-Use keyboard navigation to move between the lesson heading, code fence, compiler output, and terminal. With a screen reader, inspect punctuation in ownership and borrowing expressions (&, &mut, ::, ->, ?). Do not rely on syntax highlighting or color to distinguish errors. Read prompts and validation messages in document order and verify that output is announced without unexpected focus movement.
-
-### Skills Checklist
-- [ ] I can explain traits and polymorphic behavior using Rust terminology.
-- [ ] I can compile and run the example with cargo run.
-- [ ] I can explain the ownership, borrowing, and type decisions used here.
-- [ ] I can test a boundary case and an invalid-input or error case.
-- [ ] I can navigate source, diagnostics, and output with my keyboard and assistive technology.
-=======
 - [The Rust Programming Language: Traits: Defining Shared Behavior](https://doc.rust-lang.org/book/ch10-02-traits.html)
 - [The Rust Programming Language: Using Trait Objects](https://doc.rust-lang.org/book/ch17-02-trait-objects.html)
 - [Rust standard library documentation](https://doc.rust-lang.org/std/)
@@ -605,54 +430,10 @@ Describe a trait as a list of promised methods. Speaking `impl Priced for Discou
 - [ ] I can store trait objects in a vector.
 
 ---
->>>>>>> 2067a20 (curriculum clearning and updates)
 
 ## Lesson 7.5: Composition and ownership
 
 ### Reading References
-<<<<<<< HEAD
-- [The Rust Programming Language](https://doc.rust-lang.org/book/)
-- [Rust standard library](https://doc.rust-lang.org/std/)
-- [Cargo Book](https://doc.rust-lang.org/cargo/)
-- Matching Python curriculum lesson for the shared problem context.
-
-### Learning Objectives
-- Explain Composition and ownership using Rust's types, ownership model, and standard-library conventions.
-- Select an idiomatic Rust construct rather than transliterating Python syntax.
-- Predict, compile, and verify the example's behavior.
-- Test a relevant boundary condition and explain a common failure.
-
-### Concept Explanation
-Rust models data with structs and enums rather than class inheritance. impl blocks define methods and associated functions; traits define shared behavior. Composition and explicit ownership make relationships and lifetimes visible. This lesson retains the canonical course data so learners practice Rust rather than a new domain problem. Use cargo fmt, cargo check, and cargo test as routine development tools.
-
-### Worked Example
-```rust
-struct Student{name:String} struct Enrollment{student:Student,course:String} fn main(){let e=Enrollment{student:Student{name:"Avery".into()},course:"Rust".into()};println!("{} is enrolled in {}",e.student.name,e.course);}
-```
-
-**Expected behavior:** Runs independently with the standard library and prints the result of this lesson's focused operation. Predict the output, then compare it with the terminal output.
-
-### Common Mistakes
-1. Moving a non-Copy field out of a borrowed struct.
-2. Confusing associated functions with methods that receive self.
-3. Implementing a trait method with a mismatched signature.
-
-### Activities
-1. Run the worked example unchanged; trace each binding, expression, ownership transfer, and output line.
-2. Change the canonical inventory and CSV records and predict the result before running it.
-3. Add one boundary case and one invalid or missing-data case; state expected behavior before implementing the change.
-4. Refactor one part using the Rust feature named in this lesson (composition and ownership); run cargo check and explain the diagnostic output.
-
-### Accessibility Practice
-Use keyboard navigation to move between the lesson heading, code fence, compiler output, and terminal. With a screen reader, inspect punctuation in ownership and borrowing expressions (&, &mut, ::, ->, ?). Do not rely on syntax highlighting or color to distinguish errors. Read prompts and validation messages in document order and verify that output is announced without unexpected focus movement.
-
-### Skills Checklist
-- [ ] I can explain composition and ownership using Rust terminology.
-- [ ] I can compile and run the example with cargo run.
-- [ ] I can explain the ownership, borrowing, and type decisions used here.
-- [ ] I can test a boundary case and an invalid-input or error case.
-- [ ] I can navigate source, diagnostics, and output with my keyboard and assistive technology.
-=======
 - [The Rust Programming Language: Structs](https://doc.rust-lang.org/book/ch05-01-defining-structs.html)
 - [The Rust Programming Language: Ownership](https://doc.rust-lang.org/book/ch04-01-what-is-ownership.html)
 - [Rust standard library documentation](https://doc.rust-lang.org/std/)
@@ -772,4 +553,3 @@ Report the inventory as one labelled line per item and a final total line, so th
 - [ ] I can build the shared inventory.
 
 ---
->>>>>>> 2067a20 (curriculum clearning and updates)
