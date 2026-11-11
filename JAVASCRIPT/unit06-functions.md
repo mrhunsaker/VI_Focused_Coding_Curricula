@@ -29,11 +29,7 @@ console.log(`Tip: $${tip.toFixed(2)}`);
 
 Expected output:
 ```text
-<<<<<<< HEAD
-Tip: $3.68
-=======
 Tip: $3.67
->>>>>>> 2067a20 (curriculum clearning and updates)
 ```
 
 ### Expected Behavior or Output
