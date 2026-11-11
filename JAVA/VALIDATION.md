@@ -23,11 +23,6 @@ The checker extracts every fenced Java example, writes it into an isolated tempo
 
 This is a compile and smoke-execution check. It does not assert exact output, prove robust behavior for malformed input, or substitute for end-to-end project tests.
 
-<<<<<<< HEAD
-## Remaining verification
-
-- Add exact expected-output assertions and systematic invalid-input/boundary fixtures.
-=======
 ## Rewrite verification (5 November 2026)
 
 - All 57 lessons in `JAVA/lessons.md` were rewritten with lesson-specific concept text, common mistakes, activities, and accessibility practice, using the shared datasets. All 57 are distinct in every section, and the worked examples average about 53 lines.
@@ -41,7 +36,6 @@ This is a compile and smoke-execution check. It does not assert exact output, pr
 ## Remaining verification
 
 - Add exact expected-output assertions to the repository checker (the lesson text now contains captured output, but the checker does not compare it) and systematic invalid-input/boundary fixtures.
->>>>>>> 2067a20 (curriculum clearning and updates)
 - Exercise file operations against missing, malformed, and permission-restricted paths.
 - Add end-to-end capstone persistence and test-framework integration.
 - Run a fresh mdBook build and complete Markdown/local-link crawl.
