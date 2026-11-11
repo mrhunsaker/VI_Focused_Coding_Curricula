@@ -43,8 +43,6 @@ int main(void)
 ```
 For input 82, output is `Accepted score: 82`; invalid values cause another prompt.
 
-<<<<<<< HEAD
-=======
 ### Expected Behavior or Output
 
 With these lines typed as standard input:
@@ -62,7 +60,6 @@ Enter a score from 0 to 100: Invalid score. Enter a whole number from 0 to 100.
 Enter a score from 0 to 100: Accepted score: 88
 ```
 
->>>>>>> 2067a20 (curriculum clearning and updates)
 ### Common Mistakes
 - Accepting `82abc` as a valid score because `strtol` parsed the numeric prefix.
 - Failing to reject values outside 0–100 or detect overflow.
@@ -113,8 +110,6 @@ int main(void)
 ```
 For input 82, 91, -1, the running totals are 82 and 173; final total is 173. This compact example assumes integer tokens; the previous lesson's `fgets` parser is safer for robust input.
 
-<<<<<<< HEAD
-=======
 ### Expected Behavior or Output
 
 Output observed when the worked example was run (gcc 13.3, C17; the text of the output does not depend on the operating system):
@@ -123,7 +118,6 @@ Output observed when the worked example was run (gcc 13.3, C17; the text of the 
 Enter scores; enter -1 to finish.
 Final total: 0
 ```
->>>>>>> 2067a20 (curriculum clearning and updates)
 ### Common Mistakes
 - Failing to update the sentinel-controlled loop state.
 - Ignoring `scanf`'s return value and repeatedly processing an invalid token.
@@ -173,8 +167,6 @@ int main(void)
 ```
 Expected output: `Score found.` Change the search value to 100 to exercise the not-found path.
 
-<<<<<<< HEAD
-=======
 ### Expected Behavior or Output
 
 Output observed when the worked example was run (gcc 13.3, C17; the text of the output does not depend on the operating system):
@@ -182,7 +174,6 @@ Output observed when the worked example was run (gcc 13.3, C17; the text of the 
 ```text
 Score found.
 ```
->>>>>>> 2067a20 (curriculum clearning and updates)
 ### Common Mistakes
 - Setting the found flag before the equality test.
 - Forgetting to set the flag when the target is found.
@@ -231,8 +222,6 @@ int main(void)
 ```
 Expected output: Passing score: 82, 91, and 88, each on its own line.
 
-<<<<<<< HEAD
-=======
 ### Expected Behavior or Output
 
 Output observed when the worked example was run (gcc 13.3, C17; the text of the output does not depend on the operating system):
@@ -242,7 +231,6 @@ Passing score: 82
 Passing score: 91
 Passing score: 88
 ```
->>>>>>> 2067a20 (curriculum clearning and updates)
 ### Common Mistakes
 - Printing a score before applying the filter condition.
 - Skipping a required state update with `continue` in a `while` loop.
@@ -292,8 +280,6 @@ int main(void)
 ```
 Expected output: 3, 2, 1, then Finished. Removing `--remaining` creates a non-terminating loop; diagnose it by tracing the condition and state.
 
-<<<<<<< HEAD
-=======
 ### Expected Behavior or Output
 
 Output observed when the worked example was run (gcc 13.3, C17; the text of the output does not depend on the operating system):
@@ -304,7 +290,6 @@ Output observed when the worked example was run (gcc 13.3, C17; the text of the 
 1
 Finished.
 ```
->>>>>>> 2067a20 (curriculum clearning and updates)
 ### Common Mistakes
 - Leaving the variable in the loop condition unchanged.
 - Moving the counter in the wrong direction or using a condition that cannot become false.
