@@ -34,10 +34,6 @@ int main(void)
     return 0;
 }
 ```
-<<<<<<< HEAD
-Expected tip display: $3.68. The function returns a value and does not print it itself.
-
-=======
 Expected tip display: $3.67 (the exact product 3.675 is stored as 3.67499999999999982, so `%.2f` rounds down). The function returns a value and does not print it itself.
 
 ### Expected Behavior or Output
@@ -47,7 +43,6 @@ Output observed when the worked example was run (gcc 13.3, C17; the text of the 
 ```text
 Tip: $3.67
 ```
->>>>>>> 2067a20 (curriculum clearning and updates)
 ### Common Mistakes
 - Calling a function before its prototype is visible.
 - Declaring a non-void function but failing to return a value on every path.
@@ -96,8 +91,6 @@ int main(void)
 ```
 Expected total display: $28.18. Swap the two arguments and explain why the result changes; C uses positional arguments.
 
-<<<<<<< HEAD
-=======
 ### Expected Behavior or Output
 
 Output observed when the worked example was run (gcc 13.3, C17; the text of the output does not depend on the operating system):
@@ -105,7 +98,6 @@ Output observed when the worked example was run (gcc 13.3, C17; the text of the 
 ```text
 Total: $28.18
 ```
->>>>>>> 2067a20 (curriculum clearning and updates)
 ### Common Mistakes
 - Assuming C passes ordinary arguments by reference.
 - Swapping positional arguments with the same type and expecting the compiler to detect intent.
@@ -157,8 +149,6 @@ int main(void)
 ```
 Expected total: 337. The function receives the array pointer and its length separately.
 
-<<<<<<< HEAD
-=======
 ### Expected Behavior or Output
 
 Output observed when the worked example was run (gcc 13.3, C17; the text of the output does not depend on the operating system):
@@ -166,7 +156,6 @@ Output observed when the worked example was run (gcc 13.3, C17; the text of the 
 ```text
 Total: 337
 ```
->>>>>>> 2067a20 (curriculum clearning and updates)
 ### Common Mistakes
 - Omitting a return on one control-flow path.
 - Returning a pointer to a local automatic variable.
@@ -218,8 +207,6 @@ int main(void)
 ```
 Expected average: 84.25. Add a separate function that searches the inventory array by item name.
 
-<<<<<<< HEAD
-=======
 ### Expected Behavior or Output
 
 Output observed when the worked example was run (gcc 13.3, C17; the text of the output does not depend on the operating system):
@@ -227,7 +214,6 @@ Output observed when the worked example was run (gcc 13.3, C17; the text of the 
 ```text
 Average: 84.25
 ```
->>>>>>> 2067a20 (curriculum clearning and updates)
 ### Common Mistakes
 - Assuming an array parameter carries its length.
 - Passing a count larger than the actual array.
@@ -282,8 +268,6 @@ int main(void)
 ```
 Expected sum: 337. The caller must pass the correct count and types; variadic arguments are not type-checked by the function signature.
 
-<<<<<<< HEAD
-=======
 ### Expected Behavior or Output
 
 Output observed when the worked example was run (gcc 13.3, C17; the text of the output does not depend on the operating system):
@@ -291,7 +275,6 @@ Output observed when the worked example was run (gcc 13.3, C17; the text of the 
 ```text
 Sum: 337
 ```
->>>>>>> 2067a20 (curriculum clearning and updates)
 ### Common Mistakes
 - Using a block-local variable outside its scope.
 - Passing the wrong promoted type to `va_arg`.
