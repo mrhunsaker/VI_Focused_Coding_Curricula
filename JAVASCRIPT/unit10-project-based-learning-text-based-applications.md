@@ -135,8 +135,16 @@ An item belongs either to a room or to the player's inventory. Picking it up rem
 
 ### Worked Example
 ```javascript
+const rooms = {
+  start_room: { exits: { north: "tunnel" } },
+  tunnel: { exits: { south: "start_room", east: "clearing" } },
+  clearing: { exits: { west: "tunnel", north: "locked_door_room" } },
+  locked_door_room: { exits: { south: "clearing" } },
+  treasure_room: { exits: {} }
+};
 const roomItems = { start_room: ["shiny key"], tunnel: [], clearing: [], locked_door_room: [], treasure_room: [] };
 const inventory = [];
+let doorLocked = true;
 function takeItem(room, requestedName) {
   const items = roomItems[room];
   const index = items.findIndex(item => item.toLowerCase() === requestedName.toLowerCase());
@@ -147,6 +155,7 @@ function takeItem(room, requestedName) {
 function useKey(room, items) {
   if (room !== "locked_door_room") return "You must be at the locked door to use the key.";
   if (!items.includes("shiny key")) return "The door is locked.";
+  doorLocked = false;
   rooms.locked_door_room.exits.north = "treasure_room";
   return "The door unlocks; north now leads to treasure_room.";
 }
@@ -154,6 +163,7 @@ console.log(takeItem("start_room", "shiny key"));
 console.log(inventory.join(", "));
 console.log(useKey("clearing", inventory));
 console.log(useKey("locked_door_room", inventory));
+console.log(doorLocked);
 console.log(rooms.locked_door_room.exits.north);
 ```
 
@@ -163,6 +173,7 @@ true
 shiny key
 You must be at the locked door to use the key.
 The door unlocks; north now leads to treasure_room.
+false
 treasure_room
 ```
 
