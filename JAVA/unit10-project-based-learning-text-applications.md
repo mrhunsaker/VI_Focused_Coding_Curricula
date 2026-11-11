@@ -6,31 +6,6 @@ This unit develops project-based learning — text applications through the same
 
 **Unit objectives:** explain the core concepts, write and test complete Java programs, diagnose errors, and apply the ideas to accessible projects.
 
-<<<<<<< HEAD
-## Lesson 10.1: Designing Your Project
-
-### Reading References
-- [Java SE 25 documentation](https://docs.oracle.com/en/java/).
-- [Java Language Specification, Java SE 25](https://docs.oracle.com/javase/specs/jls/se25/html/index.html).
-
-
-### Learning Objectives
-- Explain the purpose and vocabulary of designing your project.
-- Apply the relevant Java syntax and APIs in a small, complete program.
-- Compile, run, inspect, and adapt the example using keyboard-accessible tools.
-
-### Concept Explanation
-This lesson develops designing your project through Java's class-based structure and standard library. Identify the input, output, state changes, and relevant type constraints before coding. Keep declarations local where possible, separate computation from presentation, and state preconditions and postconditions. Treat the project as a set of observable requirements and milestones. Keep domain logic separate from command parsing and persistence, validate before mutation, report errors in plain language, and test normal, boundary, and failure paths.
-
-Java is statically typed and class-based. Local variables have declared or inferred compile-time types, reference values may be null, and methods and fields are governed by access and scope rules. The compiler checks syntax and type compatibility before execution; runtime behavior still requires testing. Follow Java naming conventions, use explicit imports in beginner work, and prefer small methods with clear contracts.
-
-### Worked Example
-```java
-public class Lesson_10_1 {
-    public static void main(String[] args) {
-        java.util.List<String> requirements = java.util.List.of("add record", "list records", "validate input", "save changes");
-        for (int i = 0; i < requirements.size(); i++) System.out.println((i + 1) + ". " + requirements.get(i));
-=======
 ## Lesson 10.1: Planning a Text-Based Project
 
 ### Reading References
@@ -77,59 +52,10 @@ public class Lesson_10_1 {
             line = in.hasNextLine() ? in.nextLine() : null;
         }
         System.out.println("Goodbye!");
->>>>>>> 2067a20 (curriculum clearning and updates)
     }
 }
 ```
 
-<<<<<<< HEAD
-**Expected behavior:** The program compiles on JDK 25 and prints a deterministic result illustrating designing your project. Run it from a terminal, compare actual output with your prediction, and change one input to test the effect.
-
-### Common Mistakes
-- Starting implementation before writing observable requirements and acceptance tests.
-- Mixing command parsing, domain state, and persistence into one method or class.
-- Allowing invalid commands or list indexes to mutate project state without a clear error.
-### Activities
-1. Write user stories and acceptance criteria before adding a feature to the text application.
-2. Implement one room transition or task operation and test the valid and invalid command paths.
-3. Separate domain logic from the input/output loop and test the domain logic without terminal input.
-4. Run a keyboard-only walkthrough and revise prompts, error messages, and help text.
-### Accessibility Practice
-Navigate by class, method, and line; inspect braces, parentheses, brackets, semicolons, generic delimiters, and compiler diagnostics with the preferred screen reader or braille display. Compile and run from the terminal so the workflow does not depend on color or a visual project explorer.
-
-### Skills Checklist
-- [ ] I can explain the key concept in Java terms.
-- [ ] I can trace and predict the worked example.
-- [ ] I can compile and run the example from the terminal.
-- [ ] I can identify and correct a Java-specific mistake.
-- [ ] I can test a boundary case and navigate the workflow accessibly.
-
-## Lesson 10.2: Building a Text Adventure: Rooms and Movement
-
-### Reading References
-- [Java SE 25 documentation](https://docs.oracle.com/en/java/).
-- [Java Language Specification, Java SE 25](https://docs.oracle.com/javase/specs/jls/se25/html/index.html).
-
-
-### Learning Objectives
-- Explain the purpose and vocabulary of building a text adventure: rooms and movement.
-- Apply the relevant Java syntax and APIs in a small, complete program.
-- Compile, run, inspect, and adapt the example using keyboard-accessible tools.
-
-### Concept Explanation
-This lesson develops building a text adventure: rooms and movement through Java's class-based structure and standard library. Identify the input, output, state changes, and relevant type constraints before coding. Keep declarations local where possible, separate computation from presentation, and state preconditions and postconditions. Treat the project as a set of observable requirements and milestones. Keep domain logic separate from command parsing and persistence, validate before mutation, report errors in plain language, and test normal, boundary, and failure paths.
-
-Java is statically typed and class-based. Local variables have declared or inferred compile-time types, reference values may be null, and methods and fields are governed by access and scope rules. The compiler checks syntax and type compatibility before execution; runtime behavior still requires testing. Follow Java naming conventions, use explicit imports in beginner work, and prefer small methods with clear contracts.
-
-### Worked Example
-```java
-public class Lesson_10_2 {
-    public static void main(String[] args) {
-        String currentRoom = "start_room";
-        String command = "north";
-        if (currentRoom.equals("start_room") && command.equals("north")) currentRoom = "tunnel";
-        System.out.println("Current room: " + currentRoom);
-=======
 ### Expected Behavior or Output
 
 With the following lines typed as standard input (piped input is not echoed, so it does not appear in the output):
@@ -196,11 +122,7 @@ Prompts and responses are on separate lines and every response is a complete sen
 
 ### Concept Explanation
 
-A room is a record with a `description` and an `exits` map from a direction to the *name* of another room. The program remembers the player's location in one variable. A move looks up the command in the current room's exits; if it is found, the location changes, otherwise the program explains that the move is impossible.
-
-This is the same three-room layout as the Python course: a cave, a tunnel, and a clearing. Part 2 adds items and a locked door.
-
-The example is played with north, east, west, up, south, and quit. The command `up` is not an exit anywhere, so it prints the help message.
+A room is a record with a description and an exits map from a direction to another room ID. The player’s current room is stored separately. The map contains five rooms: `start_room`, `tunnel`, `clearing`, `locked_door_room`, and `treasure_room`. In this first part, movement is unrestricted so you can verify that every exit points to a room that exists. Part 2 adds the key and locked-door rule.
 
 ### Worked Example
 
@@ -214,22 +136,31 @@ public class Lesson_10_2 {
     public static void main(String[] args) {
         Map<String, Room> rooms = Map.of(
             "start_room", new Room(
-                "You are in a dimly lit cave. There's a narrow passage to the NORTH.",
+                "A dark cave. A narrow passage leads NORTH.",
                 Map.of("north", "tunnel")),
             "tunnel", new Room(
-                "The tunnel is damp and cold. You can go SOUTH back to the cave or EAST to a clearing.",
+                "A damp tunnel. Passages lead SOUTH and EAST.",
                 Map.of("south", "start_room", "east", "clearing")),
             "clearing", new Room(
-                "You've reached a small, sunny clearing. A faint path leads WEST.",
-                Map.of("west", "tunnel")));
+                "A quiet clearing. A small antechamber lies to the NORTH.",
+                Map.of("west", "tunnel", "north", "locked_door_room")),
+            "locked_door_room", new Room(
+                "A small chamber with a heavy door to the NORTH.",
+                Map.of("south", "clearing", "north", "treasure_room")),
+            "treasure_room", new Room(
+                "A glittering room full of treasure. You win!",
+                Map.of("south", "locked_door_room")));
 
         Scanner in = new Scanner(System.in);
         String current = "start_room";
         while (true) {
             System.out.println("---");
             System.out.println(rooms.get(current).description());
+            if (current.equals("treasure_room")) {
+                break;
+            }
             System.out.println("What do you want to do?");
-            String command = (in.hasNextLine() ? in.nextLine() : "quit").toLowerCase();
+            String command = (in.hasNextLine() ? in.nextLine() : "quit").strip().toLowerCase();
             String next = rooms.get(current).exits().get(command);
             if (next != null) {
                 current = next;
@@ -240,103 +171,43 @@ public class Lesson_10_2 {
                 System.out.println("I don't understand that command or you can't go that way.");
             }
         }
->>>>>>> 2067a20 (curriculum clearning and updates)
     }
 }
 ```
 
-<<<<<<< HEAD
-**Expected behavior:** The program compiles on JDK 25 and prints a deterministic result illustrating building a text adventure: rooms and movement. Run it from a terminal, compare actual output with your prediction, and change one input to test the effect.
-
-### Common Mistakes
-- Starting implementation before writing observable requirements and acceptance tests.
-- Mixing command parsing, domain state, and persistence into one method or class.
-- Allowing invalid commands or list indexes to mutate project state without a clear error.
-### Activities
-1. Write user stories and acceptance criteria before adding a feature to the text application.
-2. Implement one room transition or task operation and test the valid and invalid command paths.
-3. Separate domain logic from the input/output loop and test the domain logic without terminal input.
-4. Run a keyboard-only walkthrough and revise prompts, error messages, and help text.
-### Accessibility Practice
-Navigate by class, method, and line; inspect braces, parentheses, brackets, semicolons, generic delimiters, and compiler diagnostics with the preferred screen reader or braille display. Compile and run from the terminal so the workflow does not depend on color or a visual project explorer.
-
-### Skills Checklist
-- [ ] I can explain the key concept in Java terms.
-- [ ] I can trace and predict the worked example.
-- [ ] I can compile and run the example from the terminal.
-- [ ] I can identify and correct a Java-specific mistake.
-- [ ] I can test a boundary case and navigate the workflow accessibly.
-
-## Lesson 10.3: Building a Text Adventure: Inventory and Events
-
-### Reading References
-- [Java SE 25 documentation](https://docs.oracle.com/en/java/).
-- [Java Language Specification, Java SE 25](https://docs.oracle.com/javase/specs/jls/se25/html/index.html).
-
-
-### Learning Objectives
-- Explain the purpose and vocabulary of building a text adventure: inventory and events.
-- Apply the relevant Java syntax and APIs in a small, complete program.
-- Compile, run, inspect, and adapt the example using keyboard-accessible tools.
-
-### Concept Explanation
-This lesson develops building a text adventure: inventory and events through Java's class-based structure and standard library. Identify the input, output, state changes, and relevant type constraints before coding. Keep declarations local where possible, separate computation from presentation, and state preconditions and postconditions. Treat the project as a set of observable requirements and milestones. Keep domain logic separate from command parsing and persistence, validate before mutation, report errors in plain language, and test normal, boundary, and failure paths.
-
-Java is statically typed and class-based. Local variables have declared or inferred compile-time types, reference values may be null, and methods and fields are governed by access and scope rules. The compiler checks syntax and type compatibility before execution; runtime behavior still requires testing. Follow Java naming conventions, use explicit imports in beginner work, and prefer small methods with clear contracts.
-
-### Worked Example
-```java
-public class Lesson_10_3 {
-    public static void main(String[] args) {
-        java.util.Set<String> inventory = new java.util.LinkedHashSet<>();
-        inventory.add("shiny key");
-        inventory.add("map");
-        String event = inventory.remove("shiny key") ? "The door unlocks." : "The door remains locked.";
-        System.out.println(event + " Inventory: " + inventory);
-=======
 ### Expected Behavior or Output
 
-With the following lines typed as standard input (piped input is not echoed, so it does not appear in the output):
+With the following lines supplied as standard input (piped input is not echoed):
 ```text
 north
 east
-west
+north
 up
-south
 quit
 ```
 
-the program prints:
+The program prints:
 ```text
 ---
-You are in a dimly lit cave. There's a narrow passage to the NORTH.
+A dark cave. A narrow passage leads NORTH.
 What do you want to do?
 ---
-The tunnel is damp and cold. You can go SOUTH back to the cave or EAST to a clearing.
+A damp tunnel. Passages lead SOUTH and EAST.
 What do you want to do?
 ---
-You've reached a small, sunny clearing. A faint path leads WEST.
+A quiet clearing. A small antechamber lies to the NORTH.
 What do you want to do?
 ---
-The tunnel is damp and cold. You can go SOUTH back to the cave or EAST to a clearing.
+A small chamber with a heavy door to the NORTH.
 What do you want to do?
 I don't understand that command or you can't go that way.
 ---
-The tunnel is damp and cold. You can go SOUTH back to the cave or EAST to a clearing.
-What do you want to do?
----
-You are in a dimly lit cave. There's a narrow passage to the NORTH.
+A small chamber with a heavy door to the NORTH.
 What do you want to do?
 Exiting game. Goodbye!
 ```
 
-With no standard input at all, the program ends cleanly and prints:
-```text
----
-You are in a dimly lit cave. There's a narrow passage to the NORTH.
-What do you want to do?
-Exiting game. Goodbye!
-```
+With no standard input, the program treats end of input as `quit` and exits cleanly.
 
 ### Common Mistakes
 1. Using a `Map` lookup result without checking for `null`, which throws `NullPointerException` for an unknown direction.
@@ -376,11 +247,7 @@ Each turn prints a separator line, the description, and the prompt, so a whole t
 
 ### Concept Explanation
 
-Part 2 adds *state*: items in rooms, an inventory, and a door that is locked until the player uses the key. This is the shared specification used by every language track: three rooms (`start`, `locked_door_room`, `treasure_room`); the commands `north`, `south`, `east`, `west`, `take shiny key`, `use shiny key`, and `quit`; the door between the chamber and the treasure room stays locked until the key is used there; reaching the treasure room ends the game.
-
-Items are a mutable list of names inside each room. A record's fields cannot be reassigned, but a list held in a record can still change, which is what the game needs. Taking an item removes it from the room's list and adds it to the inventory. The locked door is a `boolean` variable, `doorLocked`, checked before a move through the door.
-
-The example is played with: north (into the chamber), north (the locked door refuses), south, take shiny key, north, use shiny key, north (the treasure room).
+The completed adventure uses the same five-room graph as the Python, JavaScript, and TypeScript tracks: `start_room` leads north to `tunnel`; `tunnel` leads south to `start_room` and east to `clearing`; `clearing` leads west to `tunnel` and north to `locked_door_room`; the locked room leads south to `clearing` and north to `treasure_room`. The shiny key starts in `start_room`. The player must take it, travel to `locked_door_room`, and use it there before the north exit is allowed. Reaching `treasure_room` ends the game.
 
 ### Worked Example
 
@@ -395,15 +262,19 @@ public class Lesson_10_3 {
 
     public static void main(String[] args) {
         Map<String, Room> rooms = Map.of(
-            "start", new Room("A dark cave.", Map.of("north", "locked_door_room"),
+            "start_room", new Room("A dark cave.", Map.of("north", "tunnel"),
                 new ArrayList<>(List.of("shiny key"))),
+            "tunnel", new Room("A damp tunnel. Passages lead SOUTH and EAST.",
+                Map.of("south", "start_room", "east", "clearing"), new ArrayList<>()),
+            "clearing", new Room("A quiet clearing. A small antechamber lies to the NORTH.",
+                Map.of("west", "tunnel", "north", "locked_door_room"), new ArrayList<>()),
             "locked_door_room", new Room("A small chamber with a heavy door to the NORTH.",
-                Map.of("south", "start", "north", "treasure_room"), new ArrayList<>()),
+                Map.of("south", "clearing", "north", "treasure_room"), new ArrayList<>()),
             "treasure_room", new Room("A glittering room full of treasure. You win!",
                 Map.of("south", "locked_door_room"), new ArrayList<>()));
 
         Scanner in = new Scanner(System.in);
-        String current = "start";
+        String current = "start_room";
         List<String> inventory = new ArrayList<>();
         boolean doorLocked = true;
 
@@ -417,10 +288,11 @@ public class Lesson_10_3 {
             if (!room.items().isEmpty()) {
                 System.out.println("You see: " + String.join(", ", room.items()));
             }
-            System.out.println("Your inventory: " + (inventory.isEmpty() ? "empty" : String.join(", ", inventory)));
+            System.out.println("Your inventory: " +
+                (inventory.isEmpty() ? "empty" : String.join(", ", inventory)));
             System.out.println("What do you want to do?");
 
-            String command = (in.hasNextLine() ? in.nextLine() : "quit").toLowerCase();
+            String command = (in.hasNextLine() ? in.nextLine() : "quit").strip().toLowerCase();
             if (command.equals("take shiny key") && room.items().contains("shiny key")) {
                 room.items().remove("shiny key");
                 inventory.add("shiny key");
@@ -436,82 +308,49 @@ public class Lesson_10_3 {
                     current = room.exits().get(command);
                 }
             } else if (command.equals("quit")) {
-                System.out.println("Exiting game. Goodbye!");
+                System.out.println("You quit the adventure.");
                 break;
             } else {
-                System.out.println("I don't understand that command.");
+                System.out.println("Invalid command. Use a direction, 'take shiny key', " +
+                    "'use shiny key', or 'quit'.");
             }
         }
->>>>>>> 2067a20 (curriculum clearning and updates)
     }
 }
 ```
 
-<<<<<<< HEAD
-**Expected behavior:** The program compiles on JDK 25 and prints a deterministic result illustrating building a text adventure: inventory and events. Run it from a terminal, compare actual output with your prediction, and change one input to test the effect.
-
-### Common Mistakes
-- Starting implementation before writing observable requirements and acceptance tests.
-- Mixing command parsing, domain state, and persistence into one method or class.
-- Allowing invalid commands or list indexes to mutate project state without a clear error.
-### Activities
-1. Write user stories and acceptance criteria before adding a feature to the text application.
-2. Implement one room transition or task operation and test the valid and invalid command paths.
-3. Separate domain logic from the input/output loop and test the domain logic without terminal input.
-4. Run a keyboard-only walkthrough and revise prompts, error messages, and help text.
-### Accessibility Practice
-Navigate by class, method, and line; inspect braces, parentheses, brackets, semicolons, generic delimiters, and compiler diagnostics with the preferred screen reader or braille display. Compile and run from the terminal so the workflow does not depend on color or a visual project explorer.
-
-### Skills Checklist
-- [ ] I can explain the key concept in Java terms.
-- [ ] I can trace and predict the worked example.
-- [ ] I can compile and run the example from the terminal.
-- [ ] I can identify and correct a Java-specific mistake.
-- [ ] I can test a boundary case and navigate the workflow accessibly.
-
-## Lesson 10.4: Developing a Command-Line To-Do Tool
-
-### Reading References
-- [Java SE 25 documentation](https://docs.oracle.com/en/java/).
-- [Java Language Specification, Java SE 25](https://docs.oracle.com/javase/specs/jls/se25/html/index.html).
-
-
-### Learning Objectives
-- Explain the purpose and vocabulary of developing a command-line to-do tool.
-- Apply the relevant Java syntax and APIs in a small, complete program.
-- Compile, run, inspect, and adapt the example using keyboard-accessible tools.
-
-### Concept Explanation
-This lesson develops developing a command-line to-do tool through Java's class-based structure and standard library. Identify the input, output, state changes, and relevant type constraints before coding. Keep declarations local where possible, separate computation from presentation, and state preconditions and postconditions. Treat the project as a set of observable requirements and milestones. Keep domain logic separate from command parsing and persistence, validate before mutation, report errors in plain language, and test normal, boundary, and failure paths.
-
-Java is statically typed and class-based. Local variables have declared or inferred compile-time types, reference values may be null, and methods and fields are governed by access and scope rules. The compiler checks syntax and type compatibility before execution; runtime behavior still requires testing. Follow Java naming conventions, use explicit imports in beginner work, and prefer small methods with clear contracts.
-
-### Worked Example
-```java
-public class Lesson_10_4 {
-    public static void main(String[] args) {
-        java.util.List<String> tasks = new java.util.ArrayList<>(java.util.List.of("Read chapter", "Practice code"));
-        tasks.add("Review notes");
-        for (int i = 0; i < tasks.size(); i++) System.out.println((i + 1) + ". " + tasks.get(i));
-=======
 ### Expected Behavior or Output
 
-With the following lines typed as standard input (piped input is not echoed, so it does not appear in the output):
+With the following lines supplied as standard input (piped input is not echoed):
 ```text
+north
+east
 north
 north
 south
+west
+south
 take shiny key
+north
+east
 north
 use shiny key
 north
 ```
 
-the program prints:
+The program prints:
 ```text
 
 A dark cave.
 You see: shiny key
+Your inventory: empty
+What do you want to do?
+
+A damp tunnel. Passages lead SOUTH and EAST.
+Your inventory: empty
+What do you want to do?
+
+A quiet clearing. A small antechamber lies to the NORTH.
 Your inventory: empty
 What do you want to do?
 
@@ -524,6 +363,14 @@ A small chamber with a heavy door to the NORTH.
 Your inventory: empty
 What do you want to do?
 
+A quiet clearing. A small antechamber lies to the NORTH.
+Your inventory: empty
+What do you want to do?
+
+A damp tunnel. Passages lead SOUTH and EAST.
+Your inventory: empty
+What do you want to do?
+
 A dark cave.
 You see: shiny key
 Your inventory: empty
@@ -531,6 +378,14 @@ What do you want to do?
 You picked up the shiny key.
 
 A dark cave.
+Your inventory: shiny key
+What do you want to do?
+
+A damp tunnel. Passages lead SOUTH and EAST.
+Your inventory: shiny key
+What do you want to do?
+
+A quiet clearing. A small antechamber lies to the NORTH.
 Your inventory: shiny key
 What do you want to do?
 
@@ -546,15 +401,7 @@ What do you want to do?
 A glittering room full of treasure. You win!
 ```
 
-With no standard input at all, the program ends cleanly and prints:
-```text
-
-A dark cave.
-You see: shiny key
-Your inventory: empty
-What do you want to do?
-Exiting game. Goodbye!
-```
+With no standard input, the program treats end of input as `quit` and exits cleanly.
 
 ### Common Mistakes
 1. Making the door's locked state part of the exits so that the "locked" message can never be reached.
@@ -971,58 +818,10 @@ public class Lesson_10_4 {
                 default -> System.out.println("Invalid choice. Please try again.");
             }
         }
->>>>>>> 2067a20 (curriculum clearning and updates)
     }
 }
 ```
 
-<<<<<<< HEAD
-**Expected behavior:** The program compiles on JDK 25 and prints a deterministic result illustrating developing a command-line to-do tool. Run it from a terminal, compare actual output with your prediction, and change one input to test the effect.
-
-### Common Mistakes
-- Starting implementation before writing observable requirements and acceptance tests.
-- Mixing command parsing, domain state, and persistence into one method or class.
-- Allowing invalid commands or list indexes to mutate project state without a clear error.
-### Activities
-1. Write user stories and acceptance criteria before adding a feature to the text application.
-2. Implement one room transition or task operation and test the valid and invalid command paths.
-3. Separate domain logic from the input/output loop and test the domain logic without terminal input.
-4. Run a keyboard-only walkthrough and revise prompts, error messages, and help text.
-### Accessibility Practice
-Navigate by class, method, and line; inspect braces, parentheses, brackets, semicolons, generic delimiters, and compiler diagnostics with the preferred screen reader or braille display. Compile and run from the terminal so the workflow does not depend on color or a visual project explorer.
-
-### Skills Checklist
-- [ ] I can explain the key concept in Java terms.
-- [ ] I can trace and predict the worked example.
-- [ ] I can compile and run the example from the terminal.
-- [ ] I can identify and correct a Java-specific mistake.
-- [ ] I can test a boundary case and navigate the workflow accessibly.
-
-## Lesson 10.5: Refinement, Accessibility, and User Experience
-
-### Reading References
-- [Java SE 25 documentation](https://docs.oracle.com/en/java/).
-- [Java Language Specification, Java SE 25](https://docs.oracle.com/javase/specs/jls/se25/html/index.html).
-
-
-### Learning Objectives
-- Explain the purpose and vocabulary of refinement, accessibility, and user experience.
-- Apply the relevant Java syntax and APIs in a small, complete program.
-- Compile, run, inspect, and adapt the example using keyboard-accessible tools.
-
-### Concept Explanation
-This lesson develops refinement, accessibility, and user experience through Java's class-based structure and standard library. Identify the input, output, state changes, and relevant type constraints before coding. Keep declarations local where possible, separate computation from presentation, and state preconditions and postconditions. Treat the project as a set of observable requirements and milestones. Keep domain logic separate from command parsing and persistence, validate before mutation, report errors in plain language, and test normal, boundary, and failure paths.
-
-Java is statically typed and class-based. Local variables have declared or inferred compile-time types, reference values may be null, and methods and fields are governed by access and scope rules. The compiler checks syntax and type compatibility before execution; runtime behavior still requires testing. Follow Java naming conventions, use explicit imports in beginner work, and prefer small methods with clear contracts.
-
-### Worked Example
-```java
-public class Lesson_10_5 {
-    public static void main(String[] args) {
-        String[] prompts = {"Enter a command", "Choose a numbered action", "Type quit to exit"};
-        for (String prompt : prompts) System.out.println(prompt);
-        System.out.println("Use consistent prompts and report validation errors in plain language.");
-=======
 ### Expected Behavior or Output
 
 With the following lines typed as standard input (piped input is not echoed, so it does not appear in the output):
@@ -1261,33 +1060,10 @@ public class Lesson_10_5 {
 
         Boolean keep = askYesNo(in, "Save this score?");
         System.out.println("Save answer: " + keep);
->>>>>>> 2067a20 (curriculum clearning and updates)
     }
 }
 ```
 
-<<<<<<< HEAD
-**Expected behavior:** The program compiles on JDK 25 and prints a deterministic result illustrating refinement, accessibility, and user experience. Run it from a terminal, compare actual output with your prediction, and change one input to test the effect.
-
-### Common Mistakes
-- Starting implementation before writing observable requirements and acceptance tests.
-- Mixing command parsing, domain state, and persistence into one method or class.
-- Allowing invalid commands or list indexes to mutate project state without a clear error.
-### Activities
-1. Write user stories and acceptance criteria before adding a feature to the text application.
-2. Implement one room transition or task operation and test the valid and invalid command paths.
-3. Separate domain logic from the input/output loop and test the domain logic without terminal input.
-4. Run a keyboard-only walkthrough and revise prompts, error messages, and help text.
-### Accessibility Practice
-Navigate by class, method, and line; inspect braces, parentheses, brackets, semicolons, generic delimiters, and compiler diagnostics with the preferred screen reader or braille display. Compile and run from the terminal so the workflow does not depend on color or a visual project explorer.
-
-### Skills Checklist
-- [ ] I can explain the key concept in Java terms.
-- [ ] I can trace and predict the worked example.
-- [ ] I can compile and run the example from the terminal.
-- [ ] I can identify and correct a Java-specific mistake.
-- [ ] I can test a boundary case and navigate the workflow accessibly.
-=======
 ### Expected Behavior or Output
 
 With the following lines typed as standard input (piped input is not echoed, so it does not appear in the output):
@@ -1344,4 +1120,3 @@ Check that every error message ends with an action the user can take, and that t
 - [ ] I keep wording consistent.
 
 ---
->>>>>>> 2067a20 (curriculum clearning and updates)
