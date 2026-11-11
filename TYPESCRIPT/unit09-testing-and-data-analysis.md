@@ -6,13 +6,6 @@ Test functions and classes, generate random values, analyze text, and parse CSV.
 
 ---
 
-=======
->>>>>>> 2067a20 (curriculum clearning and updates)
-
-## Overview
-
-Test functions and classes, generate random values, analyze text, and parse CSV. The TypeScript adaptation preserves the shared Python curriculum's learning objectives, datasets, expected results, and assessment criteria while teaching TypeScript's compile-time type system and JavaScript runtime behavior.
-
 ## Lesson 9.1: Testing a function
 
 ### Reading References
@@ -64,7 +57,6 @@ Use descriptive test names that read as complete sentences. All prompts, errors,
 ---
 
 ## Lesson 9.2: Testing a class
-<<<<<<< HEAD
 
 ### Reading References
 - Python source counterpart: Unit 9 lesson 9.2 in the canonical Python curriculum.
