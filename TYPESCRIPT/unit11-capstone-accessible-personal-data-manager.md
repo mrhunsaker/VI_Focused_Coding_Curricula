@@ -511,4 +511,3 @@ Verify keyboard-only use, help text, confirmations, errors, and sequential outpu
 - [ ] I can plan end-to-end and accessibility tests.
 
 ---
->>>>>>> 2067a20 (curriculum clearning and updates)
