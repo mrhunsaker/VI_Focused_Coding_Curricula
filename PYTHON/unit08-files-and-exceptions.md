@@ -358,7 +358,6 @@ Print a status line in each block (`try`, `except`, `else`, `finally`), so a scr
 
 JSON (JavaScript Object Notation) is a lightweight format for storing and exchanging data. Python's `json` module converts between Python objects and JSON.
 
-<<<<<<< HEAD
 ```python
 import json
 
@@ -390,9 +389,6 @@ except (json.JSONDecodeError, ValueError) as error:
 ```
 
 ### JSON ↔ Python Mapping
-=======
-#### JSON ↔ Python Mapping
->>>>>>> 2067a20 (curriculum clearning and updates)
 
 | JSON | Python |
 |------|--------|
