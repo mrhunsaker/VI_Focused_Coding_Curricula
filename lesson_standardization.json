@@ -88,27 +88,26 @@
     {
       "unit": 0,
       "title": "Accessible Development Environment",
-      "source_file": "PYTHON/unit00-setup.md",
+      "source_file": "PYTHON/unit00-setting-up-your-accessible-python-development-environme.md",
       "purpose": "Reproduce toolchain setup, editor configuration, accessibility, workspace, terminal, and first-run verification. Adapt installation steps and runtime commands to each language.",
       "lessons": [
         "0.1 Installing Python and uv",
         "0.2 Configuring Your Screen Reader for VS Code or Theia IDE",
         "0.3 Setting Up Your VS Code or Theia IDE Workspace",
-        "0.4 Python Environments and Terminal Usage",
-        "0.5 General Accessibility Tools and Strategies"
+        "0.4 Python Environments, Terminal Usage, and Accessibility Tools"
       ],
       "parallel_examples": [
-        "Install and verify the language runtime/compiler",
-        "Configure the same editor and keyboard/screen-reader workflow",
-        "Create the same course project folder and first source file",
-        "Run a Hello World program from the terminal"
+        "Install and verify the language runtime/compiler.",
+        "Configure the editor and keyboard/screen-reader workflow.",
+        "Create the course workspace and first source file.",
+        "Run a Hello World program from the terminal."
       ],
-      "lessons_note": "Titles shown are the Python lesson titles; other tracks adapt them to their own toolchain. Python's former Lesson 0.5 was merged into 0.4 so every track has four Unit 0 lessons."
+      "lessons_note": "The current Python Unit 0 has four lessons. The former separate Lesson 0.5 was merged into Lesson 0.4; accessibility tools and terminal workflow are covered in the combined Lesson 0.4."
     },
     {
       "unit": 1,
       "title": "Foundations of Computing",
-      "source_file": "PYTHON/unit01-foundations.md",
+      "source_file": "PYTHON/unit01-foundations-of-computing-and-getting-started-with-pytho.md",
       "purpose": "Teach the same introductory computing concepts, first program, variables, and primitive values.",
       "lessons": [
         "1.1 Welcome to Computer Science",
@@ -124,7 +123,7 @@
     {
       "unit": 2,
       "title": "Numeric Computations",
-      "source_file": "PYTHON/unit02-numeric-computations.md",
+      "source_file": "PYTHON/unit02-writing-simple-programs-and-numeric-computations.md",
       "purpose": "Preserve the same software-development process, expressions, input/output, conversions, and mathematical problems.",
       "lessons": [
         "2.1 The Software Development Process",
@@ -144,7 +143,7 @@
     {
       "unit": 3,
       "title": "Control Flow — Decisions and Loops",
-      "source_file": "PYTHON/unit03-control-flow.md",
+      "source_file": "PYTHON/unit03-control-flow-decisions-and-loops.md",
       "purpose": "Keep the same boolean reasoning, grade classification, score list, iteration, and text-processing examples.",
       "lessons": [
         "3.1 Boolean Expressions and if Statements",
@@ -164,7 +163,7 @@
     {
       "unit": 4,
       "title": "Data Structures — Lists and Dictionaries",
-      "source_file": "PYTHON/unit04-06-data-functions.md",
+      "source_file": "PYTHON/unit04-data-structures-lists-and-dictionaries.md",
       "purpose": "Use the same collection operations and inventory/grade data in each general-purpose language; explain language-specific equivalents.",
       "lessons": [
         "4.1 More on Lists",
@@ -184,7 +183,7 @@
     {
       "unit": 5,
       "title": "User Input and while Loops",
-      "source_file": "PYTHON/unit04-06-data-functions.md",
+      "source_file": "PYTHON/unit05-user-input-and-while-loops.md",
       "purpose": "Use the same prompt/validation loop and sentinel-controlled interaction. Explain language-specific input parsing and loop syntax.",
       "lessons": [
         "5.1 How the input() Function Works",
@@ -204,7 +203,7 @@
     {
       "unit": 6,
       "title": "Functions",
-      "source_file": "PYTHON/unit04-06-data-functions.md",
+      "source_file": "PYTHON/unit06-functions.md",
       "purpose": "Use the same calculation and collection-processing functions. Preserve input/output contracts and decomposition while explaining parameter semantics.",
       "lessons": [
         "6.1 Defining Functions",
@@ -224,7 +223,7 @@
     {
       "unit": 7,
       "title": "Classes and Object-Oriented Programming",
-      "source_file": "PYTHON/unit07-09-oop-files.md",
+      "source_file": "PYTHON/unit07-classes-and-object-oriented-programming.md",
       "purpose": "Keep the same Student, Item, or Task domain model while translating the design to idiomatic types, classes, structs, interfaces, or composition.",
       "lessons": [
         "7.1 Why Learn About Classes?",
@@ -244,7 +243,7 @@
     {
       "unit": 8,
       "title": "Files and Exceptions",
-      "source_file": "PYTHON/unit07-09-oop-files.md",
+      "source_file": "PYTHON/unit08-files-and-exceptions.md",
       "purpose": "Use the same notes.txt and structured task/student records; teach idiomatic resource lifetime and error propagation.",
       "lessons": [
         "8.1 Reading from a File",
@@ -264,7 +263,7 @@
     {
       "unit": 9,
       "title": "Testing and Data Analysis",
-      "source_file": "PYTHON/unit07-09-oop-files.md",
+      "source_file": "PYTHON/unit09-testing-and-data-analysis.md",
       "purpose": "Reuse the same deterministic functions, records, text sample, random selection, and CSV dataset.",
       "lessons": [
         "9.1 Testing a Function",
@@ -284,7 +283,7 @@
     {
       "unit": 10,
       "title": "Project-Based Learning — Text-Based Applications",
-      "source_file": "PYTHON/unit10-11-projects-capstone.md",
+      "source_file": "PYTHON/unit10-project-based-learning-building-text-based-applications.md",
       "purpose": "Keep the exact project specification and user interaction consistent so language implementation is the principal variable.",
       "lessons": [
         "10.1 Designing Your Project",
@@ -304,7 +303,7 @@
     {
       "unit": 11,
       "title": "Capstone — Accessible Personal Data Manager",
-      "source_file": "PYTHON/unit10-11-projects-capstone.md",
+      "source_file": "PYTHON/unit11-capstone-project-accessible-personal-data-manager.md",
       "purpose": "Use one shared capstone specification across general-purpose languages. Framework/UI choices may differ, but core data model, operations, and acceptance tests must remain equivalent.",
       "lessons": [
         "11.1 Introduction to NiceGUI",
@@ -540,7 +539,7 @@
   ],
   "refinement_progress": {
     "last_updated": "2026-11-11",
-    "current_language": "Repository-wide standardization audit; all 13 general-purpose tracks and three specialist modules",
+    "current_language": "Repository-wide semantic reconciliation of the standardization tracker and remaining curriculum conflicts",
     "completed_tracks": {
       "C": {
         "path": "C/lessons.md",
@@ -1036,7 +1035,7 @@
       }
     },
     "java": {
-      "status": "lesson_structure_topic_refinement_and_final_jdk_25_ci_verified_pending_application_and_accessibility_verification",
+      "status": "blocked_by_unresolved_merge_conflict_artifacts_in_unit10_and_unit11_pending_semantic_repair_and_full_application_tests",
       "java_version": "25.0.5",
       "unit_0_setup_lessons": 4,
       "numbered_lessons": 53,
@@ -1045,6 +1044,7 @@
       "automated_check": "scripts/check_java_examples.py",
       "workflow": ".github/workflows/java-examples.yml",
       "pending": [
+        "Resolve six unresolved merge-conflict blocks in JAVA/unit10-project-based-learning-text-applications.md and six in JAVA/unit11-capstone-accessible-personal-data-manager.md; preserve the newer lesson-specific Java 25 examples, expected outputs, and accessibility scaffolding.",
         "add exact expected-output assertions and systematic invalid-input/boundary fixtures",
         "exercise file operations against missing, malformed, and permission-restricted paths",
         "add capstone persistence and JUnit integration tests",
@@ -1133,7 +1133,7 @@
     },
     "python": {
       "path": "PYTHON/",
-      "status": "canonical_datasets_and_project_contracts_aligned_canonical_ci_and_adventure_win_path_passed_todo_capstone_and_accessibility_tests_pending",
+      "status": "content_and_capstone_implementation_partially_verified_but_curriculum_source_blocked_by_unresolved_merge_conflicts",
       "unit_0_live_lessons": 5,
       "unit_0_mapped_lessons": 5,
       "numbered_lessons": 53,
@@ -1145,6 +1145,7 @@
         "Fixed the Lesson 10.3 adventure, replaced the AI-assisted coding section with the course AI policy, and aligned the teachers guide."
       ],
       "pending": [
+        "Resolve remaining merge-conflict blocks in Python Units 1, 2, 3, 4, 8, 10, and 11. Unit 10/11 conflicts affect canonical project contracts and capstone instructions; do not treat the curriculum source as reconciled until fixed.",
         "Run the full Python example suite in CI",
         "Test the NiceGUI page in a real browser with a screen reader and braille display",
         "Python Lessons 10.2 and 10.3 use different room names (cave/tunnel/clearing and start/locked_door_room/treasure_room)",
@@ -1337,6 +1338,168 @@
         "Do not infer expected-output correctness from compile, type-check, syntax-parse, or smoke-execution results; require exact-output assertions and behavioral fixtures.",
         "Complete hands-on accessibility verification; automated structure checks do not establish screen-reader or braille usability.",
         "Review specialist modules and the instructor assessment inventory separately from the 13 parallel language tracks."
+      ]
+    },
+    "semantic_review_2026_11_11": {
+      "status": "completed_against_original_conflicted_tracker_and_current_source_files",
+      "original_tracker_commit": "62d2f3914315f97b02953849320157e042d0e934",
+      "original_tracker_conflict_blocks_reviewed": 16,
+      "selected_side_counts_from_recovery": {
+        "HEAD": 10,
+        "incoming_commit_2067a20": 6
+      },
+      "decisions": [
+        {
+          "block": 1,
+          "decision": "keep_incoming",
+          "result": "confirmed",
+          "reason": "The Unit P specification is required and FOUNDATIONS/unit-p-computing-foundations.md exists with seven lessons."
+        },
+        {
+          "block": 2,
+          "decision": "replace_selected_HEAD_with_current_source_map",
+          "result": "corrected",
+          "reason": "The current Python Unit 0 contains four lessons; its old separate 0.5 title is obsolete. Updated to the exact headings in the current Unit 0 file."
+        },
+        {
+          "block": 3,
+          "decision": "merge_both_sides_semantically",
+          "result": "corrected",
+          "reason": "The map must preserve setup, editor accessibility, workspace creation, and Hello World. Accessibility and terminal workflow are combined in current Lesson 0.4; the former 0.5 is merged."
+        },
+        {
+          "block": 4,
+          "decision": "keep_incoming",
+          "result": "confirmed",
+          "reason": "The current capstone has distinct Lessons 11.3, 11.4, and 11.5 for display/search, changes/completion/deletion, and testing/documentation/submission."
+        },
+        {
+          "block": 5,
+          "decision": "keep_incoming",
+          "result": "confirmed",
+          "reason": "The Python capstone implementation directory and named files are present; the code-existence claim is separate from the unresolved lesson-source conflicts."
+        },
+        {
+          "block": 6,
+          "decision": "keep_HEAD_with_language_specific_rounding_qualification",
+          "result": "confirmed_with_qualification",
+          "reason": "The decimal half-up reference value is 3.68 and total 28.18; Python's current f-string example prints 3.67 due to binary floating-point formatting, which is explicitly recorded in calculator_display_rounding."
+        },
+        {
+          "block": 7,
+          "decision": "keep_incoming",
+          "result": "confirmed",
+          "reason": "The added canonical CSV rows and notes-file metadata extend the shared dataset; the tracker records the CSV column order and active text representation."
+        },
+        {
+          "block": 8,
+          "decision": "keep_incoming",
+          "result": "confirmed",
+          "reason": "The Unit P prerequisite pointer is consistent with the existing Foundations primer and the current course structure."
+        },
+        {
+          "block": 9,
+          "decision": "do_not_select_either_historical_metadata_side",
+          "result": "superseded",
+          "reason": "The competing last_updated/current_language values were branch snapshots. Replaced them with the current semantic-review date and scope."
+        },
+        {
+          "block": 10,
+          "decision": "keep_HEAD",
+          "result": "confirmed_with_qualification",
+          "reason": "The C++ Unit 10.2 example uses the canonical start_room north to tunnel transition. The associated cross-language checker and CI rerun remain verification tasks, not proof of full project behavior."
+        },
+        {
+          "block": 11,
+          "decision": "keep_HEAD",
+          "result": "confirmed",
+          "reason": "The pending C++ compile/link CI rerun is appropriate after the Unit 10.2 edit; it must remain pending until a current run is observed."
+        },
+        {
+          "block": 12,
+          "decision": "replace_historical_next_tracks_and_note",
+          "result": "superseded",
+          "reason": "The prior list and PR #4 instruction were stale. The current next_tracks list now reflects unresolved source conflicts, project acceptance testing, toolchain checks, accessibility, specialist modules, and assessment inventory review."
+        },
+        {
+          "block": 13,
+          "decision": "keep_HEAD",
+          "result": "confirmed",
+          "reason": "The Go capstone source declares the six canonical fields, while end-to-end model/JSON round-trip testing remains pending."
+        },
+        {
+          "block": 14,
+          "decision": "keep_HEAD",
+          "result": "confirmed",
+          "reason": "The current Lua track has four Unit 0 setup lessons and 53 numbered Unit 1–11 lessons; the incoming 57 numbered/56 example snapshot is stale."
+        },
+        {
+          "block": 15,
+          "decision": "keep_HEAD",
+          "result": "downgraded_to_blocked",
+          "reason": "Java application and accessibility tests remain pending, and current Unit 10 and Unit 11 source files still contain unresolved merge-conflict blocks."
+        },
+        {
+          "block": 16,
+          "decision": "keep_HEAD_with_status_downgrade",
+          "result": "downgraded_to_blocked",
+          "reason": "The richer Python progress record is more useful than the short incoming summary, but current Python lesson files still contain unresolved conflict blocks, including in Units 10 and 11. The record cannot imply source reconciliation is complete."
+        }
+      ],
+      "unit_map_repairs": {
+        "status": "updated_to_current_python_navigation",
+        "source_files_checked": 13,
+        "source_files_exist": 13,
+        "unit_0_lesson_count_corrected_from": 5,
+        "unit_0_lesson_count_corrected_to": 4,
+        "obsolete_unit_0_5_removed": true
+      },
+      "confirmed_source_conflict_inventory": {
+        "files": 20,
+        "blocks": 41,
+        "files_by_track": {
+          "PYTHON": {
+            "files": 7,
+            "blocks": 15
+          },
+          "TYPESCRIPT": {
+            "files": 4,
+            "blocks": 6
+          },
+          "LUA": {
+            "files": 5,
+            "blocks": 5
+          },
+          "JAVA": {
+            "files": 2,
+            "blocks": 12
+          },
+          "RUST": {
+            "files": 1,
+            "blocks": 2
+          },
+          "KOTLIN": {
+            "files": 1,
+            "blocks": 1
+          }
+        },
+        "note": "Counts are from current default-branch file fetches and conflict-marker parsing. The standardization tracker itself now parses and has no conflict markers."
+      },
+      "high_priority_semantic_findings": [
+        "JAVASCRIPT/unit10-project-based-learning-text-based-applications.md has an obsolete three-room torch/magic-key overview while later lessons describe the five-room shiny-key project.",
+        "TYPESCRIPT/unit10-project-based-learning-text-based-applications.md still contains the three-room torch/magic-key implementation alongside the five-room shiny-key specification.",
+        "PYTHON/unit10-project-based-learning-building-text-based-applications.md has three unresolved conflicts, including competing three-room and five-room adventure graphs and competing to-do project sections.",
+        "PYTHON/unit11-capstone-project-accessible-personal-data-manager.md has six unresolved conflicts affecting the shared record schema, NiceGUI setup, AI policy, and canonical project contracts.",
+        "JAVA Unit 10 and Unit 11 each contain six unresolved conflicts; current conflict alternatives include generic placeholders versus lesson-specific Java 25 examples and captured expected outputs.",
+        "KOTLIN/examples_expected.json contains an unresolved conflict block and is not valid JSON until repaired.",
+        "The tracker previously pointed to 11 nonexistent Python unit source paths; all 12 Python unit paths plus Unit P were corrected to current navigation targets."
+      ],
+      "next_actions": [
+        "Resolve the 41 source conflict blocks semantically, preserving current lesson-specific content and canonical data contracts; do not use a longest-side heuristic.",
+        "Replace JavaScript and TypeScript three-room torch/magic-key text and examples with the canonical five-room shiny-key graph.",
+        "Regenerate and validate Kotlin expected-output fixtures against the current Kotlin lesson examples.",
+        "Run JSON validation, all language-specific checkers, mdBook build, and repository-wide local-link validation after source repairs.",
+        "Update track statuses only from current-branch CI evidence; keep hands-on screen-reader and braille verification explicitly pending."
       ]
     }
   }
