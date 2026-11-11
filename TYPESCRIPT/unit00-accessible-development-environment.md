@@ -1,10 +1,7 @@
 # Unit 0: Accessible Development Environment
 
-<<<<<<< HEAD
-=======
 **Before you start:** complete [Unit P: Computing Foundations Primer](../FOUNDATIONS/unit-p-computing-foundations.md). It explains the language-neutral vocabulary and concepts used in every language track, using non-visual examples.
 
->>>>>>> 2067a20 (curriculum clearning and updates)
 ## Overview
 
 Set up Node.js, TypeScript, an editor, workspace, and terminal workflow. The TypeScript adaptation preserves the shared Python curriculum's learning objectives, datasets, expected results, and assessment criteria while teaching TypeScript's compile-time type system and JavaScript runtime behavior.
