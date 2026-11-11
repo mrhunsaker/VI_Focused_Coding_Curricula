@@ -78,6 +78,8 @@ The shared graph has five rooms: start_room, tunnel, clearing, locked_door_room,
 ### Worked Example
 
 ```swift
+import Foundation
+
 struct Room {
     let description: String
     let exits: [String: String]
