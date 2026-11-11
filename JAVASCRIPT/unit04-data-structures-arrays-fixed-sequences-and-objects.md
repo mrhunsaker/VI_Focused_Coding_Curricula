@@ -4,39 +4,25 @@
 This unit maps Python lists, tuples, and dictionaries to idiomatic JavaScript. JavaScript arrays are mutable sequences; a frozen array can express fixed-sequence intent; plain objects represent records; and `Map` represents a dynamic key-value collection.
 
 ## Lesson 4.1: More on Arrays
-<<<<<<< HEAD
 ### Concept Explanation
 Array methods such as `push()`, `pop()`, and `splice()` mutate an array. Methods such as `slice()` return a new array. Numeric sorting requires a comparator because the default sort is lexicographic.
 
 
 ### Reading References
-=======
-
-### Reading References
-
->>>>>>> 2067a20 (curriculum clearning and updates)
 - Python source counterpart: Unit 4, Lesson 4.1.
 - MDN: Array methods.
 
 ### Learning Objectives
-<<<<<<< HEAD
-=======
-
->>>>>>> 2067a20 (curriculum clearning and updates)
 - Add, insert, update, and remove array elements.
 - Distinguish mutating methods from methods that return a new array.
 - Preserve and process the canonical score data.
 
-<<<<<<< HEAD
-### Worked Example
-=======
 ### Concept Explanation
 
 Array methods such as `push()`, `pop()`, and `splice()` mutate an array. Methods such as `slice()` return a new array. Numeric sorting requires a comparator because the default sort is lexicographic.
 
 ### Worked Example
 
->>>>>>> 2067a20 (curriculum clearning and updates)
 ```javascript
 const scores = [82, 91, 76, 88];
 scores.push(95);
@@ -53,82 +39,50 @@ Scores: 82, 85, 91, 76, 88
 ```
 
 ### Expected Behavior or Output
-<<<<<<< HEAD
-The example removes 95 and prints the remaining scores in the order 82, 85, 91, 76, 88.
-
-### Common Mistakes
-=======
-
 The example removes 95 and prints the remaining scores in the order 82, 85, 91, 76, 88.
 
 ### Common Mistakes
 
->>>>>>> 2067a20 (curriculum clearning and updates)
 - Confusing `splice()` (mutates) with `slice()` (returns a copy).
 - Assuming `pop()` returns the updated array rather than the removed element.
 - Sorting numbers without a numeric comparator.
 
 ### Activities
-<<<<<<< HEAD
-=======
-
->>>>>>> 2067a20 (curriculum clearning and updates)
 1. Append 95 to the canonical scores.
 2. Insert 85 at index 1.
 3. Remove the final element and report the returned value.
 4. Sort a copy numerically with `(a, b) => a - b`.
 
 ### Accessibility Practice
-<<<<<<< HEAD
-Announce whether an operation mutates the original array or returns a new one. Read resulting values sequentially.
-
-### Skills Checklist
-=======
-
 Announce whether an operation mutates the original array or returns a new one. Read resulting values sequentially.
 
 ### Skills Checklist
 
->>>>>>> 2067a20 (curriculum clearning and updates)
 - [ ] I can add and remove array elements.
 - [ ] I can insert at an index.
 - [ ] I can distinguish mutating and non-mutating methods.
 - [ ] I can sort numeric arrays correctly.
 
 ## Lesson 4.2: Organizing Arrays
-<<<<<<< HEAD
 ### Concept Explanation
 Sorting and reversing can mutate their receiver. Spread syntax creates a shallow copy, allowing a separate primitive-value array to be sorted or reversed without changing the original.
 
 
 ### Reading References
-=======
-
-### Reading References
-
->>>>>>> 2067a20 (curriculum clearning and updates)
 - Python source counterpart: Unit 4, Lesson 4.2.
 - MDN: Array sorting and iteration methods.
 
 ### Learning Objectives
-<<<<<<< HEAD
-=======
-
->>>>>>> 2067a20 (curriculum clearning and updates)
 - Sort and reverse arrays.
 - Create filtered and transformed arrays.
 - Explain mutation and copying.
 
-<<<<<<< HEAD
-### Worked Example
-=======
 ### Concept Explanation
 
 Sorting and reversing can mutate their receiver. Spread syntax creates a shallow copy, allowing a separate primitive-value array to be sorted or reversed without changing the original.
 
 ### Worked Example
 
->>>>>>> 2067a20 (curriculum clearning and updates)
 ```javascript
 const scores = [82, 91, 76, 88];
 const sorted = [...scores].sort((a, b) => a - b);
@@ -146,43 +100,25 @@ Reversed: 91, 88, 82, 76
 ```
 
 ### Expected Behavior or Output
-<<<<<<< HEAD
-The original order remains 82, 91, 76, 88; the sorted copy is 76, 82, 88, 91; the reversed copy is 91, 88, 82, 76.
-
-### Common Mistakes
-=======
-
 The original order remains 82, 91, 76, 88; the sorted copy is 76, 82, 88, 91; the reversed copy is 91, 88, 82, 76.
 
 ### Common Mistakes
 
->>>>>>> 2067a20 (curriculum clearning and updates)
 - Calling `sort()` without a comparator for numeric data.
 - Reversing the original array when a copy was intended.
 - Assuming spread syntax makes a deep copy of nested objects.
 
 ### Activities
-<<<<<<< HEAD
-=======
-
->>>>>>> 2067a20 (curriculum clearning and updates)
 1. Sort the canonical scores from lowest to highest.
 2. Reverse a copy and preserve the original order.
 3. Filter scores of 80 or higher.
 4. Explain why a shallow copy is sufficient for an array of primitive numbers but not necessarily for nested objects.
 
 ### Accessibility Practice
-<<<<<<< HEAD
-Label each result as original, sorted, reversed, or filtered. Avoid presenting the distinction only through visual ordering.
-
-### Skills Checklist
-=======
-
 Label each result as original, sorted, reversed, or filtered. Avoid presenting the distinction only through visual ordering.
 
 ### Skills Checklist
 
->>>>>>> 2067a20 (curriculum clearning and updates)
 - [ ] I can sort numbers with a comparator.
 - [ ] I can reverse a copy of an array.
 - [ ] I can filter an array.
@@ -351,7 +287,3 @@ Provide one key-value pair per line and announce when iteration begins and ends.
 - [ ] I can traverse Map entries.
 - [ ] I can choose the appropriate traversal API.
 - [ ] I can produce sequential textual reports.
-<<<<<<< HEAD
-=======
-
->>>>>>> 2067a20 (curriculum clearning and updates)
