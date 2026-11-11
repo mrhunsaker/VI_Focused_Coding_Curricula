@@ -819,4 +819,3 @@ This is the final accessibility lesson. Read your own documentation aloud from s
 ## AI Policy
 
 AI may be used only for personal conceptual understanding and reinforcement. It must not write, complete, autocomplete, repair, or generate course code or assessment solutions.
->>>>>>> 2067a20 (curriculum clearning and updates)
