@@ -24,8 +24,6 @@ Console.WriteLine("Computer science turns problems into precise, testable steps.
 
 **Trace:** identify declarations, expressions, control flow, and observable output. Predict the result, run the example, and compare the actual output with the prediction.
 
-<<<<<<< HEAD
-=======
 ### Expected Behavior or Output
 
 Output observed when the worked example was run (.NET 8; the text of the output does not depend on the operating system):
@@ -34,7 +32,6 @@ Output observed when the worked example was run (.NET 8; the text of the output 
 Computer science turns problems into precise, testable steps.
 ```
 
->>>>>>> 2067a20 (curriculum clearning and updates)
 ### Common Mistakes
 - Confusing source syntax with the behavior of the running application.
 - Assuming compilation alone proves that the program meets the requirement.
@@ -75,8 +72,6 @@ Console.WriteLine("This is my first C# console program.");
 
 **Trace:** identify declarations, expressions, control flow, and observable output. Predict the result, run the example, and compare the actual output with the prediction.
 
-<<<<<<< HEAD
-=======
 ### Expected Behavior or Output
 
 Output observed when the worked example was run (.NET 8; the text of the output does not depend on the operating system):
@@ -86,7 +81,6 @@ Hello, World!
 This is my first C# console program.
 ```
 
->>>>>>> 2067a20 (curriculum clearning and updates)
 ### Common Mistakes
 - Confusing source syntax with the behavior of the running application.
 - Assuming compilation alone proves that the program meets the requirement.
@@ -127,8 +121,6 @@ Console.WriteLine($"{name}, age {age}, height {heightM:F2} m; favorite subject: 
 
 **Trace:** identify declarations, expressions, control flow, and observable output. Predict the result, run the example, and compare the actual output with the prediction.
 
-<<<<<<< HEAD
-=======
 ### Expected Behavior or Output
 
 Output observed when the worked example was run (.NET 8; the text of the output does not depend on the operating system):
@@ -137,7 +129,6 @@ Output observed when the worked example was run (.NET 8; the text of the output 
 Avery, age 16, height 1.72 m; favorite subject: Computer Science.
 ```
 
->>>>>>> 2067a20 (curriculum clearning and updates)
 ### Common Mistakes
 - Confusing source syntax with the behavior of the running application.
 - Assuming compilation alone proves that the program meets the requirement.
