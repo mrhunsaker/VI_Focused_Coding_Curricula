@@ -25,8 +25,6 @@ foreach (string criterion in acceptanceCriteria) Console.WriteLine($"[ ] {criter
 
 **Trace:** identify declarations, expressions, control flow, and observable output. Predict the result, run the example, and compare the actual output with the prediction.
 
-<<<<<<< HEAD
-=======
 ### Expected Behavior or Output
 
 Output observed when the worked example was run (.NET 8; the text of the output does not depend on the operating system):
@@ -41,7 +39,6 @@ Output observed when the worked example was run (.NET 8; the text of the output 
 [ ] provide screen-reader-friendly text feedback
 ```
 
->>>>>>> 2067a20 (curriculum clearning and updates)
 ### Common Mistakes
 - Omitting a required record field or CRUD operation.
 - Trusting persisted or user-supplied data without validation.
@@ -83,8 +80,6 @@ record CapstoneRecord(int Id, string Title, string Description, string Category,
 
 **Trace:** identify declarations, expressions, control flow, and observable output. Predict the result, run the example, and compare the actual output with the prediction.
 
-<<<<<<< HEAD
-=======
 ### Expected Behavior or Output
 
 Output observed when the worked example was run (.NET 8; the text of the output does not depend on the operating system):
@@ -93,7 +88,6 @@ Output observed when the worked example was run (.NET 8; the text of the output 
 {"Id":1,"Title":"Course project","Description":"Personal data manager","Category":"education","CreatedAt":"2026-11-01","UpdatedAt":"2026-11-01"}
 ```
 
->>>>>>> 2067a20 (curriculum clearning and updates)
 ### Common Mistakes
 - Omitting a required record field or CRUD operation.
 - Trusting persisted or user-supplied data without validation.
@@ -138,8 +132,6 @@ record CapstoneRecord(int Id, string Title, string Description, string Category,
 
 **Trace:** identify declarations, expressions, control flow, and observable output. Predict the result, run the example, and compare the actual output with the prediction.
 
-<<<<<<< HEAD
-=======
 ### Expected Behavior or Output
 
 Output observed when the worked example was run (.NET 8; the text of the output does not depend on the operating system):
@@ -148,7 +140,6 @@ Output observed when the worked example was run (.NET 8; the text of the output 
 1: Updated course project
 ```
 
->>>>>>> 2067a20 (curriculum clearning and updates)
 ### Common Mistakes
 - Omitting a required record field or CRUD operation.
 - Trusting persisted or user-supplied data without validation.
@@ -192,8 +183,6 @@ record CapstoneRecord(int Id, string Title, string Description, string Category,
 
 **Trace:** identify declarations, expressions, control flow, and observable output. Predict the result, run the example, and compare the actual output with the prediction.
 
-<<<<<<< HEAD
-=======
 ### Expected Behavior or Output
 
 Output observed when the worked example was run (.NET 8; the text of the output does not depend on the operating system):
@@ -202,7 +191,6 @@ Output observed when the worked example was run (.NET 8; the text of the output 
 Record validation tests passed.
 ```
 
->>>>>>> 2067a20 (curriculum clearning and updates)
 ### Common Mistakes
 - Omitting a required record field or CRUD operation.
 - Trusting persisted or user-supplied data without validation.
@@ -243,8 +231,6 @@ Console.WriteLine(string.Join(Environment.NewLine, documentation));
 
 **Trace:** identify declarations, expressions, control flow, and observable output. Predict the result, run the example, and compare the actual output with the prediction.
 
-<<<<<<< HEAD
-=======
 ### Expected Behavior or Output
 
 Output observed when the worked example was run (.NET 8; the text of the output does not depend on the operating system):
@@ -259,7 +245,6 @@ Data: JSON file with six documented fields
 Accessibility: keyboard-first commands and explicit text feedback
 ```
 
->>>>>>> 2067a20 (curriculum clearning and updates)
 ### Common Mistakes
 - Omitting a required record field or CRUD operation.
 - Trusting persisted or user-supplied data without validation.
@@ -278,10 +263,6 @@ Navigate the complete source file by line, word, and character using the learner
 - [ ] I can validate data and handle persistence errors.
 - [ ] I can test the application against acceptance criteria.
 - [ ] I can document setup, operation, accessibility, and limitations.
-<<<<<<< HEAD
-=======
-
 ## AI Policy
 
 AI may be used only for personal conceptual understanding and reinforcement. It must not write, complete, autocomplete, repair, or generate course code or assessment solutions.
->>>>>>> 2067a20 (curriculum clearning and updates)
