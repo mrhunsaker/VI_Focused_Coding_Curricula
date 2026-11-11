@@ -26,8 +26,6 @@ Reading text files is taught through the shared course datasets and requirements
 
 **Trace:** predict the output before compiling. Identify declarations, values, control-flow decisions, and state changes in order. Then compile and compare actual output with the prediction. The lesson example is intended to be independently compilable.
 
-<<<<<<< HEAD
-=======
 ### Expected Behavior or Output
 
 Output observed when the worked example was run with empty standard input (g++ 13.3, C++20; the text of the output does not depend on the operating system):
@@ -37,7 +35,6 @@ First line
 Second line
 ```
 
->>>>>>> 2067a20 (curriculum clearning and updates)
 ### Common Mistakes
 - Check file-open state.
 - Remember getline removes the delimiter.
@@ -81,8 +78,6 @@ Writing and appending files is taught through the shared course datasets and req
 
 **Trace:** predict the output before compiling. Identify declarations, values, control-flow decisions, and state changes in order. Then compile and compare actual output with the prediction. The lesson example is intended to be independently compilable.
 
-<<<<<<< HEAD
-=======
 ### Expected Behavior or Output
 
 Output observed when the worked example was run with empty standard input (g++ 13.3, C++20; the text of the output does not depend on the operating system):
@@ -91,7 +86,6 @@ Output observed when the worked example was run with empty standard input (g++ 1
 Appended one record
 ```
 
->>>>>>> 2067a20 (curriculum clearning and updates)
 ### Common Mistakes
 - Choose truncation or append mode deliberately.
 - Flush/close before dependent reads.
@@ -135,8 +129,6 @@ try { throw std::runtime_error("invalid score"); } catch (const std::exception& 
 
 **Trace:** predict the output before compiling. Identify declarations, values, control-flow decisions, and state changes in order. Then compile and compare actual output with the prediction. The lesson example is intended to be independently compilable.
 
-<<<<<<< HEAD
-=======
 ### Expected Behavior or Output
 
 Output observed when the worked example was run with empty standard input (g++ 13.3, C++20; the text of the output does not depend on the operating system):
@@ -145,7 +137,6 @@ Output observed when the worked example was run with empty standard input (g++ 1
 Handled: invalid score
 ```
 
->>>>>>> 2067a20 (curriculum clearning and updates)
 ### Common Mistakes
 - Catch standard exceptions by const reference.
 - Handle expected input errors directly.
@@ -189,8 +180,6 @@ Resource cleanup is taught through the shared course datasets and requirements. 
 
 **Trace:** predict the output before compiling. Identify declarations, values, control-flow decisions, and state changes in order. Then compile and compare actual output with the prediction. The lesson example is intended to be independently compilable.
 
-<<<<<<< HEAD
-=======
 ### Expected Behavior or Output
 
 Output observed when the worked example was run with empty standard input (g++ 13.3, C++20; the text of the output does not depend on the operating system):
@@ -199,7 +188,6 @@ Output observed when the worked example was run with empty standard input (g++ 1
 RAII released the file stream
 ```
 
->>>>>>> 2067a20 (curriculum clearning and updates)
 ### Common Mistakes
 - Prefer RAII to manual cleanup.
 - Check stream state after writes.
@@ -243,8 +231,6 @@ const std::string json = "{\"name\":\"Avery\",\"score\":92}"; std::cout << json 
 
 **Trace:** predict the output before compiling. Identify declarations, values, control-flow decisions, and state changes in order. Then compile and compare actual output with the prediction. The lesson example is intended to be independently compilable.
 
-<<<<<<< HEAD
-=======
 ### Expected Behavior or Output
 
 Output observed when the worked example was run with empty standard input (g++ 13.3, C++20; the text of the output does not depend on the operating system):
@@ -253,7 +239,6 @@ Output observed when the worked example was run with empty standard input (g++ 1
 {"name":"Avery","score":92}
 ```
 
->>>>>>> 2067a20 (curriculum clearning and updates)
 ### Common Mistakes
 - Distinguish JSON serialization from parsing.
 - Escape special characters.
