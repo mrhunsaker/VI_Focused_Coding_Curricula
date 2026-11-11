@@ -242,9 +242,14 @@
 
 # Standalone Topics/Languages
 - [Standalone Topics/Languages Resources](MODULES/README.md)
+  - [Git and GitHub](MODULES/GIT.md)
   - [HTML and CSS](MODULES/HTML_CSS.md)
+  - [Web Accessibility](MODULES/WEB_ACCESSIBILITY.md)
+  - [Markdown Syntax](MODULES/MARKDOWN.md)
   - [R: Statistical Computing](MODULES/R.md)
+  - [Regular Expressions](MODULES/REGEX.md)
   - [SQL: Relational Databases](MODULES/SQL.md)
+  - [Structured Data (JSON, YAML, TOML)](MODULES/STRUCTURED_DATA.md)
 
 # Backmatter
 - [Teacher's Guides](backmatter/Teachers-Guides.md)
