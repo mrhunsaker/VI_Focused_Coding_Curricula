@@ -46,34 +46,14 @@ Every action must be possible from the keyboard. Prompts must name the expected 
 ## Lesson 11.2: Data Model and Storage
 
 ### Reading References
-<<<<<<< HEAD
-=======
-
->>>>>>> 2067a20 (curriculum clearning and updates)
 - Python source counterpart: Unit 11, Lesson 11.2.
 - Node.js documentation: fs/promises and JSON.
 
 ### Learning Objectives
-<<<<<<< HEAD
-=======
-
->>>>>>> 2067a20 (curriculum clearning and updates)
 - Define a record model.
 - Persist records to JSON.
 - Handle missing, malformed, and inaccessible files.
 
-<<<<<<< HEAD
-### Canonical Record Fields
-Use these shared fields for the generic personal data manager: `id`, `title`, `description`, `category`, `created_at`, and `updated_at`. A selected domain may add fields, but must not remove the shared fields.
-
-### Worked Example
-A record contains id, title, description, category, created_at, and updated_at. The id is unique; timestamps use ISO 8601 strings.
-
-### Expected Behavior or Output
-After saving and reloading, all record fields and values are preserved. Missing files can initialize an empty collection; malformed JSON produces a clear error.
-
-### Common Mistakes
-=======
 ### Concept Explanation
 
 The data model defines the fields and invariants of each record. JSON persistence stores the records between runs; load and save operations must handle file and parse failures.
@@ -92,45 +72,30 @@ After saving and reloading, all record fields and values are preserved. Missing 
 
 ### Common Mistakes
 
->>>>>>> 2067a20 (curriculum clearning and updates)
 - Treating parsed JSON as trusted data without validation.
 - Reusing record identifiers.
 - Overwriting valid data after a parse failure without informing the user.
 
 ### Activities
-<<<<<<< HEAD
-=======
-
->>>>>>> 2067a20 (curriculum clearning and updates)
 1. Define the record shape and document each field.
 2. Create a sample JSON file containing at least three records.
 3. Implement load and save functions.
 4. Test missing files, malformed JSON, and an empty data set.
 
 ### Accessibility Practice
-<<<<<<< HEAD
-Use human-readable JSON during development. Provide explicit save/load confirmations and specific error messages.
-
-### Skills Checklist
-=======
-
 Use human-readable JSON during development. Provide explicit save/load confirmations and specific error messages.
 
 ### Skills Checklist
 
->>>>>>> 2067a20 (curriculum clearning and updates)
 - [ ] I can define the record schema.
 - [ ] I can load and save JSON.
 - [ ] I can preserve timestamps and identifiers.
 - [ ] I can handle missing and malformed data.
 
-<<<<<<< HEAD
 ### Concept Explanation
 The data model defines the fields and invariants of each record. JSON persistence stores the records between runs; load and save operations must handle file and parse failures.
 
 
-=======
->>>>>>> 2067a20 (curriculum clearning and updates)
 ## Lesson 11.3: Displaying Items
 
 ### Reading References
