@@ -259,7 +259,6 @@ These rules are the shared text-adventure specification for every language track
 
 ```python
 rooms = {
-<<<<<<< HEAD
     "start_room": {
         "description": "A dimly lit cave. A shiny key rests on the ground.",
         "exits": {"north": "tunnel"},
@@ -285,23 +284,6 @@ rooms = {
         "exits": {},
         "items": [],
     },
-=======
-    "start": {
-        "description": "A dark cave.",
-        "exits": {"north": "locked_door_room"},
-        "items": ["shiny key"]
-    },
-    "locked_door_room": {
-        "description": "A small chamber with a heavy door to the NORTH.",
-        "exits": {"south": "start", "north": "treasure_room"},
-        "items": []
-    },
-    "treasure_room": {
-        "description": "A glittering room full of treasure. You win!",
-        "exits": {"south": "locked_door_room"},
-        "items": []
-    }
->>>>>>> 2067a20 (curriculum clearning and updates)
 }
 
 current_room = "start_room"
@@ -334,11 +316,7 @@ while True:
         else:
             current_room = rooms[current_room]["exits"][command]
     elif command == "quit":
-<<<<<<< HEAD
         print("You quit the adventure.")
-=======
-        print("Exiting game. Goodbye!")
->>>>>>> 2067a20 (curriculum clearning and updates)
         break
     else:
         print("Invalid command. Use a direction, 'take shiny key', 'use shiny key', or 'quit'.")
@@ -413,7 +391,6 @@ The room description never mentions the key. A separate 'You see:' line lists it
 
 ## Lesson 10.4: Developing a Command-Line Tool
 
-<<<<<<< HEAD
 ### Canonical To-Do Record and Required Operations
 
 Every task must preserve exactly these fields:
@@ -473,256 +450,6 @@ def load_tasks(path):
 ```
 
 Do not substitute list positions for IDs. Deleting or sorting a task must not change the identity of any remaining task. Use a deterministic timestamp fixture in tests; do not call the wall clock in expected-output tests.
-=======
-### Reading References
-- Matthes: Chapter 10 (Files and Exceptions), the section on storing data
-
-### Learning Objectives
-- Design an interactive menu system for a tool.
-- Use a `while` loop to maintain continuous user interaction.
-- Break down the tool's functionality into separate functions.
-- Implement file I/O to save and load data.
-
-### Concept Explanation
-
-#### Simple To-Do List Tool
-
-The task fields `id`, `title`, `description`, `done`, and `created_at` are the shared to-do record used in every language track. The menu reports status with the words "done" and "not done", never with symbols or color alone.
-
-### Worked Example
-
-```python
-import json
-from datetime import datetime
-
-TODO_FILE = 'todos.json'
-todos = []
-
-
-def load_todos():
-    global todos
-    try:
-        with open(TODO_FILE, 'r') as f:
-            todos = json.load(f)
-        print("Tasks loaded.")
-    except FileNotFoundError:
-        print("No existing tasks found.")
-        todos = []
-    except json.JSONDecodeError:
-        print("Error: todos.json is not valid JSON. Starting with an empty list.")
-        todos = []
-
-
-def save_todos():
-    with open(TODO_FILE, 'w') as f:
-        json.dump(todos, f, indent=4)
-    print("Tasks saved.")
-
-
-def next_id():
-    return max((task["id"] for task in todos), default=0) + 1
-
-
-def add_task(title, description=""):
-    if not title.strip():
-        print("A title is required.")
-        return
-    todos.append({
-        "id": next_id(),
-        "title": title.strip(),
-        "description": description.strip(),
-        "done": False,
-        "created_at": datetime.now().isoformat(timespec="seconds"),
-    })
-    print(f"Task '{title.strip()}' added.")
-
-
-def view_tasks():
-    if not todos:
-        print("No tasks in your list.")
-        return
-    print("--- Your To-Do List ---")
-    for task in todos:
-        status = "done" if task["done"] else "not done"
-        print(f"{task['id']}. {task['title']} ({status})")
-    print("-----------------------")
-
-
-def mark_completed(task_id_text):
-    try:
-        task_id = int(task_id_text)
-    except ValueError:
-        print("Please enter a whole number.")
-        return
-    for task in todos:
-        if task["id"] == task_id:
-            task["done"] = True
-            print(f"Task '{task['title']}' marked as done.")
-            return
-    print("No task has that number.")
-
-
-def main_menu():
-    print("\n--- To-Do List Menu ---")
-    print("1. Add Task")
-    print("2. View Tasks")
-    print("3. Mark Task Done")
-    print("4. Save Tasks")
-    print("5. Load Tasks")
-    print("6. Quit")
-    print("-----------------------")
-
-
-load_todos()
-
-while True:
-    main_menu()
-    choice = input("Enter your choice (1-6): ")
-
-    if choice == '1':
-        title = input("Enter task title: ")
-        description = input("Enter task description: ")
-        add_task(title, description)
-    elif choice == '2':
-        view_tasks()
-    elif choice == '3':
-        view_tasks()
-        task_num = input("Enter task number to mark done: ")
-        mark_completed(task_num)
-    elif choice == '4':
-        save_todos()
-    elif choice == '5':
-        load_todos()
-    elif choice == '6':
-        save_todos()
-        print("Goodbye!")
-        break
-    else:
-        print("Invalid choice. Please try again.")
-```
-
-### Expected Behavior or Output
-
-Sample session (typed input shown after each prompt; the input sequence is 1, a task, 1, a second task, 2, 3, 2, 3, 7, 2, 6):
-```
-No existing tasks found.
-
---- To-Do List Menu ---
-1. Add Task
-2. View Tasks
-3. Mark Task Done
-4. Save Tasks
-5. Load Tasks
-6. Quit
------------------------
-Enter your choice (1-6): 1
-Enter task title: Study programming
-Enter task description: Finish Unit 10
-Task 'Study programming' added.
-
---- To-Do List Menu ---
-1. Add Task
-2. View Tasks
-3. Mark Task Done
-4. Save Tasks
-5. Load Tasks
-6. Quit
------------------------
-Enter your choice (1-6): 1
-Enter task title: Review scores
-Enter task description: Check the four scores
-Task 'Review scores' added.
-
---- To-Do List Menu ---
-1. Add Task
-2. View Tasks
-3. Mark Task Done
-4. Save Tasks
-5. Load Tasks
-6. Quit
------------------------
-Enter your choice (1-6): 2
---- Your To-Do List ---
-1. Study programming (not done)
-2. Review scores (not done)
------------------------
-
---- To-Do List Menu ---
-1. Add Task
-2. View Tasks
-3. Mark Task Done
-4. Save Tasks
-5. Load Tasks
-6. Quit
------------------------
-Enter your choice (1-6): 3
---- Your To-Do List ---
-1. Study programming (not done)
-2. Review scores (not done)
------------------------
-Enter task number to mark done: 2
-Task 'Review scores' marked as done.
-
---- To-Do List Menu ---
-1. Add Task
-2. View Tasks
-3. Mark Task Done
-4. Save Tasks
-5. Load Tasks
-6. Quit
------------------------
-Enter your choice (1-6): 3
---- Your To-Do List ---
-1. Study programming (not done)
-2. Review scores (done)
------------------------
-Enter task number to mark done: 7
-No task has that number.
-
---- To-Do List Menu ---
-1. Add Task
-2. View Tasks
-3. Mark Task Done
-4. Save Tasks
-5. Load Tasks
-6. Quit
------------------------
-Enter your choice (1-6): 2
---- Your To-Do List ---
-1. Study programming (not done)
-2. Review scores (done)
------------------------
-
---- To-Do List Menu ---
-1. Add Task
-2. View Tasks
-3. Mark Task Done
-4. Save Tasks
-5. Load Tasks
-6. Quit
------------------------
-Enter your choice (1-6): 6
-Tasks saved.
-Goodbye!
-```
-
-### Common Mistakes
-
-1. Saving the file but never loading it, so tasks disappear between runs.
-2. Reusing a deleted task's id, which can confuse saved references.
-3. Letting a damaged `todos.json` crash the program instead of printing a message.
-
-### Activities
-
-1. Run the sample session, then run the program again typing `2` and `6` to see the saved tasks.
-2. Add a command to delete a task by number.
-3. Open `todos.json` and read the saved text. Edit it to remove a bracket and run the program again.
-4. Show each task's description in the view command.
-
-### Accessibility Practice
-
-Every menu is printed as numbered lines and every prompt is on its own line. The status words are `done` and `not done`, not symbols, so the list reads clearly in speech and braille.
->>>>>>> 2067a20 (curriculum clearning and updates)
 
 ### Skills Checklist
 
