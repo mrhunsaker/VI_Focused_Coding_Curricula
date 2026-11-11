@@ -413,23 +413,13 @@ When output is random, print yes or no results about properties (`All rolls betw
 ### Worked Example
 
 ```python
-<<<<<<< HEAD
 sentence = "A student studies programming. Programming develops problem-solving skills."
 words = sentence.lower().replace(".", "").split()
-=======
-text = "A student studies programming. Programming develops problem-solving skills."
-words = text.lower().replace(".", "").split()
->>>>>>> 2067a20 (curriculum clearning and updates)
 
 word_frequencies = {}
 for word in words:
     word_frequencies[word] = word_frequencies.get(word, 0) + 1
 
-<<<<<<< HEAD
-print("Words:", len(words))
-print("Programming:", word_frequencies["programming"])
-print("Problem-solving:", word_frequencies["problem-solving"])
-=======
 print("Word count:", len(words))
 print("Word Frequencies:")
 for word, count in word_frequencies.items():
@@ -442,7 +432,6 @@ for ch in text.lower():
 
 top_three = sorted(letter_counts.items(), key=lambda pair: (-pair[1], pair[0]))[:3]
 print("Most common letters:", top_three)
->>>>>>> 2067a20 (curriculum clearning and updates)
 ```
 
 ### Expected Behavior or Output
@@ -534,7 +523,6 @@ except FileNotFoundError:
     print(f"Error: The file {filename} was not found.")
 ```
 
-<<<<<<< HEAD
 ### Reading the Canonical CSV Schema
 
 Use the standard `csv` module rather than splitting rows on commas. A quoted field may itself contain a comma.
@@ -562,19 +550,6 @@ Expected output:
 1002 Riley Chen 91 true
 1003 Sam Patel 76 false
 1004 Morgan Diaz 88 true
-=======
-### Expected Behavior or Output
-
-Expected output:
-```
-Columns: ['student_id', 'first_name', 'last_name', 'score', 'active']
-1: Avery Student scored 91
-2: Jordan Lee scored 82
-3: Casey Smith scored 76
-Students: 3
-Average score: 83.00
-Active students: 2
->>>>>>> 2067a20 (curriculum clearning and updates)
 ```
 
 ### Common Mistakes
@@ -600,7 +575,6 @@ Print one student per line with the same wording each time, so the screen reader
 - [ ] I can read a CSV file line by line.
 - [ ] I can split a line of CSV data into individual values.
 
-<<<<<<< HEAD
 ## Canonical Shared Dataset — Text, CSV, Tasks, and Tests
 
 ### Text analysis
@@ -695,6 +669,3 @@ Expected output:
 ```
 
 Tests should assert deterministic results for the shared tip calculator, grade classifier, inventory total, and text sample. Random-number lessons must seed the generator when an exact result is asserted.
-=======
----
->>>>>>> 2067a20 (curriculum clearning and updates)
