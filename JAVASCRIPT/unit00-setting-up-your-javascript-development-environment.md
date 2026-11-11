@@ -9,31 +9,17 @@
 Node.js 26 LTS lets you run JavaScript on your computer (outside a browser) using the terminal. Install the current LTS line, not an obsolete tutorial version or an experimental prerelease.
 
 ### Reading References
-<<<<<<< HEAD
-- Official Node.js downloads and installation documentation.
-
-### Learning Objectives
-=======
-
 - Official Node.js downloads and installation documentation.
 
 ### Learning Objectives
 
->>>>>>> 2067a20 (curriculum clearning and updates)
 - Install a supported Node.js LTS runtime and npm.
 - Verify the runtime from a terminal.
 
 ### Concept Explanation
-<<<<<<< HEAD
-Node.js is the JavaScript runtime used for this course. npm is the package manager distributed with Node.js. The terminal must be able to locate both commands through PATH.
-
-### Installing Node.js
-=======
-
 Node.js is the JavaScript runtime used for this course. npm is the package manager distributed with Node.js. The terminal must be able to locate both commands through PATH.
 
 #### Installing Node.js
->>>>>>> 2067a20 (curriculum clearning and updates)
 
 Download **Node.js 26 LTS** from [https://nodejs.org/](https://nodejs.org/).
 
@@ -146,32 +132,17 @@ For a new project, create a package manifest with npm init -y. Choose one module
 3. In VS Code, enable Screen Reader Mode: `Ctrl + Shift + P` → "Toggle Screen Reader Optimized". In Theia, enable its corresponding screen-reader setting and verify editor, terminal, diagnostics, and extension announcements.
 
 ### Reading References
-<<<<<<< HEAD
-=======
-
->>>>>>> 2067a20 (curriculum clearning and updates)
 - Visual Studio Code accessibility documentation.
 - Theia IDE documentation and extension marketplace guidance.
 
 ### Learning Objectives
-<<<<<<< HEAD
-=======
-
->>>>>>> 2067a20 (curriculum clearning and updates)
 - Configure an editor for JavaScript development.
 - Navigate files, editor, terminal, and diagnostics by keyboard.
 
 ### Concept Explanation
-<<<<<<< HEAD
-An editor provides source navigation and language tooling; it does not replace the Node.js runtime. Keyboard shortcuts and extension availability can differ between VS Code and Theia.
-
-### VS Code Shortcuts for JavaScript (Theia keybindings may differ)
-=======
-
 An editor provides source navigation and language tooling; it does not replace the Node.js runtime. Keyboard shortcuts and extension availability can differ between VS Code and Theia.
 
 #### VS Code Shortcuts for JavaScript (Theia keybindings may differ)
->>>>>>> 2067a20 (curriculum clearning and updates)
 
 | Action | Shortcut |
 |--------|----------|
@@ -207,15 +178,6 @@ Experienced coders may prefer JetBrains IDEs, such as WebStorm. They are advance
 ---
 
 ### Worked Example
-<<<<<<< HEAD
-Use the keyboard to open a project folder, create `hello.js`, move focus to the integrated terminal, and run `node hello.js`.
-
-### Expected Behavior or Output
-The editor can open a JavaScript project, announce file names and diagnostics, and run the same file from its integrated terminal. The exact keyboard shortcuts may differ between VS Code and Theia.
-
-### Common Mistakes
-=======
-
 Use the keyboard to open a project folder, create `hello.js`, move focus to the integrated terminal, and run `node hello.js`.
 
 ### Expected Behavior or Output
@@ -224,33 +186,21 @@ The editor can open a JavaScript project, announce file names and diagnostics, a
 
 ### Common Mistakes
 
->>>>>>> 2067a20 (curriculum clearning and updates)
 - Assuming VS Code and Theia have identical extensions or keyboard shortcuts.
 - Installing extensions without checking compatibility with the chosen editor.
 - Relying on a mouse-only run button instead of terminal execution.
 
 ### Activities
-<<<<<<< HEAD
-=======
-
->>>>>>> 2067a20 (curriculum clearning and updates)
 1. Open the Command Palette using the keyboard.
 2. Install or verify JavaScript language support and Node.js tooling.
 3. Navigate between editor, terminal, and file explorer without a mouse.
 4. Confirm that the editor announces syntax errors and file names accessibly.
 
 ### Accessibility Practice
-<<<<<<< HEAD
-Test the learner's actual screen reader and braille display configuration. Do not claim universal accessibility; document editor, operating system, and access-technology versions used.
-
-### Skills Checklist
-=======
-
 Test the learner's actual screen reader and braille display configuration. Do not claim universal accessibility; document editor, operating system, and access-technology versions used.
 
 ### Skills Checklist
 
->>>>>>> 2067a20 (curriculum clearning and updates)
 - [ ] I can open and navigate a JavaScript workspace.
 - [ ] I can use the keyboard to move between editor and terminal.
 - [ ] I can locate diagnostics and read their messages.
@@ -259,32 +209,17 @@ Test the learner's actual screen reader and braille display configuration. Do no
 ## Lesson 0.3: Your First JavaScript File
 
 ### Reading References
-<<<<<<< HEAD
-=======
-
->>>>>>> 2067a20 (curriculum clearning and updates)
 - MDN: JavaScript first steps.
 - Node.js: Running JavaScript files.
 
 ### Learning Objectives
-<<<<<<< HEAD
-=======
-
->>>>>>> 2067a20 (curriculum clearning and updates)
 - Create and save a JavaScript source file.
 - Run the file and distinguish script execution from the REPL.
 
 ### Concept Explanation
-<<<<<<< HEAD
-A source file stores a repeatable program. The Node.js REPL evaluates individual expressions interactively; running a file executes its statements in sequence.
-
-### Hello World
-=======
-
 A source file stores a repeatable program. The Node.js REPL evaluates individual expressions interactively; running a file executes its statements in sequence.
 
 #### Hello World
->>>>>>> 2067a20 (curriculum clearning and updates)
 
 Create `hello.js`:
 ```javascript
@@ -366,7 +301,6 @@ Ensure the file name, extension, and terminal output are announced in sequence. 
 
 ---
 
-<<<<<<< HEAD
 ### Expected Behavior or Output
 Running the saved file prints the exact greeting text in the terminal, in the order written in the file.
 
@@ -392,8 +326,6 @@ Run the saved file with `node hello.js`.
 Ensure the file name, extension, and terminal output are announced in sequence. Keep a terminal path available even when the editor provides a run command.
 
 
-=======
->>>>>>> 2067a20 (curriculum clearning and updates)
 ## Lesson 0.4: Node.js Projects, Terminal Execution, and Dependencies
 
 ### Reading References
