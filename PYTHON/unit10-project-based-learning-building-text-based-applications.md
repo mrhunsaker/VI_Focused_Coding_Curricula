@@ -253,7 +253,7 @@ Each turn prints a separator line, the description, and the prompt, so a whole t
 
 #### Adding Items, Inventory, and Puzzles
 
-These rules are the shared text-adventure specification for every language track: three rooms (`start`, `locked_door_room`, `treasure_room`); commands `north`, `south`, `east`, `west`, `take shiny key`, `use shiny key`, and `quit`; the door between the chamber and the treasure room stays locked until the player uses the key; reaching the treasure room ends the game.
+These rules are the shared text-adventure specification for every language track: five rooms (`start_room`, `tunnel`, `clearing`, `locked_door_room`, and `treasure_room`). The player starts in `start_room`; its north exit leads to `tunnel`. From `tunnel`, south returns to `start_room` and east leads to `clearing`. From `clearing`, west returns to `tunnel` and north leads to `locked_door_room`. From `locked_door_room`, south returns to `clearing`; north leads to `treasure_room` only after the player has taken the shiny key from `start_room` and used it in `locked_door_room`. The supported commands are `north`, `south`, `east`, `west`, `take shiny key`, `use shiny key`, and `quit`. Reaching `treasure_room` ends the game.
 
 ### Worked Example
 

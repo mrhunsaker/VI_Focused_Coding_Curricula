@@ -190,7 +190,7 @@ Confirm each pickup by item name and state whether the puzzle is locked or open.
 ### Skills Checklist
 - [ ] I can transfer an item into inventory.
 - [ ] I can prevent duplicate pickup.
-- [ ] I can implement the magic-key puzzle.
+- [ ] I can implement the shiny-key puzzle: move the key from `start_room` to inventory, require its use in `locked_door_room`, and unlock the north exit to `treasure_room`.
 
 ---
 
