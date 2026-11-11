@@ -64,184 +64,246 @@ Navigate by line, word, and character; identify delimiters and nesting verbally;
 
 ---
 
-## Lesson 10.2 Adventure Game: Rooms and Movement
+## Lesson 10.2: Text Adventure, Part 1: Five Rooms and Movement
 
 ### Reading References
-- Lua 5.4 Reference Manual: https://www.lua.org/manual/5.4/
-- Programming in Lua: https://www.lua.org/pil/
-- Corresponding Python lesson in the canonical course map.
+- [Lua 5.4 Reference Manual](https://www.lua.org/manual/5.4/)
+- [Programming in Lua](https://www.lua.org/pil/)
+- Canonical shared project specification: Python Unit 10, Lesson 10.3
 
 ### Learning Objectives
-- Explain the concept using Lua terminology.
-- Trace the worked example and predict its behavior.
-- Modify and test the example while preserving the shared data contract.
+- Represent the five canonical rooms and their exits with Lua tables.
+- Move through valid exits without changing location after an invalid command.
+- Explain why the north exit from the locked-door room is not available yet.
 
 ### Concept Explanation
 
-Represent each room by a record containing description and exits. Reject movement when an exit is absent.
+The shared adventure has five rooms: start_room, tunnel, clearing, locked_door_room, and treasure_room. The unconditional connections are start north to tunnel; tunnel south to start and east to clearing; clearing west to tunnel and north to the locked-door room; and locked-door room south to clearing. The north exit to the treasure room is conditional and is added in Part 2 only after the shiny-key puzzle is solved.
+
+Each room is a Lua table with a description and an exits table. A missing key lookup returns nil, so invalid movement can be rejected without changing the current room.
 
 ### Worked Example
 
 ```lua
 local rooms = {
-  start_room = {description = "Cave", exits = {north = "tunnel"}},
-  tunnel = {description = "Tunnel", exits = {south = "start_room", east = "clearing"}},
-  clearing = {description = "Clearing", exits = {west = "tunnel", north = "locked_door_room"}},
-  locked_door_room = {description = "Antechamber", exits = {south = "clearing", north = "treasure_room"}},
-  treasure_room = {description = "Treasure", exits = {}}
+  start_room = {
+    description = "A dimly lit cave. A narrow passage leads north.",
+    exits = {north = "tunnel"}
+  },
+  tunnel = {
+    description = "A damp tunnel. Passages lead south and east.",
+    exits = {south = "start_room", east = "clearing"}
+  },
+  clearing = {
+    description = "A quiet clearing. An antechamber lies to the north.",
+    exits = {west = "tunnel", north = "locked_door_room"}
+  },
+  locked_door_room = {
+    description = "A chamber with a heavy door to the north.",
+    exits = {south = "clearing"}
+  },
+  treasure_room = {
+    description = "You found the treasure. You win!",
+    exits = {}
+  }
 }
-local current = "start_room"
-local command = "north"
-current = rooms[current].exits[command] or current
-print(current, rooms[current].description)
+
+local current_room = "start_room"
+while true do
+  local room = rooms[current_room]
+  print("---")
+  print(room.description)
+  print("What do you want to do?")
+  local input = io.read("*l")
+  local command = (input or "quit"):match("^%s*(.-)%s*$"):lower()
+
+  if command == "quit" then
+    print("Exiting game. Goodbye!")
+    break
+  end
+
+  local destination = room.exits[command]
+  if destination then
+    current_room = destination
+  else
+    print("You cannot go that way. Enter a listed direction or quit.")
+  end
+end
 ```
 
 ### Expected Behavior or Output
 
-```text
-tunnel	Tunnel
-```
+With north, east, north, north, quit entered as separate input lines, the player visits tunnel, clearing, and locked_door_room. The second north from locked_door_room is rejected and the current room does not change. The treasure room exists in the model but cannot be reached in Part 1.
 
 ### Common Mistakes
-
-- Accepting a movement command that is not an exit from the current room.
-- Removing an item before confirming it exists in the current room.
-- Allowing the locked-door transition without checking both location and key possession.
+- Adding the treasure-room north exit before implementing the key puzzle.
+- Updating current_room before confirming that the requested exit exists.
+- Treating a missing table key as a valid destination.
+- Defining an exit whose destination is not one of the five room identifiers.
 
 ### Activities
-
-1. Trace movement from start_room to tunnel to clearing and back using only defined exits.
-2. Attempt an invalid direction and confirm that the current room does not change.
-3. Pick up the shiny key, inspect inventory, and verify it is removed from the room.
-4. Attempt the puzzle without the key and then with the key; verify the win condition.
+1. Trace north, east, north, north and record the room after each command.
+2. Try west from start_room; confirm that the location does not change.
+3. Check that every destination in every unconditional exit exists in rooms.
+4. Explain why treasure_room has no incoming exit in Part 1.
 
 ### Accessibility Practice
-Navigate by line, word, and character; identify delimiters and nesting verbally; execute from the terminal; and read the output and any error messages sequentially. Do not rely on syntax highlighting or color to understand the example.
+
+Read the separator, room description, and prompt in order. The invalid-movement response explains what happened and how to continue. Test the sequence by listening to terminal output; do not rely on a visual map.
 
 ### Skills Checklist
-- [ ] I can explain the concept in Lua terminology.
-- [ ] I can trace and predict the example's behavior.
-- [ ] I can run and modify the example from the terminal.
-- [ ] I can test a boundary or invalid case.
-- [ ] I can explain the relevant Lua-specific semantic difference.
+- [ ] I can model all five canonical rooms.
+- [ ] I can represent exits with Lua tables.
+- [ ] I can move only when an exit exists.
+- [ ] I can reject an invalid direction without changing state.
+- [ ] I can explain why the treasure room is not yet reachable.
 
 ---
 
-## Lesson 10.3 Adventure Game: Inventory and Puzzle
+## Lesson 10.3: Text Adventure, Part 2: Shiny Key and Locked Door
 
 ### Reading References
-- Lua 5.4 Reference Manual: https://www.lua.org/manual/5.4/
-- Programming in Lua: https://www.lua.org/pil/
-- Corresponding Python lesson in the canonical course map.
+- [Lua 5.4 Reference Manual](https://www.lua.org/manual/5.4/)
+- [Programming in Lua](https://www.lua.org/pil/)
+- Canonical shared project specification: Python Unit 10, Lesson 10.3
 
 ### Learning Objectives
-- Explain the concept using Lua terminology.
-- Trace the worked example and predict its behavior.
-- Modify and test the example while preserving the shared data contract.
+- Place the shiny key in start_room and transfer it to inventory exactly once.
+- Require the player to use the key while in locked_door_room.
+- Unlock the north exit to treasure_room only after the puzzle succeeds.
+- End the game when the player reaches the treasure room.
 
 ### Concept Explanation
 
-Inventory is a sequence table; room items are sequences too. A puzzle must check both player location and possession of the required item.
+Part 2 keeps the same five-room graph. The shiny key begins in start_room. The take shiny key command removes it from that room and adds it to inventory. The use shiny key command works only in locked_door_room and only when the key is in inventory. Attempting north from the locked-door room before that action prints a locked-door message and leaves the player in place. After the key is used, north leads to treasure_room.
+
+Room descriptions do not claim that an item is still present. Room items and inventory are announced on separate lines.
 
 ### Worked Example
 
 ```lua
 local rooms = {
-  start_room = {exits = {north = "tunnel"}, items = {"shiny key"}},
-  tunnel = {exits = {south = "start_room", east = "clearing"}, items = {}},
-  clearing = {exits = {west = "tunnel", north = "locked_door_room"}, items = {}},
-  locked_door_room = {exits = {south = "clearing", north = "treasure_room"}, items = {}},
-  treasure_room = {exits = {}, items = {}}
+  start_room = {
+    description = "A dimly lit cave.",
+    exits = {north = "tunnel"},
+    items = {"shiny key"}
+  },
+  tunnel = {
+    description = "A damp tunnel. Passages lead south and east.",
+    exits = {south = "start_room", east = "clearing"},
+    items = {}
+  },
+  clearing = {
+    description = "A quiet clearing. Antechamber lies to the north.",
+    exits = {west = "tunnel", north = "locked_door_room"},
+    items = {}
+  },
+  locked_door_room = {
+    description = "A chamber with a heavy door to the north.",
+    exits = {south = "clearing"},
+    items = {}
+  },
+  treasure_room = {
+    description = "You found the treasure. You win!",
+    exits = {},
+    items = {}
+  }
 }
+
 local current_room = "start_room"
 local inventory = {}
 local door_locked = true
 
-local function take_key()
-  local items = rooms[current_room].items
-  for index, item in ipairs(items) do
-    if item == "shiny key" then
-      inventory[#inventory + 1] = item
-      table.remove(items, index)
-      return true
-    end
+local function inventory_has(item_name)
+  for _, item in ipairs(inventory) do
+    if item == item_name then return true end
   end
   return false
 end
 
-local function move(direction)
-  if current_room == "locked_door_room" and direction == "north" and door_locked then
-    print("The door is locked.")
-    return
+while true do
+  local room = rooms[current_room]
+  print()
+  print(room.description)
+  if current_room == "treasure_room" then break end
+  if #room.items > 0 then
+    print("You see: " .. table.concat(room.items, ", "))
   end
-  local destination = rooms[current_room].exits[direction]
-  if destination then
-    current_room = destination
-    print("Current room:", current_room)
-  else
-    print("You cannot go that way.")
-  end
-end
+  print("Your inventory: " .. (#inventory == 0 and "empty" or table.concat(inventory, ", ")))
+  print("What do you want to do?")
 
-local function use_key()
-  if current_room == "locked_door_room" then
-    for _, item in ipairs(inventory) do
+  local input = io.read("*l")
+  local command = (input or "quit"):match("^%s*(.-)%s*$"):lower()
+
+  if command == "quit" then
+    print("You quit the adventure.")
+    break
+  elseif command == "take shiny key" then
+    local found_index
+    for index, item in ipairs(room.items) do
       if item == "shiny key" then
-        door_locked = false
-        print("Door unlocked:", not door_locked)
-        return true
+        found_index = index
+        break
       end
     end
+    if found_index then
+      table.remove(room.items, found_index)
+      inventory[#inventory + 1] = "shiny key"
+      print("You picked up the shiny key.")
+    else
+      print("There is no shiny key here to take.")
+    end
+  elseif command == "use shiny key" then
+    if current_room ~= "locked_door_room" then
+      print("You must be at the locked door to use the key.")
+    elseif not inventory_has("shiny key") then
+      print("You do not have the shiny key.")
+    else
+      door_locked = false
+      rooms.locked_door_room.exits.north = "treasure_room"
+      print("You unlocked the door!")
+    end
+  elseif current_room == "locked_door_room" and command == "north" and door_locked then
+    print("The door is locked! You need to use the shiny key here.")
+  elseif room.exits[command] then
+    current_room = room.exits[command]
+  else
+    print("Invalid command. Enter north, south, east, west, take shiny key, use shiny key, or quit.")
   end
-  print("The key cannot be used here.")
-  return false
 end
-
-print("Picked up key:", take_key())
-move("north")
-move("east")
-move("north")
-move("north")
-use_key()
-move("north")
-print("You win:", current_room == "treasure_room")
 ```
 
 ### Expected Behavior or Output
 
-```text
-Picked up key:	true
-Current room:	tunnel
-Current room:	clearing
-Current room:	locked_door_room
-The door is locked.
-Door unlocked:	true
-Current room:	treasure_room
-You win:	true
-```
+Use this sequence to verify the puzzle: north, east, north, north, south, west, south, take shiny key, north, east, north, use shiny key, north.
+
+The first north attempt from locked_door_room must be rejected. Taking the key removes it from start_room and adds it to inventory. Using it outside locked_door_room must be rejected. Using it there prints You unlocked the door!; the next north reaches treasure_room and prints You found the treasure. You win!. End-of-file is treated as quit.
 
 ### Common Mistakes
-
-- Treating a Lua table map as if it had a guaranteed iteration order.
-- Confusing a missing key (nil) with a key whose value is false.
-- Using the sequence length operator to count named inventory keys.
+- Leaving the shiny key in the room after adding it to inventory.
+- Unlocking the door outside locked_door_room.
+- Unlocking the door without checking inventory.
+- Allowing north movement before door_locked becomes false.
+- Describing the key as still on the floor after it has been collected.
 
 ### Activities
-
-1. Represent Notebook, Pencil, and Folder with name, quantity, and unit_price fields.
-2. Calculate each line value and verify the shared inventory total of $17.50.
-3. Add a missing-item lookup and print a clear message when the key is absent.
-4. Sort a separate list of item names before displaying map values in deterministic order.
+1. Run the full sequence and record room, room items, inventory, and door state after every command.
+2. Try take shiny key twice; the second attempt must not duplicate the item.
+3. Try use shiny key in start_room and clearing; both attempts must be rejected.
+4. Try north from locked_door_room before and after unlocking.
+5. Add a look command that announces room, visible items, inventory, and exits in a consistent order.
 
 ### Accessibility Practice
-Navigate by line, word, and character; identify delimiters and nesting verbally; execute from the terminal; and read the output and any error messages sequentially. Do not rely on syntax highlighting or color to understand the example.
+
+Announce room description, visible items, inventory, and prompt as separate text lines. Every failed action explains why it failed. Listen to the full puzzle sequence and verify that key location and door state are unambiguous.
 
 ### Skills Checklist
-- [ ] I can explain the concept in Lua terminology.
-- [ ] I can trace and predict the example's behavior.
-- [ ] I can run and modify the example from the terminal.
-- [ ] I can test a boundary or invalid case.
-- [ ] I can explain the relevant Lua-specific semantic difference.
+- [ ] I can model the five canonical rooms.
+- [ ] I can transfer the shiny key from a room to inventory.
+- [ ] I can prevent duplicate pickup.
+- [ ] I can require key use in the locked-door room.
+- [ ] I can block and unlock the north exit.
+- [ ] I can end the game when the treasure room is reached.
 
 ---
 
