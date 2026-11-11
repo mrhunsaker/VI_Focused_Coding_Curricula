@@ -219,6 +219,5 @@ Say names with their capital letters aloud (`favoriteSubject`), and print each v
 - [ ] I can explain type inference.
 - [ ] I can check a value's type name.
 - [ ] I can explain why `val` is preferred.
->>>>>>> 2067a20 (curriculum clearning and updates)
 
 ---
