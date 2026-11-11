@@ -255,7 +255,6 @@ student_profile = {
     "name": "Avery",
     "age": 16,
     "height_m": 1.72,
-<<<<<<< HEAD
     "favorite_subject": "Computer Science",
 }
 
@@ -267,22 +266,13 @@ print(student_profile["favorite_subject"])
 student_profile["temporary_note"] = "Dictionary example"
 del student_profile["temporary_note"]
 print(sorted(student_profile))
-=======
-    "favorite_subject": "Computer Science"
-}
-
-print(student_profile["name"])            # Avery
-student_profile["age"] = 17               # Modify existing key
-student_profile["grade_level"] = 11       # Add new key
-del student_profile["height_m"]           # Remove key
-print(student_profile)
->>>>>>> 2067a20 (curriculum clearning and updates)
 ```
 
 Expected output:
 ```
 Avery
-{'name': 'Avery', 'age': 17, 'favorite_subject': 'Computer Science', 'grade_level': 11}
+Computer Science
+['age', 'favorite_subject', 'height_m', 'name']
 ```
 
 ### Worked Example
@@ -367,16 +357,6 @@ inventory = {
 for item_name in inventory:
     print(item_name)
 
-<<<<<<< HEAD
-# Loop through quantities only
-for item in inventory.values():
-    print(item["quantity"])
-
-# Loop through key-value pairs
-for item_name, item in inventory.items():
-    line_total = item["quantity"] * item["unit_price"]
-    print(f"{item_name}: {item['quantity']} in stock; value $" + f"{line_total:.2f}")
-=======
 # Loop through values only
 for details in inventory.values():
     print(details["quantity"])
@@ -388,7 +368,6 @@ for item_name, details in inventory.items():
     print(f"{item_name}: {details['quantity']} in stock, value {line_value:.2f}")
     total_value += line_value
 print(f"Total inventory value: {total_value:.2f}")
->>>>>>> 2067a20 (curriculum clearning and updates)
 ```
 
 ### Expected Behavior or Output
