@@ -16,10 +16,18 @@ This course is a Kotlin/JVM parallel track aligned to the shared 12-unit, 57-les
 
 ## Course files
 
-- [Unit 0–1: setup and foundations](unit00-01-setup-foundations.md)
-- [Unit 2–4: expressions, control flow, and collections](unit02-04-io-control-data.md)
-- [Unit 5–8: input, functions, OOP, and files](unit05-08-strings-functions-oop-files.md)
-- [Unit 9–11: testing, analysis, and projects](unit09-11-collections-projects.md)
+- [Unit 0: accessible development environment](unit00-accessible-development-environment.md)
+- [Unit 1: foundations of computing](unit01-foundations-of-computing.md)
+- [Unit 2: numeric computations](unit02-numeric-computations.md)
+- [Unit 3: control flow, decisions, and loops](unit03-control-flow-decisions-and-loops.md)
+- [Unit 4: data structures, lists, and dictionaries](unit04-data-structures-lists-and-dictionaries.md)
+- [Unit 5: user input and while loops](unit05-user-input-and-while-loops.md)
+- [Unit 6: functions](unit06-functions.md)
+- [Unit 7: classes and object-oriented programming](unit07-classes-and-object-oriented-programming.md)
+- [Unit 8: files and exceptions](unit08-files-and-exceptions.md)
+- [Unit 9: testing and data analysis](unit09-testing-and-data-analysis.md)
+- [Unit 10: project-based text applications](unit10-project-based-learning-text-based-applications.md)
+- [Unit 11: accessible personal data manager capstone](unit11-capstone-accessible-personal-data-manager.md)
 - [Complete standalone Kotlin reference lessons](lessons.md)
 - [57-topic index](INDEX.md)
 - [Teacher guide](teachers-guide.md)
