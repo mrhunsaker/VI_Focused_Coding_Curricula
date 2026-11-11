@@ -104,25 +104,23 @@ Prompts and responses are on separate lines and every response is a complete sen
 
 ---
 
-## Lesson 10.2: Text Adventure, Part 1: Rooms and Movement
+## Lesson 10.2: Text Adventure, Part 1: Five Rooms and Movement
 
 ### Reading References
 - [Data classes](https://kotlinlang.org/docs/data-classes.html)
 - [Collections overview](https://kotlinlang.org/docs/collections-overview.html)
-- Matching Python lesson: Lesson 10.2: Building a Text-Based Adventure Game (Part 1)
+- Canonical shared project specification: Python Unit 10, Lesson 10.3
 
 ### Learning Objectives
-- Represent rooms and exits with a data class and a map.
-- Move the player by command.
-- Handle impossible moves and the end of input.
+- Represent the five canonical rooms and their exits with Kotlin data.
+- Move through valid exits without changing location after an invalid command.
+- Explain why the north exit from the locked-door room is not available yet.
 
 ### Concept Explanation
 
-A room is a data class with a `description` and an `exits` map from a direction to the *name* of another room. The program remembers the player's location in one variable. A move looks up the command in the current room's exits; if it is found, the location changes, otherwise the program explains that the move is impossible.
+The shared adventure has five rooms: start_room, tunnel, clearing, locked_door_room, and treasure_room. The unconditional connections are start north to tunnel; tunnel south to start and east to clearing; clearing west to tunnel and north to the locked-door room; and locked-door room south to clearing. The north exit to the treasure room is conditional and is added in Part 2 only after the shiny-key puzzle is solved.
 
-This is the same three-room layout as the Python course: a cave, a tunnel, and a clearing. Part 2 adds items and a locked door.
-
-The example is played with north, east, west, up, south, and quit. The command `up` is not an exit anywhere, so it prints the help message.
+A Room data class stores a description and a map of exits. Looking up a missing direction with square brackets returns null; it does not change the current room.
 
 ### Worked Example
 
@@ -131,34 +129,27 @@ data class Room(val description: String, val exits: Map<String, String>)
 
 fun main() {
     val rooms = mapOf(
-        "start_room" to Room(
-            "You are in a dimly lit cave. There's a narrow passage to the NORTH.",
-            mapOf("north" to "tunnel"),
-        ),
-        "tunnel" to Room(
-            "The tunnel is damp and cold. You can go SOUTH back to the cave or EAST to a clearing.",
-            mapOf("south" to "start_room", "east" to "clearing"),
-        ),
-        "clearing" to Room(
-            "You've reached a small, sunny clearing. A faint path leads WEST.",
-            mapOf("west" to "tunnel"),
-        ),
+        "start_room" to Room("A dimly lit cave. A narrow passage leads north.", mapOf("north" to "tunnel")),
+        "tunnel" to Room("A damp tunnel. Passages lead south and east.", mapOf("south" to "start_room", "east" to "clearing")),
+        "clearing" to Room("A quiet clearing. An antechamber lies to the north.", mapOf("west" to "tunnel", "north" to "locked_door_room")),
+        "locked_door_room" to Room("A chamber with a heavy door to the north.", mapOf("south" to "clearing")),
+        "treasure_room" to Room("You found the treasure. You win!", emptyMap()),
     )
 
-    var current = "start_room"
+    var currentRoom = "start_room"
     while (true) {
         println("---")
-        println(rooms.getValue(current).description)
+        println(rooms.getValue(currentRoom).description)
         println("What do you want to do?")
-        val command = (readlnOrNull() ?: "quit").lowercase()
-        val next = rooms.getValue(current).exits[command]
-        if (next != null) {
-            current = next
-        } else if (command == "quit") {
-            println("Exiting game. Goodbye!")
-            break
-        } else {
-            println("I don't understand that command or you can't go that way.")
+        val command = (readlnOrNull() ?: "quit").trim().lowercase()
+        val destination = rooms.getValue(currentRoom).exits[command]
+        when {
+            command == "quit" -> {
+                println("Exiting game. Goodbye!")
+                break
+            }
+            destination != null -> currentRoom = destination
+            else -> println("You cannot go that way. Enter a listed direction or quit.")
         }
     }
 }
@@ -166,91 +157,51 @@ fun main() {
 
 ### Expected Behavior or Output
 
-With the following lines typed as standard input (piped input is not echoed, so it does not appear in the output):
-```text
-north
-east
-west
-up
-south
-quit
-```
-
-the program prints:
-```text
----
-You are in a dimly lit cave. There's a narrow passage to the NORTH.
-What do you want to do?
----
-The tunnel is damp and cold. You can go SOUTH back to the cave or EAST to a clearing.
-What do you want to do?
----
-You've reached a small, sunny clearing. A faint path leads WEST.
-What do you want to do?
----
-The tunnel is damp and cold. You can go SOUTH back to the cave or EAST to a clearing.
-What do you want to do?
-I don't understand that command or you can't go that way.
----
-The tunnel is damp and cold. You can go SOUTH back to the cave or EAST to a clearing.
-What do you want to do?
----
-You are in a dimly lit cave. There's a narrow passage to the NORTH.
-What do you want to do?
-Exiting game. Goodbye!
-```
-
-With no standard input at all, the program ends cleanly and prints:
-```text
----
-You are in a dimly lit cave. There's a narrow passage to the NORTH.
-What do you want to do?
-Exiting game. Goodbye!
-```
+With north, east, north, north, quit entered as separate input lines, the player visits tunnel, clearing, and locked_door_room. The second north from locked_door_room is rejected and the current room does not change. The treasure room exists in the model but cannot be reached in Part 1.
 
 ### Common Mistakes
-1. Looking up a direction with `getValue`, which throws if the key is missing. Use `[]` for a nullable result.
-2. Forgetting to treat the end of input as `quit`, so the program loops forever when input is piped in.
-3. Misspelling a room name in `exits`, so a move leads to a room that does not exist.
+1. Adding the treasure-room north exit before implementing the key puzzle.
+2. Updating currentRoom before confirming that the requested exit exists.
+3. Using getValue on an exit map when the direction may be absent.
+4. Defining an exit whose destination is not one of the five room identifiers.
 
 ### Activities
-1. Trace the six commands by hand and write the room after each one.
-2. Add a fourth room reached from the clearing and test it.
-3. Add the aliases `n`, `s`, `e`, and `w`.
-4. Write a loop that checks that every exit names a real room.
+1. Trace north, east, north, north and record the room after each command.
+2. Try west from start_room; confirm that the location does not change.
+3. Check that every destination in every unconditional exit exists in rooms.
+4. Explain why treasure_room has no incoming exit in Part 1.
 
 ### Accessibility Practice
 
-Each turn prints a separator line, the description, and the prompt, so a whole turn can be read in order. Listen to one turn from start to finish to confirm that a player could follow it without seeing the screen.
+Read the separator, room description, and prompt in order. The invalid-movement response explains what happened and how to continue. Test the sequence by listening to terminal output; do not rely on a visual map.
 
 ### Skills Checklist
-- [ ] I can represent rooms with a data class.
-- [ ] I can move the player by command.
-- [ ] I can handle an impossible move.
-- [ ] I treat end of input as quit.
-- [ ] I can trace a game by hand.
+- [ ] I can model all five canonical rooms.
+- [ ] I can represent exits with a map.
+- [ ] I can move only when an exit exists.
+- [ ] I can reject an invalid direction without changing state.
+- [ ] I can explain why the treasure room is not yet reachable.
 
 ---
 
-## Lesson 10.3: Text Adventure, Part 2: Items and a Locked Door
+## Lesson 10.3: Text Adventure, Part 2: Shiny Key and Locked Door
 
 ### Reading References
 - [Collections overview](https://kotlinlang.org/docs/collections-overview.html)
 - [Control flow: when](https://kotlinlang.org/docs/control-flow.html#when-expression)
-- Matching Python lesson: Lesson 10.3: Building a Text-Based Adventure Game (Part 2)
+- Canonical shared project specification: Python Unit 10, Lesson 10.3
 
 ### Learning Objectives
-- Keep items in rooms and in an inventory.
-- Implement take and use commands.
-- Block and then allow a move through a locked door.
+- Place the shiny key in start_room and transfer it to inventory exactly once.
+- Require the player to use the key while in locked_door_room.
+- Unlock the north exit to treasure_room only after the puzzle succeeds.
+- End the game when the player reaches the treasure room.
 
 ### Concept Explanation
 
-Part 2 adds *state*: items in rooms, an inventory, and a door that is locked until the player uses the key. This is the shared specification used by every language track: three rooms (`start`, `locked_door_room`, `treasure_room`); the commands `north`, `south`, `east`, `west`, `take shiny key`, `use shiny key`, and `quit`; the door between the chamber and the treasure room stays locked until the key is used there; reaching the treasure room ends the game.
+Part 2 keeps the same five-room graph. The shiny key begins in start_room. The take shiny key command removes it from that room and adds it to inventory. The use shiny key command works only in locked_door_room and only when the key is in inventory. Attempting north from the locked-door room before that action prints a locked-door message and leaves the player in place. After the key is used, north leads to treasure_room.
 
-Items are a mutable list of names inside each room. Taking an item removes it from the room's list and adds it to the inventory. The locked door is a Boolean variable, `doorLocked`. A move through the door checks it first.
-
-The example is played with: north (into the chamber), north (the locked door refuses), south, take shiny key, north, use shiny key, north (the treasure room).
+Room descriptions do not claim that an item is still present. Room items and inventory are announced on separate lines.
 
 ### Worked Example
 
@@ -263,50 +214,49 @@ class Room(
 
 fun main() {
     val rooms = mapOf(
-        "start" to Room("A dark cave.", mapOf("north" to "locked_door_room"), mutableListOf("shiny key")),
-        "locked_door_room" to Room(
-            "A small chamber with a heavy door to the NORTH.",
-            mapOf("south" to "start", "north" to "treasure_room"),
-        ),
-        "treasure_room" to Room("A glittering room full of treasure. You win!", mapOf("south" to "locked_door_room")),
+        "start_room" to Room("A dimly lit cave.", mapOf("north" to "tunnel"), mutableListOf("shiny key")),
+        "tunnel" to Room("A damp tunnel. Passages lead south and east.", mapOf("south" to "start_room", "east" to "clearing")),
+        "clearing" to Room("A quiet clearing. An antechamber lies to the north.", mapOf("west" to "tunnel", "north" to "locked_door_room")),
+        "locked_door_room" to Room("A chamber with a heavy door to the north.", mapOf("south" to "clearing", "north" to "treasure_room")),
+        "treasure_room" to Room("You found the treasure. You win!", emptyMap()),
     )
-
-    var current = "start"
+    var currentRoom = "start_room"
     val inventory = mutableListOf<String>()
     var doorLocked = true
 
     while (true) {
-        val room = rooms.getValue(current)
+        val room = rooms.getValue(currentRoom)
         println()
         println(room.description)
-        if (current == "treasure_room") break
-        if (room.items.isNotEmpty()) println("You see: ${room.items.joinToString(", ")}")
-        println("Your inventory: ${if (inventory.isEmpty()) "empty" else inventory.joinToString(", ")}")
+        if (currentRoom == "treasure_room") break
+        if (room.items.isNotEmpty()) println("You see: " + room.items.joinToString(", "))
+        println("Your inventory: " + if (inventory.isEmpty()) "empty" else inventory.joinToString(", "))
         println("What do you want to do?")
+        val command = (readlnOrNull() ?: "quit").trim().lowercase()
 
-        val command = (readlnOrNull() ?: "quit").lowercase()
         when {
-            command == "take shiny key" && "shiny key" in room.items -> {
-                room.items.remove("shiny key")
-                inventory.add("shiny key")
-                println("You picked up the shiny key.")
-            }
-            command == "use shiny key" && current == "locked_door_room" && "shiny key" in inventory -> {
-                doorLocked = false
-                println("You unlocked the door!")
-            }
-            command in room.exits -> {
-                if (current == "locked_door_room" && command == "north" && doorLocked) {
-                    println("The door is locked! You need a key.")
-                } else {
-                    current = room.exits.getValue(command)
-                }
-            }
             command == "quit" -> {
-                println("Exiting game. Goodbye!")
+                println("You quit the adventure.")
                 break
             }
-            else -> println("I don't understand that command.")
+            command == "take shiny key" -> {
+                if (room.items.remove("shiny key")) {
+                    inventory.add("shiny key")
+                    println("You picked up the shiny key.")
+                } else println("There is no shiny key here to take.")
+            }
+            command == "use shiny key" -> when {
+                currentRoom != "locked_door_room" -> println("You must be at the locked door to use the key.")
+                "shiny key" !in inventory -> println("You do not have the shiny key.")
+                else -> {
+                    doorLocked = false
+                    println("You unlocked the door!")
+                }
+            }
+            currentRoom == "locked_door_room" && command == "north" && doorLocked ->
+                println("The door is locked! You need to use the shiny key here.")
+            command in room.exits -> currentRoom = room.exits.getValue(command)
+            else -> println("Invalid command. Enter north, south, east, west, take shiny key, use shiny key, or quit.")
         }
     }
 }
@@ -314,87 +264,35 @@ fun main() {
 
 ### Expected Behavior or Output
 
-With the following lines typed as standard input (piped input is not echoed, so it does not appear in the output):
-```text
-north
-north
-south
-take shiny key
-north
-use shiny key
-north
-```
+Use this sequence to verify the puzzle: north, east, north, north, south, west, south, take shiny key, north, east, north, use shiny key, north.
 
-the program prints:
-```text
-
-A dark cave.
-You see: shiny key
-Your inventory: empty
-What do you want to do?
-
-A small chamber with a heavy door to the NORTH.
-Your inventory: empty
-What do you want to do?
-The door is locked! You need a key.
-
-A small chamber with a heavy door to the NORTH.
-Your inventory: empty
-What do you want to do?
-
-A dark cave.
-You see: shiny key
-Your inventory: empty
-What do you want to do?
-You picked up the shiny key.
-
-A dark cave.
-Your inventory: shiny key
-What do you want to do?
-
-A small chamber with a heavy door to the NORTH.
-Your inventory: shiny key
-What do you want to do?
-You unlocked the door!
-
-A small chamber with a heavy door to the NORTH.
-Your inventory: shiny key
-What do you want to do?
-
-A glittering room full of treasure. You win!
-```
-
-With no standard input at all, the program ends cleanly and prints:
-```text
-
-A dark cave.
-You see: shiny key
-Your inventory: empty
-What do you want to do?
-Exiting game. Goodbye!
-```
+The first north attempt from locked_door_room must be rejected. Taking the key removes it from start_room and adds it to inventory. Using it outside locked_door_room must be rejected. Using it there prints You unlocked the door!; the next north reaches treasure_room and prints You found the treasure. You win!. End-of-file is treated as quit.
 
 ### Common Mistakes
-1. Making the door's locked state part of the exits so that the "locked" message can never be reached.
-2. Defining an exit to a room that is missing from the `rooms` map, which crashes when the player arrives.
-3. Printing a fixed room description that still mentions an item after the player has taken it.
+1. Leaving the shiny key in the room after adding it to inventory.
+2. Unlocking the door outside locked_door_room.
+3. Unlocking the door without checking inventory.
+4. Allowing north movement before doorLocked becomes false.
+5. Describing the key as still on the floor after it has been collected.
 
 ### Activities
-1. Play the program with the shown commands and follow each turn on paper.
-2. Try `use shiny key` in the cave and describe what happens.
-3. Add a second item and require both to open the door.
-4. List the game's state (location, inventory, door) and say which command changes each part.
+1. Run the full sequence and record room, room items, inventory, and door state after every command.
+2. Try take shiny key twice; the second attempt must not duplicate the item.
+3. Try use shiny key in start_room and clearing; both attempts must be rejected.
+4. Try north from locked_door_room before and after unlocking.
+5. Add a look command that announces room, visible items, inventory, and exits in a consistent order.
 
 ### Accessibility Practice
 
-The room description never mentions the key. A separate 'You see:' line lists items, so the description stays true after the key is taken and the screen reader announces the current state.
+Announce room description, visible items, inventory, and prompt as separate text lines. Every failed action explains why it failed. Listen to the full puzzle sequence and verify that key location and door state are unambiguous.
 
 ### Skills Checklist
-- [ ] I can store items in rooms and an inventory.
-- [ ] I can implement take and use commands.
-- [ ] I can block and allow a move.
-- [ ] I can list the game's state.
-- [ ] I can keep descriptions true after state changes.
+- [ ] I can model the five canonical rooms.
+- [ ] I can transfer the shiny key from a room to inventory.
+- [ ] I can prevent duplicate pickup.
+- [ ] I can require key use in the locked-door room.
+- [ ] I can block and unlock the north exit.
+- [ ] I can end the game when the treasure room is reached.
 
 ---
 
