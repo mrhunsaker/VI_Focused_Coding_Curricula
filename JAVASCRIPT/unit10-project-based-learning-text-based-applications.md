@@ -74,7 +74,7 @@ A room is represented by its identifier, description, and a map of valid exits. 
 ### Worked Example
 ```javascript
 const rooms = {
-  start_room: { exits: { north: "tunnel" }, items: ["shiny key"] },
+  start_room: { exits: { north: "tunnel" }, items: [] },
   tunnel: { exits: { south: "start_room", east: "clearing" }, items: [] },
   clearing: { exits: { west: "tunnel", north: "locked_door_room" }, items: [] },
   locked_door_room: { exits: { south: "clearing" }, items: [] },
