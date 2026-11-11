@@ -26,8 +26,6 @@ const auto add = [](int a, int b) { return a + b; }; assert(add(2, 3) == 5); ass
 
 **Trace:** predict the output before compiling. Identify declarations, values, control-flow decisions, and state changes in order. Then compile and compare actual output with the prediction. The lesson example is intended to be independently compilable.
 
-<<<<<<< HEAD
-=======
 ### Expected Behavior or Output
 
 Output observed when the worked example was run with empty standard input (g++ 13.3, C++20; the text of the output does not depend on the operating system):
@@ -36,7 +34,6 @@ Output observed when the worked example was run with empty standard input (g++ 1
 Function tests passed
 ```
 
->>>>>>> 2067a20 (curriculum clearning and updates)
 ### Common Mistakes
 - Do not rely solely on assert in release builds.
 - Test independent expected results.
@@ -80,8 +77,6 @@ struct Inventory { int quantity{0}; void add(int amount) { if (amount > 0) quant
 
 **Trace:** predict the output before compiling. Identify declarations, values, control-flow decisions, and state changes in order. Then compile and compare actual output with the prediction. The lesson example is intended to be independently compilable.
 
-<<<<<<< HEAD
-=======
 ### Expected Behavior or Output
 
 Output observed when the worked example was run with empty standard input (g++ 13.3, C++20; the text of the output does not depend on the operating system):
@@ -90,7 +85,6 @@ Output observed when the worked example was run with empty standard input (g++ 1
 State test passed
 ```
 
->>>>>>> 2067a20 (curriculum clearning and updates)
 ### Common Mistakes
 - Assert state after each operation.
 - Isolate setup between tests.
@@ -134,8 +128,6 @@ std::mt19937 engine(42); std::uniform_int_distribution<int> die(1, 6); for (int 
 
 **Trace:** predict the output before compiling. Identify declarations, values, control-flow decisions, and state changes in order. Then compile and compare actual output with the prediction. The lesson example is intended to be independently compilable.
 
-<<<<<<< HEAD
-=======
 ### Expected Behavior or Output
 
 Output observed when the worked example was run with empty standard input (g++ 13.3, C++20; the text of the output does not depend on the operating system):
@@ -144,7 +136,6 @@ Output observed when the worked example was run with empty standard input (g++ 1
 3 5 6 2 5
 ```
 
->>>>>>> 2067a20 (curriculum clearning and updates)
 ### Common Mistakes
 - Seed engines for reproducibility.
 - Use standard distributions rather than modulo.
@@ -187,8 +178,6 @@ const std::string sample = "A student studies programming. Programming develops 
 
 **Trace:** predict the output before compiling. Identify declarations, values, control-flow decisions, and state changes in order. Then compile and compare actual output with the prediction. The lesson example is intended to be independently compilable.
 
-<<<<<<< HEAD
-=======
 ### Expected Behavior or Output
 
 Output observed when the worked example was run with empty standard input (g++ 13.3, C++20; the text of the output does not depend on the operating system):
@@ -197,7 +186,6 @@ Output observed when the worked example was run with empty standard input (g++ 1
 Letters: 65; spaces: 7
 ```
 
->>>>>>> 2067a20 (curriculum clearning and updates)
 ### Common Mistakes
 - Pass unsigned char to cctype.
 - Distinguish bytes from Unicode characters.
@@ -240,8 +228,6 @@ std::istringstream row("001,Avery,Student,92,true"); std::string id, first_name,
 
 **Trace:** predict the output before compiling. Identify declarations, values, control-flow decisions, and state changes in order. Then compile and compare actual output with the prediction. The lesson example is intended to be independently compilable.
 
-<<<<<<< HEAD
-=======
 ### Expected Behavior or Output
 
 Output observed when the worked example was run with empty standard input (g++ 13.3, C++20; the text of the output does not depend on the operating system):
@@ -250,7 +236,6 @@ Output observed when the worked example was run with empty standard input (g++ 1
 001: Avery Student, score 92, active true
 ```
 
->>>>>>> 2067a20 (curriculum clearning and updates)
 ### Common Mistakes
 - A comma split is not a complete quoted-CSV parser.
 - Validate field count.
