@@ -23,13 +23,10 @@ Use top-down design to break an application into input, processing, storage, and
 ### Worked Example
 Design the to-do manager around the operations add task, view tasks, mark task complete, save tasks, load tasks, and quit. Define the task fields as `id`, `title`, `description`, `done`, and `created_at`. Specify the behavior for an empty list, an invalid task number, and a missing data file.
 
-<<<<<<< HEAD
-=======
 ### Expected Behavior or Output
 
 No program is run in this lesson. The expected result is a written design: the six operations, the five task fields, and the exact messages for an empty list, an invalid task number, and a missing data file.
 
->>>>>>> 2067a20 (curriculum clearning and updates)
 ### Common Mistakes
 - Starting implementation without defining acceptance criteria and failure cases.
 - Omitting empty-list, duplicate-ID, invalid-input, and unavailable-storage behavior.
@@ -84,8 +81,6 @@ int main(void)
 ```
 The first room leads north to the tunnel; the tunnel leads east to the clearing and south back to the cave. Extend this model with a command parser and a `quit` command. `-1` means that no exit exists in that direction.
 
-<<<<<<< HEAD
-=======
 ### Expected Behavior or Output
 
 Output observed when the worked example was run (gcc 13.3, C17; the text of the output does not depend on the operating system):
@@ -94,7 +89,6 @@ Output observed when the worked example was run (gcc 13.3, C17; the text of the 
 You are in a dimly lit cave. A passage leads NORTH.
 The tunnel is damp and cold. You can go SOUTH or EAST.
 ```
->>>>>>> 2067a20 (curriculum clearning and updates)
 ### Common Mistakes
 - Using a room exit index without checking that it is valid.
 - Changing the current room before confirming the requested exit exists.
@@ -149,8 +143,6 @@ int main(void)
 ```
 This is a small state-transition demonstration, not the complete game. Extend it with the same room movement rules from Lesson 10.2, then test taking the key twice, trying to unlock without the key, and using the key in the wrong room.
 
-<<<<<<< HEAD
-=======
 ### Expected Behavior or Output
 
 With these lines typed as standard input:
@@ -166,7 +158,6 @@ Command (take key): You picked up the shiny key.
 The key can unlock the door.
 ```
 
->>>>>>> 2067a20 (curriculum clearning and updates)
 ### Common Mistakes
 - Allowing the key to be collected more than once.
 - Unlocking the door without checking both the inventory and the player's room.
@@ -232,8 +223,6 @@ int main(void)
 ```
 This starter implements add, view, and quit with a fixed capacity of 50 tasks. Extend it with completion and persistence, checking every input and file operation.
 
-<<<<<<< HEAD
-=======
 ### Expected Behavior or Output
 
 Output observed when the worked example was run (gcc 13.3, C17; the text of the output does not depend on the operating system):
@@ -242,7 +231,6 @@ Output observed when the worked example was run (gcc 13.3, C17; the text of the 
 1 Add task  2 View tasks  3 Quit
 Choice: 
 ```
->>>>>>> 2067a20 (curriculum clearning and updates)
 ### Common Mistakes
 - Writing beyond the fixed task array's capacity.
 - Treating the first character of a menu line as fully validated input.
@@ -297,8 +285,6 @@ int main(void)
 ```
 The program repeats until it receives a positive integer. Improve it by rejecting trailing non-whitespace characters and checking `errno` for overflow.
 
-<<<<<<< HEAD
-=======
 ### Expected Behavior or Output
 
 With these lines typed as standard input:
@@ -316,7 +302,6 @@ Enter your age as a positive whole number: Invalid age. Enter a whole number gre
 Enter your age as a positive whole number: You entered age: 16
 ```
 
->>>>>>> 2067a20 (curriculum clearning and updates)
 ### Common Mistakes
 - Using color or a symbol as the only indication of completion.
 - Displaying an error without telling the user how to correct it.
