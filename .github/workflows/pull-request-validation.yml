@@ -75,5 +75,8 @@ jobs:
       - name: Check Kotlin lesson structure and local links
         run: node scripts/check_kotlin_curriculum.mjs
 
+      - name: Check five-room adventure contract
+        run: python scripts/check_unit10_adventure_contract.py
+
       - name: Build mdBook
         run: mdbook build
