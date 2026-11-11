@@ -1,7 +1,7 @@
 # Unit 10: Project-Based Learning — Text-Based Applications
 
 ## Overview
-The projects preserve the Python track's requirements and user interaction. The text adventure uses the same three rooms, exits, torch, magic key, and movement commands. The command-line to-do manager supports add, view, complete, delete, and JSON persistence.
+The projects preserve the Python track's requirements and user interaction. The text adventure uses the shared five-room graph (`start_room`, `tunnel`, `clearing`, `locked_door_room`, and `treasure_room`) and the shiny-key puzzle. The command-line to-do manager supports add, view, complete, delete, and JSON persistence.
 
 ## Lesson 10.1: Designing Your Project
 
@@ -40,7 +40,7 @@ The learner produces pseudocode, a room/command specification, and acceptance te
 - Omitting invalid-command and boundary cases.
 
 ### Activities
-1. Draw or describe the three-room map in text.
+1. Draw or describe the five-room map in text.
 2. List every valid movement command and its destination.
 3. Define the to-do manager's five menu operations.
 4. Write at least five acceptance tests before implementation.
@@ -147,20 +147,23 @@ function takeItem(room, requestedName) {
 function useKey(room, items) {
   if (room !== "locked_door_room") return "You must be at the locked door to use the key.";
   if (!items.includes("shiny key")) return "The door is locked.";
+  rooms.locked_door_room.exits.north = "treasure_room";
   return "The door unlocks; north now leads to treasure_room.";
 }
 console.log(takeItem("start_room", "shiny key"));
 console.log(inventory.join(", "));
 console.log(useKey("clearing", inventory));
 console.log(useKey("locked_door_room", inventory));
+console.log(rooms.locked_door_room.exits.north);
 ```
 
 Expected output:
 ```text
 true
-torch
-The gate is locked.
-The gate opens.
+shiny key
+You must be at the locked door to use the key.
+The door unlocks; north now leads to treasure_room.
+treasure_room
 ```
 
 ### Expected Behavior or Output
