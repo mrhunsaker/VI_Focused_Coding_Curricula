@@ -6,17 +6,25 @@ from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
 FILES = [
-    "KOTLIN/unit00-01-setup-foundations.md",
-    "KOTLIN/unit02-04-io-control-data.md",
-    "KOTLIN/unit05-08-strings-functions-oop-files.md",
-    "KOTLIN/unit09-11-collections-projects.md",
+    "KOTLIN/unit00-accessible-development-environment.md",
+    "KOTLIN/unit01-foundations-of-computing.md",
+    "KOTLIN/unit02-numeric-computations.md",
+    "KOTLIN/unit03-control-flow-decisions-and-loops.md",
+    "KOTLIN/unit04-data-structures-lists-and-dictionaries.md",
+    "KOTLIN/unit05-user-input-and-while-loops.md",
+    "KOTLIN/unit06-functions.md",
+    "KOTLIN/unit07-classes-and-object-oriented-programming.md",
+    "KOTLIN/unit08-files-and-exceptions.md",
+    "KOTLIN/unit09-testing-and-data-analysis.md",
+    "KOTLIN/unit10-project-based-learning-text-based-applications.md",
+    "KOTLIN/unit11-capstone-accessible-personal-data-manager.md",
 ]
 EXPECTED = json.loads((ROOT / "KOTLIN/examples_expected.json").read_text(encoding="utf-8"))
 FENCE = chr(96) * 3
 lessons = {}
 for relative in FILES:
     text = (ROOT / relative).read_text(encoding="utf-8")
-    matches = list(re.finditer(r"^### Lesson (\d+\.\d+): .+$", text, flags=re.M))
+    matches = list(re.finditer(r"^## Lesson (\d+\.\d+): .+$", text, flags=re.M))
     for index, match in enumerate(matches):
         end = matches[index + 1].start() if index + 1 < len(matches) else len(text)
         section = text[match.start():end]
