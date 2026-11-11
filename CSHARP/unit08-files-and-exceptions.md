@@ -26,8 +26,6 @@ foreach (string line in File.ReadLines(path)) Console.WriteLine(line);
 
 **Trace:** identify declarations, expressions, control flow, and observable output. Predict the result, run the example, and compare the actual output with the prediction.
 
-<<<<<<< HEAD
-=======
 ### Expected Behavior or Output
 
 Output observed when the worked example was run (.NET 8; the text of the output does not depend on the operating system):
@@ -37,7 +35,6 @@ First line
 Second line
 ```
 
->>>>>>> 2067a20 (curriculum clearning and updates)
 ### Common Mistakes
 - Resolving relative paths from the wrong working directory.
 - Overwriting data when append or safe replacement is required.
@@ -79,8 +76,6 @@ Console.Write(File.ReadAllText(path));
 
 **Trace:** identify declarations, expressions, control flow, and observable output. Predict the result, run the example, and compare the actual output with the prediction.
 
-<<<<<<< HEAD
-=======
 ### Expected Behavior or Output
 
 Output observed when the worked example was run (.NET 8; the text of the output does not depend on the operating system):
@@ -90,7 +85,6 @@ First note
 Second note
 ```
 
->>>>>>> 2067a20 (curriculum clearning and updates)
 ### Common Mistakes
 - Resolving relative paths from the wrong working directory.
 - Overwriting data when append or safe replacement is required.
@@ -131,8 +125,6 @@ catch (FormatException error) { Console.WriteLine($"Invalid numeric input: {erro
 
 **Trace:** identify declarations, expressions, control flow, and observable output. Predict the result, run the example, and compare the actual output with the prediction.
 
-<<<<<<< HEAD
-=======
 ### Expected Behavior or Output
 
 Output observed when the worked example was run (.NET 8; the text of the output does not depend on the operating system):
@@ -141,7 +133,6 @@ Output observed when the worked example was run (.NET 8; the text of the output 
 Invalid numeric input: The input string 'not-a-number' was not in a correct format.
 ```
 
->>>>>>> 2067a20 (curriculum clearning and updates)
 ### Common Mistakes
 - Resolving relative paths from the wrong working directory.
 - Overwriting data when append or safe replacement is required.
@@ -182,8 +173,6 @@ Console.WriteLine("Writer scope ended and the resource was disposed.");
 
 **Trace:** identify declarations, expressions, control flow, and observable output. Predict the result, run the example, and compare the actual output with the prediction.
 
-<<<<<<< HEAD
-=======
 ### Expected Behavior or Output
 
 Output observed when the worked example was run (.NET 8; the text of the output does not depend on the operating system):
@@ -194,7 +183,6 @@ Second record
 Writer scope ended and the resource was disposed.
 ```
 
->>>>>>> 2067a20 (curriculum clearning and updates)
 ### Common Mistakes
 - Resolving relative paths from the wrong working directory.
 - Overwriting data when append or safe replacement is required.
@@ -238,8 +226,6 @@ record CapstoneRecord(int Id, string Title, string Description, string Category,
 
 **Trace:** identify declarations, expressions, control flow, and observable output. Predict the result, run the example, and compare the actual output with the prediction.
 
-<<<<<<< HEAD
-=======
 ### Expected Behavior or Output
 
 Output observed when the worked example was run (.NET 8; the text of the output does not depend on the operating system):
@@ -249,7 +235,6 @@ Output observed when the worked example was run (.NET 8; the text of the output 
 Course project
 ```
 
->>>>>>> 2067a20 (curriculum clearning and updates)
 ### Common Mistakes
 - Resolving relative paths from the wrong working directory.
 - Overwriting data when append or safe replacement is required.
