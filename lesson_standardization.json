@@ -1501,6 +1501,112 @@
         "Run JSON validation, all language-specific checkers, mdBook build, and repository-wide local-link validation after source repairs.",
         "Update track statuses only from current-branch CI evidence; keep hands-on screen-reader and braille verification explicitly pending."
       ]
+    },
+    "post_merge_revalidation_2026_11_11": {
+      "status": "historical_conflict_inventory_rechecked_on_current_main_no_markers_found_in_reviewed_files",
+      "base_commit": "4e596eeddb9627966e49f9767dd40faf338edfda",
+      "pull_requests": [
+        {
+          "number": 23,
+          "url": "https://github.com/mrhunsaker/VI_Focused_Coding_Curricula/pull/23",
+          "status": "merged",
+          "scope": "Lua residual conflict artifacts"
+        },
+        {
+          "number": 24,
+          "url": "https://github.com/mrhunsaker/VI_Focused_Coding_Curricula/pull/24",
+          "status": "merged",
+          "merge_commit": "4e596eeddb9627966e49f9767dd40faf338edfda",
+          "scope": "TypeScript residual conflict artifacts"
+        }
+      ],
+      "previous_inventory_snapshot": {
+        "files": 20,
+        "conflict_blocks": 41,
+        "files_by_track": {
+          "PYTHON": 7,
+          "TYPESCRIPT": 4,
+          "LUA": 5,
+          "JAVA": 2,
+          "RUST": 1,
+          "KOTLIN": 1
+        },
+        "interpretation": "Historical count from the earlier semantic review; it is not a current-main count."
+      },
+      "current_main_recheck": {
+        "result": "zero_standard_conflict_marker_lines_found_in_all_fetched_files",
+        "tracks": [
+          "Python",
+          "TypeScript",
+          "Lua",
+          "Java",
+          "Rust",
+          "Kotlin"
+        ],
+        "files_fetched_by_track": {
+          "PYTHON": [
+            "unit01-foundations-of-computing-and-getting-started-with-pytho.md",
+            "unit02-writing-simple-programs-and-numeric-computations.md",
+            "unit03-control-flow-decisions-and-loops.md",
+            "unit04-data-structures-lists-and-dictionaries.md",
+            "unit08-files-and-exceptions.md",
+            "unit10-project-based-learning-building-text-based-applications.md",
+            "unit11-capstone-project-accessible-personal-data-manager.md"
+          ],
+          "TYPESCRIPT": [
+            "unit03-control-flow-decisions-and-loops.md",
+            "unit07-classes-and-object-oriented-programming.md",
+            "unit10-project-based-learning-text-based-applications.md",
+            "unit11-capstone-accessible-personal-data-manager.md"
+          ],
+          "LUA": [
+            "unit00-accessible-environment-and-toolchain.md",
+            "unit03-control-flow-decisions-and-loops.md",
+            "unit04-data-structures-lists-and-dictionaries.md",
+            "unit07-classes-and-object-oriented-programming.md",
+            "unit10-project-based-learning-text-based-applications.md",
+            "unit11-capstone-accessible-personal-data-manager.md",
+            "lessons.md",
+            "teachers-guide.md"
+          ],
+          "JAVA": [
+            "unit10-project-based-learning-text-applications.md",
+            "unit11-capstone-accessible-personal-data-manager.md"
+          ],
+          "RUST": [
+            "unit00-accessible-environment-and-toolchain.md",
+            "unit01-foundations-of-computing.md",
+            "unit02-numeric-computations.md",
+            "unit03-control-flow.md",
+            "unit04-data-structures.md",
+            "unit05-input-and-iteration.md",
+            "unit06-functions.md",
+            "unit07-data-modeling-and-traits.md",
+            "unit08-files-and-error-handling.md",
+            "unit09-testing-and-data-analysis.md",
+            "unit10-project-based-learning.md",
+            "unit11-capstone.md",
+            "lessons.md"
+          ],
+          "KOTLIN": [
+            "examples_expected.json"
+          ]
+        }
+      },
+      "verification": {
+        "mdbook_workflow": "passed",
+        "workflow_url": "https://github.com/mrhunsaker/VI_Focused_Coding_Curricula/actions/runs/43090417400",
+        "workflow_commit": "4e596eeddb9627966e49f9767dd40faf338edfda",
+        "scope_note": "The workflow validates the mdBook build and deployment, not language compilation, exact expected-output assertions, application behavior, local-link completeness, or assistive-technology usability."
+      },
+      "remaining_limits": [
+        "This was a targeted recheck of previously flagged source areas and related files, not a complete scan of every repository blob.",
+        "Repository-wide local-link validation and all language-specific checkers have not been rerun on this merge commit.",
+        "The known JavaScript and TypeScript adventure-project contract mismatch still needs semantic review; the TypeScript unit 10 file was fetched but not fully compared against the canonical graph.",
+        "Python adventure room identifiers and capstone behavior still need semantic and behavioral review even though the previously flagged files contain no conflict markers.",
+        "Exact expected-output assertions and hands-on screen-reader/braille verification remain outstanding.",
+        "Specialist modules and the instructor assessment inventory require separate review."
+      ]
     }
   }
 }
