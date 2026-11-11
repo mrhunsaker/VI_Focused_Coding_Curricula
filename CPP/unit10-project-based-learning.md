@@ -58,109 +58,209 @@ Navigate the complete source file by line, word, and character using the learner
 - [ ] I can identify and correct a common error.
 - [ ] I can read source and output accessibly.
 
-## Lesson 10.2: Text adventure: rooms and movement
+## Lesson 10.2: Text adventure: five rooms and movement
 
 ### Reading References
-- Official C++ language guide and standard-library documentation.
-- Corresponding Python course lesson for the shared problem context and learning objective.
+- [C++ standard library: map](https://en.cppreference.com/w/cpp/container/map)
+- [C++ standard library: string](https://en.cppreference.com/w/cpp/string/basic_string)
+- Canonical shared project specification: Python Unit 10, Lesson 10.3.
 
 ### Learning Objectives
-- Explain this concept using C++ terminology.
-- Trace a short program and predict its behavior before execution.
-- Modify and test the example independently.
+- Represent all five canonical rooms with C++ structs and maps.
+- Validate movement before changing the current room.
+- Explain why the treasure room is not reachable until the key puzzle is implemented.
 
 ### Concept Explanation
-Text adventure: rooms and movement is taught through the shared course datasets and requirements. The Python curriculum supplies a common problem context, not syntax to translate mechanically. In C++, make the type system, object lifetime, standard-library contracts, ownership, and failure behavior explicit. This lesson focuses on: validate a direction before changing rooms; use consistent room identifiers; handle unknown exits.
+
+Use the same five-room graph in every language. A Room stores a description and a map from direction strings to room identifiers. The player begins in start_room. Part 1 includes the unconditional connections but leaves the north exit from locked_door_room unavailable. A failed map lookup must not change the current room.
 
 ### Worked Example
+
 ```cpp
-const std::map<std::string, std::string> exits{{"start_room:north", "tunnel"}}; std::string room = "start_room"; const std::string direction = "north"; const std::string transition = room + ":" + direction; if (exits.contains(transition)) room = exits.at(transition); std::cout << "Current room: " << room << '\n';
+#include <iostream>
+#include <map>
+#include <string>
 
+struct Room {
+    std::string description;
+    std::map<std::string, std::string> exits;
+};
+
+int main() {
+    const std::map<std::string, Room> rooms{
+        {"start_room", {"A dimly lit cave. A narrow passage leads north.", {{"north", "tunnel"}}}},
+        {"tunnel", {"A damp tunnel. Passages lead south and east.", {{"south", "start_room"}, {"east", "clearing"}}}},
+        {"clearing", {"A quiet clearing. An antechamber lies to the north.", {{"west", "tunnel"}, {"north", "locked_door_room"}}}},
+        {"locked_door_room", {"A chamber with a heavy door to the north.", {{"south", "clearing"}}}},
+        {"treasure_room", {"You found the treasure. You win!", {}}}
+    };
+
+    std::string current = "start_room";
+    std::string command;
+    while (true) {
+        std::cout << "---\n" << rooms.at(current).description << "\nWhat do you want to do?\n";
+        if (!std::getline(std::cin, command)) command = "quit";
+        if (command == "quit") {
+            std::cout << "Exiting game. Goodbye!\n";
+            break;
+        }
+        const auto& exits = rooms.at(current).exits;
+        const auto destination = exits.find(command);
+        if (destination != exits.end()) current = destination->second;
+        else std::cout << "You cannot go that way. Enter a listed direction or quit.\n";
+    }
+}
 ```
-
-**Trace:** predict the output before compiling. Identify declarations, values, control-flow decisions, and state changes in order. Then compile and compare actual output with the prediction. The lesson example is intended to be independently compilable.
 
 ### Expected Behavior or Output
 
-Output observed when the worked example was run with empty standard input (g++ 13.3, C++20; the text of the output does not depend on the operating system):
-
-```text
-Current room: Library
-```
+Enter north, east, north, north, quit. The player reaches tunnel, clearing, and locked_door_room. The second north is rejected and the current room does not change. The treasure room exists but has no incoming exit in Part 1.
 
 ### Common Mistakes
-- Validate a direction before changing rooms.
-- Use consistent room identifiers.
-- Handle unknown exits.
+- Using map::at for a direction that may not exist.
+- Updating current before checking the map lookup result.
+- Defining a destination that is not one of the five room identifiers.
+- Adding the treasure exit before implementing the key puzzle.
 
 ### Activities
-1. Trace the text adventure: rooms and movement example and predict its output before compiling.
-2. Adapt the example to text adventure and command-line to-do projects and preserve the same observable requirement using idiomatic C++20.
-3. Add one boundary case and one invalid or missing-data case; state the expected result and implement the handling.
-4. Write a short test or trace table, then explain the C++ type, lifetime, ownership, iterator, or error-handling rule that matters here.
+1. Trace north, east, north, north and record the current room.
+2. Try west from start_room and verify that the room does not change.
+3. Check every exit destination against the room map.
+4. Explain why treasure_room cannot yet be reached.
 
 ### Accessibility Practice
-Navigate the complete source file by line, word, and character using the learner's access technology. Read punctuation and indentation, run from the terminal, and inspect standard output and errors sequentially.
+
+Announce the room description and prompt in a consistent order. The invalid-movement response explains what happened and how to continue. Compile and run from the terminal and inspect output sequentially with the learner's access technology.
 
 ### Skills Checklist
-- [ ] I can explain the concept in C++ terminology.
-- [ ] I can trace and predict the example.
-- [ ] I can modify and run the code independently.
-- [ ] I can identify and correct a common error.
-- [ ] I can read source and output accessibly.
+- [ ] I can model all five canonical rooms.
+- [ ] I can use a map to represent exits.
+- [ ] I can reject invalid movement without changing state.
+- [ ] I can explain why the treasure room is not yet reachable.
 
-## Lesson 10.3: Text adventure: inventory and puzzles
+---
+
+## Lesson 10.3: Text adventure: shiny key and locked door
 
 ### Reading References
-- Official C++ language guide and standard-library documentation.
-- Corresponding Python course lesson for the shared problem context and learning objective.
+- [C++ standard library: vector](https://en.cppreference.com/w/cpp/container/vector)
+- [C++ standard library: algorithm](https://en.cppreference.com/w/cpp/algorithm)
+- Canonical shared project specification: Python Unit 10, Lesson 10.3.
 
 ### Learning Objectives
-- Explain this concept using C++ terminology.
-- Trace a short program and predict its behavior before execution.
-- Modify and test the example independently.
+- Place the shiny key in start_room and transfer it to inventory exactly once.
+- Require the key to be used in locked_door_room.
+- Unlock the north exit only after the key puzzle succeeds.
+- End the game when the player reaches treasure_room.
 
 ### Concept Explanation
-Text adventure: inventory and puzzles is taught through the shared course datasets and requirements. The Python curriculum supplies a common problem context, not syntax to translate mechanically. In C++, make the type system, object lifetime, standard-library contracts, ownership, and failure behavior explicit. This lesson focuses on: verify item ownership before puzzle actions; avoid erasing during unsafe traversal; test missing-item and repeated-use cases.
+
+Keep the same five-room graph. Each room has a vector of items. Picking up the shiny key removes it from the room and appends it to the inventory. The use command checks both the player's location and inventory. A north command from locked_door_room is rejected while the door is locked.
 
 ### Worked Example
+
 ```cpp
-std::vector<std::string> inventory{"shiny key", "map"}; const bool has_key = std::find(inventory.begin(), inventory.end(), "shiny key") != inventory.end(); if (has_key) inventory.push_back("chest reward"); for (const auto& item : inventory) std::cout << item << '\n';
+#include <algorithm>
+#include <iostream>
+#include <map>
+#include <string>
+#include <vector>
 
+struct Room {
+    std::string description;
+    std::map<std::string, std::string> exits;
+    std::vector<std::string> items;
+};
+
+int main() {
+    std::map<std::string, Room> rooms{
+        {"start_room", {"A dimly lit cave.", {{"north", "tunnel"}}, {"shiny key"}}},
+        {"tunnel", {"A damp tunnel. Passages lead south and east.", {{"south", "start_room"}, {"east", "clearing"}}, {}}},
+        {"clearing", {"A quiet clearing. An antechamber lies to the north.", {{"west", "tunnel"}, {"north", "locked_door_room"}}, {}}},
+        {"locked_door_room", {"A chamber with a heavy door to the north.", {{"south", "clearing"}, {"north", "treasure_room"}}, {}}},
+        {"treasure_room", {"You found the treasure. You win!", {}, {}}}
+    };
+
+    std::string current = "start_room";
+    std::vector<std::string> inventory;
+    bool door_locked = true;
+    std::string command;
+
+    while (true) {
+        Room& room = rooms.at(current);
+        std::cout << "\n" << room.description << "\n";
+        if (current == "treasure_room") break;
+        if (!room.items.empty()) {
+            std::cout << "You see: ";
+            for (const auto& item : room.items) std::cout << item << " ";
+            std::cout << "\n";
+        }
+        std::cout << "Your inventory: ";
+        if (inventory.empty()) std::cout << "empty";
+        else for (const auto& item : inventory) std::cout << item << " ";
+        std::cout << "\nWhat do you want to do?\n";
+
+        if (!std::getline(std::cin, command)) command = "quit";
+        if (command == "quit") {
+            std::cout << "You quit the adventure.\n";
+            break;
+        } else if (command == "take shiny key") {
+            auto item = std::find(room.items.begin(), room.items.end(), "shiny key");
+            if (item != room.items.end()) {
+                room.items.erase(item);
+                inventory.push_back("shiny key");
+                std::cout << "You picked up the shiny key.\n";
+            } else std::cout << "There is no shiny key here to take.\n";
+        } else if (command == "use shiny key") {
+            if (current != "locked_door_room") std::cout << "You must be at the locked door to use the key.\n";
+            else if (std::find(inventory.begin(), inventory.end(), "shiny key") == inventory.end())
+                std::cout << "You do not have the shiny key.\n";
+            else {
+                door_locked = false;
+                std::cout << "You unlocked the door!\n";
+            }
+        } else if (current == "locked_door_room" && command == "north" && door_locked) {
+            std::cout << "The door is locked! You need to use the shiny key here.\n";
+        } else {
+            auto destination = room.exits.find(command);
+            if (destination != room.exits.end()) current = destination->second;
+            else std::cout << "Invalid command. Enter north, south, east, west, take shiny key, use shiny key, or quit.\n";
+        }
+    }
+}
 ```
-
-**Trace:** predict the output before compiling. Identify declarations, values, control-flow decisions, and state changes in order. Then compile and compare actual output with the prediction. The lesson example is intended to be independently compilable.
 
 ### Expected Behavior or Output
 
-Output observed when the worked example was run with empty standard input (g++ 13.3, C++20; the text of the output does not depend on the operating system):
-
-```text
-key
-map
-chest reward
-```
+Enter north, east, north, north, south, west, south, take shiny key, north, east, north, use shiny key, north. The first north from locked_door_room is rejected. Taking the key removes it from the room and adds it to inventory. Using it outside locked_door_room is rejected. Using it in that room unlocks the door; the final north reaches treasure_room and prints the win description.
 
 ### Common Mistakes
-- Verify item ownership before puzzle actions.
-- Avoid erasing during unsafe traversal.
-- Test missing-item and repeated-use cases.
+- Erasing the key without adding it to inventory, or adding it without erasing it.
+- Unlocking the door without checking the current room.
+- Unlocking the door without checking inventory.
+- Allowing north movement before door_locked becomes false.
+- Using map::at for an unvalidated command.
 
 ### Activities
-1. Trace the text adventure: inventory and puzzles example and predict its output before compiling.
-2. Adapt the example to text adventure and command-line to-do projects and preserve the same observable requirement using idiomatic C++20.
-3. Add one boundary case and one invalid or missing-data case; state the expected result and implement the handling.
-4. Write a short test or trace table, then explain the C++ type, lifetime, ownership, iterator, or error-handling rule that matters here.
+1. Run the complete puzzle sequence and record room, items, inventory, and door state.
+2. Attempt to take the key twice and verify no duplicate is added.
+3. Try to use the key outside locked_door_room.
+4. Try north before and after unlocking.
+5. Add a help command with all supported commands.
 
 ### Accessibility Practice
-Navigate the complete source file by line, word, and character using the learner's access technology. Read punctuation and indentation, run from the terminal, and inspect standard output and errors sequentially.
+
+Announce the room, visible items, inventory, and prompt as separate text lines. Error messages explain the failed action. Test the complete interaction with keyboard-only input and sequential screen-reader output.
 
 ### Skills Checklist
-- [ ] I can explain the concept in C++ terminology.
-- [ ] I can trace and predict the example.
-- [ ] I can modify and run the code independently.
-- [ ] I can identify and correct a common error.
-- [ ] I can read source and output accessibly.
+- [ ] I can model the five canonical rooms.
+- [ ] I can transfer the key from a room to inventory.
+- [ ] I can prevent duplicate pickup.
+- [ ] I can require key use in locked_door_room.
+- [ ] I can block and unlock the north exit.
+- [ ] I can end the game in treasure_room.
+
+---
 
 ## Lesson 10.4: Command-line to-do manager
 

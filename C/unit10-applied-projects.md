@@ -46,137 +46,215 @@ Navigate the complete source file by line, word, and character using the learner
 - [ ] I can complete the lesson-specific boundary or extension tests above and explain the result.
 - [ ] I can recognize the three C-specific failure modes listed in this lesson and apply a correction.
 - [ ] I can navigate, compile, run, and inspect the source and output using my chosen access technology.
-## Lesson 10.2: Text adventure: rooms and movement
+## Lesson 10.2: Text adventure: five rooms and movement
 
 ### Reading References
-- Official C language guide and standard-library documentation.
-- Corresponding Python course lesson for the shared problem context and learning objective.
+- C language standard library: stdio.h, string.h, and ctype.h.
+- Canonical shared project specification: Python Unit 10, Lesson 10.3.
 
 ### Learning Objectives
-- Explain this concept using C terminology.
-- Trace a short program and predict its behavior before execution.
-- Modify and test the example independently.
+- Represent all five canonical rooms with C records and integer room indexes.
+- Validate movement before changing the current room.
+- Explain why the treasure room is not reachable until the key puzzle is implemented.
 
 ### Concept Explanation
-Represent rooms as records containing a room identifier, description, and exits. Track the current room by index or identifier. A movement command is valid only if the current room has an exit in that direction. Normalize commands consistently and always provide a textual description of the new location.
+
+Use five fixed room indexes: start_room is 0, tunnel is 1, clearing is 2, locked_door_room is 3, and treasure_room is 4. Each exit stores a destination index or -1 when no exit exists. The graph is start north to tunnel; tunnel south to start and east to clearing; clearing west to tunnel and north to locked_door_room; and locked_door_room south to clearing. Part 1 deliberately has no north exit from locked_door_room.
+
+The command loop reads a line, normalizes it to lowercase, checks the selected exit, and updates the current room only when the destination is valid. End-of-file acts like quit.
 
 ### Worked Example
+
 ```c
+#include <ctype.h>
 #include <stdio.h>
 #include <string.h>
-typedef struct { const char *name; const char *description; int north, east, south, west; } Room;
-int main(void)
-{
-    Room rooms[] = {
-        {"start_room", "You are in a dimly lit cave. A passage leads NORTH.", 1, -1, -1, -1},
-        {"tunnel", "The tunnel is damp and cold. You can go SOUTH or EAST.", -1, 2, 0, -1},
-        {"clearing", "You are in a sunny clearing. A path leads WEST.", -1, -1, -1, 1}
+
+typedef struct {
+    const char *id;
+    const char *description;
+    int north, east, south, west;
+} Room;
+
+int main(void) {
+    Room rooms[5] = {
+        {"start_room", "A dimly lit cave. A narrow passage leads north.", 1, -1, -1, -1},
+        {"tunnel", "A damp tunnel. Passages lead south and east.", -1, 2, 0, -1},
+        {"clearing", "A quiet clearing. An antechamber lies to the north.", 3, -1, -1, 1},
+        {"locked_door_room", "A chamber with a heavy door to the north.", -1, -1, 2, -1},
+        {"treasure_room", "You found the treasure. You win!", -1, -1, -1, -1}
     };
     int current = 0;
-    printf("%s\n", rooms[current].description);
-    current = rooms[current].north;
-    printf("%s\n", rooms[current].description);
+    char command[80];
+
+    for (;;) {
+        printf("---\n%s\nWhat do you want to do?\n", rooms[current].description);
+        if (!fgets(command, sizeof command, stdin)) strcpy(command, "quit");
+        command[strcspn(command, "\r\n")] = '\0';
+        for (size_t i = 0; command[i] != '\0'; ++i)
+            command[i] = (char)tolower((unsigned char)command[i]);
+
+        if (strcmp(command, "quit") == 0) {
+            puts("Exiting game. Goodbye!");
+            break;
+        }
+
+        int destination = -1;
+        if (strcmp(command, "north") == 0) destination = rooms[current].north;
+        else if (strcmp(command, "east") == 0) destination = rooms[current].east;
+        else if (strcmp(command, "south") == 0) destination = rooms[current].south;
+        else if (strcmp(command, "west") == 0) destination = rooms[current].west;
+
+        if (destination >= 0 && destination < 5) current = destination;
+        else puts("You cannot go that way. Enter a listed direction or quit.");
+    }
     return 0;
 }
 ```
-The first room leads north to the tunnel; the tunnel leads east to the clearing and south back to the cave. Extend this model with a command parser and a `quit` command. `-1` means that no exit exists in that direction.
 
 ### Expected Behavior or Output
 
-Output observed when the worked example was run (gcc 13.3, C17; the text of the output does not depend on the operating system):
+Enter north, east, north, north, quit. The player reaches tunnel, clearing, and locked_door_room. The second north is rejected and the player remains in locked_door_room. The treasure room is present in the room table but has no incoming exit in Part 1.
 
-```text
-You are in a dimly lit cave. A passage leads NORTH.
-The tunnel is damp and cold. You can go SOUTH or EAST.
-```
 ### Common Mistakes
-- Using a room exit index without checking that it is valid.
-- Changing the current room before confirming the requested exit exists.
-- Giving no feedback when a direction is blocked or unknown.
+- Using -1 as an array index instead of checking it first.
+- Updating the current room before validating the destination.
+- Confusing a room index with the room's display name.
+- Adding the treasure exit before the key puzzle is implemented.
 
 ### Activities
-1. Move north from the start room and verify the tunnel description.
-2. Attempt west from the start room and verify that the room does not change.
-3. Add case-insensitive direction commands and a quit command.
-4. Write an acceptance test with the initial project state, user action, expected response, and unchanged state after a rejected action.
+1. Trace north, east, north and record the room index after each command.
+2. Try west from start_room and verify the current room does not change.
+3. Verify every nonnegative exit index is between 0 and 4.
+4. Explain why treasure_room is unreachable in Part 1.
+
 ### Accessibility Practice
-Navigate the complete source file by line, word, and character using the learner's access technology. Read punctuation and indentation, run from the terminal, and inspect standard output and errors sequentially.
+
+Read the room description and prompt in order. The invalid-movement response explains what happened and how to continue. Compile and run from the terminal, then inspect output sequentially with the learner's access technology.
 
 ### Skills Checklist
-- [ ] I can explain the C rule demonstrated by "Text adventure: rooms and movement" without relying on Python terminology.
-- [ ] I can predict and verify the exact behavior of this lesson's worked example.
-- [ ] I can complete the lesson-specific boundary or extension tests above and explain the result.
-- [ ] I can recognize the three C-specific failure modes listed in this lesson and apply a correction.
-- [ ] I can navigate, compile, run, and inspect the source and output using my chosen access technology.
-## Lesson 10.3: Text adventure: inventory and puzzles
+- [ ] I can represent all five rooms with C records.
+- [ ] I can represent missing exits with a sentinel value.
+- [ ] I validate an exit before changing rooms.
+- [ ] I can reject an invalid direction without changing state.
+- [ ] I can explain why the treasure room is not yet reachable.
+
+---
+
+## Lesson 10.3: Text adventure: shiny key and locked door
 
 ### Reading References
-- Official C language guide and standard-library documentation.
-- Corresponding Python course lesson for the shared problem context and learning objective.
+- C language standard library: stdio.h, string.h, and ctype.h.
+- Canonical shared project specification: Python Unit 10, Lesson 10.3.
 
 ### Learning Objectives
-- Explain this concept using C terminology.
-- Trace a short program and predict its behavior before execution.
-- Modify and test the example independently.
+- Keep the shiny key in start_room until it is collected.
+- Transfer the key to inventory exactly once.
+- Require the player to use the key in locked_door_room before moving north to treasure_room.
+- End the game after the player reaches treasure_room.
 
 ### Concept Explanation
-Extend the same cave-and-tunnel adventure with a shiny key, a player inventory, and a locked door. An item must be removed from the room when picked up and added to the inventory. The door unlocks only when the player is in the correct room and has the key. Keep command responses explicit.
+
+Keep the five-room graph from Lesson 10.2. The shiny key begins in start_room. The take shiny key command changes key_in_room to false and has_key to true. The use shiny key command succeeds only when the player is in locked_door_room and has_key is true. North from locked_door_room is blocked while door_locked is true. Reaching treasure_room ends the game.
 
 ### Worked Example
+
 ```c
+#include <ctype.h>
 #include <stdio.h>
 #include <string.h>
-int main(void)
-{
-    int key_in_room = 1, has_key = 0, door_locked = 1;
+
+typedef struct {
+    const char *id;
+    const char *description;
+    int north, east, south, west;
+} Room;
+
+int main(void) {
+    Room rooms[5] = {
+        {"start_room", "A dimly lit cave.", 1, -1, -1, -1},
+        {"tunnel", "A damp tunnel. Passages lead south and east.", -1, 2, 0, -1},
+        {"clearing", "A quiet clearing. An antechamber lies to the north.", 3, -1, -1, 1},
+        {"locked_door_room", "A chamber with a heavy door to the north.", 4, -1, 2, -1},
+        {"treasure_room", "You found the treasure. You win!", -1, -1, -1, -1}
+    };
+    int current = 0, key_in_room = 1, has_key = 0, door_locked = 1;
     char command[80];
-    puts("A dark cave. There is a shiny key here.");
-    printf("Command (take key): ");
-    if (!fgets(command, sizeof command, stdin)) return 1;
-    command[strcspn(command, "\n")] = '\0';
-    if (strcmp(command, "take key") == 0 && key_in_room) {
-        key_in_room = 0; has_key = 1; puts("You picked up the shiny key.");
+
+    for (;;) {
+        printf("\n%s\n", rooms[current].description);
+        if (current == 4) break;
+        if (current == 0 && key_in_room) puts("You see: shiny key");
+        puts(has_key ? "Your inventory: shiny key" : "Your inventory: empty");
+        puts("What do you want to do?");
+        if (!fgets(command, sizeof command, stdin)) strcpy(command, "quit");
+        command[strcspn(command, "\r\n")] = '\0';
+        for (size_t i = 0; command[i] != '\0'; ++i)
+            command[i] = (char)tolower((unsigned char)command[i]);
+
+        if (strcmp(command, "quit") == 0) {
+            puts("You quit the adventure.");
+            break;
+        } else if (strcmp(command, "take shiny key") == 0) {
+            if (current == 0 && key_in_room) {
+                key_in_room = 0;
+                has_key = 1;
+                puts("You picked up the shiny key.");
+            } else puts("There is no shiny key here to take.");
+        } else if (strcmp(command, "use shiny key") == 0) {
+            if (current != 3) puts("You must be at the locked door to use the key.");
+            else if (!has_key) puts("You do not have the shiny key.");
+            else {
+                door_locked = 0;
+                puts("You unlocked the door!");
+            }
+        } else if (current == 3 && strcmp(command, "north") == 0 && door_locked) {
+            puts("The door is locked! You need to use the shiny key here.");
+        } else {
+            int destination = -1;
+            if (strcmp(command, "north") == 0) destination = rooms[current].north;
+            else if (strcmp(command, "east") == 0) destination = rooms[current].east;
+            else if (strcmp(command, "south") == 0) destination = rooms[current].south;
+            else if (strcmp(command, "west") == 0) destination = rooms[current].west;
+            if (destination >= 0 && destination < 5) current = destination;
+            else puts("Invalid command. Enter north, south, east, west, take shiny key, use shiny key, or quit.");
+        }
     }
-    if (has_key && door_locked) { door_locked = 0; puts("The key can unlock the door."); }
     return 0;
 }
 ```
-This is a small state-transition demonstration, not the complete game. Extend it with the same room movement rules from Lesson 10.2, then test taking the key twice, trying to unlock without the key, and using the key in the wrong room.
 
 ### Expected Behavior or Output
 
-With these lines typed as standard input:
-```text
-take key
-```
-
-Output observed when the worked example was run (gcc 13.3, C17; the text of the output does not depend on the operating system):
-
-```text
-A dark cave. There is a shiny key here.
-Command (take key): You picked up the shiny key.
-The key can unlock the door.
-```
+Enter north, east, north, north, south, west, south, take shiny key, north, east, north, use shiny key, north. The first north from locked_door_room is rejected. The key is removed from the room and added to inventory. Using it outside locked_door_room is rejected. Using it there unlocks the door; the final north reaches treasure_room and prints the win description. End-of-file acts like quit.
 
 ### Common Mistakes
 - Allowing the key to be collected more than once.
-- Unlocking the door without checking both the inventory and the player's room.
-- Updating item location and inventory inconsistently, duplicating or losing the key.
+- Unlocking the door without checking both room location and inventory.
+- Allowing north movement before door_locked becomes false.
+- Leaving the key listed in start_room after pickup.
+- Treating a failed command as a state change.
 
 ### Activities
-1. Take the key and verify it leaves the room and enters inventory.
-2. Try taking the key twice and verify the second attempt is rejected.
-3. Test unlocking without the key and from the wrong room.
-4. Write an acceptance test with the initial project state, user action, expected response, and unchanged state after a rejected action.
+1. Run the full command sequence and record room, key location, inventory, and door state.
+2. Try taking the key twice; the second attempt must be rejected.
+3. Try using the key in start_room and clearing; both attempts must be rejected.
+4. Try north from locked_door_room before and after unlocking.
+5. Add a help command that lists every supported command.
+
 ### Accessibility Practice
-Navigate the complete source file by line, word, and character using the learner's access technology. Read punctuation and indentation, run from the terminal, and inspect standard output and errors sequentially.
+
+Announce the room, visible item, inventory, and prompt as separate text lines. Every failed action explains why it failed. Test the full sequence with a screen reader and verify that item and door state are unambiguous.
 
 ### Skills Checklist
-- [ ] I can explain the C rule demonstrated by "Text adventure: inventory and puzzles" without relying on Python terminology.
-- [ ] I can predict and verify the exact behavior of this lesson's worked example.
-- [ ] I can complete the lesson-specific boundary or extension tests above and explain the result.
-- [ ] I can recognize the three C-specific failure modes listed in this lesson and apply a correction.
-- [ ] I can navigate, compile, run, and inspect the source and output using my chosen access technology.
+- [ ] I can implement the five-room graph.
+- [ ] I can transfer the shiny key to inventory exactly once.
+- [ ] I can require key use in the locked-door room.
+- [ ] I can block and unlock the north exit.
+- [ ] I can end the game in the treasure room.
+
+---
+
 ## Lesson 10.4: Command-line to-do manager
 
 ### Reading References
