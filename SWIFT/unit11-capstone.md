@@ -79,7 +79,6 @@ The capstone is a personal-record manager with stable identifiers, validated cre
 ```swift
 import Foundation
 struct PersonalRecord: Codable, Identifiable {
-<<<<<<< HEAD
     let id: Int
     var title: String
     var description: String
@@ -90,21 +89,6 @@ struct PersonalRecord: Codable, Identifiable {
 let record = PersonalRecord(id: 1, title: "Study Swift", description: "Review Codable",
                             category: "learning", createdAt: "2026-11-01", updatedAt: "2026-11-01")
 print("\(record.id): \(record.title), \(record.category), updated=\(record.updatedAt)")
-=======
-    let id: UUID
-    var title: String
-    var notes: String
-    var isComplete: Bool
-    init(title: String, notes: String = "") {
-        id = UUID()
-        self.title = title
-        self.notes = notes
-        isComplete = false
-    }
-}
-let record = PersonalRecord(title: "Study Swift", notes: "Review Codable")
-print("\(record.id): \(record.title), complete=\(record.isComplete)")
->>>>>>> 2067a20 (curriculum clearning and updates)
 ```
 
 ### Expected Behavior or Output
@@ -303,10 +287,6 @@ Navigate source by line, word, and character. Inspect punctuation, braces, optio
 - Use XCTest in a Swift package for a full test suite; the standalone examples use `precondition` for dependency-free smoke checks.
 - The introductory CSV example handles simple unquoted rows only. Use a maintained CSV library for quoted commas, escaped quotes, and embedded newlines.
 - Swift concurrency uses structured tasks and actors; add concurrency only when the problem requires it and test isolation and cancellation explicitly.
-<<<<<<< HEAD
-=======
-
 ## AI Policy
 
 AI may be used only for personal conceptual understanding and reinforcement. It must not write, complete, autocomplete, repair, or generate course code or assessment solutions.
->>>>>>> 2067a20 (curriculum clearning and updates)
