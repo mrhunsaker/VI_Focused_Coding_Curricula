@@ -6,7 +6,6 @@ Write tests with expected results, test random code by its properties, analyze t
 
 ---
 
->>>>>>> 2067a20 (curriculum clearning and updates)
 ## Lesson 9.1: Testing functions with testing
 
 ### Reading References
@@ -38,18 +37,7 @@ func main() {
 }
 ```
 
-<<<<<<< HEAD
 **Expected behavior:** The standalone program demonstrates testing functions with testing with shared course example data. It compiles and runs using the standard library. Predict the output first, then compare it with terminal output.
-=======
-
-### Expected Behavior or Output
-
-Output observed when the worked example was run with empty standard input (Go 1.22; the text of the output does not depend on the operating system):
-
-```text
-grade boundary checks passed
-```
->>>>>>> 2067a20 (curriculum clearning and updates)
 
 ### Common Mistakes
 1. Testing only typical values and missing boundaries.
@@ -106,18 +94,7 @@ func main() {
 }
 ```
 
-<<<<<<< HEAD
 **Expected behavior:** The standalone program demonstrates testing stateful types with shared course example data. It compiles and runs using the standard library. Predict the output first, then compare it with terminal output.
-=======
-
-### Expected Behavior or Output
-
-Output observed when the worked example was run with empty standard input (Go 1.22; the text of the output does not depend on the operating system):
-
-```text
-counter state verified: 2
-```
->>>>>>> 2067a20 (curriculum clearning and updates)
 
 ### Common Mistakes
 1. Testing only typical values and missing boundaries.
@@ -170,10 +147,6 @@ func main() {
 }
 ```
 
-<<<<<<< HEAD
-**Expected behavior:** The standalone program demonstrates random values with shared course example data. It compiles and runs using the standard library. Predict the output first, then compare it with terminal output.
-=======
-
 ### Expected Behavior or Output
 
 Output observed when the worked example was run with empty standard input (Go 1.22; the text of the output does not depend on the operating system):
@@ -185,7 +158,6 @@ Output observed when the worked example was run with empty standard input (Go 1.
 12309061806813186179
 12177546622254251016
 ```
->>>>>>> 2067a20 (curriculum clearning and updates)
 
 ### Common Mistakes
 1. Testing only typical values and missing boundaries.
@@ -239,10 +211,6 @@ func main() {
 }
 ```
 
-<<<<<<< HEAD
-**Expected behavior:** The standalone program demonstrates text analysis with shared course example data. It compiles and runs using the standard library. Predict the output first, then compare it with terminal output.
-=======
-
 ### Expected Behavior or Output
 
 Output observed when the worked example was run with empty standard input (Go 1.22; the text of the output does not depend on the operating system):
@@ -251,7 +219,6 @@ Output observed when the worked example was run with empty standard input (Go 1.
 words=7 characters=56
 contains programming: true
 ```
->>>>>>> 2067a20 (curriculum clearning and updates)
 
 ### Common Mistakes
 1. Testing only typical values and missing boundaries.
@@ -307,10 +274,6 @@ func main() {
 }
 ```
 
-<<<<<<< HEAD
-**Expected behavior:** The standalone program demonstrates csv records with shared course example data. It compiles and runs using the standard library. Predict the output first, then compare it with terminal output.
-=======
-
 ### Expected Behavior or Output
 
 Output observed when the worked example was run with empty standard input (Go 1.22; the text of the output does not depend on the operating system):
@@ -320,7 +283,6 @@ name | score
 Avery | 82
 Jordan | 91
 ```
->>>>>>> 2067a20 (curriculum clearning and updates)
 
 ### Common Mistakes
 1. Testing only typical values and missing boundaries.
@@ -343,5 +305,3 @@ Use keyboard navigation to move between the lesson heading, code fence, compiler
 - [ ] I can test a boundary case and an invalid-input or error case.
 - [ ] I can navigate source, diagnostics, and output with my keyboard and assistive technology.
 
-<<<<<<< HEAD
-=======

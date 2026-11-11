@@ -11,16 +11,6 @@ This unit covers JavaScript fundamentals: variables, data types, and basic outpu
 *(See Python Unit 1.1 for conceptual content — hardware, software, algorithms, and problem-solving are language-agnostic.)*
 
 ### Reading References
-<<<<<<< HEAD
-- Python source counterpart: Unit 1, Lesson 1.1.
-- MDN: Introduction to JavaScript.
-
-### Concept Explanation
-Computer science studies computational problem-solving: representing information, designing algorithms, and evaluating solutions. JavaScript is a programming language; Node.js and web browsers are different runtime environments that host JavaScript code.
-
-### JavaScript's Role
-=======
-
 - Python source counterpart: Unit 1, Lesson 1.1.
 - MDN: Introduction to JavaScript.
 
@@ -35,13 +25,11 @@ Computer science studies computational problem-solving: representing information
 Computer science studies computational problem-solving: representing information, designing algorithms, and evaluating solutions. JavaScript is a programming language; Node.js and web browsers are different runtime environments that host JavaScript code.
 
 #### JavaScript's Role
->>>>>>> 2067a20 (curriculum clearning and updates)
 
 JavaScript was created by Brendan Eich at Netscape in 1995. Originally just for web browsers, it now runs everywhere thanks to Node.js (2009).
 
 ---
 
-<<<<<<< HEAD
 ### Learning Objectives
 - Define computer science as the study of computational problem-solving.
 - Distinguish hardware from software.
@@ -127,9 +115,6 @@ Use the terminal and keyboard to create, save, and run the file. Read the output
 - [ ] I can explain sequential execution.
 
 ## Lesson 1.3: Variables and Simple Data Types
-=======
-### Worked Example
->>>>>>> 2067a20 (curriculum clearning and updates)
 
 A simple algorithm for preparing a school day can be written as ordered steps: check the schedule, pack required materials, travel to school, and attend the first class. A computer program expresses a precise algorithm so that a machine can execute it consistently.
 
@@ -276,7 +261,6 @@ console.log("Hello, " + name + "! You are " + age + " years old.");
 #### Additional Primitive Types and Type Conversion
 
 
-<<<<<<< HEAD
 ### Additional Primitive Types and Type Conversion
 
 ### Reading References
@@ -290,8 +274,6 @@ console.log("Hello, " + name + "! You are " + age + " years old.");
 
 ### Concept Explanation
 A variable name refers to a value. Use `const` when the binding will not be reassigned and `let` when reassignment is required. JavaScript is dynamically typed: a variable can refer to values of different types over time.
-=======
->>>>>>> 2067a20 (curriculum clearning and updates)
 
 #### Primitive Types
 
@@ -455,7 +437,6 @@ Use meaningful variable names and explicit output labels. Explain punctuation su
 - [ ] I can convert between types using `Number()`, `String()`, `parseInt()`.
 - [ ] I understand `const` vs. `let`.
 
-<<<<<<< HEAD
 ### Worked Example
 ```javascript
 const student = { name: "Avery", age: 16, heightM: 1.72, favoriteSubject: "Computer Science" };
@@ -480,5 +461,3 @@ Use meaningful variable names and explicit output labels. Explain punctuation su
 
 ### Expected Behavior or Output
 The program prints Avery's name and age, then the height with the unit metres. The profile uses the shared canonical values.
-=======
->>>>>>> 2067a20 (curriculum clearning and updates)

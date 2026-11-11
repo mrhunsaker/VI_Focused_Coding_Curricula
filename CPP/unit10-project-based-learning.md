@@ -26,8 +26,6 @@ const std::vector<std::string> requirements{"create records", "search by ID", "v
 
 **Trace:** predict the output before compiling. Identify declarations, values, control-flow decisions, and state changes in order. Then compile and compare actual output with the prediction. The lesson example is intended to be independently compilable.
 
-<<<<<<< HEAD
-=======
 ### Expected Behavior or Output
 
 Output observed when the worked example was run with empty standard input (g++ 13.3, C++20; the text of the output does not depend on the operating system):
@@ -39,7 +37,6 @@ Output observed when the worked example was run with empty standard input (g++ 1
 4. save changes
 ```
 
->>>>>>> 2067a20 (curriculum clearning and updates)
 ### Common Mistakes
 - Write observable acceptance criteria before implementation.
 - Include failure and empty-data scenarios.
@@ -77,18 +74,12 @@ Text adventure: rooms and movement is taught through the shared course datasets 
 
 ### Worked Example
 ```cpp
-<<<<<<< HEAD
 const std::map<std::string, std::string> exits{{"start_room:north", "tunnel"}}; std::string room = "start_room"; const std::string direction = "north"; const std::string transition = room + ":" + direction; if (exits.contains(transition)) room = exits.at(transition); std::cout << "Current room: " << room << '\n';
-=======
-const std::map<std::string, std::string> exits{{"north", "Library"}, {"east", "Garden"}}; std::string room = "Atrium"; const std::string direction = "north"; if (exits.contains(direction)) room = exits.at(direction); std::cout << "Current room: " << room << '\n';
->>>>>>> 2067a20 (curriculum clearning and updates)
 
 ```
 
 **Trace:** predict the output before compiling. Identify declarations, values, control-flow decisions, and state changes in order. Then compile and compare actual output with the prediction. The lesson example is intended to be independently compilable.
 
-<<<<<<< HEAD
-=======
 ### Expected Behavior or Output
 
 Output observed when the worked example was run with empty standard input (g++ 13.3, C++20; the text of the output does not depend on the operating system):
@@ -97,7 +88,6 @@ Output observed when the worked example was run with empty standard input (g++ 1
 Current room: Library
 ```
 
->>>>>>> 2067a20 (curriculum clearning and updates)
 ### Common Mistakes
 - Validate a direction before changing rooms.
 - Use consistent room identifiers.
@@ -135,18 +125,12 @@ Text adventure: inventory and puzzles is taught through the shared course datase
 
 ### Worked Example
 ```cpp
-<<<<<<< HEAD
 std::vector<std::string> inventory{"shiny key", "map"}; const bool has_key = std::find(inventory.begin(), inventory.end(), "shiny key") != inventory.end(); if (has_key) inventory.push_back("chest reward"); for (const auto& item : inventory) std::cout << item << '\n';
-=======
-std::vector<std::string> inventory{"key", "map"}; const bool has_key = std::find(inventory.begin(), inventory.end(), "key") != inventory.end(); if (has_key) inventory.push_back("chest reward"); for (const auto& item : inventory) std::cout << item << '\n';
->>>>>>> 2067a20 (curriculum clearning and updates)
 
 ```
 
 **Trace:** predict the output before compiling. Identify declarations, values, control-flow decisions, and state changes in order. Then compile and compare actual output with the prediction. The lesson example is intended to be independently compilable.
 
-<<<<<<< HEAD
-=======
 ### Expected Behavior or Output
 
 Output observed when the worked example was run with empty standard input (g++ 13.3, C++20; the text of the output does not depend on the operating system):
@@ -157,7 +141,6 @@ map
 chest reward
 ```
 
->>>>>>> 2067a20 (curriculum clearning and updates)
 ### Common Mistakes
 - Verify item ownership before puzzle actions.
 - Avoid erasing during unsafe traversal.
@@ -200,8 +183,6 @@ struct Task { int id; std::string title; std::string description; bool done; std
 
 **Trace:** predict the output before compiling. Identify declarations, values, control-flow decisions, and state changes in order. Then compile and compare actual output with the prediction. The lesson example is intended to be independently compilable.
 
-<<<<<<< HEAD
-=======
 ### Expected Behavior or Output
 
 Output observed when the worked example was run with empty standard input (g++ 13.3, C++20; the text of the output does not depend on the operating system):
@@ -210,7 +191,6 @@ Output observed when the worked example was run with empty standard input (g++ 1
 1: Read lesson [1] 2026-11-01
 ```
 
->>>>>>> 2067a20 (curriculum clearning and updates)
 ### Common Mistakes
 - Use stable task IDs rather than vector positions.
 - Store completion separately.
@@ -254,8 +234,6 @@ std::istringstream command("add Read chapter"); std::string action; command >> a
 
 **Trace:** predict the output before compiling. Identify declarations, values, control-flow decisions, and state changes in order. Then compile and compare actual output with the prediction. The lesson example is intended to be independently compilable.
 
-<<<<<<< HEAD
-=======
 ### Expected Behavior or Output
 
 Output observed when the worked example was run with empty standard input (g++ 13.3, C++20; the text of the output does not depend on the operating system):
@@ -264,7 +242,6 @@ Output observed when the worked example was run with empty standard input (g++ 1
 Added task: Read chapter
 ```
 
->>>>>>> 2067a20 (curriculum clearning and updates)
 ### Common Mistakes
 - Validate each parsed argument.
 - Make errors identify the rejected field.

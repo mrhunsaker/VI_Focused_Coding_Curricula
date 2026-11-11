@@ -26,8 +26,6 @@ Console.WriteLine($"Valid: {validScore}; passed: {passed}");
 
 **Trace:** identify declarations, expressions, control flow, and observable output. Predict the result, run the example, and compare the actual output with the prediction.
 
-<<<<<<< HEAD
-=======
 ### Expected Behavior or Output
 
 Output observed when the worked example was run (.NET 8; the text of the output does not depend on the operating system):
@@ -36,7 +34,6 @@ Output observed when the worked example was run (.NET 8; the text of the output 
 Valid: True; passed: True
 ```
 
->>>>>>> 2067a20 (curriculum clearning and updates)
 ### Common Mistakes
 - Using an incorrect Boolean boundary or condition order.
 - Assuming array indexes start at one or exceed the valid range.
@@ -77,8 +74,6 @@ foreach (int score in scores) { string grade = score >= 90 ? "A" : score >= 80 ?
 
 **Trace:** identify declarations, expressions, control flow, and observable output. Predict the result, run the example, and compare the actual output with the prediction.
 
-<<<<<<< HEAD
-=======
 ### Expected Behavior or Output
 
 Output observed when the worked example was run (.NET 8; the text of the output does not depend on the operating system):
@@ -92,7 +87,6 @@ Output observed when the worked example was run (.NET 8; the text of the output 
 100: A
 ```
 
->>>>>>> 2067a20 (curriculum clearning and updates)
 ### Common Mistakes
 - Using an incorrect Boolean boundary or condition order.
 - Assuming array indexes start at one or exceed the valid range.
@@ -134,8 +128,6 @@ Console.WriteLine($"Updated third score: {scores[2]}; count: {scores.Length}");
 
 **Trace:** identify declarations, expressions, control flow, and observable output. Predict the result, run the example, and compare the actual output with the prediction.
 
-<<<<<<< HEAD
-=======
 ### Expected Behavior or Output
 
 Output observed when the worked example was run (.NET 8; the text of the output does not depend on the operating system):
@@ -145,7 +137,6 @@ First: 82; fourth: 88
 Updated third score: 80; count: 4
 ```
 
->>>>>>> 2067a20 (curriculum clearning and updates)
 ### Common Mistakes
 - Using an incorrect Boolean boundary or condition order.
 - Assuming array indexes start at one or exceed the valid range.
@@ -188,8 +179,6 @@ Console.WriteLine($"Total: {total}; average: {average:F2}");
 
 **Trace:** identify declarations, expressions, control flow, and observable output. Predict the result, run the example, and compare the actual output with the prediction.
 
-<<<<<<< HEAD
-=======
 ### Expected Behavior or Output
 
 Output observed when the worked example was run (.NET 8; the text of the output does not depend on the operating system):
@@ -198,7 +187,6 @@ Output observed when the worked example was run (.NET 8; the text of the output 
 Total: 337; average: 84.25
 ```
 
->>>>>>> 2067a20 (curriculum clearning and updates)
 ### Common Mistakes
 - Using an incorrect Boolean boundary or condition order.
 - Assuming array indexes start at one or exceed the valid range.
@@ -240,8 +228,6 @@ Console.WriteLine($"Length: {normalized.Length}; contains programming: {normaliz
 
 **Trace:** identify declarations, expressions, control flow, and observable output. Predict the result, run the example, and compare the actual output with the prediction.
 
-<<<<<<< HEAD
-=======
 ### Expected Behavior or Output
 
 Output observed when the worked example was run (.NET 8; the text of the output does not depend on the operating system):
@@ -250,7 +236,6 @@ Output observed when the worked example was run (.NET 8; the text of the output 
 Length: 75; contains programming: True
 ```
 
->>>>>>> 2067a20 (curriculum clearning and updates)
 ### Common Mistakes
 - Using an incorrect Boolean boundary or condition order.
 - Assuming array indexes start at one or exceed the valid range.

@@ -3,7 +3,6 @@
 ## Overview
 
 Define typed functions, arguments, return values, and collection-processing functions. The TypeScript adaptation preserves the shared Python curriculum's learning objectives, datasets, expected results, and assessment criteria while teaching TypeScript's compile-time type system and JavaScript runtime behavior.
-=======
 The readline/promises interface returns a string for each answer. TypeScript's annotation does not convert or validate that string.
 
 ### Worked Example
@@ -41,7 +40,6 @@ Use one prompt and one response at a time. State validation failures explicitly.
 - [ ] I can collect a string from terminal input.
 - [ ] I can reject blank input.
 - [ ] I can close the readline interface.
->>>>>>> 2067a20 (curriculum clearning and updates)
 
 ---
 
@@ -280,11 +278,7 @@ console.log(calculateTip(24.5, 0.15).toFixed(2));
 ```
 
 ### Expected Behavior or Output
-<<<<<<< HEAD
 The tip amount is 3.68 when formatted to two decimal places.
-=======
-The tip amount is 3.67 when formatted with `toFixed(2)`.
->>>>>>> 2067a20 (curriculum clearning and updates)
 
 ### Common Mistakes
 - Omitting a return on one branch of a typed function.
@@ -303,7 +297,6 @@ Keep the signature on one line and read parameter and return types explicitly. A
 - [ ] I can declare a function.
 - [ ] I can type parameters and return values.
 - [ ] I can distinguish returning from printing.
-<<<<<<< HEAD
 
 ---
 

@@ -25,8 +25,6 @@ while (input.Count > 0) { string candidate = input.Dequeue(); if (int.TryParse(c
 
 **Trace:** identify declarations, expressions, control flow, and observable output. Predict the result, run the example, and compare the actual output with the prediction.
 
-<<<<<<< HEAD
-=======
 ### Expected Behavior or Output
 
 Output observed when the worked example was run (.NET 8; the text of the output does not depend on the operating system):
@@ -37,7 +35,6 @@ Invalid age: abc
 Invalid age: 131
 ```
 
->>>>>>> 2067a20 (curriculum clearning and updates)
 ### Common Mistakes
 - Treating parsed text as valid domain data without checking it.
 - Failing to update loop state or provide a terminating condition.
@@ -79,8 +76,6 @@ Console.WriteLine($"Sum before sentinel: {total}");
 
 **Trace:** identify declarations, expressions, control flow, and observable output. Predict the result, run the example, and compare the actual output with the prediction.
 
-<<<<<<< HEAD
-=======
 ### Expected Behavior or Output
 
 Output observed when the worked example was run (.NET 8; the text of the output does not depend on the operating system):
@@ -89,7 +84,6 @@ Output observed when the worked example was run (.NET 8; the text of the output 
 Sum before sentinel: 6
 ```
 
->>>>>>> 2067a20 (curriculum clearning and updates)
 ### Common Mistakes
 - Treating parsed text as valid domain data without checking it.
 - Failing to update loop state or provide a terminating condition.
@@ -131,8 +125,6 @@ Console.WriteLine($"Jordan found: {found}");
 
 **Trace:** identify declarations, expressions, control flow, and observable output. Predict the result, run the example, and compare the actual output with the prediction.
 
-<<<<<<< HEAD
-=======
 ### Expected Behavior or Output
 
 Output observed when the worked example was run (.NET 8; the text of the output does not depend on the operating system):
@@ -141,7 +133,6 @@ Output observed when the worked example was run (.NET 8; the text of the output 
 Jordan found: True
 ```
 
->>>>>>> 2067a20 (curriculum clearning and updates)
 ### Common Mistakes
 - Treating parsed text as valid domain data without checking it.
 - Failing to update loop state or provide a terminating condition.
@@ -182,8 +173,6 @@ foreach (int value in values) { if (value <= 0) continue; Console.WriteLine(valu
 
 **Trace:** identify declarations, expressions, control flow, and observable output. Predict the result, run the example, and compare the actual output with the prediction.
 
-<<<<<<< HEAD
-=======
 ### Expected Behavior or Output
 
 Output observed when the worked example was run (.NET 8; the text of the output does not depend on the operating system):
@@ -193,7 +182,6 @@ Output observed when the worked example was run (.NET 8; the text of the output 
 5
 ```
 
->>>>>>> 2067a20 (curriculum clearning and updates)
 ### Common Mistakes
 - Treating parsed text as valid domain data without checking it.
 - Failing to update loop state or provide a terminating condition.
@@ -235,8 +223,6 @@ Console.WriteLine($"Attempts: {attempts}; valid: {valid}");
 
 **Trace:** identify declarations, expressions, control flow, and observable output. Predict the result, run the example, and compare the actual output with the prediction.
 
-<<<<<<< HEAD
-=======
 ### Expected Behavior or Output
 
 Output observed when the worked example was run (.NET 8; the text of the output does not depend on the operating system):
@@ -245,7 +231,6 @@ Output observed when the worked example was run (.NET 8; the text of the output 
 Attempts: 2; valid: True
 ```
 
->>>>>>> 2067a20 (curriculum clearning and updates)
 ### Common Mistakes
 - Treating parsed text as valid domain data without checking it.
 - Failing to update loop state or provide a terminating condition.

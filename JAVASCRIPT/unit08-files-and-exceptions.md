@@ -333,7 +333,3 @@ Use pretty-printed JSON for manual inspection and provide a textual confirmation
 - [ ] I can parse JSON with `JSON.parse()`.
 - [ ] I can save and reload structured data.
 - [ ] I can handle malformed JSON.
-<<<<<<< HEAD
-=======
-
->>>>>>> 2067a20 (curriculum clearning and updates)

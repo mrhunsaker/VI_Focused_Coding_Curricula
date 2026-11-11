@@ -57,15 +57,10 @@ Use keyboard-operable commands, descriptive prompts, and predictable text output
 ## Lesson 10.2: Building a Text-Based Adventure Game (Part 1)
 
 ### Reading References
-<<<<<<< HEAD
-=======
-
->>>>>>> 2067a20 (curriculum clearning and updates)
 - Python source counterpart: Unit 10, Lesson 10.2.
 - Node.js documentation: readline/promises.
 
 ### Learning Objectives
-<<<<<<< HEAD
 - Model the five canonical rooms and their exits.
 - Move through connected rooms without changing state on invalid directions.
 - Explain the locked north exit from locked_door_room.
@@ -90,37 +85,6 @@ function move(currentRoom, direction) {
 }
 console.log(move("start_room", "north"));
 console.log(move("start_room", "west"));
-=======
-
-- Model rooms and exits.
-- Create a player and move between connected rooms.
-- Reject invalid directions with a clear message.
-
-### Concept Explanation
-
-A room is represented by its identifier, description, and a map of valid exits. Movement looks up the requested direction and changes the player's current room only when the exit exists.
-
-#### Shared Project Specification
-
-Create three rooms: Dark Cave, Stone Tunnel, and Sunny Clearing. The cave connects north to the tunnel; the tunnel connects south to the cave and north to the clearing; the clearing connects south to the tunnel. The player begins in the cave. Valid commands include `go north`, `go south`, `look`, and `quit`.
-
-### Worked Example
-
-```javascript
-const rooms = {
-  cave: { name: "Dark Cave", description: "A dimly lit cave.", exits: { north: "tunnel" } },
-  tunnel: { name: "Stone Tunnel", description: "A narrow tunnel.", exits: { south: "cave", north: "clearing" } },
-  clearing: { name: "Sunny Clearing", description: "A bright clearing.", exits: { south: "tunnel" } }
-};
-
-function move(currentRoom, direction) {
-  const destination = rooms[currentRoom].exits[direction];
-  return destination ?? null;
-}
-
-console.log(move("cave", "north"));
-console.log(move("cave", "west"));
->>>>>>> 2067a20 (curriculum clearning and updates)
 ```
 
 Expected output:
@@ -130,23 +94,14 @@ null
 ```
 
 ### Expected Behavior or Output
-<<<<<<< HEAD
 Moving north from start_room returns tunnel. Moving west from start_room returns null; the locked-door north exit is added only after the key puzzle is solved.
 
 ### Common Mistakes
-=======
-
-Moving north from cave returns the room identifier tunnel. Moving west from cave returns null.
-
-### Common Mistakes
-
->>>>>>> 2067a20 (curriculum clearning and updates)
 - Adding an exit in one direction but forgetting the reverse connection.
 - Accepting an exit that does not exist.
 - Confusing a room key with its display name.
 
 ### Activities
-<<<<<<< HEAD
 1. Build the five canonical rooms and their unconditional exits.
 2. Test north from start_room, east from tunnel, and north from clearing.
 3. Test an invalid movement without changing the current room.
@@ -156,20 +111,6 @@ Moving north from cave returns the room identifier tunnel. Moving west from cave
 Announce the current room, description, and available exits in a consistent order. Never make the map available only as a graphic.
 
 ### Skills Checklist
-=======
-
-1. Build the three canonical rooms and exits.
-2. Test every valid movement.
-3. Test an invalid movement from each room.
-4. Print the room name and description after every successful move.
-
-### Accessibility Practice
-
-Announce the current room, description, and available exits in a consistent order. Never make the map available only as a graphic.
-
-### Skills Checklist
-
->>>>>>> 2067a20 (curriculum clearning and updates)
 - [ ] I can represent rooms and exits as objects.
 - [ ] I can move between connected rooms.
 - [ ] I can reject invalid directions.
@@ -178,15 +119,10 @@ Announce the current room, description, and available exits in a consistent orde
 ## Lesson 10.3: Building a Text-Based Adventure Game (Part 2)
 
 ### Reading References
-<<<<<<< HEAD
-=======
-
->>>>>>> 2067a20 (curriculum clearning and updates)
 - Python source counterpart: Unit 10, Lesson 10.3.
 - MDN: Array methods and object methods.
 
 ### Learning Objectives
-<<<<<<< HEAD
 - Place shiny key in start_room and transfer it to inventory exactly once.
 - Require the key to be used in locked_door_room.
 - Unlock the conditional north exit to treasure_room.
@@ -217,49 +153,6 @@ console.log(takeItem("start_room", "shiny key"));
 console.log(inventory.join(", "));
 console.log(useKey("clearing", inventory));
 console.log(useKey("locked_door_room", inventory));
-=======
-
-- Add items to rooms and player inventory.
-- Implement item pickup and inventory display.
-- Add a simple puzzle that uses the magic key.
-
-### Concept Explanation
-
-An item belongs either to a room or to the player's inventory. Picking it up removes it from the room and adds it to inventory as one state transition.
-
-#### Shared Project Specification
-
-Place a torch in the Dark Cave and a magic key in the Sunny Clearing. The player can use `take [item]` and `inventory`. The magic key unlocks a gate or completes a clearly described puzzle. Preserve the same item names and rules across language tracks.
-
-### Worked Example
-
-```javascript
-const roomItems = {
-  cave: ["torch"],
-  tunnel: [],
-  clearing: ["magic key"]
-};
-const inventory = [];
-
-function takeItem(room, requestedName) {
-  const index = roomItems[room].findIndex(
-    item => item.toLowerCase() === requestedName.toLowerCase()
-  );
-  if (index < 0) return false;
-  inventory.push(roomItems[room].splice(index, 1)[0]);
-  return true;
-}
-
-console.log(takeItem("cave", "torch"));
-console.log(inventory.join(", "));
-
-function unlockGate(items) {
-  if (!items.includes("magic key")) return "The gate is locked.";
-  return "The gate opens.";
-}
-console.log(unlockGate(["torch"]));
-console.log(unlockGate(["torch", "magic key"]));
->>>>>>> 2067a20 (curriculum clearning and updates)
 ```
 
 Expected output:
@@ -271,23 +164,14 @@ The gate opens.
 ```
 
 ### Expected Behavior or Output
-<<<<<<< HEAD
 Taking shiny key from start_room returns true and inventory contains shiny key. Using it outside locked_door_room is rejected; using it there unlocks the north exit.
 
 ### Common Mistakes
-=======
-
-Taking the torch from the cave returns true and the inventory contains torch.
-
-### Common Mistakes
-
->>>>>>> 2067a20 (curriculum clearning and updates)
 - Allowing an item to be picked up repeatedly after it has been removed.
 - Failing to normalize item names consistently.
 - Updating the room but not the inventory, or vice versa.
 
 ### Activities
-<<<<<<< HEAD
 1. Take shiny key from start_room.
 2. Attempt to take it a second time and verify inventory does not change.
 3. Attempt to use the key outside locked_door_room.
@@ -297,20 +181,6 @@ Taking the torch from the cave returns true and the inventory contains torch.
 Confirm each successful pickup by item name. When pickup fails, explain whether the item is absent or the command is invalid.
 
 ### Skills Checklist
-=======
-
-1. Pick up the torch in the cave.
-2. Travel to the clearing and pick up the magic key.
-3. Attempt to take an item that is not in the current room.
-4. Implement the puzzle rule and test both locked and unlocked states.
-
-### Accessibility Practice
-
-Confirm each successful pickup by item name. When pickup fails, explain whether the item is absent or the command is invalid.
-
-### Skills Checklist
-
->>>>>>> 2067a20 (curriculum clearning and updates)
 - [ ] I can store items in rooms.
 - [ ] I can transfer an item to inventory.
 - [ ] I can display inventory contents.
@@ -319,31 +189,14 @@ Confirm each successful pickup by item name. When pickup fails, explain whether 
 ## Lesson 10.4: Developing a Command-Line To-Do Tool
 
 ### Reading References
-<<<<<<< HEAD
-=======
-
->>>>>>> 2067a20 (curriculum clearning and updates)
 - Python source counterpart: Unit 10, Lesson 10.4.
 - Node.js documentation: File system and readline.
 
 ### Learning Objectives
-<<<<<<< HEAD
-=======
-
->>>>>>> 2067a20 (curriculum clearning and updates)
 - Implement add, view, complete, delete, and quit operations.
 - Validate a one-based task number.
 - Persist task data in JSON.
 
-<<<<<<< HEAD
-### Shared Project Specification
-Each task has an identifier, description, completion state, and creation timestamp. The menu supports add task, view tasks, mark complete, delete, and quit. Save after every state-changing operation.
-
-### Concept Explanation
-A command-line task manager separates data operations from prompts and display. Task numbers shown to users are one-based, while array indexes are zero-based.
-
-### Worked Example
-=======
 ### Concept Explanation
 
 A command-line task manager separates data operations from prompts and display. Task numbers shown to users are one-based, while array indexes are zero-based.
@@ -354,7 +207,6 @@ Each task has an identifier, description, completion state, and creation timesta
 
 ### Worked Example
 
->>>>>>> 2067a20 (curriculum clearning and updates)
 Core task operations:
 ```javascript
 function addTask(tasks, description, createdAt = new Date().toISOString()) {
@@ -380,44 +232,26 @@ function markComplete(tasks, taskNumber) {
 ```
 
 ### Expected Behavior or Output
-<<<<<<< HEAD
-A valid task description is added with completed false and a timestamp; a valid task number marks the corresponding task complete.
-
-### Common Mistakes
-=======
-
 A valid task description is added with completed false and a timestamp; a valid task number marks the corresponding task complete.
 
 ### Common Mistakes
 
->>>>>>> 2067a20 (curriculum clearning and updates)
 - Confusing the user's one-based task number with a zero-based array index.
 - Allowing empty descriptions.
 - Saving only when the program exits, so an interrupted run loses changes.
 - Reusing task identifiers after deletion without a documented policy.
 
 ### Activities
-<<<<<<< HEAD
-=======
-
->>>>>>> 2067a20 (curriculum clearning and updates)
 1. Add two tasks and view them in numbered order.
 2. Mark the first task complete.
 3. Delete the second task.
 4. Save and reload the task list using JSON and verify the state persists.
 
 ### Accessibility Practice
-<<<<<<< HEAD
-Number every task and include an explicit completion label such as "complete" or "not complete". Confirm every add, update, and delete action in text.
-
-### Skills Checklist
-=======
-
 Number every task and include an explicit completion label such as "complete" or "not complete". Confirm every add, update, and delete action in text.
 
 ### Skills Checklist
 
->>>>>>> 2067a20 (curriculum clearning and updates)
 - [ ] I can add and display tasks.
 - [ ] I can mark a task complete.
 - [ ] I can delete a task by number.
@@ -427,37 +261,21 @@ Number every task and include an explicit completion label such as "complete" or
 ## Lesson 10.5: Refinement and User Experience
 
 ### Reading References
-<<<<<<< HEAD
-=======
-
->>>>>>> 2067a20 (curriculum clearning and updates)
 - Python source counterpart: Unit 10, Lesson 10.5.
 - Node.js documentation: Process exit codes and error handling.
 
 ### Learning Objectives
-<<<<<<< HEAD
-=======
-
->>>>>>> 2067a20 (curriculum clearning and updates)
 - Improve prompt clarity and validation.
 - Test invalid commands and boundary cases.
 - Review output for predictable keyboard and screen-reader use.
 
 ### Concept Explanation
-<<<<<<< HEAD
 A usable text program gives the same kind of response for the same kind of action. Prompts should state valid input, errors should explain the problem, and successful operations should confirm what changed. A help command should list every supported operation.
 
 ### Expected Behavior or Output
 The refined application handles blank input, unknown commands, invalid record numbers, empty lists, and malformed stored data with explicit text messages.
 
 ### Worked Example
-=======
-
-A usable text program gives the same kind of response for the same kind of action. Prompts should state valid input, errors should explain the problem, and successful operations should confirm what changed. A help command should list every supported operation.
-
-### Worked Example
-
->>>>>>> 2067a20 (curriculum clearning and updates)
 ```javascript
 function validateMenuChoice(choice) {
   const validChoices = ["add", "view", "search", "edit", "delete", "help", "quit"];
@@ -469,43 +287,28 @@ function validateMenuChoice(choice) {
 console.log(validateMenuChoice("unknown"));
 ```
 
-<<<<<<< HEAD
-### Common Mistakes
-=======
 ### Expected Behavior or Output
 
 The refined application handles blank input, unknown commands, invalid record numbers, empty lists, and malformed stored data with explicit text messages.
 
 ### Common Mistakes
 
->>>>>>> 2067a20 (curriculum clearning and updates)
 - Printing "Invalid input" without explaining valid choices.
 - Failing to confirm a successful action.
 - Letting malformed stored data crash the entire program.
 - Relying on visual formatting without textual labels.
 
 ### Activities
-<<<<<<< HEAD
-=======
-
->>>>>>> 2067a20 (curriculum clearning and updates)
 1. Add a help command to the to-do tool.
 2. Test blank input, unknown commands, invalid task numbers, and an empty task list.
 3. Review every prompt for a clear expected input format.
 4. Ask a partner to complete all tasks using keyboard navigation only and record obstacles.
 
 ### Accessibility Practice
-<<<<<<< HEAD
-Use consistent separators, descriptive prompts, explicit errors, and sequential output. Do not claim a screen-reader test unless it has actually been performed.
-
-### Skills Checklist
-=======
-
 Use consistent separators, descriptive prompts, explicit errors, and sequential output. Do not claim a screen-reader test unless it has actually been performed.
 
 ### Skills Checklist
 
->>>>>>> 2067a20 (curriculum clearning and updates)
 - [ ] I can validate user input.
 - [ ] I can provide specific error messages.
 - [ ] I can confirm successful operations.

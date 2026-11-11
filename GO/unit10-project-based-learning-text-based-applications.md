@@ -6,7 +6,6 @@ Plan a text project, build the shared text adventure in two parts, build the com
 
 ---
 
->>>>>>> 2067a20 (curriculum clearning and updates)
 ## Lesson 10.1: Requirements and top-down design
 
 ### Reading References
@@ -36,10 +35,6 @@ func main() {
 }
 ```
 
-<<<<<<< HEAD
-**Expected behavior:** The standalone program demonstrates requirements and top-down design with shared course example data. It compiles and runs using the standard library. Predict the output first, then compare it with terminal output.
-=======
-
 ### Expected Behavior or Output
 
 Output observed when the worked example was run with empty standard input (Go 1.22; the text of the output does not depend on the operating system):
@@ -50,7 +45,6 @@ Output observed when the worked example was run with empty standard input (Go 1.
 3. mark task complete
 4. save tasks
 ```
->>>>>>> 2067a20 (curriculum clearning and updates)
 
 ### Common Mistakes
 1. Mixing domain logic with terminal input/output in one function.
@@ -104,18 +98,7 @@ func main() {
 }
 ```
 
-<<<<<<< HEAD
 **Expected behavior:** The standalone program demonstrates text adventure: rooms and movement with shared course example data. It compiles and runs using the standard library. Predict the output first, then compare it with terminal output.
-=======
-
-### Expected Behavior or Output
-
-Output observed when the worked example was run with empty standard input (Go 1.22; the text of the output does not depend on the operating system):
-
-```text
-Moved to: library
-```
->>>>>>> 2067a20 (curriculum clearning and updates)
 
 ### Common Mistakes
 1. Mixing domain logic with terminal input/output in one function.
@@ -162,21 +145,12 @@ import (
 	"fmt"
 )
 func main() {
-<<<<<<< HEAD
  inventory := map[string]bool{"shiny key": true}
  unlocked := inventory["shiny key"]
-=======
- inventory := map[string]bool{"key": true}
- unlocked := inventory["key"]
->>>>>>> 2067a20 (curriculum clearning and updates)
  if unlocked { inventory["map"] = true }
  fmt.Println("puzzle unlocked:", unlocked, "inventory:", inventory)
 }
 ```
-
-<<<<<<< HEAD
-**Expected behavior:** The standalone program demonstrates text adventure: inventory and puzzles with shared course example data. It compiles and runs using the standard library. Predict the output first, then compare it with terminal output.
-=======
 
 ### Expected Behavior or Output
 
@@ -185,7 +159,6 @@ Output observed when the worked example was run with empty standard input (Go 1.
 ```text
 puzzle unlocked: true inventory: map[key:true map:true]
 ```
->>>>>>> 2067a20 (curriculum clearning and updates)
 
 ### Common Mistakes
 1. Mixing domain logic with terminal input/output in one function.
@@ -239,19 +212,7 @@ func main() {
 }
 ```
 
-<<<<<<< HEAD
 **Expected behavior:** The standalone program demonstrates command-line to-do manager with shared course example data. It compiles and runs using the standard library. Predict the output first, then compare it with terminal output.
-=======
-
-### Expected Behavior or Output
-
-Output observed when the worked example was run with empty standard input (Go 1.22; the text of the output does not depend on the operating system):
-
-```text
-1: Read lesson [true]
-2: Run example [false]
-```
->>>>>>> 2067a20 (curriculum clearning and updates)
 
 ### Common Mistakes
 1. Mixing domain logic with terminal input/output in one function.
@@ -309,18 +270,7 @@ func main() {
 }
 ```
 
-<<<<<<< HEAD
 **Expected behavior:** The standalone program demonstrates accessible interaction and validation with shared course example data. It compiles and runs using the standard library. Predict the output first, then compare it with terminal output.
-=======
-
-### Expected Behavior or Output
-
-Output observed when the worked example was run with empty standard input (Go 1.22; the text of the output does not depend on the operating system):
-
-```text
-Task title: A title is required.
-```
->>>>>>> 2067a20 (curriculum clearning and updates)
 
 ### Common Mistakes
 1. Mixing domain logic with terminal input/output in one function.
@@ -343,5 +293,3 @@ Use keyboard navigation to move between the lesson heading, code fence, compiler
 - [ ] I can test a boundary case and an invalid-input or error case.
 - [ ] I can navigate source, diagnostics, and output with my keyboard and assistive technology.
 
-<<<<<<< HEAD
-=======

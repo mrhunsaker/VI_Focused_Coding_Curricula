@@ -26,8 +26,6 @@ const int score = 82; const bool passed = score >= 60 && score <= 100; std::cout
 
 **Trace:** predict the output before compiling. Identify declarations, values, control-flow decisions, and state changes in order. Then compile and compare actual output with the prediction. The lesson example is intended to be independently compilable.
 
-<<<<<<< HEAD
-=======
 ### Expected Behavior or Output
 
 Output observed when the worked example was run with empty standard input (g++ 13.3, C++20; the text of the output does not depend on the operating system):
@@ -36,7 +34,6 @@ Output observed when the worked example was run with empty standard input (g++ 1
 Valid passing score: true
 ```
 
->>>>>>> 2067a20 (curriculum clearning and updates)
 ### Common Mistakes
 - Use && and || for logical operations.
 - Compare with ==.
@@ -80,8 +77,6 @@ for (int score : {59, 60, 79, 80, 89, 90, 100}) { const char grade = score >= 90
 
 **Trace:** predict the output before compiling. Identify declarations, values, control-flow decisions, and state changes in order. Then compile and compare actual output with the prediction. The lesson example is intended to be independently compilable.
 
-<<<<<<< HEAD
-=======
 ### Expected Behavior or Output
 
 Output observed when the worked example was run with empty standard input (g++ 13.3, C++20; the text of the output does not depend on the operating system):
@@ -96,7 +91,6 @@ Output observed when the worked example was run with empty standard input (g++ 1
 100: A
 ```
 
->>>>>>> 2067a20 (curriculum clearning and updates)
 ### Common Mistakes
 - Test the most restrictive grade threshold first.
 - Include exact boundary values.
@@ -140,8 +134,6 @@ std::vector<int> scores{82, 91, 76, 88}; std::cout << "First: " << scores.at(0) 
 
 **Trace:** predict the output before compiling. Identify declarations, values, control-flow decisions, and state changes in order. Then compile and compare actual output with the prediction. The lesson example is intended to be independently compilable.
 
-<<<<<<< HEAD
-=======
 ### Expected Behavior or Output
 
 Output observed when the worked example was run with empty standard input (g++ 13.3, C++20; the text of the output does not depend on the operating system):
@@ -150,7 +142,6 @@ Output observed when the worked example was run with empty standard input (g++ 1
 First: 82; fourth: 88; count: 4
 ```
 
->>>>>>> 2067a20 (curriculum clearning and updates)
 ### Common Mistakes
 - Check vector bounds and emptiness.
 - Remember zero-based indexing.
@@ -194,8 +185,6 @@ const std::vector<int> scores{82, 91, 76, 88}; int sum = 0; for (int score : sco
 
 **Trace:** predict the output before compiling. Identify declarations, values, control-flow decisions, and state changes in order. Then compile and compare actual output with the prediction. The lesson example is intended to be independently compilable.
 
-<<<<<<< HEAD
-=======
 ### Expected Behavior or Output
 
 Output observed when the worked example was run with empty standard input (g++ 13.3, C++20; the text of the output does not depend on the operating system):
@@ -204,7 +193,6 @@ Output observed when the worked example was run with empty standard input (g++ 1
 Total: 337; average: 84.25
 ```
 
->>>>>>> 2067a20 (curriculum clearning and updates)
 ### Common Mistakes
 - Avoid invalidating iterators while traversing.
 - Use an accumulator with a suitable type.
@@ -248,8 +236,6 @@ std::string text = "Avery Studies Programming"; std::transform(text.begin(), tex
 
 **Trace:** predict the output before compiling. Identify declarations, values, control-flow decisions, and state changes in order. Then compile and compare actual output with the prediction. The lesson example is intended to be independently compilable.
 
-<<<<<<< HEAD
-=======
 ### Expected Behavior or Output
 
 Output observed when the worked example was run with empty standard input (g++ 13.3, C++20; the text of the output does not depend on the operating system):
@@ -258,7 +244,6 @@ Output observed when the worked example was run with empty standard input (g++ 1
 avery studies programming; length: 25
 ```
 
->>>>>>> 2067a20 (curriculum clearning and updates)
 ### Common Mistakes
 - Treat std::string indexing as byte-oriented.
 - Pass unsigned char to cctype functions.

@@ -36,8 +36,6 @@ int main(void)
 ```
 Create `notes.txt` with two lines before running. The program reproduces those lines. A missing file produces a diagnostic and a nonzero exit status.
 
-<<<<<<< HEAD
-=======
 ### Expected Behavior or Output
 
 With `notes.txt` in the working directory, containing:
@@ -53,7 +51,6 @@ Practice C.
 Review arrays and functions.
 ```
 
->>>>>>> 2067a20 (curriculum clearning and updates)
 ### Common Mistakes
 - Using a `FILE *` after `fopen` returned `NULL`.
 - Treating every failed `fgets` as normal EOF without checking `ferror`.
@@ -104,8 +101,6 @@ int main(void)
 ```
 Expected output: `Note appended.` The new line is added to the end of `notes.txt`.
 
-<<<<<<< HEAD
-=======
 ### Expected Behavior or Output
 
 Output observed when the worked example was run (gcc 13.3, C17; the text of the output does not depend on the operating system):
@@ -113,7 +108,6 @@ Output observed when the worked example was run (gcc 13.3, C17; the text of the 
 ```text
 Note appended.
 ```
->>>>>>> 2067a20 (curriculum clearning and updates)
 ### Common Mistakes
 - Opening in `w` mode and truncating a file that should have been appended.
 - Ignoring `fprintf` and `fclose` failure results.
@@ -163,8 +157,6 @@ int main(void)
 ```
 If the file is absent, the program prints an operating-system diagnostic and exits with status 1. This is explicit error handling, not a thrown exception.
 
-<<<<<<< HEAD
-=======
 ### Expected Behavior or Output
 
 Output observed when the worked example was run (gcc 13.3, C17; the text of the output does not depend on the operating system):
@@ -173,7 +165,6 @@ Output observed when the worked example was run (gcc 13.3, C17; the text of the 
 Unable to open missing_notes.txt: No such file or directory
 ```
 
->>>>>>> 2067a20 (curriculum clearning and updates)
 ### Common Mistakes
 - Expecting C to provide language-level exceptions.
 - Ignoring a function's documented error return convention or `errno`.
@@ -224,8 +215,6 @@ cleanup:
 ```
 The cleanup path closes the file exactly once if opening succeeded. In larger programs, structure functions so cleanup remains easy to audit.
 
-<<<<<<< HEAD
-=======
 ### Expected Behavior or Output
 
 With `notes.txt` in the working directory, containing:
@@ -240,7 +229,6 @@ Output observed when the worked example was run (gcc 13.3, C17; the text of the 
 File opened successfully.
 ```
 
->>>>>>> 2067a20 (curriculum clearning and updates)
 ### Common Mistakes
 - Returning from a function after acquiring a resource without releasing it.
 - Closing a file twice or using it after close.
@@ -287,13 +275,10 @@ typedef struct {
 ```
 This C struct is the in-memory shape of one capstone record. The JSON library layer must serialize every field and validate required fields when loading. Record the selected library and its build/link instructions in the project README.
 
-<<<<<<< HEAD
-=======
 ### Expected Behavior or Output
 
 The struct definition prints nothing by itself, and it is not a complete program. The expected result of this lesson is a written plan that names the JSON library you chose, lists every field that must be saved and loaded, and says what happens when a field is missing.
 
->>>>>>> 2067a20 (curriculum clearning and updates)
 ### Common Mistakes
 - Trying to parse arbitrary JSON with comma splitting or substring search.
 - Failing to validate required fields and JSON value types.

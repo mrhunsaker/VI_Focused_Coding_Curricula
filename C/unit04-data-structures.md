@@ -35,8 +35,6 @@ int main(void)
 ```
 Expected output: `Count: 6; last: 84`. The array has capacity 8 and currently contains 6 values; do not confuse capacity with count.
 
-<<<<<<< HEAD
-=======
 ### Expected Behavior or Output
 
 Output observed when the worked example was run (gcc 13.3, C17; the text of the output does not depend on the operating system):
@@ -44,7 +42,6 @@ Output observed when the worked example was run (gcc 13.3, C17; the text of the 
 ```text
 Count: 6; last: 84
 ```
->>>>>>> 2067a20 (curriculum clearning and updates)
 ### Common Mistakes
 - Treating array capacity as the number of currently valid elements.
 - Appending after capacity is exhausted.
@@ -99,8 +96,6 @@ int main(void)
 ```
 Expected ascending order: 76 82 88 91. Reverse traversal prints descending order.
 
-<<<<<<< HEAD
-=======
 ### Expected Behavior or Output
 
 Output observed when the worked example was run (gcc 13.3, C17; the text of the output does not depend on the operating system):
@@ -108,7 +103,6 @@ Output observed when the worked example was run (gcc 13.3, C17; the text of the 
 ```text
 76 82 88 91 
 ```
->>>>>>> 2067a20 (curriculum clearning and updates)
 ### Common Mistakes
 - Returning `a - b` from a comparator, which can overflow.
 - Returning inconsistent results for equal values.
@@ -155,8 +149,6 @@ int main(void)
 ```
 Expected output: x: 3 and y: 4. `const` prevents modifying the fields through this object.
 
-<<<<<<< HEAD
-=======
 ### Expected Behavior or Output
 
 Output observed when the worked example was run (gcc 13.3, C17; the text of the output does not depend on the operating system):
@@ -165,7 +157,6 @@ Output observed when the worked example was run (gcc 13.3, C17; the text of the 
 x: 3
 y: 4
 ```
->>>>>>> 2067a20 (curriculum clearning and updates)
 ### Common Mistakes
 - Assuming C structs are immutable without `const`.
 - Assuming copying a struct containing pointers also copies the pointed-to data.
@@ -213,8 +204,6 @@ int main(void)
 ```
 Expected records: Notebook 3 at $2.50; Pencil 10 at $0.50; Folder 4 at $1.25.
 
-<<<<<<< HEAD
-=======
 ### Expected Behavior or Output
 
 Output observed when the worked example was run (gcc 13.3, C17; the text of the output does not depend on the operating system):
@@ -224,7 +213,6 @@ Notebook: 3 at $2.50 each
 Pencil: 10 at $0.50 each
 Folder: 4 at $1.25 each
 ```
->>>>>>> 2067a20 (curriculum clearning and updates)
 ### Common Mistakes
 - Expecting a built-in C dictionary or hash map.
 - Comparing string keys with `==` instead of `strcmp`.
@@ -275,8 +263,6 @@ int main(void)
 ```
 Expected inventory values: $7.50, $5.00, and $5.00.
 
-<<<<<<< HEAD
-=======
 ### Expected Behavior or Output
 
 Output observed when the worked example was run (gcc 13.3, C17; the text of the output does not depend on the operating system):
@@ -286,7 +272,6 @@ Notebook: quantity 3; value $7.50
 Pencil: quantity 10; value $5.00
 Folder: quantity 4; value $5.00
 ```
->>>>>>> 2067a20 (curriculum clearning and updates)
 ### Common Mistakes
 - Passing an array without its count to a function.
 - Using `.` on a pointer or `->` on a non-pointer object.

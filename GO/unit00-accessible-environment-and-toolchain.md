@@ -2,31 +2,20 @@
 
 ## Course overview
 
-<<<<<<< HEAD
-=======
 **Before you start:** complete [Unit P: Computing Foundations Primer](../FOUNDATIONS/unit-p-computing-foundations.md). It explains the language-neutral vocabulary and concepts used in every language track, using non-visual examples.
 
->>>>>>> 2067a20 (curriculum clearning and updates)
 ## Course Overview
 
 Go is a compiled, statically typed language used for cloud services, network servers, command-line tools, infrastructure, and concurrent systems. This course follows the Python curriculum's shared examples and datasets while teaching Go idioms: packages and modules, explicit types, slices, maps, structs, interfaces, error values, goroutines, channels, and the standard library.
 
 **Toolchain baseline:** current stable Go release. Use the official Go distribution, gofmt, modules, and the go command. The examples are self-contained standard-library programs unless a lesson explicitly names a package.
 
-<<<<<<< HEAD
 ## Unit 0: Accessible Environment and Toolchain
 
 ### Overview
 Install Go, create a module, configure editor support, and verify keyboard and screen-reader access.
 
 ### Lesson 0.1: Install and Verify Go
-=======
-
-## Overview
-Install Go, create a module, configure editor support, and verify keyboard and screen-reader access.
-
-## Lesson 0.1: Install and Verify Go
->>>>>>> 2067a20 (curriculum clearning and updates)
 
 ### Reading References
 - [Go installation](https://go.dev/dl/)
@@ -46,15 +35,9 @@ The Go distribution includes the compiler, standard library, go command, and for
 go version\ngofmt -h
 ```
 
-<<<<<<< HEAD
-**Expected behavior:** The terminal prints the installed Go version and gofmt usage information.
-=======
-
-
 ### Expected Behavior or Output
 
 The terminal prints the installed Go version and gofmt usage information.
->>>>>>> 2067a20 (curriculum clearning and updates)
 
 ### Common Mistakes
 - Installing Go from an unofficial source or mixing multiple PATH installations.
@@ -76,11 +59,7 @@ Verify editor and terminal focus, punctuation announcement, indentation, diagnos
 - [ ] I can run the relevant command and interpret its result.
 - [ ] I can identify a troubleshooting step from an error message.
 - [ ] I can access source code and output with assistive technology.
-<<<<<<< HEAD
 ### Lesson 0.2: Modules, Workspace, and First Run
-=======
-## Lesson 0.2: Modules, Workspace, and First Run
->>>>>>> 2067a20 (curriculum clearning and updates)
 
 ### Reading References
 - [Go installation](https://go.dev/dl/)
@@ -100,15 +79,9 @@ A module is described by go.mod. An executable starts in package main and define
 mkdir courseapp\ncd courseapp\ngo mod init example.com/courseapp\nprintf 'package main\\nimport "fmt"\\nfunc main() { fmt.Println("Hello, Go!") }\\n' > main.go\ngo run .
 ```
 
-<<<<<<< HEAD
-**Expected behavior:** Go creates go.mod and runs main.go, printing Hello, Go!.
-=======
-
-
 ### Expected Behavior or Output
 
 Go creates go.mod and runs main.go, printing Hello, Go!.
->>>>>>> 2067a20 (curriculum clearning and updates)
 
 ### Common Mistakes
 - Installing Go from an unofficial source or mixing multiple PATH installations.
@@ -130,11 +103,7 @@ Verify editor and terminal focus, punctuation announcement, indentation, diagnos
 - [ ] I can run the relevant command and interpret its result.
 - [ ] I can identify a troubleshooting step from an error message.
 - [ ] I can access source code and output with assistive technology.
-<<<<<<< HEAD
 ### Lesson 0.3: Editor and Accessibility Workflow
-=======
-## Lesson 0.3: Editor and Accessibility Workflow
->>>>>>> 2067a20 (curriculum clearning and updates)
 
 ### Reading References
 - [Go installation](https://go.dev/dl/)
@@ -154,15 +123,9 @@ The Go extension and gopls provide language-aware navigation and diagnostics; th
 gofmt -w main.go\ngo test ./...\ngo build ./...
 ```
 
-<<<<<<< HEAD
-**Expected behavior:** The source is formatted, tests run (or report that none exist), and the module builds.
-=======
-
-
 ### Expected Behavior or Output
 
 The source is formatted, tests run (or report that none exist), and the module builds.
->>>>>>> 2067a20 (curriculum clearning and updates)
 
 ### Common Mistakes
 - Installing Go from an unofficial source or mixing multiple PATH installations.
@@ -184,11 +147,7 @@ Verify editor and terminal focus, punctuation announcement, indentation, diagnos
 - [ ] I can run the relevant command and interpret its result.
 - [ ] I can identify a troubleshooting step from an error message.
 - [ ] I can access source code and output with assistive technology.
-<<<<<<< HEAD
 ### Lesson 0.4: Project Environments, Dependencies, and Terminal Usage
-=======
-## Lesson 0.4: Project Environments, Dependencies, and Terminal Usage
->>>>>>> 2067a20 (curriculum clearning and updates)
 
 ### Reading References
 - [Go installation](https://go.dev/dl/)
@@ -208,15 +167,9 @@ Go modules record direct requirements in go.mod and checksums in go.sum. Use go 
 go env GOMOD\ngo list ./...\ngo test ./...\ngo build ./...
 ```
 
-<<<<<<< HEAD
-**Expected behavior:** The commands identify the active module, list packages, run tests, and build packages.
-=======
-
-
 ### Expected Behavior or Output
 
 The commands identify the active module, list packages, run tests, and build packages.
->>>>>>> 2067a20 (curriculum clearning and updates)
 
 ### Common Mistakes
 - Installing Go from an unofficial source or mixing multiple PATH installations.

@@ -78,13 +78,8 @@ Projects begin with requirements and acceptance criteria. Implement a text-based
 
 ### Worked Example
 ```swift
-<<<<<<< HEAD
 let exits = ["start_room": ["north": "tunnel"], "tunnel": ["south": "start_room"]]
 let currentRoom = "start_room"
-=======
-let exits = ["Atrium": ["north": "Laboratory"], "Laboratory": ["south": "Atrium"]]
-let currentRoom = "Atrium"
->>>>>>> 2067a20 (curriculum clearning and updates)
 let direction = "north"
 if let destination = exits[currentRoom]?[direction] {
     print("You move to the \(destination).")
@@ -136,13 +131,8 @@ Projects begin with requirements and acceptance criteria. Implement a text-based
 
 ### Worked Example
 ```swift
-<<<<<<< HEAD
 var inventory: Set<String> = ["shiny key", "map"]
 let requiredItem = "shiny key"
-=======
-var inventory: Set<String> = ["key", "map"]
-let requiredItem = "key"
->>>>>>> 2067a20 (curriculum clearning and updates)
 if inventory.contains(requiredItem) {
     print("The cabinet unlocks.")
     inventory.remove(requiredItem)

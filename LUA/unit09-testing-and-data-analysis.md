@@ -2,7 +2,6 @@
 
 ## Overview
 
-<<<<<<< HEAD
 This unit develops the concepts in the same order and with the same problem context as the Python reference. Predict the output before running each example. Use Lua 5.4 semantics, not assumptions imported from Python.
 
 ## Lesson 9.1 Testing a Function

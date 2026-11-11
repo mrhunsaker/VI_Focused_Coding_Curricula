@@ -6,34 +6,6 @@ This unit develops testing and data analysis through the same shared problem con
 
 **Unit objectives:** explain the core concepts, write and test complete Java programs, diagnose errors, and apply the ideas to accessible projects.
 
-<<<<<<< HEAD
-## Lesson 9.1: Testing a Method
-
-### Reading References
-- [Java SE 25 documentation](https://docs.oracle.com/en/java/).
-- [Java Language Specification, Java SE 25](https://docs.oracle.com/javase/specs/jls/se25/html/index.html).
-
-
-### Learning Objectives
-- Explain the purpose and vocabulary of testing a method.
-- Apply the relevant Java syntax and APIs in a small, complete program.
-- Compile, run, inspect, and adapt the example using keyboard-accessible tools.
-
-### Concept Explanation
-This lesson develops testing a method through Java's class-based structure and standard library. Identify the input, output, state changes, and relevant type constraints before coding. Keep declarations local where possible, separate computation from presentation, and state preconditions and postconditions. Separate deterministic logic from random generation, file I/O, and user interaction. Test methods and object invariants with assertions or a test framework such as JUnit. CSV quoting rules mean a comma split is only a teaching illustration, not a production parser.
-
-Java is statically typed and class-based. Local variables have declared or inferred compile-time types, reference values may be null, and methods and fields are governed by access and scope rules. The compiler checks syntax and type compatibility before execution; runtime behavior still requires testing. Follow Java naming conventions, use explicit imports in beginner work, and prefer small methods with clear contracts.
-
-### Worked Example
-```java
-public class Lesson_9_1 {
-    public static void main(String[] args) {
-        int actual = square(7);
-        if (actual != 49) throw new AssertionError("expected 49, got " + actual);
-        System.out.println("square test passed");
-        }
-        static int square(int value) { return value * value;
-=======
 ## Lesson 9.1: Testing Functions
 
 ### Reading References
@@ -110,62 +82,10 @@ public class Lesson_9_1 {
         if (failed > 0) {
             System.exit(1);
         }
->>>>>>> 2067a20 (curriculum clearning and updates)
     }
 }
 ```
 
-<<<<<<< HEAD
-**Expected behavior:** The program compiles on JDK 25 and prints a deterministic result illustrating testing a method. Run it from a terminal, compare actual output with your prediction, and change one input to test the effect.
-
-### Common Mistakes
-- Relying on Java's assert statements without enabling assertions, or testing implementation details instead of behavior.
-- Allowing tests to share mutable state so their order affects results.
-- Assuming a simple comma split handles quoted CSV fields or using an unseeded random source in a reproducibility exercise.
-### Activities
-1. Write one passing and one failing test for a pure method, then run the tests repeatedly.
-2. Seed a Random instance and verify the exercise is reproducible.
-3. Analyze a sentence for word counts after applying a documented normalization rule.
-4. Test CSV data with quoted commas and explain why a production parser is required.
-### Accessibility Practice
-Navigate by class, method, and line; inspect braces, parentheses, brackets, semicolons, generic delimiters, and compiler diagnostics with the preferred screen reader or braille display. Compile and run from the terminal so the workflow does not depend on color or a visual project explorer.
-
-### Skills Checklist
-- [ ] I can explain the key concept in Java terms.
-- [ ] I can trace and predict the worked example.
-- [ ] I can compile and run the example from the terminal.
-- [ ] I can identify and correct a Java-specific mistake.
-- [ ] I can test a boundary case and navigate the workflow accessibly.
-
-## Lesson 9.2: Testing a Class
-
-### Reading References
-- [Java SE 25 documentation](https://docs.oracle.com/en/java/).
-- [Java Language Specification, Java SE 25](https://docs.oracle.com/javase/specs/jls/se25/html/index.html).
-
-
-### Learning Objectives
-- Explain the purpose and vocabulary of testing a class.
-- Apply the relevant Java syntax and APIs in a small, complete program.
-- Compile, run, inspect, and adapt the example using keyboard-accessible tools.
-
-### Concept Explanation
-This lesson develops testing a class through Java's class-based structure and standard library. Identify the input, output, state changes, and relevant type constraints before coding. Keep declarations local where possible, separate computation from presentation, and state preconditions and postconditions. Separate deterministic logic from random generation, file I/O, and user interaction. Test methods and object invariants with assertions or a test framework such as JUnit. CSV quoting rules mean a comma split is only a teaching illustration, not a production parser.
-
-Java is statically typed and class-based. Local variables have declared or inferred compile-time types, reference values may be null, and methods and fields are governed by access and scope rules. The compiler checks syntax and type compatibility before execution; runtime behavior still requires testing. Follow Java naming conventions, use explicit imports in beginner work, and prefer small methods with clear contracts.
-
-### Worked Example
-```java
-public class Lesson_9_2 {
-    public static void main(String[] args) {
-        Counter counter = new Counter();
-        counter.increment();
-        counter.increment();
-        if (counter.value() != 2) throw new AssertionError("counter state incorrect");
-        System.out.println("class behavior test passed");
-        }
-        static class Counter { private int value; void increment() { value++; } int value() { return value; }
-=======
 ### Expected Behavior or Output
 
 The program prints:
@@ -296,12 +216,10 @@ public class Lesson_9_2 {
         });
 
         System.out.println(failures == 0 ? "All tests passed." : failures + " test(s) failed.");
->>>>>>> 2067a20 (curriculum clearning and updates)
     }
 }
 ```
 
-<<<<<<< HEAD
 **Expected behavior:** The program compiles on JDK 25 and prints a deterministic result illustrating testing a class. Run it from a terminal, compare actual output with your prediction, and change one input to test the effect.
 
 ### Common Mistakes
@@ -346,148 +264,10 @@ public class Lesson_9_3 {
     public static void main(String[] args) {
         java.util.Random random = new java.util.Random(42);
         for (int i = 0; i < 5; i++) System.out.println(random.nextInt(10));
-=======
-### Expected Behavior or Output
-
-The program prints:
-```text
-PASS total value is 7.5
-PASS restock adds to the quantity
-PASS restock rejects a negative amount
-All tests passed.
-```
-
-### Common Mistakes
-1. Sharing one object between tests, so an earlier test changes the later ones.
-2. Testing only the successful path and never the error path.
-3. Writing an assertion with no message, so a failure says nothing about what went wrong.
-
-### Activities
-1. Add a test that `restock(0)` leaves the quantity unchanged.
-2. Add a test for an `isValid` method.
-3. Break `restock` on purpose and read the failure line.
-4. Explain why `setup` creates a new item each time.
-
-### Accessibility Practice
-
-Name each test as a short sentence that says what it checks, so the PASS and FAIL lines read as clear statements. Read the final summary line first.
-
-### Skills Checklist
-- [ ] I can create a fresh object per test.
-- [ ] I can test a return value.
-- [ ] I can test a change of state.
-- [ ] I can test that an exception is thrown.
-- [ ] I can write a clear test name.
-
----
-
-## Lesson 9.3: Random Numbers
-
-### Reading References
-- [Java SE 25 API documentation](https://docs.oracle.com/en/java/javase/25/docs/api/)
-- [Dev.java learning paths](https://dev.java/learn/)
-- Matching Python lesson: Lesson 9.3: Random Numbers and Simulation
-
-### Learning Objectives
-- Generate random integers and decimals.
-- Use a seed to make results repeatable.
-- Test random code by its properties.
-
-### Concept Explanation
-
-`java.util.Random` produces random numbers. `random.nextInt(origin, bound)` returns an integer from `origin` up to but **not including** `bound`, so a die roll is `nextInt(1, 7)`. `nextDouble()` returns a decimal from 0.0 up to but not including 1.0.
-
-`new Random(42)` creates a generator with a fixed *seed*: two generators with the same seed produce the same sequence. Without a seed the results change on every run. Because the exact sequence could differ between Java versions, tests should check *properties* (every roll is between 1 and 6) and repeatability, not particular values. For secure randomness (passwords, tokens) use `SecureRandom`, never `Random`.
-
-### Worked Example
-
-```java
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Random;
-
-public class Lesson_9_3 {
-    public static void main(String[] args) {
-        Random first = new Random(42);
-        Random second = new Random(42);
-        List<Integer> firstRolls = new ArrayList<>();
-        List<Integer> secondRolls = new ArrayList<>();
-        for (int i = 0; i < 5; i++) {
-            firstRolls.add(first.nextInt(1, 7));
-            secondRolls.add(second.nextInt(1, 7));
-        }
-        System.out.println("Same seed gives the same rolls: " + firstRolls.equals(secondRolls));
-
-        Random random = new Random(7);
-        boolean inRange = true;
-        for (int i = 0; i < 1000; i++) {
-            int roll = random.nextInt(1, 7);
-            if (roll < 1 || roll > 6) {
-                inRange = false;
-            }
-        }
-        System.out.println("All rolls between 1 and 6: " + inRange);
-
-        double decimal = random.nextDouble();
-        System.out.println("Decimal in [0, 1): " + (decimal >= 0.0 && decimal < 1.0));
-
-        List<Integer> scores = List.of(82, 91, 76, 88);
-        int chosen = scores.get(random.nextInt(scores.size()));
-        System.out.println("Chosen score is from the list: " + scores.contains(chosen));
->>>>>>> 2067a20 (curriculum clearning and updates)
     }
 }
 ```
 
-<<<<<<< HEAD
-**Expected behavior:** The program compiles on JDK 25 and prints a deterministic result illustrating introduction to random numbers. Run it from a terminal, compare actual output with your prediction, and change one input to test the effect.
-
-### Common Mistakes
-- Relying on Java's assert statements without enabling assertions, or testing implementation details instead of behavior.
-- Allowing tests to share mutable state so their order affects results.
-- Assuming a simple comma split handles quoted CSV fields or using an unseeded random source in a reproducibility exercise.
-### Activities
-1. Write one passing and one failing test for a pure method, then run the tests repeatedly.
-2. Seed a Random instance and verify the exercise is reproducible.
-3. Analyze a sentence for word counts after applying a documented normalization rule.
-4. Test CSV data with quoted commas and explain why a production parser is required.
-### Accessibility Practice
-Navigate by class, method, and line; inspect braces, parentheses, brackets, semicolons, generic delimiters, and compiler diagnostics with the preferred screen reader or braille display. Compile and run from the terminal so the workflow does not depend on color or a visual project explorer.
-
-### Skills Checklist
-- [ ] I can explain the key concept in Java terms.
-- [ ] I can trace and predict the worked example.
-- [ ] I can compile and run the example from the terminal.
-- [ ] I can identify and correct a Java-specific mistake.
-- [ ] I can test a boundary case and navigate the workflow accessibly.
-
-## Lesson 9.4: Analyzing Text Data
-
-### Reading References
-- [Java SE 25 documentation](https://docs.oracle.com/en/java/).
-- [Java Language Specification, Java SE 25](https://docs.oracle.com/javase/specs/jls/se25/html/index.html).
-
-
-### Learning Objectives
-- Explain the purpose and vocabulary of analyzing text data.
-- Apply the relevant Java syntax and APIs in a small, complete program.
-- Compile, run, inspect, and adapt the example using keyboard-accessible tools.
-
-### Concept Explanation
-This lesson develops analyzing text data through Java's class-based structure and standard library. Identify the input, output, state changes, and relevant type constraints before coding. Keep declarations local where possible, separate computation from presentation, and state preconditions and postconditions. Separate deterministic logic from random generation, file I/O, and user interaction. Test methods and object invariants with assertions or a test framework such as JUnit. CSV quoting rules mean a comma split is only a teaching illustration, not a production parser.
-
-Java is statically typed and class-based. Local variables have declared or inferred compile-time types, reference values may be null, and methods and fields are governed by access and scope rules. The compiler checks syntax and type compatibility before execution; runtime behavior still requires testing. Follow Java naming conventions, use explicit imports in beginner work, and prefer small methods with clear contracts.
-
-### Worked Example
-```java
-public class Lesson_9_4 {
-    public static void main(String[] args) {
-        String text = "Java makes data processing testable. Java is explicit.";
-        String normalized = text.toLowerCase();
-        long count = java.util.Arrays.stream(normalized.split("[^a-z]+"))
-            .filter(word -> word.equals("java")).count();
-        System.out.println("java occurrences=" + count);
-=======
 ### Expected Behavior or Output
 
 The program prints:
@@ -580,58 +360,10 @@ public class Lesson_9_4 {
         for (int i = 0; i < 3; i++) {
             System.out.println(entries.get(i).getKey() + ": " + entries.get(i).getValue());
         }
->>>>>>> 2067a20 (curriculum clearning and updates)
     }
 }
 ```
 
-<<<<<<< HEAD
-**Expected behavior:** The program compiles on JDK 25 and prints a deterministic result illustrating analyzing text data. Run it from a terminal, compare actual output with your prediction, and change one input to test the effect.
-
-### Common Mistakes
-- Relying on Java's assert statements without enabling assertions, or testing implementation details instead of behavior.
-- Allowing tests to share mutable state so their order affects results.
-- Assuming a simple comma split handles quoted CSV fields or using an unseeded random source in a reproducibility exercise.
-### Activities
-1. Write one passing and one failing test for a pure method, then run the tests repeatedly.
-2. Seed a Random instance and verify the exercise is reproducible.
-3. Analyze a sentence for word counts after applying a documented normalization rule.
-4. Test CSV data with quoted commas and explain why a production parser is required.
-### Accessibility Practice
-Navigate by class, method, and line; inspect braces, parentheses, brackets, semicolons, generic delimiters, and compiler diagnostics with the preferred screen reader or braille display. Compile and run from the terminal so the workflow does not depend on color or a visual project explorer.
-
-### Skills Checklist
-- [ ] I can explain the key concept in Java terms.
-- [ ] I can trace and predict the worked example.
-- [ ] I can compile and run the example from the terminal.
-- [ ] I can identify and correct a Java-specific mistake.
-- [ ] I can test a boundary case and navigate the workflow accessibly.
-
-## Lesson 9.5: Working with CSV Data
-
-### Reading References
-- [Java SE 25 documentation](https://docs.oracle.com/en/java/).
-- [Java Language Specification, Java SE 25](https://docs.oracle.com/javase/specs/jls/se25/html/index.html).
-
-
-### Learning Objectives
-- Explain the purpose and vocabulary of working with csv data.
-- Apply the relevant Java syntax and APIs in a small, complete program.
-- Compile, run, inspect, and adapt the example using keyboard-accessible tools.
-
-### Concept Explanation
-This lesson develops working with csv data through Java's class-based structure and standard library. Identify the input, output, state changes, and relevant type constraints before coding. Keep declarations local where possible, separate computation from presentation, and state preconditions and postconditions. Separate deterministic logic from random generation, file I/O, and user interaction. Test methods and object invariants with assertions or a test framework such as JUnit. CSV quoting rules mean a comma split is only a teaching illustration, not a production parser.
-
-Java is statically typed and class-based. Local variables have declared or inferred compile-time types, reference values may be null, and methods and fields are governed by access and scope rules. The compiler checks syntax and type compatibility before execution; runtime behavior still requires testing. Follow Java naming conventions, use explicit imports in beginner work, and prefer small methods with clear contracts.
-
-### Worked Example
-```java
-public class Lesson_9_5 {
-    public static void main(String[] args) {
-        String csv = "name,score\\nAvery,92\\nRiley,85";
-        for (String line : csv.split("\\R")) System.out.println(java.util.Arrays.toString(line.split(",", -1)));
-        System.out.println("For production CSV, use a parser that supports quoted fields and escaped commas.");
-=======
 ### Expected Behavior or Output
 
 The program prints:
@@ -736,12 +468,10 @@ public class Lesson_9_5 {
         System.out.println("Students: " + students.size());
         System.out.println("Average score: " + String.format(Locale.US, "%.2f", (double) total / students.size()));
         System.out.println("Active students: " + active);
->>>>>>> 2067a20 (curriculum clearning and updates)
     }
 }
 ```
 
-<<<<<<< HEAD
 **Expected behavior:** The program compiles on JDK 25 and prints a deterministic result illustrating working with csv data. Run it from a terminal, compare actual output with your prediction, and change one input to test the effect.
 
 ### Common Mistakes
@@ -762,41 +492,3 @@ Navigate by class, method, and line; inspect braces, parentheses, brackets, semi
 - [ ] I can compile and run the example from the terminal.
 - [ ] I can identify and correct a Java-specific mistake.
 - [ ] I can test a boundary case and navigate the workflow accessibly.
-=======
-### Expected Behavior or Output
-
-The program prints:
-```text
-Columns: student_id, first_name, last_name, score, active
-1: Avery Student scored 91
-2: Jordan Lee scored 82
-3: Casey Smith scored 76
-Students: 3
-Average score: 83.00
-Active students: 2
-```
-
-### Common Mistakes
-1. Splitting a CSV line at every comma when a value contains a quoted comma.
-2. Forgetting to convert the text in the score column to a number.
-3. Not skipping the header line, so `parseInt` fails on the text `score`.
-
-### Activities
-1. Predict the printed lines before running.
-2. Add a fourth student and check the new average.
-3. Print only the active students.
-4. Explain, with an example, why `"Smith, Jr."` breaks `split(",")`.
-
-### Accessibility Practice
-
-Print one student per line with the same wording each time, so the screen reader announces a repeating pattern that is easy to compare. Read the column names aloud once at the start.
-
-### Skills Checklist
-- [ ] I can write and read a CSV file.
-- [ ] I can split a line into fields.
-- [ ] I convert text fields to numbers.
-- [ ] I can compute an average and a count.
-- [ ] I know when `split` is not enough.
-
----
->>>>>>> 2067a20 (curriculum clearning and updates)

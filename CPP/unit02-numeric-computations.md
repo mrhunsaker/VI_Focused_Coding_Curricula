@@ -26,8 +26,6 @@ const double bill = 24.50; const double tip = bill * 0.15; std::cout << "Tip: $"
 
 **Trace:** predict the output before compiling. Identify declarations, values, control-flow decisions, and state changes in order. Then compile and compare actual output with the prediction. The lesson example is intended to be independently compilable.
 
-<<<<<<< HEAD
-=======
 ### Expected Behavior or Output
 
 Output observed when the worked example was run with empty standard input (g++ 13.3, C++20; the text of the output does not depend on the operating system):
@@ -36,7 +34,6 @@ Output observed when the worked example was run with empty standard input (g++ 1
 Tip: $3.675; total: $28.175
 ```
 
->>>>>>> 2067a20 (curriculum clearning and updates)
 ### Common Mistakes
 - Printing currency without a defined rounding/formatting policy can misrepresent fractional cents.
 - Calculate the tip from the bill and keep the rate as a fraction.
@@ -80,8 +77,6 @@ double score = 70.0; score += 12.5; score *= 1.1; std::cout << "Adjusted score: 
 
 **Trace:** predict the output before compiling. Identify declarations, values, control-flow decisions, and state changes in order. Then compile and compare actual output with the prediction. The lesson example is intended to be independently compilable.
 
-<<<<<<< HEAD
-=======
 ### Expected Behavior or Output
 
 Output observed when the worked example was run with empty standard input (g++ 13.3, C++20; the text of the output does not depend on the operating system):
@@ -90,7 +85,6 @@ Output observed when the worked example was run with empty standard input (g++ 1
 Adjusted score: 90.75
 ```
 
->>>>>>> 2067a20 (curriculum clearning and updates)
 ### Common Mistakes
 - Use compound assignment without overwriting prior values.
 - Distinguish percentage rates from percentage points.
@@ -134,8 +128,6 @@ std::istringstream input("Avery 6 7"); std::string name; int first = 0, second =
 
 **Trace:** predict the output before compiling. Identify declarations, values, control-flow decisions, and state changes in order. Then compile and compare actual output with the prediction. The lesson example is intended to be independently compilable.
 
-<<<<<<< HEAD
-=======
 ### Expected Behavior or Output
 
 Output observed when the worked example was run with empty standard input (g++ 13.3, C++20; the text of the output does not depend on the operating system):
@@ -144,7 +136,6 @@ Output observed when the worked example was run with empty standard input (g++ 1
 Hello, Avery; sum: 13
 ```
 
->>>>>>> 2067a20 (curriculum clearning and updates)
 ### Common Mistakes
 - Check stream extraction before using input.
 - Handle multiword text with getline.
@@ -188,8 +179,6 @@ const int completed = 7, total = 10; const double ratio = static_cast<double>(co
 
 **Trace:** predict the output before compiling. Identify declarations, values, control-flow decisions, and state changes in order. Then compile and compare actual output with the prediction. The lesson example is intended to be independently compilable.
 
-<<<<<<< HEAD
-=======
 ### Expected Behavior or Output
 
 Output observed when the worked example was run with empty standard input (g++ 13.3, C++20; the text of the output does not depend on the operating system):
@@ -198,7 +187,6 @@ Output observed when the worked example was run with empty standard input (g++ 1
 Percent: 70; rounded: 70
 ```
 
->>>>>>> 2067a20 (curriculum clearning and updates)
 ### Common Mistakes
 - Cast before division to avoid integer truncation.
 - Define behavior for invalid square-root inputs.
@@ -251,10 +239,6 @@ int main() {
 
 ```
 
-<<<<<<< HEAD
-**Expected behavior:** the circle with radius 3 has area approximately 28.2743 and circumference approximately 18.8496; the point (3, 4) is 5 units from the origin.
-=======
-
 ### Expected Behavior or Output
 
 Output observed when the worked example was run with empty standard input (g++ 13.3, C++20; the text of the output does not depend on the operating system):
@@ -264,7 +248,6 @@ Area: 28.2743
 Circumference: 18.8496
 Distance: 5
 ```
->>>>>>> 2067a20 (curriculum clearning and updates)
 
 ### Common Mistakes
 - Calling a math function without including `<cmath>` or qualifying it with `std::`.

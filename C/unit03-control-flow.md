@@ -32,8 +32,6 @@ int main(void)
 ```
 Expected output: `Meets the course criteria.` and `Score is not negative.`
 
-<<<<<<< HEAD
-=======
 ### Expected Behavior or Output
 
 Output observed when the worked example was run (gcc 13.3, C17; the text of the output does not depend on the operating system):
@@ -42,7 +40,6 @@ Output observed when the worked example was run (gcc 13.3, C17; the text of the 
 Meets the course criteria.
 Score is not negative.
 ```
->>>>>>> 2067a20 (curriculum clearning and updates)
 ### Common Mistakes
 - Using bitwise `&`/`|` when short-circuit logical `&&`/`||` is required.
 - Reversing the score and attendance conditions.
@@ -98,8 +95,6 @@ int main(void)
 ```
 Expected mapping: 91/A, 90/A, 82/B, 80/B, 76/C, 70/C, 60/D, 0/F; -1 and 101 are invalid (`?`).
 
-<<<<<<< HEAD
-=======
 ### Expected Behavior or Output
 
 Output observed when the worked example was run (gcc 13.3, C17; the text of the output does not depend on the operating system):
@@ -116,7 +111,6 @@ Output observed when the worked example was run (gcc 13.3, C17; the text of the 
 -1 -> ?
 101 -> ?
 ```
->>>>>>> 2067a20 (curriculum clearning and updates)
 ### Common Mistakes
 - Checking a lower grade boundary before a higher one and making a branch unreachable.
 - Omitting the 0–100 validity check before assigning a grade.
@@ -165,8 +159,6 @@ int main(void)
 ```
 Expected output: first 82, last 88, count 4, updated third score 80.
 
-<<<<<<< HEAD
-=======
 ### Expected Behavior or Output
 
 Output observed when the worked example was run (gcc 13.3, C17; the text of the output does not depend on the operating system):
@@ -177,7 +169,6 @@ Last: 88
 Count: 4
 Updated third score: 80
 ```
->>>>>>> 2067a20 (curriculum clearning and updates)
 ### Common Mistakes
 - Accessing an array at index `count` instead of `count - 1` for its last element.
 - Assuming C performs bounds checks automatically.
@@ -226,8 +217,6 @@ int main(void)
 ```
 Expected total: 337; average: 84.25.
 
-<<<<<<< HEAD
-=======
 ### Expected Behavior or Output
 
 Output observed when the worked example was run (gcc 13.3, C17; the text of the output does not depend on the operating system):
@@ -240,7 +229,6 @@ Score 4: 88
 Total: 337
 Average: 84.25
 ```
->>>>>>> 2067a20 (curriculum clearning and updates)
 ### Common Mistakes
 - Using `i <= count` and reading beyond the final score.
 - Forgetting to update the index or updating it twice.
@@ -293,8 +281,6 @@ int main(void)
 ```
 Expected byte length: 75; substring result: yes. The cast to `unsigned char` is required for safe use of `tolower`.
 
-<<<<<<< HEAD
-=======
 ### Expected Behavior or Output
 
 Output observed when the worked example was run (gcc 13.3, C17; the text of the output does not depend on the operating system):
@@ -304,7 +290,6 @@ Byte length: 75
 Lowercase: a student studies programming. programming develops problem-solving skills.
 Contains programming: yes
 ```
->>>>>>> 2067a20 (curriculum clearning and updates)
 ### Common Mistakes
 - Writing a lowercase result into a buffer without space for the null terminator.
 - Passing a negative plain `char` to `tolower` rather than an `unsigned char` value.

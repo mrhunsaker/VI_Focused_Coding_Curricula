@@ -25,8 +25,6 @@ const auto calculate_total = [](double bill, double rate) { return bill * (1.0 +
 
 **Trace:** predict the output before compiling. Identify declarations, values, control-flow decisions, and state changes in order. Then compile and compare actual output with the prediction. The lesson example is intended to be independently compilable.
 
-<<<<<<< HEAD
-=======
 ### Expected Behavior or Output
 
 Output observed when the worked example was run with empty standard input (g++ 13.3, C++20; the text of the output does not depend on the operating system):
@@ -35,7 +33,6 @@ Output observed when the worked example was run with empty standard input (g++ 1
 Bill plus tip: $28.175
 ```
 
->>>>>>> 2067a20 (curriculum clearning and updates)
 ### Common Mistakes
 - Declare functions before use.
 - Ensure every non-void path returns.
@@ -79,8 +76,6 @@ const auto label = [](const std::string& name, int score) { return name + ": " +
 
 **Trace:** predict the output before compiling. Identify declarations, values, control-flow decisions, and state changes in order. Then compile and compare actual output with the prediction. The lesson example is intended to be independently compilable.
 
-<<<<<<< HEAD
-=======
 ### Expected Behavior or Output
 
 Output observed when the worked example was run with empty standard input (g++ 13.3, C++20; the text of the output does not depend on the operating system):
@@ -89,7 +84,6 @@ Output observed when the worked example was run with empty standard input (g++ 1
 Avery: 92
 ```
 
->>>>>>> 2067a20 (curriculum clearning and updates)
 ### Common Mistakes
 - Pass large read-only objects by const reference.
 - Use non-const references only for intended mutation.
@@ -133,8 +127,6 @@ const auto tip_total = [](double bill, double rate) { return bill * (1.0 + rate)
 
 **Trace:** predict the output before compiling. Identify declarations, values, control-flow decisions, and state changes in order. Then compile and compare actual output with the prediction. The lesson example is intended to be independently compilable.
 
-<<<<<<< HEAD
-=======
 ### Expected Behavior or Output
 
 Output observed when the worked example was run with empty standard input (g++ 13.3, C++20; the text of the output does not depend on the operating system):
@@ -143,7 +135,6 @@ Output observed when the worked example was run with empty standard input (g++ 1
 Total: $28.175
 ```
 
->>>>>>> 2067a20 (curriculum clearning and updates)
 ### Common Mistakes
 - Never return a reference to a local.
 - Document failure/sentinel behavior.
@@ -187,8 +178,6 @@ const auto average = [](const std::vector<int>& scores) { if (scores.empty()) re
 
 **Trace:** predict the output before compiling. Identify declarations, values, control-flow decisions, and state changes in order. Then compile and compare actual output with the prediction. The lesson example is intended to be independently compilable.
 
-<<<<<<< HEAD
-=======
 ### Expected Behavior or Output
 
 Output observed when the worked example was run with empty standard input (g++ 13.3, C++20; the text of the output does not depend on the operating system):
@@ -197,7 +186,6 @@ Output observed when the worked example was run with empty standard input (g++ 1
 Average: 84.25
 ```
 
->>>>>>> 2067a20 (curriculum clearning and updates)
 ### Common Mistakes
 - Avoid copying a collection when a const reference suffices.
 - Define empty-input behavior.
@@ -241,8 +229,6 @@ const auto sum = []<typename... Values>(Values... values) { return (values + ...
 
 **Trace:** predict the output before compiling. Identify declarations, values, control-flow decisions, and state changes in order. Then compile and compare actual output with the prediction. The lesson example is intended to be independently compilable.
 
-<<<<<<< HEAD
-=======
 ### Expected Behavior or Output
 
 Output observed when the worked example was run with empty standard input (g++ 13.3, C++20; the text of the output does not depend on the operating system):
@@ -251,7 +237,6 @@ Output observed when the worked example was run with empty standard input (g++ 1
 Sum: 9
 ```
 
->>>>>>> 2067a20 (curriculum clearning and updates)
 ### Common Mistakes
 - Respect block scope.
 - Write fold expressions that match the parameter pack.

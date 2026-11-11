@@ -6,49 +6,6 @@ This unit develops data structures through Rust's type system and standard libra
 ## Lesson 4.1: Vectors and collection mutation
 
 ### Reading References
-<<<<<<< HEAD
-- [The Rust Programming Language](https://doc.rust-lang.org/book/)
-- [Rust standard library](https://doc.rust-lang.org/std/)
-- [Cargo Book](https://doc.rust-lang.org/cargo/)
-- Matching Python curriculum lesson for the shared problem context.
-
-### Learning Objectives
-- Explain Vectors and collection mutation using Rust's types, ownership model, and standard-library conventions.
-- Select an idiomatic Rust construct rather than transliterating Python syntax.
-- Predict, compile, and verify the example's behavior.
-- Test a relevant boundary condition and explain a common failure.
-
-### Concept Explanation
-Choose Vec for ordered sequences, tuples for small fixed groupings, and HashMap for keyed lookup. Iterators compose transformations without manual index bookkeeping. Borrow collections when ownership transfer or mutation is unnecessary. This lesson retains the canonical course data so learners practice Rust rather than a new domain problem. Use cargo fmt, cargo check, and cargo test as routine development tools.
-
-### Worked Example
-```rust
-fn main() { let mut scores=vec![82,91,76]; scores.push(88); println!("{scores:?}"); }
-```
-
-**Expected behavior:** Runs independently with the standard library and prints the result of this lesson's focused operation. Predict the output, then compare it with the terminal output.
-
-### Common Mistakes
-1. Mutating a collection while an incompatible borrow remains active.
-2. Assuming HashMap iteration order is sorted or stable.
-3. Moving a collection into an iterator and then reusing it.
-
-### Activities
-1. Run the worked example unchanged; trace each binding, expression, ownership transfer, and output line.
-2. Change the canonical scores [82, 91, 76, 88] and predict the result before running it.
-3. Add one boundary case and one invalid or missing-data case; state expected behavior before implementing the change.
-4. Refactor one part using the Rust feature named in this lesson (vectors and collection mutation); run cargo check and explain the diagnostic output.
-
-### Accessibility Practice
-Use keyboard navigation to move between the lesson heading, code fence, compiler output, and terminal. With a screen reader, inspect punctuation in ownership and borrowing expressions (&, &mut, ::, ->, ?). Do not rely on syntax highlighting or color to distinguish errors. Read prompts and validation messages in document order and verify that output is announced without unexpected focus movement.
-
-### Skills Checklist
-- [ ] I can explain vectors and collection mutation using Rust terminology.
-- [ ] I can compile and run the example with cargo run.
-- [ ] I can explain the ownership, borrowing, and type decisions used here.
-- [ ] I can test a boundary case and an invalid-input or error case.
-- [ ] I can navigate source, diagnostics, and output with my keyboard and assistive technology.
-=======
 - [The Rust Programming Language: Vectors](https://doc.rust-lang.org/book/ch08-01-vectors.html)
 - [Rust standard library documentation](https://doc.rust-lang.org/std/)
 - Matching Python lesson: Lesson 4.1: More on Lists
@@ -126,54 +83,10 @@ After every change, print the whole vector on one line so the screen reader read
 - [ ] I can show a vector in one line.
 
 ---
->>>>>>> 2067a20 (curriculum clearning and updates)
 
 ## Lesson 4.2: Sorting and organizing data
 
 ### Reading References
-<<<<<<< HEAD
-- [The Rust Programming Language](https://doc.rust-lang.org/book/)
-- [Rust standard library](https://doc.rust-lang.org/std/)
-- [Cargo Book](https://doc.rust-lang.org/cargo/)
-- Matching Python curriculum lesson for the shared problem context.
-
-### Learning Objectives
-- Explain Sorting and organizing data using Rust's types, ownership model, and standard-library conventions.
-- Select an idiomatic Rust construct rather than transliterating Python syntax.
-- Predict, compile, and verify the example's behavior.
-- Test a relevant boundary condition and explain a common failure.
-
-### Concept Explanation
-Choose Vec for ordered sequences, tuples for small fixed groupings, and HashMap for keyed lookup. Iterators compose transformations without manual index bookkeeping. Borrow collections when ownership transfer or mutation is unnecessary. This lesson retains the canonical course data so learners practice Rust rather than a new domain problem. Use cargo fmt, cargo check, and cargo test as routine development tools.
-
-### Worked Example
-```rust
-fn main() { let mut v=vec![82,91,76,88]; v.sort(); println!("ascending={v:?}"); v.reverse(); println!("descending={v:?}"); }
-```
-
-**Expected behavior:** Runs independently with the standard library and prints the result of this lesson's focused operation. Predict the output, then compare it with the terminal output.
-
-### Common Mistakes
-1. Mutating a collection while an incompatible borrow remains active.
-2. Assuming HashMap iteration order is sorted or stable.
-3. Moving a collection into an iterator and then reusing it.
-
-### Activities
-1. Run the worked example unchanged; trace each binding, expression, ownership transfer, and output line.
-2. Change the canonical scores [82, 91, 76, 88] and predict the result before running it.
-3. Add one boundary case and one invalid or missing-data case; state expected behavior before implementing the change.
-4. Refactor one part using the Rust feature named in this lesson (sorting and organizing data); run cargo check and explain the diagnostic output.
-
-### Accessibility Practice
-Use keyboard navigation to move between the lesson heading, code fence, compiler output, and terminal. With a screen reader, inspect punctuation in ownership and borrowing expressions (&, &mut, ::, ->, ?). Do not rely on syntax highlighting or color to distinguish errors. Read prompts and validation messages in document order and verify that output is announced without unexpected focus movement.
-
-### Skills Checklist
-- [ ] I can explain sorting and organizing data using Rust terminology.
-- [ ] I can compile and run the example with cargo run.
-- [ ] I can explain the ownership, borrowing, and type decisions used here.
-- [ ] I can test a boundary case and an invalid-input or error case.
-- [ ] I can navigate source, diagnostics, and output with my keyboard and assistive technology.
-=======
 - [The Rust Programming Language: Vectors](https://doc.rust-lang.org/book/ch08-01-vectors.html)
 - [Vec sorting methods](https://doc.rust-lang.org/std/vec/struct.Vec.html)
 - [Rust standard library documentation](https://doc.rust-lang.org/std/)
@@ -259,54 +172,10 @@ Print each result on its own labelled line (`Ascending:`, `Descending:`). The fi
 - [ ] I can reverse a vector.
 
 ---
->>>>>>> 2067a20 (curriculum clearning and updates)
 
 ## Lesson 4.3: Tuples and immutable values
 
 ### Reading References
-<<<<<<< HEAD
-- [The Rust Programming Language](https://doc.rust-lang.org/book/)
-- [Rust standard library](https://doc.rust-lang.org/std/)
-- [Cargo Book](https://doc.rust-lang.org/cargo/)
-- Matching Python curriculum lesson for the shared problem context.
-
-### Learning Objectives
-- Explain Tuples and immutable values using Rust's types, ownership model, and standard-library conventions.
-- Select an idiomatic Rust construct rather than transliterating Python syntax.
-- Predict, compile, and verify the example's behavior.
-- Test a relevant boundary condition and explain a common failure.
-
-### Concept Explanation
-Choose Vec for ordered sequences, tuples for small fixed groupings, and HashMap for keyed lookup. Iterators compose transformations without manual index bookkeeping. Borrow collections when ownership transfer or mutation is unnecessary. This lesson retains the canonical course data so learners practice Rust rather than a new domain problem. Use cargo fmt, cargo check, and cargo test as routine development tools.
-
-### Worked Example
-```rust
-fn main() { let student=("Avery",16,82); println!("name={}, age={}, score={}",student.0,student.1,student.2); }
-```
-
-**Expected behavior:** Runs independently with the standard library and prints the result of this lesson's focused operation. Predict the output, then compare it with the terminal output.
-
-### Common Mistakes
-1. Mutating a collection while an incompatible borrow remains active.
-2. Assuming HashMap iteration order is sorted or stable.
-3. Moving a collection into an iterator and then reusing it.
-
-### Activities
-1. Run the worked example unchanged; trace each binding, expression, ownership transfer, and output line.
-2. Change the canonical scores [82, 91, 76, 88] and predict the result before running it.
-3. Add one boundary case and one invalid or missing-data case; state expected behavior before implementing the change.
-4. Refactor one part using the Rust feature named in this lesson (tuples and immutable values); run cargo check and explain the diagnostic output.
-
-### Accessibility Practice
-Use keyboard navigation to move between the lesson heading, code fence, compiler output, and terminal. With a screen reader, inspect punctuation in ownership and borrowing expressions (&, &mut, ::, ->, ?). Do not rely on syntax highlighting or color to distinguish errors. Read prompts and validation messages in document order and verify that output is announced without unexpected focus movement.
-
-### Skills Checklist
-- [ ] I can explain tuples and immutable values using Rust terminology.
-- [ ] I can compile and run the example with cargo run.
-- [ ] I can explain the ownership, borrowing, and type decisions used here.
-- [ ] I can test a boundary case and an invalid-input or error case.
-- [ ] I can navigate source, diagnostics, and output with my keyboard and assistive technology.
-=======
 - [The Rust Programming Language: The Tuple Type](https://doc.rust-lang.org/book/ch03-02-data-types.html)
 - [The Rust Programming Language: Using Tuple Structs](https://doc.rust-lang.org/book/ch05-01-defining-structs.html)
 - [Rust standard library documentation](https://doc.rust-lang.org/std/)
@@ -402,54 +271,10 @@ Printing a tuple with `{:?}` shows the parentheses and commas, so the screen rea
 - [ ] I can choose between a tuple and a struct.
 
 ---
->>>>>>> 2067a20 (curriculum clearning and updates)
 
 ## Lesson 4.4: Hash maps and key-value data
 
 ### Reading References
-<<<<<<< HEAD
-- [The Rust Programming Language](https://doc.rust-lang.org/book/)
-- [Rust standard library](https://doc.rust-lang.org/std/)
-- [Cargo Book](https://doc.rust-lang.org/cargo/)
-- Matching Python curriculum lesson for the shared problem context.
-
-### Learning Objectives
-- Explain Hash maps and key-value data using Rust's types, ownership model, and standard-library conventions.
-- Select an idiomatic Rust construct rather than transliterating Python syntax.
-- Predict, compile, and verify the example's behavior.
-- Test a relevant boundary condition and explain a common failure.
-
-### Concept Explanation
-Choose Vec for ordered sequences, tuples for small fixed groupings, and HashMap for keyed lookup. Iterators compose transformations without manual index bookkeeping. Borrow collections when ownership transfer or mutation is unnecessary. This lesson retains the canonical course data so learners practice Rust rather than a new domain problem. Use cargo fmt, cargo check, and cargo test as routine development tools.
-
-### Worked Example
-```rust
-use std::collections::HashMap; fn main() { let mut stock=HashMap::new(); stock.insert("Notebook",3); stock.insert("Pencil",10); println!("Notebook stock={}",stock.get("Notebook").copied().unwrap_or(0)); }
-```
-
-**Expected behavior:** Runs independently with the standard library and prints the result of this lesson's focused operation. Predict the output, then compare it with the terminal output.
-
-### Common Mistakes
-1. Mutating a collection while an incompatible borrow remains active.
-2. Assuming HashMap iteration order is sorted or stable.
-3. Moving a collection into an iterator and then reusing it.
-
-### Activities
-1. Run the worked example unchanged; trace each binding, expression, ownership transfer, and output line.
-2. Change the canonical scores [82, 91, 76, 88] and predict the result before running it.
-3. Add one boundary case and one invalid or missing-data case; state expected behavior before implementing the change.
-4. Refactor one part using the Rust feature named in this lesson (hash maps and key-value data); run cargo check and explain the diagnostic output.
-
-### Accessibility Practice
-Use keyboard navigation to move between the lesson heading, code fence, compiler output, and terminal. With a screen reader, inspect punctuation in ownership and borrowing expressions (&, &mut, ::, ->, ?). Do not rely on syntax highlighting or color to distinguish errors. Read prompts and validation messages in document order and verify that output is announced without unexpected focus movement.
-
-### Skills Checklist
-- [ ] I can explain hash maps and key-value data using Rust terminology.
-- [ ] I can compile and run the example with cargo run.
-- [ ] I can explain the ownership, borrowing, and type decisions used here.
-- [ ] I can test a boundary case and an invalid-input or error case.
-- [ ] I can navigate source, diagnostics, and output with my keyboard and assistive technology.
-=======
 - [The Rust Programming Language: Storing Keys with Associated Values in Hash Maps](https://doc.rust-lang.org/book/ch08-03-hash-maps.html)
 - [Rust standard library documentation](https://doc.rust-lang.org/std/)
 - Matching Python lesson: Lesson 4.4: Introducing Dictionaries
@@ -539,54 +364,10 @@ Print one lookup per line, because a one-line `{key: value, ...}` form is hard t
 - [ ] I can model an item with a struct.
 
 ---
->>>>>>> 2067a20 (curriculum clearning and updates)
 
 ## Lesson 4.5: Collection traversal and iterators
 
 ### Reading References
-<<<<<<< HEAD
-- [The Rust Programming Language](https://doc.rust-lang.org/book/)
-- [Rust standard library](https://doc.rust-lang.org/std/)
-- [Cargo Book](https://doc.rust-lang.org/cargo/)
-- Matching Python curriculum lesson for the shared problem context.
-
-### Learning Objectives
-- Explain Collection traversal and iterators using Rust's types, ownership model, and standard-library conventions.
-- Select an idiomatic Rust construct rather than transliterating Python syntax.
-- Predict, compile, and verify the example's behavior.
-- Test a relevant boundary condition and explain a common failure.
-
-### Concept Explanation
-Choose Vec for ordered sequences, tuples for small fixed groupings, and HashMap for keyed lookup. Iterators compose transformations without manual index bookkeeping. Borrow collections when ownership transfer or mutation is unnecessary. This lesson retains the canonical course data so learners practice Rust rather than a new domain problem. Use cargo fmt, cargo check, and cargo test as routine development tools.
-
-### Worked Example
-```rust
-fn main() { let scores=[82,91,76,88]; let passing:Vec<i32>=scores.into_iter().filter(|s|*s>=80).collect(); println!("{passing:?}"); }
-```
-
-**Expected behavior:** Runs independently with the standard library and prints the result of this lesson's focused operation. Predict the output, then compare it with the terminal output.
-
-### Common Mistakes
-1. Mutating a collection while an incompatible borrow remains active.
-2. Assuming HashMap iteration order is sorted or stable.
-3. Moving a collection into an iterator and then reusing it.
-
-### Activities
-1. Run the worked example unchanged; trace each binding, expression, ownership transfer, and output line.
-2. Change the canonical scores [82, 91, 76, 88] and predict the result before running it.
-3. Add one boundary case and one invalid or missing-data case; state expected behavior before implementing the change.
-4. Refactor one part using the Rust feature named in this lesson (collection traversal and iterators); run cargo check and explain the diagnostic output.
-
-### Accessibility Practice
-Use keyboard navigation to move between the lesson heading, code fence, compiler output, and terminal. With a screen reader, inspect punctuation in ownership and borrowing expressions (&, &mut, ::, ->, ?). Do not rely on syntax highlighting or color to distinguish errors. Read prompts and validation messages in document order and verify that output is announced without unexpected focus movement.
-
-### Skills Checklist
-- [ ] I can explain collection traversal and iterators using Rust terminology.
-- [ ] I can compile and run the example with cargo run.
-- [ ] I can explain the ownership, borrowing, and type decisions used here.
-- [ ] I can test a boundary case and an invalid-input or error case.
-- [ ] I can navigate source, diagnostics, and output with my keyboard and assistive technology.
-=======
 - [The Rust Programming Language: Iterators](https://doc.rust-lang.org/book/ch13-02-iterators.html)
 - [The Rust Programming Language: Hash Maps](https://doc.rust-lang.org/book/ch08-03-hash-maps.html)
 - [Rust standard library documentation](https://doc.rust-lang.org/std/)
@@ -689,4 +470,3 @@ Printing each inventory line as one sentence lets the screen reader announce the
 - [ ] I can total the shared inventory.
 
 ---
->>>>>>> 2067a20 (curriculum clearning and updates)

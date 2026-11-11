@@ -23,13 +23,10 @@ The Python capstone uses NiceGUI, but that framework is Python-specific. The C c
 ### Worked Example
 Choose one collection: contacts, books/movies, to-do tasks, or inventory. Define fields, required values, validation rules, and the five required operations: add, view, edit, delete, save/load. For the to-do option, use `id`, `title`, `description`, `done`, and `created_at`. Document that the reference Python GUI is replaced by an accessible terminal interface in this C implementation.
 
-<<<<<<< HEAD
-=======
 ### Expected Behavior or Output
 
 No program is run in this lesson. The expected result is a written specification that names the chosen collection, lists the shared record fields, states the validation rules, and describes the five required operations and the terminal interface.
 
->>>>>>> 2067a20 (curriculum clearning and updates)
 ### Common Mistakes
 - Omitting one of add, view, edit, delete, save, or load from the requirements.
 - Designing a GUI-specific solution despite selecting a terminal interface.
@@ -77,13 +74,10 @@ typedef struct {
 ```
 The record contains the exact canonical capstone fields. Define which fields are required, how empty strings are handled, and how IDs and timestamps are generated. The serialization layer must preserve all fields when saving and loading.
 
-<<<<<<< HEAD
-=======
 ### Expected Behavior or Output
 
 The struct definition prints nothing by itself, and it is not a complete program. The expected result is a written storage design: which fields are required, how empty strings are treated, how IDs and timestamps are produced, and how a save followed by a load preserves every field.
 
->>>>>>> 2067a20 (curriculum clearning and updates)
 ### Common Mistakes
 - Using fixed-size fields without documenting maximum lengths and truncation policy.
 - Generating duplicate IDs or inconsistent timestamp formats.
@@ -140,8 +134,6 @@ int main(void)
 ```
 Expected state: task 1 is renamed to Review C arrays and marked done; task 2 is unchanged. Add bounds-safe input and implement add/delete operations using the same ID lookup.
 
-<<<<<<< HEAD
-=======
 ### Expected Behavior or Output
 
 Output observed when the worked example was run (gcc 13.3, C17; the text of the output does not depend on the operating system):
@@ -150,7 +142,6 @@ Output observed when the worked example was run (gcc 13.3, C17; the text of the 
 1: Review C arrays (done)
 2: Practice arrays (done)
 ```
->>>>>>> 2067a20 (curriculum clearning and updates)
 ### Common Mistakes
 - Using an unchecked lookup result as an array index.
 - Copying a title into a fixed-size buffer without checking length.
@@ -202,14 +193,11 @@ int main(void)
 ```
 All assertions pass with exit status 0. Add tests for the full CRUD functions and compile a debug build with `-fsanitize=address,undefined -fno-omit-frame-pointer` where supported.
 
-<<<<<<< HEAD
-=======
 ### Expected Behavior or Output
 
 Output observed when the worked example was run (gcc 13.3, C17; the text of the output does not depend on the operating system):
 
 The program prints nothing and exits normally.
->>>>>>> 2067a20 (curriculum clearning and updates)
 ### Common Mistakes
 - Testing only successful operations and ignoring malformed input or missing files.
 - Ignoring compiler warnings or sanitizer diagnostics.
@@ -246,13 +234,10 @@ The deliverable includes source code, sample data, a README, build/run instructi
 ### Worked Example
 README acceptance checklist: explain the selected data-manager domain; list the exact fields; document add/view/edit/delete/save/load; provide compile and run commands; describe how to navigate the menu by keyboard; explain how to recover from invalid input; include sample data and known limitations; record the screen reader and operating-system tests actually performed.
 
-<<<<<<< HEAD
-=======
 ### Expected Behavior or Output
 
 No program is run in this lesson. The expected result is a README that satisfies the acceptance checklist, with compile and run commands that another person can follow from an empty folder, and a record of the screen reader and operating-system tests you actually performed.
 
->>>>>>> 2067a20 (curriculum clearning and updates)
 ### Common Mistakes
 - Omitting compiler version, build command, or dependency setup from the README.
 - Claiming assistive-technology compatibility without testing a named screen reader and OS.
@@ -272,10 +257,6 @@ Navigate the complete source file by line, word, and character using the learner
 - [ ] I can complete the lesson-specific boundary or extension tests above and explain the result.
 - [ ] I can recognize the three C-specific failure modes listed in this lesson and apply a correction.
 - [ ] I can navigate, compile, run, and inspect the source and output using my chosen access technology.
-<<<<<<< HEAD
-=======
-
 ## AI Policy
 
 AI may be used only for personal conceptual understanding and reinforcement. It must not write, complete, autocomplete, repair, or generate course code or assessment solutions.
->>>>>>> 2067a20 (curriculum clearning and updates)

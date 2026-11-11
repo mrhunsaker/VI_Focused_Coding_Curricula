@@ -30,13 +30,10 @@ typedef struct {
 ```
 This record models one inventory item with the same fields used throughout the course: name, quantity, and unit price. A C struct stores fields; it does not automatically provide constructors, methods, or memory management.
 
-<<<<<<< HEAD
-=======
 ### Expected Behavior or Output
 
 The struct definition prints nothing by itself, and it is not a complete program. Use it in a program that creates an `Item` (see Lesson 7.2) to see output. A correct answer to the activities lists the three fields and says that C leaves construction, validation, and cleanup to your own functions.
 
->>>>>>> 2067a20 (curriculum clearning and updates)
 ### Common Mistakes
 - Describing a C struct as a class with built-in methods and constructors.
 - Failing to separate public declarations from implementation details in headers and source files.
@@ -84,8 +81,6 @@ int main(void)
 ```
 Expected output: Notebook: 3; Pencil: 10. The two variables are separate struct instances.
 
-<<<<<<< HEAD
-=======
 ### Expected Behavior or Output
 
 Output observed when the worked example was run (gcc 13.3, C17; the text of the output does not depend on the operating system):
@@ -93,7 +88,6 @@ Output observed when the worked example was run (gcc 13.3, C17; the text of the 
 ```text
 Notebook: 3; Pencil: 10
 ```
->>>>>>> 2067a20 (curriculum clearning and updates)
 ### Common Mistakes
 - Using field-order initialization incorrectly.
 - Leaving a field unintentionally uninitialized in an automatic object.
@@ -144,8 +138,6 @@ int main(void)
 ```
 Expected output: Notebook inventory value: $7.50.
 
-<<<<<<< HEAD
-=======
 ### Expected Behavior or Output
 
 Output observed when the worked example was run (gcc 13.3, C17; the text of the output does not depend on the operating system):
@@ -153,7 +145,6 @@ Output observed when the worked example was run (gcc 13.3, C17; the text of the 
 ```text
 Notebook inventory value: $7.50
 ```
->>>>>>> 2067a20 (curriculum clearning and updates)
 ### Common Mistakes
 - Confusing `.` and `->` member access.
 - Dereferencing a null pointer.
@@ -206,8 +197,6 @@ int main(void)
 ```
 Expected output: Notebook reorder required: yes. This is composition, not language-level inheritance.
 
-<<<<<<< HEAD
-=======
 ### Expected Behavior or Output
 
 Output observed when the worked example was run (gcc 13.3, C17; the text of the output does not depend on the operating system):
@@ -215,7 +204,6 @@ Output observed when the worked example was run (gcc 13.3, C17; the text of the 
 ```text
 Notebook reorder required: yes
 ```
->>>>>>> 2067a20 (curriculum clearning and updates)
 ### Common Mistakes
 - Claiming C has native class inheritance or virtual dispatch.
 - Treating an embedded struct as automatically substitutable for its containing type.
@@ -264,8 +252,6 @@ int main(void)
 ```
 Expected output lists the two tasks and their completion states.
 
-<<<<<<< HEAD
-=======
 ### Expected Behavior or Output
 
 Output observed when the worked example was run (gcc 13.3, C17; the text of the output does not depend on the operating system):
@@ -274,7 +260,6 @@ Output observed when the worked example was run (gcc 13.3, C17; the text of the 
 Review C arrays: not done
 Practice functions: done
 ```
->>>>>>> 2067a20 (curriculum clearning and updates)
 ### Common Mistakes
 - Calling composition inheritance.
 - Allowing the task count to exceed the fixed array capacity.

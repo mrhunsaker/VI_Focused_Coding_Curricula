@@ -26,8 +26,6 @@ record Student(string Name, int Age, string FavoriteSubject);
 
 **Trace:** identify declarations, expressions, control flow, and observable output. Predict the result, run the example, and compare the actual output with the prediction.
 
-<<<<<<< HEAD
-=======
 ### Expected Behavior or Output
 
 Output observed when the worked example was run (.NET 8; the text of the output does not depend on the operating system):
@@ -36,7 +34,6 @@ Output observed when the worked example was run (.NET 8; the text of the output 
 Avery, 16, Computer Science
 ```
 
->>>>>>> 2067a20 (curriculum clearning and updates)
 ### Common Mistakes
 - Exposing mutable state that bypasses the type's invariants.
 - Confusing reference identity with value equality.
@@ -78,8 +75,6 @@ record Student(string Name, int Age, string FavoriteSubject);
 
 **Trace:** identify declarations, expressions, control flow, and observable output. Predict the result, run the example, and compare the actual output with the prediction.
 
-<<<<<<< HEAD
-=======
 ### Expected Behavior or Output
 
 Output observed when the worked example was run (.NET 8; the text of the output does not depend on the operating system):
@@ -89,7 +84,6 @@ Student { Name = Avery, Age = 16, FavoriteSubject = Computer Science }
 Student { Name = Jordan, Age = 17, FavoriteSubject = Mathematics }
 ```
 
->>>>>>> 2067a20 (curriculum clearning and updates)
 ### Common Mistakes
 - Exposing mutable state that bypasses the type's invariants.
 - Confusing reference identity with value equality.
@@ -131,8 +125,6 @@ class InventoryItem(string name, int quantity) { public string Name { get; } = n
 
 **Trace:** identify declarations, expressions, control flow, and observable output. Predict the result, run the example, and compare the actual output with the prediction.
 
-<<<<<<< HEAD
-=======
 ### Expected Behavior or Output
 
 Output observed when the worked example was run (.NET 8; the text of the output does not depend on the operating system):
@@ -141,7 +133,6 @@ Output observed when the worked example was run (.NET 8; the text of the output 
 Notebook: 5
 ```
 
->>>>>>> 2067a20 (curriculum clearning and updates)
 ### Common Mistakes
 - Exposing mutable state that bypasses the type's invariants.
 - Confusing reference identity with value equality.
@@ -183,8 +174,6 @@ class StudentRecord(string name) : IRecord { public string Describe() => $"Stude
 
 **Trace:** identify declarations, expressions, control flow, and observable output. Predict the result, run the example, and compare the actual output with the prediction.
 
-<<<<<<< HEAD
-=======
 ### Expected Behavior or Output
 
 Output observed when the worked example was run (.NET 8; the text of the output does not depend on the operating system):
@@ -193,7 +182,6 @@ Output observed when the worked example was run (.NET 8; the text of the output 
 Student: Avery
 ```
 
->>>>>>> 2067a20 (curriculum clearning and updates)
 ### Common Mistakes
 - Exposing mutable state that bypasses the type's invariants.
 - Confusing reference identity with value equality.
@@ -235,8 +223,6 @@ record Address(string City, string Region); record Student(string Name, Address 
 
 **Trace:** identify declarations, expressions, control flow, and observable output. Predict the result, run the example, and compare the actual output with the prediction.
 
-<<<<<<< HEAD
-=======
 ### Expected Behavior or Output
 
 Output observed when the worked example was run (.NET 8; the text of the output does not depend on the operating system):
@@ -245,7 +231,6 @@ Output observed when the worked example was run (.NET 8; the text of the output 
 Avery lives in Farmington, Utah
 ```
 
->>>>>>> 2067a20 (curriculum clearning and updates)
 ### Common Mistakes
 - Exposing mutable state that bypasses the type's invariants.
 - Confusing reference identity with value equality.

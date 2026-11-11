@@ -26,8 +26,6 @@ struct Item { std::string name; int quantity; }; const Item notebook{"Notebook",
 
 **Trace:** predict the output before compiling. Identify declarations, values, control-flow decisions, and state changes in order. Then compile and compare actual output with the prediction. The lesson example is intended to be independently compilable.
 
-<<<<<<< HEAD
-=======
 ### Expected Behavior or Output
 
 Output observed when the worked example was run with empty standard input (g++ 13.3, C++20; the text of the output does not depend on the operating system):
@@ -36,7 +34,6 @@ Output observed when the worked example was run with empty standard input (g++ 1
 Notebook: 3
 ```
 
->>>>>>> 2067a20 (curriculum clearning and updates)
 ### Common Mistakes
 - Distinguish a type declaration from an instance.
 - Understand struct-public and class-private defaults.
@@ -80,8 +77,6 @@ struct Item { std::string name; int quantity; }; const std::vector<Item> items{{
 
 **Trace:** predict the output before compiling. Identify declarations, values, control-flow decisions, and state changes in order. Then compile and compare actual output with the prediction. The lesson example is intended to be independently compilable.
 
-<<<<<<< HEAD
-=======
 ### Expected Behavior or Output
 
 Output observed when the worked example was run with empty standard input (g++ 13.3, C++20; the text of the output does not depend on the operating system):
@@ -92,7 +87,6 @@ Pencil: 10
 Folder: 4
 ```
 
->>>>>>> 2067a20 (curriculum clearning and updates)
 ### Common Mistakes
 - Initialize objects to satisfy invariants.
 - Use . for objects and -> for pointers.
@@ -136,8 +130,6 @@ struct Counter { int value{0}; void increment() { ++value; } int current() const
 
 **Trace:** predict the output before compiling. Identify declarations, values, control-flow decisions, and state changes in order. Then compile and compare actual output with the prediction. The lesson example is intended to be independently compilable.
 
-<<<<<<< HEAD
-=======
 ### Expected Behavior or Output
 
 Output observed when the worked example was run with empty standard input (g++ 13.3, C++20; the text of the output does not depend on the operating system):
@@ -146,7 +138,6 @@ Output observed when the worked example was run with empty standard input (g++ 1
 Clicks: 2
 ```
 
->>>>>>> 2067a20 (curriculum clearning and updates)
 ### Common Mistakes
 - Distinguish member and local state.
 - Mark read-only methods const.
@@ -190,8 +181,6 @@ struct Record { virtual ~Record() = default; virtual std::string kind() const { 
 
 **Trace:** predict the output before compiling. Identify declarations, values, control-flow decisions, and state changes in order. Then compile and compare actual output with the prediction. The lesson example is intended to be independently compilable.
 
-<<<<<<< HEAD
-=======
 ### Expected Behavior or Output
 
 Output observed when the worked example was run with empty standard input (g++ 13.3, C++20; the text of the output does not depend on the operating system):
@@ -200,7 +189,6 @@ Output observed when the worked example was run with empty standard input (g++ 1
 student
 ```
 
->>>>>>> 2067a20 (curriculum clearning and updates)
 ### Common Mistakes
 - Give polymorphic bases virtual destructors.
 - Match override signatures.
@@ -244,8 +232,6 @@ struct Address { std::string city; }; struct Student { std::string name; Address
 
 **Trace:** predict the output before compiling. Identify declarations, values, control-flow decisions, and state changes in order. Then compile and compare actual output with the prediction. The lesson example is intended to be independently compilable.
 
-<<<<<<< HEAD
-=======
 ### Expected Behavior or Output
 
 Output observed when the worked example was run with empty standard input (g++ 13.3, C++20; the text of the output does not depend on the operating system):
@@ -254,7 +240,6 @@ Output observed when the worked example was run with empty standard input (g++ 1
 Avery lives in Farmington
 ```
 
->>>>>>> 2067a20 (curriculum clearning and updates)
 ### Common Mistakes
 - Model has-a relationships with composition.
 - Initialize members deliberately.

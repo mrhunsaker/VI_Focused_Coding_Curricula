@@ -18,7 +18,6 @@ This unit develops input and iteration using Go's types, packages, and standard-
 - Test a relevant boundary condition and explain a common failure.
 
 ### Concept Explanation
-<<<<<<< HEAD
 package main
 import (
 	"bufio"
@@ -71,12 +70,6 @@ func main() {
 } The lesson uses the canonical course data so learners focus on Go semantics rather than a new domain problem. Format with gofmt and use go test ./... as routine development tools.
 
 ### Worked Example
-=======
-Reading input uses `bufio.NewScanner(os.Stdin)`; `scanner.Scan()` returns false at the end of input, and `scanner.Text()` returns the line. Typed text is always a string and must be converted and checked, for example with `strconv.Atoi`, which returns an error for text such as `abc`. A program that reads input must handle the end of input as well as invalid text.
-### Worked Example
-
-**Example 5.1.1**
->>>>>>> 2067a20 (curriculum clearning and updates)
 ```go
 package main
 import (
@@ -93,12 +86,6 @@ func main() {
 	age, err := strconv.Atoi(strings.TrimSpace(text))
 	if err != nil || age < 0 || age > 120 { fmt.Println("Enter an age from 0 to 120.") } else { fmt.Println("Accepted:", age) }
 }
-<<<<<<< HEAD
-
-```
-
-**Expected behavior:** The standalone program demonstrates input and validation with the course's shared example data. It compiles and runs using the standard library. Predict the output first, then compare it with the terminal output.
-=======
 ```
 
 **Example 5.1.2**
@@ -188,7 +175,6 @@ attempt 2
 attempt 3
 stopped after 3 attempts
 ```
->>>>>>> 2067a20 (curriculum clearning and updates)
 
 ### Common Mistakes
 1. Failing to trim newline and whitespace before parsing.
@@ -226,7 +212,6 @@ Use keyboard navigation to move between the lesson heading, code fence, compiler
 - Test a relevant boundary condition and explain a common failure.
 
 ### Concept Explanation
-<<<<<<< HEAD
 package main
 import (
 	"bufio"
@@ -278,12 +263,6 @@ func main() {
 } The lesson uses the canonical course data so learners focus on Go semantics rather than a new domain problem. Format with gofmt and use go test ./... as routine development tools.
 
 ### Worked Example
-=======
-Go has no `while` keyword; `for condition { ... }` is the while-style loop. A loop needs a way to make the condition false, normally by changing a variable inside the body. A sentinel is a special input, such as `quit`, that ends the loop; read once before the loop and again at the end of each pass, and stop when input ends.
-### Worked Example
-
-**Example 5.2.1**
->>>>>>> 2067a20 (curriculum clearning and updates)
 ```go
 package main
 import (
@@ -297,9 +276,6 @@ func main() {
 }
 ```
 
-<<<<<<< HEAD
-**Expected behavior:** The standalone program demonstrates for loops as while-style repetition with the course's shared example data. It compiles and runs using the standard library. Predict the output first, then compare it with the terminal output.
-=======
 **Example 5.2.2**
 ```go
 package main
@@ -368,7 +344,6 @@ attempt 2
 attempt 3
 stopped after 3 attempts
 ```
->>>>>>> 2067a20 (curriculum clearning and updates)
 
 ### Common Mistakes
 1. Failing to trim newline and whitespace before parsing.
@@ -406,7 +381,6 @@ Use keyboard navigation to move between the lesson heading, code fence, compiler
 - Test a relevant boundary condition and explain a common failure.
 
 ### Concept Explanation
-<<<<<<< HEAD
 package main
 import (
 	"bufio"
@@ -422,15 +396,6 @@ func main() {
 	if err != nil || age < 0 || age > 120 { fmt.Println("Enter an age from 0 to 120.") } else { fmt.Println("Accepted:", age) }
 },package main
 import (
-=======
-A Boolean flag can control a loop, and `break` leaves the nearest enclosing `for` immediately. For a search, remember the position in a variable, `break` when found, and test the variable afterward. A labelled `break` (`break outer`) leaves an outer loop from inside an inner one.
-### Worked Example
-
-**Example 5.3.1**
-```go
-package main
-import (
->>>>>>> 2067a20 (curriculum clearning and updates)
 	"fmt"
 )
 func main() {
@@ -438,7 +403,6 @@ func main() {
 	count := 0
 	for _, value := range values { if value == 0 { break }; count++ }
 	fmt.Println("Read", count, "values before sentinel.")
-<<<<<<< HEAD
 },package main
 import (
 	"fmt"
@@ -468,12 +432,6 @@ func main() {
 } The lesson uses the canonical course data so learners focus on Go semantics rather than a new domain problem. Format with gofmt and use go test ./... as routine development tools.
 
 ### Worked Example
-=======
-}
-```
-
-**Example 5.3.2**
->>>>>>> 2067a20 (curriculum clearning and updates)
 ```go
 package main
 import (
@@ -487,9 +445,6 @@ func main() {
 }
 ```
 
-<<<<<<< HEAD
-**Expected behavior:** The standalone program demonstrates flags and early exits with the course's shared example data. It compiles and runs using the standard library. Predict the output first, then compare it with the terminal output.
-=======
 **Example 5.3.3**
 ```go
 package main
@@ -544,7 +499,6 @@ attempt 2
 attempt 3
 stopped after 3 attempts
 ```
->>>>>>> 2067a20 (curriculum clearning and updates)
 
 ### Common Mistakes
 1. Failing to trim newline and whitespace before parsing.
@@ -582,23 +536,6 @@ Use keyboard navigation to move between the lesson heading, code fence, compiler
 - Test a relevant boundary condition and explain a common failure.
 
 ### Concept Explanation
-<<<<<<< HEAD
-package main
-import (
-	"bufio"
-	"fmt"
-	"os"
-	"strconv"
-)
-func main() {
-	reader := bufio.NewReader(os.Stdin)
-	fmt.Print("Enter age: ")
-	text, _ := reader.ReadString('\n')
-	age, err := strconv.Atoi(strings.TrimSpace(text))
-	if err != nil || age < 0 || age > 120 { fmt.Println("Enter an age from 0 to 120.") } else { fmt.Println("Accepted:", age) }
-},package main
-import (
-=======
 `continue` skips the rest of one pass of a `for` loop and goes to the next. Use it to skip invalid entries, such as scores below 0 or above 100, while still reporting that they were skipped. Be sure that the loop's counter is updated before `continue` in a condition-only `for` loop, or the loop will never end.
 ### Worked Example
 
@@ -606,7 +543,6 @@ import (
 ```go
 package main
 import (
->>>>>>> 2067a20 (curriculum clearning and updates)
 	"fmt"
 )
 func main() {
@@ -614,16 +550,12 @@ func main() {
 	count := 0
 	for _, value := range values { if value == 0 { break }; count++ }
 	fmt.Println("Read", count, "values before sentinel.")
-<<<<<<< HEAD
-},package main
-=======
 }
 ```
 
 **Example 5.4.2**
 ```go
 package main
->>>>>>> 2067a20 (curriculum clearning and updates)
 import (
 	"fmt"
 )
@@ -632,7 +564,6 @@ func main() {
 	found := false
 	for _, value := range values { if value < 0 { found = true; break } }
 	fmt.Println("negative value found:", found)
-<<<<<<< HEAD
 },package main
 import (
 	"fmt"
@@ -653,12 +584,6 @@ func main() {
 } The lesson uses the canonical course data so learners focus on Go semantics rather than a new domain problem. Format with gofmt and use go test ./... as routine development tools.
 
 ### Worked Example
-=======
-}
-```
-
-**Example 5.4.3**
->>>>>>> 2067a20 (curriculum clearning and updates)
 ```go
 package main
 import (
@@ -672,9 +597,6 @@ func main() {
 }
 ```
 
-<<<<<<< HEAD
-**Expected behavior:** The standalone program demonstrates continue and filtering with the course's shared example data. It compiles and runs using the standard library. Predict the output first, then compare it with the terminal output.
-=======
 **Example 5.4.4**
 ```go
 package main
@@ -715,7 +637,6 @@ attempt 2
 attempt 3
 stopped after 3 attempts
 ```
->>>>>>> 2067a20 (curriculum clearning and updates)
 
 ### Common Mistakes
 1. Failing to trim newline and whitespace before parsing.
@@ -753,23 +674,6 @@ Use keyboard navigation to move between the lesson heading, code fence, compiler
 - Test a relevant boundary condition and explain a common failure.
 
 ### Concept Explanation
-<<<<<<< HEAD
-package main
-import (
-	"bufio"
-	"fmt"
-	"os"
-	"strconv"
-)
-func main() {
-	reader := bufio.NewReader(os.Stdin)
-	fmt.Print("Enter age: ")
-	text, _ := reader.ReadString('\n')
-	age, err := strconv.Atoi(strings.TrimSpace(text))
-	if err != nil || age < 0 || age > 120 { fmt.Println("Enter an age from 0 to 120.") } else { fmt.Println("Accepted:", age) }
-},package main
-import (
-=======
 An endless loop never makes its condition false. Defend against it with a progress rule and a limit, for example a maximum number of attempts, and stop when input ends. A bare `for { ... }` is an intentional endless loop that must contain a `break` or `return`. Stop a running program from the terminal with Ctrl+C.
 ### Worked Example
 
@@ -777,7 +681,6 @@ An endless loop never makes its condition false. Defend against it with a progre
 ```go
 package main
 import (
->>>>>>> 2067a20 (curriculum clearning and updates)
 	"fmt"
 )
 func main() {
@@ -785,16 +688,12 @@ func main() {
 	count := 0
 	for _, value := range values { if value == 0 { break }; count++ }
 	fmt.Println("Read", count, "values before sentinel.")
-<<<<<<< HEAD
-},package main
-=======
 }
 ```
 
 **Example 5.5.2**
 ```go
 package main
->>>>>>> 2067a20 (curriculum clearning and updates)
 import (
 	"fmt"
 )
@@ -803,16 +702,12 @@ func main() {
 	found := false
 	for _, value := range values { if value < 0 { found = true; break } }
 	fmt.Println("negative value found:", found)
-<<<<<<< HEAD
-},package main
-=======
 }
 ```
 
 **Example 5.5.3**
 ```go
 package main
->>>>>>> 2067a20 (curriculum clearning and updates)
 import (
 	"fmt"
 )
@@ -821,7 +716,6 @@ func main() {
 	positives := make([]int, 0)
 	for _, value := range values { if value <= 0 { continue }; positives = append(positives, value) }
 	fmt.Println(positives)
-<<<<<<< HEAD
 },package main
 import (
 	"fmt"
@@ -833,12 +727,6 @@ func main() {
 } The lesson uses the canonical course data so learners focus on Go semantics rather than a new domain problem. Format with gofmt and use go test ./... as routine development tools.
 
 ### Worked Example
-=======
-}
-```
-
-**Example 5.5.4**
->>>>>>> 2067a20 (curriculum clearning and updates)
 ```go
 package main
 import (
@@ -850,10 +738,6 @@ func main() {
 	fmt.Println("stopped after", attempts, "attempts")
 }
 ```
-
-<<<<<<< HEAD
-**Expected behavior:** The standalone program demonstrates preventing infinite loops with the course's shared example data. It compiles and runs using the standard library. Predict the output first, then compare it with the terminal output.
-=======
 
 ### Expected Behavior or Output
 
@@ -881,7 +765,6 @@ attempt 2
 attempt 3
 stopped after 3 attempts
 ```
->>>>>>> 2067a20 (curriculum clearning and updates)
 
 ### Common Mistakes
 1. Failing to trim newline and whitespace before parsing.

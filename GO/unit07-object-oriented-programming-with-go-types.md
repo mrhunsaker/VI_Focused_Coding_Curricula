@@ -18,7 +18,6 @@ This unit develops object-oriented programming with go types using Go's types, p
 - Test a relevant boundary condition and explain a common failure.
 
 ### Concept Explanation
-<<<<<<< HEAD
 package main
 import (
 	"fmt"
@@ -73,12 +72,6 @@ func main() {
 } The lesson uses the canonical course data so learners focus on Go semantics rather than a new domain problem. Format with gofmt and use go test ./... as routine development tools.
 
 ### Worked Example
-=======
-A struct groups named fields into a new type. `type Item struct { Name string; Quantity int; UnitPrice float64 }` models the shared inventory item, and a struct literal creates values. Fields are read and written with a dot. A struct is copied when assigned or passed, so use a pointer when a function must change the original.
-### Worked Example
-
-**Example 7.1.1**
->>>>>>> 2067a20 (curriculum clearning and updates)
 ```go
 package main
 import (
@@ -94,9 +87,6 @@ func main() {
 }
 ```
 
-<<<<<<< HEAD
-**Expected behavior:** The standalone program demonstrates structs and data modeling with the course's shared example data. It compiles and runs using the standard library. Predict the output first, then compare it with the terminal output.
-=======
 **Example 7.1.2**
 ```go
 package main
@@ -166,7 +156,6 @@ Example 4:
 ```text
 Composition and interfaces
 ```
->>>>>>> 2067a20 (curriculum clearning and updates)
 
 ### Common Mistakes
 1. Using a value receiver when mutation of the original struct is required.
@@ -221,18 +210,7 @@ import (
 	}
 ```
 
-<<<<<<< HEAD
 **Expected behavior:** The standalone program demonstrates creating values and pointer receivers with shared course example data. It compiles and runs using the standard library. Predict the output first, then compare it with terminal output.
-=======
-
-### Expected Behavior or Output
-
-Output observed when the worked example was run with empty standard input (Go 1.22; the text of the output does not depend on the operating system):
-
-```text
-Avery score: 85
-```
->>>>>>> 2067a20 (curriculum clearning and updates)
 
 ### Common Mistakes
 1. Using a value receiver when mutation of the original struct is required.
@@ -287,18 +265,7 @@ import (
 	}
 ```
 
-<<<<<<< HEAD
 **Expected behavior:** The standalone program demonstrates methods and interfaces with shared course example data. It compiles and runs using the standard library. Predict the output first, then compare it with terminal output.
-=======
-
-### Expected Behavior or Output
-
-Output observed when the worked example was run with empty standard input (Go 1.22; the text of the output does not depend on the operating system):
-
-```text
-Study Go: false
-```
->>>>>>> 2067a20 (curriculum clearning and updates)
 
 ### Common Mistakes
 1. Using a value receiver when mutation of the original struct is required.
@@ -352,18 +319,7 @@ import (
 	}
 ```
 
-<<<<<<< HEAD
 **Expected behavior:** The standalone program demonstrates embedding and polymorphism with shared course example data. It compiles and runs using the standard library. Predict the output first, then compare it with terminal output.
-=======
-
-### Expected Behavior or Output
-
-Output observed when the worked example was run with empty standard input (Go 1.22; the text of the output does not depend on the operating system):
-
-```text
-Avery avery@example.test
-```
->>>>>>> 2067a20 (curriculum clearning and updates)
 
 ### Common Mistakes
 1. Using a value receiver when mutation of the original struct is required.
@@ -416,18 +372,7 @@ import (
 	func main() { display(Note{Text: "Composition and interfaces"}) }
 ```
 
-<<<<<<< HEAD
 **Expected behavior:** The standalone program demonstrates composition and collaboration with shared course example data. It compiles and runs using the standard library. Predict the output first, then compare it with terminal output.
-=======
-
-### Expected Behavior or Output
-
-Output observed when the worked example was run with empty standard input (Go 1.22; the text of the output does not depend on the operating system):
-
-```text
-Composition and interfaces
-```
->>>>>>> 2067a20 (curriculum clearning and updates)
 
 ### Common Mistakes
 1. Using a value receiver when mutation of the original struct is required.
@@ -450,5 +395,3 @@ Use keyboard navigation to move between the lesson heading, code fence, compiler
 - [ ] I can test a boundary case and an invalid-input or error case.
 - [ ] I can navigate source, diagnostics, and output with my keyboard and assistive technology.
 
-<<<<<<< HEAD
-=======

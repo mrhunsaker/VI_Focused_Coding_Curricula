@@ -18,7 +18,6 @@ This unit develops foundations of computing using Go's types, packages, and stan
 - Test a relevant boundary condition and explain a common failure.
 
 ### Concept Explanation
-<<<<<<< HEAD
 package main
 import (
 	"fmt"
@@ -45,12 +44,6 @@ func main() {
 } The lesson uses the canonical course data so learners focus on Go semantics rather than a new domain problem. Format with gofmt and use go test ./... as routine development tools.
 
 ### Worked Example
-=======
-A computer follows instructions exactly, so a program must state every step. An algorithm is an ordered, finite list of clear steps; a Go program is one way of carrying it out. The examples turn the same plain-language plan into Go: store values, repeat a step, and report a result.
-### Worked Example
-
-**Example 1.1.1**
->>>>>>> 2067a20 (curriculum clearning and updates)
 ```go
 package main
 import (
@@ -61,9 +54,6 @@ func main() {
 }
 ```
 
-<<<<<<< HEAD
-**Expected behavior:** The standalone program demonstrates computer science and problem solving with the course's shared example data. It compiles and runs using the standard library. Predict the output first, then compare it with the terminal output.
-=======
 **Example 1.1.2**
 ```go
 package main
@@ -111,7 +101,6 @@ Example 3:
 ```text
 age=16 height=1.72 active=true
 ```
->>>>>>> 2067a20 (curriculum clearning and updates)
 
 ### Common Mistakes
 1. Treating a computer as if it inferred unstated requirements.
@@ -149,21 +138,17 @@ Use keyboard navigation to move between the lesson heading, code fence, compiler
 - Test a relevant boundary condition and explain a common failure.
 
 ### Concept Explanation
-<<<<<<< HEAD
-=======
 Every Go executable lives in `package main` and starts at `func main()`. The `import` block names the packages the file uses, and an unused import is a compile error. `fmt.Println` writes its arguments separated by spaces and ends with a new line; `gofmt` formats the file so every Go program looks the same.
 ### Worked Example
 
 **Example 1.2.1**
 ```go
->>>>>>> 2067a20 (curriculum clearning and updates)
 package main
 import (
 	"fmt"
 )
 func main() {
 	fmt.Println("A program is a precise set of instructions.")
-<<<<<<< HEAD
 },package main
 import (
 	"fmt"
@@ -184,12 +169,6 @@ func main() {
 } The lesson uses the canonical course data so learners focus on Go semantics rather than a new domain problem. Format with gofmt and use go test ./... as routine development tools.
 
 ### Worked Example
-=======
-}
-```
-
-**Example 1.2.2**
->>>>>>> 2067a20 (curriculum clearning and updates)
 ```go
 package main
 import (
@@ -202,9 +181,6 @@ func main() {
 }
 ```
 
-<<<<<<< HEAD
-**Expected behavior:** The standalone program demonstrates your first go program and packages with the course's shared example data. It compiles and runs using the standard library. Predict the output first, then compare it with the terminal output.
-=======
 **Example 1.2.3**
 ```go
 package main
@@ -239,7 +215,6 @@ Example 3:
 ```text
 age=16 height=1.72 active=true
 ```
->>>>>>> 2067a20 (curriculum clearning and updates)
 
 ### Common Mistakes
 1. Treating a computer as if it inferred unstated requirements.
@@ -277,30 +252,23 @@ Use keyboard navigation to move between the lesson heading, code fence, compiler
 - Test a relevant boundary condition and explain a common failure.
 
 ### Concept Explanation
-<<<<<<< HEAD
-=======
 Go is statically typed: every variable has a type fixed at compile time. `var age int = 16` declares the type explicitly, while `height := 1.72` declares and infers `float64` inside a function. Constants use `const`, and an unassigned variable holds its type's zero value (0, "", false) rather than an undefined value.
 ### Worked Example
 
 **Example 1.3.1**
 ```go
->>>>>>> 2067a20 (curriculum clearning and updates)
 package main
 import (
 	"fmt"
 )
 func main() {
 	fmt.Println("A program is a precise set of instructions.")
-<<<<<<< HEAD
-},package main
-=======
 }
 ```
 
 **Example 1.3.2**
 ```go
 package main
->>>>>>> 2067a20 (curriculum clearning and updates)
 import (
 	"fmt"
 )
@@ -308,7 +276,6 @@ func main() {
 	name := "Avery"
 	fmt.Println("Hello,", name)
 	fmt.Println("This line runs second.")
-<<<<<<< HEAD
 },package main
 import (
 	"fmt"
@@ -321,12 +288,6 @@ func main() {
 } The lesson uses the canonical course data so learners focus on Go semantics rather than a new domain problem. Format with gofmt and use go test ./... as routine development tools.
 
 ### Worked Example
-=======
-}
-```
-
-**Example 1.3.3**
->>>>>>> 2067a20 (curriculum clearning and updates)
 ```go
 package main
 import (
@@ -339,10 +300,6 @@ func main() {
 	fmt.Printf("age=%d height=%.2f active=%t\n", age, height, active)
 }
 ```
-
-<<<<<<< HEAD
-**Expected behavior:** The standalone program demonstrates variables, constants, and primitive types with the course's shared example data. It compiles and runs using the standard library. Predict the output first, then compare it with the terminal output.
-=======
 
 ### Expected Behavior or Output
 
@@ -363,7 +320,6 @@ Example 3:
 ```text
 age=16 height=1.72 active=true
 ```
->>>>>>> 2067a20 (curriculum clearning and updates)
 
 ### Common Mistakes
 1. Treating a computer as if it inferred unstated requirements.

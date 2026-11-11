@@ -26,8 +26,6 @@ std::vector<std::string> items{"Notebook", "Pencil"}; items.insert(items.begin()
 
 **Trace:** predict the output before compiling. Identify declarations, values, control-flow decisions, and state changes in order. Then compile and compare actual output with the prediction. The lesson example is intended to be independently compilable.
 
-<<<<<<< HEAD
-=======
 ### Expected Behavior or Output
 
 Output observed when the worked example was run with empty standard input (g++ 13.3, C++20; the text of the output does not depend on the operating system):
@@ -38,7 +36,6 @@ Pencil
 Eraser
 ```
 
->>>>>>> 2067a20 (curriculum clearning and updates)
 ### Common Mistakes
 - Check before pop_back.
 - Do not retain references across vector reallocation.
@@ -82,8 +79,6 @@ std::vector<int> quantities{10, 3, 4, 1}; std::sort(quantities.begin(), quantiti
 
 **Trace:** predict the output before compiling. Identify declarations, values, control-flow decisions, and state changes in order. Then compile and compare actual output with the prediction. The lesson example is intended to be independently compilable.
 
-<<<<<<< HEAD
-=======
 ### Expected Behavior or Output
 
 Output observed when the worked example was run with empty standard input (g++ 13.3, C++20; the text of the output does not depend on the operating system):
@@ -92,7 +87,6 @@ Output observed when the worked example was run with empty standard input (g++ 1
 10 4 3 1 
 ```
 
->>>>>>> 2067a20 (curriculum clearning and updates)
 ### Common Mistakes
 - Write a strict-weak-order comparator.
 - Sort by the field required by the task.
@@ -136,8 +130,6 @@ struct Coordinate { const int x; const int y; }; const Coordinate point{3, 4}; s
 
 **Trace:** predict the output before compiling. Identify declarations, values, control-flow decisions, and state changes in order. Then compile and compare actual output with the prediction. The lesson example is intended to be independently compilable.
 
-<<<<<<< HEAD
-=======
 ### Expected Behavior or Output
 
 Output observed when the worked example was run with empty standard input (g++ 13.3, C++20; the text of the output does not depend on the operating system):
@@ -146,7 +138,6 @@ Output observed when the worked example was run with empty standard input (g++ 1
 Point: (3, 4)
 ```
 
->>>>>>> 2067a20 (curriculum clearning and updates)
 ### Common Mistakes
 - Understand const members' effect on assignment.
 - Avoid dangling references.
@@ -190,8 +181,6 @@ std::map<std::string, int> inventory{{"Notebook", 3}, {"Pencil", 10}, {"Folder",
 
 **Trace:** predict the output before compiling. Identify declarations, values, control-flow decisions, and state changes in order. Then compile and compare actual output with the prediction. The lesson example is intended to be independently compilable.
 
-<<<<<<< HEAD
-=======
 ### Expected Behavior or Output
 
 Output observed when the worked example was run with empty standard input (g++ 13.3, C++20; the text of the output does not depend on the operating system):
@@ -200,7 +189,6 @@ Output observed when the worked example was run with empty standard input (g++ 1
 Notebook count: 4
 ```
 
->>>>>>> 2067a20 (curriculum clearning and updates)
 ### Common Mistakes
 - Use find/contains for non-inserting lookup.
 - Remember map orders by key.
@@ -244,8 +232,6 @@ const std::map<std::string, int> inventory{{"Notebook", 3}, {"Pencil", 10}, {"Fo
 
 **Trace:** predict the output before compiling. Identify declarations, values, control-flow decisions, and state changes in order. Then compile and compare actual output with the prediction. The lesson example is intended to be independently compilable.
 
-<<<<<<< HEAD
-=======
 ### Expected Behavior or Output
 
 Output observed when the worked example was run with empty standard input (g++ 13.3, C++20; the text of the output does not depend on the operating system):
@@ -256,7 +242,6 @@ Notebook => 3
 Pencil => 10
 ```
 
->>>>>>> 2067a20 (curriculum clearning and updates)
 ### Common Mistakes
 - Prefer const auto& for read-only traversal.
 - Do not mutate the traversed container.

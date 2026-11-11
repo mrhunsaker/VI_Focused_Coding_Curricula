@@ -1,11 +1,6 @@
 # Rust Curriculum
 
-<<<<<<< HEAD
-=======
-**Before you start:** complete [Unit P: Computing Foundations Primer](../FOUNDATIONS/unit-p-computing-foundations.md). It explains the language-neutral vocabulary and concepts used in every language track, using non-visual examples.
-
->>>>>>> 2067a20 (curriculum clearning and updates)
-Rust is used for systems software, command-line tools, networking, embedded development, WebAssembly, and performance-sensitive services.
+**Before you start:** complete [Unit P: Computing Foundations Primer](../FOUNDATIONS/unit-p-computing-foundations.md). It explains the language-neutral vocabulary and concepts used in every language track, using non-visual examples.Rust is used for systems software, command-line tools, networking, embedded development, WebAssembly, and performance-sensitive services.
 
 A complete introductory course aligned to Python Units 0–11. Familiar problem contexts recur so learners focus on Rust's ownership, borrowing, types, collections, error handling, traits, and idioms.
 
@@ -30,14 +25,9 @@ scripts/check_rust_examples.py compiles and smoke-runs every fenced Rust example
 ## GUI, visualization, and workbench accessibility
 
 See the shared [GUI, visualization, and workbench accessibility reference](../DEVELOPMENT/GUI_VISUALIZATION_ACCESSIBILITY.md) for screen-reader support by toolkit, platform-specific activation settings, recommended alternatives, and interfaces that must not be required without an equivalent accessible route.
-<<<<<<< HEAD
-=======
-
 ## AI Policy
 
 AI may be used only for personal conceptual understanding and reinforcement. It must not write, complete, autocomplete, repair, or generate course code or assessment solutions.
->>>>>>> 2067a20 (curriculum clearning and updates)
-
 ## Recommended introductory books
 
 - Klabnik, Steve, Carol Nichols, and Chris Krycho, with contributions from the Rust community. *The Rust Programming Language*. No Starch Press; continuously maintained online edition. The official Rust book introduces ownership, borrowing, types, structs, enums, pattern matching, error handling, generics, and Cargo through sequential explanations and projects. [Free official online edition](https://doc.rust-lang.org/book/).

@@ -6,49 +6,6 @@ This unit develops project-based learning through Rust's type system and standar
 ## Lesson 10.1: Requirements and top-down design
 
 ### Reading References
-<<<<<<< HEAD
-- [The Rust Programming Language](https://doc.rust-lang.org/book/)
-- [Rust standard library](https://doc.rust-lang.org/std/)
-- [Cargo Book](https://doc.rust-lang.org/cargo/)
-- Matching Python curriculum lesson for the shared problem context.
-
-### Learning Objectives
-- Explain Requirements and top-down design using Rust's types, ownership model, and standard-library conventions.
-- Select an idiomatic Rust construct rather than transliterating Python syntax.
-- Predict, compile, and verify the example's behavior.
-- Test a relevant boundary condition and explain a common failure.
-
-### Concept Explanation
-Build an application in vertical slices: requirements, state model, command handling, validation, and accessible output. Separate domain logic from terminal interaction so it can be tested without simulating a user. This lesson retains the canonical course data so learners practice Rust rather than a new domain problem. Use cargo fmt, cargo check, and cargo test as routine development tools.
-
-### Worked Example
-```rust
-fn main(){let req=["list tasks","add task","mark task complete","save tasks"];for(i,r)in req.iter().enumerate(){println!("{}. {r}",i+1);}}
-```
-
-**Expected behavior:** Runs independently with the standard library and prints the result of this lesson's focused operation. Predict the output, then compare it with the terminal output.
-
-### Common Mistakes
-1. Combining input, validation, state changes, and output in one oversized function.
-2. Using numeric indexes without checking bounds.
-3. Making prompts depend on color, animation, or cursor position.
-
-### Activities
-1. Run the worked example unchanged; trace each binding, expression, ownership transfer, and output line.
-2. Change the canonical to-do and capstone record fields and predict the result before running it.
-3. Add one boundary case and one invalid or missing-data case; state expected behavior before implementing the change.
-4. Refactor one part using the Rust feature named in this lesson (requirements and top-down design); run cargo check and explain the diagnostic output.
-
-### Accessibility Practice
-Use keyboard navigation to move between the lesson heading, code fence, compiler output, and terminal. With a screen reader, inspect punctuation in ownership and borrowing expressions (&, &mut, ::, ->, ?). Do not rely on syntax highlighting or color to distinguish errors. Read prompts and validation messages in document order and verify that output is announced without unexpected focus movement.
-
-### Skills Checklist
-- [ ] I can explain requirements and top-down design using Rust terminology.
-- [ ] I can compile and run the example with cargo run.
-- [ ] I can explain the ownership, borrowing, and type decisions used here.
-- [ ] I can test a boundary case and an invalid-input or error case.
-- [ ] I can navigate source, diagnostics, and output with my keyboard and assistive technology.
-=======
 - [The Rust Programming Language: Hash Maps](https://doc.rust-lang.org/book/ch08-03-hash-maps.html)
 - [The Rust Programming Language: Functions](https://doc.rust-lang.org/book/ch03-03-how-functions-work.html)
 - [Rust standard library documentation](https://doc.rust-lang.org/std/)
@@ -162,54 +119,10 @@ Prompts and responses are on separate lines and every response is a complete sen
 - [ ] I handle the end of input.
 
 ---
->>>>>>> 2067a20 (curriculum clearning and updates)
 
 ## Lesson 10.2: Text adventure: rooms and movement
 
 ### Reading References
-<<<<<<< HEAD
-- [The Rust Programming Language](https://doc.rust-lang.org/book/)
-- [Rust standard library](https://doc.rust-lang.org/std/)
-- [Cargo Book](https://doc.rust-lang.org/cargo/)
-- Matching Python curriculum lesson for the shared problem context.
-
-### Learning Objectives
-- Explain Text adventure: rooms and movement using Rust's types, ownership model, and standard-library conventions.
-- Select an idiomatic Rust construct rather than transliterating Python syntax.
-- Predict, compile, and verify the example's behavior.
-- Test a relevant boundary condition and explain a common failure.
-
-### Concept Explanation
-Build an application in vertical slices: requirements, state model, command handling, validation, and accessible output. Separate domain logic from terminal interaction so it can be tested without simulating a user. This lesson retains the canonical course data so learners practice Rust rather than a new domain problem. Use cargo fmt, cargo check, and cargo test as routine development tools.
-
-### Worked Example
-```rust
-#[derive(Clone,Copy)]enum Room{StartRoom,Tunnel,Clearing,LockedDoorRoom,TreasureRoom}fn main(){let rooms=[Room::StartRoom,Room::Tunnel,Room::Clearing,Room::LockedDoorRoom,Room::TreasureRoom];let room=rooms[0];let direction="north";let next=match (room,direction){(Room::StartRoom,"north")=>Some(Room::Tunnel),_=>None};println!("entered tunnel={} room_count={}",matches!(next,Some(Room::Tunnel)),rooms.len());}
-```
-
-**Expected behavior:** Runs independently with the standard library and prints the result of this lesson's focused operation. Predict the output, then compare it with the terminal output.
-
-### Common Mistakes
-1. Combining input, validation, state changes, and output in one oversized function.
-2. Using numeric indexes without checking bounds.
-3. Making prompts depend on color, animation, or cursor position.
-
-### Activities
-1. Run the worked example unchanged; trace each binding, expression, ownership transfer, and output line.
-2. Change the canonical to-do and capstone record fields and predict the result before running it.
-3. Add one boundary case and one invalid or missing-data case; state expected behavior before implementing the change.
-4. Refactor one part using the Rust feature named in this lesson (text adventure: rooms and movement); run cargo check and explain the diagnostic output.
-
-### Accessibility Practice
-Use keyboard navigation to move between the lesson heading, code fence, compiler output, and terminal. With a screen reader, inspect punctuation in ownership and borrowing expressions (&, &mut, ::, ->, ?). Do not rely on syntax highlighting or color to distinguish errors. Read prompts and validation messages in document order and verify that output is announced without unexpected focus movement.
-
-### Skills Checklist
-- [ ] I can explain text adventure: rooms and movement using Rust terminology.
-- [ ] I can compile and run the example with cargo run.
-- [ ] I can explain the ownership, borrowing, and type decisions used here.
-- [ ] I can test a boundary case and an invalid-input or error case.
-- [ ] I can navigate source, diagnostics, and output with my keyboard and assistive technology.
-=======
 - [The Rust Programming Language: Hash Maps](https://doc.rust-lang.org/book/ch08-03-hash-maps.html)
 - [The Rust Programming Language: Structs](https://doc.rust-lang.org/book/ch05-01-defining-structs.html)
 - [Rust standard library documentation](https://doc.rust-lang.org/std/)
@@ -347,54 +260,10 @@ Each turn prints a separator line, the description, and the prompt, so a whole t
 - [ ] I can trace a game by hand.
 
 ---
->>>>>>> 2067a20 (curriculum clearning and updates)
 
 ## Lesson 10.3: Text adventure: inventory and puzzles
 
 ### Reading References
-<<<<<<< HEAD
-- [The Rust Programming Language](https://doc.rust-lang.org/book/)
-- [Rust standard library](https://doc.rust-lang.org/std/)
-- [Cargo Book](https://doc.rust-lang.org/cargo/)
-- Matching Python curriculum lesson for the shared problem context.
-
-### Learning Objectives
-- Explain Text adventure: inventory and puzzles using Rust's types, ownership model, and standard-library conventions.
-- Select an idiomatic Rust construct rather than transliterating Python syntax.
-- Predict, compile, and verify the example's behavior.
-- Test a relevant boundary condition and explain a common failure.
-
-### Concept Explanation
-Build an application in vertical slices: requirements, state model, command handling, validation, and accessible output. Separate domain logic from terminal interaction so it can be tested without simulating a user. This lesson retains the canonical course data so learners practice Rust rather than a new domain problem. Use cargo fmt, cargo check, and cargo test as routine development tools.
-
-### Worked Example
-```rust
-fn main(){let mut inventory=vec!["key"];let unlocked=inventory.contains(&"key");if unlocked{inventory.push("map");}println!("puzzle unlocked={unlocked}; inventory={inventory:?}");}
-```
-
-**Expected behavior:** Runs independently with the standard library and prints the result of this lesson's focused operation. Predict the output, then compare it with the terminal output.
-
-### Common Mistakes
-1. Combining input, validation, state changes, and output in one oversized function.
-2. Using numeric indexes without checking bounds.
-3. Making prompts depend on color, animation, or cursor position.
-
-### Activities
-1. Run the worked example unchanged; trace each binding, expression, ownership transfer, and output line.
-2. Change the canonical to-do and capstone record fields and predict the result before running it.
-3. Add one boundary case and one invalid or missing-data case; state expected behavior before implementing the change.
-4. Refactor one part using the Rust feature named in this lesson (text adventure: inventory and puzzles); run cargo check and explain the diagnostic output.
-
-### Accessibility Practice
-Use keyboard navigation to move between the lesson heading, code fence, compiler output, and terminal. With a screen reader, inspect punctuation in ownership and borrowing expressions (&, &mut, ::, ->, ?). Do not rely on syntax highlighting or color to distinguish errors. Read prompts and validation messages in document order and verify that output is announced without unexpected focus movement.
-
-### Skills Checklist
-- [ ] I can explain text adventure: inventory and puzzles using Rust terminology.
-- [ ] I can compile and run the example with cargo run.
-- [ ] I can explain the ownership, borrowing, and type decisions used here.
-- [ ] I can test a boundary case and an invalid-input or error case.
-- [ ] I can navigate source, diagnostics, and output with my keyboard and assistive technology.
-=======
 - [The Rust Programming Language: Vectors](https://doc.rust-lang.org/book/ch08-01-vectors.html)
 - [The Rust Programming Language: References and Borrowing](https://doc.rust-lang.org/book/ch04-02-references-and-borrowing.html)
 - [Rust standard library documentation](https://doc.rust-lang.org/std/)
@@ -582,54 +451,10 @@ The room description never mentions the key. A separate 'You see:' line lists it
 - [ ] I can keep descriptions true after state changes.
 
 ---
->>>>>>> 2067a20 (curriculum clearning and updates)
 
 ## Lesson 10.4: Command-line to-do manager
 
 ### Reading References
-<<<<<<< HEAD
-- [The Rust Programming Language](https://doc.rust-lang.org/book/)
-- [Rust standard library](https://doc.rust-lang.org/std/)
-- [Cargo Book](https://doc.rust-lang.org/cargo/)
-- Matching Python curriculum lesson for the shared problem context.
-
-### Learning Objectives
-- Explain Command-line to-do manager using Rust's types, ownership model, and standard-library conventions.
-- Select an idiomatic Rust construct rather than transliterating Python syntax.
-- Predict, compile, and verify the example's behavior.
-- Test a relevant boundary condition and explain a common failure.
-
-### Concept Explanation
-Build an application in vertical slices: requirements, state model, command handling, validation, and accessible output. Separate domain logic from terminal interaction so it can be tested without simulating a user. This lesson retains the canonical course data so learners practice Rust rather than a new domain problem. Use cargo fmt, cargo check, and cargo test as routine development tools.
-
-### Worked Example
-```rust
-struct Task{id:u32,title:String,done:bool}fn main(){let mut tasks=vec![Task{id:1,title:"Read lesson".into(),done:false}];tasks.push(Task{id:2,title:"Run example".into(),done:false});tasks[0].done=true;for t in &tasks{println!("{}: {} [{}]",t.id,t.title,if t.done{"done"}else{"open"});}}
-```
-
-**Expected behavior:** Runs independently with the standard library and prints the result of this lesson's focused operation. Predict the output, then compare it with the terminal output.
-
-### Common Mistakes
-1. Combining input, validation, state changes, and output in one oversized function.
-2. Using numeric indexes without checking bounds.
-3. Making prompts depend on color, animation, or cursor position.
-
-### Activities
-1. Run the worked example unchanged; trace each binding, expression, ownership transfer, and output line.
-2. Change the canonical to-do and capstone record fields and predict the result before running it.
-3. Add one boundary case and one invalid or missing-data case; state expected behavior before implementing the change.
-4. Refactor one part using the Rust feature named in this lesson (command-line to-do manager); run cargo check and explain the diagnostic output.
-
-### Accessibility Practice
-Use keyboard navigation to move between the lesson heading, code fence, compiler output, and terminal. With a screen reader, inspect punctuation in ownership and borrowing expressions (&, &mut, ::, ->, ?). Do not rely on syntax highlighting or color to distinguish errors. Read prompts and validation messages in document order and verify that output is announced without unexpected focus movement.
-
-### Skills Checklist
-- [ ] I can explain command-line to-do manager using Rust terminology.
-- [ ] I can compile and run the example with cargo run.
-- [ ] I can explain the ownership, borrowing, and type decisions used here.
-- [ ] I can test a boundary case and an invalid-input or error case.
-- [ ] I can navigate source, diagnostics, and output with my keyboard and assistive technology.
-=======
 - [The Rust Programming Language: Recoverable Errors with Result](https://doc.rust-lang.org/book/ch09-02-recoverable-errors-with-result.html)
 - [The Rust Programming Language: Reading a File](https://doc.rust-lang.org/book/ch12-02-reading-a-file.html)
 - [Rust standard library documentation](https://doc.rust-lang.org/std/)
@@ -1234,54 +1059,10 @@ Every menu is printed as numbered lines and every prompt is on its own line. The
 - [ ] I show status in words.
 
 ---
->>>>>>> 2067a20 (curriculum clearning and updates)
 
 ## Lesson 10.5: Accessible interaction and validation
 
 ### Reading References
-<<<<<<< HEAD
-- [The Rust Programming Language](https://doc.rust-lang.org/book/)
-- [Rust standard library](https://doc.rust-lang.org/std/)
-- [Cargo Book](https://doc.rust-lang.org/cargo/)
-- Matching Python curriculum lesson for the shared problem context.
-
-### Learning Objectives
-- Explain Accessible interaction and validation using Rust's types, ownership model, and standard-library conventions.
-- Select an idiomatic Rust construct rather than transliterating Python syntax.
-- Predict, compile, and verify the example's behavior.
-- Test a relevant boundary condition and explain a common failure.
-
-### Concept Explanation
-Build an application in vertical slices: requirements, state model, command handling, validation, and accessible output. Separate domain logic from terminal interaction so it can be tested without simulating a user. This lesson retains the canonical course data so learners practice Rust rather than a new domain problem. Use cargo fmt, cargo check, and cargo test as routine development tools.
-
-### Worked Example
-```rust
-use std::io::{self,Write};fn main(){print!("Task title: ");io::stdout().flush().unwrap();let mut s=String::new();io::stdin().read_line(&mut s).unwrap();let s=s.trim();if s.is_empty(){println!("A title is required.");}else{println!("Accepted task: {s}");}}
-```
-
-**Expected behavior:** Accepts a nonempty task title and rejects blank input.
-
-### Common Mistakes
-1. Combining input, validation, state changes, and output in one oversized function.
-2. Using numeric indexes without checking bounds.
-3. Making prompts depend on color, animation, or cursor position.
-
-### Activities
-1. Run the worked example unchanged; trace each binding, expression, ownership transfer, and output line.
-2. Change the canonical to-do and capstone record fields and predict the result before running it.
-3. Add one boundary case and one invalid or missing-data case; state expected behavior before implementing the change.
-4. Refactor one part using the Rust feature named in this lesson (accessible interaction and validation); run cargo check and explain the diagnostic output.
-
-### Accessibility Practice
-Use keyboard navigation to move between the lesson heading, code fence, compiler output, and terminal. With a screen reader, inspect punctuation in ownership and borrowing expressions (&, &mut, ::, ->, ?). Do not rely on syntax highlighting or color to distinguish errors. Read prompts and validation messages in document order and verify that output is announced without unexpected focus movement.
-
-### Skills Checklist
-- [ ] I can explain accessible interaction and validation using Rust terminology.
-- [ ] I can compile and run the example with cargo run.
-- [ ] I can explain the ownership, borrowing, and type decisions used here.
-- [ ] I can test a boundary case and an invalid-input or error case.
-- [ ] I can navigate source, diagnostics, and output with my keyboard and assistive technology.
-=======
 - [The Rust Programming Language: Recoverable Errors with Result](https://doc.rust-lang.org/book/ch09-02-recoverable-errors-with-result.html)
 - [The Rust Programming Language: Option](https://doc.rust-lang.org/book/ch06-01-defining-an-enum.html)
 - [Rust standard library documentation](https://doc.rust-lang.org/std/)
@@ -1406,4 +1187,3 @@ Check that every error message ends with an action the user can take, and that t
 - [ ] I keep wording consistent.
 
 ---
->>>>>>> 2067a20 (curriculum clearning and updates)

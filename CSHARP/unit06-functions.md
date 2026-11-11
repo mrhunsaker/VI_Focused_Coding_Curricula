@@ -25,8 +25,6 @@ Console.WriteLine($"Total: {CalculateTotal(24.50, 0.15):F2}");
 
 **Trace:** identify declarations, expressions, control flow, and observable output. Predict the result, run the example, and compare the actual output with the prediction.
 
-<<<<<<< HEAD
-=======
 ### Expected Behavior or Output
 
 Output observed when the worked example was run (.NET 8; the text of the output does not depend on the operating system):
@@ -35,7 +33,6 @@ Output observed when the worked example was run (.NET 8; the text of the output 
 Total: 28.18
 ```
 
->>>>>>> 2067a20 (curriculum clearning and updates)
 ### Common Mistakes
 - Confusing a parameter with an argument or a returned value with printed output.
 - Choosing a method signature that does not express its input/output contract.
@@ -77,8 +74,6 @@ Console.WriteLine(DescribeScore(score: 92, name: "Avery", label: "Final"));
 
 **Trace:** identify declarations, expressions, control flow, and observable output. Predict the result, run the example, and compare the actual output with the prediction.
 
-<<<<<<< HEAD
-=======
 ### Expected Behavior or Output
 
 Output observed when the worked example was run (.NET 8; the text of the output does not depend on the operating system):
@@ -88,7 +83,6 @@ Avery — Score: 92
 Avery — Final: 92
 ```
 
->>>>>>> 2067a20 (curriculum clearning and updates)
 ### Common Mistakes
 - Confusing a parameter with an argument or a returned value with printed output.
 - Choosing a method signature that does not express its input/output contract.
@@ -130,8 +124,6 @@ Console.WriteLine($"Tip: {tip:F2}; total: {total:F2}");
 
 **Trace:** identify declarations, expressions, control flow, and observable output. Predict the result, run the example, and compare the actual output with the prediction.
 
-<<<<<<< HEAD
-=======
 ### Expected Behavior or Output
 
 Output observed when the worked example was run (.NET 8; the text of the output does not depend on the operating system):
@@ -140,7 +132,6 @@ Output observed when the worked example was run (.NET 8; the text of the output 
 Tip: 3.67; total: 28.18
 ```
 
->>>>>>> 2067a20 (curriculum clearning and updates)
 ### Common Mistakes
 - Confusing a parameter with an argument or a returned value with printed output.
 - Choosing a method signature that does not express its input/output contract.
@@ -182,8 +173,6 @@ Console.WriteLine($"Average: {Average(scores):F2}");
 
 **Trace:** identify declarations, expressions, control flow, and observable output. Predict the result, run the example, and compare the actual output with the prediction.
 
-<<<<<<< HEAD
-=======
 ### Expected Behavior or Output
 
 Output observed when the worked example was run (.NET 8; the text of the output does not depend on the operating system):
@@ -192,7 +181,6 @@ Output observed when the worked example was run (.NET 8; the text of the output 
 Average: 84.25
 ```
 
->>>>>>> 2067a20 (curriculum clearning and updates)
 ### Common Mistakes
 - Confusing a parameter with an argument or a returned value with printed output.
 - Choosing a method signature that does not express its input/output contract.
@@ -233,8 +221,6 @@ Console.WriteLine(Sum(2, 3, 4)); Console.WriteLine(Sum(82, 91, 76, 88));
 
 **Trace:** identify declarations, expressions, control flow, and observable output. Predict the result, run the example, and compare the actual output with the prediction.
 
-<<<<<<< HEAD
-=======
 ### Expected Behavior or Output
 
 Output observed when the worked example was run (.NET 8; the text of the output does not depend on the operating system):
@@ -244,7 +230,6 @@ Output observed when the worked example was run (.NET 8; the text of the output 
 337
 ```
 
->>>>>>> 2067a20 (curriculum clearning and updates)
 ### Common Mistakes
 - Confusing a parameter with an argument or a returned value with printed output.
 - Choosing a method signature that does not express its input/output contract.

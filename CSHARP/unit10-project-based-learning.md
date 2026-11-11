@@ -25,8 +25,6 @@ foreach (string requirement in requirements) Console.WriteLine($"Requirement: {r
 
 **Trace:** identify declarations, expressions, control flow, and observable output. Predict the result, run the example, and compare the actual output with the prediction.
 
-<<<<<<< HEAD
-=======
 ### Expected Behavior or Output
 
 Output observed when the worked example was run (.NET 8; the text of the output does not depend on the operating system):
@@ -41,7 +39,6 @@ Requirement: validate input
 Requirement: save and load JSON
 ```
 
->>>>>>> 2067a20 (curriculum clearning and updates)
 ### Common Mistakes
 - Implementing before defining observable requirements and acceptance tests.
 - Combining parsing, domain logic, persistence, and output into one untestable block.
@@ -76,21 +73,14 @@ Navigate the complete source file by line, word, and character using the learner
 Project work starts with observable requirements and acceptance criteria. Separate domain state, command parsing, validation, persistence, and output so each behavior can be tested and navigated accessibly.
 ### Worked Example
 ```cs
-<<<<<<< HEAD
 var exits = new Dictionary<string, string> { ["start_room:north"] = "tunnel" }; string room = "start_room", direction = "north";
 string transition = $"{room}:{direction}";
 if (exits.TryGetValue(transition, out string? destination)) room = destination;
-=======
-var exits = new Dictionary<string, string> { ["north"] = "Library", ["east"] = "Garden" }; string room = "Atrium", direction = "north";
-if (exits.TryGetValue(direction, out string? destination)) room = destination;
->>>>>>> 2067a20 (curriculum clearning and updates)
 Console.WriteLine($"Current room: {room}");
 ```
 
 **Trace:** identify declarations, expressions, control flow, and observable output. Predict the result, run the example, and compare the actual output with the prediction.
 
-<<<<<<< HEAD
-=======
 ### Expected Behavior or Output
 
 Output observed when the worked example was run (.NET 8; the text of the output does not depend on the operating system):
@@ -99,7 +89,6 @@ Output observed when the worked example was run (.NET 8; the text of the output 
 Current room: Library
 ```
 
->>>>>>> 2067a20 (curriculum clearning and updates)
 ### Common Mistakes
 - Implementing before defining observable requirements and acceptance tests.
 - Combining parsing, domain logic, persistence, and output into one untestable block.
@@ -134,19 +123,13 @@ Navigate the complete source file by line, word, and character using the learner
 Project work starts with observable requirements and acceptance criteria. Separate domain state, command parsing, validation, persistence, and output so each behavior can be tested and navigated accessibly.
 ### Worked Example
 ```cs
-<<<<<<< HEAD
 var inventory = new HashSet<string> { "shiny key", "map" }; bool canOpenChest = inventory.Contains("shiny key");
-=======
-var inventory = new HashSet<string> { "key", "map" }; bool canOpenChest = inventory.Contains("key");
->>>>>>> 2067a20 (curriculum clearning and updates)
 if (canOpenChest) inventory.Add("chest reward");
 Console.WriteLine($"Chest opened: {canOpenChest}; items: {string.Join(", ", inventory)}");
 ```
 
 **Trace:** identify declarations, expressions, control flow, and observable output. Predict the result, run the example, and compare the actual output with the prediction.
 
-<<<<<<< HEAD
-=======
 ### Expected Behavior or Output
 
 Output observed when the worked example was run (.NET 8; the text of the output does not depend on the operating system):
@@ -155,7 +138,6 @@ Output observed when the worked example was run (.NET 8; the text of the output 
 Chest opened: True; items: key, map, chest reward
 ```
 
->>>>>>> 2067a20 (curriculum clearning and updates)
 ### Common Mistakes
 - Implementing before defining observable requirements and acceptance tests.
 - Combining parsing, domain logic, persistence, and output into one untestable block.
@@ -199,8 +181,6 @@ record TodoTask(int Id, string Title, string Description, bool Done, string Crea
 
 **Trace:** identify declarations, expressions, control flow, and observable output. Predict the result, run the example, and compare the actual output with the prediction.
 
-<<<<<<< HEAD
-=======
 ### Expected Behavior or Output
 
 Output observed when the worked example was run (.NET 8; the text of the output does not depend on the operating system):
@@ -210,7 +190,6 @@ Output observed when the worked example was run (.NET 8; the text of the output 
 2: [ ] Run tests
 ```
 
->>>>>>> 2067a20 (curriculum clearning and updates)
 ### Common Mistakes
 - Implementing before defining observable requirements and acceptance tests.
 - Combining parsing, domain logic, persistence, and output into one untestable block.
@@ -251,8 +230,6 @@ foreach (string candidate in new[] { "16", "abc", "131" }) Console.WriteLine($"{
 
 **Trace:** identify declarations, expressions, control flow, and observable output. Predict the result, run the example, and compare the actual output with the prediction.
 
-<<<<<<< HEAD
-=======
 ### Expected Behavior or Output
 
 Output observed when the worked example was run (.NET 8; the text of the output does not depend on the operating system):
@@ -263,7 +240,6 @@ abc: False (parsed value: 0)
 131: False (parsed value: 131)
 ```
 
->>>>>>> 2067a20 (curriculum clearning and updates)
 ### Common Mistakes
 - Implementing before defining observable requirements and acceptance tests.
 - Combining parsing, domain logic, persistence, and output into one untestable block.

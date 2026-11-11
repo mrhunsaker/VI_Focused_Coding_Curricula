@@ -9,30 +9,6 @@ This unit develops functions and methods through the same shared problem context
 ## Lesson 6.1: Defining Methods
 
 ### Reading References
-<<<<<<< HEAD
-- [Java SE 25 documentation](https://docs.oracle.com/en/java/).
-- [Java Language Specification, Java SE 25](https://docs.oracle.com/javase/specs/jls/se25/html/index.html).
-
-
-### Learning Objectives
-- Explain the purpose and vocabulary of defining methods.
-- Apply the relevant Java syntax and APIs in a small, complete program.
-- Compile, run, inspect, and adapt the example using keyboard-accessible tools.
-
-### Concept Explanation
-This lesson develops defining methods through Java's class-based structure and standard library. Identify the input, output, state changes, and relevant type constraints before coding. Keep declarations local where possible, separate computation from presentation, and state preconditions and postconditions. A method signature includes its name and parameter types; Java passes argument values, including copied reference values. Return types are explicit, overloads differ by parameter lists, and varargs use a final array-like parameter.
-
-Java is statically typed and class-based. Local variables have declared or inferred compile-time types, reference values may be null, and methods and fields are governed by access and scope rules. The compiler checks syntax and type compatibility before execution; runtime behavior still requires testing. Follow Java naming conventions, use explicit imports in beginner work, and prefer small methods with clear contracts.
-
-### Worked Example
-```java
-public class Lesson_6_1 {
-    public static void main(String[] args) {
-        greet("Avery");
-        }
-        private static void greet(String name) {
-            System.out.println("Hello, " + name + "!");
-=======
 - [Java SE 25 API documentation](https://docs.oracle.com/en/java/javase/25/docs/api/)
 - [Java Language Specification, Java SE 25](https://docs.oracle.com/javase/specs/jls/se25/html/index.html)
 - [Dev.java learning paths](https://dev.java/learn/)
@@ -85,59 +61,10 @@ public class Lesson_6_1 {
 
         BiConsumer<Double, Double> reference = Lesson_6_1::showTip;
         reference.accept(100.0, 0.2);
->>>>>>> 2067a20 (curriculum clearning and updates)
     }
 }
 ```
 
-<<<<<<< HEAD
-**Expected behavior:** The program compiles on JDK 25 and prints a deterministic result illustrating defining methods. Run it from a terminal, compare actual output with your prediction, and change one input to test the effect.
-
-### Common Mistakes
-- Confusing a method's parameter list with its return type or omitting a return on one control-flow path.
-- Expecting Java to pass primitive variables by reference; arguments are passed by value.
-- Placing a varargs parameter before another parameter or using an overload that is ambiguous.
-### Activities
-1. Extract repeated statements into a named method with an explicit parameter and return contract.
-2. Call the method with typical, boundary, and empty collection arguments.
-3. Add a method that accepts a List or Map and returns a computed result without modifying the input.
-4. Overload a method or add a varargs form, then explain overload resolution.
-### Accessibility Practice
-Navigate by class, method, and line; inspect braces, parentheses, brackets, semicolons, generic delimiters, and compiler diagnostics with the preferred screen reader or braille display. Compile and run from the terminal so the workflow does not depend on color or a visual project explorer.
-
-### Skills Checklist
-- [ ] I can explain the key concept in Java terms.
-- [ ] I can trace and predict the worked example.
-- [ ] I can compile and run the example from the terminal.
-- [ ] I can identify and correct a Java-specific mistake.
-- [ ] I can test a boundary case and navigate the workflow accessibly.
-
-## Lesson 6.2: Passing Arguments
-
-### Reading References
-- [Java SE 25 documentation](https://docs.oracle.com/en/java/).
-- [Java Language Specification, Java SE 25](https://docs.oracle.com/javase/specs/jls/se25/html/index.html).
-
-
-### Learning Objectives
-- Explain the purpose and vocabulary of passing arguments.
-- Apply the relevant Java syntax and APIs in a small, complete program.
-- Compile, run, inspect, and adapt the example using keyboard-accessible tools.
-
-### Concept Explanation
-This lesson develops passing arguments through Java's class-based structure and standard library. Identify the input, output, state changes, and relevant type constraints before coding. Keep declarations local where possible, separate computation from presentation, and state preconditions and postconditions. A method signature includes its name and parameter types; Java passes argument values, including copied reference values. Return types are explicit, overloads differ by parameter lists, and varargs use a final array-like parameter.
-
-Java is statically typed and class-based. Local variables have declared or inferred compile-time types, reference values may be null, and methods and fields are governed by access and scope rules. The compiler checks syntax and type compatibility before execution; runtime behavior still requires testing. Follow Java naming conventions, use explicit imports in beginner work, and prefer small methods with clear contracts.
-
-### Worked Example
-```java
-public class Lesson_6_2 {
-    public static void main(String[] args) {
-        System.out.println("total=" + add(12, 30));
-        }
-        private static int add(int first, int second) {
-            return first + second;
-=======
 ### Expected Behavior or Output
 
 The program prints:
@@ -232,12 +159,10 @@ public class Lesson_6_2 {
         System.out.println(money(calculateTotal(24.5, 0.20)));
         System.out.println(money(new TipRequest(24.5, 0.10).total()));
         System.out.println(money(new TipRequest(24.5).total()));
->>>>>>> 2067a20 (curriculum clearning and updates)
     }
 }
 ```
 
-<<<<<<< HEAD
 **Expected behavior:** The program compiles on JDK 25 and prints a deterministic result illustrating passing arguments. Run it from a terminal, compare actual output with your prediction, and change one input to test the effect.
 
 ### Common Mistakes
@@ -258,73 +183,10 @@ Navigate by class, method, and line; inspect braces, parentheses, brackets, semi
 - [ ] I can compile and run the example from the terminal.
 - [ ] I can identify and correct a Java-specific mistake.
 - [ ] I can test a boundary case and navigate the workflow accessibly.
-=======
-### Expected Behavior or Output
-
-The program prints:
-```text
-28.18
-29.40
-26.95
-28.18
-```
-
-### Common Mistakes
-1. Looking for default values in the parameter list. Java does not have them.
-2. Declaring two overloads that differ only in return type, which does not compile.
-3. Passing arguments in the wrong order to a method with two `double` parameters, which the compiler cannot detect.
-
-### Activities
-1. Predict the four totals before running.
-2. Add an overload `calculateTotal(double bill, int percent)` and explain how Java chooses between the overloads.
-3. Add a `roundTotal` component to the record.
-4. Explain why a record helps a screen reader user.
-
-### Accessibility Practice
-
-A record call reads as a sentence: 'new TipRequest, open parenthesis, bill 24.5, tip rate 0.10'. Say the commas aloud and check that your screen reader announces them.
-
-### Skills Checklist
-- [ ] I know Java has no default arguments.
-- [ ] I can overload a method.
-- [ ] I can group values in a record.
-- [ ] I can use a constant for a default.
-- [ ] I can read an overloaded call aloud.
-
----
->>>>>>> 2067a20 (curriculum clearning and updates)
 
 ## Lesson 6.3: Return Values
 
 ### Reading References
-<<<<<<< HEAD
-- [Java SE 25 documentation](https://docs.oracle.com/en/java/).
-- [Java Language Specification, Java SE 25](https://docs.oracle.com/javase/specs/jls/se25/html/index.html).
-
-
-### Learning Objectives
-- Explain the purpose and vocabulary of return values.
-- Apply the relevant Java syntax and APIs in a small, complete program.
-- Compile, run, inspect, and adapt the example using keyboard-accessible tools.
-
-### Concept Explanation
-This lesson develops return values through Java's class-based structure and standard library. Identify the input, output, state changes, and relevant type constraints before coding. Keep declarations local where possible, separate computation from presentation, and state preconditions and postconditions. A method signature includes its name and parameter types; Java passes argument values, including copied reference values. Return types are explicit, overloads differ by parameter lists, and varargs use a final array-like parameter.
-
-Java is statically typed and class-based. Local variables have declared or inferred compile-time types, reference values may be null, and methods and fields are governed by access and scope rules. The compiler checks syntax and type compatibility before execution; runtime behavior still requires testing. Follow Java naming conventions, use explicit imports in beginner work, and prefer small methods with clear contracts.
-
-### Worked Example
-```java
-public class Lesson_6_3 {
-    public static void main(String[] args) {
-        int[] values = {4, 8, 12};
-        System.out.println("average=" + average(values));
-        }
-        private static double average(int[] values) {
-            if (values.length == 0) throw new IllegalArgumentException("values must not be empty");
-            int sum = 0;
-            for (int value : values) sum += value;
-            return (double) sum / values.length;
-=======
 - [Java SE 25 API documentation](https://docs.oracle.com/en/java/javase/25/docs/api/)
 - [Dev.java learning paths](https://dev.java/learn/)
 - Matching Python lesson: Lesson 6.3: Return Values
@@ -389,60 +251,10 @@ public class Lesson_6_3 {
         System.out.println("Lowest and highest: " + range.low() + " and " + range.high());
         System.out.println(average(List.of()));
         System.out.println(average(List.of()).orElse(0.0));
->>>>>>> 2067a20 (curriculum clearning and updates)
     }
 }
 ```
 
-<<<<<<< HEAD
-**Expected behavior:** The program compiles on JDK 25 and prints a deterministic result illustrating return values. Run it from a terminal, compare actual output with your prediction, and change one input to test the effect.
-
-### Common Mistakes
-- Confusing a method's parameter list with its return type or omitting a return on one control-flow path.
-- Expecting Java to pass primitive variables by reference; arguments are passed by value.
-- Placing a varargs parameter before another parameter or using an overload that is ambiguous.
-### Activities
-1. Extract repeated statements into a named method with an explicit parameter and return contract.
-2. Call the method with typical, boundary, and empty collection arguments.
-3. Add a method that accepts a List or Map and returns a computed result without modifying the input.
-4. Overload a method or add a varargs form, then explain overload resolution.
-### Accessibility Practice
-Navigate by class, method, and line; inspect braces, parentheses, brackets, semicolons, generic delimiters, and compiler diagnostics with the preferred screen reader or braille display. Compile and run from the terminal so the workflow does not depend on color or a visual project explorer.
-
-### Skills Checklist
-- [ ] I can explain the key concept in Java terms.
-- [ ] I can trace and predict the worked example.
-- [ ] I can compile and run the example from the terminal.
-- [ ] I can identify and correct a Java-specific mistake.
-- [ ] I can test a boundary case and navigate the workflow accessibly.
-
-## Lesson 6.4: Methods with Lists and Maps
-
-### Reading References
-- [Java SE 25 documentation](https://docs.oracle.com/en/java/).
-- [Java Language Specification, Java SE 25](https://docs.oracle.com/javase/specs/jls/se25/html/index.html).
-
-
-### Learning Objectives
-- Explain the purpose and vocabulary of methods with lists and maps.
-- Apply the relevant Java syntax and APIs in a small, complete program.
-- Compile, run, inspect, and adapt the example using keyboard-accessible tools.
-
-### Concept Explanation
-This lesson develops methods with lists and maps through Java's class-based structure and standard library. Identify the input, output, state changes, and relevant type constraints before coding. Keep declarations local where possible, separate computation from presentation, and state preconditions and postconditions. A method signature includes its name and parameter types; Java passes argument values, including copied reference values. Return types are explicit, overloads differ by parameter lists, and varargs use a final array-like parameter.
-
-Java is statically typed and class-based. Local variables have declared or inferred compile-time types, reference values may be null, and methods and fields are governed by access and scope rules. The compiler checks syntax and type compatibility before execution; runtime behavior still requires testing. Follow Java naming conventions, use explicit imports in beginner work, and prefer small methods with clear contracts.
-
-### Worked Example
-```java
-public class Lesson_6_4 {
-    public static void main(String[] args) {
-        java.util.List<String> names = java.util.List.of("Avery", "Riley", "Jordan");
-        printUppercase(names);
-        }
-        private static void printUppercase(java.util.List<String> names) {
-            for (String name : names) System.out.println(name.toUpperCase());
-=======
 ### Expected Behavior or Output
 
 The program prints:
@@ -539,12 +351,10 @@ public class Lesson_6_4 {
             new Item("Pencil", 10, 0.50),
             new Item("Folder", 4, 1.25));
         System.out.println("Total inventory value: " + String.format(Locale.US, "%.2f", inventoryValue(inventory)));
->>>>>>> 2067a20 (curriculum clearning and updates)
     }
 }
 ```
 
-<<<<<<< HEAD
 **Expected behavior:** The program compiles on JDK 25 and prints a deterministic result illustrating methods with lists and maps. Run it from a terminal, compare actual output with your prediction, and change one input to test the effect.
 
 ### Common Mistakes
@@ -593,102 +403,10 @@ public class Lesson_6_5 {
             int total = 0;
             for (int value : values) total += value;
             return total;
-=======
-### Expected Behavior or Output
-
-The program prints:
-```text
-[82, 91, 76, 88, 95]
-5 6
-Total inventory value: 17.50
-```
-
-### Common Mistakes
-1. Expecting a method to receive its own copy of a list.
-2. Changing a list inside a method that was meant only to read it.
-3. Passing `List.of(...)` to a method that adds to it, which throws `UnsupportedOperationException`.
-
-### Activities
-1. Predict the three printed lines before running.
-2. Write `scalePrices(inventory, factor)` that returns a new list with changed prices and leaves the original unchanged.
-3. Write a version that changes a mutable list in place and compare the two designs.
-4. Explain what "pass by value" means for an object reference.
-
-### Accessibility Practice
-
-State aloud before each call whether the method changes its argument, and name it accordingly (`addScore` changes, `withScore` returns a new list). Print the list before and after so the effect is heard.
-
-### Skills Checklist
-- [ ] I know a list argument is a reference passed by value.
-- [ ] I can change a list in a method.
-- [ ] I can return a new list instead.
-- [ ] I can make a read-only copy.
-- [ ] I can total the shared inventory in a method.
-
----
-
-## Lesson 6.5: Variable Numbers of Arguments
-
-### Reading References
-- [Java SE 25 API documentation](https://docs.oracle.com/en/java/javase/25/docs/api/)
-- [Java Language Specification, Java SE 25](https://docs.oracle.com/javase/specs/jls/se25/html/index.html)
-- [Dev.java learning paths](https://dev.java/learn/)
-- Matching Python lesson: Lesson 6.5: Arbitrary Number of Arguments
-
-### Learning Objectives
-- Write a method with a varargs parameter.
-- Pass an existing array as the varargs argument.
-- Handle the case of no arguments.
-
-### Concept Explanation
-
-A final parameter written `int... scores` is a **varargs** parameter: callers may pass any number of `int` values, and inside the method `scores` is an `int[]` array. A caller may also pass an existing array directly: `average(array)`. A varargs parameter must be the last parameter.
-
-Handle the case of zero arguments explicitly. Dividing a sum by a length of 0 would give a meaningless result, so the example returns an `OptionalDouble`.
-
-The shared scores 82, 91, 76, 88 average 84.25, and the average of 90 and 80 is 85.0.
-
-### Worked Example
-
-```java
-import java.util.OptionalDouble;
-
-public class Lesson_6_5 {
-    static OptionalDouble average(int... scores) {
-        if (scores.length == 0) {
-            return OptionalDouble.empty();
-        }
-        int total = 0;
-        for (int score : scores) {
-            total += score;
-        }
-        return OptionalDouble.of((double) total / scores.length);
-    }
-
-    static String describe(String label, int... values) {
-        StringBuilder text = new StringBuilder(label + ":");
-        for (int value : values) {
-            text.append(' ').append(value);
-        }
-        return text.toString();
-    }
-
-    public static void main(String[] args) {
-        System.out.println(average(82, 91, 76, 88));
-        System.out.println(average(90, 80));
-        System.out.println(average());
-
-        int[] array = {82, 91, 76, 88};
-        System.out.println(average(array));
-
-        System.out.println(describe("scores", 82, 91, 76, 88));
-        System.out.println(describe("nothing"));
->>>>>>> 2067a20 (curriculum clearning and updates)
     }
 }
 ```
 
-<<<<<<< HEAD
 **Expected behavior:** The program compiles on JDK 25 and prints a deterministic result illustrating arbitrary number of arguments. Run it from a terminal, compare actual output with your prediction, and change one input to test the effect.
 
 ### Common Mistakes
@@ -709,40 +427,3 @@ Navigate by class, method, and line; inspect braces, parentheses, brackets, semi
 - [ ] I can compile and run the example from the terminal.
 - [ ] I can identify and correct a Java-specific mistake.
 - [ ] I can test a boundary case and navigate the workflow accessibly.
-=======
-### Expected Behavior or Output
-
-The program prints:
-```text
-OptionalDouble[84.25]
-OptionalDouble[85.0]
-OptionalDouble.empty
-OptionalDouble[84.25]
-scores: 82 91 76 88
-nothing:
-```
-
-### Common Mistakes
-1. Calling `average()` with no arguments and dividing by zero.
-2. Placing the varargs parameter before another parameter, which is a compile error.
-3. Passing a `List<Integer>` where an `int...` is expected. A list is not an array.
-
-### Activities
-1. Predict each printed line.
-2. Write `maximum(int... numbers)` that returns the largest or an empty result.
-3. Write `joinWords(String separator, String... words)`.
-4. Explain what happens to the varargs parameter inside the method.
-
-### Accessibility Practice
-
-Read varargs signatures aloud: 'static OptionalDouble average, open parenthesis, int, three dots, scores, close parenthesis'. Check that your screen reader announces the three dots.
-
-### Skills Checklist
-- [ ] I can write a varargs method.
-- [ ] I can pass an array to a varargs parameter.
-- [ ] I handle the no-argument case.
-- [ ] I know varargs is an array inside the method.
-- [ ] I know it must be the last parameter.
-
----
->>>>>>> 2067a20 (curriculum clearning and updates)

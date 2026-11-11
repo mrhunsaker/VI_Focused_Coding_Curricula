@@ -6,49 +6,6 @@ This unit develops capstone through Rust's type system and standard library. Pre
 ## Lesson 11.1: Requirements and design
 
 ### Reading References
-<<<<<<< HEAD
-- [The Rust Programming Language](https://doc.rust-lang.org/book/)
-- [Rust standard library](https://doc.rust-lang.org/std/)
-- [Cargo Book](https://doc.rust-lang.org/cargo/)
-- Matching Python curriculum lesson for the shared problem context.
-
-### Learning Objectives
-- Explain Requirements and design using Rust's types, ownership model, and standard-library conventions.
-- Select an idiomatic Rust construct rather than transliterating Python syntax.
-- Predict, compile, and verify the example's behavior.
-- Test a relevant boundary condition and explain a common failure.
-
-### Concept Explanation
-The capstone is a record manager. Model records, define validation rules, implement create/read/update/delete, persist data safely, and verify behavior with tests. Document build, test, and run workflows and accessibility decisions. This lesson retains the canonical course data so learners practice Rust rather than a new domain problem. Use cargo fmt, cargo check, and cargo test as routine development tools.
-
-### Worked Example
-```rust
-fn main(){let fields=["id","title","description","category","created_at","updated_at"];println!("Capstone fields: {}",fields.join(", "));}
-```
-
-**Expected behavior:** Runs independently with the standard library and prints the result of this lesson's focused operation. Predict the output, then compare it with the terminal output.
-
-### Common Mistakes
-1. Updating a record without checking whether its identifier exists.
-2. Persisting before validation or overwriting the only copy without recovery.
-3. Treating compilation as proof that CRUD and persistence work.
-
-### Activities
-1. Run the worked example unchanged; trace each binding, expression, ownership transfer, and output line.
-2. Change the canonical to-do and capstone record fields and predict the result before running it.
-3. Add one boundary case and one invalid or missing-data case; state expected behavior before implementing the change.
-4. Refactor one part using the Rust feature named in this lesson (requirements and design); run cargo check and explain the diagnostic output.
-
-### Accessibility Practice
-Use keyboard navigation to move between the lesson heading, code fence, compiler output, and terminal. With a screen reader, inspect punctuation in ownership and borrowing expressions (&, &mut, ::, ->, ?). Do not rely on syntax highlighting or color to distinguish errors. Read prompts and validation messages in document order and verify that output is announced without unexpected focus movement.
-
-### Skills Checklist
-- [ ] I can explain requirements and design using Rust terminology.
-- [ ] I can compile and run the example with cargo run.
-- [ ] I can explain the ownership, borrowing, and type decisions used here.
-- [ ] I can test a boundary case and an invalid-input or error case.
-- [ ] I can navigate source, diagnostics, and output with my keyboard and assistive technology.
-=======
 - [The Rust Programming Language: Structs](https://doc.rust-lang.org/book/ch05-01-defining-structs.html)
 - [The Rust Programming Language: Result](https://doc.rust-lang.org/book/ch09-02-recoverable-errors-with-result.html)
 - [Rust standard library documentation](https://doc.rust-lang.org/std/)
@@ -158,54 +115,10 @@ Design the screen output as lines of plain text: one record per line, with the s
 - [ ] I can plan messages before coding.
 
 ---
->>>>>>> 2067a20 (curriculum clearning and updates)
 
 ## Lesson 11.2: Data model and storage
 
 ### Reading References
-<<<<<<< HEAD
-- [The Rust Programming Language](https://doc.rust-lang.org/book/)
-- [Rust standard library](https://doc.rust-lang.org/std/)
-- [Cargo Book](https://doc.rust-lang.org/cargo/)
-- Matching Python curriculum lesson for the shared problem context.
-
-### Learning Objectives
-- Explain Data model and storage using Rust's types, ownership model, and standard-library conventions.
-- Select an idiomatic Rust construct rather than transliterating Python syntax.
-- Predict, compile, and verify the example's behavior.
-- Test a relevant boundary condition and explain a common failure.
-
-### Concept Explanation
-The capstone is a record manager. Model records, define validation rules, implement create/read/update/delete, persist data safely, and verify behavior with tests. Document build, test, and run workflows and accessibility decisions. This lesson retains the canonical course data so learners practice Rust rather than a new domain problem. Use cargo fmt, cargo check, and cargo test as routine development tools.
-
-### Worked Example
-```rust
-struct Record{id:u32,title:String,description:String,category:String,created_at:String,updated_at:String}fn main(){let r=Record{id:1,title:"Study Rust".into(),description:"Review ownership".into(),category:"learning".into(),created_at:"2026-11-01".into(),updated_at:"2026-11-01".into()};println!("id={}, title={}, description={}, category={}, created_at={}, updated_at={}",r.id,r.title,r.description,r.category,r.created_at,r.updated_at);}
-```
-
-**Expected behavior:** Runs independently with the standard library and prints the result of this lesson's focused operation. Predict the output, then compare it with the terminal output.
-
-### Common Mistakes
-1. Updating a record without checking whether its identifier exists.
-2. Persisting before validation or overwriting the only copy without recovery.
-3. Treating compilation as proof that CRUD and persistence work.
-
-### Activities
-1. Run the worked example unchanged; trace each binding, expression, ownership transfer, and output line.
-2. Change the canonical to-do and capstone record fields and predict the result before running it.
-3. Add one boundary case and one invalid or missing-data case; state expected behavior before implementing the change.
-4. Refactor one part using the Rust feature named in this lesson (data model and storage); run cargo check and explain the diagnostic output.
-
-### Accessibility Practice
-Use keyboard navigation to move between the lesson heading, code fence, compiler output, and terminal. With a screen reader, inspect punctuation in ownership and borrowing expressions (&, &mut, ::, ->, ?). Do not rely on syntax highlighting or color to distinguish errors. Read prompts and validation messages in document order and verify that output is announced without unexpected focus movement.
-
-### Skills Checklist
-- [ ] I can explain data model and storage using Rust terminology.
-- [ ] I can compile and run the example with cargo run.
-- [ ] I can explain the ownership, borrowing, and type decisions used here.
-- [ ] I can test a boundary case and an invalid-input or error case.
-- [ ] I can navigate source, diagnostics, and output with my keyboard and assistive technology.
-=======
 - [The Rust Programming Language: Result](https://doc.rust-lang.org/book/ch09-02-recoverable-errors-with-result.html)
 - [The Rust Programming Language: Reading a File](https://doc.rust-lang.org/book/ch12-02-reading-a-file.html)
 - [Rust standard library documentation](https://doc.rust-lang.org/std/)
@@ -591,54 +504,10 @@ Messages that name the file and the problem read clearly in speech. After saving
 - [ ] I do not overwrite good data after a failed load.
 
 ---
->>>>>>> 2067a20 (curriculum clearning and updates)
 
 ## Lesson 11.3: Create, read, update, delete
 
 ### Reading References
-<<<<<<< HEAD
-- [The Rust Programming Language](https://doc.rust-lang.org/book/)
-- [Rust standard library](https://doc.rust-lang.org/std/)
-- [Cargo Book](https://doc.rust-lang.org/cargo/)
-- Matching Python curriculum lesson for the shared problem context.
-
-### Learning Objectives
-- Explain Create, read, update, delete using Rust's types, ownership model, and standard-library conventions.
-- Select an idiomatic Rust construct rather than transliterating Python syntax.
-- Predict, compile, and verify the example's behavior.
-- Test a relevant boundary condition and explain a common failure.
-
-### Concept Explanation
-The capstone is a record manager. Model records, define validation rules, implement create/read/update/delete, persist data safely, and verify behavior with tests. Document build, test, and run workflows and accessibility decisions. This lesson retains the canonical course data so learners practice Rust rather than a new domain problem. Use cargo fmt, cargo check, and cargo test as routine development tools.
-
-### Worked Example
-```rust
-#[derive(Debug)]struct Record{id:u32,title:String,done:bool}fn main(){let mut v=vec![Record{id:1,title:"Draft".into(),done:false}];v.push(Record{id:2,title:"Review".into(),done:false});if let Some(r)=v.iter_mut().find(|r|r.id==1){r.done=true;}v.retain(|r|r.id!=99);for r in &v{println!("{} {} done={}",r.id,r.title,r.done);}}
-```
-
-**Expected behavior:** Runs independently with the standard library and prints the result of this lesson's focused operation. Predict the output, then compare it with the terminal output.
-
-### Common Mistakes
-1. Updating a record without checking whether its identifier exists.
-2. Persisting before validation or overwriting the only copy without recovery.
-3. Treating compilation as proof that CRUD and persistence work.
-
-### Activities
-1. Run the worked example unchanged; trace each binding, expression, ownership transfer, and output line.
-2. Change the canonical to-do and capstone record fields and predict the result before running it.
-3. Add one boundary case and one invalid or missing-data case; state expected behavior before implementing the change.
-4. Refactor one part using the Rust feature named in this lesson (create, read, update, delete); run cargo check and explain the diagnostic output.
-
-### Accessibility Practice
-Use keyboard navigation to move between the lesson heading, code fence, compiler output, and terminal. With a screen reader, inspect punctuation in ownership and borrowing expressions (&, &mut, ::, ->, ?). Do not rely on syntax highlighting or color to distinguish errors. Read prompts and validation messages in document order and verify that output is announced without unexpected focus movement.
-
-### Skills Checklist
-- [ ] I can explain create, read, update, delete using Rust terminology.
-- [ ] I can compile and run the example with cargo run.
-- [ ] I can explain the ownership, borrowing, and type decisions used here.
-- [ ] I can test a boundary case and an invalid-input or error case.
-- [ ] I can navigate source, diagnostics, and output with my keyboard and assistive technology.
-=======
 - [The Rust Programming Language: Method Syntax](https://doc.rust-lang.org/book/ch05-03-method-syntax.html)
 - [The Rust Programming Language: Result](https://doc.rust-lang.org/book/ch09-02-recoverable-errors-with-result.html)
 - [Rust standard library documentation](https://doc.rust-lang.org/std/)
@@ -852,54 +721,10 @@ List output uses the same fixed format for every record and the words `done` and
 - [ ] I can make output repeatable with a fake clock.
 
 ---
->>>>>>> 2067a20 (curriculum clearning and updates)
 
 ## Lesson 11.4: Validation and tests
 
 ### Reading References
-<<<<<<< HEAD
-- [The Rust Programming Language](https://doc.rust-lang.org/book/)
-- [Rust standard library](https://doc.rust-lang.org/std/)
-- [Cargo Book](https://doc.rust-lang.org/cargo/)
-- Matching Python curriculum lesson for the shared problem context.
-
-### Learning Objectives
-- Explain Validation and tests using Rust's types, ownership model, and standard-library conventions.
-- Select an idiomatic Rust construct rather than transliterating Python syntax.
-- Predict, compile, and verify the example's behavior.
-- Test a relevant boundary condition and explain a common failure.
-
-### Concept Explanation
-The capstone is a record manager. Model records, define validation rules, implement create/read/update/delete, persist data safely, and verify behavior with tests. Document build, test, and run workflows and accessibility decisions. This lesson retains the canonical course data so learners practice Rust rather than a new domain problem. Use cargo fmt, cargo check, and cargo test as routine development tools.
-
-### Worked Example
-```rust
-fn valid(s:&str)->bool{!s.trim().is_empty()&&s.len()<=80}fn main(){for s in ["Plan","","A title that is intentionally longer than the allowed boundary because it has more than eighty characters and should be rejected"]{println!("{s:?}: {}",valid(s));}}
-```
-
-**Expected behavior:** Runs independently with the standard library and prints the result of this lesson's focused operation. Predict the output, then compare it with the terminal output.
-
-### Common Mistakes
-1. Updating a record without checking whether its identifier exists.
-2. Persisting before validation or overwriting the only copy without recovery.
-3. Treating compilation as proof that CRUD and persistence work.
-
-### Activities
-1. Run the worked example unchanged; trace each binding, expression, ownership transfer, and output line.
-2. Change the canonical to-do and capstone record fields and predict the result before running it.
-3. Add one boundary case and one invalid or missing-data case; state expected behavior before implementing the change.
-4. Refactor one part using the Rust feature named in this lesson (validation and tests); run cargo check and explain the diagnostic output.
-
-### Accessibility Practice
-Use keyboard navigation to move between the lesson heading, code fence, compiler output, and terminal. With a screen reader, inspect punctuation in ownership and borrowing expressions (&, &mut, ::, ->, ?). Do not rely on syntax highlighting or color to distinguish errors. Read prompts and validation messages in document order and verify that output is announced without unexpected focus movement.
-
-### Skills Checklist
-- [ ] I can explain validation and tests using Rust terminology.
-- [ ] I can compile and run the example with cargo run.
-- [ ] I can explain the ownership, borrowing, and type decisions used here.
-- [ ] I can test a boundary case and an invalid-input or error case.
-- [ ] I can navigate source, diagnostics, and output with my keyboard and assistive technology.
-=======
 - [The Rust Programming Language: How to Write Tests](https://doc.rust-lang.org/book/ch11-01-writing-tests.html)
 - [The Rust Programming Language: Test Organization](https://doc.rust-lang.org/book/ch11-03-test-organization.html)
 - [Rust standard library documentation](https://doc.rust-lang.org/std/)
@@ -1174,54 +999,10 @@ The test names begin with the acceptance-test number, so PASS and FAIL lines can
 - [ ] I use a fresh manager for every test.
 
 ---
->>>>>>> 2067a20 (curriculum clearning and updates)
 
 ## Lesson 11.5: Documentation and presentation
 
 ### Reading References
-<<<<<<< HEAD
-- [The Rust Programming Language](https://doc.rust-lang.org/book/)
-- [Rust standard library](https://doc.rust-lang.org/std/)
-- [Cargo Book](https://doc.rust-lang.org/cargo/)
-- Matching Python curriculum lesson for the shared problem context.
-
-### Learning Objectives
-- Explain Documentation and presentation using Rust's types, ownership model, and standard-library conventions.
-- Select an idiomatic Rust construct rather than transliterating Python syntax.
-- Predict, compile, and verify the example's behavior.
-- Test a relevant boundary condition and explain a common failure.
-
-### Concept Explanation
-The capstone is a record manager. Model records, define validation rules, implement create/read/update/delete, persist data safely, and verify behavior with tests. Document build, test, and run workflows and accessibility decisions. This lesson retains the canonical course data so learners practice Rust rather than a new domain problem. Use cargo fmt, cargo check, and cargo test as routine development tools.
-
-### Worked Example
-```rust
-fn main(){println!("Project: accessible record manager");println!("Build: cargo build --release");println!("Test: cargo test");println!("Run: cargo run");println!("Document validation, storage, errors, and keyboard workflow.");}
-```
-
-**Expected behavior:** Runs independently with the standard library and prints the result of this lesson's focused operation. Predict the output, then compare it with the terminal output.
-
-### Common Mistakes
-1. Updating a record without checking whether its identifier exists.
-2. Persisting before validation or overwriting the only copy without recovery.
-3. Treating compilation as proof that CRUD and persistence work.
-
-### Activities
-1. Run the worked example unchanged; trace each binding, expression, ownership transfer, and output line.
-2. Change the canonical to-do and capstone record fields and predict the result before running it.
-3. Add one boundary case and one invalid or missing-data case; state expected behavior before implementing the change.
-4. Refactor one part using the Rust feature named in this lesson (documentation and presentation); run cargo check and explain the diagnostic output.
-
-### Accessibility Practice
-Use keyboard navigation to move between the lesson heading, code fence, compiler output, and terminal. With a screen reader, inspect punctuation in ownership and borrowing expressions (&, &mut, ::, ->, ?). Do not rely on syntax highlighting or color to distinguish errors. Read prompts and validation messages in document order and verify that output is announced without unexpected focus movement.
-
-### Skills Checklist
-- [ ] I can explain documentation and presentation using Rust terminology.
-- [ ] I can compile and run the example with cargo run.
-- [ ] I can explain the ownership, borrowing, and type decisions used here.
-- [ ] I can test a boundary case and an invalid-input or error case.
-- [ ] I can navigate source, diagnostics, and output with my keyboard and assistive technology.
-=======
 - [Rust standard library documentation](https://doc.rust-lang.org/std/)
 - [Unit P, Lesson P.6](../FOUNDATIONS/unit-p-computing-foundations.md): files, data formats, and the shared accessible workflow
 - Matching Python lesson: Lesson 11.5: Final Submission
@@ -1328,7 +1109,6 @@ This is the final accessibility lesson. Read your own documentation aloud from s
 - [ ] I do not claim untested compatibility.
 
 ---
->>>>>>> 2067a20 (curriculum clearning and updates)
 
 ## Course-Wide Assessment and Portfolio
 
@@ -1336,11 +1116,7 @@ Submit a Cargo project that compiles with the Rust 2024 edition, passes cargo fm
 
 ## AI Policy
 
-<<<<<<< HEAD
 AI tools may explain compiler diagnostics, compare ownership strategies, and suggest tests. Learners must explain every ownership transfer, borrow, trait bound, error path, and dependency. Compile and test generated code, review dependency provenance, and do not expose private data or credentials. AI output is a draft, not evidence of correctness.
-=======
-AI may be used only for personal conceptual understanding and reinforcement. It must not write, complete, autocomplete, repair, or generate course code or assessment solutions.
->>>>>>> 2067a20 (curriculum clearning and updates)
 
 ## Rust-Specific Verification Notes
 

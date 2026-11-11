@@ -70,13 +70,8 @@ Begin projects with requirements, input/output contracts, and acceptance tests. 
 
 ### Worked Example
 ```jl
-<<<<<<< HEAD
 rooms=Dict("start_room"=>Dict("north"=>"tunnel"),"tunnel"=>Dict("south"=>"start_room"))
 println(get(rooms["start_room"],"north","No exit"))
-=======
-rooms=Dict("Atrium"=>Dict("north"=>"Lab"),"Lab"=>Dict("south"=>"Atrium"))
-println(get(rooms["Atrium"],"north","No exit"))
->>>>>>> 2067a20 (curriculum clearning and updates)
 ```
 
 ### Expected Behavior or Output
@@ -122,13 +117,8 @@ Begin projects with requirements, input/output contracts, and acceptance tests. 
 
 ### Worked Example
 ```jl
-<<<<<<< HEAD
 inventory=Set(["shiny key","map"])
 println("The cabinet opens: ", "shiny key" in inventory)
-=======
-inventory=Set(["key","map"])
-println("The cabinet opens: ", "key" in inventory)
->>>>>>> 2067a20 (curriculum clearning and updates)
 ```
 
 ### Expected Behavior or Output

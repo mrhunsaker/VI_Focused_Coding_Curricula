@@ -21,15 +21,11 @@ Prerequisite: Unit 1. Learners should be able to compile a C program and declare
 Use the design–implement–test cycle. Design identifies inputs, outputs, constraints, and edge cases; implementation translates the algorithm into C; testing compares actual behavior with expected behavior. Compile incrementally with warnings enabled and test both ordinary and boundary inputs.
 
 ### Worked Example
-<<<<<<< HEAD
-For the canonical calculator, input is bill = 24.50 and rate = 0.15. Calculate tip = bill * rate and total = bill + tip. Expected unrounded values are 3.675 and 28.175; formatted to cents they appear as 3.68 and 28.18. Test zero, typical, and large bills.
-=======
 For the canonical calculator, input is bill = 24.50 and rate = 0.15. Calculate tip = bill * rate and total = bill + tip. Expected unrounded values are 3.675 and 28.175; formatted to cents with `printf("%.2f")` they appear as 3.67 and 28.18 (the stored tip is 3.67499999999999982). Test zero, typical, and large bills.
 
 ### Expected Behavior or Output
 
 No program is run in this lesson. The expected result is a trace table written as sentences: bill 24.50, rate 0.15, tip 3.675, total 28.175, and test cases for zero, typical, and large bills with the result predicted before any code is written.
->>>>>>> 2067a20 (curriculum clearning and updates)
 
 ### Common Mistakes
 - Coding before writing down the bill, rate, tip, and total as separate inputs/intermediate/output values.
@@ -80,8 +76,6 @@ int main(void)
 ```
 Expected score values are 50 and 70. The integer expression is 6; the floating expression is approximately 6.33.
 
-<<<<<<< HEAD
-=======
 ### Expected Behavior or Output
 
 Output observed when the worked example was run (gcc 13.3, C17; the text of the output does not depend on the operating system):
@@ -92,7 +86,6 @@ New score: 70
 Integer expression: 6
 Floating expression: 6.33
 ```
->>>>>>> 2067a20 (curriculum clearning and updates)
 ### Common Mistakes
 - Using integer division in a calculation that requires cents or a fractional average.
 - Using `=` in a condition where `==` is intended.
@@ -152,8 +145,6 @@ int main(void)
 ```
 For inputs Avery, 12, and 8, output includes `Hello, Avery!` and `Sum: 20`. A production parser should also validate trailing characters and range errors.
 
-<<<<<<< HEAD
-=======
 ### Expected Behavior or Output
 
 With these lines typed as standard input:
@@ -170,7 +161,6 @@ Name: First whole number: Second whole number: Hello, Avery!
 Sum: 20
 ```
 
->>>>>>> 2067a20 (curriculum clearning and updates)
 ### Common Mistakes
 - Reading a full name with `%s`, which stops at whitespace.
 - Ignoring the return from `fgets` or accepting a numeric prefix followed by junk.
@@ -220,8 +210,6 @@ int main(void)
 ```
 Expected values: 32, 68.5, 2, and 2.5. Extend the example to reject trailing characters and check `errno` for overflow.
 
-<<<<<<< HEAD
-=======
 ### Expected Behavior or Output
 
 Output observed when the worked example was run (gcc 13.3, C17; the text of the output does not depend on the operating system):
@@ -232,7 +220,6 @@ Weight plus age: 68.5
 Integer division: 2
 Floating division: 2.5
 ```
->>>>>>> 2067a20 (curriculum clearning and updates)
 ### Common Mistakes
 - Assuming a cast rounds rather than truncates toward zero.
 - Passing the wrong type to `printf` or using an incompatible format specifier.
@@ -291,8 +278,6 @@ int main(void)
 
 Expected output: area 78.54, circumference 31.42, and distance 5.00. Compile with `cc -std=c17 -Wall -Wextra -Wpedantic math_example.c -o math_example -lm` on systems that require explicit math-library linking.
 
-<<<<<<< HEAD
-=======
 ### Expected Behavior or Output
 
 Output observed when the worked example was run (gcc 13.3, C17; the text of the output does not depend on the operating system):
@@ -302,7 +287,6 @@ Area: 78.54
 Circumference: 31.42
 Distance from origin: 5.00
 ```
->>>>>>> 2067a20 (curriculum clearning and updates)
 ### Common Mistakes
 - Forgetting `math.h` or the `-lm` linker option where needed.
 - Passing degrees to trig functions that expect radians.

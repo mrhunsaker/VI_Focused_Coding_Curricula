@@ -6,8 +6,6 @@ Translate requirements into programs, expressions, input, conversions, and mathe
 
 ---
 
-=======
->>>>>>> 2067a20 (curriculum clearning and updates)
 
 ## Overview
 
@@ -39,11 +37,7 @@ console.log(`Total: $${total.toFixed(2)}`);
 ```
 
 ### Expected Behavior or Output
-<<<<<<< HEAD
-The tip is $3.68 and the total is $28.18 when rounded using JavaScript number formatting.
-=======
 The tip is $3.67 and the total is $28.18 when rounded with `toFixed(2)`. The exact product 3.675 is stored as 3.67499999999999982, so `toFixed(2)` rounds the tip down.
->>>>>>> 2067a20 (curriculum clearning and updates)
 
 ### Common Mistakes
 - Coding before identifying inputs and expected results.
@@ -62,7 +56,6 @@ State the input values and output labels explicitly. Explain rounding rather tha
 - [ ] I can describe the development cycle.
 - [ ] I can translate requirements into an algorithm.
 - [ ] I can compare expected and actual results.
-<<<<<<< HEAD
 
 ---
 

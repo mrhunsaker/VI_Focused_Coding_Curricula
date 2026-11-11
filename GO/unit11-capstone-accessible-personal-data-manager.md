@@ -6,7 +6,6 @@ Build a personal data manager with the shared record schema, storage, search and
 
 ---
 
->>>>>>> 2067a20 (curriculum clearning and updates)
 ## Lesson 11.1: Requirements and design
 
 ### Reading References
@@ -37,10 +36,6 @@ func main() {
 }
 ```
 
-<<<<<<< HEAD
-**Expected behavior:** The standalone program demonstrates requirements and design with shared course example data. It compiles and runs using the standard library. Predict the output first, then compare it with terminal output.
-=======
-
 ### Expected Behavior or Output
 
 Output observed when the worked example was run with empty standard input (Go 1.22; the text of the output does not depend on the operating system):
@@ -48,7 +43,6 @@ Output observed when the worked example was run with empty standard input (Go 1.
 ```text
 Capstone fields: id, title, description, category, created_at, updated_at
 ```
->>>>>>> 2067a20 (curriculum clearning and updates)
 
 ### Common Mistakes
 1. Updating a record without confirming that the identifier exists.
@@ -96,7 +90,6 @@ import (
 	"fmt"
 )
 func main() {
-<<<<<<< HEAD
  type Record struct {
   ID int `json:"id"`
   Title string `json:"title"`
@@ -106,19 +99,11 @@ func main() {
   UpdatedAt string `json:"updated_at"`
  }
  record := Record{ID: 1, Title: "Study Go", Description: "Complete the Go capstone", Category: "learning", CreatedAt: "2026-11-01", UpdatedAt: "2026-11-01"}
-=======
- type Record struct { ID int `json:"id"`; Title string `json:"title"`; Category string `json:"category"` }
- record := Record{ID: 1, Title: "Study Go", Category: "learning"}
->>>>>>> 2067a20 (curriculum clearning and updates)
  data, err := json.Marshal(record)
  if err != nil { panic(err) }
  fmt.Println(string(data))
 }
 ```
-
-<<<<<<< HEAD
-**Expected behavior:** The standalone program demonstrates data model and storage with shared course example data. It compiles and runs using the standard library. Predict the output first, then compare it with terminal output.
-=======
 
 ### Expected Behavior or Output
 
@@ -127,7 +112,6 @@ Output observed when the worked example was run with empty standard input (Go 1.
 ```text
 {"id":1,"title":"Study Go","category":"learning"}
 ```
->>>>>>> 2067a20 (curriculum clearning and updates)
 
 ### Common Mistakes
 1. Updating a record without confirming that the identifier exists.
@@ -181,19 +165,7 @@ func main() {
 }
 ```
 
-<<<<<<< HEAD
 **Expected behavior:** The standalone program demonstrates create, read, update, delete with shared course example data. It compiles and runs using the standard library. Predict the output first, then compare it with terminal output.
-=======
-
-### Expected Behavior or Output
-
-Output observed when the worked example was run with empty standard input (Go 1.22; the text of the output does not depend on the operating system):
-
-```text
-1 Draft done=true
-2 Review done=false
-```
->>>>>>> 2067a20 (curriculum clearning and updates)
 
 ### Common Mistakes
 1. Updating a record without confirming that the identifier exists.
@@ -246,10 +218,6 @@ func main() {
 }
 ```
 
-<<<<<<< HEAD
-**Expected behavior:** The standalone program demonstrates validation and tests with shared course example data. It compiles and runs using the standard library. Predict the output first, then compare it with terminal output.
-=======
-
 ### Expected Behavior or Output
 
 Output observed when the worked example was run with empty standard input (Go 1.22; the text of the output does not depend on the operating system):
@@ -259,7 +227,6 @@ Output observed when the worked example was run with empty standard input (Go 1.
 "" valid=false
 "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx" valid=false
 ```
->>>>>>> 2067a20 (curriculum clearning and updates)
 
 ### Common Mistakes
 1. Updating a record without confirming that the identifier exists.
@@ -314,10 +281,6 @@ func main() {
 }
 ```
 
-<<<<<<< HEAD
-**Expected behavior:** The standalone program demonstrates documentation and presentation with shared course example data. It compiles and runs using the standard library. Predict the output first, then compare it with terminal output.
-=======
-
 ### Expected Behavior or Output
 
 Output observed when the worked example was run with empty standard input (Go 1.22; the text of the output does not depend on the operating system):
@@ -329,7 +292,6 @@ Test: go test ./...
 Run: go run .
 Document validation, storage, errors, and keyboard workflow.
 ```
->>>>>>> 2067a20 (curriculum clearning and updates)
 
 ### Common Mistakes
 1. Updating a record without confirming that the identifier exists.
@@ -358,11 +320,7 @@ Submit a Go module that passes gofmt, go test ./..., and go build ./.... Documen
 
 ## AI Policy
 
-<<<<<<< HEAD
 AI tools may explain compiler diagnostics, compare data structures, and suggest test cases. Learners must explain every type, package, error path, concurrency decision, and dependency. Compile and test generated code, review dependency provenance, and do not expose private data or credentials. AI output is a draft, not evidence of correctness.
-=======
-AI may be used only for personal conceptual understanding and reinforcement. It must not write, complete, autocomplete, repair, or generate course code or assessment solutions.
->>>>>>> 2067a20 (curriculum clearning and updates)
 
 ## Go-Specific Verification Notes
 
