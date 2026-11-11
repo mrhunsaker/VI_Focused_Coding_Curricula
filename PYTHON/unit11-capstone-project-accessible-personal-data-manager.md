@@ -4,7 +4,6 @@
 
 Students develop a fully functional personal data manager that is built to work with a screen reader and keyboard. The program keeps a list of structured records, lets the user add, view, search, change, complete, and delete them, and saves them to a JSON file. The Python track builds it as a small local web application with NiceGUI. The other language tracks build a text-based version with the same records, rules, and tests.
 
-<<<<<<< HEAD
 **Project Goal:** Build an application to manage structured records with list, add, search, update, delete, and JSON persistence operations. The interface may be GUI-based in Python; the same data contract and operation semantics apply to the Lua terminal implementation.
 
 **Project Options:**
@@ -14,64 +13,17 @@ Students develop a fully functional personal data manager that is built to work 
 - Personal Inventory
 
 Every option uses the same six-field record schema (`id`, `title`, `description`, `category`, `created_at`, `updated_at`). The selected project domain changes the meaning of the field values, not the record shape or required operations.
-=======
-**Project goal.** Build a simple application that manages a list of structured items.
-
-**Shared record schema (all general-purpose language tracks).** Every record has these fields: `id` (unique whole number), `title`, `description`, `category`, `created_at`, and `updated_at` (ISO 8601 text). A project may add fields but must not remove these. This course adds the optional field `done` (true or false).
-
-**Project options (each builds on the shared schema):**
-- Contact Manager: add phone and email fields
-- Book/Movie Tracker: add author/director and status fields
-- Simple To-Do List: add a done field and due date
-- Simple Inventory: add quantity and location fields
-
-**Shared sample data.** Use these three records for demonstrations and tests:
-```json
-[
-  {"id": 1, "title": "Notebook", "description": "Course notes", "category": "supplies", "created_at": "2026-01-15T09:00:00", "updated_at": "2026-01-15T09:00:00"},
-  {"id": 2, "title": "Pencil", "description": "Box of 10", "category": "supplies", "created_at": "2026-01-15T09:05:00", "updated_at": "2026-01-15T09:05:00"},
-  {"id": 3, "title": "Study plan", "description": "Weekly schedule", "category": "planning", "created_at": "2026-01-15T09:10:00", "updated_at": "2026-01-15T09:10:00"}
-]
-```
-
-**Shared acceptance tests.**
-1. Adding a record with an empty title is rejected with a clear message.
-2. A new record receives an unused `id`.
-3. Updating a record changes `updated_at` but not `created_at`.
-4. Deleting a record removes only that record.
-5. Saving and reloading preserves all fields and values.
-6. Every message and control can be used without color or a mouse (checked by hand, Lesson 11.5).
-
-**Core functionality requirements.**
-1. **Add New Item** — a form to enter the details of a new item.
-2. **View All Items** — display items in a clear, accessible list.
-3. **Edit Item** — select an existing item and change its details.
-4. **Delete Item** — remove an item from the collection.
-5. **Save/Load Data** — keep the data in a JSON file.
-6. **Search Items** — find items whose title or description contains the entered text.
-7. **Mark an Item Complete** — set the optional `done` field; this updates `updated_at`.
-
-**Verified code.** The code in this unit is available as files in the `PYTHON/capstone/` folder of this repository. It was run with Python 3.12 and NiceGUI 3.19.0. The NiceGUI tests simulate the page in Python; they do not replace testing with a real browser and your own screen reader.
-
-**Lessons in this unit.** 11.1 Introduction to NiceGUI; 11.2 Data Model and Storage; 11.3 Displaying and Searching Items; 11.4 Changing, Completing, and Deleting Items; 11.5 Testing, Documentation, and Final Submission.
->>>>>>> 2067a20 (curriculum clearning and updates)
 
 ---
 
 ## Lesson 11.1: Introduction to NiceGUI
 
-<<<<<<< HEAD
 1. **Add New Item** — A form to input details for a new item.
 2. **View All Items** — Display items in a clear, accessible list format.
 3. **Edit Item** — Select an existing item and modify its details.
 4. **Search Items** — Find records by ID and case-insensitive text in title, description, or category; report no matches explicitly.
 5. **Delete Item** — Remove an item from the collection and confirm the result.
 6. **Save/Load Data** — Persist the data to a JSON file and validate the complete six-field schema on load.
-=======
-### Reading References
-- NiceGUI documentation (official site, nicegui.io); check the documentation for the version you installed
-- Matthes: Chapter 8 (Functions) and Chapter 9 (Classes) for the Python used in this capstone
->>>>>>> 2067a20 (curriculum clearning and updates)
 
 ### Learning Objectives
 - Install NiceGUI with `uv` and start a page from the terminal.
@@ -99,19 +51,6 @@ uv add nicegui
 
 ### Worked Example
 
-<<<<<<< HEAD
-**Task 2:** Define a data model class with all six canonical record fields:
-```python
-class PersonalRecord:
-    def __init__(self, record_id, title, description, category,
-                 created_at, updated_at):
-        self.id = record_id
-        self.title = title
-        self.description = description
-        self.category = category
-        self.created_at = created_at
-        self.updated_at = updated_at
-=======
 Save this as `hello_app.py`:
 ```python
 from nicegui import ui
@@ -135,7 +74,6 @@ def main_page():
 
 if __name__ in {"__main__", "__mp_main__"}:
     ui.run(title="Personal Data Manager", reload=False, show=False)
->>>>>>> 2067a20 (curriculum clearning and updates)
 ```
 
 Start it from the terminal and open the address that it prints:
@@ -1018,15 +956,11 @@ Run the tests from the terminal and read the summary line first. For the hand ch
 
 ---
 
-<<<<<<< HEAD
 ## Supplemental: AI Tools and Version Control
 
 ### Academic Integrity: AI and Assessment
 
 AI tools must not write, complete, autocomplete, repair, or generate course code or assessment solutions. Students may use only instructor-authorized conceptual explanations that do not produce deliverable code. Git and version control are taught separately and are not a workaround for the assessment-integrity rule.
-=======
-## Supplemental: Version Control
->>>>>>> 2067a20 (curriculum clearning and updates)
 
 ### Git and Version Control
 
@@ -1038,19 +972,11 @@ AI tools must not write, complete, autocomplete, repair, or generate course code
 3. **Repository** — `git commit` — Save a permanent snapshot.
 4. **Remote** — `git push` / `git pull` — Sync with GitHub.
 
-<<<<<<< HEAD
-**Why Git is useful in collaborative development:**
-- **Rollback** — Revert a change when a regression is introduced.
-- **`git blame`** — Identify the commit that introduced a change.
-- **Branches** — Develop and test changes in isolation.
-- **Pull requests** — Review changes before merging.
-=======
 **Why Git is valuable:**
 - **Rollback** — If a change breaks your app, revert instantly.
 - **`git blame`** — See exactly which commit introduced a bug.
 - **Branches** — Try experiments in isolation without affecting main code.
 - **Pull requests** — Review changes with others before merging.
->>>>>>> 2067a20 (curriculum clearning and updates)
 
 **Basic commands:**
 ```bash
@@ -1073,7 +999,6 @@ git diff                    # See what changed
 git restore -- file.py     # Discard changes to a file
 ```
 
-<<<<<<< HEAD
 ## Canonical Shared Project Contracts
 
 ### Unit 10: Adventure and command-line to-do projects
@@ -1112,8 +1037,3 @@ Required operations are list/display, add, search, update, delete, and JSON save
 ### Academic integrity and AI policy
 
 AI tools must not write, complete, autocomplete, repair, or generate course code or assessment solutions. Students may use only instructor-authorized conceptual explanations that do not produce deliverable code. Git and version control remain appropriate topics when taught independently of AI code generation.
-=======
-## AI Policy
-
-AI may be used only for personal conceptual understanding and reinforcement. It must not write, complete, autocomplete, repair, or generate course code or assessment solutions.
->>>>>>> 2067a20 (curriculum clearning and updates)
