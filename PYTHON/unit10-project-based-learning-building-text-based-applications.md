@@ -160,7 +160,7 @@ room_descriptions = {
     },
     "locked_door_room": {
         "description": "A chamber with a heavy locked door to the north.",
-        "exits": {"south": "clearing", "north": "treasure_room"},
+        "exits": {"south": "clearing"},
         "items": [],
     },
     "treasure_room": {
@@ -273,7 +273,7 @@ rooms = {
     },
     "locked_door_room": {
         "description": "A chamber with a heavy locked door to the north.",
-        "exits": {"south": "clearing"},
+        "exits": {"south": "clearing", "north": "treasure_room"},
         "items": [],
     },
     "treasure_room": {
