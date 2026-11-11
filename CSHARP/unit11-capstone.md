@@ -74,7 +74,8 @@ The capstone is a structured personal-data manager. Preserve the canonical recor
 ### Worked Example
 ```cs
 var record = new CapstoneRecord(1, "Course project", "Personal data manager", "education", "2026-11-01", "2026-11-01");
-string json = System.Text.Json.JsonSerializer.Serialize(record); Console.WriteLine(json);
+var options = new System.Text.Json.JsonSerializerOptions { PropertyNamingPolicy = System.Text.Json.JsonNamingPolicy.SnakeCaseLower };
+string json = System.Text.Json.JsonSerializer.Serialize(record, options); Console.WriteLine(json);
 record CapstoneRecord(int Id, string Title, string Description, string Category, string CreatedAt, string UpdatedAt);
 ```
 
@@ -85,7 +86,7 @@ record CapstoneRecord(int Id, string Title, string Description, string Category,
 Output observed when the worked example was run (.NET 8; the text of the output does not depend on the operating system):
 
 ```text
-{"Id":1,"Title":"Course project","Description":"Personal data manager","Category":"education","CreatedAt":"2026-11-01","UpdatedAt":"2026-11-01"}
+{"id":1,"title":"Course project","description":"Personal data manager","category":"education","created_at":"2026-11-01","updated_at":"2026-11-01"}
 ```
 
 ### Common Mistakes
