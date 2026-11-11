@@ -12,7 +12,7 @@ permissions:
 
 jobs:
   adventure-runtime:
-    name: Compile and exercise Lua, Rust, C#, and Julia examples
+    name: Compile and exercise all 13 language examples
     runs-on: ubuntu-latest
     steps:
       - name: Check out repository
@@ -23,23 +23,55 @@ jobs:
         with:
           python-version: "3.12"
 
-      - name: Set up Lua 5.4
-        uses: leafo/gh-actions-lua@v10
+      - name: Set up Java
+        uses: actions/setup-java@v4
         with:
-          luaVersion: "5.4"
+          distribution: temurin
+          java-version: "21"
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: "22"
+
+      - name: Install TypeScript compiler
+        run: npm install --global typescript@5.8.3
+
+      - name: Set up Kotlin compiler
+        run: |
+          curl --fail --location --silent --show-error \
+            https://github.com/JetBrains/kotlin/releases/download/v2.0.21/kotlin-compiler-2.0.21.zip \
+            --output "$RUNNER_TEMP/kotlin.zip"
+          unzip -q "$RUNNER_TEMP/kotlin.zip" -d "$RUNNER_TEMP"
+          echo "$RUNNER_TEMP/kotlinc/bin" >> "$GITHUB_PATH"
+
+      - name: Set up Lua 5.4
+        uses: leafo/gh-actions-lua@v13
+        with:
+          luaVersion: "5.4.9"
 
       - name: Set up Rust
         uses: dtolnay/rust-toolchain@stable
 
-      - name: Set up .NET 8
+      - name: Set up C# .NET 8
         uses: actions/setup-dotnet@v4
         with:
           dotnet-version: "8.0.x"
+
+      - name: Set up Go
+        uses: actions/setup-go@v5
+        with:
+          go-version: "1.23.x"
 
       - name: Set up Julia
         uses: julia-actions/setup-julia@v2
         with:
           version: "1.11"
+
+      - name: Set up Swift
+        uses: swift-actions/setup-swift@v3
+        with:
+          swift-version: "6.0"
 
       - name: Compile and execute documented adventure examples
         run: python scripts/test_unit10_adventure_runtimes.py
