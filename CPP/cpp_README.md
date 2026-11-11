@@ -1,11 +1,6 @@
 # C++ Curriculum
 
-<<<<<<< HEAD
-=======
-**Before you start:** complete [Unit P: Computing Foundations Primer](../FOUNDATIONS/unit-p-computing-foundations.md). It explains the language-neutral vocabulary and concepts used in every language track, using non-visual examples.
-
->>>>>>> 2067a20 (curriculum clearning and updates)
-C++ is used in game engines, simulation, robotics, finance, desktop software, and performance-critical systems.
+**Before you start:** complete [Unit P: Computing Foundations Primer](../FOUNDATIONS/unit-p-computing-foundations.md). It explains the language-neutral vocabulary and concepts used in every language track, using non-visual examples.C++ is used in game engines, simulation, robotics, finance, desktop software, and performance-critical systems.
 
 ## Course structure
 
@@ -36,14 +31,9 @@ This verifies compilation and linking only. The examples have not all been execu
 ## GUI, visualization, and workbench accessibility
 
 See the shared [GUI, visualization, and workbench accessibility reference](../DEVELOPMENT/GUI_VISUALIZATION_ACCESSIBILITY.md) for screen-reader support by toolkit, platform-specific activation settings, recommended alternatives, and interfaces that must not be required without an equivalent accessible route.
-<<<<<<< HEAD
-=======
-
 ## AI Policy
 
 AI may be used only for personal conceptual understanding and reinforcement. It must not write, complete, autocomplete, repair, or generate course code or assessment solutions.
->>>>>>> 2067a20 (curriculum clearning and updates)
-
 ## Recommended introductory books
 
 - Stroustrup, Bjarne. *Programming: Principles and Practice Using C++*, 3rd edition. Addison-Wesley, 2024. An introduction to programming principles through C++, covering procedural, object-oriented, and generic programming. [Author's book page](https://stroustrup.com/programming.html).
