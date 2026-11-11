@@ -4,15 +4,6 @@
 
 Manipulate arrays and model fixed sequences, records, Maps, and object iteration. The TypeScript adaptation preserves the shared Python curriculum's learning objectives, datasets, expected results, and assessment criteria while teaching TypeScript's compile-time type system and JavaScript runtime behavior.
 
-<<<<<<< HEAD
----
-
-## Overview
-
-Manipulate arrays and model fixed sequences, records, Maps, and object iteration. The TypeScript adaptation preserves the shared Python curriculum's learning objectives, datasets, expected results, and assessment criteria while teaching TypeScript's compile-time type system and JavaScript runtime behavior.
-
-=======
->>>>>>> 2067a20 (curriculum clearning and updates)
 ## Lesson 4.1: More on arrays
 
 ### Reading References
@@ -287,4 +278,3 @@ Keep one key-value pair per output line. All prompts, errors, and status message
 - [ ] I can produce a sequential text report.
 
 ---
-<<<<<<< HEAD
