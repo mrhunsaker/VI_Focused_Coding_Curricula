@@ -60,7 +60,6 @@ def verify_interactive(language, first, second):
     second_lower = second.lower()
     for label, terms in [
         ("key pickup", ["picked up"]),
-        ("duplicate pickup rejection", ["no shiny key", "invalid command", "don't understand"]),
         ("locked-door rejection", ["locked"]),
         ("unlock", ["unlock"]),
         ("treasure", ["treasure"]),
@@ -69,6 +68,11 @@ def verify_interactive(language, first, second):
     ]:
         if not any(term in second_lower for term in terms):
             raise AssertionError(language + " Lesson 10.3 missing " + label + "\n" + second)
+
+    if "no shiny key" not in second_lower:
+        generic_rejections = second_lower.count("invalid command") + second_lower.count("don't understand")
+        if generic_rejections < 2:
+            raise AssertionError(language + " Lesson 10.3 did not reject the duplicate key pickup\n" + second)
 
 def verify_function_examples(language, first, second):
     lines = [line.strip().lower() for line in first.splitlines() if line.strip()]
