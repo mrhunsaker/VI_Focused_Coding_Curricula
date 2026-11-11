@@ -558,6 +558,5 @@ Open `tasks.json` in the terminal and read it as text. JSON in a single line is 
 - [ ] I handle missing and malformed files.
 - [ ] I check decoded fields.
 - [ ] I know when to use a library.
->>>>>>> 2067a20 (curriculum clearning and updates)
 
 ---
