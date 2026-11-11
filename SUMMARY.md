@@ -36,7 +36,7 @@
   - [Unit 10](C/unit10-applied-projects.md)
   - [Unit 11](C/unit11-capstone-personal-data-manager.md)
 
-# CPP
+# C++ (C Plus Plus)
 
 - [CPP Curriculum](CPP/cpp_README.md)
   - [All units index](CPP/lessons.md)
@@ -53,7 +53,7 @@
   - [Unit 10](CPP/unit10-project-based-learning.md)
   - [Unit 11](CPP/unit11-capstone.md)
 
-# CSHARP
+# C# (C-SHARP)
 
 - [CSHARP Curriculum](CSHARP/csharp_README.md)
   - [All units index](CSHARP/lessons.md)
