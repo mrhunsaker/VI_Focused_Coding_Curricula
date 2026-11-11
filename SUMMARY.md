@@ -242,7 +242,7 @@
 
 # Standalone Topics/Languages
 - [Standalone Topics/Languages Resources](MODULES/README.md)
-  - [Git and GitHub](MODULES/GIT.md)
+  - [Git and Version Control](MODULES/GIT.md)
   - [HTML and CSS](MODULES/HTML_CSS.md)
   - [Web Accessibility](MODULES/WEB_ACCESSIBILITY.md)
   - [Markdown Syntax](MODULES/MARKDOWN.md)
