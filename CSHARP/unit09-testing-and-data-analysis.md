@@ -26,8 +26,6 @@ Console.WriteLine("Add tests passed.");
 
 **Trace:** identify declarations, expressions, control flow, and observable output. Predict the result, run the example, and compare the actual output with the prediction.
 
-<<<<<<< HEAD
-=======
 ### Expected Behavior or Output
 
 Output observed when the worked example was run (.NET 8; the text of the output does not depend on the operating system):
@@ -36,7 +34,6 @@ Output observed when the worked example was run (.NET 8; the text of the output 
 Add tests passed.
 ```
 
->>>>>>> 2067a20 (curriculum clearning and updates)
 ### Common Mistakes
 - Testing only a happy path and omitting boundary or failure cases.
 - Using nondeterministic inputs without a reproducible test strategy.
@@ -79,8 +76,6 @@ class StockItem(string name, int quantity) { public string Name { get; } = name;
 
 **Trace:** identify declarations, expressions, control flow, and observable output. Predict the result, run the example, and compare the actual output with the prediction.
 
-<<<<<<< HEAD
-=======
 ### Expected Behavior or Output
 
 Output observed when the worked example was run (.NET 8; the text of the output does not depend on the operating system):
@@ -89,7 +84,6 @@ Output observed when the worked example was run (.NET 8; the text of the output 
 StockItem state tests passed.
 ```
 
->>>>>>> 2067a20 (curriculum clearning and updates)
 ### Common Mistakes
 - Testing only a happy path and omitting boundary or failure cases.
 - Using nondeterministic inputs without a reproducible test strategy.
@@ -131,8 +125,6 @@ Console.WriteLine($"Roll: {dieRoll}; sample: {sample:F3}; choice: {choice}");
 
 **Trace:** identify declarations, expressions, control flow, and observable output. Predict the result, run the example, and compare the actual output with the prediction.
 
-<<<<<<< HEAD
-=======
 ### Expected Behavior or Output
 
 Output observed when the worked example was run (.NET 8; the text of the output does not depend on the operating system):
@@ -141,7 +133,6 @@ Output observed when the worked example was run (.NET 8; the text of the output 
 Roll: 5; sample: 0.141; choice: red
 ```
 
->>>>>>> 2067a20 (curriculum clearning and updates)
 ### Common Mistakes
 - Testing only a happy path and omitting boundary or failure cases.
 - Using nondeterministic inputs without a reproducible test strategy.
@@ -184,8 +175,6 @@ Console.WriteLine($"Letters: {letters}; spaces: {spaces}; programming occurrence
 
 **Trace:** identify declarations, expressions, control flow, and observable output. Predict the result, run the example, and compare the actual output with the prediction.
 
-<<<<<<< HEAD
-=======
 ### Expected Behavior or Output
 
 Output observed when the worked example was run (.NET 8; the text of the output does not depend on the operating system):
@@ -194,7 +183,6 @@ Output observed when the worked example was run (.NET 8; the text of the output 
 Letters: 65; spaces: 7; programming occurrences: 2
 ```
 
->>>>>>> 2067a20 (curriculum clearning and updates)
 ### Common Mistakes
 - Testing only a happy path and omitting boundary or failure cases.
 - Using nondeterministic inputs without a reproducible test strategy.
@@ -236,8 +224,6 @@ Console.WriteLine($"{studentId}: {firstName} {lastName}, score {score}, active {
 
 **Trace:** identify declarations, expressions, control flow, and observable output. Predict the result, run the example, and compare the actual output with the prediction.
 
-<<<<<<< HEAD
-=======
 ### Expected Behavior or Output
 
 Output observed when the worked example was run (.NET 8; the text of the output does not depend on the operating system):
@@ -246,7 +232,6 @@ Output observed when the worked example was run (.NET 8; the text of the output 
 001: Avery Student, score 92, active True
 ```
 
->>>>>>> 2067a20 (curriculum clearning and updates)
 ### Common Mistakes
 - Testing only a happy path and omitting boundary or failure cases.
 - Using nondeterministic inputs without a reproducible test strategy.
