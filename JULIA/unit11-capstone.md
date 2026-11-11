@@ -69,13 +69,8 @@ The capstone is an accessible personal-data manager with list/add/search/update/
 
 ### Worked Example
 ```jl
-<<<<<<< HEAD
 struct Record; id::Int; title::String; description::String; category::String; created_at::String; updated_at::String; end
 println(Record(1,"Study Julia","Review arrays","learning","2026-11-01","2026-11-01"))
-=======
-struct Record; id::Int; title::String; description::String; category::String; end
-println(Record(1,"Study","Read arrays","learning"))
->>>>>>> 2067a20 (curriculum clearning and updates)
 ```
 
 ### Expected Behavior or Output
@@ -253,10 +248,6 @@ Navigate source by line, word, and character. Inspect operators, punctuation, mu
 - Use CSV.jl for quoted delimiters, escaped quotes, or embedded newlines. The introductory `split` approach is limited to simple sample data.
 - Use DataFrames.jl only when tabular analysis justifies the dependency; begin with arrays, tuples, named tuples, and dictionaries.
 - Standard Julia arrays are one-based. Use `eachindex` or `enumerate` when iteration needs indices.
-<<<<<<< HEAD
-=======
-
 ## AI Policy
 
 AI may be used only for personal conceptual understanding and reinforcement. It must not write, complete, autocomplete, repair, or generate course code or assessment solutions.
->>>>>>> 2067a20 (curriculum clearning and updates)
