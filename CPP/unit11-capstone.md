@@ -26,8 +26,6 @@ std::cout << "Personal data manager requirements: create, list, search, update, 
 
 **Trace:** predict the output before compiling. Identify declarations, values, control-flow decisions, and state changes in order. Then compile and compare actual output with the prediction. The lesson example is intended to be independently compilable.
 
-<<<<<<< HEAD
-=======
 ### Expected Behavior or Output
 
 Output observed when the worked example was run with empty standard input (g++ 13.3, C++20; the text of the output does not depend on the operating system):
@@ -36,7 +34,6 @@ Output observed when the worked example was run with empty standard input (g++ 1
 Personal data manager requirements: create, list, search, update, delete, validate, persist.
 ```
 
->>>>>>> 2067a20 (curriculum clearning and updates)
 ### Common Mistakes
 - Set measurable acceptance criteria.
 - Constrain scope.
@@ -79,8 +76,6 @@ struct Record { int id; std::string title; std::string description; std::string 
 
 **Trace:** predict the output before compiling. Identify declarations, values, control-flow decisions, and state changes in order. Then compile and compare actual output with the prediction. The lesson example is intended to be independently compilable.
 
-<<<<<<< HEAD
-=======
 ### Expected Behavior or Output
 
 Output observed when the worked example was run with empty standard input (g++ 13.3, C++20; the text of the output does not depend on the operating system):
@@ -89,7 +84,6 @@ Output observed when the worked example was run with empty standard input (g++ 1
 1,Course project,Personal data manager,education,2026-11-01,2026-11-01
 ```
 
->>>>>>> 2067a20 (curriculum clearning and updates)
 ### Common Mistakes
 - Use stable IDs rather than vector offsets.
 - Document the persisted schema.
@@ -132,8 +126,6 @@ struct Record { int id; std::string title; std::string description; std::string 
 
 **Trace:** predict the output before compiling. Identify declarations, values, control-flow decisions, and state changes in order. Then compile and compare actual output with the prediction. The lesson example is intended to be independently compilable.
 
-<<<<<<< HEAD
-=======
 ### Expected Behavior or Output
 
 Output observed when the worked example was run with empty standard input (g++ 13.3, C++20; the text of the output does not depend on the operating system):
@@ -142,7 +134,6 @@ Output observed when the worked example was run with empty standard input (g++ 1
 1: Updated course project
 ```
 
->>>>>>> 2067a20 (curriculum clearning and updates)
 ### Common Mistakes
 - Locate records by ID.
 - Distinguish not-found from success.
@@ -186,8 +177,6 @@ const auto valid_email = [](const std::string& email) { const auto at = email.fi
 
 **Trace:** predict the output before compiling. Identify declarations, values, control-flow decisions, and state changes in order. Then compile and compare actual output with the prediction. The lesson example is intended to be independently compilable.
 
-<<<<<<< HEAD
-=======
 ### Expected Behavior or Output
 
 Output observed when the worked example was run with empty standard input (g++ 13.3, C++20; the text of the output does not depend on the operating system):
@@ -196,7 +185,6 @@ Output observed when the worked example was run with empty standard input (g++ 1
 Validation tests passed
 ```
 
->>>>>>> 2067a20 (curriculum clearning and updates)
 ### Common Mistakes
 - Test duplicate IDs and missing records.
 - Use temporary test files.
@@ -240,8 +228,6 @@ std::cout << "Build: c++ -std=c++20 -Wall -Wextra -Wpedantic -Werror main.cpp -o
 
 **Trace:** predict the output before compiling. Identify declarations, values, control-flow decisions, and state changes in order. Then compile and compare actual output with the prediction. The lesson example is intended to be independently compilable.
 
-<<<<<<< HEAD
-=======
 ### Expected Behavior or Output
 
 Output observed when the worked example was run with empty standard input (g++ 13.3, C++20; the text of the output does not depend on the operating system):
@@ -251,7 +237,6 @@ Build: c++ -std=c++20 -Wall -Wextra -Wpedantic -Werror main.cpp -o app
 Document: requirements, data format, tests, limitations, accessibility
 ```
 
->>>>>>> 2067a20 (curriculum clearning and updates)
 ### Common Mistakes
 - Document exact build and run commands.
 - State actual serialization support accurately.
@@ -277,15 +262,9 @@ Navigate the complete source file by line, word, and character using the learner
 
 Submit runnable exercises, prediction notes, debugging notes, tests, and the text adventure and personal-data manager projects. Assessment focuses on correctness, idiomatic C++, code explanation, independent debugging, and accessible interaction—not speed or visual editor use.
 
-<<<<<<< HEAD
 ## AI and Academic Integrity
 
 AI may be used only for personal conceptual explanations and reinforcement when the instructor permits. Do not use AI to write, complete, autocomplete, repair, or generate course code or assessment solutions. Students must explain every submitted statement independently.
-=======
-## AI Policy
-
-AI may be used only for personal conceptual understanding and reinforcement. It must not write, complete, autocomplete, repair, or generate course code or assessment solutions.
->>>>>>> 2067a20 (curriculum clearning and updates)
 
 ## Further Learning
 
