@@ -26,8 +26,6 @@ Console.WriteLine($"Bill: {bill:F2}; tip: {tip:F2}; total: {total:F2}");
 
 **Trace:** identify declarations, expressions, control flow, and observable output. Predict the result, run the example, and compare the actual output with the prediction.
 
-<<<<<<< HEAD
-=======
 ### Expected Behavior or Output
 
 Output observed when the worked example was run (.NET 8; the text of the output does not depend on the operating system):
@@ -36,7 +34,6 @@ Output observed when the worked example was run (.NET 8; the text of the output 
 Bill: 24.50; tip: 3.67; total: 28.18
 ```
 
->>>>>>> 2067a20 (curriculum clearning and updates)
 ### Common Mistakes
 - Using the wrong numeric type or conversion for the value being processed.
 - Ignoring input parsing failures or culture-dependent formatting.
@@ -79,8 +76,6 @@ Console.WriteLine($"Adjusted: {adjusted:F2}; updated score: {score:F2}");
 
 **Trace:** identify declarations, expressions, control flow, and observable output. Predict the result, run the example, and compare the actual output with the prediction.
 
-<<<<<<< HEAD
-=======
 ### Expected Behavior or Output
 
 Output observed when the worked example was run (.NET 8; the text of the output does not depend on the operating system):
@@ -89,7 +84,6 @@ Output observed when the worked example was run (.NET 8; the text of the output 
 Adjusted: 90.75; updated score: 82.50
 ```
 
->>>>>>> 2067a20 (curriculum clearning and updates)
 ### Common Mistakes
 - Using the wrong numeric type or conversion for the value being processed.
 - Ignoring input parsing failures or culture-dependent formatting.
@@ -132,8 +126,6 @@ Console.WriteLine($"Hello, {name}. Sum: {first + second}");
 
 **Trace:** identify declarations, expressions, control flow, and observable output. Predict the result, run the example, and compare the actual output with the prediction.
 
-<<<<<<< HEAD
-=======
 ### Expected Behavior or Output
 
 Output observed when the worked example was run (.NET 8; the text of the output does not depend on the operating system):
@@ -142,7 +134,6 @@ Output observed when the worked example was run (.NET 8; the text of the output 
 Name: Hello, Avery. Sum: 13
 ```
 
->>>>>>> 2067a20 (curriculum clearning and updates)
 ### Common Mistakes
 - Using the wrong numeric type or conversion for the value being processed.
 - Ignoring input parsing failures or culture-dependent formatting.
@@ -185,8 +176,6 @@ else Console.WriteLine("Enter a valid measurement.");
 
 **Trace:** identify declarations, expressions, control flow, and observable output. Predict the result, run the example, and compare the actual output with the prediction.
 
-<<<<<<< HEAD
-=======
 ### Expected Behavior or Output
 
 Output observed when the worked example was run (.NET 8; the text of the output does not depend on the operating system):
@@ -195,7 +184,6 @@ Output observed when the worked example was run (.NET 8; the text of the output 
 1.72 m = 172 cm
 ```
 
->>>>>>> 2067a20 (curriculum clearning and updates)
 ### Common Mistakes
 - Using the wrong numeric type or conversion for the value being processed.
 - Ignoring input parsing failures or culture-dependent formatting.
@@ -240,8 +228,6 @@ Console.WriteLine($"Area: {area:F2}; circumference: {circumference:F2}; distance
 
 **Trace:** area is approximately 28.27, circumference is approximately 18.85, and distance from (3, 4) to the origin is 5.
 
-<<<<<<< HEAD
-=======
 ### Expected Behavior or Output
 
 Output observed when the worked example was run (.NET 8; the text of the output does not depend on the operating system):
@@ -250,7 +236,6 @@ Output observed when the worked example was run (.NET 8; the text of the output 
 Area: 28.27; circumference: 18.85; distance: 5.00
 ```
 
->>>>>>> 2067a20 (curriculum clearning and updates)
 ### Common Mistakes
 - Using an approximate value of pi when Math.PI is available.
 - Passing a diameter where the formula expects a radius.
