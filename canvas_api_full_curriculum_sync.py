@@ -105,21 +105,16 @@ def sync_to_canvas():
             # 1. Create the Canvas Page
             print(f"  Creating Page (Indent: {indent_lvl}): {title}")
             page = course.create_page({
-                'wiki_page': {
-                    'title': title,
-                    'body': html_body,
-                    'published': True
-                }
+                'title': title,
+                'body': html_body,
+                'published': True
             })
             
             canvas_module.create_module_item({
-                'module_item': {
-                    'type': 'Page',
-                    'content_id': page.page_id,
-                    'title': title,
-                    'page_url': page.url,
-                    'indent': indent_lvl
-                }
+                'type': 'Page',
+                'title': title,
+                'page_url': page.url,
+                'indent': indent_lvl
             })
             
             # 2. Conditionally append assignment for lesson/track files
@@ -130,23 +125,19 @@ def sync_to_canvas():
                 print(f"    ↳ Creating Assignment for: {title}")
                 
                 assignment = course.create_assignment({
-                    'assignment': {
-                        'name': assignment_title,
-                        'description': f"<p>Please upload all completed files, scripts, or workspace deliverables for <strong>{title}</strong>.</p>",
-                        'points_possible': POINTS_PER_ASSIGNMENT,
-                        'submission_types': ['online_upload'],
-                        'allowed_extensions': ['zip', 'tar', 'py', 'c', 'cpp', 'rs', 'js', 'go', 'java', 'cs', 'txt', 'pdf'],
-                        'published': True
-                    }
+                    'name': assignment_title,
+                    'description': f"<p>Please upload all completed files, scripts, or workspace deliverables for <strong>{title}</strong>.</p>",
+                    'points_possible': POINTS_PER_ASSIGNMENT,
+                    'submission_types': ['online_upload'],
+                    'allowed_extensions': ['zip', 'tar', 'py', 'c', 'cpp', 'rs', 'js', 'go', 'java', 'cs', 'txt', 'pdf'],
+                    'published': True
                 })
                 
                 canvas_module.create_module_item({
-                    'module_item': {
-                        'type': 'Assignment',
-                        'content_id': assignment.id,
-                        'title': assignment_title,
-                        'indent': indent_lvl
-                    }
+                    'type': 'Assignment',
+                    'content_id': assignment.id,
+                    'title': assignment_title,
+                    'indent': indent_lvl
                 })
 
     print("\n✅ Curriculum synchronization completed successfully!")
