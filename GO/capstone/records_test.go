@@ -36,7 +36,8 @@ func TestValidationAndCRUD(t *testing.T) {
 	oldUpdated := records[0].UpdatedAt
 	updated, err := Update(&records, 1, map[string]any{"description":"Lecture notes"}, clock)
 	if err != nil || updated.CreatedAt != before || updated.UpdatedAt == oldUpdated { t.Fatal("timestamp invariant failed") }
-	if _, err := Complete(&records, 3, clock); err != nil || !records[2].Done { t.Fatal("completion failed") }
+	completed, err := Complete(&records, 3, clock)
+	if err != nil || completed == nil || !completed.Done { t.Fatal("completion failed") }
 	if err := Delete(&records, 99); err == nil { t.Fatal("missing ID deletion accepted") }
 	if got := Search(records, "NOTE"); len(got) != 1 || got[0].Title != "Notebook" { t.Fatalf("search mismatch: %#v", got) }
 }
