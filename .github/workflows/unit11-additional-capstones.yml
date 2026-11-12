@@ -50,8 +50,16 @@ jobs:
       - uses: leafo/gh-actions-lua@v13
         with:
           luaVersion: "5.4.9"
+      - name: Install LuaRocks and Lua 5.4 development files
+        run: |
+          sudo apt-get update
+          sudo apt-get install --yes luarocks lua5.4 liblua5.4-dev
       - name: Install Lua JSON dependency
-        run: luarocks install dkjson
+        run: |
+          luarocks --lua-version=5.4 install dkjson
+          eval "$(luarocks path --lua-version=5.4)"
+          echo "LUA_PATH=$LUA_PATH" >> "$GITHUB_ENV"
+          echo "LUA_CPATH=$LUA_CPATH" >> "$GITHUB_ENV"
       - uses: julia-actions/setup-julia@v2
         with:
           version: "1.11"
