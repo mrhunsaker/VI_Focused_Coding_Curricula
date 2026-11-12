@@ -38,19 +38,19 @@ The shared runtime acceptance surface should cover:
 | Julia | `JULIA/unit11-capstone.md` | Lesson fragments and package guidance (including JSON3.jl); no standalone capstone project directory/test runner | Not runtime-accepted. | Assemble a project with a committed `Project.toml`, deterministic core tests, JSON round-trip, and file-error coverage. |
 | Swift | `SWIFT/unit11-capstone.md` | Lesson examples include the shared JSON field encoding; no standalone capstone project directory/test runner | Not runtime-accepted. | Assemble a Swift package and test Codable mapping, CRUD, validation, timestamps, and persistence failures. |
 | Rust | `RUST/unit11-capstone.md` | Complete runnable Lesson 11.2/11.4 examples in Markdown | **Pass** — actual lesson examples pass storage/error and CRUD acceptance in the common workflow. | Keep lesson extraction and runtime assertions under CI. |
-| Go | `GO/unit11-capstone-accessible-personal-data-manager.md` | Yes — `GO/capstone/` package and tests | **Not yet verified on baseline** — its workflow step was skipped because the preceding C# step failed. | Run `go test -v ./...` independently or after the C# fix; then record the result in CI. |
+| Go | `GO/unit11-capstone-accessible-personal-data-manager.md` | Yes — `GO/capstone/` package and tests | **Blocked by a test assertion defect** — after the C# fix, Go executed and failed because the test checked `records[2]` for completion after deleting ID 2 and appending ID 4; record ID 3 had shifted to index 1. | Assert the returned completed record (or locate ID 3), then rerun `go test -v ./...`. |
 | Lua | `LUA/unit11-capstone-accessible-personal-data-manager.md` | Worked examples and dependency-selection guidance; no standalone capstone project directory/test runner | Not runtime-accepted. | Select and pin JSON dependency; assemble a terminal-first core and test CRUD, validation, persistence, and malformed/quoted input. |
 
 ## Evidence and interpretation
 
 - **Java/Kotlin/Rust:** the merged Unit 11 runtime workflow extracts the actual Lesson 11.2 and Lesson 11.4 code blocks from the curriculum Markdown and checks JSON round-trip, missing/malformed files, and six CRUD/validation cases. This is stronger than checking for the presence of code fences, but it does not prove a complete integrated command-line application.
-- **JavaScript/TypeScript/C#/Go:** the additional-capstones workflow tests repository reference cores. At the audit baseline, JavaScript and TypeScript passed all seven tests each. C# failed its timestamp assertion because its deterministic test clock was reset to a timestamp already present in the fixture data; Go did not run in that failed job. The C# failure is a test-fixture sequencing issue, not evidence that production timestamps are incorrect.
+- **JavaScript/TypeScript/C#/Go:** the additional-capstones workflow tests repository reference cores. At the audit baseline, JavaScript and TypeScript passed all seven tests each. C# initially failed because its deterministic test clock was reset to a timestamp already present in the fixture data; the PR's injected-clock correction passes. Go then executed and exposed a test that relied on a stale slice index after delete-and-append; the implementation returns the completed record correctly, and the test now asserts that result directly.
 - **Python:** the repository contains an existing capstone application and record/UI test files. Those tests need to be run and represented in the shared acceptance workflow before the matrix can call Python runtime-accepted on the same CI basis.
 - **C/C++/Julia/Swift/Lua:** the curriculum contains project requirements and worked examples, but there is no corresponding standalone `capstone/` implementation/test harness in the repository tree at this audit baseline.
 
 ## Recommended implementation order
 
-1. Stabilize the C# fixture clock and rerun the JavaScript/TypeScript/C#/Go workflow; confirm Go is actually executed.
+1. Stabilize the C# fixture clock and Go completion assertion, then rerun the JavaScript/TypeScript/C#/Go workflow.
 2. Run the Python record and UI tests, then add them to CI with the required dependencies.
 3. Create standalone reference cores and deterministic acceptance tests for Swift and C++ next, then Julia, Lua, and C. Choose dependencies and toolchain versions explicitly.
 4. Add integration-level command-loop tests for each terminal application, and keep them distinct from record-core unit tests.
