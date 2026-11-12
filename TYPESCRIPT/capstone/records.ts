@@ -8,7 +8,7 @@ export interface DataRecord {
   category: string;
   created_at: string;
   updated_at: string;
-  done: boolean;
+  done?: boolean;
 }
 
 export interface RecordResult {
@@ -108,7 +108,7 @@ export function loadRecords(filePath: string): LoadResult {
     if (!Array.isArray(data) || !data.every(isValidRecord)) {
       return { records: [], error: "The data file does not contain valid records." };
     }
-    return { records: data.map((record: DataRecord) => ({ done: false, ...record })), error: null };
+    return { records: data.map((record: DataRecord) => ({ ...record, done: record.done ?? false })), error: null };
   } catch {
     return { records: [], error: "The data file is not valid JSON." };
   }
