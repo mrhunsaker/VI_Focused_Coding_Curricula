@@ -2008,7 +2008,6 @@
     "outstanding_work": [
       "Complete human keyboard-only, browser, screen-reader, and Braille verification using ACCESSIBILITY_VERIFICATION.md; attach environment-specific evidence.",
       "Review and merge the Python capstone hardening changes in the active pull request; rerun record and simulated-page tests on the PR head.",
-      "Refresh UNIT11_ACCEPTANCE_MATRIX.md when the baseline-main additional-capstones workflow run 43208932072 completes.",
       "All-13 Unit 10.2/10.3 adventure runtime acceptance passed on current main in run 43134945800 and again on PR #57 head in run 43135992793.",
       "All-13 Unit 10.2/10.3 adventure runtime acceptance is passing; maintain regression coverage on future main changes.",
       "All 13 Unit 10.2/10.3 adventure examples passed. Continue full Unit 10 project and Unit 11 capstone acceptance beyond the five-room worked example.",
@@ -2610,7 +2609,7 @@
         },
         "additional_capstones": {
           "run": 43208932072,
-          "status": "in_progress_at_audit_refresh",
+          "status": "success",
           "url": "https://github.com/mrhunsaker/VI_Focused_Coding_Curricula/actions/runs/43208932072"
         },
         "python_page_tests": "Integrated into pull-request-validation.yml and passed in run 43208932201.",
@@ -2644,7 +2643,7 @@
         },
         "unit11_additional_capstones": {
           "run": 43208932072,
-          "status": "in_progress_at_audit_refresh",
+          "status": "success",
           "url": "https://github.com/mrhunsaker/VI_Focused_Coding_Curricula/actions/runs/43208932072"
         }
       },

@@ -38,7 +38,7 @@ Interpretation: the earlier 41-block inventory is superseded as a current-branch
 
 - The current-main PR validation run passed JSON validation, merge-marker scanning, Python record tests, Python NiceGUI simulated-page tests, repository checks, and mdBook build.
 - Python page test suites are now part of .github/workflows/pull-request-validation.yml; the previous statement that Python UI tests were not in CI is stale.
-- Unit 11 domain/storage acceptance has been added across all 13 general-purpose tracks. Python, Java/Kotlin/Rust, and C/C++ baseline-main workflows passed on commit 08dda9a...; the additional-capstones baseline-main rerun was still in progress at refresh time. The earlier PR #57 head run for JavaScript, TypeScript, C#, Go, Swift, Julia, and Lua passed.
+- Unit 11 domain/storage acceptance has been added across all 13 general-purpose tracks. Python, Java/Kotlin/Rust, and C/C++ baseline-main workflows passed on commit 08dda9a...; the additional-capstones baseline-main rerun also completed successfully (run 43208932072). The earlier PR #57 head run for JavaScript, TypeScript, C#, Go, Swift, Julia, and Lua passed.
 - Domain/storage acceptance does not establish complete learner-facing UIs, CSV import/export parity, or assistive-technology usability.
 - Python's NiceGUI page tests simulate interactions; they do not establish real browser focus behavior or screen-reader/Braille output.
 
@@ -49,7 +49,7 @@ Manual keyboard-only, screen-reader, and Braille verification remains not yet ve
 ## Remaining work
 
 1. Complete and commit hands-on accessibility evidence for named OS/browser/screen-reader combinations; include Braille where available.
-2. Refresh the additional-capstones matrix entry when its current-main run completes.
+2. Keep the additional-capstones main-branch run (43208932072) recorded as passed; refresh after subsequent baseline changes.
 3. Continue semantic review of lesson content and contract parity even though the previously flagged merge markers are gone.
 4. Extend project acceptance to CSV workflows and integrated CLI/GUI behavior where required by each track.
 5. Keep audit statements tied to commit SHAs and completed workflow runs; mark queued/in-progress runs as pending.

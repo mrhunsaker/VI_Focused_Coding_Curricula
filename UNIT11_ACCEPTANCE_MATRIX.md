@@ -17,7 +17,7 @@ The shared acceptance surface covers creation and required-field validation; uni
 | Python | PYTHON/capstone/ includes NiceGUI app, record module, record tests, and three UI test suites. Record tests run in unit11-capstone-runtime.yml; all three page suites run in pull-request-validation.yml. Main PR validation run 43208932201 passed at the baseline commit. | Automated domain and simulated-page tests integrated. Real browser/assistive-technology evidence remains pending. |
 | Java, Kotlin, Rust | Shared runtime workflow extracts, compiles, and runs the actual Lesson 11.2 storage and Lesson 11.4 acceptance examples. Run 43208932339 passed at the baseline commit. | Lesson-example domain/storage acceptance passed. Does not establish complete integrated applications. |
 | C, C++ | Standalone reference cores and tests are exercised by the C/C++ runtime workflow. Run 43208932295 passed at the baseline commit. | Domain/storage acceptance passed. UI and broader project acceptance remain separate. |
-| JavaScript, TypeScript, C#, Go, Swift, Julia, Lua | Standalone domain/storage cores and acceptance tests are exercised by the additional-capstones workflow. Run 43135992714 passed on the PR #57 head; the baseline-main rerun 43208932072 was in progress when this matrix was refreshed. | PR-head domain/storage acceptance passed; latest baseline-main rerun pending. These cores are not finished accessible UIs. |
+| JavaScript, TypeScript, C#, Go, Swift, Julia, Lua | Standalone domain/storage cores and acceptance tests are exercised by the additional-capstones workflow. Run 43135992714 passed on the PR #57 head; the baseline-main rerun 43208932072 passed. | Domain/storage acceptance passed on the PR head and on the current main baseline. These cores are not finished accessible UIs. |
 
 ## Python-specific coverage
 
@@ -31,7 +31,7 @@ The shared acceptance surface covers creation and required-field validation; uni
 1. Complete manual keyboard-only, browser, screen-reader, and (where applicable) Braille verification. Record exact environment versions, outcomes, and defects in ACCESSIBILITY_VERIFICATION.md.
 2. Extend capstone acceptance to CSV import/export and additional boundary cases wherever those are part of the track's project specification.
 3. Keep domain/storage acceptance distinct from integrated command-line or graphical application acceptance for each track.
-4. Refresh this matrix after the pending baseline-main additional-capstones workflow completes; do not infer a pass from a queued or in-progress run.
+4. Retain this matrix's commit/run references and refresh them after subsequent baseline changes.
 
 ## Acceptance vocabulary
 
