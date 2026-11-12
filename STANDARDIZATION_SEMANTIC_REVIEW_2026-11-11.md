@@ -2,7 +2,7 @@
 
 ## Scope and method
 
-This document preserves the semantic decisions from the 2026-11-11 review and refreshes its claims against main at commit 08dda9a715a368bf549c8938db43311124d7286b. The prior 41-block inventory was a historical snapshot, not a current count.
+This document preserves the semantic decisions from the 2026-11-11 review. Its automated validation observations below refer to the recorded 08dda9a715a368bf549c8938db43311124d7286b baseline; the current documentation baseline is main at 7e4f62abeab4df795c574c43adc64caecc8ab7b7. The prior 41-block inventory was a historical snapshot, not a current count.
 
 The refresh used:
 - The current-main PR validation workflow, including repository-wide merge-marker scanning, JSON validation, Python record/UI tests, and mdBook build.
@@ -44,7 +44,7 @@ Interpretation: the earlier 41-block inventory is superseded as a current-branch
 
 ## Accessibility evidence status
 
-Manual keyboard-only, screen-reader, and Braille verification remains not yet verified. The protocol and evidence template are maintained in ACCESSIBILITY_VERIFICATION.md. Do not convert automated test success into a human accessibility pass.
+The project owner reported that all items in the manual audit checklist passed on 2026-11-12. The outcome and evidence qualifications are recorded in ACCESSIBILITY_MANUAL_AUDIT_2026-11-12.md. The completed workbook and exact OS/browser/screen-reader versions were not attached when this update was prepared, so those details remain to be archived. This reported checklist pass is distinct from a claim of conformance with every WCAG success criterion or coverage of untested AT combinations/Braille devices.
 
 ## Remaining work
 
