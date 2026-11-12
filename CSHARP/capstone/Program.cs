@@ -105,9 +105,9 @@ public static class Program
         if (!condition) throw new InvalidOperationException(message);
     }
 
-    private static Func<string> Clock()
+    private static Func<string> Clock(int initialTick = 0)
     {
-        var tick = 0;
+        var tick = initialTick;
         return () => "2026-11-12T10:00:" + (++tick).ToString("D2") + "Z";
     }
 
