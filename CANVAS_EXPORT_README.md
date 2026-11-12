@@ -136,6 +136,6 @@ A successful live verification requires a configured test course and token, foll
 
 The implementation is maintained separately in:
 
-- `canvas_api_full_curriculum_sync.py`
+- [`canvas_api_full_curriculum_sync.py`](canvas_api_full_curriculum_sync.py)
 
 Run that file using the command in [Section 4](#4-run-the-script). This README documents the behavior of the current implementation; if the script changes, update this guide and repeat the test-course verification.
