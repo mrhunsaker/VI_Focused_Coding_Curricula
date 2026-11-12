@@ -159,10 +159,16 @@ function useKey(room, items) {
   rooms.locked_door_room.exits.north = "treasure_room";
   return "The door unlocks; north now leads to treasure_room.";
 }
-console.log(takeItem("start_room", "shiny key"));
+function runCommand(room, command) {
+  if (command.startsWith("take ")) return takeItem(room, command.slice(5));
+  if (command === "use shiny key") return useKey(room, inventory);
+  return "I don't understand that command.";
+}
+console.log(runCommand("start_room", "take shiny key"));
+console.log(runCommand("start_room", "take shiny key"));
 console.log(inventory.join(", "));
-console.log(useKey("clearing", inventory));
-console.log(useKey("locked_door_room", inventory));
+console.log(runCommand("clearing", "use shiny key"));
+console.log(runCommand("locked_door_room", "use shiny key"));
 console.log(doorLocked);
 console.log(rooms.locked_door_room.exits.north);
 ```
@@ -178,7 +184,17 @@ treasure_room
 ```
 
 ### Expected Behavior or Output
-Taking shiny key from start_room returns true and inventory contains shiny key. Using it outside locked_door_room is rejected; using it there unlocks the north exit.
+The command dispatcher accepts the literal `take shiny key` and `use shiny key` commands. The second pickup is rejected without duplicating the inventory item. Key use is rejected outside `locked_door_room`; using it there unlocks the north exit.
+
+```text
+true
+false
+shiny key
+You must be at the locked door to use the key.
+The door unlocks; north now leads to treasure_room.
+false
+treasure_room
+```
 
 ### Common Mistakes
 - Allowing an item to be picked up repeatedly after it has been removed.
