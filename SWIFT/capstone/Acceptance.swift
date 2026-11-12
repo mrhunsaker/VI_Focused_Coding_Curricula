@@ -66,6 +66,11 @@ struct CapstoneAcceptance {
         try RecordStore.save(records: storageRecords, to: dataURL)
         let loaded = RecordStore.load(from: dataURL)
         check(loaded.1 == nil && loaded.0 == storageRecords, "JSON round trip failed")
+        let legacyURL = folder.appendingPathComponent("legacy.json")
+        let legacyJSON = "[{\\"id\\":9,\\"title\\":\\"Legacy\\",\\"description\\":\\"Old record\\",\\"category\\":\\"archive\\",\\"created_at\\":\\"2026-01-01T00:00:00Z\\",\\"updated_at\\":\\"2026-01-01T00:00:00Z\\"}]"
+        try legacyJSON.write(to: legacyURL, atomically: true, encoding: .utf8)
+        let legacy = RecordStore.load(from: legacyURL)
+        check(legacy.1 == nil && legacy.0.first?.done == false, "optional done field did not default to false")
         let missing = RecordStore.load(from: folder.appendingPathComponent("missing.json"))
         check(missing.1 == nil && missing.0.isEmpty, "missing file handling failed")
         let brokenURL = folder.appendingPathComponent("broken.json")
