@@ -70,6 +70,7 @@ The shared graph has five rooms: start_room, tunnel, clearing, locked_door_room,
 ### Worked Example
 
 ```julia
+function main()
 rooms = Dict(
     "start_room" => (description = "A dimly lit cave. A narrow passage leads north.",
                      exits = Dict("north" => "tunnel")),
@@ -101,6 +102,9 @@ while true
         current_room = destination
     end
 end
+end
+
+main()
 ```
 
 ### Expected Behavior or Output
@@ -113,6 +117,8 @@ Enter north, east, north, north, quit. The player reaches tunnel, clearing, and 
 - Defining a destination that is not one of the five room identifiers.
 - Adding the treasure exit before implementing the key puzzle.
 
+
+- In Julia, place the interactive loop inside a function such as `main()` so assignments update the function-local `current_room` rather than triggering top-level soft-scope ambiguity.
 ### Activities
 1. Trace north, east, north, north and record the current room.
 2. Try west from start_room and verify that the room does not change.
@@ -151,6 +157,7 @@ Keep the same five-room graph. Each room has a mutable items vector. Taking the 
 ### Worked Example
 
 ```julia
+function main()
 rooms = Dict(
     "start_room" => (description = "A dimly lit cave.",
                      exits = Dict("north" => "tunnel"), items = ["shiny key"]),
@@ -207,6 +214,9 @@ while true
         println("Invalid command. Enter north, south, east, west, take shiny key, use shiny key, or quit.")
     end
 end
+end
+
+main()
 ```
 
 ### Expected Behavior or Output
@@ -220,6 +230,8 @@ Enter north, east, north, north, south, west, south, take shiny key, north, east
 - Allowing north movement before door_locked becomes false.
 - Mutating a copied room collection instead of the stored mutable vector.
 
+
+- In Julia, place the interactive loop inside a function such as `main()` so assignments update the function-local `current_room` rather than triggering top-level soft-scope ambiguity.
 ### Activities
 1. Run the complete puzzle sequence and record room, items, inventory, and door state.
 2. Attempt to take the key twice; the second attempt must be rejected.
