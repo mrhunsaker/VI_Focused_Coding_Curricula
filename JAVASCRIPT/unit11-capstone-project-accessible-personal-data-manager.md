@@ -246,6 +246,10 @@ After deleting and saving a record, reloading the JSON file confirms that the re
 ### Accessibility Practice
 Ask for confirmation before irreversible deletion. Announce success or failure in text and preserve predictable menu navigation.
 
+### Runnable Reference Implementation
+
+The repository includes a tested JavaScript domain and JSON-storage reference core in [capstone/README.md](capstone/README.md). Run `node --test JAVASCRIPT/capstone/records.test.js` from the repository root. The reference core does not replace the requirement to build and evaluate an accessible user interface.
+
 ### Skills Checklist
 - [ ] I can delete a record safely.
 - [ ] I can persist and reload records.
