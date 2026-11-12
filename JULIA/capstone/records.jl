@@ -12,9 +12,19 @@ mutable struct DataRecord
     done::Bool
 end
 
+Base.:(==)(left::DataRecord, right::DataRecord) =
+    left.id == right.id && left.title == right.title &&
+    left.description == right.description && left.category == right.category &&
+    left.created_at == right.created_at && left.updated_at == right.updated_at &&
+    left.done == right.done
+
 function validate(title, category)
-    title === nothing || isempty(strip(title)) && return "A title is required."
-    category === nothing || isempty(strip(category)) && return "A category is required."
+    if title === nothing || isempty(strip(title))
+        return "A title is required."
+    end
+    if category === nothing || isempty(strip(category))
+        return "A category is required."
+    end
     return nothing
 end
 
