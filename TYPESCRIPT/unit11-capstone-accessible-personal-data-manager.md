@@ -248,6 +248,10 @@ The function returns true and the record's done field becomes true.
 ### Accessibility Practice
 Verify keyboard-only use, help text, confirmations, errors, and sequential output with the intended access technology. All prompts, errors, and status messages must have meaningful text equivalents; keyboard operation is required.
 
+### Runnable Reference Implementation
+
+The repository includes a tested TypeScript domain and JSON-storage reference core in [capstone/README.md](capstone/README.md). Run `tsc -p TYPESCRIPT/capstone/tsconfig.json`, then `node --test TYPESCRIPT/capstone/records.test.js` from the repository root. The reference core does not replace the requirement to build and evaluate an accessible user interface.
+
 ### Skills Checklist
 - [ ] I can delete by stable identifier.
 - [ ] I can update completion state.

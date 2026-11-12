@@ -258,6 +258,10 @@ Accessibility: keyboard-first commands and explicit text feedback
 ### Accessibility Practice
 Navigate the complete source file by line, word, and character using the learner's access technology. Read punctuation and indentation, run from the terminal, and inspect standard output and errors sequentially.
 
+### Runnable Reference Implementation
+
+The repository includes a tested C# domain and JSON-storage reference core in [capstone/README.md](capstone/README.md). Run `dotnet run --project CSHARP/capstone/Capstone.csproj` from the repository root. The reference core does not replace the requirement to build and evaluate an accessible user interface.
+
 ### Skills Checklist
 - [ ] I can implement the required capstone data model and fields.
 - [ ] I can implement the required CRUD operations.

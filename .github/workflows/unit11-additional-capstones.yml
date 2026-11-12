@@ -1,0 +1,41 @@
+name: Unit 11 additional capstone runtime acceptance
+
+on:
+  pull_request:
+  push:
+    branches:
+      - main
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  additional-capstones:
+    name: Test JavaScript TypeScript C# and Go capstone cores
+    runs-on: ubuntu-24.04
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "22"
+      - name: Install TypeScript compiler
+        run: npm install --global typescript@5.8.3
+      - uses: actions/setup-dotnet@v4
+        with:
+          dotnet-version: "8.0.x"
+      - uses: actions/setup-go@v5
+        with:
+          go-version: "1.23.x"
+      - name: Test JavaScript core
+        run: node --test JAVASCRIPT/capstone/records.test.js
+      - name: Build and test TypeScript core
+        working-directory: TYPESCRIPT/capstone
+        run: |
+          tsc -p tsconfig.json
+          node --test records.test.js
+      - name: Test C# core
+        run: dotnet run --project CSHARP/capstone/Capstone.csproj
+      - name: Test Go core
+        working-directory: GO/capstone
+        run: go test -v ./...
