@@ -1,0 +1,4 @@
+CANVAS_API_URL=https://your-institution.instructure.com
+CANVAS_API_KEY=your_canvas_bearer_token_here
+CANVAS_COURSE_ID=123456
+POINTS_PER_ASSIGNMENT=10
