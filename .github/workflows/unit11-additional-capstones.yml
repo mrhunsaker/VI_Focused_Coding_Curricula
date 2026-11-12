@@ -46,3 +46,18 @@ jobs:
         run: |
           swiftc SWIFT/capstone/Records.swift SWIFT/capstone/Acceptance.swift -o "$RUNNER_TEMP/swift-capstone-tests"
           "$RUNNER_TEMP/swift-capstone-tests"
+
+      - uses: leafo/gh-actions-lua@v13
+        with:
+          luaVersion: "5.4.9"
+      - name: Install Lua JSON dependency
+        run: luarocks install dkjson
+      - uses: julia-actions/setup-julia@v2
+        with:
+          version: "1.11"
+      - name: Install Julia JSON dependency
+        run: julia -e 'using Pkg; Pkg.add("JSON3")'
+      - name: Test Lua core
+        run: lua LUA/capstone/test_records.lua
+      - name: Test Julia core
+        run: julia JULIA/capstone/test_records.jl
