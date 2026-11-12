@@ -12,7 +12,7 @@ permissions:
 
 jobs:
   additional-capstones:
-    name: Test JavaScript TypeScript C# and Go capstone cores
+    name: Test JavaScript TypeScript C# Go Swift Lua and Julia capstone cores
     runs-on: ubuntu-24.04
     steps:
       - uses: actions/checkout@v4
