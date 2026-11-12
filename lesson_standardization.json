@@ -1987,8 +1987,11 @@
         "blocks": 41,
         "status": "historical_snapshot_not_current_count"
       },
-      "targeted_recheck": "No standard conflict-marker lines found in fetched previously flagged files across Python, TypeScript, Lua, Java, Rust, and Kotlin.",
-      "repository_wide_scan": "not_completed"
+      "targeted_recheck": "All 20 previously flagged paths were re-fetched from main at 08dda9a715a368bf549c8938db43311124d7286b; zero standard line-leading merge-marker lines were found.",
+      "repository_wide_scan": "passed",
+      "repository_wide_scan_run": "https://github.com/mrhunsaker/VI_Focused_Coding_Curricula/actions/runs/43208932201",
+      "repository_wide_scan_commit": "08dda9a715a368bf549c8938db43311124d7286b",
+      "interpretation": "The historical 41-block inventory is not a current open-marker count. Marker scanning does not establish semantic correctness."
     },
     "build_status": {
       "mdbook": "passed_on_latest_main_commit",
@@ -2003,15 +2006,16 @@
       "Java Unit 10 describes the canonical five-room shiny-key graph; Java Unit 11 documents the shared six-field record schema and a text-interface adaptation."
     ],
     "outstanding_work": [
+      "Complete human keyboard-only, browser, screen-reader, and Braille verification using ACCESSIBILITY_VERIFICATION.md; attach environment-specific evidence.",
+      "Review and merge the Python capstone hardening changes in the active pull request; rerun record and simulated-page tests on the PR head.",
+      "Refresh UNIT11_ACCEPTANCE_MATRIX.md when the baseline-main additional-capstones workflow run 43208932072 completes.",
       "All-13 Unit 10.2/10.3 adventure runtime acceptance passed on current main in run 43134945800 and again on PR #57 head in run 43135992793.",
       "All-13 Unit 10.2/10.3 adventure runtime acceptance is passing; maintain regression coverage on future main changes.",
       "All 13 Unit 10.2/10.3 adventure examples passed. Continue full Unit 10 project and Unit 11 capstone acceptance beyond the five-room worked example.",
-      "Complete all-blob conflict and malformed-file scan; prior conflict recheck was targeted only.",
       "Continue the lesson-by-lesson audit after adding runnable domain/storage cores; ensure every track's final project instructions match the implemented schema and behavior.",
       "C and C++ JSON persistence tests passed in run 43135992726; Go, Julia, and Lua JSON persistence tests passed in run 43135992714.",
       "Continue the Unit 11 schema and implementation audit recorded in unit11_capstone_audit_2026_11_12, then validate all 13 capstones against shared CRUD behavior, JSON persistence, validation, malformed/missing data, and acceptance tests.",
       "Extend acceptance beyond current CRUD/JSON tests to CSV import/export, additional boundary cases, and complete interactive application workflows.",
-      "Run every feasible language checker and current-main mdBook build plus full local-link crawl.",
       "Review specialist HTML/CSS, R, SQL modules and instructor assessment materials.",
       "Verify reported 2,481-record assessment inventory and access/privacy controls.",
       "Conduct human keyboard-only, screen-reader and braille testing; no repository automation can establish this.",
@@ -2586,7 +2590,66 @@
         "Add explicit CSV import/export and boundary tests for tracks whose capstone requirements include CSV.",
         "Run end-to-end app-level acceptance for Python and all reference cores; distinguish domain/storage tests from full UI acceptance.",
         "Conduct human keyboard-only, screen-reader, and braille testing; no repository automation can establish this."
-      ]
+      ],
+      "current_main_validation": {
+        "commit": "08dda9a715a368bf549c8938db43311124d7286b",
+        "python_record_and_repository_validation": {
+          "run": 43208932201,
+          "status": "success",
+          "url": "https://github.com/mrhunsaker/VI_Focused_Coding_Curricula/actions/runs/43208932201"
+        },
+        "java_kotlin_rust": {
+          "run": 43208932339,
+          "status": "success",
+          "url": "https://github.com/mrhunsaker/VI_Focused_Coding_Curricula/actions/runs/43208932339"
+        },
+        "c_cpp": {
+          "run": 43208932295,
+          "status": "success",
+          "url": "https://github.com/mrhunsaker/VI_Focused_Coding_Curricula/actions/runs/43208932295"
+        },
+        "additional_capstones": {
+          "run": 43208932072,
+          "status": "in_progress_at_audit_refresh",
+          "url": "https://github.com/mrhunsaker/VI_Focused_Coding_Curricula/actions/runs/43208932072"
+        },
+        "python_page_tests": "Integrated into pull-request-validation.yml and passed in run 43208932201.",
+        "human_accessibility": "Pending. No browser/screen-reader/Braille verification is inferred from simulated-page or domain tests."
+      }
+    },
+    "current_main_revalidation_2026_11_12": {
+      "baseline_commit": "08dda9a715a368bf549c8938db43311124d7286b",
+      "baseline_date": "2026-11-12",
+      "workflows": {
+        "pull_request_validation": {
+          "run": 43208932201,
+          "status": "success",
+          "url": "https://github.com/mrhunsaker/VI_Focused_Coding_Curricula/actions/runs/43208932201",
+          "scope": "JSON checks, repository merge-marker scan, Python record/UI tests, repository checks, mdBook build"
+        },
+        "unit11_capstone_runtime": {
+          "run": 43208932339,
+          "status": "success",
+          "url": "https://github.com/mrhunsaker/VI_Focused_Coding_Curricula/actions/runs/43208932339"
+        },
+        "unit11_c_cpp_runtime": {
+          "run": 43208932295,
+          "status": "success",
+          "url": "https://github.com/mrhunsaker/VI_Focused_Coding_Curricula/actions/runs/43208932295"
+        },
+        "mdbook": {
+          "run": 43208932067,
+          "status": "success",
+          "url": "https://github.com/mrhunsaker/VI_Focused_Coding_Curricula/actions/runs/43208932067"
+        },
+        "unit11_additional_capstones": {
+          "run": 43208932072,
+          "status": "in_progress_at_audit_refresh",
+          "url": "https://github.com/mrhunsaker/VI_Focused_Coding_Curricula/actions/runs/43208932072"
+        }
+      },
+      "python_ui_ci": "All three Python NiceGUI simulated-page test suites are now part of .github/workflows/pull-request-validation.yml.",
+      "manual_accessibility": "Not yet verified; see ACCESSIBILITY_VERIFICATION.md. Automated UI tests are not screen-reader, keyboard-only, or Braille evidence."
     }
   }
 }
