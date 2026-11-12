@@ -251,6 +251,14 @@ No program is run in this lesson. The expected result is a README that satisfies
 ### Accessibility Practice
 Navigate the complete source file by line, word, and character using the learner's access technology. Read punctuation and indentation, run from the terminal, and inspect standard output and errors sequentially.
 
+### Runnable Reference Implementation
+
+The repository includes a tested C domain and JSON-storage reference core in [capstone/README.md](capstone/README.md). Install the JSON development dependency described there, then run the acceptance command:
+
+`gcc -D_GNU_SOURCE -std=c17 -Wall -Wextra -Werror C/capstone/records.c C/capstone/test_records.c $(pkg-config --cflags --libs json-c) -o /tmp/c-capstone-tests && /tmp/c-capstone-tests`
+
+The reference core does not replace the requirement to build and evaluate an accessible user interface.
+
 ### Skills Checklist
 - [ ] I can explain the C rule demonstrated by "Documentation and presentation" without relying on Python terminology.
 - [ ] I can predict and verify the exact behavior of this lesson's worked example.
