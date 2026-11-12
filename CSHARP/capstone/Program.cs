@@ -105,9 +105,9 @@ public static class Program
         if (!condition) throw new InvalidOperationException(message);
     }
 
-    private static Func<string> Clock()
+    private static Func<string> Clock(int initialTick = 0)
     {
-        var tick = 0;
+        var tick = initialTick;
         return () => "2026-11-12T10:00:" + (++tick).ToString("D2") + "Z";
     }
 
@@ -129,7 +129,7 @@ public static class Program
                 var records = Fresh();
                 var before = records[0].CreatedAt;
                 var oldUpdated = records[0].UpdatedAt;
-                RecordStore.Update(records, 1, description: "Lecture notes", clock: Clock());
+                RecordStore.Update(records, 1, description: "Lecture notes", clock: Clock(3));
                 Check(records[0].CreatedAt == before, "created_at changed");
                 Check(records[0].UpdatedAt != oldUpdated, "updated_at did not change");
             }),
