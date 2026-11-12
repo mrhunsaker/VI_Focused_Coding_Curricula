@@ -112,7 +112,15 @@ enum RecordStore {
         guard FileManager.default.fileExists(atPath: url.path) else { return ([], nil) }
         do {
             let data = try Data(contentsOf: url)
-            return (try JSONDecoder().decode([DataRecord].self, from: data), nil)
+            let records = try JSONDecoder().decode([DataRecord].self, from: data)
+            let valid = records.allSatisfy {
+                $0.id > 0 &&
+                !$0.title.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty &&
+                !$0.category.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty &&
+                !$0.createdAt.isEmpty && !$0.updatedAt.isEmpty
+            }
+            guard valid else { return ([], "The data file does not contain valid records.") }
+            return (records, nil)
         } catch {
             return ([], "The data file is not valid JSON or does not match the record schema.")
         }
