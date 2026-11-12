@@ -36,6 +36,13 @@ jobs:
           node --test records.test.js
       - name: Test C# core
         run: dotnet run --project CSHARP/capstone/Capstone.csproj
+      - uses: swift-actions/setup-swift@v2.4.0
+        with:
+          swift-version: "6.0"
       - name: Test Go core
         working-directory: GO/capstone
         run: go test -v ./...
+      - name: Compile and test Swift core
+        run: |
+          swiftc SWIFT/capstone/Records.swift SWIFT/capstone/Acceptance.swift -o "$RUNNER_TEMP/swift-capstone-tests"
+          "$RUNNER_TEMP/swift-capstone-tests"
