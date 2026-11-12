@@ -138,7 +138,6 @@ const roomItems: Record<RoomId, string[]> = {
 };
 const inventory: string[] = [];
 let doorLocked = true;
-
 function takeItem(room: RoomId, item: string): boolean {
   const items = roomItems[room];
   const index = items.findIndex(value => value.toLowerCase() === item.toLowerCase());
@@ -151,24 +150,31 @@ function useKey(room: RoomId): string {
   if (!inventory.includes("shiny key")) return "The door is locked.";
   doorLocked = false;
   exits.locked_door_room.north = "treasure_room";
-  return "The door unlocks.";
+  return "The door unlocks; north now leads to treasure_room.";
 }
-console.log(takeItem("start_room", "shiny key"));
+function runCommand(room: RoomId, command: string): boolean | string {
+  if (command.startsWith("take ")) return takeItem(room, command.slice(5));
+  if (command === "use shiny key") return useKey(room);
+  return "I don't understand that command.";
+}
+console.log(runCommand("start_room", "take shiny key"));
+console.log(runCommand("start_room", "take shiny key"));
 console.log(inventory.join(", "));
-console.log(useKey("clearing"));
-console.log(useKey("locked_door_room"));
+console.log(runCommand("clearing", "use shiny key"));
+console.log(runCommand("locked_door_room", "use shiny key"));
 console.log(doorLocked);
 console.log(exits.locked_door_room.north);
 ```
 
 ### Expected Behavior or Output
-The example prints the pickup result, inventory contents, a location error, the successful unlock message, the door state, and the newly available north exit:
+The command dispatcher accepts the literal `take shiny key` and `use shiny key` commands. The second pickup is rejected without duplicating the inventory item. Key use is rejected outside `locked_door_room`; using it there unlocks the north exit.
 
 ```text
 true
+false
 shiny key
 You must be at the locked door to use the key.
-The door unlocks.
+The door unlocks; north now leads to treasure_room.
 false
 treasure_room
 ```
