@@ -1,93 +1,55 @@
-# Standardization Tracker Semantic Review — 2026-11-11
+# Standardization Tracker Semantic Review — refreshed 2026-11-12
 
 ## Scope and method
 
-Reviewed the 16 conflict blocks from the original `lesson_standardization.json` at commit `62d2f3914315f97b02953849320157e042d0e934`. Compared each recovered choice with the current Python source map, shared project contracts, language-specific lesson files, and recorded validation evidence. Also searched and fetched the current source files for unresolved conflict markers.
+This document preserves the semantic decisions from the 2026-11-11 review and refreshes its claims against main at commit 08dda9a715a368bf549c8938db43311124d7286b. The prior 41-block inventory was a historical snapshot, not a current count.
 
-The original recovery used a content-length heuristic (10 HEAD selections, 6 incoming selections). This review confirms that several choices were sound, but it also identifies choices that required correction or qualification. A longer side is not automatically the semantically correct side.
+The refresh used:
+- The current-main PR validation workflow, including repository-wide merge-marker scanning, JSON validation, Python record/UI tests, and mdBook build.
+- Direct re-fetch of the 20 files previously listed as affected.
+- Current Unit 11 acceptance workflow results and the current Unit 11 acceptance matrix.
 
-## Review of the 16 tracker conflicts
+## Historical semantic decisions retained
 
-| Block | Review outcome | Finding |
-|---:|---|---|
-| 1 | Confirm incoming | Unit P is required; the Foundations primer exists and contains seven lessons. |
-| 2 | Corrected | The current Python Unit 0 has four lessons, not five. Lesson 0.5 was merged into 0.4. |
-| 3 | Corrected | Preserve all four setup outcomes: runtime, accessible editor, workspace/first file, and terminal Hello World. Accessibility and terminal workflow are combined in 0.4. |
-| 4 | Confirm incoming | The five capstone lessons are split into 11.1–11.5, with distinct 11.3, 11.4, and 11.5 responsibilities. |
-| 5 | Confirm incoming | The Python capstone implementation files exist. This does not establish that all lesson-source instructions are conflict-free. |
-| 6 | Confirm HEAD, qualify | The decimal half-up reference tip is 3.68 and total 28.18. Python's current f-string example prints 3.67; the tracker separately documents language-specific display behavior. |
-| 7 | Confirm incoming | The canonical CSV rows and notes-file metadata extend the shared dataset. |
-| 8 | Confirm incoming | The Unit P prerequisite reference is consistent with the Foundations primer. |
-| 9 | Supersede | The competing date/current-language values were historical branch snapshots; current metadata has been refreshed. |
-| 10 | Confirm HEAD, qualify | C++ Unit 10.2 uses the canonical `start_room → tunnel` transition. The related checker/CI rerun is still a verification task. |
-| 11 | Confirm HEAD | The C++ CI rerun remains pending until a current run verifies the edited example. |
-| 12 | Supersede | The old next-track list and PR #4 instruction were stale; current priorities are now recorded. |
-| 13 | Confirm HEAD | Go's capstone lesson declares the six canonical record fields; end-to-end persistence testing remains pending. |
-| 14 | Confirm HEAD | Lua has four Unit 0 lessons and 53 numbered Unit 1–11 lessons; the incoming 57-numbered-lesson snapshot is stale. |
-| 15 | Downgrade to blocked | Java Unit 10 and Unit 11 still contain unresolved conflict blocks, in addition to pending capstone and accessibility testing. |
-| 16 | Keep richer record, downgrade status | The fuller Python progress record is more useful, but Units 1, 2, 3, 4, 8, 10, and 11 still contain conflict blocks. |
+The 16 tracker conflict decisions from the original review remain useful as historical rationale: several selections were corrected or downgraded based on live lesson content, rather than choosing the longer side. The original corrections to Python Unit 0 lesson count/source paths, Unit P prerequisites, Unit 10 adventure graph, and Unit 11 schema remain part of the review history. They are not a claim that every lesson is now semantically complete.
 
-## Tracker corrections applied
+## Refreshed merge-marker status
 
-- Replaced all 12 stale Python unit source paths with the exact paths linked by `PYTHON/lessons.md`; the Unit P source path was also checked. All 13 targets exist.
-- Corrected Unit 0 from five lesson titles to the four current headings. Removed the obsolete standalone 0.5 entry.
-- Updated Unit 0's parallel examples to include runtime installation, accessible editor configuration, workspace/first file, and terminal Hello World.
-- Downgraded Python and Java status fields so unresolved lesson-source conflicts are not hidden by historical CI results.
-- Recorded this review and the remaining conflict inventory in `lesson_standardization.json`.
+The 20 paths in the earlier inventory were re-fetched from current main and scanned for standard line-leading merge-marker forms. Zero marker lines were found in those 20 files.
 
-## Current source conflict inventory
+The current-main repository validation workflow also completed successfully at the refreshed baseline:
+- Pull request curriculum validation, run 43208932201 — success.
+- Commit: 08dda9a715a368bf549c8938db43311124d7286b.
+- The workflow's repository scan checks supported text extensions and excludes generated/build/vendor directories. It is a marker scan, not a semantic review. Marker-like strings used as instructional examples or inside the scanner's own regular expression are not unresolved conflict blocks.
 
-A current-branch search and direct file fetch found **41 unresolved conflict blocks in 20 curriculum files**:
-
-| Track | Files | Conflict blocks |
+| Previously flagged area | Files rechecked | Current marker lines |
 |---|---:|---:|
-| Python | 7 | 15 |
-| TypeScript | 4 | 6 |
-| Lua | 5 | 5 |
-| Java | 2 | 12 |
-| Rust | 1 | 2 |
-| Kotlin | 1 | 1 |
-| **Total** | **20** | **41** |
+| Python | 7 | 0 |
+| TypeScript | 4 | 0 |
+| Lua | 5 | 0 |
+| Java | 2 | 0 |
+| Rust | 1 | 0 |
+| Kotlin | 1 | 0 |
+| Total | 20 | 0 |
 
-Affected files:
+Interpretation: the earlier 41-block inventory is superseded as a current-branch marker count. Do not carry forward the 41 figure as an open defect count. Semantic correctness, stale examples, and cross-track contract parity still require content review.
 
-- `PYTHON/unit01-foundations-of-computing-and-getting-started-with-pytho.md` (1)
-- `PYTHON/unit02-writing-simple-programs-and-numeric-computations.md` (1)
-- `PYTHON/unit03-control-flow-decisions-and-loops.md` (1)
-- `PYTHON/unit04-data-structures-lists-and-dictionaries.md` (2)
-- `PYTHON/unit08-files-and-exceptions.md` (1)
-- `PYTHON/unit10-project-based-learning-building-text-based-applications.md` (3)
-- `PYTHON/unit11-capstone-project-accessible-personal-data-manager.md` (6)
-- `TYPESCRIPT/unit00-accessible-development-environment.md` (1)
-- `TYPESCRIPT/unit01-foundations-of-computing.md` (2)
-- `TYPESCRIPT/unit04-data-structures-arrays-tuples-and-objects.md` (2)
-- `TYPESCRIPT/unit09-testing-and-data-analysis.md` (1)
-- `LUA/unit01-foundations-of-computing.md` (1)
-- `LUA/unit03-control-flow-decisions-and-loops.md` (1)
-- `LUA/unit04-data-structures-lists-and-dictionaries.md` (1)
-- `LUA/unit05-user-input-and-while-loops.md` (1)
-- `LUA/unit08-files-and-exceptions.md` (1)
-- `JAVA/unit10-project-based-learning-text-applications.md` (6)
-- `JAVA/unit11-capstone-accessible-personal-data-manager.md` (6)
-- `RUST/unit00-accessible-environment-and-toolchain.md` (2)
-- `KOTLIN/examples_expected.json` (1)
+## Current validation and implementation observations
 
-The Kotlin fixture is not valid JSON while its conflict block remains. The Python and Java Unit 10/11 conflicts affect project contracts, expected behavior, and capstone instructions and should be resolved before those tracks are treated as publishable.
+- The current-main PR validation run passed JSON validation, merge-marker scanning, Python record tests, Python NiceGUI simulated-page tests, repository checks, and mdBook build.
+- Python page test suites are now part of .github/workflows/pull-request-validation.yml; the previous statement that Python UI tests were not in CI is stale.
+- Unit 11 domain/storage acceptance has been added across all 13 general-purpose tracks. Python, Java/Kotlin/Rust, and C/C++ baseline-main workflows passed on commit 08dda9a...; the additional-capstones baseline-main rerun was still in progress at refresh time. The earlier PR #57 head run for JavaScript, TypeScript, C#, Go, Swift, Julia, and Lua passed.
+- Domain/storage acceptance does not establish complete learner-facing UIs, CSV import/export parity, or assistive-technology usability.
+- Python's NiceGUI page tests simulate interactions; they do not establish real browser focus behavior or screen-reader/Braille output.
 
-## Additional project-contract divergence
+## Accessibility evidence status
 
-- JavaScript Unit 10 begins with an obsolete three-room cave/torch/magic-key description, while later content describes the five-room shiny-key graph.
-- TypeScript Unit 10 contains both the obsolete torch/magic-key implementation and newer five-room shiny-key requirements.
-- Python Unit 10 has a conflict between a five-room canonical graph and an older three-room graph, plus competing to-do project content.
-- Python Unit 11 has six conflicts affecting the record schema, project setup, AI policy, and canonical project contracts.
-- Java Unit 10/11 conflicts include generic placeholder lessons on one side and detailed Java 25 examples with expected output on the other.
+Manual keyboard-only, screen-reader, and Braille verification remains not yet verified. The protocol and evidence template are maintained in ACCESSIBILITY_VERIFICATION.md. Do not convert automated test success into a human accessibility pass.
 
-## Next work
+## Remaining work
 
-1. Resolve the 41 source conflict blocks semantically; do not apply a longest-side rule.
-2. Replace JavaScript and TypeScript's obsolete three-room torch/magic-key content with the canonical five-room shiny-key contract.
-3. Regenerate and validate Kotlin expected-output fixtures against the current Kotlin lessons.
-4. Run JSON validation, language-specific checkers, mdBook build, and repository-wide local-link validation after repairs.
-5. Keep hands-on keyboard, screen-reader, and braille verification pending until it has been performed and recorded.
-
-This review does not claim that the source conflicts have been repaired. It establishes the correct repair priorities and prevents historical tracker status from being mistaken for current verification.
+1. Complete and commit hands-on accessibility evidence for named OS/browser/screen-reader combinations; include Braille where available.
+2. Refresh the additional-capstones matrix entry when its current-main run completes.
+3. Continue semantic review of lesson content and contract parity even though the previously flagged merge markers are gone.
+4. Extend project acceptance to CSV workflows and integrated CLI/GUI behavior where required by each track.
+5. Keep audit statements tied to commit SHAs and completed workflow runs; mark queued/in-progress runs as pending.
