@@ -307,6 +307,10 @@ Document validation, storage, errors, and keyboard workflow.
 ### Accessibility Practice
 Use keyboard navigation to move between the lesson heading, code fence, compiler output, and terminal. With a screen reader, inspect Go punctuation (:=, &, *, ..., {}, and error assignments). Do not rely on syntax highlighting or color to distinguish errors. Read prompts and validation messages in document order; verify output is announced without unexpected focus movement.
 
+### Runnable Reference Implementation
+
+The repository includes a tested Go domain and JSON-storage reference core in [capstone/README.md](capstone/README.md). Run `go test -v ./...` from the GO/capstone directory. The reference core does not replace the requirement to build and evaluate an accessible user interface.
+
 ### Skills Checklist
 - [ ] I can explain documentation and presentation using Go terminology.
 - [ ] I can format, compile, and run the example.
