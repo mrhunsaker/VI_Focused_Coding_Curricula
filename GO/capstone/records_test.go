@@ -3,6 +3,7 @@ package capstone
 import (
 	"path/filepath"
 	"fmt"
+	"os"
 	"reflect"
 	"testing"
 )
