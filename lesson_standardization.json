@@ -1669,7 +1669,7 @@
       ]
     },
     "unit10_all13_runtime_acceptance_2026_11_12": {
-      "status": "passed_on_pr_head_current_main_rerun_in_progress",
+      "status": "passed_on_pr_head_and_current_main",
       "current_main_commit": "6be570bb1b51bd932039cf9af3bb6a68787086b4",
       "merged_pull_requests": [
         {
@@ -1708,7 +1708,8 @@
       "current_main_rerun": {
         "id": 43130538991,
         "url": "https://github.com/mrhunsaker/VI_Focused_Coding_Curricula/actions/runs/43130538991",
-        "status": "in_progress_at_last_check"
+        "status": "success",
+        "conclusion": "success"
       }
     }
   },
@@ -2042,9 +2043,9 @@
           "id": 43130538991,
           "url": "https://github.com/mrhunsaker/VI_Focused_Coding_Curricula/actions/runs/43130538991",
           "commit": "6be570bb1b51bd932039cf9af3bb6a68787086b4",
-          "status": "in_progress_at_last_check",
+          "status": "completed",
           "runner": "ubuntu-24.04",
-          "conclusion": null
+          "conclusion": "success"
         },
         "limitations": "A queued run is not evidence of compilation or runtime success. The workflow tests only the adventure worked examples."
       }
@@ -2304,8 +2305,8 @@
           "id": 43130538991,
           "url": "https://github.com/mrhunsaker/VI_Focused_Coding_Curricula/actions/runs/43130538991",
           "head": "6be570bb1b51bd932039cf9af3bb6a68787086b4",
-          "status": "in_progress_at_last_check",
-          "conclusion": null,
+          "status": "completed",
+          "conclusion": "success",
           "runner": "ubuntu-24.04"
         },
         "main_baseline_validation": {
