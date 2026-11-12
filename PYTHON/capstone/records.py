@@ -1,26 +1,83 @@
-"""Logic for the Personal Data Manager. No user-interface code lives here."""
+"""Validated domain and JSON persistence logic for the Personal Data Manager."""
+
 import json
+import os
+import tempfile
 from datetime import datetime
+from pathlib import Path
 
 REQUIRED_FIELDS = ("id", "title", "description", "category", "created_at", "updated_at")
+ALLOWED_FIELDS = frozenset((*REQUIRED_FIELDS, "done"))
+EDITABLE_FIELDS = frozenset(("title", "description", "category", "done"))
 
 
 def now():
-    """Return the current time as ISO 8601 text, for example 2026-01-15T09:00:00."""
-    return datetime.now().isoformat(timespec="seconds")
+    """Return the current time as ISO 8601 text."""
+    return datetime.now().astimezone().isoformat(timespec="seconds")
+
+
+def _is_timestamp(value):
+    if not isinstance(value, str) or "T" not in value:
+        return False
+    try:
+        datetime.fromisoformat(value.replace("Z", "+00:00"))
+    except ValueError:
+        return False
+    return True
 
 
 def validate(title, category):
-    """Return an error message for invalid input, or None when it is valid."""
-    if not title or not title.strip():
+    """Return an error message for invalid required text fields."""
+    if not isinstance(title, str) or not title.strip():
         return "A title is required."
-    if not category or not category.strip():
+    if not isinstance(category, str) or not category.strip():
         return "A category is required."
     return None
 
 
+def validate_record(record):
+    """Return an error message when a record violates the stored schema."""
+    if not isinstance(record, dict):
+        return "Each record must be a JSON object."
+    missing = [field for field in REQUIRED_FIELDS if field not in record]
+    if missing:
+        return "Record is missing required fields: " + ", ".join(missing) + "."
+    unknown = sorted(set(record) - ALLOWED_FIELDS)
+    if unknown:
+        return "Record contains unsupported fields: " + ", ".join(unknown) + "."
+    record_id = record["id"]
+    if isinstance(record_id, bool) or not isinstance(record_id, int) or record_id <= 0:
+        return "Record id must be a positive integer."
+    problem = validate(record["title"], record["category"])
+    if problem:
+        return problem
+    if not isinstance(record["description"], str):
+        return "Record description must be text."
+    for field in ("created_at", "updated_at"):
+        if not _is_timestamp(record[field]):
+            return f"Record {field} must be an ISO 8601 timestamp."
+    if "done" in record and not isinstance(record["done"], bool):
+        return "Record done must be true or false."
+    return None
+
+
+def validate_records(records):
+    """Validate a complete list, including uniqueness of positive IDs."""
+    if not isinstance(records, list):
+        return "The data file must contain a JSON list of records."
+    seen = set()
+    for record in records:
+        problem = validate_record(record)
+        if problem:
+            return problem
+        if record["id"] in seen:
+            return f"Record id {record['id']} is duplicated."
+        seen.add(record["id"])
+    return None
+
+
 def next_id(records):
-    """Return one more than the highest id in use (1 for an empty list)."""
+    """Return one more than the highest id currently in use."""
     return max((record["id"] for record in records), default=0) + 1
 
 
@@ -33,10 +90,12 @@ def find(records, record_id):
 
 
 def add_record(records, title, description, category, clock=now):
-    """Add a record. Return (record, None) on success or (None, message) on failure."""
+    """Add a record. Return (record, None) or (None, error message)."""
     problem = validate(title, category)
     if problem:
         return None, problem
+    if description is not None and not isinstance(description, str):
+        return None, "A description must be text."
     stamp = clock()
     record = {
         "id": next_id(records),
@@ -52,16 +111,24 @@ def add_record(records, title, description, category, clock=now):
 
 
 def update_record(records, record_id, changes, clock=now):
-    """Change fields of a record. created_at and id never change."""
+    """Apply only supported edits; never permit callers to alter identity/timestamps."""
     record = find(records, record_id)
     if record is None:
         return None, "No record has that id."
-    problem = validate(changes.get("title", record["title"]), changes.get("category", record["category"]))
+    if not isinstance(changes, dict):
+        return None, "Changes must be supplied as a field dictionary."
+    unsupported = sorted(set(changes) - EDITABLE_FIELDS)
+    if unsupported:
+        return None, "These fields cannot be updated: " + ", ".join(unsupported) + "."
+    candidate = dict(record)
+    candidate.update(changes)
+    problem = validate_record(candidate)
     if problem:
         return None, problem
-    for key, value in changes.items():
-        if key not in ("id", "created_at"):
-            record[key] = value.strip() if isinstance(value, str) else value
+    record.update({
+        key: value.strip() if isinstance(value, str) else value
+        for key, value in changes.items()
+    })
     record["updated_at"] = clock()
     return record, None
 
@@ -81,32 +148,68 @@ def delete_record(records, record_id):
 
 
 def search(records, text):
-    """Return records whose title or description contains the text (ignoring case)."""
-    needle = text.strip().lower()
-    return [r for r in records if needle in r["title"].lower() or needle in r["description"].lower()]
+    """Case-insensitive search across title, description, and category."""
+    needle = text.strip().casefold()
+    return [
+        record for record in records
+        if needle in record["title"].casefold()
+        or needle in record["description"].casefold()
+        or needle in record["category"].casefold()
+    ]
 
 
 def describe(record):
-    """One line of plain text for a record; status is shown in words, never by color."""
+    """Return one line of plain text; status is never conveyed by color alone."""
     status = "done" if record.get("done") else "not done"
     return f"{record['id']}. {record['title']} [{record['category']}] ({status})"
 
 
 def save_records(path, records):
-    """Write records to a JSON file."""
-    with open(path, "w", encoding="utf-8") as file:
-        json.dump(records, file, indent=4)
+    """Validate and atomically replace a UTF-8 JSON data file.
+
+    OSError is intentionally propagated so the UI/caller can report a storage failure.
+    """
+    problem = validate_records(records)
+    if problem:
+        raise ValueError(problem)
+    destination = Path(path)
+    temporary_name = None
+    try:
+        with tempfile.NamedTemporaryFile(
+            mode="w",
+            encoding="utf-8",
+            dir=destination.parent,
+            prefix=f".{destination.name}.",
+            suffix=".tmp",
+            delete=False,
+        ) as file:
+            temporary_name = file.name
+            json.dump(records, file, indent=4, ensure_ascii=False)
+            file.write("\n")
+            file.flush()
+            os.fsync(file.fileno())
+        os.replace(temporary_name, destination)
+    finally:
+        if temporary_name and os.path.exists(temporary_name):
+            os.unlink(temporary_name)
 
 
 def load_records(path):
-    """Return (records, None) or ([], message). A missing file is not an error."""
+    """Return (records, None) or ([], explanatory message).
+
+    A missing file is a normal first-run state. Other filesystem, encoding, JSON,
+    schema, and duplicate-ID failures are returned to the caller as messages.
+    """
     try:
         with open(path, "r", encoding="utf-8") as file:
             data = json.load(file)
     except FileNotFoundError:
         return [], None
-    except json.JSONDecodeError:
-        return [], f"{path} is not valid JSON, so the list starts empty."
-    if not isinstance(data, list) or not all(isinstance(r, dict) and all(f in r for f in REQUIRED_FIELDS) for r in data):
-        return [], f"{path} does not contain valid records, so the list starts empty."
+    except (json.JSONDecodeError, UnicodeDecodeError):
+        return [], f"{path} is not valid UTF-8 JSON, so the list starts empty."
+    except OSError as error:
+        return [], f"Could not read {path}: {error.strerror or error}."
+    problem = validate_records(data)
+    if problem:
+        return [], f"{path} contains invalid records ({problem}), so the list starts empty."
     return data, None

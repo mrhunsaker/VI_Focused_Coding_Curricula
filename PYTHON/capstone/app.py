@@ -22,13 +22,24 @@ def main_page():
         status.set_text(message)
         ui.notify(message, type="positive" if ok else "negative")
 
+    def persist_or_restore(previous):
+        """Save the current list or restore its pre-action state on failure."""
+        try:
+            store.save_records(DATA_FILE, items)
+        except (OSError, ValueError) as error:
+            items[:] = previous
+            refresh()
+            say(f"Could not save changes: {error}. No changes were kept.", ok=False)
+            return False
+        return True
+
     ui.label("Add a record")
     title = ui.input(label="Record title")
     description = ui.input(label="Record description")
     category = ui.input(label="Record category")
 
     ui.label("Find records")
-    search_text = ui.input(label="Search title or description")
+    search_text = ui.input(label="Search title, description, or category")
 
     ui.label("Records")
     list_column = ui.column()
@@ -51,11 +62,13 @@ def main_page():
         chooser.set_options({r["id"]: store.describe(r) for r in items})
 
     def add_clicked():
+        previous = [dict(record) for record in items]
         record, problem = store.add_record(items, title.value, description.value, category.value)
         if problem:
             say(problem, ok=False)
             return
-        store.save_records(DATA_FILE, items)
+        if not persist_or_restore(previous):
+            return
         title.set_value("")
         description.set_value("")
         category.set_value("")
@@ -74,11 +87,13 @@ def main_page():
         if not changes:
             say("Enter a new title or a new category.", ok=False)
             return
+        previous = [dict(item) for item in items]
         record, problem = store.update_record(items, chooser.value, changes)
         if problem:
             say(problem, ok=False)
             return
-        store.save_records(DATA_FILE, items)
+        if not persist_or_restore(previous):
+            return
         new_title.set_value("")
         new_category.set_value("")
         refresh()
@@ -88,11 +103,13 @@ def main_page():
         if chooser.value is None:
             say("Choose a record first.", ok=False)
             return
+        previous = [dict(item) for item in items]
         record, problem = store.complete_record(items, chooser.value)
         if problem:
             say(problem, ok=False)
             return
-        store.save_records(DATA_FILE, items)
+        if not persist_or_restore(previous):
+            return
         refresh()
         say(f"Marked record {record['id']} as done.")
 
@@ -101,11 +118,13 @@ def main_page():
             say("Choose a record first.", ok=False)
             return
         record_id = chooser.value
+        previous = [dict(item) for item in items]
         ok, problem = store.delete_record(items, record_id)
         if not ok:
             say(problem, ok=False)
             return
-        store.save_records(DATA_FILE, items)
+        if not persist_or_restore(previous):
+            return
         chooser.set_value(None)
         refresh()
         say(f"Deleted record {record_id}.")
