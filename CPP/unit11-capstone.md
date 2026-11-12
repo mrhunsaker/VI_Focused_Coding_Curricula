@@ -251,6 +251,14 @@ Document: requirements, data format, tests, limitations, accessibility
 ### Accessibility Practice
 Navigate the complete source file by line, word, and character using the learner's access technology. Read punctuation and indentation, run from the terminal, and inspect standard output and errors sequentially.
 
+### Runnable Reference Implementation
+
+The repository includes a tested C++ domain and JSON-storage reference core in [capstone/README.md](capstone/README.md). Install the JSON development dependency described there, then run the acceptance command:
+
+`g++ -std=c++20 -Wall -Wextra -Werror -ICPP/capstone CPP/capstone/test_records.cpp -o /tmp/cpp-capstone-tests && /tmp/cpp-capstone-tests`
+
+The reference core does not replace the requirement to build and evaluate an accessible user interface.
+
 ### Skills Checklist
 - [ ] I can explain documentation and presentation using correct C++ terminology and distinguish it from the closest Python equivalent.
 - [ ] I can trace the example and justify its output using C++ rules.
