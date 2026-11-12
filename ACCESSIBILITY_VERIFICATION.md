@@ -2,7 +2,7 @@
 
 Scope: Python Unit 11 Personal Data Manager (PYTHON/capstone/app.py) and its NiceGUI browser interface.
 
-Status as of 2026-11-12: Automated Python page tests are included in .github/workflows/pull-request-validation.yml. They verify page-level interactions in NiceGUI's test harness. They are not a substitute for browser + assistive-technology testing. No hands-on screen-reader, keyboard-only, or Braille result is claimed by this document.
+Status as of 2026-11-12: Automated Python page tests are included in .github/workflows/pull-request-validation.yml. They verify page-level interactions in NiceGUI's test harness. They are not a substitute for browser + assistive-technology testing. The project owner subsequently reported that every item in the manual audit checklist passed; see [ACCESSIBILITY_MANUAL_AUDIT_2026-11-12.md](ACCESSIBILITY_MANUAL_AUDIT_2026-11-12.md). The report records this user-reported outcome and its evidence limitations. It does not claim independent inspection of the completed workbook or infer unreported environment details.
 
 ## Automated evidence
 
@@ -70,3 +70,8 @@ Create one completed record per tested environment. Do not mark a row Pass witho
 - Minor: wording or verbosity issue that does not block task completion.
 
 A completed evidence record should be committed with the environment details and defect references. Re-test fixes on the same environment and, where possible, a second supported browser/screen-reader combination.
+
+
+## Latest manual audit outcome
+
+See [ACCESSIBILITY_MANUAL_AUDIT_2026-11-12.md](ACCESSIBILITY_MANUAL_AUDIT_2026-11-12.md) for the reported checklist result, audit baseline, and outstanding evidence metadata. The protocol remains available for future regression audits.
