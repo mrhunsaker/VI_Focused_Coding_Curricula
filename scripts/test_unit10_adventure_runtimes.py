@@ -77,11 +77,22 @@ def verify_interactive(language, first, second):
 def verify_function_examples(language, first, second):
     lines = [line.strip().lower() for line in first.splitlines() if line.strip()]
     if "tunnel" not in lines or "null" not in lines:
-        raise AssertionError(language + " Lesson 10.2 expected tunnel and null\n" + first)
-    lower = second.lower()
-    for term in ["true", "shiny key", "must be at the locked door", "unlock", "false", "treasure_room"]:
-        if term not in lower:
-            raise AssertionError(language + " Lesson 10.3 missing " + term + "\n" + second)
+        raise AssertionError(language + " Lesson 10.2 expected tunnel and null\\n" + first)
+    expected = [
+        "true",
+        "false",
+        "shiny key",
+        "you must be at the locked door to use the key.",
+        "the door unlocks; north now leads to treasure_room.",
+        "false",
+        "treasure_room",
+    ]
+    actual = [line.strip().lower() for line in second.splitlines() if line.strip()]
+    if actual != expected:
+        raise AssertionError(
+            language + " Lesson 10.3 output did not match pickup, duplicate rejection, "
+            "location-gated key use, and unlock contract\\n" + second
+        )
 
 def main():
     with tempfile.TemporaryDirectory(prefix="unit10-runtime-") as temporary:
