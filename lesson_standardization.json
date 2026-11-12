@@ -1706,8 +1706,8 @@
         "Unit 10.3"
       ],
       "current_main_rerun": {
-        "id": 43134945800,
-        "url": "https://github.com/mrhunsaker/VI_Focused_Coding_Curricula/actions/runs/43134945800",
+        "id": 43135060230,
+        "url": "https://github.com/mrhunsaker/VI_Focused_Coding_Curricula/actions/runs/43135060230",
         "status": "success",
         "conclusion": "success"
       }
@@ -2161,9 +2161,9 @@
           "Swift 6.0"
         ],
         "latest_main_run": {
-          "id": 43134945800,
-          "url": "https://github.com/mrhunsaker/VI_Focused_Coding_Curricula/actions/runs/43134945800",
-          "commit": "0231e6ad61bec8ab4b24e29461d4edc053ffc1fb",
+          "id": 43135060230,
+          "url": "https://github.com/mrhunsaker/VI_Focused_Coding_Curricula/actions/runs/43135060230",
+          "commit": "7c8348481dd1ff2b74543462c98c5bdbcbe3bfbe",
           "status": "success",
           "conclusion": "success"
         },
@@ -2422,9 +2422,9 @@
           "conclusion": null
         },
         "main": {
-          "id": 43134945800,
-          "url": "https://github.com/mrhunsaker/VI_Focused_Coding_Curricula/actions/runs/43134945800",
-          "head": "0231e6ad61bec8ab4b24e29461d4edc053ffc1fb",
+          "id": 43135060230,
+          "url": "https://github.com/mrhunsaker/VI_Focused_Coding_Curricula/actions/runs/43135060230",
+          "head": "7c8348481dd1ff2b74543462c98c5bdbcbe3bfbe",
           "status": "success",
           "conclusion": "success"
         },
@@ -2548,6 +2548,35 @@
           "url": "https://github.com/mrhunsaker/VI_Focused_Coding_Curricula/actions/runs/43135992714",
           "status": "success",
           "scope": "Domain CRUD, validation, timestamps, search, JSON persistence, optional done, malformed/missing files"
+        },
+        "current_main": {
+          "validation": {
+            "id": 43135060055,
+            "url": "https://github.com/mrhunsaker/VI_Focused_Coding_Curricula/actions/runs/43135060055",
+            "status": "success",
+            "scope": "Python capstone record operations and repository validation"
+          },
+          "java_kotlin_rust": {
+            "id": 43135060175,
+            "url": "https://github.com/mrhunsaker/VI_Focused_Coding_Curricula/actions/runs/43135060175",
+            "status": "success"
+          },
+          "c_cpp": {
+            "id": 43135060141,
+            "url": "https://github.com/mrhunsaker/VI_Focused_Coding_Curricula/actions/runs/43135060141",
+            "status": "success"
+          },
+          "javascript_typescript_csharp_go_swift": {
+            "id": 43135060103,
+            "url": "https://github.com/mrhunsaker/VI_Focused_Coding_Curricula/actions/runs/43135060103",
+            "status": "success"
+          }
+        },
+        "julia_lua_pr57": {
+          "id": 43135992714,
+          "url": "https://github.com/mrhunsaker/VI_Focused_Coding_Curricula/actions/runs/43135992714",
+          "status": "success",
+          "scope": "Julia and Lua JSON3/dkjson core acceptance; same run also reran JS/TS/C#/Go/Swift"
         }
       },
       "next_actions": [
