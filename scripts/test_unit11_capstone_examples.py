@@ -22,10 +22,10 @@ TESTS = {
 
 def extract(path, lesson, language):
     text = Path(path).read_text(encoding="utf-8")
-    match = re.search(r"^## Lesson 11\\." + str(lesson) + r"\\b.*?(?=^## Lesson 11\\.\\d+\\b|\\Z)", text, re.M | re.S)
+    match = re.search(r"^## Lesson 11\." + str(lesson) + r"\b.*?(?=^## Lesson 11\.\d+\b|\Z)", text, re.M | re.S)
     if not match:
         raise AssertionError(f"{path}: Lesson 11.{lesson} missing")
-    pattern = "^" + re.escape(TICK) + re.escape(language) + r"\\s*\\n(.*?)^" + re.escape(TICK) + r"\\s*$"
+    pattern = "^" + re.escape(TICK) + re.escape(language) + r"\s*\n(.*?)^" + re.escape(TICK) + r"\s*$"
     blocks = re.findall(pattern, match.group(0), re.M | re.S)
     if len(blocks) != 1:
         raise AssertionError(f"{path}: expected one {language} block in Lesson 11.{lesson}")
@@ -34,12 +34,12 @@ def extract(path, lesson, language):
 def run(command, cwd):
     result = subprocess.run(command, cwd=cwd, text=True, stdout=subprocess.PIPE, stderr=subprocess.STDOUT, timeout=180)
     if result.returncode:
-        raise AssertionError("Command failed: " + " ".join(command) + "\\n" + result.stdout)
+        raise AssertionError("Command failed: " + " ".join(command) + "\n" + result.stdout)
     return [line.rstrip() for line in result.stdout.splitlines() if line.strip()]
 
 def check(language, lesson, actual, expected):
     if actual != expected:
-        raise AssertionError(f"{language} Lesson 11.{lesson} output mismatch\\nExpected:\\n" + "\\n".join(expected) + "\\nActual:\\n" + "\\n".join(actual))
+        raise AssertionError(f"{language} Lesson 11.{lesson} output mismatch\nExpected:\n" + "\n".join(expected) + "\nActual:\n" + "\n".join(actual))
 
 def main():
     with tempfile.TemporaryDirectory(prefix="unit11-acceptance-") as tmp:
