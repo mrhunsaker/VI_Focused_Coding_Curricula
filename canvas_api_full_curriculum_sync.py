@@ -12,7 +12,6 @@ import argparse
 import html
 import os
 import re
-import shutil
 import tempfile
 import uuid
 import zipfile
@@ -24,11 +23,12 @@ import markdown
 
 SUMMARY_LINK_RE = re.compile(r"\[([^\]]+)\]\(([^)]+)\)")
 HTML_URL_RE = re.compile(r"(?P<attr>href|src)=(?P<quote>['\"])(?P<url>.*?)(?P=quote)", re.IGNORECASE)
-CC_NS = "http://www.imsglobal.org/xsd/imsccv1p2/imscp_v1p1"
+CC_NS = "/xsd/imsccv1p2/imscp_v1p1"
+LOM_NS = "http://ltsc.ieee.org/xsd/imsccv1p2/LOM/manifest"
 XSI_NS = "http://www.w3.org/2001/XMLSchema-instance"
-XML_NS = "http://www.w3.org/XML/1998/namespace"
 ET.register_namespace("", CC_NS)
 ET.register_namespace("xsi", XSI_NS)
+ET.register_namespace("lomimscc", LOM_NS)
 
 MARKDOWN_EXTENSIONS = ["fenced_code", "tables", "nl2br"]
 
@@ -205,21 +205,33 @@ def build_common_cartridge(
         {
             "identifier": "MANIFEST_" + uuid.uuid4().hex,
             f"{{{XSI_NS}}}schemaLocation": (
-                f"{CC_NS} http://www.imsglobal.org/xsd/imsccv1p2/imscp_v1p1.xsd"
+                f"{CC_NS} /profile/cc/ccv1p2/ccv1p2_imscp_v1p1_v1p0.xsd "
+            f"{LOM_NS} /profile/cc/ccv1p2/LOM/ccv1p2_lommanifest_v1p0.xsd"
             ),
         },
     )
     metadata = ET.SubElement(manifest, f"{{{CC_NS}}}metadata")
-    ET.SubElement(metadata, f"{{{CC_NS}}}schema").text = "IMS Common Cartridge"
+    ET.SubElement(metadata, f"{{{CC_NS}}}schema").text = "1EdTech Common Cartridge"
     ET.SubElement(metadata, f"{{{CC_NS}}}schemaversion").text = "1.2.0"
+    lom = ET.SubElement(metadata, f"{{{LOM_NS}}}lom")
+    general = ET.SubElement(lom, f"{{{LOM_NS}}}general")
+    lom_title = ET.SubElement(general, f"{{{LOM_NS}}}title")
+    ET.SubElement(lom_title, f"{{{LOM_NS}}}string", {"language": "en-US"}).text = course_title
+    lom_description = ET.SubElement(general, f"{{{LOM_NS}}}description")
+    ET.SubElement(lom_description, f"{{{LOM_NS}}}string", {"language": "en-US"}).text = (
+        "Course pages generated from an mdBook curriculum using Common Cartridge 1.2."
+    )
 
-    organizations = ET.SubElement(manifest, f"{{{CC_NS}}}organizations", {"default": "ORG1"})
+    organizations = ET.SubElement(manifest, f"{{{CC_NS}}}organizations")
     organization = ET.SubElement(
         organizations,
         f"{{{CC_NS}}}organization",
         {"identifier": "ORG1", "structure": "rooted-hierarchy"},
     )
     ET.SubElement(organization, f"{{{CC_NS}}}title").text = course_title
+    root_folder = ET.SubElement(
+        organization, f"{{{CC_NS}}}item", {"identifier": "ROOT_FOLDER"}
+    )
 
     resources = ET.SubElement(manifest, f"{{{CC_NS}}}resources")
     resource_counter = 0
@@ -227,7 +239,7 @@ def build_common_cartridge(
 
     for module_index, module in enumerate(modules, 1):
         module_node = ET.SubElement(
-            organization, f"{{{CC_NS}}}item", {"identifier": f"MODULE_{module_index:04d}"}
+            root_folder, f"{{{CC_NS}}}item", {"identifier": f"MODULE_{module_index:04d}"}
         )
         ET.SubElement(module_node, f"{{{CC_NS}}}title").text = module["title"]
         for item in module["items"]:
