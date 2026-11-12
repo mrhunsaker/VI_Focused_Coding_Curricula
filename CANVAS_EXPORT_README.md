@@ -128,7 +128,7 @@ For these reasons, treat each execution as a one-time content creation operation
 
 ## 8. Verification status
 
-The Python file has been checked for Python syntax compilation. That check establishes that the file parses; it does **not** prove that the installed dependency versions, Canvas permissions, Canvas API responses, course configuration, or end-to-end import have been validated.
+The Python file has been checked for Python syntax compilation, and the CanvasAPI request payloads have been aligned with the library method signatures for creating Pages, Assignments, and module items. In particular, CanvasAPI expects the Page and Assignment attributes directly as the method argument, and expects the module-item attributes directly (rather than an additional nested wrapper). These checks establish syntax and request-shape compatibility with the documented library interface; they do **not** prove that the installed dependency versions, Canvas permissions, Canvas API responses, course configuration, or end-to-end import have been validated.
 
 A successful live verification requires a configured test course and token, followed by inspection of the created Canvas objects. Record the test date, course/test environment, script revision, outcome, and any exceptions separately. Do not record the API token.
 
