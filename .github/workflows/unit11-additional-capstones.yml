@@ -12,7 +12,7 @@ permissions:
 
 jobs:
   additional-capstones:
-    name: Test JavaScript TypeScript C# and Go capstone cores
+    name: Test JavaScript TypeScript C# Go Swift Lua and Julia capstone cores
     runs-on: ubuntu-24.04
     steps:
       - uses: actions/checkout@v4
@@ -46,3 +46,26 @@ jobs:
         run: |
           swiftc SWIFT/capstone/Records.swift SWIFT/capstone/Acceptance.swift -o "$RUNNER_TEMP/swift-capstone-tests"
           "$RUNNER_TEMP/swift-capstone-tests"
+
+      - uses: leafo/gh-actions-lua@v13
+        with:
+          luaVersion: "5.4.9"
+      - name: Install LuaRocks and Lua 5.4 development files
+        run: |
+          sudo apt-get update
+          sudo apt-get install --yes luarocks lua5.4 liblua5.4-dev
+      - name: Install Lua JSON dependency
+        run: |
+          sudo luarocks --lua-version=5.4 install dkjson
+          eval "$(luarocks path --lua-version=5.4)"
+          echo "LUA_PATH=$LUA_PATH" >> "$GITHUB_ENV"
+          echo "LUA_CPATH=$LUA_CPATH" >> "$GITHUB_ENV"
+      - uses: julia-actions/setup-julia@v2
+        with:
+          version: "1.11"
+      - name: Install Julia JSON dependency
+        run: julia -e 'using Pkg; Pkg.add("JSON3")'
+      - name: Test Lua core
+        run: lua LUA/capstone/test_records.lua
+      - name: Test Julia core
+        run: julia JULIA/capstone/test_records.jl

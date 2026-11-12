@@ -234,6 +234,14 @@ The program prints a result based on the stated inputs. Predict the result befor
 ### Accessibility Practice
 Navigate source by line, word, and character. Inspect operators, punctuation, mutation markers, and block-ending `end` keywords. Run from the terminal and read output and diagnostics sequentially. Do not rely on syntax color or mouse-only controls.
 
+### Runnable Reference Implementation
+
+The repository includes a tested Julia domain and JSON-storage reference core in [capstone/README.md](capstone/README.md). Install the JSON dependency and run the acceptance suite from the repository root using:
+
+`julia -e 'using Pkg; Pkg.add("JSON3")' && julia JULIA/capstone/test_records.jl`
+
+The reference core does not replace the requirement to build and evaluate an accessible user interface.
+
 ### Skills Checklist
 - [ ] I can explain documentation and presentation in Julia terminology.
 - [ ] I can trace the example and predict its output.

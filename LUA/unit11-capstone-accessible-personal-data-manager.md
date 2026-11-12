@@ -328,6 +328,14 @@ Records use the shared six-field capstone schema.
 ### Accessibility Practice
 Navigate by line, word, and character; identify delimiters and nesting verbally; execute from the terminal; and read the output and any error messages sequentially. Do not rely on syntax highlighting or color to understand the example.
 
+### Runnable Reference Implementation
+
+The repository includes a tested Lua domain and JSON-storage reference core in [capstone/README.md](capstone/README.md). Install the JSON dependency and run the acceptance suite from the repository root using:
+
+`luarocks install dkjson && lua LUA/capstone/test_records.lua`
+
+The reference core does not replace the requirement to build and evaluate an accessible user interface.
+
 ### Skills Checklist
 - [ ] I can explain the concept in Lua terminology.
 - [ ] I can trace and predict the example's behavior.
