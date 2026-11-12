@@ -41,9 +41,11 @@ class CommonCartridgeExportTests(unittest.TestCase):
                 self.assertIn("imsmanifest.xml", names)
                 self.assertIn("web_resources/assets/images/diagram.svg", names)
                 manifest = ET.fromstring(package.read("imsmanifest.xml"))
-                modules = manifest.findall(
+                root_folder = manifest.find(
                     f".//{{{CC_NS}}}organization/{{{CC_NS}}}item"
                 )
+                self.assertIsNotNone(root_folder)
+                modules = root_folder.findall(f"{{{CC_NS}}}item")
                 self.assertEqual(len(modules), 1)
                 self.assertEqual(
                     len(modules[0].findall(f"{{{CC_NS}}}item")), 2
