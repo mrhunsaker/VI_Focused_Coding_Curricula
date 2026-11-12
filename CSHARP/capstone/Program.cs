@@ -126,10 +126,11 @@ public static class Program
                 Check(RecordStore.Create(records, "Ruler", "", "supplies", Clock()).Record?.Id == 4, "ID was reused");
             }),
             ("update preserves created_at and refreshes updated_at", () => {
-                var records = Fresh();
+                var clock = Clock();
+                var records = Fresh(clock);
                 var before = records[0].CreatedAt;
                 var oldUpdated = records[0].UpdatedAt;
-                RecordStore.Update(records, 1, description: "Lecture notes", clock: Clock(3));
+                RecordStore.Update(records, 1, description: "Lecture notes", clock: clock);
                 Check(records[0].CreatedAt == before, "created_at changed");
                 Check(records[0].UpdatedAt != oldUpdated, "updated_at did not change");
             }),
@@ -139,8 +140,10 @@ public static class Program
                 Check(records.Select(item => item.Id).SequenceEqual(new[] { 1, 3 }), "wrong records remain");
             }),
             ("completion and search work", () => {
-                var records = Fresh();
-                Check(RecordStore.Complete(records, 3, Clock()).Record?.Done == true, "completion failed");
+                var clock = Clock();
+                var records = Fresh(clock);
+                var completed = RecordStore.Complete(records, 3, clock);
+                Check(completed.Record?.Done == true && completed.Record.UpdatedAt != completed.Record.CreatedAt, "completion failed");
                 Check(RecordStore.Search(records, "NOTE").Select(item => item.Title).SequenceEqual(new[] { "Notebook" }), "title search failed");
                 Check(RecordStore.Search(records, "box").Select(item => item.Title).SequenceEqual(new[] { "Pencil" }), "description search failed");
             }),
@@ -169,10 +172,10 @@ public static class Program
         Console.WriteLine("All acceptance tests passed.");
     }
 
-    private static List<DataRecord> Fresh()
+    private static List<DataRecord> Fresh(Func<string>? clock = null)
     {
         var records = new List<DataRecord>();
-        var clock = Clock();
+        clock ??= Clock();
         RecordStore.Create(records, "Notebook", "Course notes", "supplies", clock);
         RecordStore.Create(records, "Pencil", "Box of ten", "supplies", clock);
         RecordStore.Create(records, "Study plan", "Weekly schedule", "planning", clock);
