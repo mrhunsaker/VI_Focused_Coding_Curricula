@@ -289,6 +289,10 @@ The example is a self-contained Swift program. Predict the output from the state
 ### Accessibility Practice
 Navigate source by line, word, and character. Inspect punctuation, braces, optionals, argument labels, and compiler diagnostics. Run from the terminal and read prompts and output sequentially. Do not rely on syntax coloring, color-only status, or mouse-only actions.
 
+### Runnable Reference Implementation
+
+The repository includes a tested Swift domain and JSON-storage reference core in [capstone/README.md](capstone/README.md). Compile and run the acceptance suite from the repository root using the commands in that README. The reference core does not replace the requirement to build and evaluate an accessible user interface.
+
 ### Skills Checklist
 - [ ] I can explain documentation and presentation in Swift terminology.
 - [ ] I can trace the example and predict its behavior.
