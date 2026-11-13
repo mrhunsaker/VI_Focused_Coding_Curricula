@@ -5,12 +5,14 @@ on:
     paths:
       - "canvas_api_full_curriculum_sync.py"
       - "CANVAS_EXPORT_README.md"
+      - "my-book/src/**"
       - "tests/test_canvas_common_cartridge_export.py"
       - ".github/workflows/canvas-cartridge-export-tests.yml"
   push:
     branches: [main]
     paths:
       - "canvas_api_full_curriculum_sync.py"
+      - "my-book/src/**"
       - "tests/test_canvas_common_cartridge_export.py"
       - ".github/workflows/canvas-cartridge-export-tests.yml"
 
@@ -29,4 +31,8 @@ jobs:
       - name: Run Common Cartridge export tests
         run: python -m unittest tests.test_canvas_common_cartridge_export
       - name: Build the repository curriculum cartridge
-        run: python canvas_api_full_curriculum_sync.py --export-imscc /tmp/VI_Focused_Coding_Curricula.imscc
+        run: >-
+          python canvas_api_full_curriculum_sync.py
+          --source-dir my-book/src
+          --summary SUMMARY.md
+          --export-imscc /tmp/VI_Focused_Coding_Curricula.imscc
