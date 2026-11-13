@@ -32,4 +32,5 @@ jobs:
           unzip -q "$RUNNER_TEMP/kotlin.zip" -d "$RUNNER_TEMP"
           echo "$RUNNER_TEMP/kotlinc/bin" >> "$GITHUB_PATH"
       - name: Compile and execute complete storage and acceptance examples
-        run: python scripts/test_unit11_capstone_examples.py
+        working-directory: my-book/src
+        run: python ../scripts/test_unit11_capstone_examples.py
