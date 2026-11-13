@@ -1,0 +1,32 @@
+name: Canvas Common Cartridge export tests
+
+on:
+  pull_request:
+    paths:
+      - "canvas_api_full_curriculum_sync.py"
+      - "CANVAS_EXPORT_README.md"
+      - "tests/test_canvas_common_cartridge_export.py"
+      - ".github/workflows/canvas-cartridge-export-tests.yml"
+  push:
+    branches: [main]
+    paths:
+      - "canvas_api_full_curriculum_sync.py"
+      - "tests/test_canvas_common_cartridge_export.py"
+      - ".github/workflows/canvas-cartridge-export-tests.yml"
+
+jobs:
+  export-tests:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.13"
+      - name: Install export dependency
+        run: python -m pip install --upgrade pip markdown
+      - name: Compile script and tests
+        run: python -m compileall -q canvas_api_full_curriculum_sync.py tests
+      - name: Run Common Cartridge export tests
+        run: python -m unittest tests.test_canvas_common_cartridge_export
+      - name: Build the repository curriculum cartridge
+        run: python canvas_api_full_curriculum_sync.py --export-imscc /tmp/VI_Focused_Coding_Curricula.imscc
