@@ -32,7 +32,7 @@ jobs:
 
       - name: Build the book
         working-directory: my-book
-        run: mdbook build
+        run: mdbook build --renderer html
 
       - name: Configure GitHub Pages
         uses: actions/configure-pages@v5
