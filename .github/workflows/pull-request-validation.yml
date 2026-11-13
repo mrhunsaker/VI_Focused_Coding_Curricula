@@ -36,9 +36,8 @@ jobs:
 
       - name: Validate repository JSON
         run: |
-          python -m json.tool lesson_standardization.json > /dev/null
-          python -m json.tool KOTLIN/examples_expected.json > /dev/null
-          python -m json.tool backmatter/indexing_setup.json > /dev/null
+          python -m json.tool my-book/src/KOTLIN/examples_expected.json > /dev/null
+          python -m json.tool my-book/src/backmatter/indexing_setup.json > /dev/null
 
       - name: Scan text sources for unresolved merge markers
         run: |
@@ -52,12 +51,14 @@ jobs:
               ".yml", ".yaml", ".sh", ".ps1", ".txt", ".html", ".css",
               ".sql", ".r", ".R",
           }
-          marker = re.compile(r"^(?:<<<<<<< |=======$|>>>>>>> |\|{7} )")
+          marker = re.compile(r"^(?:<<<<<<< |=======$|>>>>>>> |\\|{7} )")
           failures = []
           for path in Path(".").rglob("*"):
               if not path.is_file() or path.suffix not in extensions:
                   continue
-              if any(part in {".git", "book", "target", "node_modules", ".venv"} for part in path.parts):
+              if any(part in {
+                  ".git", "book", "docs", "target", "node_modules", ".venv"
+              } for part in path.parts):
                   continue
               try:
                   lines = path.read_text(encoding="utf-8").splitlines()
@@ -67,26 +68,30 @@ jobs:
                   if marker.match(line):
                       failures.append(f"{path}:{number}: {line}")
           if failures:
-              print("\n".join(failures))
+              print("\\n".join(failures))
               raise SystemExit(f"Found {len(failures)} unresolved merge-marker lines.")
           print("No unresolved merge-marker lines found in scanned text sources.")
           PY
 
       - name: Test Python capstone record operations
-        run: python -m unittest discover -s PYTHON/capstone -p "test_records.py" -v
+        working-directory: my-book/src/PYTHON/capstone
+        run: python -m unittest discover -s . -p "test_records.py" -v
 
       - name: Test Python capstone user interfaces
-        working-directory: PYTHON/capstone
+        working-directory: my-book/src/PYTHON/capstone
         run: |
           python -m pytest -q test_app_ui.py
           python -m pytest -q -o main_file=app_v1.py test_app_v1_ui.py
           python -m pytest -q -o main_file=hello_app.py test_hello_ui.py
 
       - name: Check Kotlin lesson structure and local links
-        run: node scripts/check_kotlin_curriculum.mjs
+        working-directory: my-book/src
+        run: node ../scripts/check_kotlin_curriculum.mjs
 
       - name: Check five-room adventure contract
-        run: python scripts/check_unit10_adventure_contract.py
+        working-directory: my-book/src
+        run: python ../scripts/check_unit10_adventure_contract.py
 
       - name: Build mdBook
+        working-directory: my-book
         run: mdbook build
