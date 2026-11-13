@@ -34,5 +34,5 @@ jobs:
         run: >-
           python canvas_api_full_curriculum_sync.py
           --source-dir my-book/src
-          --summary SUMMARY.md
+          --summary my-book/src/SUMMARY.md
           --export-imscc /tmp/VI_Focused_Coding_Curricula.imscc
