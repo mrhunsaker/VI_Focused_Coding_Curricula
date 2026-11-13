@@ -1,0 +1,571 @@
+<!DOCTYPE HTML>
+<html lang="en" class="rust sidebar-visible" dir="ltr">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>Programming Code Glossary - Accessible Introduction to Computer Science</title>
+
+
+        <!-- Custom HTML head -->
+
+        <meta name="description" content="Introductory programming curricula, each adapted for visually impaired students who use screen readers">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff">
+
+        <link rel="icon" href="../favicon-de23e50b.svg">
+        <link rel="shortcut icon" href="../favicon-8114d1fc.png">
+        <link rel="stylesheet" href="../css/variables-8adf115d.css">
+        <link rel="stylesheet" href="../css/general-e96d0476.css">
+        <link rel="stylesheet" href="../css/chrome-d279d366.css">
+        <link rel="stylesheet" href="../css/print-9e4910d8.css" media="print">
+
+        <!-- Fonts -->
+        <link rel="stylesheet" href="../fonts/fonts-9644e21d.css">
+
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" id="mdbook-highlight-css" href="../highlight-493f70e1.css">
+        <link rel="stylesheet" id="mdbook-tomorrow-night-css" href="../tomorrow-night-4c0ae647.css">
+        <link rel="stylesheet" id="mdbook-ayu-highlight-css" href="../ayu-highlight-3fdfc3ac.css">
+
+        <!-- Custom theme stylesheets -->
+
+
+        <!-- Provide site root and default themes to javascript -->
+        <script>
+            const path_to_root = "../";
+            const default_light_theme = "rust";
+            const default_dark_theme = "navy";
+            window.path_to_searchindex_js = "../searchindex-1d296e4e.js";
+        </script>
+        <!-- Start loading toc.js asap -->
+        <script src="../toc-62d8efca.js"></script>
+    </head>
+    <body>
+    <div id="mdbook-help-container">
+        <div id="mdbook-help-popup">
+            <h2 class="mdbook-help-title">Keyboard shortcuts</h2>
+            <div>
+                <p>Press <kbd>←</kbd> or <kbd>→</kbd> to navigate between chapters</p>
+                <p>Press <kbd>S</kbd> or <kbd>/</kbd> to search in the book</p>
+                <p>Press <kbd>?</kbd> to show this help</p>
+                <p>Press <kbd>Esc</kbd> to hide this help</p>
+            </div>
+        </div>
+    </div>
+    <div id="mdbook-body-container">
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script>
+            try {
+                let theme = localStorage.getItem('mdbook-theme');
+                let sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script>
+            const default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? default_dark_theme : default_light_theme;
+            let theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            const html = document.documentElement;
+            html.classList.remove('rust')
+            html.classList.add(theme);
+            html.classList.add("js");
+        </script>
+
+        <input type="checkbox" id="mdbook-sidebar-toggle-anchor" class="hidden">
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script>
+            let sidebar = null;
+            const sidebar_toggle = document.getElementById("mdbook-sidebar-toggle-anchor");
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            } else {
+                sidebar = 'hidden';
+                sidebar_toggle.checked = false;
+            }
+            if (sidebar === 'visible') {
+                sidebar_toggle.checked = true;
+            } else {
+                html.classList.remove('sidebar-visible');
+            }
+        </script>
+
+        <nav id="mdbook-sidebar" class="sidebar" aria-label="Table of contents">
+            <!-- populated by js -->
+            <mdbook-sidebar-scrollbox class="sidebar-scrollbox"></mdbook-sidebar-scrollbox>
+            <noscript>
+                <iframe class="sidebar-iframe-outer" src="../toc.html"></iframe>
+            </noscript>
+            <div id="mdbook-sidebar-resize-handle" class="sidebar-resize-handle">
+                <div class="sidebar-resize-indicator"></div>
+            </div>
+        </nav>
+
+        <div id="mdbook-page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                <div id="mdbook-menu-bar-hover-placeholder"></div>
+                <div id="mdbook-menu-bar" class="menu-bar sticky">
+                    <div class="left-buttons">
+                        <label id="mdbook-sidebar-toggle" class="icon-button" for="mdbook-sidebar-toggle-anchor" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="mdbook-sidebar">
+                            <span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M0 96C0 78.3 14.3 64 32 64H416c17.7 0 32 14.3 32 32s-14.3 32-32 32H32C14.3 128 0 113.7 0 96zM0 256c0-17.7 14.3-32 32-32H416c17.7 0 32 14.3 32 32s-14.3 32-32 32H32c-17.7 0-32-14.3-32-32zM448 416c0 17.7-14.3 32-32 32H32c-17.7 0-32-14.3-32-32s14.3-32 32-32H416c17.7 0 32 14.3 32 32z"/></svg></span>
+                        </label>
+                        <button id="mdbook-theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="mdbook-theme-list">
+                            <span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M371.3 367.1c27.3-3.9 51.9-19.4 67.2-42.9L600.2 74.1c12.6-19.5 9.4-45.3-7.6-61.2S549.7-4.4 531.1 9.6L294.4 187.2c-24 18-38.2 46.1-38.4 76.1L371.3 367.1zm-19.6 25.4l-116-104.4C175.9 290.3 128 339.6 128 400c0 3.9 .2 7.8 .6 11.6c1.8 17.5-10.2 36.4-27.8 36.4H96c-17.7 0-32 14.3-32 32s14.3 32 32 32H240c61.9 0 112-50.1 112-112c0-2.5-.1-5-.2-7.5z"/></svg></span>
+                        </button>
+                        <ul id="mdbook-theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="mdbook-theme-default_theme">Auto</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="mdbook-theme-light">Light</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="mdbook-theme-rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="mdbook-theme-coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="mdbook-theme-navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="mdbook-theme-ayu">Ayu</button></li>
+                        </ul>
+                        <button id="mdbook-search-toggle" class="icon-button" type="button" title="Search (`/`)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="/ s" aria-controls="mdbook-searchbar">
+                            <span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M416 208c0 45.9-14.9 88.3-40 122.7L502.6 457.4c12.5 12.5 12.5 32.8 0 45.3s-32.8 12.5-45.3 0L330.7 376c-34.4 25.2-76.8 40-122.7 40C93.1 416 0 322.9 0 208S93.1 0 208 0S416 93.1 416 208zM208 352c79.5 0 144-64.5 144-144s-64.5-144-144-144S64 128.5 64 208s64.5 144 144 144z"/></svg></span>
+                        </button>
+                    </div>
+
+                    <h1 class="menu-title">Accessible Introduction to Computer Science</h1>
+
+                    <div class="right-buttons">
+                        <a href="../print.html" title="Print this book" aria-label="Print this book">
+                            <span class=fa-svg id="print-button"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M128 0C92.7 0 64 28.7 64 64v96h64V64H354.7L384 93.3V160h64V93.3c0-17-6.7-33.3-18.7-45.3L400 18.7C388 6.7 371.7 0 354.7 0H128zM384 352v32 64H128V384 368 352H384zm64 32h32c17.7 0 32-14.3 32-32V256c0-35.3-28.7-64-64-64H64c-35.3 0-64 28.7-64 64v96c0 17.7 14.3 32 32 32H64v64c0 35.3 28.7 64 64 64H384c35.3 0 64-28.7 64-64V384zm-16-88c-13.3 0-24-10.7-24-24s10.7-24 24-24s24 10.7 24 24s-10.7 24-24 24z"/></svg></span>
+                        </a>
+                        <a href="https://github.com/mrhunsaker/VI_Focused_Coding_Curricula" title="Git repository" aria-label="Git repository">
+                            <span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"/></svg></span>
+                        </a>
+
+                    </div>
+                </div>
+
+                <div id="mdbook-search-wrapper" class="hidden">
+                    <form id="mdbook-searchbar-outer" class="searchbar-outer">
+                        <div class="search-wrapper">
+                            <input type="search" id="mdbook-searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="mdbook-searchresults-outer" aria-describedby="searchresults-header">
+                            <div class="spinner-wrapper">
+                                <span class=fa-svg id="fa-spin"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M304 48c0-26.5-21.5-48-48-48s-48 21.5-48 48s21.5 48 48 48s48-21.5 48-48zm0 416c0-26.5-21.5-48-48-48s-48 21.5-48 48s21.5 48 48 48s48-21.5 48-48zM48 304c26.5 0 48-21.5 48-48s-21.5-48-48-48s-48 21.5-48 48s21.5 48 48 48zm464-48c0-26.5-21.5-48-48-48s-48 21.5-48 48s21.5 48 48 48s48-21.5 48-48zM142.9 437c18.7-18.7 18.7-49.1 0-67.9s-49.1-18.7-67.9 0s-18.7 49.1 0 67.9s49.1 18.7 67.9 0zm0-294.2c18.7-18.7 18.7-49.1 0-67.9S93.7 56.2 75 75s-18.7 49.1 0 67.9s49.1 18.7 67.9 0zM369.1 437c18.7 18.7 49.1 18.7 67.9 0s18.7-49.1 0-67.9s-49.1-18.7-67.9 0s-18.7 49.1 0 67.9z"/></svg></span>
+                            </div>
+                        </div>
+                    </form>
+                    <div id="mdbook-searchresults-outer" class="searchresults-outer hidden">
+                        <div id="mdbook-searchresults-header" class="searchresults-header"></div>
+                        <ul id="mdbook-searchresults">
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script>
+                    document.getElementById('mdbook-sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('mdbook-sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#mdbook-sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="mdbook-content" class="content">
+                    <main>
+                        <h1 id="programming-code-glossary"><a class="header" href="#programming-code-glossary">Programming Code Glossary</a></h1>
+<p>A detailed student reference for Python, JavaScript, TypeScript, Java, and the optional post-capstone Kotlin supplement. Find the term in the language section, then use that language’s INDEX.md to locate the teaching lesson. Definitions distinguish concepts that are easy to confuse.</p>
+<h2 id="shared-computer-science-vocabulary"><a class="header" href="#shared-computer-science-vocabulary">Shared computer science vocabulary</a></h2>
+<h3 id="algorithm"><a class="header" href="#algorithm">Algorithm</a></h3>
+<p>A finite, ordered method for solving a problem. It defines steps, decisions, inputs, and expected outputs; a program implements an algorithm.</p>
+<h3 id="argument"><a class="header" href="#argument">Argument</a></h3>
+<p>The actual value supplied to a function call. The parameter is the receiving name in the function definition.</p>
+<h3 id="assignment"><a class="header" href="#assignment">Assignment</a></h3>
+<p>Storing a value in a variable or assignable location. Assignment is not equality comparison.</p>
+<h3 id="boolean"><a class="header" href="#boolean">Boolean</a></h3>
+<p>A logical value that is true or false. Python spells literals True and False; the other languages use lowercase.</p>
+<h3 id="bug"><a class="header" href="#bug">Bug</a></h3>
+<p>A defect causing a crash, incorrect result, or unmet requirement.</p>
+<h3 id="class"><a class="header" href="#class">Class</a></h3>
+<p>A definition describing data and behavior for a kind of object.</p>
+<h3 id="compiler"><a class="header" href="#compiler">Compiler</a></h3>
+<p>A program translating source code and reporting compile-time problems. Java compiles to JVM bytecode; TypeScript emits JavaScript.</p>
+<h3 id="condition"><a class="header" href="#condition">Condition</a></h3>
+<p>An expression deciding which branch runs or whether a loop continues. Java requires Boolean conditions; Python and JavaScript also allow truth-value testing.</p>
+<h3 id="constant"><a class="header" href="#constant">Constant</a></h3>
+<p>A binding that cannot be reassigned. This does not necessarily make the referenced object immutable.</p>
+<h3 id="data-type"><a class="header" href="#data-type">Data type</a></h3>
+<p>A classification defining possible values and valid operations, such as integer, string, Boolean, array, or object.</p>
+<h3 id="debugging"><a class="header" href="#debugging">Debugging</a></h3>
+<p>Systematically reproducing a problem, narrowing its cause, inspecting state, testing a hypothesis, correcting the defect, and retesting.</p>
+<h3 id="declaration"><a class="header" href="#declaration">Declaration</a></h3>
+<p>An instruction introducing a name such as a variable, function, class, or type. Initialization gives a variable its first value.</p>
+<h3 id="expression"><a class="header" href="#expression">Expression</a></h3>
+<p>A combination of values, names, operators, and calls evaluated to produce a value.</p>
+<h3 id="function"><a class="header" href="#function">Function</a></h3>
+<p>A callable unit of code performing a task. It may accept parameters and return a result.</p>
+<h3 id="input"><a class="header" href="#input">Input</a></h3>
+<p>Data received from a person, file, command line, network, or another system. Validate external input.</p>
+<h3 id="instance"><a class="header" href="#instance">Instance</a></h3>
+<p>One particular object created from a class.</p>
+<h3 id="iteration"><a class="header" href="#iteration">Iteration</a></h3>
+<p>One repetition of a loop body, or traversal of a sequence or collection.</p>
+<h3 id="library"><a class="header" href="#library">Library</a></h3>
+<p>Reusable code packaged for use by programs. A standard library ships with a language or runtime.</p>
+<h3 id="literal"><a class="header" href="#literal">Literal</a></h3>
+<p>A value written directly in source code, such as 42, 3.5, a quoted string, or true.</p>
+<h3 id="loop"><a class="header" href="#loop">Loop</a></h3>
+<p>A control-flow structure repeating instructions. for commonly traverses items; while repeats while a condition is true.</p>
+<h3 id="method"><a class="header" href="#method">Method</a></h3>
+<p>A function associated with an object or class.</p>
+<h3 id="module"><a class="header" href="#module">Module</a></h3>
+<p>A file or unit grouping code and exposing selected names for reuse.</p>
+<h3 id="object"><a class="header" href="#object">Object</a></h3>
+<p>A value grouping data and often behavior. Java objects are class instances; JavaScript and TypeScript also have flexible property objects.</p>
+<h3 id="operator"><a class="header" href="#operator">Operator</a></h3>
+<p>A symbol or keyword performing an operation, such as arithmetic, comparison, or logic.</p>
+<h3 id="parameter"><a class="header" href="#parameter">Parameter</a></h3>
+<p>A named variable in a function definition that receives an argument from the caller.</p>
+<h3 id="return-value"><a class="header" href="#return-value">Return value</a></h3>
+<p>The value a function or method gives back to its caller.</p>
+<h3 id="scope"><a class="header" href="#scope">Scope</a></h3>
+<p>The region of code where a name can be accessed. Local, block, function, and module scope rules differ by language.</p>
+<h3 id="statement"><a class="header" href="#statement">Statement</a></h3>
+<p>A complete instruction such as a declaration, assignment, conditional, loop, or return.</p>
+<h3 id="string"><a class="header" href="#string">String</a></h3>
+<p>A sequence of text characters. Strings are immutable in all languages covered.</p>
+<h3 id="syntax"><a class="header" href="#syntax">Syntax</a></h3>
+<p>Formal rules defining valid source-code structure. Valid syntax does not guarantee correct logic.</p>
+<h3 id="testing"><a class="header" href="#testing">Testing</a></h3>
+<p>Checking program behavior against expected outcomes. Unit tests focus on a small function or method.</p>
+<h3 id="variable"><a class="header" href="#variable">Variable</a></h3>
+<p>A named binding used to refer to a value. Declaration, assignment, mutability, and type rules vary by language.</p>
+<h2 id="python-glossary"><a class="header" href="#python-glossary">Python glossary</a></h2>
+<h3 id="init"><a class="header" href="#init"><strong>init</strong></a></h3>
+<p>Initialization method called when an instance is initialized. Commonly assigns self attributes; allocation itself involves <strong>new</strong>.</p>
+<h3 id="name-and-main-guard"><a class="header" href="#name-and-main-guard"><strong>name</strong> and main guard</a></h3>
+<p>Module attribute equal to <strong>main</strong> when run as entry point. The if <strong>name</strong> == <strong>main</strong> guard protects entry-point code from running on import.</p>
+<h3 id="append"><a class="header" href="#append">append()</a></h3>
+<p>List method adding one item to the same list. It mutates the list and returns None.</p>
+<h3 id="break-and-continue"><a class="header" href="#break-and-continue">break and continue</a></h3>
+<p>break exits the nearest loop. continue skips the rest of the current iteration and proceeds to the next.</p>
+<h3 id="dict"><a class="header" href="#dict">dict</a></h3>
+<p>Mutable mapping of keys to values. Keys must be hashable; values can be any objects.</p>
+<h3 id="elif"><a class="header" href="#elif">elif</a></h3>
+<p>Additional conditional branch evaluated only if earlier conditions are false. Python uses elif, not else if.</p>
+<h3 id="except-and-finally"><a class="header" href="#except-and-finally">except and finally</a></h3>
+<p>except handles a matching exception. finally is used for cleanup and runs whether or not an exception occurred, subject to process termination.</p>
+<h3 id="float-and-int"><a class="header" href="#float-and-int">float and int</a></h3>
+<p>float is binary floating point; many decimal fractions are approximate. int is arbitrary precision in ordinary Python implementations.</p>
+<h3 id="for-and-while"><a class="header" href="#for-and-while">for and while</a></h3>
+<p>for iterates over an iterable. while repeats while its condition is true.</p>
+<h3 id="f-string"><a class="header" href="#f-string">F-string</a></h3>
+<p>String prefixed with f that evaluates expressions in braces, for example f-string interpolation of a name.</p>
+<h3 id="import"><a class="header" href="#import">import</a></h3>
+<p>Loads a module and binds names for use, such as importing math.</p>
+<h3 id="input-1"><a class="header" href="#input-1">input()</a></h3>
+<p>Reads one line from standard input and returns a string. Convert it before numeric operations.</p>
+<h3 id="is-and-is-not"><a class="header" href="#is-and-is-not">is and is not</a></h3>
+<p>Identity comparisons testing whether references are the same object. Use == for value equality; is None is conventional.</p>
+<h3 id="iterable"><a class="header" href="#iterable">Iterable</a></h3>
+<p>Object supplying members one at a time, such as list, tuple, string, dictionary, set, or range.</p>
+<h3 id="len"><a class="header" href="#len">len()</a></h3>
+<p>Returns number of items in a collection or code points in a string, not necessarily user-perceived Unicode characters.</p>
+<h3 id="list-and-tuple"><a class="header" href="#list-and-tuple">list and tuple</a></h3>
+<p>list is mutable and ordered. tuple is ordered and immutable; a one-item tuple needs a trailing comma.</p>
+<h3 id="none"><a class="header" href="#none">None</a></h3>
+<p>Singleton meaning absence of a value. Compare using is None.</p>
+<h3 id="open-and-file-modes"><a class="header" href="#open-and-file-modes">open() and file modes</a></h3>
+<p>Opens a file. r reads, w writes and truncates, a appends. Prefer a with statement and specify UTF-8 encoding.</p>
+<h3 id="range"><a class="header" href="#range">range()</a></h3>
+<p>Arithmetic sequence used in loops. Stop is excluded: range(3) yields 0, 1, 2.</p>
+<h3 id="return"><a class="header" href="#return">return</a></h3>
+<p>Ends a function and optionally sends a value to caller. Falling off the end returns None.</p>
+<h3 id="set"><a class="header" href="#set">set</a></h3>
+<p>Mutable collection of unique hashable elements; no positional indexing.</p>
+<h3 id="slicing"><a class="header" href="#slicing">Slicing</a></h3>
+<p>Selects a sequence portion with start, stop, and optional step; start is included and stop excluded.</p>
+<h3 id="with-and-context-manager"><a class="header" href="#with-and-context-manager">with and context manager</a></h3>
+<p>Managed context with reliable cleanup. File contexts close files automatically through the context-manager protocol.</p>
+<h3 id="comprehension"><a class="header" href="#comprehension">Comprehension</a></h3>
+<p>Concise collection construction from an iterable, optionally filtered. Use a loop when clearer.</p>
+<h3 id="docstring"><a class="header" href="#docstring">Docstring</a></h3>
+<p>String literal first in a module, class, or function, stored in <strong>doc</strong> and used to document behavior.</p>
+<h3 id="exception"><a class="header" href="#exception">Exception</a></h3>
+<p>Object representing an error. Common types include ValueError, TypeError, KeyError, IndexError, and FileNotFoundError.</p>
+<h3 id="generator"><a class="header" href="#generator">Generator</a></h3>
+<p>Iterator-producing function or expression yielding values lazily. Generator functions use yield.</p>
+<h3 id="lambda"><a class="header" href="#lambda">Lambda</a></h3>
+<p>Small anonymous function expression containing one expression. Use def for multi-statement or documented functions.</p>
+<h3 id="mro"><a class="header" href="#mro">MRO</a></h3>
+<p>Method Resolution Order: order Python searches base classes for attributes, especially with multiple inheritance.</p>
+<h3 id="mutable-and-immutable"><a class="header" href="#mutable-and-immutable">Mutable and immutable</a></h3>
+<p>Lists and dictionaries can change in place; strings, integers, and tuples cannot. A variable can be rebound either way.</p>
+<h3 id="pep-8"><a class="header" href="#pep-8">PEP 8</a></h3>
+<p>Python style guide recommending four-space indentation and snake_case names for functions and variables.</p>
+<h3 id="property"><a class="header" href="#property">Property</a></h3>
+<p>Managed attribute commonly created with property decorator, allowing attribute-style access with getter/setter logic.</p>
+<h3 id="type-hint"><a class="header" href="#type-hint">Type hint</a></h3>
+<p>Optional syntax describing expected types. Not generally enforced by Python at runtime; static tools can analyze hints.</p>
+<h3 id="virtual-environment"><a class="header" href="#virtual-environment">Virtual environment</a></h3>
+<p>Isolated Python interpreter/package context. The course uses uv to create and manage the project’s <code>.venv</code>, install dependencies, and run commands without global pip installation.</p>
+<h3 id="uv"><a class="header" href="#uv">uv</a></h3>
+<p>A Python version, project, and package manager. <code>uv init</code> creates project configuration, <code>uv add package</code> installs and records a project dependency, <code>uv run command</code> executes inside the managed environment, <code>uv sync</code> installs the dependencies recorded in the project files, and <code>uv tree</code> displays the dependency tree. uv manages the project-local <code>.venv</code> and can install Python interpreters.</p>
+<h2 id="javascript-glossary"><a class="header" href="#javascript-glossary">JavaScript glossary</a></h2>
+<h3 id="array"><a class="header" href="#array">Array</a></h3>
+<p>Indexed ordered collection that can change length. Methods include push, pop, map, filter, find, reduce, and forEach.</p>
+<h3 id="async-and-await"><a class="header" href="#async-and-await">async and await</a></h3>
+<p>An async function always returns a Promise. await waits for a Promise inside an async function without blocking the whole event loop.</p>
+<h3 id="bigint"><a class="header" href="#bigint">BigInt</a></h3>
+<p>Primitive for integers beyond Number’s safe range. BigInt and Number arithmetic cannot be mixed directly.</p>
+<h3 id="const-let-and-var"><a class="header" href="#const-let-and-var">const, let, and var</a></h3>
+<p>const is block-scoped and cannot be reassigned; let is block-scoped and reassignable; var is function-scoped legacy syntax.</p>
+<h3 id="consolelog"><a class="header" href="#consolelog">console.log()</a></h3>
+<p>Writes values to the console; common terminal output in Node.js, not a file-writing API.</p>
+<h3 id="destructuring"><a class="header" href="#destructuring">Destructuring</a></h3>
+<p>Extracts array elements or object properties into variables.</p>
+<h3 id="event-loop"><a class="header" href="#event-loop">Event loop</a></h3>
+<p>Coordinates synchronous call-stack execution, queued callbacks, and asynchronous completions. Long synchronous work delays other tasks.</p>
+<h3 id="export-and-import"><a class="header" href="#export-and-import">export and import</a></h3>
+<p>ES module declarations exposing and bringing in bindings. Dynamic import returns a Promise.</p>
+<h3 id="filter-map-and-foreach"><a class="header" href="#filter-map-and-foreach">filter, map, and forEach</a></h3>
+<p>filter creates an array of passing elements; map creates a transformed array; forEach calls a callback and returns undefined.</p>
+<h3 id="forof-and-forin"><a class="header" href="#forof-and-forin">for…of and for…in</a></h3>
+<p>for…of iterates values from an iterable; for…in iterates enumerable property keys.</p>
+<h3 id="map-and-set"><a class="header" href="#map-and-set">Map and Set</a></h3>
+<p>Map stores key-value pairs with arbitrary key types. Set stores unique values.</p>
+<h3 id="nan"><a class="header" href="#nan">NaN</a></h3>
+<p>Special Number value for invalid numeric results. It is not equal to itself; use Number.isNaN().</p>
+<h3 id="null-and-undefined"><a class="header" href="#null-and-undefined">null and undefined</a></h3>
+<p>null represents intentional absence of an object value. undefined commonly means missing, uninitialized, or no returned value.</p>
+<h3 id="number"><a class="header" href="#number">Number</a></h3>
+<p>IEEE 754 binary64 numeric primitive. Use Number.isFinite() and Number.isSafeInteger() where appropriate.</p>
+<h3 id="object-1"><a class="header" href="#object-1">Object</a></h3>
+<p>Property collection. Ordinary keys are strings or symbols; use Map for arbitrary key types.</p>
+<h3 id="packagejson"><a class="header" href="#packagejson">package.json</a></h3>
+<p>Node project metadata. Its type field selects ES module or CommonJS interpretation for .js files in that package scope.</p>
+<h3 id="promise"><a class="header" href="#promise">Promise</a></h3>
+<p>Represents an asynchronous result that is pending, fulfilled, or rejected. Handle with then/catch or async/await.</p>
+<h3 id="readline"><a class="header" href="#readline">readline</a></h3>
+<p>Node built-in module for line-by-line input from a stream such as standard input.</p>
+<h3 id="require-and-commonjs"><a class="header" href="#require-and-commonjs">require() and CommonJS</a></h3>
+<p>require loads modules using Node’s CommonJS system; module.exports exposes values. ES modules use import.</p>
+<h3 id="spread-syntax"><a class="header" href="#spread-syntax">Spread syntax</a></h3>
+<p>Expands iterables or object properties. Array/object spreads make shallow copies, not deep clones.</p>
+<h3 id="strict-equality-"><a class="header" href="#strict-equality-">Strict equality ===</a></h3>
+<p>Compares without loose equality coercion. Preferred for most comparisons; objects compare by identity.</p>
+<h3 id="template-literal"><a class="header" href="#template-literal">Template literal</a></h3>
+<p>Backtick-delimited string supporting multiline text and expression interpolation.</p>
+<h3 id="arrow-function"><a class="header" href="#arrow-function">Arrow function</a></h3>
+<p>Function expression using arrow syntax. It has no own this or arguments; not interchangeable with every traditional function.</p>
+<h3 id="callback-and-closure"><a class="header" href="#callback-and-closure">Callback and closure</a></h3>
+<p>Callback is a function passed to be called later. Closure is a function plus access to surrounding lexical variables.</p>
+<h3 id="ecmascript"><a class="header" href="#ecmascript">ECMAScript</a></h3>
+<p>Standard defining JavaScript syntax and semantics. Node and browsers add different host APIs.</p>
+<h3 id="hoisting"><a class="header" href="#hoisting">Hoisting</a></h3>
+<p>Processing declarations before scope execution. Function declarations and var differ from let/const temporal-dead-zone behavior.</p>
+<h3 id="json"><a class="header" href="#json">JSON</a></h3>
+<p>Text format for objects, arrays, strings, numbers, booleans, and null. Use JSON.parse() and JSON.stringify().</p>
+<h3 id="nodejs-and-npm"><a class="header" href="#nodejs-and-npm">Node.js and npm</a></h3>
+<p>Node.js runs JavaScript outside browsers. npm manages dependencies, scripts, and lockfiles. Use <code>npm install</code> or <code>npm install --save-dev</code> in the project directory to keep dependencies local.</p>
+<h3 id="npx"><a class="header" href="#npx">npx</a></h3>
+<p>npm’s package-execution command. It runs a package binary from the current project’s dependencies when available, or can fetch a package into npm’s cache for one-off execution. Prefer project-local development dependencies and <code>npx</code> or npm scripts over global npm installs.</p>
+<h3 id="prototype"><a class="header" href="#prototype">Prototype</a></h3>
+<p>Object used in property lookup when a property is not found directly.</p>
+<h3 id="type-coercion-and-truthiness"><a class="header" href="#type-coercion-and-truthiness">Type coercion and truthiness</a></h3>
+<p>Coercion converts types automatically or explicitly. Falsy values include false, 0, empty string, null, undefined, and NaN; empty arrays/objects are truthy.</p>
+<h2 id="typescript-glossary"><a class="header" href="#typescript-glossary">TypeScript glossary</a></h2>
+<h3 id="any-and-unknown"><a class="header" href="#any-and-unknown">any and unknown</a></h3>
+<p>any disables most type checking. unknown accepts any value but requires narrowing before use; prefer unknown for untrusted data.</p>
+<h3 id="as-assertion"><a class="header" href="#as-assertion">as assertion</a></h3>
+<p>Tells compiler to treat an expression as a type. It does not convert or validate runtime data.</p>
+<h3 id="enum"><a class="header" href="#enum">enum</a></h3>
+<p>Defines named constants. Numeric enums can create runtime objects; string unions or const objects may be simpler.</p>
+<h3 id="interface-and-type-alias"><a class="header" href="#interface-and-type-alias">interface and type alias</a></h3>
+<p>interface describes object shape; type names a type expression including unions, intersections, tuples, and function types.</p>
+<h3 id="never"><a class="header" href="#never">never</a></h3>
+<p>Type representing values that should not occur; used for non-returning functions and exhaustive checks.</p>
+<h3 id="null-and-undefined-in-strict-mode"><a class="header" href="#null-and-undefined-in-strict-mode">Null and undefined in strict mode</a></h3>
+<p>With strictNullChecks, they are distinct types and must be handled or narrowed before non-null use.</p>
+<h3 id="union-and-intersection"><a class="header" href="#union-and-intersection">Union and intersection</a></h3>
+<p>Union uses vertical-bar syntax for alternatives; intersection combines requirements.</p>
+<h3 id="type-annotation-and-inference"><a class="header" href="#type-annotation-and-inference">Type annotation and inference</a></h3>
+<p>Annotation explicitly states a type; inference derives a type from values and context. Neither adds runtime validation.</p>
+<h3 id="generic"><a class="header" href="#generic">Generic</a></h3>
+<p>Type or function parameterized by a type variable, preserving type information across reusable operations.</p>
+<h3 id="keyof-and-readonly"><a class="header" href="#keyof-and-readonly">keyof and readonly</a></h3>
+<p>keyof produces a union of keys of a type. readonly prevents assignment through a type but does not freeze runtime objects.</p>
+<h3 id="strict-and-tsconfigjson"><a class="header" href="#strict-and-tsconfigjson">strict and tsconfig.json</a></h3>
+<p>strict enables stronger checks. tsconfig.json controls source inclusion, target, module resolution, strictness, and output.</p>
+<h3 id="tsc"><a class="header" href="#tsc">tsc</a></h3>
+<p>TypeScript compiler. Checks types and can emit JavaScript; prefer the project-local compiler.</p>
+<h3 id="discriminated-union-and-narrowing"><a class="header" href="#discriminated-union-and-narrowing">Discriminated union and narrowing</a></h3>
+<p>A shared distinguishing property enables compiler narrowing based on control flow.</p>
+<h3 id="structural-typing"><a class="header" href="#structural-typing">Structural typing</a></h3>
+<p>Compatibility based on members a value provides, not its declared type name.</p>
+<h3 id="type-guard"><a class="header" href="#type-guard">Type guard</a></h3>
+<p>Condition or function giving evidence about a value’s type so compiler can narrow it.</p>
+<h3 id="type-erasure"><a class="header" href="#type-erasure">Type erasure</a></h3>
+<p>TypeScript-only annotations, interfaces, and aliases are removed during compilation. Validate external data at runtime.</p>
+<h3 id="utility-type"><a class="header" href="#utility-type">Utility type</a></h3>
+<p>Built-in transformations such as Partial, Required, Readonly, Pick, Omit, and Record.</p>
+<h2 id="java-glossary"><a class="header" href="#java-glossary">Java glossary</a></h2>
+<h3 id="abstract-class"><a class="header" href="#abstract-class">abstract class</a></h3>
+<p>Cannot be instantiated directly; can contain implemented and abstract methods.</p>
+<h3 id="array-and-arraylist"><a class="header" href="#array-and-arraylist">Array and ArrayList</a></h3>
+<p>Array has fixed length and one component type; use its length field. ArrayList is a resizable List; generic arguments use reference types such as Integer.</p>
+<h3 id="boolean-char-int-and-long"><a class="header" href="#boolean-char-int-and-long">boolean, char, int, and long</a></h3>
+<p>boolean is true/false. char is a UTF-16 code unit. int is 32-bit signed; long is 64-bit signed.</p>
+<h3 id="break-and-enhanced-for"><a class="header" href="#break-and-enhanced-for">break and enhanced for</a></h3>
+<p>break exits the nearest loop or switch. Enhanced for traverses array or Iterable elements.</p>
+<h3 id="catch-and-finally"><a class="header" href="#catch-and-finally">catch and finally</a></h3>
+<p>catch handles an exception. finally performs cleanup; prefer try-with-resources for AutoCloseable resources.</p>
+<h3 id="class-constructor-and-this"><a class="header" href="#class-constructor-and-this">class, constructor, and this</a></h3>
+<p>class declares a type. Constructor initializes an instance and has no return type. this refers to the current instance.</p>
+<h3 id="final-and-static"><a class="header" href="#final-and-static">final and static</a></h3>
+<p>final prevents reassignment, overriding, or subclassing depending on use. static associates a member with the class.</p>
+<h3 id="hashmap-hashset-and-treemap"><a class="header" href="#hashmap-hashset-and-treemap">HashMap, HashSet, and TreeMap</a></h3>
+<p>HashMap stores pairs without guaranteed order. HashSet stores unique values. TreeMap orders keys.</p>
+<h3 id="implements-and-interface"><a class="header" href="#implements-and-interface">implements and interface</a></h3>
+<p>A class uses implements to satisfy an interface contract. Interfaces define member contracts.</p>
+<h3 id="jdk-jre-and-jvm"><a class="header" href="#jdk-jre-and-jvm">JDK, JRE, and JVM</a></h3>
+<p>JDK provides development tools including javac. JRE describes runtime components. JVM executes bytecode.</p>
+<h3 id="list-and-map"><a class="header" href="#list-and-map">List and Map</a></h3>
+<p>List is an ordered collection allowing duplicates. Map stores key-value associations.</p>
+<h3 id="main-method"><a class="header" href="#main-method">main method</a></h3>
+<p>Traditional entry point: public static void main(String[] args).</p>
+<h3 id="null"><a class="header" href="#null">null</a></h3>
+<p>Absence of an object reference. Calling an instance method through null causes NullPointerException; primitives cannot hold null.</p>
+<h3 id="package-and-import"><a class="header" href="#package-and-import">package and import</a></h3>
+<p>Package organizes types and access. Import allows simple type names; importing a package does not import subpackages.</p>
+<h3 id="private-and-public"><a class="header" href="#private-and-public">private and public</a></h3>
+<p>private restricts member access; public exposes a member wherever its declaring type is accessible.</p>
+<h3 id="return-and-void"><a class="header" href="#return-and-void">return and void</a></h3>
+<p>return ends a method and may send a value. void means no return value.</p>
+<h3 id="scanner"><a class="header" href="#scanner">Scanner</a></h3>
+<p>java.util input parser. Mixing nextInt() and nextLine() can leave a newline for the next read.</p>
+<h3 id="string-and-equals"><a class="header" href="#string-and-equals">String and equals()</a></h3>
+<p>String is immutable. Compare contents with equals(), not ==, which compares reference identity.</p>
+<h3 id="switch"><a class="header" href="#switch">switch</a></h3>
+<p>Selects a branch; Java supports switch statements and newer switch expressions.</p>
+<h3 id="throw-and-throws"><a class="header" href="#throw-and-throws">throw and throws</a></h3>
+<p>throw raises an exception object. throws declares checked exceptions a method may propagate.</p>
+<h3 id="try-with-resources"><a class="header" href="#try-with-resources">Try-with-resources</a></h3>
+<p>Automatically closes resources implementing AutoCloseable.</p>
+<h3 id="wrapper-and-autoboxing"><a class="header" href="#wrapper-and-autoboxing">Wrapper and autoboxing</a></h3>
+<p>Wrapper classes such as Integer correspond to primitives. Unboxing null throws NullPointerException.</p>
+<h3 id="checked-exception"><a class="header" href="#checked-exception">Checked exception</a></h3>
+<p>Compiler requires code to catch or declare it with throws, unless it is unchecked.</p>
+<h3 id="encapsulation-inheritance-and-polymorphism"><a class="header" href="#encapsulation-inheritance-and-polymorphism">Encapsulation, inheritance, and polymorphism</a></h3>
+<p>Encapsulation hides internal state; inheritance extends a superclass; polymorphism lets a general reference invoke concrete overridden behavior.</p>
+<h3 id="garbage-collection"><a class="header" href="#garbage-collection">Garbage collection</a></h3>
+<p>Reclaims unreachable heap objects. It does not replace closing files or sockets.</p>
+<h3 id="generics"><a class="header" href="#generics">Generics</a></h3>
+<p>Type parameters provide compile-time type safety; Java implements generics with type erasure.</p>
+<h3 id="maven-and-gradle-wrappers"><a class="header" href="#maven-and-gradle-wrappers">Maven and Gradle wrappers</a></h3>
+<p>Project-local scripts that run a declared Maven or Gradle version for a project. Maven commonly uses <code>./mvnw</code> on macOS/Linux and <code>mvnw.cmd</code> on Windows; Gradle uses <code>./gradlew</code> and <code>gradlew.bat</code>. The wrapper avoids requiring each learner to install a global build tool.</p>
+<h3 id="junit-overloading-and-overriding"><a class="header" href="#junit-overloading-and-overriding">JUnit, overloading, and overriding</a></h3>
+<p>JUnit tests behavior with assertions. Overloading changes parameter lists. Overriding replaces inherited instance behavior; use @Override.</p>
+<h2 id="kotlin-supplement-glossary"><a class="header" href="#kotlin-supplement-glossary">Kotlin supplement glossary</a></h2>
+<h3 id="data-class"><a class="header" href="#data-class">data class</a></h3>
+<p>Compiler generates equals, hashCode, toString, and copy based on primary-constructor properties.</p>
+<h3 id="fun-val-and-var"><a class="header" href="#fun-val-and-var">fun, val, and var</a></h3>
+<p>fun declares a function. val is a read-only binding. var is reassignable.</p>
+<h3 id="null-safety-and-nullable-type"><a class="header" href="#null-safety-and-nullable-type">Null safety and nullable type</a></h3>
+<p>Kotlin distinguishes non-null String from nullable String?. Java interoperability and external data may still require checks.</p>
+<h3 id="safe-call-and-elvis-operator"><a class="header" href="#safe-call-and-elvis-operator">Safe call and Elvis operator</a></h3>
+<p>Safe call ?. accesses only when receiver is non-null. Elvis ?: supplies a fallback when its left side is null.</p>
+<h3 id="when-and-smart-cast"><a class="header" href="#when-and-smart-cast">when and smart cast</a></h3>
+<p>when is a multi-branch expression or statement. Smart cast narrows a stable value after a type or null check.</p>
+<h3 id="extension-function"><a class="header" href="#extension-function">Extension function</a></h3>
+<p>Function with a receiver type, callable with member-like syntax; it does not add a real class member.</p>
+<h3 id="object-and-companion-object"><a class="header" href="#object-and-companion-object">object and companion object</a></h3>
+<p>object declares a singleton. Companion object provides class-associated members but is not identical to Java static.</p>
+<h3 id="coroutine"><a class="header" href="#coroutine">Coroutine</a></h3>
+<p>Concurrency abstraction for suspending/resuming work. kotlinx.coroutines supplies the framework; suspend alone is not the framework.</p>
+<h2 id="cross-language-distinctions"><a class="header" href="#cross-language-distinctions">Cross-language distinctions</a></h2>
+<div class="table-wrapper">
+<table>
+<thead>
+<tr><th>Concept</th><th>Python</th><th>JavaScript</th><th>TypeScript</th><th>Java</th><th>Kotlin</th></tr>
+</thead>
+<tbody>
+<tr><td>Variable</td><td>assignment; optional hints</td><td>let / const</td><td>let / const plus types</td><td>declared type; final</td><td>var / val</td></tr>
+<tr><td>Boolean</td><td>True / False</td><td>true / false</td><td>true / false</td><td>true / false</td><td>true / false</td></tr>
+<tr><td>Function</td><td>def</td><td>function / arrow</td><td>typed function / arrow</td><td>method in class</td><td>fun</td></tr>
+<tr><td>Null-like</td><td>None</td><td>null / undefined</td><td>both; strict null checks</td><td>null reference</td><td>nullable types such as String?</td></tr>
+<tr><td>Sequence</td><td>list / tuple</td><td>Array</td><td>Array<t> / T[]</t></td><td>array / List<e></e></td><td>List<t> / MutableList<t></t></t></td></tr>
+<tr><td>Equality</td><td>== value; is identity</td><td>=== strict equality</td><td>JavaScript runtime ===</td><td>equals() for objects; == for primitives</td><td>== structural; === referential</td></tr>
+</tbody>
+</table>
+</div>
+<h2 id="runtime-and-type-system-distinctions"><a class="header" href="#runtime-and-type-system-distinctions">Runtime and type-system distinctions</a></h2>
+<ul>
+<li>Python type hints are optional metadata; ordinary execution does not enforce them.</li>
+<li>JavaScript is dynamically typed and its runtime does not enforce TypeScript annotations.</li>
+<li>TypeScript checks types before execution, then emits JavaScript. Type annotations are erased; validate external data at runtime.</li>
+<li>Java checks declared types at compile time. References can still be null, and generics use type erasure.</li>
+<li>Kotlin distinguishes nullable and non-nullable types, but Java interoperability and external data can still require runtime checks.</li>
+</ul>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                            <a rel="prev" href="../TYPESCRIPT/teachers-guide.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M41.4 233.4c-12.5 12.5-12.5 32.8 0 45.3l160 160c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L109.3 256 246.6 118.6c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0l-160 160z"/></svg></span>
+                            </a>
+
+                            <a rel="next prefetch" href="../backmatter/index.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M278.6 233.4c12.5 12.5 12.5 32.8 0 45.3l-160 160c-12.5 12.5-32.8 12.5-45.3 0s-12.5-32.8 0-45.3L210.7 256 73.4 118.6c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0l160 160z"/></svg></span>
+                            </a>
+
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                    <a rel="prev" href="../TYPESCRIPT/teachers-guide.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M41.4 233.4c-12.5 12.5-12.5 32.8 0 45.3l160 160c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L109.3 256 246.6 118.6c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0l-160 160z"/></svg></span>
+                    </a>
+
+                    <a rel="next prefetch" href="../backmatter/index.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M278.6 233.4c12.5 12.5 12.5 32.8 0 45.3l-160 160c-12.5 12.5-32.8 12.5-45.3 0s-12.5-32.8 0-45.3L210.7 256 73.4 118.6c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0l160 160z"/></svg></span>
+                    </a>
+            </nav>
+
+        </div>
+
+        <template id=fa-eye><span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M288 32c-80.8 0-145.5 36.8-192.6 80.6C48.6 156 17.3 208 2.5 243.7c-3.3 7.9-3.3 16.7 0 24.6C17.3 304 48.6 356 95.4 399.4C142.5 443.2 207.2 480 288 480s145.5-36.8 192.6-80.6c46.8-43.5 78.1-95.4 93-131.1c3.3-7.9 3.3-16.7 0-24.6c-14.9-35.7-46.2-87.7-93-131.1C433.5 68.8 368.8 32 288 32zM432 256c0 79.5-64.5 144-144 144s-144-64.5-144-144s64.5-144 144-144s144 64.5 144 144zM288 192c0 35.3-28.7 64-64 64c-11.5 0-22.3-3-31.6-8.4c-.2 2.8-.4 5.5-.4 8.4c0 53 43 96 96 96s96-43 96-96s-43-96-96-96c-2.8 0-5.6 .1-8.4 .4c5.3 9.3 8.4 20.1 8.4 31.6z"/></svg></span></template>
+        <template id=fa-eye-slash><span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M38.8 5.1C28.4-3.1 13.3-1.2 5.1 9.2S-1.2 34.7 9.2 42.9l592 464c10.4 8.2 25.5 6.3 33.7-4.1s6.3-25.5-4.1-33.7L525.6 386.7c39.6-40.6 66.4-86.1 79.9-118.4c3.3-7.9 3.3-16.7 0-24.6c-14.9-35.7-46.2-87.7-93-131.1C465.5 68.8 400.8 32 320 32c-68.2 0-125 26.3-169.3 60.8L38.8 5.1zM223.1 149.5C248.6 126.2 282.7 112 320 112c79.5 0 144 64.5 144 144c0 24.9-6.3 48.3-17.4 68.7L408 294.5c5.2-11.8 8-24.8 8-38.5c0-53-43-96-96-96c-2.8 0-5.6 .1-8.4 .4c5.3 9.3 8.4 20.1 8.4 31.6c0 10.2-2.4 19.8-6.6 28.3l-90.3-70.8zm223.1 298L373 389.9c-16.4 6.5-34.3 10.1-53 10.1c-79.5 0-144-64.5-144-144c0-6.9 .5-13.6 1.4-20.2L83.1 161.5C60.3 191.2 44 220.8 34.5 243.7c-3.3 7.9-3.3 16.7 0 24.6c14.9 35.7 46.2 87.7 93 131.1C174.5 443.2 239.2 480 320 480c47.8 0 89.9-12.9 126.2-32.5z"/></svg></span></template>
+        <template id=fa-copy><span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M502.6 70.63l-61.25-61.25C435.4 3.371 427.2 0 418.7 0H255.1c-35.35 0-64 28.66-64 64l.0195 256C192 355.4 220.7 384 256 384h192c35.2 0 64-28.8 64-64V93.25C512 84.77 508.6 76.63 502.6 70.63zM464 320c0 8.836-7.164 16-16 16H255.1c-8.838 0-16-7.164-16-16L239.1 64.13c0-8.836 7.164-16 16-16h128L384 96c0 17.67 14.33 32 32 32h47.1V320zM272 448c0 8.836-7.164 16-16 16H63.1c-8.838 0-16-7.164-16-16L47.98 192.1c0-8.836 7.164-16 16-16H160V128H63.99c-35.35 0-64 28.65-64 64l.0098 256C.002 483.3 28.66 512 64 512h192c35.2 0 64-28.8 64-64v-32h-47.1L272 448z"/></svg></span></template>
+        <template id=fa-play><span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M73 39c-14.8-9.1-33.4-9.4-48.5-.9S0 62.6 0 80V432c0 17.4 9.4 33.4 24.5 41.9s33.7 8.1 48.5-.9L361 297c14.3-8.7 23-24.2 23-41s-8.7-32.2-23-41L73 39z"/></svg></span></template>
+        <template id=fa-clock-rotate-left><span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M75 75L41 41C25.9 25.9 0 36.6 0 57.9V168c0 13.3 10.7 24 24 24H134.1c21.4 0 32.1-25.9 17-41l-30.8-30.8C155 85.5 203 64 256 64c106 0 192 86 192 192s-86 192-192 192c-40.8 0-78.6-12.7-109.7-34.4c-14.5-10.1-34.4-6.6-44.6 7.9s-6.6 34.4 7.9 44.6C151.2 495 201.7 512 256 512c141.4 0 256-114.6 256-256S397.4 0 256 0C185.3 0 121.3 28.7 75 75zm181 53c-13.3 0-24 10.7-24 24V256c0 6.4 2.5 12.5 7 17l72 72c9.4 9.4 24.6 9.4 33.9 0s9.4-24.6 0-33.9l-65-65V152c0-13.3-10.7-24-24-24z"/></svg></span></template>
+
+
+
+        <script>
+            window.playground_copyable = true;
+        </script>
+
+
+        <script src="../elasticlunr-ef4e11c1.min.js"></script>
+        <script src="../mark-09e88c2c.min.js"></script>
+        <script src="../searcher-09f2665d.js"></script>
+
+        <script src="../clipboard-1626706a.min.js"></script>
+        <script src="../highlight-abc7f01d.js"></script>
+        <script src="../book-609e4cb8.js"></script>
+
+        <!-- Custom JS scripts -->
+
+
+
+    </div>
+    </body>
+</html>

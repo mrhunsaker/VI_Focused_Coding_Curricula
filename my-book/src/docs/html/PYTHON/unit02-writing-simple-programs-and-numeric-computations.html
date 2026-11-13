@@ -1,0 +1,733 @@
+<!DOCTYPE HTML>
+<html lang="en" class="rust sidebar-visible" dir="ltr">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>Unit 2 - Accessible Introduction to Computer Science</title>
+
+
+        <!-- Custom HTML head -->
+
+        <meta name="description" content="Introductory programming curricula, each adapted for visually impaired students who use screen readers">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff">
+
+        <link rel="icon" href="../favicon-de23e50b.svg">
+        <link rel="shortcut icon" href="../favicon-8114d1fc.png">
+        <link rel="stylesheet" href="../css/variables-8adf115d.css">
+        <link rel="stylesheet" href="../css/general-e96d0476.css">
+        <link rel="stylesheet" href="../css/chrome-d279d366.css">
+        <link rel="stylesheet" href="../css/print-9e4910d8.css" media="print">
+
+        <!-- Fonts -->
+        <link rel="stylesheet" href="../fonts/fonts-9644e21d.css">
+
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" id="mdbook-highlight-css" href="../highlight-493f70e1.css">
+        <link rel="stylesheet" id="mdbook-tomorrow-night-css" href="../tomorrow-night-4c0ae647.css">
+        <link rel="stylesheet" id="mdbook-ayu-highlight-css" href="../ayu-highlight-3fdfc3ac.css">
+
+        <!-- Custom theme stylesheets -->
+
+
+        <!-- Provide site root and default themes to javascript -->
+        <script>
+            const path_to_root = "../";
+            const default_light_theme = "rust";
+            const default_dark_theme = "navy";
+            window.path_to_searchindex_js = "../searchindex-1d296e4e.js";
+        </script>
+        <!-- Start loading toc.js asap -->
+        <script src="../toc-62d8efca.js"></script>
+    </head>
+    <body>
+    <div id="mdbook-help-container">
+        <div id="mdbook-help-popup">
+            <h2 class="mdbook-help-title">Keyboard shortcuts</h2>
+            <div>
+                <p>Press <kbd>←</kbd> or <kbd>→</kbd> to navigate between chapters</p>
+                <p>Press <kbd>S</kbd> or <kbd>/</kbd> to search in the book</p>
+                <p>Press <kbd>?</kbd> to show this help</p>
+                <p>Press <kbd>Esc</kbd> to hide this help</p>
+            </div>
+        </div>
+    </div>
+    <div id="mdbook-body-container">
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script>
+            try {
+                let theme = localStorage.getItem('mdbook-theme');
+                let sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script>
+            const default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? default_dark_theme : default_light_theme;
+            let theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            const html = document.documentElement;
+            html.classList.remove('rust')
+            html.classList.add(theme);
+            html.classList.add("js");
+        </script>
+
+        <input type="checkbox" id="mdbook-sidebar-toggle-anchor" class="hidden">
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script>
+            let sidebar = null;
+            const sidebar_toggle = document.getElementById("mdbook-sidebar-toggle-anchor");
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            } else {
+                sidebar = 'hidden';
+                sidebar_toggle.checked = false;
+            }
+            if (sidebar === 'visible') {
+                sidebar_toggle.checked = true;
+            } else {
+                html.classList.remove('sidebar-visible');
+            }
+        </script>
+
+        <nav id="mdbook-sidebar" class="sidebar" aria-label="Table of contents">
+            <!-- populated by js -->
+            <mdbook-sidebar-scrollbox class="sidebar-scrollbox"></mdbook-sidebar-scrollbox>
+            <noscript>
+                <iframe class="sidebar-iframe-outer" src="../toc.html"></iframe>
+            </noscript>
+            <div id="mdbook-sidebar-resize-handle" class="sidebar-resize-handle">
+                <div class="sidebar-resize-indicator"></div>
+            </div>
+        </nav>
+
+        <div id="mdbook-page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                <div id="mdbook-menu-bar-hover-placeholder"></div>
+                <div id="mdbook-menu-bar" class="menu-bar sticky">
+                    <div class="left-buttons">
+                        <label id="mdbook-sidebar-toggle" class="icon-button" for="mdbook-sidebar-toggle-anchor" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="mdbook-sidebar">
+                            <span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M0 96C0 78.3 14.3 64 32 64H416c17.7 0 32 14.3 32 32s-14.3 32-32 32H32C14.3 128 0 113.7 0 96zM0 256c0-17.7 14.3-32 32-32H416c17.7 0 32 14.3 32 32s-14.3 32-32 32H32c-17.7 0-32-14.3-32-32zM448 416c0 17.7-14.3 32-32 32H32c-17.7 0-32-14.3-32-32s14.3-32 32-32H416c17.7 0 32 14.3 32 32z"/></svg></span>
+                        </label>
+                        <button id="mdbook-theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="mdbook-theme-list">
+                            <span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M371.3 367.1c27.3-3.9 51.9-19.4 67.2-42.9L600.2 74.1c12.6-19.5 9.4-45.3-7.6-61.2S549.7-4.4 531.1 9.6L294.4 187.2c-24 18-38.2 46.1-38.4 76.1L371.3 367.1zm-19.6 25.4l-116-104.4C175.9 290.3 128 339.6 128 400c0 3.9 .2 7.8 .6 11.6c1.8 17.5-10.2 36.4-27.8 36.4H96c-17.7 0-32 14.3-32 32s14.3 32 32 32H240c61.9 0 112-50.1 112-112c0-2.5-.1-5-.2-7.5z"/></svg></span>
+                        </button>
+                        <ul id="mdbook-theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="mdbook-theme-default_theme">Auto</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="mdbook-theme-light">Light</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="mdbook-theme-rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="mdbook-theme-coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="mdbook-theme-navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="mdbook-theme-ayu">Ayu</button></li>
+                        </ul>
+                        <button id="mdbook-search-toggle" class="icon-button" type="button" title="Search (`/`)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="/ s" aria-controls="mdbook-searchbar">
+                            <span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M416 208c0 45.9-14.9 88.3-40 122.7L502.6 457.4c12.5 12.5 12.5 32.8 0 45.3s-32.8 12.5-45.3 0L330.7 376c-34.4 25.2-76.8 40-122.7 40C93.1 416 0 322.9 0 208S93.1 0 208 0S416 93.1 416 208zM208 352c79.5 0 144-64.5 144-144s-64.5-144-144-144S64 128.5 64 208s64.5 144 144 144z"/></svg></span>
+                        </button>
+                    </div>
+
+                    <h1 class="menu-title">Accessible Introduction to Computer Science</h1>
+
+                    <div class="right-buttons">
+                        <a href="../print.html" title="Print this book" aria-label="Print this book">
+                            <span class=fa-svg id="print-button"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M128 0C92.7 0 64 28.7 64 64v96h64V64H354.7L384 93.3V160h64V93.3c0-17-6.7-33.3-18.7-45.3L400 18.7C388 6.7 371.7 0 354.7 0H128zM384 352v32 64H128V384 368 352H384zm64 32h32c17.7 0 32-14.3 32-32V256c0-35.3-28.7-64-64-64H64c-35.3 0-64 28.7-64 64v96c0 17.7 14.3 32 32 32H64v64c0 35.3 28.7 64 64 64H384c35.3 0 64-28.7 64-64V384zm-16-88c-13.3 0-24-10.7-24-24s10.7-24 24-24s24 10.7 24 24s-10.7 24-24 24z"/></svg></span>
+                        </a>
+                        <a href="https://github.com/mrhunsaker/VI_Focused_Coding_Curricula" title="Git repository" aria-label="Git repository">
+                            <span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"/></svg></span>
+                        </a>
+
+                    </div>
+                </div>
+
+                <div id="mdbook-search-wrapper" class="hidden">
+                    <form id="mdbook-searchbar-outer" class="searchbar-outer">
+                        <div class="search-wrapper">
+                            <input type="search" id="mdbook-searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="mdbook-searchresults-outer" aria-describedby="searchresults-header">
+                            <div class="spinner-wrapper">
+                                <span class=fa-svg id="fa-spin"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M304 48c0-26.5-21.5-48-48-48s-48 21.5-48 48s21.5 48 48 48s48-21.5 48-48zm0 416c0-26.5-21.5-48-48-48s-48 21.5-48 48s21.5 48 48 48s48-21.5 48-48zM48 304c26.5 0 48-21.5 48-48s-21.5-48-48-48s-48 21.5-48 48s21.5 48 48 48zm464-48c0-26.5-21.5-48-48-48s-48 21.5-48 48s21.5 48 48 48s48-21.5 48-48zM142.9 437c18.7-18.7 18.7-49.1 0-67.9s-49.1-18.7-67.9 0s-18.7 49.1 0 67.9s49.1 18.7 67.9 0zm0-294.2c18.7-18.7 18.7-49.1 0-67.9S93.7 56.2 75 75s-18.7 49.1 0 67.9s49.1 18.7 67.9 0zM369.1 437c18.7 18.7 49.1 18.7 67.9 0s18.7-49.1 0-67.9s-49.1-18.7-67.9 0s-18.7 49.1 0 67.9z"/></svg></span>
+                            </div>
+                        </div>
+                    </form>
+                    <div id="mdbook-searchresults-outer" class="searchresults-outer hidden">
+                        <div id="mdbook-searchresults-header" class="searchresults-header"></div>
+                        <ul id="mdbook-searchresults">
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script>
+                    document.getElementById('mdbook-sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('mdbook-sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#mdbook-sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="mdbook-content" class="content">
+                    <main>
+                        <h1 id="unit-2-writing-simple-programs-and-numeric-computations"><a class="header" href="#unit-2-writing-simple-programs-and-numeric-computations">Unit 2: Writing Simple Programs and Numeric Computations</a></h1>
+<h2 id="overview"><a class="header" href="#overview">Overview</a></h2>
+<p><strong>Compatibility:</strong> All code examples in this curriculum target Python 3.12 and newer. The course avoids syntax and APIs introduced after Python 3.12.</p>
+<p>This unit explores the software development process, more complex numeric operations, and how to obtain and use input from users.</p>
+<p><strong>Objectives:</strong></p>
+<ul>
+<li>Understand the phases of software development.</li>
+<li>Work with different numeric data types (integers, floats).</li>
+<li>Perform type conversions.</li>
+<li>Use mathematical operators and the math library.</li>
+<li>Get user input with <code>input()</code>.</li>
+</ul>
+<hr>
+<h2 id="lesson-21-the-software-development-process"><a class="header" href="#lesson-21-the-software-development-process">Lesson 2.1: The Software Development Process</a></h2>
+<h3 id="reading-references"><a class="header" href="#reading-references">Reading References</a></h3>
+<ul>
+<li>Zelle: Chapter 2, pages 21–22 and pages 35–36</li>
+</ul>
+<h3 id="learning-objectives"><a class="header" href="#learning-objectives">Learning Objectives</a></h3>
+<ul>
+<li>Describe the purpose of the software development process.</li>
+<li>List and briefly explain the main phases of software development.</li>
+<li>Understand that problem-solving and design happen before writing code.</li>
+</ul>
+<h3 id="concept-explanation"><a class="header" href="#concept-explanation">Concept Explanation</a></h3>
+<h4 id="the-three-phase-development-process"><a class="header" href="#the-three-phase-development-process">The Three-Phase Development Process</a></h4>
+<p><strong>1. Design (Plan first)</strong>
+Before writing any code, fully understand the problem:</p>
+<ul>
+<li>Identify <strong>inputs</strong> (information the program needs) and <strong>outputs</strong> (results it must produce).</li>
+<li>Write an <strong>algorithm</strong> — a step-by-step plan in plain English (<strong>pseudocode</strong>).</li>
+<li>Consider <strong>edge cases</strong> — unusual inputs that might break your program.</li>
+</ul>
+<p><strong>2. Implement (Write the code)</strong></p>
+<ul>
+<li>Translate your design into Python syntax.</li>
+<li>Code <strong>incrementally</strong> — build in small pieces and test as you go.</li>
+<li>Follow coding standards and use descriptive variable names.</li>
+</ul>
+<p><strong>3. Test and Debug (Verify it works)</strong></p>
+<ul>
+<li>Run with a variety of inputs, including normal values and edge cases.</li>
+<li>Read error messages carefully — they tell you the type of error and the line number.</li>
+<li>Use <code>print()</code> statements to check variable values during debugging.</li>
+</ul>
+<h4 id="why-this-process-matters"><a class="header" href="#why-this-process-matters">Why This Process Matters</a></h4>
+<ul>
+<li><strong>Reduces frustration</strong> — Having a plan prevents getting stuck.</li>
+<li><strong>Improves code quality</strong> — A thoughtful design leads to cleaner code.</li>
+<li><strong>Simplifies debugging</strong> — Test each component in isolation.</li>
+<li><strong>Saves time</strong> — Good design prevents time-consuming rewrites.</li>
+</ul>
+<h3 id="worked-example"><a class="header" href="#worked-example">Worked Example</a></h3>
+<p>Implement the pseudocode from the activity below with the shared values (bill 24.50, tip rate 0.15):</p>
+<pre><code class="language-python">bill = 24.5
+tip_rate = 0.15
+
+tip = bill * tip_rate
+total = bill + tip
+
+print(f"Bill: {bill:.2f}")
+print(f"Tip: {tip:.2f}")
+print(f"Total: {total:.2f}")
+</code></pre>
+<h3 id="expected-behavior-or-output"><a class="header" href="#expected-behavior-or-output">Expected Behavior or Output</a></h3>
+<p>Output of example 1:</p>
+<pre><code>Bill: 24.50
+Tip: 3.67
+Total: 28.18
+</code></pre>
+<h3 id="common-mistakes"><a class="header" href="#common-mistakes">Common Mistakes</a></h3>
+<ol>
+<li>Writing the rate as 15 instead of 0.15, which makes the tip fifteen times too large.</li>
+<li>Rounding the tip before adding it to the bill, which can change the total by a cent.</li>
+<li>Skipping tests for a zero bill or a negative bill.</li>
+</ol>
+<h3 id="activities"><a class="header" href="#activities">Activities</a></h3>
+<p><strong>Activity 2.1.1: Planning a Tip Calculator</strong>
+Write pseudocode before coding:</p>
+<pre><code>1. GET bill amount from user
+2. CALCULATE tip as 15% of bill amount
+3. CALCULATE total amount (bill + tip)
+4. PRINT tip amount
+5. PRINT total amount
+</code></pre>
+<p>Trace this plan with the shared calculator values: the bill is 24.50 and the tip rate is 0.15. The tip is 24.50 × 0.15 = 3.675 and the total is 24.50 + 3.675 = 28.175. Shown with two decimal places, Python displays the tip as 3.67 and the total as 28.18, because 3.675 cannot be stored exactly in binary floating point. You will implement this plan in Lesson 2.4.</p>
+<p><strong>Activity 2.1.2: Tracing a Simple Program</strong>
+Without running the code, trace the execution and predict output:</p>
+<pre><code class="language-python">a = 10
+b = 5
+c = a * b
+a = a + 2
+print(c)
+print(a)
+</code></pre>
+<h3 id="accessibility-practice"><a class="header" href="#accessibility-practice">Accessibility Practice</a></h3>
+<p>Write the design steps as a numbered list and print every result on its own labelled line (<code>Tip: 3.67</code>), so a screen reader reads each result as one clear unit. Do not use alignment or spacing to convey meaning.</p>
+<h3 id="skills-checklist"><a class="header" href="#skills-checklist">Skills Checklist</a></h3>
+<ul>
+<li><input disabled="" type="checkbox"> I can describe the purpose of the software development process.</li>
+<li><input disabled="" type="checkbox"> I can list and briefly explain the main phases of software development.</li>
+<li><input disabled="" type="checkbox"> I understand that problem-solving and design happen before writing code.</li>
+</ul>
+<hr>
+<h2 id="lesson-22-elements-of-programs--expressions-and-assignment"><a class="header" href="#lesson-22-elements-of-programs--expressions-and-assignment">Lesson 2.2: Elements of Programs — Expressions and Assignment</a></h2>
+<h3 id="reading-references-1"><a class="header" href="#reading-references-1">Reading References</a></h3>
+<ul>
+<li>Zelle: Chapter 2, pages 24–26</li>
+</ul>
+<h3 id="learning-objectives-1"><a class="header" href="#learning-objectives-1">Learning Objectives</a></h3>
+<ul>
+<li>Identify an expression in Python code.</li>
+<li>Predict the result of simple Python expressions.</li>
+<li>Explain how the assignment operator <code>=</code> works.</li>
+<li>Demonstrate how to update a variable’s value.</li>
+</ul>
+<h3 id="concept-explanation-1"><a class="header" href="#concept-explanation-1">Concept Explanation</a></h3>
+<h4 id="expressions-and-assignment"><a class="header" href="#expressions-and-assignment">Expressions and Assignment</a></h4>
+<p>An <strong>expression</strong> is any combination of values, variables, and operators that evaluates to a single result. Python follows the standard mathematical order of operations (PEMDAS).</p>
+<pre><code class="language-python">result1 = 10 / 2 + 3  # 10/2 is 5, then 5+3 = 8.0
+message = "Python" + " " + "is fun!"
+</code></pre>
+<p><strong>Assignment:</strong></p>
+<pre><code class="language-python">score = 82
+score = score + 9  # score is now 91
+</code></pre>
+<h3 id="worked-example-1"><a class="header" href="#worked-example-1">Worked Example</a></h3>
+<p><strong>Example 2.2.1: Expression Evaluation</strong></p>
+<pre><code class="language-python">result1 = 10 / 2 + 3
+print("Result 1:", result1)   # Output: Result 1: 8.0
+print("Precedence:", 8 + 4 * 2)   # Output: Precedence: 16
+print("Grouped:", (8 + 4) * 2)    # Output: Grouped: 24
+
+message = "Python" + " " + "is fun!"
+print("Message:", message)    # Output: Message: Python is fun!
+</code></pre>
+<p><strong>Example 2.2.2: Reassigning Variables</strong></p>
+<pre><code class="language-python">score = 82
+print("Initial score:", score)
+score = score + 9
+print("New score:", score)     # Output: New score: 91
+</code></pre>
+<h3 id="expected-behavior-or-output-1"><a class="header" href="#expected-behavior-or-output-1">Expected Behavior or Output</a></h3>
+<p>Output of example 1:</p>
+<pre><code>Result 1: 8.0
+Precedence: 16
+Grouped: 24
+Message: Python is fun!
+</code></pre>
+<p>Output of example 2:</p>
+<pre><code>Initial score: 82
+New score: 91
+</code></pre>
+<h3 id="common-mistakes-1"><a class="header" href="#common-mistakes-1">Common Mistakes</a></h3>
+<ol>
+<li>Reading <code>=</code> as “equals”. In an assignment it means “store the value on the right in the name on the left.”</li>
+<li>Forgetting that <code>/</code> always gives a float, so <code>10 / 2</code> is <code>5.0</code>, not <code>5</code>.</li>
+<li>Expecting <code>8 + 4 * 2</code> to be 24. Multiplication happens first, so it is 16; use parentheses to change the order.</li>
+</ol>
+<h3 id="activities-1"><a class="header" href="#activities-1">Activities</a></h3>
+<ol>
+<li>Predict the value of <code>8 + 4 * 2</code>, <code>(8 + 4) * 2</code>, <code>7 // 2</code>, <code>7 % 2</code>, and <code>2 ** 3</code>, then check each in Python.</li>
+<li>Start with <code>score = 82</code> and write two statements that raise it by 9 and then double it. Predict the result.</li>
+<li>Join the strings <code>"Avery"</code> and <code>"Student"</code> with a space between them using <code>+</code>.</li>
+<li>Explain, in two sentences, why <code>score = score + 9</code> is valid even though it looks like an impossible equation.</li>
+</ol>
+<h3 id="accessibility-practice-1"><a class="header" href="#accessibility-practice-1">Accessibility Practice</a></h3>
+<p>Say operators by name when reading code aloud: ‘double star’ for <code>**</code>, ‘double slash’ for <code>//</code>, ‘percent’ for <code>%</code>. Raise your screen reader’s punctuation level while reading expressions so that parentheses and operators are all announced.</p>
+<h3 id="skills-checklist-1"><a class="header" href="#skills-checklist-1">Skills Checklist</a></h3>
+<ul>
+<li><input disabled="" type="checkbox"> I can identify an expression in Python code.</li>
+<li><input disabled="" type="checkbox"> I can predict the result of simple Python expressions.</li>
+<li><input disabled="" type="checkbox"> I can explain how the assignment operator <code>=</code> works.</li>
+<li><input disabled="" type="checkbox"> I can demonstrate how to update a variable’s value.</li>
+</ul>
+<hr>
+<h2 id="lesson-23-input-and-output-revisited"><a class="header" href="#lesson-23-input-and-output-revisited">Lesson 2.3: Input and Output Revisited</a></h2>
+<h3 id="reading-references-2"><a class="header" href="#reading-references-2">Reading References</a></h3>
+<ul>
+<li>Zelle: Chapter 2, pages 27–33</li>
+<li>Matthes: Chapter 7, pages 114–116</li>
+</ul>
+<h3 id="learning-objectives-2"><a class="header" href="#learning-objectives-2">Learning Objectives</a></h3>
+<ul>
+<li>Use the <code>input()</code> function to ask the user for information.</li>
+<li>Provide a clear prompt message when using <code>input()</code>.</li>
+<li>Remember that <code>input()</code> returns a string, even for numbers.</li>
+<li>Combine text and variable values in a <code>print()</code> statement using f-strings.</li>
+</ul>
+<h3 id="concept-explanation-2"><a class="header" href="#concept-explanation-2">Concept Explanation</a></h3>
+<h4 id="the-input-function"><a class="header" href="#the-input-function">The <code>input()</code> Function</a></h4>
+<p>The <code>input()</code> function pauses program execution and waits for the user to type something and press Enter. <strong>It always returns a string.</strong></p>
+<pre><code class="language-python">user_name = input("What is your name? ")
+print(f"Hello, {user_name}! Nice to meet you.")
+</code></pre>
+<h4 id="f-strings-formatted-string-literals"><a class="header" href="#f-strings-formatted-string-literals">F-Strings (Formatted String Literals)</a></h4>
+<p>F-strings provide a clean way to embed variable values directly into a string:</p>
+<pre><code class="language-python">name = "Avery"
+age = 16
+print(f"Hello, {name}! You are {age} years old.")
+</code></pre>
+<h4 id="converting-input-for-calculations"><a class="header" href="#converting-input-for-calculations">Converting Input for Calculations</a></h4>
+<p>Since <code>input()</code> always returns a string, you must convert it for math:</p>
+<pre><code class="language-python">age_str = input("How old are you? ")
+age_int = int(age_str)
+print(f"Next year you will be {age_int + 1} years old.")
+</code></pre>
+<h3 id="worked-example-2"><a class="header" href="#worked-example-2">Worked Example</a></h3>
+<p><strong>Example 2.3.1: Basic Input</strong></p>
+<pre><code class="language-python">user_name = input("What is your name? ")
+print(f"Hello, {user_name}! Nice to meet you.")
+</code></pre>
+<p><strong>Example 2.3.2: Numeric Input and Calculation</strong></p>
+<pre><code class="language-python">user_name = input("Enter your name: ")
+
+num1_str = input("Enter the first number: ")
+num1 = int(num1_str)
+
+num2_str = input("Enter the second number: ")
+num2 = int(num2_str)
+
+sum_result = num1 + num2
+print(f"Hello, {user_name}!")
+print(f"The sum of {num1} and {num2} is {sum_result}.")
+</code></pre>
+<p>If the user types text that is not a whole number, <code>int()</code> raises a <code>ValueError</code>. Lesson 8.3 shows how to handle that.</p>
+<h3 id="expected-behavior-or-output-2"><a class="header" href="#expected-behavior-or-output-2">Expected Behavior or Output</a></h3>
+<p>Sample run (typed input shown after each prompt):</p>
+<pre><code>What is your name? Avery
+Hello, Avery! Nice to meet you.
+</code></pre>
+<p>Sample run (typed input shown after each prompt):</p>
+<pre><code>Enter your name: Avery
+Enter the first number: 12
+Enter the second number: 8
+Hello, Avery!
+The sum of 12 and 8 is 20.
+</code></pre>
+<h3 id="common-mistakes-2"><a class="header" href="#common-mistakes-2">Common Mistakes</a></h3>
+<ol>
+<li>Forgetting that <code>input()</code> always returns text. <code>"12" + "8"</code> joins the text to make <code>"128"</code>, and does not add.</li>
+<li>Calling <code>int()</code> on text that is not a whole number, which raises a <code>ValueError</code>.</li>
+<li>Writing a prompt that does not say what to type, such as <code>input("&gt; ")</code>.</li>
+</ol>
+<h3 id="activities-2"><a class="header" href="#activities-2">Activities</a></h3>
+<p><strong>Activity 2.3.1: Temperature Converter</strong></p>
+<pre><code class="language-python">fahrenheit_str = input("Enter temperature in Fahrenheit: ")
+fahrenheit = float(fahrenheit_str)
+celsius = (fahrenheit - 32) * 5 / 9
+print(f"{fahrenheit}°F is {celsius:.2f}°C")
+</code></pre>
+<h3 id="accessibility-practice-2"><a class="header" href="#accessibility-practice-2">Accessibility Practice</a></h3>
+<p>Write each prompt as a complete sentence that says what to enter, such as <code>Enter the first number: </code>, and end it with a space so the answer starts after it. Test the program with your screen reader to confirm the prompt is read before you start typing.</p>
+<h3 id="skills-checklist-2"><a class="header" href="#skills-checklist-2">Skills Checklist</a></h3>
+<ul>
+<li><input disabled="" type="checkbox"> I can use the <code>input()</code> function to ask the user for information.</li>
+<li><input disabled="" type="checkbox"> I can provide a clear prompt message when using <code>input()</code>.</li>
+<li><input disabled="" type="checkbox"> I remember that <code>input()</code> returns a string, even for numbers.</li>
+<li><input disabled="" type="checkbox"> I can combine text and variable values in a <code>print()</code> statement using f-strings.</li>
+</ul>
+<hr>
+<h2 id="lesson-24-computing-with-numbers-and-type-conversions"><a class="header" href="#lesson-24-computing-with-numbers-and-type-conversions">Lesson 2.4: Computing with Numbers and Type Conversions</a></h2>
+<h3 id="reading-references-3"><a class="header" href="#reading-references-3">Reading References</a></h3>
+<ul>
+<li>Zelle: Chapter 3, pages 41–48</li>
+<li>Matthes: Chapter 2, pages 26–28</li>
+</ul>
+<h3 id="learning-objectives-3"><a class="header" href="#learning-objectives-3">Learning Objectives</a></h3>
+<ul>
+<li>Identify when to use an integer versus a float.</li>
+<li>Convert a string to an integer using <code>int()</code>.</li>
+<li>Convert a string to a float using <code>float()</code>.</li>
+<li>Convert a number to a string using <code>str()</code>.</li>
+<li>Apply type conversions to perform calculations on user input.</li>
+<li>Understand and can apply the order of operations.</li>
+</ul>
+<h3 id="concept-explanation-3"><a class="header" href="#concept-explanation-3">Concept Explanation</a></h3>
+<h4 id="integers-and-floats"><a class="header" href="#integers-and-floats">Integers and Floats</a></h4>
+<div class="table-wrapper">
+<table>
+<thead>
+<tr><th>Type</th><th>Description</th><th>Example</th></tr>
+</thead>
+<tbody>
+<tr><td><code>int</code></td><td>Whole numbers (exact)</td><td><code>5</code>, <code>-20</code>, <code>1000000</code></td></tr>
+<tr><td><code>float</code></td><td>Numbers with decimals</td><td><code>3.14</code>, <code>-2.5</code>, <code>6.0</code></td></tr>
+</tbody>
+</table>
+</div>
+<p><strong>Key behaviors:</strong></p>
+<ul>
+<li>Division <code>/</code> always returns a float: <code>10 / 2</code> → <code>5.0</code></li>
+<li>Floor division <code>//</code> returns the integer part: <code>10 // 3</code> → <code>3</code></li>
+<li>Mixed operations promote to float: <code>10 + 3.5</code> → <code>13.5</code></li>
+</ul>
+<h4 id="type-conversion-functions"><a class="header" href="#type-conversion-functions">Type Conversion Functions</a></h4>
+<pre><code class="language-python">int("123")      # → 123  (truncates: int(3.9) → 3)
+float("3.14")   # → 3.14
+str(42)         # → "42"
+</code></pre>
+<h3 id="worked-example-3"><a class="header" href="#worked-example-3">Worked Example</a></h3>
+<p><strong>Example 2.4.1: Type Conversion</strong></p>
+<pre><code class="language-python">num_str = "123"
+num_int = int(num_str)
+print(f"String '{num_str}' as integer: {num_int}, type: {type(num_int)}")
+
+num_float = float(num_str)
+print(f"String '{num_str}' as float: {num_float}, type: {type(num_float)}")
+
+my_number = 42
+my_text = str(my_number)
+print(f"Integer {my_number} as string: '{my_text}', type: {type(my_text)}")
+</code></pre>
+<p><strong>Common Type Error:</strong></p>
+<pre><code class="language-python"># This will cause a TypeError:
+# print("My age is " + 14)
+# Fix: print("My age is " + str(14))
+# Or: print(f"My age is {14}")
+</code></pre>
+<p><strong>Example 2.4.2: Tip Calculator (shared calculator values)</strong></p>
+<pre><code class="language-python">bill = 24.5
+tip_rate = 0.15
+
+tip = bill * tip_rate
+total = bill + tip
+
+print(f"Bill: {bill:.2f}")
+print(f"Tip: {tip:.2f}")
+print(f"Total: {total:.2f}")
+</code></pre>
+<p>The unrounded values are 3.675 and 28.175. Python’s <code>:.2f</code> formatting displays 3.67 and 28.18. This is binary floating-point behavior, not a mistake in the program; other languages may round the tip to 3.68.</p>
+<h3 id="expected-behavior-or-output-3"><a class="header" href="#expected-behavior-or-output-3">Expected Behavior or Output</a></h3>
+<p>Expected output:</p>
+<pre><code>Bill: 24.50
+Tip: 3.67
+Total: 28.18
+</code></pre>
+<h3 id="common-mistakes-3"><a class="header" href="#common-mistakes-3">Common Mistakes</a></h3>
+<ol>
+<li>Converting with <code>int()</code> and expecting rounding. <code>int(3.9)</code> is <code>3</code> because it removes the fraction.</li>
+<li>Expecting <code>0.1 + 0.2</code> to equal exactly <code>0.3</code>. Floating-point numbers are approximations.</li>
+<li>Forgetting to convert typed text before arithmetic, then seeing <code>TypeError</code> or joined text instead of a sum.</li>
+</ol>
+<h3 id="activities-3"><a class="header" href="#activities-3">Activities</a></h3>
+<p><strong>Activity 2.4.1: Mixed Bag Calculator</strong></p>
+<pre><code class="language-python">age_str = input("Enter your age: ")
+age = int(age_str)
+
+height_str = input("Enter your height in meters: ")
+height = float(height_str)
+
+phrase = input("Enter a short phrase: ")
+
+print(f"Age doubled: {age * 2}")
+print(f"Height in centimeters: {height * 100:.1f}")
+print(f"Phrase length: {len(phrase)} characters")
+</code></pre>
+<p>Sample run (typed input shown after each prompt):</p>
+<pre><code>Enter your age: 16
+Enter your height in meters: 1.72
+Enter a short phrase: Computer Science
+Age doubled: 32
+Height in centimeters: 172.0
+Phrase length: 16 characters
+</code></pre>
+<h3 id="accessibility-practice-3"><a class="header" href="#accessibility-practice-3">Accessibility Practice</a></h3>
+<p>When printing floating-point results, format them (<code>:.2f</code>) so the screen reader reads a short number instead of a long unrounded one. Read the type names printed by <code>type()</code> aloud, and note that <code>&lt;class 'int'&gt;</code> is announced with its angle brackets.</p>
+<h3 id="skills-checklist-3"><a class="header" href="#skills-checklist-3">Skills Checklist</a></h3>
+<ul>
+<li><input disabled="" type="checkbox"> I can identify when to use an integer versus a float.</li>
+<li><input disabled="" type="checkbox"> I can convert a string to an integer using <code>int()</code>.</li>
+<li><input disabled="" type="checkbox"> I can convert a string to a float using <code>float()</code>.</li>
+<li><input disabled="" type="checkbox"> I can convert a number to a string using <code>str()</code>.</li>
+<li><input disabled="" type="checkbox"> I can apply type conversions to perform calculations on user input.</li>
+<li><input disabled="" type="checkbox"> I understand and can apply the order of operations.</li>
+</ul>
+<hr>
+<h2 id="lesson-25-using-the-math-library"><a class="header" href="#lesson-25-using-the-math-library">Lesson 2.5: Using the Math Library</a></h2>
+<h3 id="reading-references-4"><a class="header" href="#reading-references-4">Reading References</a></h3>
+<ul>
+<li>Zelle: Chapter 3, pages 49–51</li>
+</ul>
+<h3 id="learning-objectives-4"><a class="header" href="#learning-objectives-4">Learning Objectives</a></h3>
+<ul>
+<li>Explain what a Python module is.</li>
+<li>Import the <code>math</code> module into my program.</li>
+<li>Use <code>math.pi</code> and <code>math.sqrt()</code>.</li>
+<li>Use <code>math.ceil()</code> to round up and <code>math.floor()</code> to round down.</li>
+</ul>
+<h3 id="concept-explanation-4"><a class="header" href="#concept-explanation-4">Concept Explanation</a></h3>
+<h4 id="importing-the-math-module"><a class="header" href="#importing-the-math-module">Importing the Math Module</a></h4>
+<pre><code class="language-python">import math
+</code></pre>
+<h4 id="key-math-functions-and-constants"><a class="header" href="#key-math-functions-and-constants">Key Math Functions and Constants</a></h4>
+<div class="table-wrapper">
+<table>
+<thead>
+<tr><th>Function/Constant</th><th>Description</th><th>Example</th></tr>
+</thead>
+<tbody>
+<tr><td><code>math.pi</code></td><td>π ≈ 3.14159</td><td><code>math.pi</code></td></tr>
+<tr><td><code>math.e</code></td><td>e ≈ 2.71828</td><td><code>math.e</code></td></tr>
+<tr><td><code>math.sqrt(x)</code></td><td>Square root of x</td><td><code>math.sqrt(25)</code> → <code>5.0</code></td></tr>
+<tr><td><code>math.pow(x, y)</code></td><td>x raised to power y</td><td><code>math.pow(2, 4)</code> → <code>16.0</code></td></tr>
+<tr><td><code>math.ceil(x)</code></td><td>Round up</td><td><code>math.ceil(4.2)</code> → <code>5</code></td></tr>
+<tr><td><code>math.floor(x)</code></td><td>Round down</td><td><code>math.floor(4.8)</code> → <code>4</code></td></tr>
+<tr><td><code>math.log(x, base)</code></td><td>Logarithm</td><td><code>math.log(100, 10)</code> → <code>2.0</code></td></tr>
+<tr><td><code>math.sin(x)</code></td><td>Sine (in radians)</td><td><code>math.sin(math.pi/2)</code> → <code>1.0</code></td></tr>
+<tr><td><code>math.radians(deg)</code></td><td>Convert degrees to radians</td><td><code>math.radians(90)</code></td></tr>
+</tbody>
+</table>
+</div>
+<h3 id="worked-example-4"><a class="header" href="#worked-example-4">Worked Example</a></h3>
+<p><strong>Example 2.5.1: Circle Calculations</strong></p>
+<pre><code class="language-python">import math
+
+radius = 5
+area = math.pi * radius ** 2
+circumference = 2 * math.pi * radius
+
+print(f"Area of circle with radius {radius}: {area:.2f}")
+print(f"Circumference: {circumference:.2f}")
+
+number = 81
+square_root = math.sqrt(number)
+print(f"Square root of {number}: {square_root}")
+</code></pre>
+<h3 id="expected-behavior-or-output-4"><a class="header" href="#expected-behavior-or-output-4">Expected Behavior or Output</a></h3>
+<p>Output of example 1:</p>
+<pre><code>Area of circle with radius 5: 78.54
+Circumference: 31.42
+Square root of 81: 9.0
+</code></pre>
+<h3 id="common-mistakes-4"><a class="header" href="#common-mistakes-4">Common Mistakes</a></h3>
+<ol>
+<li>Forgetting <code>import math</code>, so <code>math.sqrt</code> raises a <code>NameError</code>.</li>
+<li>Writing <code>math.pi * radius * 2</code> for the area. The radius must be squared: <code>math.pi * radius ** 2</code>.</li>
+<li>Expecting <code>math.sqrt(81)</code> to print <code>9</code>. It prints <code>9.0</code> because square roots are floats.</li>
+</ol>
+<h3 id="activities-4"><a class="header" href="#activities-4">Activities</a></h3>
+<p><strong>Activity 2.5.1: Circle Calculator</strong></p>
+<pre><code class="language-python">import math
+
+radius_str = input("Enter the radius: ")
+radius = float(radius_str)
+
+area = math.pi * radius ** 2
+circumference = 2 * math.pi * radius
+
+print(f"Area: {area:.2f}")
+print(f"Circumference: {circumference:.2f}")
+</code></pre>
+<p><strong>Activity 2.5.2: Distance Finder</strong></p>
+<pre><code class="language-python">import math
+
+x = float(input("Enter x coordinate: "))
+y = float(input("Enter y coordinate: "))
+distance = math.sqrt(x**2 + y**2)
+print(f"Distance from origin: {distance:.2f}")
+</code></pre>
+<p>Sample run with the shared coordinates x = 3 and y = 4 (typed input shown after each prompt):</p>
+<pre><code>Enter x coordinate: 3
+Enter y coordinate: 4
+Distance from origin: 5.00
+</code></pre>
+<h3 id="accessibility-practice-4"><a class="header" href="#accessibility-practice-4">Accessibility Practice</a></h3>
+<p>Round results with <code>:.2f</code> so the screen reader announces <code>78.54</code> rather than fifteen digits. Say the dotted names aloud (‘math dot sqrt’) and listen for the dot, since a missing dot is a common transcription mistake when reading code by ear.</p>
+<h3 id="skills-checklist-4"><a class="header" href="#skills-checklist-4">Skills Checklist</a></h3>
+<ul>
+<li><input disabled="" type="checkbox"> I can explain what a Python module is.</li>
+<li><input disabled="" type="checkbox"> I can import the <code>math</code> module into my program.</li>
+<li><input disabled="" type="checkbox"> I can use <code>math.pi</code> and <code>math.sqrt()</code>.</li>
+<li><input disabled="" type="checkbox"> I can use <code>math.ceil()</code> to round up and <code>math.floor()</code> to round down.</li>
+</ul>
+<h2 id="canonical-shared-dataset--calculator-and-coordinates"><a class="header" href="#canonical-shared-dataset--calculator-and-coordinates">Canonical Shared Dataset — Calculator and Coordinates</a></h2>
+<p>Use the canonical bill and tip rate in every parallel-language implementation.</p>
+<pre><code class="language-python">from decimal import Decimal, ROUND_HALF_UP
+
+bill = Decimal("24.50")
+tip_rate = Decimal("0.15")
+tip = (bill * tip_rate).quantize(Decimal("0.01"), rounding=ROUND_HALF_UP)
+total = bill + tip
+print(f"Tip: ${tip:.2f}")
+print(f"Total: ${total:.2f}")
+</code></pre>
+<p>Expected output:</p>
+<pre><code class="language-text">Tip: $3.68
+Total: $28.18
+</code></pre>
+<p>Use the same coordinate values for the math-library example:</p>
+<pre><code class="language-python">import math
+x, y = 3, 4
+distance = math.sqrt(x**2 + y**2)
+print(distance)
+</code></pre>
+<p>Expected output: <code>5.0</code>. The shared monetary contract rounds the tip to cents using decimal half-up rounding before adding it to the bill. Use decimal arithmetic rather than binary floating-point formatting for currency.</p>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                            <a rel="prev" href="../PYTHON/unit01-foundations-of-computing-and-getting-started-with-pytho.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M41.4 233.4c-12.5 12.5-12.5 32.8 0 45.3l160 160c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L109.3 256 246.6 118.6c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0l-160 160z"/></svg></span>
+                            </a>
+
+                            <a rel="next prefetch" href="../PYTHON/unit03-control-flow-decisions-and-loops.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M278.6 233.4c12.5 12.5 12.5 32.8 0 45.3l-160 160c-12.5 12.5-32.8 12.5-45.3 0s-12.5-32.8 0-45.3L210.7 256 73.4 118.6c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0l160 160z"/></svg></span>
+                            </a>
+
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                    <a rel="prev" href="../PYTHON/unit01-foundations-of-computing-and-getting-started-with-pytho.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M41.4 233.4c-12.5 12.5-12.5 32.8 0 45.3l160 160c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L109.3 256 246.6 118.6c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0l-160 160z"/></svg></span>
+                    </a>
+
+                    <a rel="next prefetch" href="../PYTHON/unit03-control-flow-decisions-and-loops.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M278.6 233.4c12.5 12.5 12.5 32.8 0 45.3l-160 160c-12.5 12.5-32.8 12.5-45.3 0s-12.5-32.8 0-45.3L210.7 256 73.4 118.6c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0l160 160z"/></svg></span>
+                    </a>
+            </nav>
+
+        </div>
+
+        <template id=fa-eye><span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M288 32c-80.8 0-145.5 36.8-192.6 80.6C48.6 156 17.3 208 2.5 243.7c-3.3 7.9-3.3 16.7 0 24.6C17.3 304 48.6 356 95.4 399.4C142.5 443.2 207.2 480 288 480s145.5-36.8 192.6-80.6c46.8-43.5 78.1-95.4 93-131.1c3.3-7.9 3.3-16.7 0-24.6c-14.9-35.7-46.2-87.7-93-131.1C433.5 68.8 368.8 32 288 32zM432 256c0 79.5-64.5 144-144 144s-144-64.5-144-144s64.5-144 144-144s144 64.5 144 144zM288 192c0 35.3-28.7 64-64 64c-11.5 0-22.3-3-31.6-8.4c-.2 2.8-.4 5.5-.4 8.4c0 53 43 96 96 96s96-43 96-96s-43-96-96-96c-2.8 0-5.6 .1-8.4 .4c5.3 9.3 8.4 20.1 8.4 31.6z"/></svg></span></template>
+        <template id=fa-eye-slash><span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M38.8 5.1C28.4-3.1 13.3-1.2 5.1 9.2S-1.2 34.7 9.2 42.9l592 464c10.4 8.2 25.5 6.3 33.7-4.1s6.3-25.5-4.1-33.7L525.6 386.7c39.6-40.6 66.4-86.1 79.9-118.4c3.3-7.9 3.3-16.7 0-24.6c-14.9-35.7-46.2-87.7-93-131.1C465.5 68.8 400.8 32 320 32c-68.2 0-125 26.3-169.3 60.8L38.8 5.1zM223.1 149.5C248.6 126.2 282.7 112 320 112c79.5 0 144 64.5 144 144c0 24.9-6.3 48.3-17.4 68.7L408 294.5c5.2-11.8 8-24.8 8-38.5c0-53-43-96-96-96c-2.8 0-5.6 .1-8.4 .4c5.3 9.3 8.4 20.1 8.4 31.6c0 10.2-2.4 19.8-6.6 28.3l-90.3-70.8zm223.1 298L373 389.9c-16.4 6.5-34.3 10.1-53 10.1c-79.5 0-144-64.5-144-144c0-6.9 .5-13.6 1.4-20.2L83.1 161.5C60.3 191.2 44 220.8 34.5 243.7c-3.3 7.9-3.3 16.7 0 24.6c14.9 35.7 46.2 87.7 93 131.1C174.5 443.2 239.2 480 320 480c47.8 0 89.9-12.9 126.2-32.5z"/></svg></span></template>
+        <template id=fa-copy><span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M502.6 70.63l-61.25-61.25C435.4 3.371 427.2 0 418.7 0H255.1c-35.35 0-64 28.66-64 64l.0195 256C192 355.4 220.7 384 256 384h192c35.2 0 64-28.8 64-64V93.25C512 84.77 508.6 76.63 502.6 70.63zM464 320c0 8.836-7.164 16-16 16H255.1c-8.838 0-16-7.164-16-16L239.1 64.13c0-8.836 7.164-16 16-16h128L384 96c0 17.67 14.33 32 32 32h47.1V320zM272 448c0 8.836-7.164 16-16 16H63.1c-8.838 0-16-7.164-16-16L47.98 192.1c0-8.836 7.164-16 16-16H160V128H63.99c-35.35 0-64 28.65-64 64l.0098 256C.002 483.3 28.66 512 64 512h192c35.2 0 64-28.8 64-64v-32h-47.1L272 448z"/></svg></span></template>
+        <template id=fa-play><span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M73 39c-14.8-9.1-33.4-9.4-48.5-.9S0 62.6 0 80V432c0 17.4 9.4 33.4 24.5 41.9s33.7 8.1 48.5-.9L361 297c14.3-8.7 23-24.2 23-41s-8.7-32.2-23-41L73 39z"/></svg></span></template>
+        <template id=fa-clock-rotate-left><span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M75 75L41 41C25.9 25.9 0 36.6 0 57.9V168c0 13.3 10.7 24 24 24H134.1c21.4 0 32.1-25.9 17-41l-30.8-30.8C155 85.5 203 64 256 64c106 0 192 86 192 192s-86 192-192 192c-40.8 0-78.6-12.7-109.7-34.4c-14.5-10.1-34.4-6.6-44.6 7.9s-6.6 34.4 7.9 44.6C151.2 495 201.7 512 256 512c141.4 0 256-114.6 256-256S397.4 0 256 0C185.3 0 121.3 28.7 75 75zm181 53c-13.3 0-24 10.7-24 24V256c0 6.4 2.5 12.5 7 17l72 72c9.4 9.4 24.6 9.4 33.9 0s9.4-24.6 0-33.9l-65-65V152c0-13.3-10.7-24-24-24z"/></svg></span></template>
+
+
+
+        <script>
+            window.playground_copyable = true;
+        </script>
+
+
+        <script src="../elasticlunr-ef4e11c1.min.js"></script>
+        <script src="../mark-09e88c2c.min.js"></script>
+        <script src="../searcher-09f2665d.js"></script>
+
+        <script src="../clipboard-1626706a.min.js"></script>
+        <script src="../highlight-abc7f01d.js"></script>
+        <script src="../book-609e4cb8.js"></script>
+
+        <!-- Custom JS scripts -->
+
+
+
+    </div>
+    </body>
+</html>

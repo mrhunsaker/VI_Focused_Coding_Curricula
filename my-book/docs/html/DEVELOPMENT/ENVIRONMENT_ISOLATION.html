@@ -1,0 +1,437 @@
+<!DOCTYPE HTML>
+<html lang="en" class="rust sidebar-visible" dir="ltr">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>Project environments, dependency management, and containers - Accessible Introduction to Computer Science</title>
+
+
+        <!-- Custom HTML head -->
+
+        <meta name="description" content="Introductory programming curricula, each adapted for visually impaired students who use screen readers">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff">
+
+        <link rel="icon" href="../favicon-de23e50b.svg">
+        <link rel="shortcut icon" href="../favicon-8114d1fc.png">
+        <link rel="stylesheet" href="../css/variables-8adf115d.css">
+        <link rel="stylesheet" href="../css/general-e96d0476.css">
+        <link rel="stylesheet" href="../css/chrome-d279d366.css">
+        <link rel="stylesheet" href="../css/print-9e4910d8.css" media="print">
+
+        <!-- Fonts -->
+        <link rel="stylesheet" href="../fonts/fonts-9644e21d.css">
+
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" id="mdbook-highlight-css" href="../highlight-493f70e1.css">
+        <link rel="stylesheet" id="mdbook-tomorrow-night-css" href="../tomorrow-night-4c0ae647.css">
+        <link rel="stylesheet" id="mdbook-ayu-highlight-css" href="../ayu-highlight-3fdfc3ac.css">
+
+        <!-- Custom theme stylesheets -->
+
+
+        <!-- Provide site root and default themes to javascript -->
+        <script>
+            const path_to_root = "../";
+            const default_light_theme = "rust";
+            const default_dark_theme = "navy";
+            window.path_to_searchindex_js = "../searchindex-1d296e4e.js";
+        </script>
+        <!-- Start loading toc.js asap -->
+        <script src="../toc-62d8efca.js"></script>
+    </head>
+    <body>
+    <div id="mdbook-help-container">
+        <div id="mdbook-help-popup">
+            <h2 class="mdbook-help-title">Keyboard shortcuts</h2>
+            <div>
+                <p>Press <kbd>←</kbd> or <kbd>→</kbd> to navigate between chapters</p>
+                <p>Press <kbd>S</kbd> or <kbd>/</kbd> to search in the book</p>
+                <p>Press <kbd>?</kbd> to show this help</p>
+                <p>Press <kbd>Esc</kbd> to hide this help</p>
+            </div>
+        </div>
+    </div>
+    <div id="mdbook-body-container">
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script>
+            try {
+                let theme = localStorage.getItem('mdbook-theme');
+                let sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script>
+            const default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? default_dark_theme : default_light_theme;
+            let theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            const html = document.documentElement;
+            html.classList.remove('rust')
+            html.classList.add(theme);
+            html.classList.add("js");
+        </script>
+
+        <input type="checkbox" id="mdbook-sidebar-toggle-anchor" class="hidden">
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script>
+            let sidebar = null;
+            const sidebar_toggle = document.getElementById("mdbook-sidebar-toggle-anchor");
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            } else {
+                sidebar = 'hidden';
+                sidebar_toggle.checked = false;
+            }
+            if (sidebar === 'visible') {
+                sidebar_toggle.checked = true;
+            } else {
+                html.classList.remove('sidebar-visible');
+            }
+        </script>
+
+        <nav id="mdbook-sidebar" class="sidebar" aria-label="Table of contents">
+            <!-- populated by js -->
+            <mdbook-sidebar-scrollbox class="sidebar-scrollbox"></mdbook-sidebar-scrollbox>
+            <noscript>
+                <iframe class="sidebar-iframe-outer" src="../toc.html"></iframe>
+            </noscript>
+            <div id="mdbook-sidebar-resize-handle" class="sidebar-resize-handle">
+                <div class="sidebar-resize-indicator"></div>
+            </div>
+        </nav>
+
+        <div id="mdbook-page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                <div id="mdbook-menu-bar-hover-placeholder"></div>
+                <div id="mdbook-menu-bar" class="menu-bar sticky">
+                    <div class="left-buttons">
+                        <label id="mdbook-sidebar-toggle" class="icon-button" for="mdbook-sidebar-toggle-anchor" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="mdbook-sidebar">
+                            <span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M0 96C0 78.3 14.3 64 32 64H416c17.7 0 32 14.3 32 32s-14.3 32-32 32H32C14.3 128 0 113.7 0 96zM0 256c0-17.7 14.3-32 32-32H416c17.7 0 32 14.3 32 32s-14.3 32-32 32H32c-17.7 0-32-14.3-32-32zM448 416c0 17.7-14.3 32-32 32H32c-17.7 0-32-14.3-32-32s14.3-32 32-32H416c17.7 0 32 14.3 32 32z"/></svg></span>
+                        </label>
+                        <button id="mdbook-theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="mdbook-theme-list">
+                            <span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M371.3 367.1c27.3-3.9 51.9-19.4 67.2-42.9L600.2 74.1c12.6-19.5 9.4-45.3-7.6-61.2S549.7-4.4 531.1 9.6L294.4 187.2c-24 18-38.2 46.1-38.4 76.1L371.3 367.1zm-19.6 25.4l-116-104.4C175.9 290.3 128 339.6 128 400c0 3.9 .2 7.8 .6 11.6c1.8 17.5-10.2 36.4-27.8 36.4H96c-17.7 0-32 14.3-32 32s14.3 32 32 32H240c61.9 0 112-50.1 112-112c0-2.5-.1-5-.2-7.5z"/></svg></span>
+                        </button>
+                        <ul id="mdbook-theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="mdbook-theme-default_theme">Auto</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="mdbook-theme-light">Light</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="mdbook-theme-rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="mdbook-theme-coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="mdbook-theme-navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="mdbook-theme-ayu">Ayu</button></li>
+                        </ul>
+                        <button id="mdbook-search-toggle" class="icon-button" type="button" title="Search (`/`)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="/ s" aria-controls="mdbook-searchbar">
+                            <span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M416 208c0 45.9-14.9 88.3-40 122.7L502.6 457.4c12.5 12.5 12.5 32.8 0 45.3s-32.8 12.5-45.3 0L330.7 376c-34.4 25.2-76.8 40-122.7 40C93.1 416 0 322.9 0 208S93.1 0 208 0S416 93.1 416 208zM208 352c79.5 0 144-64.5 144-144s-64.5-144-144-144S64 128.5 64 208s64.5 144 144 144z"/></svg></span>
+                        </button>
+                    </div>
+
+                    <h1 class="menu-title">Accessible Introduction to Computer Science</h1>
+
+                    <div class="right-buttons">
+                        <a href="../print.html" title="Print this book" aria-label="Print this book">
+                            <span class=fa-svg id="print-button"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M128 0C92.7 0 64 28.7 64 64v96h64V64H354.7L384 93.3V160h64V93.3c0-17-6.7-33.3-18.7-45.3L400 18.7C388 6.7 371.7 0 354.7 0H128zM384 352v32 64H128V384 368 352H384zm64 32h32c17.7 0 32-14.3 32-32V256c0-35.3-28.7-64-64-64H64c-35.3 0-64 28.7-64 64v96c0 17.7 14.3 32 32 32H64v64c0 35.3 28.7 64 64 64H384c35.3 0 64-28.7 64-64V384zm-16-88c-13.3 0-24-10.7-24-24s10.7-24 24-24s24 10.7 24 24s-10.7 24-24 24z"/></svg></span>
+                        </a>
+                        <a href="https://github.com/mrhunsaker/VI_Focused_Coding_Curricula" title="Git repository" aria-label="Git repository">
+                            <span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"/></svg></span>
+                        </a>
+
+                    </div>
+                </div>
+
+                <div id="mdbook-search-wrapper" class="hidden">
+                    <form id="mdbook-searchbar-outer" class="searchbar-outer">
+                        <div class="search-wrapper">
+                            <input type="search" id="mdbook-searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="mdbook-searchresults-outer" aria-describedby="searchresults-header">
+                            <div class="spinner-wrapper">
+                                <span class=fa-svg id="fa-spin"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M304 48c0-26.5-21.5-48-48-48s-48 21.5-48 48s21.5 48 48 48s48-21.5 48-48zm0 416c0-26.5-21.5-48-48-48s-48 21.5-48 48s21.5 48 48 48s48-21.5 48-48zM48 304c26.5 0 48-21.5 48-48s-21.5-48-48-48s-48 21.5-48 48s21.5 48 48 48zm464-48c0-26.5-21.5-48-48-48s-48 21.5-48 48s21.5 48 48 48s48-21.5 48-48zM142.9 437c18.7-18.7 18.7-49.1 0-67.9s-49.1-18.7-67.9 0s-18.7 49.1 0 67.9s49.1 18.7 67.9 0zm0-294.2c18.7-18.7 18.7-49.1 0-67.9S93.7 56.2 75 75s-18.7 49.1 0 67.9s49.1 18.7 67.9 0zM369.1 437c18.7 18.7 49.1 18.7 67.9 0s18.7-49.1 0-67.9s-49.1-18.7-67.9 0s-18.7 49.1 0 67.9z"/></svg></span>
+                            </div>
+                        </div>
+                    </form>
+                    <div id="mdbook-searchresults-outer" class="searchresults-outer hidden">
+                        <div id="mdbook-searchresults-header" class="searchresults-header"></div>
+                        <ul id="mdbook-searchresults">
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script>
+                    document.getElementById('mdbook-sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('mdbook-sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#mdbook-sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="mdbook-content" class="content">
+                    <main>
+                        <h1 id="project-environments-dependency-management-and-development-containers"><a class="header" href="#project-environments-dependency-management-and-development-containers">Project Environments, Dependency Management, and Development Containers</a></h1>
+<h2 id="purpose"><a class="header" href="#purpose">Purpose</a></h2>
+<p>A project environment is the collection of language runtimes, compilers, libraries, tools, configuration, and data assumptions needed to work on a project. Environment isolation keeps one project’s dependencies from unintentionally changing another project’s behavior.</p>
+<p>This lesson explains the concepts and common professional patterns. It is not an installation guide. Commands shown in language-specific pages are examples for recognizing project workflows; use those pages for the supported toolchain and commands.</p>
+<p>For this curriculum, a repository-defined <strong>Development Container (Dev Container)</strong> is the preferred model when learners must use a consistent compiler, linter, formatter, test runner, and supporting system libraries. See <a href="IDE_SETUP.html">Development Editors, IDEs, and Project Development Containers</a> for the broader editor and container-runtime discussion.</p>
+<h2 id="learning-objectives"><a class="header" href="#learning-objectives">Learning objectives</a></h2>
+<p>By the end of this lesson, learners should be able to:</p>
+<ol>
+<li>Explain the difference between a language runtime, compiler, package manager, dependency, and project environment.</li>
+<li>Describe why dependencies should be scoped to a project.</li>
+<li>Identify common dependency manifests and lockfiles.</li>
+<li>Explain the purpose of environment variables and secrets.</li>
+<li>Distinguish virtual environments, development containers, application containers, virtual machines, and hosted workspaces.</li>
+<li>Explain the roles and differences of Docker and Podman.</li>
+<li>Describe how reproducible environments support linting, compilation, testing, and collaboration.</li>
+</ol>
+<h2 id="core-vocabulary"><a class="header" href="#core-vocabulary">Core vocabulary</a></h2>
+<ul>
+<li><strong>Runtime:</strong> software that executes a program, such as the Python interpreter, Node.js, Java Virtual Machine, .NET runtime, or Julia runtime.</li>
+<li><strong>Compiler:</strong> software that translates source code into another representation, often machine code or bytecode.</li>
+<li><strong>Package:</strong> a reusable unit of software distributed for use by other projects.</li>
+<li><strong>Dependency:</strong> a package, runtime, tool, or service a project requires.</li>
+<li><strong>Package manager:</strong> a tool that resolves, downloads, records, and sometimes executes dependencies.</li>
+<li><strong>Manifest:</strong> a project file that declares metadata and direct dependencies.</li>
+<li><strong>Lockfile:</strong> a generated record of resolved dependency versions and often integrity metadata, intended to make installations more repeatable.</li>
+<li><strong>Virtual environment:</strong> an isolated language-level environment for a project, such as Python’s .venv.</li>
+<li><strong>Container image:</strong> a versioned template containing a filesystem and metadata from which containers are created.</li>
+<li><strong>Container:</strong> an isolated process environment that shares the host operating-system kernel while isolating filesystem, process, and network resources according to its configuration.</li>
+<li><strong>Development Container (Dev Container):</strong> a containerized development workspace, described by project metadata such as devcontainer.json, containing the tools and services needed to work on a codebase.</li>
+<li><strong>Container engine/runtime:</strong> software that builds, creates, starts, and manages containers and images, such as Docker Engine or Podman.</li>
+<li><strong>Virtual machine:</strong> a virtualized computer with its own guest operating system and kernel.</li>
+<li><strong>Hosted workspace:</strong> a development environment provided remotely by an institution or service.</li>
+</ul>
+<h2 id="why-isolation-matters"><a class="header" href="#why-isolation-matters">Why isolation matters</a></h2>
+<p>Suppose Project A requires version 1 of a library and Project B requires version 2. Installing both as global packages can cause one project to break when the shared installation changes. Project-scoped dependencies make each project’s requirements explicit.</p>
+<p>Isolation improves reproducibility, testing, security review, maintenance, and collaboration. It does not guarantee safety: a malicious dependency can still execute code, and a container can still be misconfigured or granted excessive access.</p>
+<h2 id="common-project-records"><a class="header" href="#common-project-records">Common project records</a></h2>
+<div class="table-wrapper">
+<table>
+<thead>
+<tr><th>Ecosystem</th><th>Common manifest or project record</th><th>Locking or reproducibility record</th></tr>
+</thead>
+<tbody>
+<tr><td>Python</td><td>pyproject.toml</td><td>uv.lock or another tool-specific lockfile</td></tr>
+<tr><td>JavaScript / TypeScript</td><td>package.json</td><td>package-lock.json, pnpm-lock.yaml, or yarn.lock</td></tr>
+<tr><td>Java</td><td>pom.xml or Gradle build files</td><td>Wrapper and pinned plugin/dependency versions</td></tr>
+<tr><td>Kotlin/JVM</td><td>Gradle build files</td><td>Gradle wrapper and dependency locking where used</td></tr>
+<tr><td>.NET</td><td>.csproj and solution files</td><td>Central package management and lock files where configured</td></tr>
+<tr><td>Rust</td><td>Cargo.toml</td><td>Cargo.lock</td></tr>
+<tr><td>Go</td><td>go.mod</td><td>go.sum</td></tr>
+<tr><td>Julia</td><td>Project.toml</td><td>Manifest.toml</td></tr>
+<tr><td>Lua</td><td>rockspec or project-specific records</td><td>Tool- and project-specific lock/metadata files</td></tr>
+</tbody>
+</table>
+</div>
+<p>A lockfile should be reviewed and committed when the ecosystem and project policy call for it. It is not a replacement for understanding the manifest or keeping dependencies maintained.</p>
+<h2 id="project-level-versus-global-installation"><a class="header" href="#project-level-versus-global-installation">Project-level versus global installation</a></h2>
+<p>Global tools can be appropriate for shared command-line utilities or centrally managed machines. Application dependencies should normally be declared at project scope. Avoid installing libraries globally merely to make one lesson run.</p>
+<p>A project should make its execution assumptions discoverable. A collaborator should be able to determine the required language version, dependencies, tests, and run command from the repository rather than private notes.</p>
+<h2 id="development-containers"><a class="header" href="#development-containers">Development Containers</a></h2>
+<p>A Dev Container is a project-scoped, reproducible environment for developing, building, linting, and testing software. It is different from a production container: a development image may include compilers, language servers, debuggers, test frameworks, formatters, linters, documentation tools, and shell utilities that should not be shipped in the final application image.</p>
+<p>The <a href="https://containers.dev/">Development Containers Specification</a> defines metadata that compatible editors and services can use. A project commonly stores the configuration in <code>.devcontainer/devcontainer.json</code>, with an optional Dockerfile and Compose file. The metadata identifies the image or build definition, workspace, development user, Features, editor customizations, environment variables, forwarded ports, and lifecycle commands.</p>
+<h3 id="why-the-course-should-prefer-this-model"><a class="header" href="#why-the-course-should-prefer-this-model">Why the course should prefer this model</a></h3>
+<p>A common learning environment prevents a large class of avoidable toolchain problems. For example, the instructor’s linter and the learner’s linter may otherwise use different rules or versions; the compiler may be newer or older; a native library may be missing; or a test runner may behave differently on different host systems.</p>
+<p>A well-maintained course Dev Container can provide:</p>
+<ul>
+<li>The documented language runtime and compiler version.</li>
+<li>The exact linter, formatter, static analyzer, and test runner expected by the course.</li>
+<li>System libraries and headers required by compilation.</li>
+<li>Project build scripts and test dependencies.</li>
+<li>Common command-line utilities and documentation tools.</li>
+<li>A consistent shell and workspace layout.</li>
+<li>Optional supporting services such as a database when required by a project.</li>
+</ul>
+<p>This is particularly valuable when the curriculum assesses compilation, linting, static analysis, and tests. The learner and instructor can run the same repository-defined checks in a known user-space environment. A container can also reduce host-specific installation requirements, though the host still needs a supported container engine and compatible editor or service.</p>
+<h3 id="example-repository-layout"><a class="header" href="#example-repository-layout">Example repository layout</a></h3>
+<pre><code class="language-text">project/
+├── .devcontainer/
+│   ├── devcontainer.json
+│   ├── Dockerfile
+│   └── compose.yaml          # optional
+├── src/
+├── tests/
+├── scripts/
+├── README.md
+└── language-specific project and lock files
+</code></pre>
+<p>Not every project needs all these files. A simple project may reference a maintained development image. A project with additional system dependencies may use a Dockerfile. A project that requires multiple services may use Compose.</p>
+<h3 id="example-responsibilities"><a class="header" href="#example-responsibilities">Example responsibilities</a></h3>
+<div class="table-wrapper">
+<table>
+<thead>
+<tr><th>File or mechanism</th><th>Responsibility</th></tr>
+</thead>
+<tbody>
+<tr><td>devcontainer.json</td><td>Declares how a compatible tool should create or connect to the development environment</td></tr>
+<tr><td>Dockerfile</td><td>Describes how a development image is built, including base image and system packages</td></tr>
+<tr><td>Compose file</td><td>Describes multiple related containers and their networks, volumes, and service dependencies</td></tr>
+<tr><td>Dev Container Features</td><td>Reusable configuration units that add common tools or capabilities</td></tr>
+<tr><td>Project manifest</td><td>Declares language-level dependencies</td></tr>
+<tr><td>Lockfile</td><td>Records resolved dependency versions for repeatable dependency resolution</td></tr>
+<tr><td>scripts/</td><td>Provides named, repeatable project commands for linting, building, testing, and other checks</td></tr>
+</tbody>
+</table>
+</div>
+<h3 id="make-project-checks-explicit"><a class="header" href="#make-project-checks-explicit">Make project checks explicit</a></h3>
+<p>The project should expose stable, documented commands for formatting checks, linting, static analysis, compilation/build, unit and integration tests, expected-output checks, and documentation validation when relevant. Prefer scripts or task targets with clear names over undocumented sequences of terminal commands.</p>
+<p>A useful quality workflow separates checks by purpose:</p>
+<ol>
+<li><strong>Format check:</strong> determines whether source formatting matches project policy; it should not silently rewrite submitted work when used as a check.</li>
+<li><strong>Lint/static analysis:</strong> identifies likely defects, unsafe patterns, and style violations.</li>
+<li><strong>Compile/build:</strong> checks syntax, types, linking, and build dependencies.</li>
+<li><strong>Unit tests:</strong> checks individual functions and components.</li>
+<li><strong>Integration tests:</strong> checks interactions between modules and services.</li>
+<li><strong>Expected-output checks:</strong> verifies examples against documented behavior.</li>
+<li><strong>Clean-checkout verification:</strong> ensures the project does not depend on untracked files or persistent state.</li>
+</ol>
+<p>A Dev Container is not a substitute for continuous integration. CI should independently build and test a clean checkout using the documented toolchain. This prevents a learner’s persistent container state from concealing missing dependencies or undeclared files.</p>
+<h3 id="reproducibility-and-maintenance"><a class="header" href="#reproducibility-and-maintenance">Reproducibility and maintenance</a></h3>
+<p>Avoid floating image tags such as latest when a tool update could alter compiler diagnostics or test behavior unexpectedly. Prefer explicit supported versions or immutable digests for controlled course environments. Pin language versions, Dev Container Features, and relevant system dependencies where reproducibility matters.</p>
+<p>Changes to a base image, compiler, linter, or formatter are curriculum changes. Review them, run the validation suite, and record the toolchain baseline. Prebuilt images can reduce startup time for large classes, but they must be rebuilt and published when the course environment changes.</p>
+<h3 id="limitations"><a class="header" href="#limitations">Limitations</a></h3>
+<p>A container shares the host kernel; it is not a full virtual machine. Host operating system, CPU architecture, filesystem behavior, permissions, networking, and virtualization support can still affect the workflow. A container also does not guarantee that all graphical editor features or assistive technologies will work.</p>
+<p>Use a Dev Container when it meaningfully improves consistency. Do not impose container administration on a beginner if a simpler environment meets the learning objectives. The course should provide an accessible fallback or institution-managed hosted workspace where local container support is unavailable.</p>
+<h2 id="docker-and-podman"><a class="header" href="#docker-and-podman">Docker and Podman</a></h2>
+<p>Docker and Podman are container engines and associated tooling. They build and manage images and containers; they are not themselves the Dev Container specification. A Dev Container is a development-environment description that a compatible tool uses with a container engine or service.</p>
+<h3 id="docker"><a class="header" href="#docker">Docker</a></h3>
+<p><a href="https://www.docker.com/">Docker</a> is a widely used container platform. Its ecosystem includes Docker Engine, Docker CLI, Docker Desktop, registries, image-building tools, and Docker Compose. Docker Engine commonly uses a long-running daemon to manage images, containers, networks, and volumes. Docker Desktop provides a managed experience on macOS and Windows, where Linux containers run within a lightweight Linux virtual machine.</p>
+<p>Docker has broad adoption, extensive documentation, mature Compose workflows, and wide integration with developer tools. VS Code’s Dev Containers documentation primarily describes Docker-based workflows, making Docker the most straightforward baseline when a course standardizes on the default VS Code Dev Containers experience.</p>
+<p>Docker Desktop licensing and organizational use are subject to Docker’s current terms. Institutions should review current licensing, administration, and data-handling requirements.</p>
+<h3 id="podman"><a class="header" href="#podman">Podman</a></h3>
+<p><a href="https://podman.io/">Podman</a> is an open-source container engine designed to manage OCI containers and images. On Linux it can operate without a central daemon and supports rootless containers, allowing many operations to run as an ordinary user. Podman provides a command-line interface familiar to Docker users and supports pods, image builds, registries, and Compose-oriented workflows through associated tooling.</p>
+<p>On macOS and Windows, Linux containers require a Linux environment; Podman commonly uses a managed virtual machine called a Podman machine. On Linux, rootless operation can reduce the need for a privileged daemon, but it does not eliminate the need to understand user namespaces, storage, networking, and host permissions.</p>
+<p>Podman can be attractive for Linux-based teaching labs, organizations prioritizing daemonless and rootless workflows, and teams that prefer open-source container tooling. It supports Docker-compatible interfaces for many common operations, but compatibility is not absolute. Compose behavior, networking, volume permissions, socket/API behavior, build features, and IDE integrations should be tested against the exact versions in use.</p>
+<h3 id="comparison"><a class="header" href="#comparison">Comparison</a></h3>
+<div class="table-wrapper">
+<table>
+<thead>
+<tr><th>Concern</th><th>Docker</th><th>Podman</th></tr>
+</thead>
+<tbody>
+<tr><td>Core model</td><td>Engine commonly managed by a daemon</td><td>Daemonless architecture on Linux; API service can be exposed when needed</td></tr>
+<tr><td>Rootless use</td><td>Supported in specific configurations</td><td>A major design capability on Linux</td></tr>
+<tr><td>macOS / Windows</td><td>Docker Desktop provides a managed Linux-container environment</td><td>Podman machine provides a managed Linux environment</td></tr>
+<tr><td>CLI familiarity</td><td>Native Docker CLI</td><td>Docker-like CLI for many operations</td></tr>
+<tr><td>Image format</td><td>OCI-compatible images and Docker ecosystem formats</td><td>OCI-compatible images</td></tr>
+<tr><td>Multi-container workflows</td><td>Docker Compose is widely used</td><td>Compose-compatible workflows are available; verify compatibility</td></tr>
+<tr><td>Dev Container integration</td><td>Common baseline for VS Code documentation and workflows</td><td>Possible through compatible interfaces/tooling; validate the exact combination</td></tr>
+<tr><td>Common selection rationale</td><td>Broad adoption, mature ecosystem, straightforward editor support</td><td>Rootless/daemonless model, open-source preference, Linux host integration</td></tr>
+</tbody>
+</table>
+</div>
+<p>Neither engine is universally better. Selection depends on host operating system, institutional policy, editor integration, desired security model, and the exact features used by the project.</p>
+<h3 id="compatibility-is-not-guaranteed"><a class="header" href="#compatibility-is-not-guaranteed">Compatibility is not guaranteed</a></h3>
+<p>A project may conform to the Development Containers Specification while still depending on implementation-specific behavior. The specification describes metadata; it does not guarantee every editor, service, and container engine supports every property or lifecycle feature identically.</p>
+<ul>
+<li><strong>VS Code:</strong> the Dev Containers extension is a mature implementation and its official documentation uses Docker as the standard engine workflow. Podman compatibility can depend on the Docker-compatible API endpoint and extension/runtime versions. Treat Podman as a validated alternative, not an automatic drop-in replacement.</li>
+<li><strong>Eclipse Theia:</strong> Dev Container support depends on the specific Theia distribution and extensions included by its provider. Confirm that the deployed product supports the required specification features and selected engine.</li>
+<li><strong>Hosted workspaces:</strong> a provider may implement the specification using managed infrastructure. Learners may not control the underlying engine or host.</li>
+</ul>
+<p>Consult the <a href="https://containers.dev/supporting/">Development Containers supporting-tools directory</a> and test the actual environment selected for the course.</p>
+<h2 id="environment-variables-and-secrets"><a class="header" href="#environment-variables-and-secrets">Environment variables and secrets</a></h2>
+<p>Environment variables provide configuration to a process without hard-coding machine-specific values into source code. Common uses include selecting a development mode, locating a service endpoint, or configuring a tool.</p>
+<p>Secrets include passwords, access tokens, private keys, and database credentials. Do not commit secrets to source control, include them in screenshots, print them in logs, or paste them into public issue reports. Use institution-approved secret storage or local secret-injection mechanisms. A .env file is not automatically secure; it must be excluded from version control when it contains secrets, and the team must define how its values are distributed.</p>
+<p>Do not bake credentials into container images, Dockerfiles, build arguments, or committed Dev Container metadata. Treat mounted credentials and forwarded agent sockets as sensitive host access. Validate required settings without revealing secret contents.</p>
+<h2 id="virtual-machines-and-hosted-workspaces"><a class="header" href="#virtual-machines-and-hosted-workspaces">Virtual machines and hosted workspaces</a></h2>
+<p>A virtual machine provides a more complete guest-operating-system boundary and is useful when a project requires a different operating system or kernel-level behavior. It generally consumes more resources than a container. Some desktop container products use a VM internally to provide a Linux kernel on macOS or Windows; this does not make each application container a separate VM.</p>
+<p>Hosted workspaces can centralize toolchains and reduce local machine administration. They may be useful in classrooms, managed labs, and data platforms. They also introduce dependencies on network connectivity, account access, remote session stability, institutional policies, data location, and platform accessibility.</p>
+<p>A cloud notebook or data platform is not identical to a local IDE. Notebook execution may retain state between cells, while a conventional program often starts in a fresh process. Learners should understand that distinction when reproducing results.</p>
+<h2 id="safe-environment-practices"><a class="header" href="#safe-environment-practices">Safe environment practices</a></h2>
+<ul>
+<li>Work within the intended project directory.</li>
+<li>Read dependency names and versions before approving installation.</li>
+<li>Prefer trusted package registries and official project documentation.</li>
+<li>Review install scripts, image sources, build steps, and Dev Container Features when working with unfamiliar projects.</li>
+<li>Prefer a non-root user in the development container.</li>
+<li>Avoid running commands with administrator or root privileges unless the task genuinely requires them.</li>
+<li>Do not enable privileged mode or broad host mounts without a reviewed need.</li>
+<li>Do not mount the Docker or Podman control socket into a learner container unless the task explicitly requires it and the security implications have been reviewed.</li>
+<li>Do not disable security controls to make a development tool work.</li>
+<li>Keep secrets out of source code, terminal transcripts, image layers, and commits.</li>
+<li>Use synthetic data for coursework unless a governed data environment is explicitly approved.</li>
+<li>Do not delete environment folders until you have confirmed they contain no source files or personal work.</li>
+<li>Use version control to preserve source and project configuration, not generated caches or private credentials.</li>
+</ul>
+<h2 id="practical-activity"><a class="header" href="#practical-activity">Practical activity</a></h2>
+<p>Inspect a language project supplied by the instructor. Identify its source files, Dev Container metadata, image or Dockerfile, manifest, lockfile, runtime requirement, lint command, build command, and test command. Explain which files should be committed and which files are generated or machine-specific. Do not install or update dependencies as part of this inspection.</p>
+<h2 id="mastery-checklist"><a class="header" href="#mastery-checklist">Mastery checklist</a></h2>
+<ul>
+<li><input disabled="" type="checkbox"> I can explain why dependencies should be isolated by project.</li>
+<li><input disabled="" type="checkbox"> I can distinguish a manifest from a lockfile.</li>
+<li><input disabled="" type="checkbox"> I can explain what a Dev Container provides and how it differs from a production container.</li>
+<li><input disabled="" type="checkbox"> I can identify where Dev Container metadata and image-build instructions are stored.</li>
+<li><input disabled="" type="checkbox"> I can explain how a project Dev Container can standardize compiler, linter, formatter, and test versions.</li>
+<li><input disabled="" type="checkbox"> I can distinguish Docker from Podman and describe a situation where each may be selected.</li>
+<li><input disabled="" type="checkbox"> I understand that Dev Container specification support and engine compatibility must be verified for the chosen editor.</li>
+<li><input disabled="" type="checkbox"> I can explain the roles of environment variables without exposing secrets.</li>
+<li><input disabled="" type="checkbox"> I can compare containers, virtual machines, and hosted workspaces.</li>
+<li><input disabled="" type="checkbox"> I can describe how CI independently verifies a clean project build and test run.</li>
+</ul>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                            <a rel="prev" href="../DEVELOPMENT/IDE_SETUP.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M41.4 233.4c-12.5 12.5-12.5 32.8 0 45.3l160 160c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L109.3 256 246.6 118.6c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0l-160 160z"/></svg></span>
+                            </a>
+
+                            <a rel="next prefetch" href="../DEVELOPMENT/GUI_VISUALIZATION_ACCESSIBILITY.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M278.6 233.4c12.5 12.5 12.5 32.8 0 45.3l-160 160c-12.5 12.5-32.8 12.5-45.3 0s-12.5-32.8 0-45.3L210.7 256 73.4 118.6c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0l160 160z"/></svg></span>
+                            </a>
+
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                    <a rel="prev" href="../DEVELOPMENT/IDE_SETUP.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M41.4 233.4c-12.5 12.5-12.5 32.8 0 45.3l160 160c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L109.3 256 246.6 118.6c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0l-160 160z"/></svg></span>
+                    </a>
+
+                    <a rel="next prefetch" href="../DEVELOPMENT/GUI_VISUALIZATION_ACCESSIBILITY.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M278.6 233.4c12.5 12.5 12.5 32.8 0 45.3l-160 160c-12.5 12.5-32.8 12.5-45.3 0s-12.5-32.8 0-45.3L210.7 256 73.4 118.6c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0l160 160z"/></svg></span>
+                    </a>
+            </nav>
+
+        </div>
+
+        <template id=fa-eye><span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M288 32c-80.8 0-145.5 36.8-192.6 80.6C48.6 156 17.3 208 2.5 243.7c-3.3 7.9-3.3 16.7 0 24.6C17.3 304 48.6 356 95.4 399.4C142.5 443.2 207.2 480 288 480s145.5-36.8 192.6-80.6c46.8-43.5 78.1-95.4 93-131.1c3.3-7.9 3.3-16.7 0-24.6c-14.9-35.7-46.2-87.7-93-131.1C433.5 68.8 368.8 32 288 32zM432 256c0 79.5-64.5 144-144 144s-144-64.5-144-144s64.5-144 144-144s144 64.5 144 144zM288 192c0 35.3-28.7 64-64 64c-11.5 0-22.3-3-31.6-8.4c-.2 2.8-.4 5.5-.4 8.4c0 53 43 96 96 96s96-43 96-96s-43-96-96-96c-2.8 0-5.6 .1-8.4 .4c5.3 9.3 8.4 20.1 8.4 31.6z"/></svg></span></template>
+        <template id=fa-eye-slash><span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M38.8 5.1C28.4-3.1 13.3-1.2 5.1 9.2S-1.2 34.7 9.2 42.9l592 464c10.4 8.2 25.5 6.3 33.7-4.1s6.3-25.5-4.1-33.7L525.6 386.7c39.6-40.6 66.4-86.1 79.9-118.4c3.3-7.9 3.3-16.7 0-24.6c-14.9-35.7-46.2-87.7-93-131.1C465.5 68.8 400.8 32 320 32c-68.2 0-125 26.3-169.3 60.8L38.8 5.1zM223.1 149.5C248.6 126.2 282.7 112 320 112c79.5 0 144 64.5 144 144c0 24.9-6.3 48.3-17.4 68.7L408 294.5c5.2-11.8 8-24.8 8-38.5c0-53-43-96-96-96c-2.8 0-5.6 .1-8.4 .4c5.3 9.3 8.4 20.1 8.4 31.6c0 10.2-2.4 19.8-6.6 28.3l-90.3-70.8zm223.1 298L373 389.9c-16.4 6.5-34.3 10.1-53 10.1c-79.5 0-144-64.5-144-144c0-6.9 .5-13.6 1.4-20.2L83.1 161.5C60.3 191.2 44 220.8 34.5 243.7c-3.3 7.9-3.3 16.7 0 24.6c14.9 35.7 46.2 87.7 93 131.1C174.5 443.2 239.2 480 320 480c47.8 0 89.9-12.9 126.2-32.5z"/></svg></span></template>
+        <template id=fa-copy><span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M502.6 70.63l-61.25-61.25C435.4 3.371 427.2 0 418.7 0H255.1c-35.35 0-64 28.66-64 64l.0195 256C192 355.4 220.7 384 256 384h192c35.2 0 64-28.8 64-64V93.25C512 84.77 508.6 76.63 502.6 70.63zM464 320c0 8.836-7.164 16-16 16H255.1c-8.838 0-16-7.164-16-16L239.1 64.13c0-8.836 7.164-16 16-16h128L384 96c0 17.67 14.33 32 32 32h47.1V320zM272 448c0 8.836-7.164 16-16 16H63.1c-8.838 0-16-7.164-16-16L47.98 192.1c0-8.836 7.164-16 16-16H160V128H63.99c-35.35 0-64 28.65-64 64l.0098 256C.002 483.3 28.66 512 64 512h192c35.2 0 64-28.8 64-64v-32h-47.1L272 448z"/></svg></span></template>
+        <template id=fa-play><span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M73 39c-14.8-9.1-33.4-9.4-48.5-.9S0 62.6 0 80V432c0 17.4 9.4 33.4 24.5 41.9s33.7 8.1 48.5-.9L361 297c14.3-8.7 23-24.2 23-41s-8.7-32.2-23-41L73 39z"/></svg></span></template>
+        <template id=fa-clock-rotate-left><span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M75 75L41 41C25.9 25.9 0 36.6 0 57.9V168c0 13.3 10.7 24 24 24H134.1c21.4 0 32.1-25.9 17-41l-30.8-30.8C155 85.5 203 64 256 64c106 0 192 86 192 192s-86 192-192 192c-40.8 0-78.6-12.7-109.7-34.4c-14.5-10.1-34.4-6.6-44.6 7.9s-6.6 34.4 7.9 44.6C151.2 495 201.7 512 256 512c141.4 0 256-114.6 256-256S397.4 0 256 0C185.3 0 121.3 28.7 75 75zm181 53c-13.3 0-24 10.7-24 24V256c0 6.4 2.5 12.5 7 17l72 72c9.4 9.4 24.6 9.4 33.9 0s9.4-24.6 0-33.9l-65-65V152c0-13.3-10.7-24-24-24z"/></svg></span></template>
+
+
+
+        <script>
+            window.playground_copyable = true;
+        </script>
+
+
+        <script src="../elasticlunr-ef4e11c1.min.js"></script>
+        <script src="../mark-09e88c2c.min.js"></script>
+        <script src="../searcher-09f2665d.js"></script>
+
+        <script src="../clipboard-1626706a.min.js"></script>
+        <script src="../highlight-abc7f01d.js"></script>
+        <script src="../book-609e4cb8.js"></script>
+
+        <!-- Custom JS scripts -->
+
+
+
+    </div>
+    </body>
+</html>

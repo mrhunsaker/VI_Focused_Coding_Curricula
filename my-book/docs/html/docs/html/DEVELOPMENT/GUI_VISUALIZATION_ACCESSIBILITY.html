@@ -1,0 +1,702 @@
+<!DOCTYPE HTML>
+<html lang="en" class="rust sidebar-visible" dir="ltr">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>Screen-reader-accessible GUI libraries and implementation guidance - Accessible Introduction to Computer Science</title>
+
+
+        <!-- Custom HTML head -->
+
+        <meta name="description" content="Introductory programming curricula, each adapted for visually impaired students who use screen readers">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff">
+
+        <link rel="icon" href="../favicon-de23e50b.svg">
+        <link rel="shortcut icon" href="../favicon-8114d1fc.png">
+        <link rel="stylesheet" href="../css/variables-8adf115d.css">
+        <link rel="stylesheet" href="../css/general-e96d0476.css">
+        <link rel="stylesheet" href="../css/chrome-d279d366.css">
+        <link rel="stylesheet" href="../css/print-9e4910d8.css" media="print">
+
+        <!-- Fonts -->
+        <link rel="stylesheet" href="../fonts/fonts-9644e21d.css">
+
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" id="mdbook-highlight-css" href="../highlight-493f70e1.css">
+        <link rel="stylesheet" id="mdbook-tomorrow-night-css" href="../tomorrow-night-4c0ae647.css">
+        <link rel="stylesheet" id="mdbook-ayu-highlight-css" href="../ayu-highlight-3fdfc3ac.css">
+
+        <!-- Custom theme stylesheets -->
+
+
+        <!-- Provide site root and default themes to javascript -->
+        <script>
+            const path_to_root = "../";
+            const default_light_theme = "rust";
+            const default_dark_theme = "navy";
+            window.path_to_searchindex_js = "../searchindex-1d296e4e.js";
+        </script>
+        <!-- Start loading toc.js asap -->
+        <script src="../toc-62d8efca.js"></script>
+    </head>
+    <body>
+    <div id="mdbook-help-container">
+        <div id="mdbook-help-popup">
+            <h2 class="mdbook-help-title">Keyboard shortcuts</h2>
+            <div>
+                <p>Press <kbd>←</kbd> or <kbd>→</kbd> to navigate between chapters</p>
+                <p>Press <kbd>S</kbd> or <kbd>/</kbd> to search in the book</p>
+                <p>Press <kbd>?</kbd> to show this help</p>
+                <p>Press <kbd>Esc</kbd> to hide this help</p>
+            </div>
+        </div>
+    </div>
+    <div id="mdbook-body-container">
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script>
+            try {
+                let theme = localStorage.getItem('mdbook-theme');
+                let sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script>
+            const default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? default_dark_theme : default_light_theme;
+            let theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            const html = document.documentElement;
+            html.classList.remove('rust')
+            html.classList.add(theme);
+            html.classList.add("js");
+        </script>
+
+        <input type="checkbox" id="mdbook-sidebar-toggle-anchor" class="hidden">
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script>
+            let sidebar = null;
+            const sidebar_toggle = document.getElementById("mdbook-sidebar-toggle-anchor");
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            } else {
+                sidebar = 'hidden';
+                sidebar_toggle.checked = false;
+            }
+            if (sidebar === 'visible') {
+                sidebar_toggle.checked = true;
+            } else {
+                html.classList.remove('sidebar-visible');
+            }
+        </script>
+
+        <nav id="mdbook-sidebar" class="sidebar" aria-label="Table of contents">
+            <!-- populated by js -->
+            <mdbook-sidebar-scrollbox class="sidebar-scrollbox"></mdbook-sidebar-scrollbox>
+            <noscript>
+                <iframe class="sidebar-iframe-outer" src="../toc.html"></iframe>
+            </noscript>
+            <div id="mdbook-sidebar-resize-handle" class="sidebar-resize-handle">
+                <div class="sidebar-resize-indicator"></div>
+            </div>
+        </nav>
+
+        <div id="mdbook-page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                <div id="mdbook-menu-bar-hover-placeholder"></div>
+                <div id="mdbook-menu-bar" class="menu-bar sticky">
+                    <div class="left-buttons">
+                        <label id="mdbook-sidebar-toggle" class="icon-button" for="mdbook-sidebar-toggle-anchor" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="mdbook-sidebar">
+                            <span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M0 96C0 78.3 14.3 64 32 64H416c17.7 0 32 14.3 32 32s-14.3 32-32 32H32C14.3 128 0 113.7 0 96zM0 256c0-17.7 14.3-32 32-32H416c17.7 0 32 14.3 32 32s-14.3 32-32 32H32c-17.7 0-32-14.3-32-32zM448 416c0 17.7-14.3 32-32 32H32c-17.7 0-32-14.3-32-32s14.3-32 32-32H416c17.7 0 32 14.3 32 32z"/></svg></span>
+                        </label>
+                        <button id="mdbook-theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="mdbook-theme-list">
+                            <span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M371.3 367.1c27.3-3.9 51.9-19.4 67.2-42.9L600.2 74.1c12.6-19.5 9.4-45.3-7.6-61.2S549.7-4.4 531.1 9.6L294.4 187.2c-24 18-38.2 46.1-38.4 76.1L371.3 367.1zm-19.6 25.4l-116-104.4C175.9 290.3 128 339.6 128 400c0 3.9 .2 7.8 .6 11.6c1.8 17.5-10.2 36.4-27.8 36.4H96c-17.7 0-32 14.3-32 32s14.3 32 32 32H240c61.9 0 112-50.1 112-112c0-2.5-.1-5-.2-7.5z"/></svg></span>
+                        </button>
+                        <ul id="mdbook-theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="mdbook-theme-default_theme">Auto</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="mdbook-theme-light">Light</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="mdbook-theme-rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="mdbook-theme-coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="mdbook-theme-navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="mdbook-theme-ayu">Ayu</button></li>
+                        </ul>
+                        <button id="mdbook-search-toggle" class="icon-button" type="button" title="Search (`/`)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="/ s" aria-controls="mdbook-searchbar">
+                            <span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M416 208c0 45.9-14.9 88.3-40 122.7L502.6 457.4c12.5 12.5 12.5 32.8 0 45.3s-32.8 12.5-45.3 0L330.7 376c-34.4 25.2-76.8 40-122.7 40C93.1 416 0 322.9 0 208S93.1 0 208 0S416 93.1 416 208zM208 352c79.5 0 144-64.5 144-144s-64.5-144-144-144S64 128.5 64 208s64.5 144 144 144z"/></svg></span>
+                        </button>
+                    </div>
+
+                    <h1 class="menu-title">Accessible Introduction to Computer Science</h1>
+
+                    <div class="right-buttons">
+                        <a href="../print.html" title="Print this book" aria-label="Print this book">
+                            <span class=fa-svg id="print-button"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M128 0C92.7 0 64 28.7 64 64v96h64V64H354.7L384 93.3V160h64V93.3c0-17-6.7-33.3-18.7-45.3L400 18.7C388 6.7 371.7 0 354.7 0H128zM384 352v32 64H128V384 368 352H384zm64 32h32c17.7 0 32-14.3 32-32V256c0-35.3-28.7-64-64-64H64c-35.3 0-64 28.7-64 64v96c0 17.7 14.3 32 32 32H64v64c0 35.3 28.7 64 64 64H384c35.3 0 64-28.7 64-64V384zm-16-88c-13.3 0-24-10.7-24-24s10.7-24 24-24s24 10.7 24 24s-10.7 24-24 24z"/></svg></span>
+                        </a>
+                        <a href="https://github.com/mrhunsaker/VI_Focused_Coding_Curricula" title="Git repository" aria-label="Git repository">
+                            <span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"/></svg></span>
+                        </a>
+
+                    </div>
+                </div>
+
+                <div id="mdbook-search-wrapper" class="hidden">
+                    <form id="mdbook-searchbar-outer" class="searchbar-outer">
+                        <div class="search-wrapper">
+                            <input type="search" id="mdbook-searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="mdbook-searchresults-outer" aria-describedby="searchresults-header">
+                            <div class="spinner-wrapper">
+                                <span class=fa-svg id="fa-spin"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M304 48c0-26.5-21.5-48-48-48s-48 21.5-48 48s21.5 48 48 48s48-21.5 48-48zm0 416c0-26.5-21.5-48-48-48s-48 21.5-48 48s21.5 48 48 48s48-21.5 48-48zM48 304c26.5 0 48-21.5 48-48s-21.5-48-48-48s-48 21.5-48 48s21.5 48 48 48zm464-48c0-26.5-21.5-48-48-48s-48 21.5-48 48s21.5 48 48 48s48-21.5 48-48zM142.9 437c18.7-18.7 18.7-49.1 0-67.9s-49.1-18.7-67.9 0s-18.7 49.1 0 67.9s49.1 18.7 67.9 0zm0-294.2c18.7-18.7 18.7-49.1 0-67.9S93.7 56.2 75 75s-18.7 49.1 0 67.9s49.1 18.7 67.9 0zM369.1 437c18.7 18.7 49.1 18.7 67.9 0s18.7-49.1 0-67.9s-49.1-18.7-67.9 0s-18.7 49.1 0 67.9z"/></svg></span>
+                            </div>
+                        </div>
+                    </form>
+                    <div id="mdbook-searchresults-outer" class="searchresults-outer hidden">
+                        <div id="mdbook-searchresults-header" class="searchresults-header"></div>
+                        <ul id="mdbook-searchresults">
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script>
+                    document.getElementById('mdbook-sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('mdbook-sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#mdbook-sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="mdbook-content" class="content">
+                    <main>
+                        <h1 id="screen-reader-accessible-gui-libraries-and-implementation-guidance"><a class="header" href="#screen-reader-accessible-gui-libraries-and-implementation-guidance">Screen-reader-accessible GUI libraries and implementation guidance</a></h1>
+<p>This guide identifies GUI frameworks and libraries that can expose application interfaces to screen readers and other assistive technologies for every language and focused module in this curriculum. It also identifies approaches that should not be selected for an accessibility-critical interface without substantial additional engineering and platform testing.</p>
+<blockquote>
+<p><strong>Important: no GUI library can guarantee accessibility by itself.</strong> Accessibility depends on the framework, the controls selected, application code, operating-system accessibility APIs, assistive-technology combinations, content, and testing. Treat the recommendations below as technology-selection guidance, not as a conformance certificate or a promise that an application is accessible. Require manual testing with real screen readers and users with disabilities before release.</p>
+</blockquote>
+<p>The phrase <em>screen-reader accessible</em> is used throughout. The guide also covers keyboard-only operation, focus visibility, zoom and text scaling, contrast, reduced motion, captions, and other requirements that affect people with disabilities.</p>
+<h2 id="1-baseline-requirements-for-every-gui"><a class="header" href="#1-baseline-requirements-for-every-gui">1. Baseline requirements for every GUI</a></h2>
+<p>Use <strong>WCAG 2.2 Level AA</strong> as the default design and testing target for web content and web-based interfaces. For native applications, apply the relevant platform accessibility API and human-interface guidance as well as WCAG principles. A WCAG checklist alone does not replace platform-specific testing.</p>
+<p>Every interactive control must expose, as applicable:</p>
+<ul>
+<li><strong>Role:</strong> button, link, checkbox, radio button, text field, heading, table, menu item, slider, dialog, and so on.</li>
+<li><strong>Accessible name:</strong> a concise, meaningful name that identifies the control’s purpose. Visible labels should normally provide the name.</li>
+<li><strong>Value and state:</strong> current text, selected value, checked state, expanded/collapsed state, progress, invalid state, and other relevant information.</li>
+<li><strong>Relationships:</strong> programmatic association between labels, descriptions, errors, help text, groups, table headers, and the controls they describe.</li>
+<li><strong>Keyboard operation:</strong> every action must be possible without a pointer. Focus order must be logical; focus must be visible and must not be trapped.</li>
+<li><strong>Change notifications:</strong> validation errors, status updates, asynchronous results, and dialog openings must be communicated without unexpectedly moving focus.</li>
+<li><strong>Structure:</strong> headings, landmarks, lists, tables, grouping, and reading order must reflect the meaning and visual organization of the interface.</li>
+</ul>
+<p>Also:</p>
+<ol>
+<li>Prefer built-in, platform-native controls over custom-drawn controls.</li>
+<li>Never communicate meaning through color, shape, position, sound, or animation alone. Provide text or another perceivable equivalent.</li>
+<li>Provide text alternatives for meaningful images and accessible names for icon-only controls. Mark decorative images as decorative.</li>
+<li>Support text resizing, high-contrast or forced-colors modes, adequate contrast, and layouts that reflow without clipping.</li>
+<li>Respect reduced-motion preferences. Avoid flashing content and autoplaying motion; provide pause, stop, or hide controls where required.</li>
+<li>Give charts, maps, diagrams, canvases, and other visualizations a complete textual or tabular equivalent. A label on the canvas is not an equivalent.</li>
+<li>Do not use positive tabindex values on the web. Do not remove focus outlines without an equally visible replacement.</li>
+<li>Make dialogs announce their title and purpose, manage focus on open, contain focus while modal, and return focus to the invoking control on close.</li>
+<li>Keep accessible names localized and understandable. Avoid redundant announcements such as repeating a visible label in both the name and description.</li>
+<li>Document known platform limitations and test the exact packaged application, not just a development preview.</li>
+</ol>
+<h2 id="2-web-interfaces-html-css-javascript-and-typescript"><a class="header" href="#2-web-interfaces-html-css-javascript-and-typescript">2. Web interfaces: HTML, CSS, JavaScript, and TypeScript</a></h2>
+<p>These languages share the browser accessibility platform. <strong>Semantic HTML is the primary accessibility toolkit.</strong> JavaScript frameworks do not replace HTML semantics, and TypeScript does not change browser accessibility behavior.</p>
+<h3 id="recommended-foundations-and-libraries"><a class="header" href="#recommended-foundations-and-libraries">Recommended foundations and libraries</a></h3>
+<div class="table-wrapper">
+<table>
+<thead>
+<tr><th>Technology</th><th>Assessment and use</th></tr>
+</thead>
+<tbody>
+<tr><td>Semantic HTML5</td><td>First choice. Use <code>button</code>, <code>a</code>, <code>input</code>, <code>label</code>, <code>select</code>, <code>textarea</code>, <code>fieldset</code>, <code>legend</code>, headings, landmarks, lists, and data tables for their intended purposes. Native elements provide roles, keyboard behavior, and accessibility mappings.</td></tr>
+<tr><td>React</td><td>Suitable when components render semantic HTML and manage focus and state correctly. Prefer native controls; use the React accessibility guidance and test rendered DOM, not component names.</td></tr>
+<tr><td>Angular</td><td>Suitable when templates use semantic HTML and Angular CDK accessibility utilities where needed. CDK utilities assist with focus management, live announcements, and keyboard patterns; they do not make arbitrary components accessible automatically.</td></tr>
+<tr><td>Vue</td><td>Suitable when components render semantic HTML and implement correct keyboard and focus behavior. Audit third-party component libraries individually.</td></tr>
+<tr><td>Svelte / SvelteKit</td><td>Suitable on the same basis: semantic output, accessible state changes, correct focus management, and tested components. Compiler warnings are useful but do not prove conformance.</td></tr>
+<tr><td>WAI-ARIA Authoring Practices Guide (APG) patterns</td><td>Use as implementation guidance for custom widgets such as tabs, menus, tree views, and comboboxes. Follow the complete keyboard interaction pattern, not just its ARIA attributes.</td></tr>
+<tr><td>Accessible component systems (for example, React Aria)</td><td>Useful when a custom interaction is genuinely needed. Confirm current framework, browser, and assistive-technology support, and retain semantic HTML wherever possible.</td></tr>
+</tbody>
+</table>
+</div>
+<h3 id="implementation-rules"><a class="header" href="#implementation-rules">Implementation rules</a></h3>
+<ul>
+<li>Use a native <code>&lt;button&gt;</code> for actions and an <code>&lt;a href&gt;</code> for navigation. Do not simulate them with clickable <code>div</code> or <code>span</code> elements.</li>
+<li>Associate every form control with a visible <code>&lt;label&gt;</code>. Use <code>fieldset</code> and <code>legend</code> for related controls. Connect error and help text using <code>aria-describedby</code>; set <code>aria-invalid="true"</code> when appropriate.</li>
+<li>Use headings in a meaningful hierarchy and landmarks such as <code>header</code>, <code>nav</code>, <code>main</code>, and <code>footer</code>.</li>
+<li>Use ARIA only when native HTML cannot express the required semantics. ARIA changes accessibility-tree information; it does not add keyboard behavior, focus management, or functionality.</li>
+<li>For live updates, use a restrained <code>aria-live</code> region or appropriate status/alert role. Do not announce every keystroke or flood the screen reader.</li>
+<li>For custom tabs, menus, listboxes, grids, and comboboxes, implement the full APG keyboard model, including arrow keys, Home/End where specified, Escape, and focus restoration.</li>
+<li>For single-page applications, manage document titles, route announcements, skip links, and focus after navigation.</li>
+<li>Avoid replacing native form controls with visually styled generic elements unless there is a compelling reason and the full interaction model is implemented and tested.</li>
+</ul>
+<h3 id="javascript-and-typescript-framework-cautions"><a class="header" href="#javascript-and-typescript-framework-cautions">JavaScript and TypeScript framework cautions</a></h3>
+<p>Avoid or treat as high-risk:</p>
+<ul>
+<li>Component libraries whose controls are built from generic containers and have no documented keyboard and screen-reader behavior.</li>
+<li>Canvas, WebGL, SVG-only, or absolutely positioned interfaces that expose only a single image-like object instead of individual meaningful controls.</li>
+<li>Drag-and-drop-only interactions, hover-only menus, pointer-only gestures, and custom scrollbars without keyboard alternatives.</li>
+<li>Automatically generated ARIA attributes that do not match the actual role, state, or behavior.</li>
+<li>Framework-specific accessibility claims based solely on lint rules or compile-time warnings.</li>
+</ul>
+<p>A framework’s accessibility linting is a useful early warning system, not a substitute for browser and assistive-technology testing.</p>
+<h2 id="3-python"><a class="header" href="#3-python">3. Python</a></h2>
+<p>Python has several desktop GUI choices. The accessibility of each depends on its native backend and the operating system.</p>
+<div class="table-wrapper">
+<table>
+<thead>
+<tr><th>Library / approach</th><th>Assessment and recommended use</th></tr>
+</thead>
+<tbody>
+<tr><td><strong>PySide6 / Qt for Python</strong></td><td>Preferred general-purpose cross-platform desktop option when a full GUI is needed. Qt provides accessibility interfaces and standard controls expose roles, names, states, and actions. Use Qt Widgets for conventional forms and controls; test Qt Quick/QML controls and custom QML components on every target platform.</td></tr>
+<tr><td><strong>PyQt6</strong></td><td>Uses the same underlying Qt accessibility infrastructure as PySide6. The primary distinction is licensing and packaging, not the accessibility model. Apply the same Qt guidance and testing.</td></tr>
+<tr><td><strong>PyGObject with GTK 4</strong></td><td>Strong choice for Linux/GNOME-oriented applications. GTK’s built-in widgets expose accessibility information through the platform accessibility stack. Prefer standard GTK widgets and follow GNOME HIG guidance. Cross-platform behavior must be verified.</td></tr>
+<tr><td><strong>wxPython</strong></td><td>Can use native platform widgets and provides accessibility extension points. Treat accessibility as platform-dependent; the documented <code>wx.Accessible</code> interface has historically had platform/API limitations. Test the exact wxPython and OS versions.</td></tr>
+<tr><td><strong>Tkinter</strong></td><td>Convenient standard-library GUI for small teaching examples. Accessibility behavior varies by Tcl/Tk version and operating system. Use standard widgets, visible labels, keyboard traversal, and test with the target screen reader. Do not assume that a working Tab order proves screen-reader support.</td></tr>
+<tr><td><strong>Toga (BeeWare)</strong></td><td>Uses native widgets on supported platforms, which is a useful design direction. Verify the accessibility behavior of each backend and supported platform before choosing it for an accessibility-critical application.</td></tr>
+<tr><td><strong>Web UI with a Python backend (for example, Flask, Django, FastAPI, or NiceGUI)</strong></td><td>Often a good option when the interface can be a browser application. The browser still needs semantic HTML and tested components; a Python server framework does not make its generated UI accessible.</td></tr>
+</tbody>
+</table>
+</div>
+<h3 id="python-avoid-or-restrict"><a class="header" href="#python-avoid-or-restrict">Python: avoid or restrict</a></h3>
+<ul>
+<li><strong>Kivy</strong> and other interfaces that primarily render custom-drawn widgets: do not select for a screen-reader-critical desktop application unless the current release demonstrably exposes a complete accessibility tree and supports the target assistive technologies.</li>
+<li><strong>Dear PyGui</strong>, <strong>Pygame</strong>, and raw OpenGL/Canvas-style interfaces: suitable for graphics, games, and visualization experiments, but not a default choice for form-heavy accessible desktop applications. A separate accessible control surface is required.</li>
+<li><strong>CustomTkinter</strong>: visual styling does not improve the underlying Tk accessibility model. Treat it with the same platform-specific caution as Tkinter.</li>
+<li><strong>Matplotlib plots embedded in a GUI</strong>: do not make the plot the only way to access data. Supply a structured table, textual summary, keyboard-accessible controls, and exportable data.</li>
+</ul>
+<h2 id="4-java"><a class="header" href="#4-java">4. Java</a></h2>
+<div class="table-wrapper">
+<table>
+<thead>
+<tr><th>Library / approach</th><th>Assessment and recommended use</th></tr>
+</thead>
+<tbody>
+<tr><td><strong>Java Swing</strong></td><td>Established desktop option with the Java Accessibility API (JFC accessibility support). Prefer standard Swing components, meaningful accessible names/descriptions where needed, and correct labels and relationships. Test the selected JDK and operating system.</td></tr>
+<tr><td><strong>JavaFX</strong></td><td>Suitable for modern desktop interfaces. Standard controls expose accessibility roles and text/value information through JavaFX accessibility support. Set accessible text/help where defaults are insufficient; verify custom controls and skins.</td></tr>
+<tr><td><strong>Browser UI with Java backend</strong></td><td>Use semantic HTML and a tested web component strategy. The backend language does not determine browser accessibility.</td></tr>
+</tbody>
+</table>
+</div>
+<h3 id="java-avoid-or-restrict"><a class="header" href="#java-avoid-or-restrict">Java: avoid or restrict</a></h3>
+<ul>
+<li><strong>AWT Canvas</strong>, JavaFX <code>Canvas</code>, custom-painted Swing components, and custom JavaFX controls without complete accessibility metadata and keyboard behavior.</li>
+<li>Third-party JavaFX skins or Swing Look-and-Feels that replace standard controls without documented accessibility testing.</li>
+<li>Interfaces where mouse listeners are the only way to activate a control.</li>
+</ul>
+<p>For custom controls, implement the relevant Java accessibility interfaces and expose role, name, description, state, value, actions, and events. Validate using the target platform’s screen reader and accessibility inspection tools.</p>
+<h2 id="5-kotlin"><a class="header" href="#5-kotlin">5. Kotlin</a></h2>
+<div class="table-wrapper">
+<table>
+<thead>
+<tr><th>Library / approach</th><th>Assessment and recommended use</th></tr>
+</thead>
+<tbody>
+<tr><td><strong>Jetpack Compose for Android</strong></td><td>Preferred modern Android UI approach. Use Material/Foundation components and Compose semantics. Supply <code>contentDescription</code> for meaningful icon-only controls, appropriate roles and state descriptions, and logical traversal semantics.</td></tr>
+<tr><td><strong>Compose Multiplatform</strong></td><td>Promising shared UI approach for Android, iOS, desktop, and web. It has a semantic tree and accessibility APIs, but platform support and behavior can differ. Test every target, including desktop accessibility enablement and iOS VoiceOver behavior.</td></tr>
+<tr><td><strong>Android Views / Material Components</strong></td><td>Mature native Android approach. Standard widgets integrate with TalkBack. Use labels, hints, state descriptions, and accessibility delegates only where the default semantics are insufficient.</td></tr>
+<tr><td><strong>JavaFX / Swing from Kotlin/JVM</strong></td><td>Kotlin can use the same Java accessibility support as Java. Choose standard controls and test as described in the Java section.</td></tr>
+<tr><td><strong>Web UI with Kotlin backend or Kotlin/JS</strong></td><td>Use semantic HTML and web accessibility practices from Section 2.</td></tr>
+</tbody>
+</table>
+</div>
+<h3 id="kotlin-avoid-or-restrict"><a class="header" href="#kotlin-avoid-or-restrict">Kotlin: avoid or restrict</a></h3>
+<ul>
+<li>Compose <code>Canvas</code>, custom drawing, and graphics-only controls as the sole interaction or data representation.</li>
+<li>Custom composables that omit semantics, merge unrelated children, or provide misleading <code>contentDescription</code> values.</li>
+<li>Desktop or multiplatform UI libraries whose accessibility support is undocumented or untested on the exact target platform.</li>
+<li>Android layouts that depend on color, touch gestures, or position without equivalent semantics and keyboard/switch access.</li>
+</ul>
+<h2 id="6-c"><a class="header" href="#6-c">6. C</a></h2>
+<p>C has no single standard cross-platform GUI library. Prefer a toolkit that connects controls to the operating system’s accessibility API.</p>
+<div class="table-wrapper">
+<table>
+<thead>
+<tr><th>Library / approach</th><th>Assessment and recommended use</th></tr>
+</thead>
+<tbody>
+<tr><td><strong>GTK 4</strong></td><td>Strong choice for Linux desktop applications. Standard widgets provide accessibility support through the GTK accessibility stack. Use GTK controls and GNOME accessibility guidance.</td></tr>
+<tr><td><strong>Win32 common controls / Windows UI Automation</strong></td><td>Appropriate for Windows-only native applications when implemented with standard controls and correct UI Automation providers/patterns. Custom controls must expose equivalent UIA information.</td></tr>
+<tr><td><strong>Qt through C bindings or a C-compatible interface</strong></td><td>Qt’s accessibility architecture is strong, but Qt is primarily a C++ framework. Use an established, maintained binding rather than inventing a C ABI bridge.</td></tr>
+<tr><td><strong>AccessKit C bindings</strong></td><td>An accessibility infrastructure option for developers implementing custom-rendered interfaces. It is not a complete GUI toolkit; the application still has to construct and update a correct accessibility tree and support platform adapters.</td></tr>
+</tbody>
+</table>
+</div>
+<h3 id="c-avoid-or-restrict"><a class="header" href="#c-avoid-or-restrict">C: avoid or restrict</a></h3>
+<ul>
+<li><strong>SDL</strong>, <strong>GLFW</strong>, raw OpenGL/Vulkan, and framebuffer-only interfaces as the sole UI for an accessibility-critical application.</li>
+<li>Custom widget systems that expose pixels but no accessible roles, names, states, actions, or events.</li>
+<li>Legacy or abandoned GUI bindings without current platform accessibility support.</li>
+</ul>
+<p>If a graphics library is needed, provide a parallel semantic interface with equivalent functionality and synchronize state and events between the two.</p>
+<h2 id="7-c"><a class="header" href="#7-c">7. C++</a></h2>
+<div class="table-wrapper">
+<table>
+<thead>
+<tr><th>Library / approach</th><th>Assessment and recommended use</th></tr>
+</thead>
+<tbody>
+<tr><td><strong>Qt 6 (Widgets / Qt Quick)</strong></td><td>Preferred cross-platform C++ GUI toolkit for accessibility-critical desktop applications. Qt exposes accessibility metadata and APIs for custom controls. Prefer standard Widgets controls for conventional interfaces; verify QML/custom controls separately.</td></tr>
+<tr><td><strong>GTK 4 with gtkmm</strong></td><td>Strong Linux/GNOME-oriented option. Standard GTK widgets expose accessible names and roles; follow GTK and GNOME HIG guidance.</td></tr>
+<tr><td><strong>wxWidgets</strong></td><td>Uses native controls where available and provides accessibility mechanisms. Confirm the current platform-specific implementation and test it; do not assume identical support on Windows, macOS, and Linux.</td></tr>
+<tr><td><strong>Win32 / Windows UI Automation</strong></td><td>Suitable for Windows-specific applications using native controls or complete UIA providers for custom controls.</td></tr>
+<tr><td><strong>Web UI embedded in a desktop shell</strong></td><td>A browser-based front end can use semantic HTML and the practices in Section 2. Verify the embedded webview’s browser engine and assistive-technology integration.</td></tr>
+</tbody>
+</table>
+</div>
+<h3 id="c-avoid-or-restrict-1"><a class="header" href="#c-avoid-or-restrict-1">C++: avoid or restrict</a></h3>
+<ul>
+<li><strong>Dear ImGui</strong>, <strong>SDL</strong>, <strong>GLFW</strong>, custom OpenGL/Vulkan interfaces, and game-engine UI as the only interface for a general-purpose accessible application unless a verified accessibility bridge and complete keyboard/screen-reader model are provided.</li>
+<li>Qt/GTK custom-painted widgets that do not implement accessible interfaces.</li>
+<li>Unmaintained wrappers or bindings that lag behind the toolkit’s accessibility APIs.</li>
+</ul>
+<p>Qt’s <code>QAccessible</code> interfaces are the extension point for custom Qt widgets. A custom widget is not accessible merely because it is drawn inside a Qt window.</p>
+<h2 id="8-c"><a class="header" href="#8-c">8. C#</a></h2>
+<div class="table-wrapper">
+<table>
+<thead>
+<tr><th>Library / approach</th><th>Assessment and recommended use</th></tr>
+</thead>
+<tbody>
+<tr><td><strong>WPF</strong></td><td>Strong Windows desktop option. Standard controls integrate with Windows UI Automation. Use AutomationProperties and standard control patterns; implement automation peers for custom controls.</td></tr>
+<tr><td><strong>WinUI 3</strong></td><td>Native Windows option with UI Automation integration. Prefer standard controls and expose appropriate automation properties and patterns for custom controls.</td></tr>
+<tr><td><strong>Windows Forms</strong></td><td>Mature Windows-only option. Standard controls have accessibility support; custom controls require accessible object/provider work. Test keyboard navigation, Narrator, and UIA.</td></tr>
+<tr><td><strong>.NET MAUI</strong></td><td>Suitable for cross-platform mobile/desktop applications when platform-specific semantics are tested. Use semantic properties for descriptions, hints, and headings; test VoiceOver, TalkBack, and desktop screen readers separately.</td></tr>
+<tr><td><strong>Avalonia UI</strong></td><td>Cross-platform .NET option with automation peers and platform accessibility mappings (UI Automation, NSAccessibility, AT-SPI). Prefer built-in controls; supply AutomationProperties and test each supported platform.</td></tr>
+<tr><td><strong>Blazor / ASP.NET Core web UI</strong></td><td>Browser-based interfaces should use semantic HTML and Section 2 guidance. Use accessible component libraries only after testing their actual rendered behavior.</td></tr>
+</tbody>
+</table>
+</div>
+<h3 id="c-avoid-or-restrict-2"><a class="header" href="#c-avoid-or-restrict-2">C#: avoid or restrict</a></h3>
+<ul>
+<li><strong>MonoGame</strong>, <strong>Unity UI</strong>, <strong>Win2D</strong>, SkiaSharp custom drawing, and canvas-based interfaces as the only interaction layer for an accessibility-critical business application.</li>
+<li>Custom WPF/Avalonia templates that remove labels, focus visuals, automation peers, or keyboard behavior.</li>
+<li>Third-party controls that claim accessibility but do not document UI Automation patterns and screen-reader testing.</li>
+</ul>
+<p>For WPF and WinUI, verify that each custom control exposes the correct UI Automation control type, name, help text, state, supported patterns, and events. For MAUI and Avalonia, test every operating system separately.</p>
+<h2 id="9-julia"><a class="header" href="#9-julia">9. Julia</a></h2>
+<p>Julia’s desktop GUI ecosystem is smaller than those of Python, Java, and C++. Choose an established toolkit or a browser interface rather than assuming a plotting package is a full GUI.</p>
+<div class="table-wrapper">
+<table>
+<thead>
+<tr><th>Library / approach</th><th>Assessment and recommended use</th></tr>
+</thead>
+<tbody>
+<tr><td><strong>Gtk.jl (GTK)</strong></td><td>Practical route to GTK’s native accessibility support, especially for Linux desktop applications. Prefer standard GTK widgets and validate the Julia binding and GTK version used.</td></tr>
+<tr><td><strong>QML.jl / Qt Quick integration</strong></td><td>Can provide a Qt-based UI. Qt has accessibility APIs, but validate the specific Julia binding, Qt version, QML controls, and custom components.</td></tr>
+<tr><td><strong>Browser-based Julia applications (for example, Genie/Stipple or Pluto notebooks)</strong></td><td>Use browser semantics and the web practices in Section 2. Ensure generated controls, notebook cells, outputs, and interactive plots are keyboard and screen-reader usable.</td></tr>
+<tr><td><strong>Native host application plus Julia computation</strong></td><td>Often a sound architecture: use an accessible host UI (for example, a web front end or native toolkit) and call Julia for computation.</td></tr>
+</tbody>
+</table>
+</div>
+<h3 id="julia-avoid-or-restrict"><a class="header" href="#julia-avoid-or-restrict">Julia: avoid or restrict</a></h3>
+<ul>
+<li><strong>Makie</strong>, <strong>Plots.jl</strong>, <strong>GLMakie</strong>, and other visualization packages as the only way to present results. A chart is not a substitute for a data table, text summary, or downloadable data.</li>
+<li>Experimental GUI wrappers with no documented accessibility-tree support.</li>
+<li>Interfaces that require precise mouse interaction with a plot, notebook output, or custom canvas.</li>
+</ul>
+<p>For every visualization, expose the underlying values, labels, relationships, and trends in a structured alternative. Provide keyboard-accessible controls for changing plotted variables.</p>
+<h2 id="10-swift"><a class="header" href="#10-swift">10. Swift</a></h2>
+<div class="table-wrapper">
+<table>
+<thead>
+<tr><th>Library / approach</th><th>Assessment and recommended use</th></tr>
+</thead>
+<tbody>
+<tr><td><strong>SwiftUI</strong></td><td>Preferred declarative approach for new Apple-platform interfaces. Standard controls have built-in accessibility. Use <code>accessibilityLabel</code>, <code>accessibilityValue</code>, <code>accessibilityHint</code>, appropriate traits, and grouping/focus APIs when needed.</td></tr>
+<tr><td><strong>UIKit</strong></td><td>Preferred native iOS/iPadOS approach where imperative control is useful. Standard views and controls support VoiceOver; expose custom elements using UIAccessibility APIs and containers.</td></tr>
+<tr><td><strong>AppKit</strong></td><td>Native macOS framework with accessibility support. Use standard controls and implement the NSAccessibility protocol for custom views.</td></tr>
+<tr><td><strong>WebKit / browser UI</strong></td><td>A web front end can use semantic HTML. Test in the actual WKWebView and target macOS/iOS versions.</td></tr>
+</tbody>
+</table>
+</div>
+<h3 id="swift-avoid-or-restrict"><a class="header" href="#swift-avoid-or-restrict">Swift: avoid or restrict</a></h3>
+<ul>
+<li><strong>SpriteKit</strong>, <strong>SceneKit</strong>, Metal-rendered screens, custom-drawn <code>Canvas</code> views, and game interfaces as the sole interface for non-game tasks or essential information.</li>
+<li>SwiftUI views that use decorative labels as the only control name, hide meaningful children, or combine unrelated controls into one accessibility element.</li>
+<li>Custom UIKit/AppKit views that do not expose accessibility elements, actions, values, and focus behavior.</li>
+</ul>
+<p>Test VoiceOver, Voice Control, Switch Control, keyboard navigation on macOS, Dynamic Type, increased contrast, and Reduce Motion. A SwiftUI control that works on iOS is not automatically verified on macOS or watchOS.</p>
+<h2 id="11-rust"><a class="header" href="#11-rust">11. Rust</a></h2>
+<p>Rust’s GUI ecosystem is evolving. Accessibility support varies considerably by toolkit and target platform. Verify current release notes and platform coverage before committing to a toolkit.</p>
+<div class="table-wrapper">
+<table>
+<thead>
+<tr><th>Library / approach</th><th>Assessment and recommended use</th></tr>
+</thead>
+<tbody>
+<tr><td><strong>GTK 4 via gtk-rs</strong></td><td>Strong choice for Linux desktop applications. GTK’s built-in widgets expose accessible information; gtk-rs documentation covers accessible labels and descriptions.</td></tr>
+<tr><td><strong>Slint</strong></td><td>A cross-platform toolkit with an AccessKit-based accessibility feature. Enable the feature, use semantic controls, and verify platform coverage and current version behavior.</td></tr>
+<tr><td><strong>egui / eframe</strong></td><td>Has AccessKit integration on some platforms/releases. Treat support as platform- and version-specific; do not infer full cross-platform coverage from the existence of the integration.</td></tr>
+<tr><td><strong>Tauri with a web front end</strong></td><td>Often a strong choice when browser-based UI is acceptable. Use semantic HTML and tested web components; Rust provides application logic while the system webview renders the UI.</td></tr>
+<tr><td><strong>Dioxus desktop/web</strong></td><td>Can use web semantics for browser/webview targets. Verify the generated DOM, keyboard model, and assistive-technology behavior for the exact target.</td></tr>
+<tr><td><strong>AccessKit</strong></td><td>Accessibility infrastructure for custom toolkit developers, not a turnkey GUI. Use its platform adapters and maintain a complete, accurate accessibility tree.</td></tr>
+</tbody>
+</table>
+</div>
+<h3 id="rust-avoid-or-restrict"><a class="header" href="#rust-avoid-or-restrict">Rust: avoid or restrict</a></h3>
+<ul>
+<li><strong>Iced</strong> or other custom-rendered toolkits when the current release has no verified screen-reader accessibility integration for the target platforms. Re-check current status before adoption; this is a technology-selection warning, not a permanent claim about the project.</li>
+<li><strong>Bevy</strong>, <strong>macroquad</strong>, <strong>minifb</strong>, raw wgpu/winit, and game/graphics frameworks as the sole interface for a conventional accessible desktop application.</li>
+<li>Any custom widget toolkit that has keyboard focus but does not expose semantic roles, names, states, values, and events.</li>
+</ul>
+<p>For custom rendering, AccessKit can bridge to platform accessibility APIs, but it does not automatically infer the meaning of the pixels. The application must create and update the semantic tree correctly.</p>
+<h2 id="12-go"><a class="header" href="#12-go">12. Go</a></h2>
+<p>Go does not include a standard GUI toolkit. The best choice depends on whether the application needs a native desktop interface or can use a browser.</p>
+<div class="table-wrapper">
+<table>
+<thead>
+<tr><th>Library / approach</th><th>Assessment and recommended use</th></tr>
+</thead>
+<tbody>
+<tr><td><strong>Wails with HTML/CSS/JavaScript front end</strong></td><td>Often the most practical accessibility-oriented desktop approach. Use semantic web controls and test the actual platform webview (WebView2, WKWebView, or WebKitGTK as applicable).</td></tr>
+<tr><td><strong>Web application with Go backend</strong></td><td>Strong option when desktop-native behavior is not required. Use semantic HTML, accessible components, and Section 2 testing.</td></tr>
+<tr><td><strong>GTK via Go bindings</strong></td><td>Can access GTK’s native accessibility infrastructure. Check binding maintenance, GTK version, and platform support before adoption.</td></tr>
+<tr><td><strong>Native platform APIs</strong></td><td>Windows UI Automation, macOS accessibility APIs, or Linux AT-SPI can be used through bindings or system calls, but this is a specialist implementation path.</td></tr>
+</tbody>
+</table>
+</div>
+<h3 id="go-avoid-or-restrict"><a class="header" href="#go-avoid-or-restrict">Go: avoid or restrict</a></h3>
+<ul>
+<li><strong>Fyne</strong>, <strong>Gio</strong>, <strong>Ebiten</strong>, and other custom-rendered toolkits as the default for screen-reader-critical applications unless current documentation and tests demonstrate support for every required platform and control type. Do not infer accessibility from cross-platform support or keyboard navigation alone.</li>
+<li>Old or inactive GUI bindings with unclear platform accessibility support.</li>
+<li>Custom canvas widgets without a parallel semantic control tree.</li>
+</ul>
+<p>Fyne and similar libraries may be suitable for many applications, but accessibility must be verified at the current version and target platform. If a webview front end is selected, remember that browser accessibility still depends on semantic HTML and correct component behavior.</p>
+<h2 id="13-lua"><a class="header" href="#13-lua">13. Lua</a></h2>
+<p>Lua is commonly embedded in applications and games, so the host toolkit often determines accessibility more than Lua itself.</p>
+<div class="table-wrapper">
+<table>
+<thead>
+<tr><th>Library / approach</th><th>Assessment and recommended use</th></tr>
+</thead>
+<tbody>
+<tr><td><strong>wxLua / wxWidgets</strong></td><td>Can use native controls and wxWidgets accessibility mechanisms. Verify the current binding, target OS, and screen-reader support; do not assume the full C++ toolkit’s support is perfectly exposed by every Lua binding.</td></tr>
+<tr><td><strong>IUP</strong></td><td>Provides native GUI controls on supported platforms. Accessibility behavior is platform-dependent; test the exact controls and OS combinations before using it for essential workflows.</td></tr>
+<tr><td><strong>Web UI hosted by a Lua application/server</strong></td><td>Use semantic HTML and the practices in Section 2. This can be preferable to custom-drawn interfaces.</td></tr>
+<tr><td><strong>Host application’s native UI API</strong></td><td>When Lua is embedded in an existing product, use that host’s documented accessible UI framework rather than drawing a parallel interface.</td></tr>
+</tbody>
+</table>
+</div>
+<h3 id="lua-avoid-or-restrict"><a class="header" href="#lua-avoid-or-restrict">Lua: avoid or restrict</a></h3>
+<ul>
+<li><strong>LÖVE (Love2D)</strong>, <strong>Defold</strong>, <strong>Solar2D</strong>, and other game/graphics frameworks as the only interface for conventional form-based or data-entry applications. They are not substitutes for a native semantic widget toolkit.</li>
+<li>Custom OpenGL/canvas widgets without an accessibility bridge and equivalent keyboard interface.</li>
+<li>Abandoned Lua bindings whose accessibility behavior cannot be confirmed.</li>
+</ul>
+<p>For games, provide accessible menus, text alternatives, remappable controls, narration or audio cues where useful, non-color-only indicators, and a way to access game state without relying exclusively on visual effects. Game accessibility is a specialized discipline; a screen-reader label alone is not sufficient.</p>
+<h2 id="14-r"><a class="header" href="#14-r">14. R</a></h2>
+<p>R is primarily used for statistical computing and data analysis. For user-facing applications, prefer browser interfaces or native controls with a structured alternative to every plot.</p>
+<div class="table-wrapper">
+<table>
+<thead>
+<tr><th>Library / approach</th><th>Assessment and recommended use</th></tr>
+</thead>
+<tbody>
+<tr><td><strong>Shiny</strong></td><td>Recommended for interactive data applications when built with semantic HTML, accessible form controls, keyboard operation, and carefully managed status announcements. Audit Shiny modules and third-party inputs individually.</td></tr>
+<tr><td><strong>Quarto websites / documents</strong></td><td>Suitable for accessible reports when headings, links, tables, code, and figures are authored semantically and checked in the rendered output.</td></tr>
+<tr><td><strong>R Markdown</strong></td><td>Can produce accessible HTML documents with semantic structure. Verify the chosen output format and theme.</td></tr>
+<tr><td><strong>tcltk</strong></td><td>R’s Tcl/Tk interface can create desktop controls, but accessibility varies with the Tcl/Tk version and platform. Test before relying on it.</td></tr>
+<tr><td><strong>R + accessible web front end</strong></td><td>R can provide analysis through Shiny or an API while a web front end supplies semantic controls.</td></tr>
+</tbody>
+</table>
+</div>
+<h3 id="r-avoid-or-restrict"><a class="header" href="#r-avoid-or-restrict">R: avoid or restrict</a></h3>
+<ul>
+<li><strong>ggplot2</strong>, <strong>plotly</strong>, <strong>htmlwidgets</strong>, and dashboard charts as the only representation of data. Provide a data table, concise textual interpretation, and accessible controls for changing the view.</li>
+<li>Custom HTML widgets that use mouse-only controls or expose no semantic structure.</li>
+<li>RStudio Viewer or notebook output as the only access path for essential information without testing the rendered document in a browser and screen reader.</li>
+</ul>
+<p>For charts, include a meaningful title, summary, data table, and clear descriptions of trends and outliers. Do not rely on color alone to distinguish series.</p>
+<h2 id="15-html-and-css-focused-module"><a class="header" href="#15-html-and-css-focused-module">15. HTML and CSS focused module</a></h2>
+<p>HTML and CSS are not standalone GUI toolkits. They define the document and presentation layer used by browser interfaces. Use the web recommendations in Section 2.</p>
+<p>Prefer native HTML controls and semantic elements. CSS must preserve focus visibility, reading order, zoom, reflow, contrast, and forced-colors behavior. Avoid CSS that visually reorders content in a way that conflicts with DOM reading order, hides focus, clips enlarged text, or removes meaningful content from the accessibility tree.</p>
+<p>Do not use CSS-generated text as the only source of essential information. Do not use <code>display: none</code> or <code>visibility: hidden</code> for content that must remain available to assistive technology. Use visually-hidden techniques only when content should be available to screen readers but not visually displayed, and ensure it remains understandable.</p>
+<h2 id="16-sql-focused-module"><a class="header" href="#16-sql-focused-module">16. SQL focused module</a></h2>
+<p>SQL is a query language, not a GUI toolkit. Accessibility depends on the database client, administration tool, report interface, and application built around the database.</p>
+<ul>
+<li>Choose database clients that support keyboard navigation, accessible grids, labeled controls, and screen-reader testing.</li>
+<li>Prefer structured query results that can be navigated as tables with column headers and predictable row/column movement.</li>
+<li>Provide export to accessible CSV or other structured formats where appropriate.</li>
+<li>Do not make a visual query-plan diagram, database schema canvas, or color-coded result grid the only way to inspect information.</li>
+<li>When building a database application, use the accessibility guidance for its host language and GUI framework.</li>
+</ul>
+<p>A database driver or SQL engine does not make the application interface accessible.</p>
+<h2 id="17-bash-and-powershell"><a class="header" href="#17-bash-and-powershell">17. Bash and PowerShell</a></h2>
+<p>Bash and PowerShell are shell languages, not general-purpose GUI frameworks. Their normal interfaces are command-line terminals.</p>
+<ul>
+<li>Prefer terminal emulators with screen-reader support and accessible text output.</li>
+<li>Ensure commands produce meaningful text, stable headings, explicit status messages, and useful error messages.</li>
+<li>Do not use color as the only signal. Respect terminal accessibility settings and avoid unnecessary cursor-positioning or full-screen output that disrupts screen-reader reading.</li>
+<li>For interactive terminal user interfaces (TUIs), provide keyboard navigation, predictable focus, text labels, and screen-reader-tested output. A TUI library’s ability to draw boxes or handle keypresses does not establish accessibility.</li>
+<li>When a script needs a graphical interface, delegate to a supported native or web GUI framework and follow the corresponding language/platform guidance.</li>
+</ul>
+<p>Avoid making a full-screen terminal UI the only route through a critical workflow unless it has been tested with the target terminal, screen reader, and operating system.</p>
+<h2 id="18-testing-and-release-gate"><a class="header" href="#18-testing-and-release-gate">18. Testing and release gate</a></h2>
+<p>Accessibility is a release requirement, not a final cosmetic pass. Test the actual application, on each supported operating system, with the screen readers and input methods used by the intended audience.</p>
+<h3 id="minimum-manual-test-matrix"><a class="header" href="#minimum-manual-test-matrix">Minimum manual test matrix</a></h3>
+<div class="table-wrapper">
+<table>
+<thead>
+<tr><th>Environment</th><th>Screen reader / accessibility tools</th><th>Required checks</th></tr>
+</thead>
+<tbody>
+<tr><td>Windows</td><td>Narrator; NVDA; Windows UI Automation inspection tools</td><td>Names, roles, values, state changes, keyboard navigation, focus, dialogs, tables, high contrast, text scaling.</td></tr>
+<tr><td>macOS</td><td>VoiceOver; Accessibility Inspector</td><td>Reading order, labels, groups, keyboard access, focus, Dynamic Type/text scaling where supported, contrast, dialogs.</td></tr>
+<tr><td>iOS / iPadOS</td><td>VoiceOver; Switch Control; Voice Control</td><td>Swipe navigation, rotor/navigation structure, labels, hints, state, custom actions, touch alternatives, larger text.</td></tr>
+<tr><td>Android</td><td>TalkBack; Switch Access; Accessibility Scanner (as a supplemental tool)</td><td>Traversal order, labels, state, headings, touch targets, switch/keyboard access, large font and display scaling.</td></tr>
+<tr><td>Linux desktop</td><td>Orca; Accerciser; AT-SPI inspection</td><td>Accessible names/roles/states, keyboard traversal, focus, GTK/Qt controls, large text, high contrast.</td></tr>
+<tr><td>Web browsers</td><td>NVDA with Firefox/Chrome; VoiceOver with Safari; keyboard-only testing</td><td>Semantic structure, forms, live regions, route changes, dialogs, custom widgets, zoom/reflow, forced colors.</td></tr>
+</tbody>
+</table>
+</div>
+<p>Not every combination is available or equally supported. Select combinations based on the platforms actually shipped, and add combinations requested by users or required by procurement or regulation.</p>
+<h3 id="automated-checks-supplement-never-replacement"><a class="header" href="#automated-checks-supplement-never-replacement">Automated checks (supplement, never replacement)</a></h3>
+<ul>
+<li>Web: axe-core, Accessibility Insights, Lighthouse, and browser developer tools.</li>
+<li>Android: Accessibility Scanner and Espresso accessibility checks where applicable.</li>
+<li>Apple platforms: Xcode Accessibility Inspector and XCTest accessibility support.</li>
+<li>Windows: Accessibility Insights for Windows and UI Automation inspection tools.</li>
+<li>Linux: Accerciser and AT-SPI inspection tools.</li>
+<li>Cross-platform: automated tests for keyboard paths, focus behavior, and accessible names where the framework exposes them.</li>
+</ul>
+<p>Automated tools detect only a subset of accessibility defects. They cannot reliably judge whether a label is meaningful, whether reading order makes sense, whether instructions are understandable, or whether a workflow is usable.</p>
+<h3 id="release-checklist"><a class="header" href="#release-checklist">Release checklist</a></h3>
+<ul>
+<li><input disabled="" type="checkbox"> Every control has a correct role, accessible name, state, and value.</li>
+<li><input disabled="" type="checkbox"> Every action works with keyboard-only input; focus is visible and logical.</li>
+<li><input disabled="" type="checkbox"> Screen-reader navigation and announcements are understandable and non-redundant.</li>
+<li><input disabled="" type="checkbox"> Forms expose labels, instructions, validation errors, and required status.</li>
+<li><input disabled="" type="checkbox"> Dialogs, menus, tabs, and dynamic content manage focus and announcements correctly.</li>
+<li><input disabled="" type="checkbox"> Text can be enlarged; content reflows; high-contrast/forced-colors modes remain usable.</li>
+<li><input disabled="" type="checkbox"> Color is never the only means of communicating information.</li>
+<li><input disabled="" type="checkbox"> Motion can be reduced; flashing and autoplay behavior are controlled.</li>
+<li><input disabled="" type="checkbox"> Charts, images, diagrams, and visualizations have equivalent text or structured data.</li>
+<li><input disabled="" type="checkbox"> Tests were performed on every supported platform with real assistive technology.</li>
+<li><input disabled="" type="checkbox"> Known limitations, workarounds, and unsupported combinations are documented.</li>
+<li><input disabled="" type="checkbox"> Users with disabilities have been included in usability testing before release.</li>
+</ul>
+<h2 id="19-selection-summary"><a class="header" href="#19-selection-summary">19. Selection summary</a></h2>
+<p>For a new accessibility-critical interface, start with these defaults:</p>
+<div class="table-wrapper">
+<table>
+<thead>
+<tr><th>Language / area</th><th>Preferred starting point</th></tr>
+</thead>
+<tbody>
+<tr><td>Python</td><td>PySide6/Qt Widgets or GTK 4; browser UI where suitable</td></tr>
+<tr><td>JavaScript / TypeScript</td><td>Semantic HTML with a tested framework/component system</td></tr>
+<tr><td>Java</td><td>Swing or JavaFX standard controls</td></tr>
+<tr><td>Kotlin</td><td>Jetpack Compose on Android; Compose Multiplatform only after target-by-target verification</td></tr>
+<tr><td>C</td><td>GTK 4 or native Windows controls/UI Automation</td></tr>
+<tr><td>C++</td><td>Qt 6 Widgets or GTK 4/gtkmm</td></tr>
+<tr><td>C#</td><td>WPF/WinUI on Windows; .NET MAUI or Avalonia after platform testing</td></tr>
+<tr><td>Julia</td><td>GTK.jl, Qt/QML integration, or a browser-based interface</td></tr>
+<tr><td>Swift</td><td>SwiftUI; UIKit or AppKit where platform-specific control is needed</td></tr>
+<tr><td>Rust</td><td>GTK 4, Slint with AccessKit, or Tauri with semantic web UI</td></tr>
+<tr><td>Go</td><td>Wails with semantic web UI, or GTK bindings</td></tr>
+<tr><td>Lua</td><td>Host-native UI, wxLua/IUP after verification, or a semantic web UI</td></tr>
+<tr><td>R</td><td>Shiny with accessible HTML controls and data alternatives</td></tr>
+<tr><td>HTML/CSS</td><td>Native semantic HTML and standards-based CSS</td></tr>
+<tr><td>SQL</td><td>Accessible database client and host-language application</td></tr>
+<tr><td>Bash / PowerShell</td><td>Accessible terminal output; native/web GUI when a GUI is required</td></tr>
+</tbody>
+</table>
+</div>
+<p>The safest default is not “choose the library with the longest accessibility feature list.” It is: choose mature semantic controls that integrate with the target operating system, minimize custom rendering, expose complete accessible information, and prove the result through assistive-technology testing.</p>
+<h2 id="20-authoritative-references"><a class="header" href="#20-authoritative-references">20. Authoritative references</a></h2>
+<p>Standards and cross-platform guidance:</p>
+<ul>
+<li><a href="https://www.w3.org/TR/WCAG22/">W3C Web Content Accessibility Guidelines (WCAG) 2.2</a></li>
+<li><a href="https://www.w3.org/WAI/standards-guidelines/aria/">W3C WAI-ARIA Overview</a></li>
+<li><a href="https://www.w3.org/WAI/ARIA/apg/">WAI-ARIA Authoring Practices Guide</a></li>
+<li><a href="https://developer.mozilla.org/en-US/docs/Learn_web_development/Core/Accessibility/HTML">MDN: HTML as a basis for accessibility</a></li>
+<li><a href="https://developer.mozilla.org/en-US/docs/Web/Accessibility/Guides/Accessible_web_applications_and_widgets">MDN: Accessible web applications and widgets</a></li>
+</ul>
+<p>Toolkit and platform references:</p>
+<ul>
+<li><a href="https://www.qt.io/development/qt-framework/ui-accessibility">Qt: UI accessibility</a></li>
+<li><a href="https://doc.qt.io/qt-6/qaccessible.html">Qt: QAccessible</a></li>
+<li><a href="https://developer.gnome.org/hig/guidelines/accessibility.html">GNOME Human Interface Guidelines: Accessibility</a></li>
+<li><a href="https://gtk-rs.org/gtk4-rs/stable/latest/book/accessibility.html">GTK-rs: Accessibility</a></li>
+<li><a href="https://docs.wxpython.org/wx.Accessible.html">wxPython: wx.Accessible</a></li>
+<li><a href="https://docs.oracle.com/javase/8/docs/technotes/guides/access/index.html">Oracle: Java Accessibility</a></li>
+<li><a href="https://developer.android.com/guide/topics/ui/accessibility">Android: Accessibility principles</a></li>
+<li><a href="https://developer.android.com/develop/ui/compose/accessibility">Jetpack Compose: Accessibility</a></li>
+<li><a href="https://kotlinlang.org/docs/multiplatform/compose-accessibility.html">Compose Multiplatform: Accessibility</a></li>
+<li><a href="https://learn.microsoft.com/en-us/dotnet/desktop/wpf/advanced/wpf-accessibility">Microsoft: WPF accessibility</a></li>
+<li><a href="https://learn.microsoft.com/en-us/dotnet/maui/fundamentals/accessibility">Microsoft: .NET MAUI semantic properties and accessibility</a></li>
+<li><a href="https://docs.avaloniaui.net/docs/app-development/accessibility">Avalonia: Accessibility</a></li>
+<li><a href="https://developer.apple.com/documentation/swiftui/accessibility-fundamentals">Apple: SwiftUI accessibility fundamentals</a></li>
+<li><a href="https://developer.apple.com/documentation/uikit/accessibility-for-uikit">Apple: Accessibility for UIKit</a></li>
+<li><a href="https://developer.apple.com/documentation/appkit/accessibility-for-appkit">Apple: Accessibility for AppKit</a></li>
+<li><a href="https://accesskit.dev/">AccessKit</a></li>
+<li><a href="https://gtk-rs.org/gtk4-rs/stable/latest/book/accessibility.html">Rust GTK: Accessibility</a></li>
+</ul>
+<p>Recheck framework documentation and supported platform matrices before adopting a library. Accessibility capabilities change across toolkit versions, operating systems, and assistive technologies.</p>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                            <a rel="prev" href="../DEVELOPMENT/ENVIRONMENT_ISOLATION.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M41.4 233.4c-12.5 12.5-12.5 32.8 0 45.3l160 160c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L109.3 256 246.6 118.6c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0l-160 160z"/></svg></span>
+                            </a>
+
+                            <a rel="next prefetch" href="../FOUNDATIONS/FOUNDATIONS_README.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M278.6 233.4c12.5 12.5 12.5 32.8 0 45.3l-160 160c-12.5 12.5-32.8 12.5-45.3 0s-12.5-32.8 0-45.3L210.7 256 73.4 118.6c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0l160 160z"/></svg></span>
+                            </a>
+
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                    <a rel="prev" href="../DEVELOPMENT/ENVIRONMENT_ISOLATION.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M41.4 233.4c-12.5 12.5-12.5 32.8 0 45.3l160 160c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L109.3 256 246.6 118.6c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0l-160 160z"/></svg></span>
+                    </a>
+
+                    <a rel="next prefetch" href="../FOUNDATIONS/FOUNDATIONS_README.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M278.6 233.4c12.5 12.5 12.5 32.8 0 45.3l-160 160c-12.5 12.5-32.8 12.5-45.3 0s-12.5-32.8 0-45.3L210.7 256 73.4 118.6c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0l160 160z"/></svg></span>
+                    </a>
+            </nav>
+
+        </div>
+
+        <template id=fa-eye><span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M288 32c-80.8 0-145.5 36.8-192.6 80.6C48.6 156 17.3 208 2.5 243.7c-3.3 7.9-3.3 16.7 0 24.6C17.3 304 48.6 356 95.4 399.4C142.5 443.2 207.2 480 288 480s145.5-36.8 192.6-80.6c46.8-43.5 78.1-95.4 93-131.1c3.3-7.9 3.3-16.7 0-24.6c-14.9-35.7-46.2-87.7-93-131.1C433.5 68.8 368.8 32 288 32zM432 256c0 79.5-64.5 144-144 144s-144-64.5-144-144s64.5-144 144-144s144 64.5 144 144zM288 192c0 35.3-28.7 64-64 64c-11.5 0-22.3-3-31.6-8.4c-.2 2.8-.4 5.5-.4 8.4c0 53 43 96 96 96s96-43 96-96s-43-96-96-96c-2.8 0-5.6 .1-8.4 .4c5.3 9.3 8.4 20.1 8.4 31.6z"/></svg></span></template>
+        <template id=fa-eye-slash><span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M38.8 5.1C28.4-3.1 13.3-1.2 5.1 9.2S-1.2 34.7 9.2 42.9l592 464c10.4 8.2 25.5 6.3 33.7-4.1s6.3-25.5-4.1-33.7L525.6 386.7c39.6-40.6 66.4-86.1 79.9-118.4c3.3-7.9 3.3-16.7 0-24.6c-14.9-35.7-46.2-87.7-93-131.1C465.5 68.8 400.8 32 320 32c-68.2 0-125 26.3-169.3 60.8L38.8 5.1zM223.1 149.5C248.6 126.2 282.7 112 320 112c79.5 0 144 64.5 144 144c0 24.9-6.3 48.3-17.4 68.7L408 294.5c5.2-11.8 8-24.8 8-38.5c0-53-43-96-96-96c-2.8 0-5.6 .1-8.4 .4c5.3 9.3 8.4 20.1 8.4 31.6c0 10.2-2.4 19.8-6.6 28.3l-90.3-70.8zm223.1 298L373 389.9c-16.4 6.5-34.3 10.1-53 10.1c-79.5 0-144-64.5-144-144c0-6.9 .5-13.6 1.4-20.2L83.1 161.5C60.3 191.2 44 220.8 34.5 243.7c-3.3 7.9-3.3 16.7 0 24.6c14.9 35.7 46.2 87.7 93 131.1C174.5 443.2 239.2 480 320 480c47.8 0 89.9-12.9 126.2-32.5z"/></svg></span></template>
+        <template id=fa-copy><span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M502.6 70.63l-61.25-61.25C435.4 3.371 427.2 0 418.7 0H255.1c-35.35 0-64 28.66-64 64l.0195 256C192 355.4 220.7 384 256 384h192c35.2 0 64-28.8 64-64V93.25C512 84.77 508.6 76.63 502.6 70.63zM464 320c0 8.836-7.164 16-16 16H255.1c-8.838 0-16-7.164-16-16L239.1 64.13c0-8.836 7.164-16 16-16h128L384 96c0 17.67 14.33 32 32 32h47.1V320zM272 448c0 8.836-7.164 16-16 16H63.1c-8.838 0-16-7.164-16-16L47.98 192.1c0-8.836 7.164-16 16-16H160V128H63.99c-35.35 0-64 28.65-64 64l.0098 256C.002 483.3 28.66 512 64 512h192c35.2 0 64-28.8 64-64v-32h-47.1L272 448z"/></svg></span></template>
+        <template id=fa-play><span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M73 39c-14.8-9.1-33.4-9.4-48.5-.9S0 62.6 0 80V432c0 17.4 9.4 33.4 24.5 41.9s33.7 8.1 48.5-.9L361 297c14.3-8.7 23-24.2 23-41s-8.7-32.2-23-41L73 39z"/></svg></span></template>
+        <template id=fa-clock-rotate-left><span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M75 75L41 41C25.9 25.9 0 36.6 0 57.9V168c0 13.3 10.7 24 24 24H134.1c21.4 0 32.1-25.9 17-41l-30.8-30.8C155 85.5 203 64 256 64c106 0 192 86 192 192s-86 192-192 192c-40.8 0-78.6-12.7-109.7-34.4c-14.5-10.1-34.4-6.6-44.6 7.9s-6.6 34.4 7.9 44.6C151.2 495 201.7 512 256 512c141.4 0 256-114.6 256-256S397.4 0 256 0C185.3 0 121.3 28.7 75 75zm181 53c-13.3 0-24 10.7-24 24V256c0 6.4 2.5 12.5 7 17l72 72c9.4 9.4 24.6 9.4 33.9 0s9.4-24.6 0-33.9l-65-65V152c0-13.3-10.7-24-24-24z"/></svg></span></template>
+
+
+
+        <script>
+            window.playground_copyable = true;
+        </script>
+
+
+        <script src="../elasticlunr-ef4e11c1.min.js"></script>
+        <script src="../mark-09e88c2c.min.js"></script>
+        <script src="../searcher-09f2665d.js"></script>
+
+        <script src="../clipboard-1626706a.min.js"></script>
+        <script src="../highlight-abc7f01d.js"></script>
+        <script src="../book-609e4cb8.js"></script>
+
+        <!-- Custom JS scripts -->
+
+
+
+    </div>
+    </body>
+</html>

@@ -1,0 +1,1472 @@
+<!DOCTYPE HTML>
+<html lang="en" class="rust sidebar-visible" dir="ltr">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>Unit 10 - Accessible Introduction to Computer Science</title>
+
+
+        <!-- Custom HTML head -->
+
+        <meta name="description" content="Introductory programming curricula, each adapted for visually impaired students who use screen readers">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff">
+
+        <link rel="icon" href="../favicon-de23e50b.svg">
+        <link rel="shortcut icon" href="../favicon-8114d1fc.png">
+        <link rel="stylesheet" href="../css/variables-8adf115d.css">
+        <link rel="stylesheet" href="../css/general-e96d0476.css">
+        <link rel="stylesheet" href="../css/chrome-d279d366.css">
+        <link rel="stylesheet" href="../css/print-9e4910d8.css" media="print">
+
+        <!-- Fonts -->
+        <link rel="stylesheet" href="../fonts/fonts-9644e21d.css">
+
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" id="mdbook-highlight-css" href="../highlight-493f70e1.css">
+        <link rel="stylesheet" id="mdbook-tomorrow-night-css" href="../tomorrow-night-4c0ae647.css">
+        <link rel="stylesheet" id="mdbook-ayu-highlight-css" href="../ayu-highlight-3fdfc3ac.css">
+
+        <!-- Custom theme stylesheets -->
+
+
+        <!-- Provide site root and default themes to javascript -->
+        <script>
+            const path_to_root = "../";
+            const default_light_theme = "rust";
+            const default_dark_theme = "navy";
+            window.path_to_searchindex_js = "../searchindex-1d296e4e.js";
+        </script>
+        <!-- Start loading toc.js asap -->
+        <script src="../toc-62d8efca.js"></script>
+    </head>
+    <body>
+    <div id="mdbook-help-container">
+        <div id="mdbook-help-popup">
+            <h2 class="mdbook-help-title">Keyboard shortcuts</h2>
+            <div>
+                <p>Press <kbd>←</kbd> or <kbd>→</kbd> to navigate between chapters</p>
+                <p>Press <kbd>S</kbd> or <kbd>/</kbd> to search in the book</p>
+                <p>Press <kbd>?</kbd> to show this help</p>
+                <p>Press <kbd>Esc</kbd> to hide this help</p>
+            </div>
+        </div>
+    </div>
+    <div id="mdbook-body-container">
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script>
+            try {
+                let theme = localStorage.getItem('mdbook-theme');
+                let sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script>
+            const default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? default_dark_theme : default_light_theme;
+            let theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            const html = document.documentElement;
+            html.classList.remove('rust')
+            html.classList.add(theme);
+            html.classList.add("js");
+        </script>
+
+        <input type="checkbox" id="mdbook-sidebar-toggle-anchor" class="hidden">
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script>
+            let sidebar = null;
+            const sidebar_toggle = document.getElementById("mdbook-sidebar-toggle-anchor");
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            } else {
+                sidebar = 'hidden';
+                sidebar_toggle.checked = false;
+            }
+            if (sidebar === 'visible') {
+                sidebar_toggle.checked = true;
+            } else {
+                html.classList.remove('sidebar-visible');
+            }
+        </script>
+
+        <nav id="mdbook-sidebar" class="sidebar" aria-label="Table of contents">
+            <!-- populated by js -->
+            <mdbook-sidebar-scrollbox class="sidebar-scrollbox"></mdbook-sidebar-scrollbox>
+            <noscript>
+                <iframe class="sidebar-iframe-outer" src="../toc.html"></iframe>
+            </noscript>
+            <div id="mdbook-sidebar-resize-handle" class="sidebar-resize-handle">
+                <div class="sidebar-resize-indicator"></div>
+            </div>
+        </nav>
+
+        <div id="mdbook-page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                <div id="mdbook-menu-bar-hover-placeholder"></div>
+                <div id="mdbook-menu-bar" class="menu-bar sticky">
+                    <div class="left-buttons">
+                        <label id="mdbook-sidebar-toggle" class="icon-button" for="mdbook-sidebar-toggle-anchor" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="mdbook-sidebar">
+                            <span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M0 96C0 78.3 14.3 64 32 64H416c17.7 0 32 14.3 32 32s-14.3 32-32 32H32C14.3 128 0 113.7 0 96zM0 256c0-17.7 14.3-32 32-32H416c17.7 0 32 14.3 32 32s-14.3 32-32 32H32c-17.7 0-32-14.3-32-32zM448 416c0 17.7-14.3 32-32 32H32c-17.7 0-32-14.3-32-32s14.3-32 32-32H416c17.7 0 32 14.3 32 32z"/></svg></span>
+                        </label>
+                        <button id="mdbook-theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="mdbook-theme-list">
+                            <span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M371.3 367.1c27.3-3.9 51.9-19.4 67.2-42.9L600.2 74.1c12.6-19.5 9.4-45.3-7.6-61.2S549.7-4.4 531.1 9.6L294.4 187.2c-24 18-38.2 46.1-38.4 76.1L371.3 367.1zm-19.6 25.4l-116-104.4C175.9 290.3 128 339.6 128 400c0 3.9 .2 7.8 .6 11.6c1.8 17.5-10.2 36.4-27.8 36.4H96c-17.7 0-32 14.3-32 32s14.3 32 32 32H240c61.9 0 112-50.1 112-112c0-2.5-.1-5-.2-7.5z"/></svg></span>
+                        </button>
+                        <ul id="mdbook-theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="mdbook-theme-default_theme">Auto</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="mdbook-theme-light">Light</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="mdbook-theme-rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="mdbook-theme-coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="mdbook-theme-navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="mdbook-theme-ayu">Ayu</button></li>
+                        </ul>
+                        <button id="mdbook-search-toggle" class="icon-button" type="button" title="Search (`/`)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="/ s" aria-controls="mdbook-searchbar">
+                            <span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M416 208c0 45.9-14.9 88.3-40 122.7L502.6 457.4c12.5 12.5 12.5 32.8 0 45.3s-32.8 12.5-45.3 0L330.7 376c-34.4 25.2-76.8 40-122.7 40C93.1 416 0 322.9 0 208S93.1 0 208 0S416 93.1 416 208zM208 352c79.5 0 144-64.5 144-144s-64.5-144-144-144S64 128.5 64 208s64.5 144 144 144z"/></svg></span>
+                        </button>
+                    </div>
+
+                    <h1 class="menu-title">Accessible Introduction to Computer Science</h1>
+
+                    <div class="right-buttons">
+                        <a href="../print.html" title="Print this book" aria-label="Print this book">
+                            <span class=fa-svg id="print-button"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M128 0C92.7 0 64 28.7 64 64v96h64V64H354.7L384 93.3V160h64V93.3c0-17-6.7-33.3-18.7-45.3L400 18.7C388 6.7 371.7 0 354.7 0H128zM384 352v32 64H128V384 368 352H384zm64 32h32c17.7 0 32-14.3 32-32V256c0-35.3-28.7-64-64-64H64c-35.3 0-64 28.7-64 64v96c0 17.7 14.3 32 32 32H64v64c0 35.3 28.7 64 64 64H384c35.3 0 64-28.7 64-64V384zm-16-88c-13.3 0-24-10.7-24-24s10.7-24 24-24s24 10.7 24 24s-10.7 24-24 24z"/></svg></span>
+                        </a>
+                        <a href="https://github.com/mrhunsaker/VI_Focused_Coding_Curricula" title="Git repository" aria-label="Git repository">
+                            <span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"/></svg></span>
+                        </a>
+
+                    </div>
+                </div>
+
+                <div id="mdbook-search-wrapper" class="hidden">
+                    <form id="mdbook-searchbar-outer" class="searchbar-outer">
+                        <div class="search-wrapper">
+                            <input type="search" id="mdbook-searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="mdbook-searchresults-outer" aria-describedby="searchresults-header">
+                            <div class="spinner-wrapper">
+                                <span class=fa-svg id="fa-spin"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M304 48c0-26.5-21.5-48-48-48s-48 21.5-48 48s21.5 48 48 48s48-21.5 48-48zm0 416c0-26.5-21.5-48-48-48s-48 21.5-48 48s21.5 48 48 48s48-21.5 48-48zM48 304c26.5 0 48-21.5 48-48s-21.5-48-48-48s-48 21.5-48 48s21.5 48 48 48zm464-48c0-26.5-21.5-48-48-48s-48 21.5-48 48s21.5 48 48 48s48-21.5 48-48zM142.9 437c18.7-18.7 18.7-49.1 0-67.9s-49.1-18.7-67.9 0s-18.7 49.1 0 67.9s49.1 18.7 67.9 0zm0-294.2c18.7-18.7 18.7-49.1 0-67.9S93.7 56.2 75 75s-18.7 49.1 0 67.9s49.1 18.7 67.9 0zM369.1 437c18.7 18.7 49.1 18.7 67.9 0s18.7-49.1 0-67.9s-49.1-18.7-67.9 0s-18.7 49.1 0 67.9z"/></svg></span>
+                            </div>
+                        </div>
+                    </form>
+                    <div id="mdbook-searchresults-outer" class="searchresults-outer hidden">
+                        <div id="mdbook-searchresults-header" class="searchresults-header"></div>
+                        <ul id="mdbook-searchresults">
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script>
+                    document.getElementById('mdbook-sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('mdbook-sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#mdbook-sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="mdbook-content" class="content">
+                    <main>
+                        <h1 id="unit-10-project-based-learning--text-based-applications"><a class="header" href="#unit-10-project-based-learning--text-based-applications">Unit 10: Project-Based Learning — Text-Based Applications</a></h1>
+<h2 id="overview"><a class="header" href="#overview">Overview</a></h2>
+<p>This unit develops the concepts in the same order and with the same problem context as the Python reference. Predict the output before running each example. Use Lua 5.4 semantics, not assumptions imported from Python.</p>
+<h2 id="lesson-101-project-design-and-requirements"><a class="header" href="#lesson-101-project-design-and-requirements">Lesson 10.1 Project Design and Requirements</a></h2>
+<h3 id="reading-references"><a class="header" href="#reading-references">Reading References</a></h3>
+<ul>
+<li>Lua 5.4 Reference Manual: https://www.lua.org/manual/5.4/</li>
+<li>Programming in Lua: https://www.lua.org/pil/</li>
+<li>Corresponding Python lesson in the canonical course map.</li>
+</ul>
+<h3 id="learning-objectives"><a class="header" href="#learning-objectives">Learning Objectives</a></h3>
+<ul>
+<li>Explain the concept using Lua terminology.</li>
+<li>Trace the worked example and predict its behavior.</li>
+<li>Modify and test the example while preserving the shared data contract.</li>
+</ul>
+<h3 id="concept-explanation"><a class="header" href="#concept-explanation">Concept Explanation</a></h3>
+<p>Translate requirements into data structures, commands, and acceptance tests before coding. This room graph is the common adventure map.</p>
+<h3 id="worked-example"><a class="header" href="#worked-example">Worked Example</a></h3>
+<pre><code class="language-lua">local rooms = {
+  start_room = {exits = {north = "tunnel"}, items = {"shiny key"}},
+  tunnel = {exits = {south = "start_room", east = "clearing"}, items = {}},
+  clearing = {exits = {west = "tunnel", north = "locked_door_room"}, items = {}},
+  locked_door_room = {exits = {south = "clearing", north = "treasure_room"}, items = {}},
+  treasure_room = {exits = {}, items = {}}
+}
+print(rooms.tunnel.exits.east)
+</code></pre>
+<h3 id="expected-behavior-or-output"><a class="header" href="#expected-behavior-or-output">Expected Behavior or Output</a></h3>
+<pre><code class="language-text">clearing
+</code></pre>
+<h3 id="common-mistakes"><a class="header" href="#common-mistakes">Common Mistakes</a></h3>
+<ul>
+<li>Dropping one of the six required capstone record fields during serialization.</li>
+<li>Updating a record without refreshing updated_at.</li>
+<li>Claiming screen-reader compatibility without testing keyboard and assistive-technology workflows.</li>
+</ul>
+<h3 id="activities"><a class="header" href="#activities">Activities</a></h3>
+<ol>
+<li>Create a record containing all six canonical capstone fields and validate each field.</li>
+<li>Exercise add, list, search, update, and delete with both existing and missing IDs.</li>
+<li>Save and reload a record; compare every field before and after persistence.</li>
+<li>Write a text-only keyboard interaction guide and list the accessibility tests still required.</li>
+</ol>
+<h3 id="accessibility-practice"><a class="header" href="#accessibility-practice">Accessibility Practice</a></h3>
+<p>Navigate by line, word, and character; identify delimiters and nesting verbally; execute from the terminal; and read the output and any error messages sequentially. Do not rely on syntax highlighting or color to understand the example.</p>
+<h3 id="skills-checklist"><a class="header" href="#skills-checklist">Skills Checklist</a></h3>
+<ul>
+<li><input disabled="" type="checkbox"> I can explain the concept in Lua terminology.</li>
+<li><input disabled="" type="checkbox"> I can trace and predict the example’s behavior.</li>
+<li><input disabled="" type="checkbox"> I can run and modify the example from the terminal.</li>
+<li><input disabled="" type="checkbox"> I can test a boundary or invalid case.</li>
+<li><input disabled="" type="checkbox"> I can explain the relevant Lua-specific semantic difference.</li>
+</ul>
+<hr>
+<h2 id="lesson-102-text-adventure-part-1-five-rooms-and-movement"><a class="header" href="#lesson-102-text-adventure-part-1-five-rooms-and-movement">Lesson 10.2: Text Adventure, Part 1: Five Rooms and Movement</a></h2>
+<h3 id="reading-references-1"><a class="header" href="#reading-references-1">Reading References</a></h3>
+<ul>
+<li><a href="https://www.lua.org/manual/5.4/">Lua 5.4 Reference Manual</a></li>
+<li><a href="https://www.lua.org/pil/">Programming in Lua</a></li>
+<li>Canonical shared project specification: Python Unit 10, Lesson 10.3</li>
+</ul>
+<h3 id="learning-objectives-1"><a class="header" href="#learning-objectives-1">Learning Objectives</a></h3>
+<ul>
+<li>Represent the five canonical rooms and their exits with Lua tables.</li>
+<li>Move through valid exits without changing location after an invalid command.</li>
+<li>Explain why the north exit from the locked-door room is not available yet.</li>
+</ul>
+<h3 id="concept-explanation-1"><a class="header" href="#concept-explanation-1">Concept Explanation</a></h3>
+<p>The shared adventure has five rooms: start_room, tunnel, clearing, locked_door_room, and treasure_room. The unconditional connections are start north to tunnel; tunnel south to start and east to clearing; clearing west to tunnel and north to the locked-door room; and locked-door room south to clearing. The north exit to the treasure room is conditional and is added in Part 2 only after the shiny-key puzzle is solved.</p>
+<p>Each room is a Lua table with a description and an exits table. A missing key lookup returns nil, so invalid movement can be rejected without changing the current room.</p>
+<h3 id="worked-example-1"><a class="header" href="#worked-example-1">Worked Example</a></h3>
+<pre><code class="language-lua">local rooms = {
+  start_room = {
+    description = "A dimly lit cave. A narrow passage leads north.",
+    exits = {north = "tunnel"}
+  },
+  tunnel = {
+    description = "A damp tunnel. Passages lead south and east.",
+    exits = {south = "start_room", east = "clearing"}
+  },
+  clearing = {
+    description = "A quiet clearing. An antechamber lies to the north.",
+    exits = {west = "tunnel", north = "locked_door_room"}
+  },
+  locked_door_room = {
+    description = "A chamber with a heavy door to the north.",
+    exits = {south = "clearing"}
+  },
+  treasure_room = {
+    description = "You found the treasure. You win!",
+    exits = {}
+  }
+}
+
+local current_room = "start_room"
+while true do
+  local room = rooms[current_room]
+  print("---")
+  print(room.description)
+  print("What do you want to do?")
+  local input = io.read("*l")
+  local command = (input or "quit"):match("^%s*(.-)%s*$"):lower()
+
+  if command == "quit" then
+    print("Exiting game. Goodbye!")
+    break
+  end
+
+  local destination = room.exits[command]
+  if destination then
+    current_room = destination
+  else
+    print("You cannot go that way. Enter a listed direction or quit.")
+  end
+end
+</code></pre>
+<h3 id="expected-behavior-or-output-1"><a class="header" href="#expected-behavior-or-output-1">Expected Behavior or Output</a></h3>
+<p>With north, east, north, north, quit entered as separate input lines, the player visits tunnel, clearing, and locked_door_room. The second north from locked_door_room is rejected and the current room does not change. The treasure room exists in the model but cannot be reached in Part 1.</p>
+<h3 id="common-mistakes-1"><a class="header" href="#common-mistakes-1">Common Mistakes</a></h3>
+<ul>
+<li>Adding the treasure-room north exit before implementing the key puzzle.</li>
+<li>Updating current_room before confirming that the requested exit exists.</li>
+<li>Treating a missing table key as a valid destination.</li>
+<li>Defining an exit whose destination is not one of the five room identifiers.</li>
+</ul>
+<h3 id="activities-1"><a class="header" href="#activities-1">Activities</a></h3>
+<ol>
+<li>Trace north, east, north, north and record the room after each command.</li>
+<li>Try west from start_room; confirm that the location does not change.</li>
+<li>Check that every destination in every unconditional exit exists in rooms.</li>
+<li>Explain why treasure_room has no incoming exit in Part 1.</li>
+</ol>
+<h3 id="accessibility-practice-1"><a class="header" href="#accessibility-practice-1">Accessibility Practice</a></h3>
+<p>Read the separator, room description, and prompt in order. The invalid-movement response explains what happened and how to continue. Test the sequence by listening to terminal output; do not rely on a visual map.</p>
+<h3 id="skills-checklist-1"><a class="header" href="#skills-checklist-1">Skills Checklist</a></h3>
+<ul>
+<li><input disabled="" type="checkbox"> I can model all five canonical rooms.</li>
+<li><input disabled="" type="checkbox"> I can represent exits with Lua tables.</li>
+<li><input disabled="" type="checkbox"> I can move only when an exit exists.</li>
+<li><input disabled="" type="checkbox"> I can reject an invalid direction without changing state.</li>
+<li><input disabled="" type="checkbox"> I can explain why the treasure room is not yet reachable.</li>
+</ul>
+<hr>
+<h2 id="lesson-103-text-adventure-part-2-shiny-key-and-locked-door"><a class="header" href="#lesson-103-text-adventure-part-2-shiny-key-and-locked-door">Lesson 10.3: Text Adventure, Part 2: Shiny Key and Locked Door</a></h2>
+<h3 id="reading-references-2"><a class="header" href="#reading-references-2">Reading References</a></h3>
+<ul>
+<li><a href="https://www.lua.org/manual/5.4/">Lua 5.4 Reference Manual</a></li>
+<li><a href="https://www.lua.org/pil/">Programming in Lua</a></li>
+<li>Canonical shared project specification: Python Unit 10, Lesson 10.3</li>
+</ul>
+<h3 id="learning-objectives-2"><a class="header" href="#learning-objectives-2">Learning Objectives</a></h3>
+<ul>
+<li>Place the shiny key in start_room and transfer it to inventory exactly once.</li>
+<li>Require the player to use the key while in locked_door_room.</li>
+<li>Unlock the north exit to treasure_room only after the puzzle succeeds.</li>
+<li>End the game when the player reaches the treasure room.</li>
+</ul>
+<h3 id="concept-explanation-2"><a class="header" href="#concept-explanation-2">Concept Explanation</a></h3>
+<p>Part 2 keeps the same five-room graph. The shiny key begins in start_room. The take shiny key command removes it from that room and adds it to inventory. The use shiny key command works only in locked_door_room and only when the key is in inventory. Attempting north from the locked-door room before that action prints a locked-door message and leaves the player in place. After the key is used, north leads to treasure_room.</p>
+<p>Room descriptions do not claim that an item is still present. Room items and inventory are announced on separate lines.</p>
+<h3 id="worked-example-2"><a class="header" href="#worked-example-2">Worked Example</a></h3>
+<pre><code class="language-lua">local rooms = {
+  start_room = {
+    description = "A dimly lit cave.",
+    exits = {north = "tunnel"},
+    items = {"shiny key"}
+  },
+  tunnel = {
+    description = "A damp tunnel. Passages lead south and east.",
+    exits = {south = "start_room", east = "clearing"},
+    items = {}
+  },
+  clearing = {
+    description = "A quiet clearing. Antechamber lies to the north.",
+    exits = {west = "tunnel", north = "locked_door_room"},
+    items = {}
+  },
+  locked_door_room = {
+    description = "A chamber with a heavy door to the north.",
+    exits = {south = "clearing"},
+    items = {}
+  },
+  treasure_room = {
+    description = "You found the treasure. You win!",
+    exits = {},
+    items = {}
+  }
+}
+
+local current_room = "start_room"
+local inventory = {}
+local door_locked = true
+
+local function inventory_has(item_name)
+  for _, item in ipairs(inventory) do
+    if item == item_name then return true end
+  end
+  return false
+end
+
+while true do
+  local room = rooms[current_room]
+  print()
+  print(room.description)
+  if current_room == "treasure_room" then break end
+  if #room.items &gt; 0 then
+    print("You see: " .. table.concat(room.items, ", "))
+  end
+  print("Your inventory: " .. (#inventory == 0 and "empty" or table.concat(inventory, ", ")))
+  print("What do you want to do?")
+
+  local input = io.read("*l")
+  local command = (input or "quit"):match("^%s*(.-)%s*$"):lower()
+
+  if command == "quit" then
+    print("You quit the adventure.")
+    break
+  elseif command == "take shiny key" then
+    local found_index
+    for index, item in ipairs(room.items) do
+      if item == "shiny key" then
+        found_index = index
+        break
+      end
+    end
+    if found_index then
+      table.remove(room.items, found_index)
+      inventory[#inventory + 1] = "shiny key"
+      print("You picked up the shiny key.")
+    else
+      print("There is no shiny key here to take.")
+    end
+  elseif command == "use shiny key" then
+    if current_room ~= "locked_door_room" then
+      print("You must be at the locked door to use the key.")
+    elseif not inventory_has("shiny key") then
+      print("You do not have the shiny key.")
+    else
+      door_locked = false
+      rooms.locked_door_room.exits.north = "treasure_room"
+      print("You unlocked the door!")
+    end
+  elseif current_room == "locked_door_room" and command == "north" and door_locked then
+    print("The door is locked! You need to use the shiny key here.")
+  elseif room.exits[command] then
+    current_room = room.exits[command]
+  else
+    print("Invalid command. Enter north, south, east, west, take shiny key, use shiny key, or quit.")
+  end
+end
+</code></pre>
+<h3 id="expected-behavior-or-output-2"><a class="header" href="#expected-behavior-or-output-2">Expected Behavior or Output</a></h3>
+<p>Use this sequence to verify the puzzle: north, east, north, north, south, west, south, take shiny key, north, east, north, use shiny key, north.</p>
+<p>The first north attempt from locked_door_room must be rejected. Taking the key removes it from start_room and adds it to inventory. Using it outside locked_door_room must be rejected. Using it there prints You unlocked the door!; the next north reaches treasure_room and prints You found the treasure. You win!. End-of-file is treated as quit.</p>
+<h3 id="common-mistakes-2"><a class="header" href="#common-mistakes-2">Common Mistakes</a></h3>
+<ul>
+<li>Leaving the shiny key in the room after adding it to inventory.</li>
+<li>Unlocking the door outside locked_door_room.</li>
+<li>Unlocking the door without checking inventory.</li>
+<li>Allowing north movement before door_locked becomes false.</li>
+<li>Describing the key as still on the floor after it has been collected.</li>
+</ul>
+<h3 id="activities-2"><a class="header" href="#activities-2">Activities</a></h3>
+<ol>
+<li>Run the full sequence and record room, room items, inventory, and door state after every command.</li>
+<li>Try take shiny key twice; the second attempt must not duplicate the item.</li>
+<li>Try use shiny key in start_room and clearing; both attempts must be rejected.</li>
+<li>Try north from locked_door_room before and after unlocking.</li>
+<li>Add a look command that announces room, visible items, inventory, and exits in a consistent order.</li>
+</ol>
+<h3 id="accessibility-practice-2"><a class="header" href="#accessibility-practice-2">Accessibility Practice</a></h3>
+<p>Announce room description, visible items, inventory, and prompt as separate text lines. Every failed action explains why it failed. Listen to the full puzzle sequence and verify that key location and door state are unambiguous.</p>
+<h3 id="skills-checklist-2"><a class="header" href="#skills-checklist-2">Skills Checklist</a></h3>
+<ul>
+<li><input disabled="" type="checkbox"> I can model the five canonical rooms.</li>
+<li><input disabled="" type="checkbox"> I can transfer the shiny key from a room to inventory.</li>
+<li><input disabled="" type="checkbox"> I can prevent duplicate pickup.</li>
+<li><input disabled="" type="checkbox"> I can require key use in the locked-door room.</li>
+<li><input disabled="" type="checkbox"> I can block and unlock the north exit.</li>
+<li><input disabled="" type="checkbox"> I can end the game when the treasure room is reached.</li>
+</ul>
+<hr>
+<h2 id="lesson-104-command-line-to-do-manager"><a class="header" href="#lesson-104-command-line-to-do-manager">Lesson 10.4 Command-Line To-Do Manager</a></h2>
+<h3 id="reading-references-3"><a class="header" href="#reading-references-3">Reading References</a></h3>
+<ul>
+<li>Lua 5.4 Reference Manual: https://www.lua.org/manual/5.4/</li>
+<li>Programming in Lua: https://www.lua.org/pil/</li>
+<li>Corresponding Python lesson in the canonical course map.</li>
+</ul>
+<h3 id="learning-objectives-3"><a class="header" href="#learning-objectives-3">Learning Objectives</a></h3>
+<ul>
+<li>Explain the concept using Lua terminology.</li>
+<li>Trace the worked example and predict its behavior.</li>
+<li>Modify and test the example while preserving the shared data contract.</li>
+</ul>
+<h3 id="concept-explanation-3"><a class="header" href="#concept-explanation-3">Concept Explanation</a></h3>
+<p>The task record must include id, title, description, done, and created_at. Keep CRUD operations separate from the input loop.</p>
+<h3 id="worked-example-3"><a class="header" href="#worked-example-3">Worked Example</a></h3>
+<pre><code class="language-lua">local tasks = {}
+local function add_task(id, title, description, created_at)
+  assert(title ~= nil and title ~= "", "title is required")
+  tasks[#tasks + 1] = {id = id, title = title, description = description,
+    done = false, created_at = created_at}
+end
+add_task(1, "Practice Lua", "Complete the shared examples", "2025-01-15T09:00:00Z")
+print(tasks[1].id, tasks[1].title, tasks[1].done)
+</code></pre>
+<h3 id="expected-behavior-or-output-3"><a class="header" href="#expected-behavior-or-output-3">Expected Behavior or Output</a></h3>
+<pre><code class="language-text">1	Practice Lua	false
+</code></pre>
+<h3 id="common-mistakes-3"><a class="header" href="#common-mistakes-3">Common Mistakes</a></h3>
+<ul>
+<li>Omitting one or more required task fields from a stored record.</li>
+<li>Using a list position as a permanent task identifier after deletion or reordering.</li>
+<li>Treating malformed persistence data as an empty task list without reporting the error.</li>
+</ul>
+<h3 id="activities-3"><a class="header" href="#activities-3">Activities</a></h3>
+<ol>
+<li>Create a task with all five canonical fields and list it in a stable format.</li>
+<li>Update its done state, then search for it by identifier.</li>
+<li>Delete an existing ID and attempt to delete a missing ID; compare the messages.</li>
+<li>Save and reload the records, then verify every field is preserved.</li>
+</ol>
+<h3 id="accessibility-practice-3"><a class="header" href="#accessibility-practice-3">Accessibility Practice</a></h3>
+<p>Navigate by line, word, and character; identify delimiters and nesting verbally; execute from the terminal; and read the output and any error messages sequentially. Do not rely on syntax highlighting or color to understand the example.</p>
+<h3 id="skills-checklist-3"><a class="header" href="#skills-checklist-3">Skills Checklist</a></h3>
+<ul>
+<li><input disabled="" type="checkbox"> I can explain the concept in Lua terminology.</li>
+<li><input disabled="" type="checkbox"> I can trace and predict the example’s behavior.</li>
+<li><input disabled="" type="checkbox"> I can run and modify the example from the terminal.</li>
+<li><input disabled="" type="checkbox"> I can test a boundary or invalid case.</li>
+<li><input disabled="" type="checkbox"> I can explain the relevant Lua-specific semantic difference.</li>
+</ul>
+<hr>
+<h2 id="lesson-105-refinement-and-accessibility"><a class="header" href="#lesson-105-refinement-and-accessibility">Lesson 10.5 Refinement and Accessibility</a></h2>
+<h3 id="reading-references-4"><a class="header" href="#reading-references-4">Reading References</a></h3>
+<ul>
+<li>Lua 5.4 Reference Manual: https://www.lua.org/manual/5.4/</li>
+<li>Programming in Lua: https://www.lua.org/pil/</li>
+<li>Corresponding Python lesson in the canonical course map.</li>
+</ul>
+<h3 id="learning-objectives-4"><a class="header" href="#learning-objectives-4">Learning Objectives</a></h3>
+<ul>
+<li>Explain the concept using Lua terminology.</li>
+<li>Trace the worked example and predict its behavior.</li>
+<li>Modify and test the example while preserving the shared data contract.</li>
+</ul>
+<h3 id="concept-explanation-4"><a class="header" href="#concept-explanation-4">Concept Explanation</a></h3>
+<p>A command-line application needs explicit help, validation, confirmations, and readable errors. Keep all critical information in text.</p>
+<h3 id="worked-example-4"><a class="header" href="#worked-example-4">Worked Example</a></h3>
+<pre><code class="language-lua">local function validate_title(title)
+  if title == nil or title:match("^%s*$") then
+    return false, "Title is required; enter at least one non-space character."
+  end
+  return true, "Title accepted."
+end
+local ok, message = validate_title("   ")
+print(message)
+</code></pre>
+<h3 id="expected-behavior-or-output-4"><a class="header" href="#expected-behavior-or-output-4">Expected Behavior or Output</a></h3>
+<pre><code class="language-text">Title is required; enter at least one non-space character.
+</code></pre>
+<h3 id="common-mistakes-4"><a class="header" href="#common-mistakes-4">Common Mistakes</a></h3>
+<ul>
+<li>Copying a Python assumption into Lua without checking the Lua 5.4 semantics.</li>
+<li>Changing the canonical input values and then comparing output against the shared fixture.</li>
+<li>Skipping a negative or boundary case for the lesson’s main operation.</li>
+</ul>
+<h3 id="activities-4"><a class="header" href="#activities-4">Activities</a></h3>
+<ol>
+<li>Trace the 10.5 Refinement and Accessibility worked example and explain each statement in Lua terms.</li>
+<li>Change one noncanonical test value while keeping the shared fixture intact; predict the result before execution.</li>
+<li>Add a boundary or invalid-input test for the main operation in this lesson.</li>
+<li>Explain one semantic difference between Lua and Python that affects 10.5 refinement and accessibility.</li>
+</ol>
+<h3 id="accessibility-practice-4"><a class="header" href="#accessibility-practice-4">Accessibility Practice</a></h3>
+<p>Navigate by line, word, and character; identify delimiters and nesting verbally; execute from the terminal; and read the output and any error messages sequentially. Do not rely on syntax highlighting or color to understand the example.</p>
+<h3 id="skills-checklist-4"><a class="header" href="#skills-checklist-4">Skills Checklist</a></h3>
+<ul>
+<li><input disabled="" type="checkbox"> I can explain the concept in Lua terminology.</li>
+<li><input disabled="" type="checkbox"> I can trace and predict the example’s behavior.</li>
+<li><input disabled="" type="checkbox"> I can run and modify the example from the terminal.</li>
+<li><input disabled="" type="checkbox"> I can test a boundary or invalid case.</li>
+<li><input disabled="" type="checkbox"> I can explain the relevant Lua-specific semantic difference.</li>
+</ul>
+<hr>
+<h2 id="overview-1"><a class="header" href="#overview-1">Overview</a></h2>
+<p>Plan a text project, build the shared text adventure in two parts, build the command-line to-do manager, and refine input validation.</p>
+<h2 id="lesson-101-planning-a-text-based-project"><a class="header" href="#lesson-101-planning-a-text-based-project">Lesson 10.1: Planning a Text-Based Project</a></h2>
+<h3 id="reading-references-5"><a class="header" href="#reading-references-5">Reading References</a></h3>
+<ul>
+<li>Programming in Lua, 4th edition (Roberto Ierusalimschy): Chapter 6 (Functions) and Chapter 5 (Tables)</li>
+<li>Lua 5.4 Reference Manual: Section 3.3 (Statements)</li>
+<li>Matching Python lesson: Lesson 10.1 Project Planning and Design</li>
+</ul>
+<h3 id="learning-objectives-5"><a class="header" href="#learning-objectives-5">Learning Objectives</a></h3>
+<ul>
+<li>Write a short requirements list.</li>
+<li>Design a command loop with a table of handlers.</li>
+<li>Plan in small steps and test each one.</li>
+</ul>
+<h3 id="concept-explanation-5"><a class="header" href="#concept-explanation-5">Concept Explanation</a></h3>
+<p>A project is easier to finish when you plan it in small steps. Write down <em>what the program must do</em> (requirements), <em>what information it keeps</em> (data), and <em>the commands a person can give</em> (interface). Build one small piece, test it, and then add the next.</p>
+<p>Text-based projects share a <em>command loop</em>: show a prompt, read a line, find the matching action, and repeat until the user quits. A good Lua design stores actions in a table whose keys are command names and whose values are functions. A new command is then one new entry, and an unknown command is a failed lookup that prints a helpful message.</p>
+<p>The loop must stop when the input ends (<code>nil</code>) as well as on <code>quit</code>.</p>
+<p>The example is a skeleton with three commands. Typing <code>help</code>, <code>look</code>, an unknown word, and <code>quit</code> shows each path.</p>
+<h3 id="worked-example-5"><a class="header" href="#worked-example-5">Worked Example</a></h3>
+<pre><code class="language-lua">local commands = {
+  help = function() print("Commands: help, look, quit") end,
+  look = function() print("You are in a dark cave.") end,
+}
+
+print("Type a command:")
+local line = io.read()
+while line ~= nil and line ~= "quit" do
+  local handler = commands[line]
+  if handler then
+    handler()
+  else
+    print("I don't understand that command. Type help for a list.")
+  end
+  print("Type a command:")
+  line = io.read()
+end
+print("Goodbye!")
+</code></pre>
+<h3 id="expected-behavior-or-output-5"><a class="header" href="#expected-behavior-or-output-5">Expected Behavior or Output</a></h3>
+<p>When the standard input is the following lines (the program’s own prompts and results are shown separately because piped input is not echoed):</p>
+<pre><code class="language-text">help
+look
+dance
+quit
+</code></pre>
+<p>the program prints:</p>
+<pre><code class="language-text">Type a command:
+Commands: help, look, quit
+Type a command:
+You are in a dark cave.
+Type a command:
+I don't understand that command. Type help for a list.
+Type a command:
+Goodbye!
+</code></pre>
+<h3 id="common-mistakes-5"><a class="header" href="#common-mistakes-5">Common Mistakes</a></h3>
+<ol>
+<li>Starting to code before listing the requirements.</li>
+<li>Using a long chain of <code>if</code> statements for commands instead of a table of handlers.</li>
+<li>Forgetting that an unknown command should explain what to do next.</li>
+</ol>
+<h3 id="activities-5"><a class="header" href="#activities-5">Activities</a></h3>
+<ol>
+<li>Write five requirements for the text adventure and the to-do list.</li>
+<li>Add a <code>score</code> command that prints the shared scores.</li>
+<li>Add the command aliases <code>h</code> and <code>l</code> without copying the functions.</li>
+<li>Describe the data for the capstone in three sentences.</li>
+</ol>
+<h3 id="accessibility-practice-5"><a class="header" href="#accessibility-practice-5">Accessibility Practice</a></h3>
+<p>Prompts and responses are on separate lines and every response is a complete sentence. Test the prompts by listening to them before you add features.</p>
+<h3 id="skills-checklist-5"><a class="header" href="#skills-checklist-5">Skills Checklist</a></h3>
+<ul>
+<li><input disabled="" type="checkbox"> I can list requirements.</li>
+<li><input disabled="" type="checkbox"> I can design a command loop.</li>
+<li><input disabled="" type="checkbox"> I can use a table of handlers.</li>
+<li><input disabled="" type="checkbox"> I handle unknown commands.</li>
+<li><input disabled="" type="checkbox"> I handle the end of input.</li>
+</ul>
+<h2 id="lesson-102-text-adventure-part-1-rooms-and-movement"><a class="header" href="#lesson-102-text-adventure-part-1-rooms-and-movement">Lesson 10.2: Text Adventure, Part 1: Rooms and Movement</a></h2>
+<h3 id="reading-references-6"><a class="header" href="#reading-references-6">Reading References</a></h3>
+<ul>
+<li>Programming in Lua, 4th edition (Roberto Ierusalimschy): Chapter 5 (Tables)</li>
+<li>Lua 5.4 Reference Manual: Section 3.4.9 (Table Constructors)</li>
+<li>Matching Python lesson: Lesson 10.2 Building a Text-Based Adventure Game (Part 1)</li>
+</ul>
+<h3 id="learning-objectives-6"><a class="header" href="#learning-objectives-6">Learning Objectives</a></h3>
+<ul>
+<li>Represent rooms and exits with tables.</li>
+<li>Move the player by command.</li>
+<li>Handle impossible moves and the end of input.</li>
+</ul>
+<h3 id="concept-explanation-6"><a class="header" href="#concept-explanation-6">Concept Explanation</a></h3>
+<p>A room is a table with a <code>description</code> and an <code>exits</code> table that maps a direction to the name of another room. The program remembers the player’s location in one variable, <code>current_room</code>. A move looks up the command in the current room’s exits; if it is found, <code>current_room</code> changes, otherwise the program explains that the move is impossible.</p>
+<p>This is the same three-room layout as the Python course: a cave, a tunnel, and a clearing. Part 2 adds items and a locked door.</p>
+<p>The example is played with the commands north, east, west, up, south, and quit. The command <code>up</code> is not an exit anywhere, so it prints the help message.</p>
+<h3 id="worked-example-6"><a class="header" href="#worked-example-6">Worked Example</a></h3>
+<pre><code class="language-lua">local rooms = {
+  start_room = {
+    description = "You are in a dimly lit cave. There's a narrow passage to the NORTH.",
+    exits = {north = "tunnel"},
+  },
+  tunnel = {
+    description = "The tunnel is damp and cold. You can go SOUTH back to the cave or EAST to a clearing.",
+    exits = {south = "start_room", east = "clearing"},
+  },
+  clearing = {
+    description = "You've reached a small, sunny clearing. A faint path leads WEST.",
+    exits = {west = "tunnel"},
+  },
+}
+
+local current_room = "start_room"
+
+while true do
+  print("---")
+  print(rooms[current_room].description)
+  print("What do you want to do?")
+  local command = io.read()
+  if command == nil then command = "quit" end
+  command = command:lower()
+
+  if rooms[current_room].exits[command] then
+    current_room = rooms[current_room].exits[command]
+  elseif command == "quit" then
+    print("Exiting game. Goodbye!")
+    break
+  else
+    print("I don't understand that command or you can't go that way.")
+  end
+end
+</code></pre>
+<h3 id="expected-behavior-or-output-6"><a class="header" href="#expected-behavior-or-output-6">Expected Behavior or Output</a></h3>
+<p>When the standard input is the following lines (the program’s own prompts and results are shown separately because piped input is not echoed):</p>
+<pre><code class="language-text">north
+east
+west
+up
+south
+quit
+</code></pre>
+<p>the program prints:</p>
+<pre><code class="language-text">---
+You are in a dimly lit cave. There's a narrow passage to the NORTH.
+What do you want to do?
+---
+The tunnel is damp and cold. You can go SOUTH back to the cave or EAST to a clearing.
+What do you want to do?
+---
+You've reached a small, sunny clearing. A faint path leads WEST.
+What do you want to do?
+---
+The tunnel is damp and cold. You can go SOUTH back to the cave or EAST to a clearing.
+What do you want to do?
+I don't understand that command or you can't go that way.
+---
+The tunnel is damp and cold. You can go SOUTH back to the cave or EAST to a clearing.
+What do you want to do?
+---
+You are in a dimly lit cave. There's a narrow passage to the NORTH.
+What do you want to do?
+Exiting game. Goodbye!
+</code></pre>
+<h3 id="common-mistakes-6"><a class="header" href="#common-mistakes-6">Common Mistakes</a></h3>
+<ol>
+<li>Looking up a direction that is not in <code>exits</code> and expecting an error. The lookup returns <code>nil</code>, which is the signal to explain the move is impossible.</li>
+<li>Forgetting to treat the end of input as <code>quit</code>, so the program loops forever when input is piped in.</li>
+<li>Misspelling a room name in <code>exits</code>, so the move leads to a room that does not exist.</li>
+</ol>
+<h3 id="activities-6"><a class="header" href="#activities-6">Activities</a></h3>
+<ol>
+<li>Trace the six commands by hand and write the room after each one.</li>
+<li>Add a fourth room reached from the clearing and test it.</li>
+<li>Add the aliases <code>n</code>, <code>s</code>, <code>e</code>, and <code>w</code>.</li>
+<li>Check that every exit names a real room by writing a loop that tests the whole table.</li>
+</ol>
+<h3 id="accessibility-practice-6"><a class="header" href="#accessibility-practice-6">Accessibility Practice</a></h3>
+<p>Each turn prints a separator line, the description, and the prompt on its own line. Listen to a whole turn to confirm that a player could follow it without seeing the screen.</p>
+<h3 id="skills-checklist-6"><a class="header" href="#skills-checklist-6">Skills Checklist</a></h3>
+<ul>
+<li><input disabled="" type="checkbox"> I can represent rooms with tables.</li>
+<li><input disabled="" type="checkbox"> I can move the player by command.</li>
+<li><input disabled="" type="checkbox"> I can handle an impossible move.</li>
+<li><input disabled="" type="checkbox"> I treat end of input as quit.</li>
+<li><input disabled="" type="checkbox"> I can trace a game by hand.</li>
+</ul>
+<h2 id="lesson-103-text-adventure-part-2-items-and-a-locked-door"><a class="header" href="#lesson-103-text-adventure-part-2-items-and-a-locked-door">Lesson 10.3: Text Adventure, Part 2: Items and a Locked Door</a></h2>
+<h3 id="reading-references-7"><a class="header" href="#reading-references-7">Reading References</a></h3>
+<ul>
+<li>Programming in Lua, 4th edition (Roberto Ierusalimschy): Chapter 5 (Tables) and Chapter 6 (Functions)</li>
+<li>Lua 5.4 Reference Manual: Section 6.6 (Table Manipulation)</li>
+<li>Matching Python lesson: Lesson 10.3 Building a Text-Based Adventure Game (Part 2)</li>
+</ul>
+<h3 id="learning-objectives-7"><a class="header" href="#learning-objectives-7">Learning Objectives</a></h3>
+<ul>
+<li>Keep items in rooms and in an inventory.</li>
+<li>Implement take and use commands.</li>
+<li>Block and then allow a move with a locked door.</li>
+</ul>
+<h3 id="concept-explanation-7"><a class="header" href="#concept-explanation-7">Concept Explanation</a></h3>
+<p>Part 2 adds <em>state</em>: items in rooms, an inventory, and a door that is locked until the player uses the key. This is the shared specification used by every language track: three rooms (<code>start</code>, <code>locked_door_room</code>, <code>treasure_room</code>); the commands <code>north</code>, <code>south</code>, <code>east</code>, <code>west</code>, <code>take shiny key</code>, <code>use shiny key</code>, and <code>quit</code>; the door between the chamber and the treasure room stays locked until the key is used there; reaching the treasure room ends the game.</p>
+<p>Items are lists of names. Taking an item removes it from the room’s list and appends it to the inventory. The locked door is a Boolean variable, <code>door_locked</code>. A move through the door checks it first.</p>
+<p>The program is played with: north (into the chamber), north (the locked door refuses), south, take shiny key, north, use shiny key, north (the treasure room).</p>
+<h3 id="worked-example-7"><a class="header" href="#worked-example-7">Worked Example</a></h3>
+<pre><code class="language-lua">local rooms = {
+  start = {
+    description = "A dark cave.",
+    exits = {north = "locked_door_room"},
+    items = {"shiny key"},
+  },
+  locked_door_room = {
+    description = "A small chamber with a heavy door to the NORTH.",
+    exits = {south = "start", north = "treasure_room"},
+    items = {},
+  },
+  treasure_room = {
+    description = "A glittering room full of treasure. You win!",
+    exits = {south = "locked_door_room"},
+    items = {},
+  },
+}
+
+local function index_of(list, value)
+  for index, item in ipairs(list) do
+    if item == value then return index end
+  end
+  return nil
+end
+
+local current_room = "start"
+local inventory = {}
+local door_locked = true
+
+while true do
+  local room = rooms[current_room]
+  print("")
+  print(room.description)
+  if current_room == "treasure_room" then break end
+  if #room.items &gt; 0 then print("You see: " .. table.concat(room.items, ", ")) end
+  print("Your inventory: " .. (#inventory &gt; 0 and table.concat(inventory, ", ") or "empty"))
+  print("What do you want to do?")
+
+  local command = io.read()
+  if command == nil then command = "quit" end
+  command = command:lower()
+
+  if command == "take shiny key" and index_of(room.items, "shiny key") then
+    table.remove(room.items, index_of(room.items, "shiny key"))
+    inventory[#inventory + 1] = "shiny key"
+    print("You picked up the shiny key.")
+  elseif command == "use shiny key" and current_room == "locked_door_room" and index_of(inventory, "shiny key") then
+    door_locked = false
+    print("You unlocked the door!")
+  elseif room.exits[command] then
+    if current_room == "locked_door_room" and command == "north" and door_locked then
+      print("The door is locked! You need a key.")
+    else
+      current_room = room.exits[command]
+    end
+  elseif command == "quit" then
+    print("Exiting game. Goodbye!")
+    break
+  else
+    print("I don't understand that command.")
+  end
+end
+</code></pre>
+<h3 id="expected-behavior-or-output-7"><a class="header" href="#expected-behavior-or-output-7">Expected Behavior or Output</a></h3>
+<p>When the standard input is the following lines (the program’s own prompts and results are shown separately because piped input is not echoed):</p>
+<pre><code class="language-text">north
+north
+south
+take shiny key
+north
+use shiny key
+north
+</code></pre>
+<p>the program prints:</p>
+<pre><code class="language-text">
+A dark cave.
+You see: shiny key
+Your inventory: empty
+What do you want to do?
+
+A small chamber with a heavy door to the NORTH.
+Your inventory: empty
+What do you want to do?
+The door is locked! You need a key.
+
+A small chamber with a heavy door to the NORTH.
+Your inventory: empty
+What do you want to do?
+
+A dark cave.
+You see: shiny key
+Your inventory: empty
+What do you want to do?
+You picked up the shiny key.
+
+A dark cave.
+Your inventory: shiny key
+What do you want to do?
+
+A small chamber with a heavy door to the NORTH.
+Your inventory: shiny key
+What do you want to do?
+You unlocked the door!
+
+A small chamber with a heavy door to the NORTH.
+Your inventory: shiny key
+What do you want to do?
+
+A glittering room full of treasure. You win!
+</code></pre>
+<h3 id="common-mistakes-7"><a class="header" href="#common-mistakes-7">Common Mistakes</a></h3>
+<ol>
+<li>Making the door’s locked state part of the exits so that the “locked” message can never be reached.</li>
+<li>Defining an exit to a room that is missing from the <code>rooms</code> table, which crashes when the player arrives.</li>
+<li>Printing a fixed room description that still mentions an item after the player has taken it.</li>
+</ol>
+<h3 id="activities-7"><a class="header" href="#activities-7">Activities</a></h3>
+<ol>
+<li>Play the program with the shown commands and follow each turn on paper.</li>
+<li>Try <code>use shiny key</code> in the cave and describe what happens.</li>
+<li>Add a second item and require both to open the door.</li>
+<li>Write a short list of the game’s states (location, inventory, door) and say which command changes each.</li>
+</ol>
+<h3 id="accessibility-practice-7"><a class="header" href="#accessibility-practice-7">Accessibility Practice</a></h3>
+<p>The room description never mentions the key. The separate line ‘You see:’ lists items, so the description stays true after the key is taken and the screen reader announces the current state.</p>
+<h3 id="skills-checklist-7"><a class="header" href="#skills-checklist-7">Skills Checklist</a></h3>
+<ul>
+<li><input disabled="" type="checkbox"> I can store items in rooms and an inventory.</li>
+<li><input disabled="" type="checkbox"> I can implement take and use commands.</li>
+<li><input disabled="" type="checkbox"> I can block and allow a move.</li>
+<li><input disabled="" type="checkbox"> I can list the game’s state variables.</li>
+<li><input disabled="" type="checkbox"> I can keep descriptions true after state changes.</li>
+</ul>
+<h2 id="lesson-104-command-line-to-do-list"><a class="header" href="#lesson-104-command-line-to-do-list">Lesson 10.4: Command-Line To-Do List</a></h2>
+<h3 id="reading-references-8"><a class="header" href="#reading-references-8">Reading References</a></h3>
+<ul>
+<li>Programming in Lua, 4th edition (Roberto Ierusalimschy): Chapter 15 (Data Files and Serialization)</li>
+<li>Lua 5.4 Reference Manual: Section 6.8 (Input and Output Facilities)</li>
+<li>Matching Python lesson: Lesson 10.4 Building a Command-Line To-Do List</li>
+</ul>
+<h3 id="learning-objectives-8"><a class="header" href="#learning-objectives-8">Learning Objectives</a></h3>
+<ul>
+<li>Keep records with the shared fields.</li>
+<li>Save and load them as JSON.</li>
+<li>Offer add, view, mark-done, save, load, and quit commands.</li>
+</ul>
+<h3 id="concept-explanation-8"><a class="header" href="#concept-explanation-8">Concept Explanation</a></h3>
+<p>A to-do list ties together records, loops, functions, and files. Each task has the shared fields <code>id</code>, <code>title</code>, <code>description</code>, <code>done</code>, and <code>created_at</code>. The program keeps a list of tasks in memory, shows a numbered menu, and saves the list to <code>todos.json</code> when asked and on exit.</p>
+<p>Saving uses the teaching JSON helper from Lesson 8.5 (included here so the example runs on its own). On start-up the program loads the file if it exists. A missing file is normal on first use, and a damaged file must not crash the program: it prints a message and starts with an empty list.</p>
+<p>New ids are one more than the highest existing id, so ids stay unique even after a task is removed. The status is shown as the words <code>done</code> and <code>not done</code>, never with a symbol or color alone.</p>
+<p>In the sample session the user adds two tasks, views the list, marks task 2 as done, views it again, tries an invalid menu choice, views the list, and quits.</p>
+<h3 id="worked-example-8"><a class="header" href="#worked-example-8">Worked Example</a></h3>
+<pre><code class="language-lua">local json = {}
+
+local escapes = {['"'] = '\\"', ['\\'] = '\\\\', ['\n'] = '\\n', ['\r'] = '\\r', ['\t'] = '\\t'}
+
+function json.encode(value)
+  local kind = type(value)
+  if kind == "string" then
+    return '"' .. value:gsub('[%c"\\]', function(c)
+      return escapes[c] or string.format("\\u%04x", c:byte())
+    end) .. '"'
+  elseif kind == "number" then
+    return math.type(value) == "integer" and tostring(value) or string.format("%.14g", value)
+  elseif kind == "boolean" then
+    return tostring(value)
+  elseif kind == "nil" then
+    return "null"
+  elseif kind == "table" then
+    local parts = {}
+    if value[1] ~= nil or next(value) == nil then
+      for _, item in ipairs(value) do parts[#parts + 1] = json.encode(item) end
+      return "[" .. table.concat(parts, ",") .. "]"
+    end
+    local keys = {}
+    for key in pairs(value) do keys[#keys + 1] = key end
+    table.sort(keys)
+    for _, key in ipairs(keys) do
+      parts[#parts + 1] = json.encode(tostring(key)) .. ":" .. json.encode(value[key])
+    end
+    return "{" .. table.concat(parts, ",") .. "}"
+  end
+  error("cannot encode a value of type " .. kind, 0)
+end
+
+function json.decode(text)
+  local position = 1
+  local read_value
+
+  local function skip()
+    position = text:find("%S", position) or #text + 1
+  end
+
+  local function fail(message)
+    error(message .. " at position " .. position, 0)
+  end
+
+  local function read_string()
+    local pieces = {}
+    position = position + 1
+    while true do
+      local c = text:sub(position, position)
+      if c == "" then fail("unterminated string") end
+      if c == '"' then
+        position = position + 1
+        return table.concat(pieces)
+      elseif c == "\\" then
+        local n = text:sub(position + 1, position + 1)
+        local simple = {n = "\n", t = "\t", r = "\r", ['"'] = '"', ["\\"] = "\\", ["/"] = "/"}
+        if n == "u" then
+          pieces[#pieces + 1] = utf8.char(tonumber(text:sub(position + 2, position + 5), 16))
+          position = position + 6
+        elseif simple[n] then
+          pieces[#pieces + 1] = simple[n]
+          position = position + 2
+        else
+          fail("bad escape")
+        end
+      else
+        pieces[#pieces + 1] = c
+        position = position + 1
+      end
+    end
+  end
+
+  function read_value()
+    skip()
+    local c = text:sub(position, position)
+    if c == "{" then
+      local object = {}
+      position = position + 1
+      skip()
+      if text:sub(position, position) == "}" then position = position + 1; return object end
+      while true do
+        skip()
+        if text:sub(position, position) ~= '"' then fail("expected a key") end
+        local key = read_string()
+        skip()
+        if text:sub(position, position) ~= ":" then fail("expected ':'") end
+        position = position + 1
+        object[key] = read_value()
+        skip()
+        local d = text:sub(position, position)
+        position = position + 1
+        if d == "}" then return object end
+        if d ~= "," then position = position - 1; fail("expected ',' or '}'") end
+      end
+    elseif c == "[" then
+      local list = {}
+      position = position + 1
+      skip()
+      if text:sub(position, position) == "]" then position = position + 1; return list end
+      while true do
+        list[#list + 1] = read_value()
+        skip()
+        local d = text:sub(position, position)
+        position = position + 1
+        if d == "]" then return list end
+        if d ~= "," then position = position - 1; fail("expected ',' or ']'") end
+      end
+    elseif c == '"' then
+      return read_string()
+    elseif text:find("^true", position) then
+      position = position + 4; return true
+    elseif text:find("^false", position) then
+      position = position + 5; return false
+    elseif text:find("^null", position) then
+      position = position + 4; return nil
+    end
+    local number = text:match("^-?%d+%.?%d*[eE]?[+-]?%d*", position)
+    if not number or number == "" then fail("unexpected character") end
+    position = position + #number
+    return tonumber(number)
+  end
+
+  local result = read_value()
+  skip()
+  if position &lt;= #text then fail("unexpected extra text") end
+  return result
+end
+
+local TODO_FILE = "todos.json"
+local todos = {}
+
+local function load_todos()
+  local file = io.open(TODO_FILE, "r")
+  if not file then
+    print("No existing tasks found.")
+    todos = {}
+    return
+  end
+  local text = file:read("a")
+  file:close()
+  local ok, data = pcall(json.decode, text)
+  if ok and type(data) == "table" then
+    todos = data
+    print("Tasks loaded.")
+  else
+    print("Error: todos.json is not valid JSON. Starting with an empty list.")
+    todos = {}
+  end
+end
+
+local function save_todos()
+  local file = assert(io.open(TODO_FILE, "w"))
+  file:write(json.encode(todos))
+  file:close()
+  print("Tasks saved.")
+end
+
+local function next_id()
+  local highest = 0
+  for _, task in ipairs(todos) do
+    if task.id &gt; highest then highest = task.id end
+  end
+  return highest + 1
+end
+
+local function add_task(title, description)
+  title = (title or ""):match("^%s*(.-)%s*$")
+  if title == "" then
+    print("A title is required.")
+    return
+  end
+  todos[#todos + 1] = {
+    id = next_id(),
+    title = title,
+    description = (description or ""):match("^%s*(.-)%s*$"),
+    done = false,
+    created_at = os.date("!%Y-%m-%dT%H:%M:%S"),
+  }
+  print("Task '" .. title .. "' added.")
+end
+
+local function view_tasks()
+  if #todos == 0 then
+    print("No tasks in your list.")
+    return
+  end
+  print("--- Your To-Do List ---")
+  for _, task in ipairs(todos) do
+    print(string.format("%d. %s (%s)", task.id, task.title, task.done and "done" or "not done"))
+  end
+  print("-----------------------")
+end
+
+local function mark_done(text)
+  local id = tonumber(text)
+  if not id then
+    print("Please enter a whole number.")
+    return
+  end
+  for _, task in ipairs(todos) do
+    if task.id == id then
+      task.done = true
+      print("Task '" .. task.title .. "' marked as done.")
+      return
+    end
+  end
+  print("No task has that number.")
+end
+
+local function show_menu()
+  print("")
+  print("--- To-Do List Menu ---")
+  print("1. Add Task")
+  print("2. View Tasks")
+  print("3. Mark Task Done")
+  print("4. Save Tasks")
+  print("5. Load Tasks")
+  print("6. Quit")
+  print("-----------------------")
+end
+
+load_todos()
+while true do
+  show_menu()
+  print("Enter your choice (1-6):")
+  local choice = io.read()
+  if choice == nil then choice = "6" end
+
+  if choice == "1" then
+    print("Enter task title:")
+    local title = io.read()
+    print("Enter task description:")
+    local description = io.read()
+    add_task(title, description)
+  elseif choice == "2" then
+    view_tasks()
+  elseif choice == "3" then
+    view_tasks()
+    print("Enter task number to mark done:")
+    mark_done(io.read())
+  elseif choice == "4" then
+    save_todos()
+  elseif choice == "5" then
+    load_todos()
+  elseif choice == "6" then
+    save_todos()
+    print("Goodbye!")
+    break
+  else
+    print("Invalid choice. Please try again.")
+  end
+end
+</code></pre>
+<h3 id="expected-behavior-or-output-8"><a class="header" href="#expected-behavior-or-output-8">Expected Behavior or Output</a></h3>
+<p>When the standard input is the following lines (the program’s own prompts and results are shown separately because piped input is not echoed):</p>
+<pre><code class="language-text">1
+Study programming
+Finish Unit 10
+1
+Review scores
+Check the four scores
+2
+3
+2
+3
+7
+2
+6
+</code></pre>
+<p>the program prints:</p>
+<pre><code class="language-text">No existing tasks found.
+
+--- To-Do List Menu ---
+1. Add Task
+2. View Tasks
+3. Mark Task Done
+4. Save Tasks
+5. Load Tasks
+6. Quit
+-----------------------
+Enter your choice (1-6):
+Enter task title:
+Enter task description:
+Task 'Study programming' added.
+
+--- To-Do List Menu ---
+1. Add Task
+2. View Tasks
+3. Mark Task Done
+4. Save Tasks
+5. Load Tasks
+6. Quit
+-----------------------
+Enter your choice (1-6):
+Enter task title:
+Enter task description:
+Task 'Review scores' added.
+
+--- To-Do List Menu ---
+1. Add Task
+2. View Tasks
+3. Mark Task Done
+4. Save Tasks
+5. Load Tasks
+6. Quit
+-----------------------
+Enter your choice (1-6):
+--- Your To-Do List ---
+1. Study programming (not done)
+2. Review scores (not done)
+-----------------------
+
+--- To-Do List Menu ---
+1. Add Task
+2. View Tasks
+3. Mark Task Done
+4. Save Tasks
+5. Load Tasks
+6. Quit
+-----------------------
+Enter your choice (1-6):
+--- Your To-Do List ---
+1. Study programming (not done)
+2. Review scores (not done)
+-----------------------
+Enter task number to mark done:
+Task 'Review scores' marked as done.
+
+--- To-Do List Menu ---
+1. Add Task
+2. View Tasks
+3. Mark Task Done
+4. Save Tasks
+5. Load Tasks
+6. Quit
+-----------------------
+Enter your choice (1-6):
+--- Your To-Do List ---
+1. Study programming (not done)
+2. Review scores (done)
+-----------------------
+Enter task number to mark done:
+No task has that number.
+
+--- To-Do List Menu ---
+1. Add Task
+2. View Tasks
+3. Mark Task Done
+4. Save Tasks
+5. Load Tasks
+6. Quit
+-----------------------
+Enter your choice (1-6):
+--- Your To-Do List ---
+1. Study programming (not done)
+2. Review scores (done)
+-----------------------
+
+--- To-Do List Menu ---
+1. Add Task
+2. View Tasks
+3. Mark Task Done
+4. Save Tasks
+5. Load Tasks
+6. Quit
+-----------------------
+Enter your choice (1-6):
+Tasks saved.
+Goodbye!
+</code></pre>
+<h3 id="common-mistakes-8"><a class="header" href="#common-mistakes-8">Common Mistakes</a></h3>
+<ol>
+<li>Saving the file but never loading it, so tasks disappear between runs.</li>
+<li>Reusing a deleted task’s id, which can confuse saved references.</li>
+<li>Letting a damaged <code>todos.json</code> crash the program instead of printing a message.</li>
+</ol>
+<h3 id="activities-8"><a class="header" href="#activities-8">Activities</a></h3>
+<ol>
+<li>Run the sample session and then run the program again with the input <code>2</code> then <code>6</code> to see the saved tasks.</li>
+<li>Add a command to delete a task by number.</li>
+<li>Open <code>todos.json</code> and read the saved text. Edit it to remove a bracket and rerun.</li>
+<li>Add a <code>description</code> display to the view command.</li>
+</ol>
+<h3 id="accessibility-practice-8"><a class="header" href="#accessibility-practice-8">Accessibility Practice</a></h3>
+<p>Every menu is printed as numbered lines and each prompt is on its own line. The status words are <code>done</code> and <code>not done</code>, not symbols, so the list reads clearly in speech and braille.</p>
+<h3 id="skills-checklist-8"><a class="header" href="#skills-checklist-8">Skills Checklist</a></h3>
+<ul>
+<li><input disabled="" type="checkbox"> I can keep records with the shared fields.</li>
+<li><input disabled="" type="checkbox"> I can save and load JSON.</li>
+<li><input disabled="" type="checkbox"> I handle a missing or damaged file.</li>
+<li><input disabled="" type="checkbox"> I keep ids unique.</li>
+<li><input disabled="" type="checkbox"> I show status in words.</li>
+</ul>
+<h2 id="lesson-105-user-experience-and-input-validation"><a class="header" href="#lesson-105-user-experience-and-input-validation">Lesson 10.5: User Experience and Input Validation</a></h2>
+<h3 id="reading-references-9"><a class="header" href="#reading-references-9">Reading References</a></h3>
+<ul>
+<li>Programming in Lua, 4th edition (Roberto Ierusalimschy): Chapter 6 (Functions) and Chapter 16 (Compilation, Execution, and Errors)</li>
+<li>Lua 5.4 Reference Manual: Section 6.8 (io.read)</li>
+<li>Matching Python lesson: Lesson 10.5 Refining User Experience and Validation</li>
+</ul>
+<h3 id="learning-objectives-9"><a class="header" href="#learning-objectives-9">Learning Objectives</a></h3>
+<ul>
+<li>Write reusable validation functions.</li>
+<li>Limit retries and handle the end of input.</li>
+<li>Write clear, accessible messages.</li>
+</ul>
+<h3 id="concept-explanation-9"><a class="header" href="#concept-explanation-9">Concept Explanation</a></h3>
+<p>Reusable validation functions make every menu and form consistent. <code>ask_number(prompt, low, high, attempts)</code> prints a prompt, reads a line, converts it, checks the range, and either returns the number or explains the problem and asks again. After the allowed attempts, or at the end of input, it returns <code>nil</code> and a reason. <code>ask_yes_no(prompt)</code> accepts <code>y</code>, <code>yes</code>, <code>n</code>, and <code>no</code>, in any letter case.</p>
+<p>Good messages say <em>what was wrong</em> and <em>what to do</em>: “Enter a whole number from 0 to 100,” not “Invalid.” They never depend on color, position, or symbols alone, and they use the same wording every time.</p>
+<p>The example reads a score with the typed lines abc, 105, and 88, then asks a yes or no question with the lines maybe and y.</p>
+<h3 id="worked-example-9"><a class="header" href="#worked-example-9">Worked Example</a></h3>
+<pre><code class="language-lua">local function ask_number(prompt, low, high, attempts)
+  for attempt = 1, attempts do
+    print(prompt)
+    local text = io.read()
+    if text == nil then return nil, "No more input." end
+    local number = tonumber(text)
+    if number and number == math.floor(number) and number &gt;= low and number &lt;= high then
+      return math.tointeger(number)
+    end
+    print(string.format("Enter a whole number from %d to %d. You have %d attempt(s) left.", low, high, attempts - attempt))
+  end
+  return nil, "Too many invalid attempts."
+end
+
+local function ask_yes_no(prompt)
+  while true do
+    print(prompt .. " (yes or no)")
+    local text = io.read()
+    if text == nil then return nil end
+    text = text:lower()
+    if text == "y" or text == "yes" then return true end
+    if text == "n" or text == "no" then return false end
+    print("Please answer yes or no.")
+  end
+end
+
+local score, reason = ask_number("Enter a score from 0 to 100:", 0, 100, 3)
+if score then
+  print("Accepted score: " .. score)
+else
+  print("No score: " .. reason)
+end
+
+local keep = ask_yes_no("Save this score?")
+print("Save answer:", keep)
+</code></pre>
+<h3 id="expected-behavior-or-output-9"><a class="header" href="#expected-behavior-or-output-9">Expected Behavior or Output</a></h3>
+<p>When the standard input is the following lines (the program’s own prompts and results are shown separately because piped input is not echoed):</p>
+<pre><code class="language-text">abc
+105
+88
+maybe
+y
+</code></pre>
+<p>the program prints:</p>
+<pre><code class="language-text">Enter a score from 0 to 100:
+Enter a whole number from 0 to 100. You have 2 attempt(s) left.
+Enter a score from 0 to 100:
+Enter a whole number from 0 to 100. You have 1 attempt(s) left.
+Enter a score from 0 to 100:
+Accepted score: 88
+Save this score? (yes or no)
+Please answer yes or no.
+Save this score? (yes or no)
+Save answer:	true
+</code></pre>
+<h3 id="common-mistakes-9"><a class="header" href="#common-mistakes-9">Common Mistakes</a></h3>
+<ol>
+<li>Writing the message “Invalid” without saying what is valid.</li>
+<li>Accepting a decimal such as 88.5 for a field that requires a whole number.</li>
+<li>Looping forever on bad input instead of limiting attempts.</li>
+</ol>
+<h3 id="activities-9"><a class="header" href="#activities-9">Activities</a></h3>
+<ol>
+<li>Run the sample input and read each message aloud.</li>
+<li>Run with three invalid numbers and read the final message.</li>
+<li>Add a function <code>ask_text(prompt)</code> that rejects empty answers.</li>
+<li>Rewrite two messages from earlier lessons so they say what to do next.</li>
+</ol>
+<h3 id="accessibility-practice-9"><a class="header" href="#accessibility-practice-9">Accessibility Practice</a></h3>
+<p>Check that every error message ends with an action the user can take, and that the same situation always produces the same words.</p>
+<h3 id="skills-checklist-9"><a class="header" href="#skills-checklist-9">Skills Checklist</a></h3>
+<ul>
+<li><input disabled="" type="checkbox"> I can write reusable validation functions.</li>
+<li><input disabled="" type="checkbox"> I limit retries.</li>
+<li><input disabled="" type="checkbox"> I handle the end of input.</li>
+<li><input disabled="" type="checkbox"> I write messages that say what to do.</li>
+<li><input disabled="" type="checkbox"> I keep wording consistent.</li>
+</ul>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                            <a rel="prev" href="../LUA/unit09-testing-and-data-analysis.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M41.4 233.4c-12.5 12.5-12.5 32.8 0 45.3l160 160c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L109.3 256 246.6 118.6c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0l-160 160z"/></svg></span>
+                            </a>
+
+                            <a rel="next prefetch" href="../LUA/unit11-capstone-accessible-personal-data-manager.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M278.6 233.4c12.5 12.5 12.5 32.8 0 45.3l-160 160c-12.5 12.5-32.8 12.5-45.3 0s-12.5-32.8 0-45.3L210.7 256 73.4 118.6c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0l160 160z"/></svg></span>
+                            </a>
+
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                    <a rel="prev" href="../LUA/unit09-testing-and-data-analysis.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M41.4 233.4c-12.5 12.5-12.5 32.8 0 45.3l160 160c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L109.3 256 246.6 118.6c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0l-160 160z"/></svg></span>
+                    </a>
+
+                    <a rel="next prefetch" href="../LUA/unit11-capstone-accessible-personal-data-manager.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M278.6 233.4c12.5 12.5 12.5 32.8 0 45.3l-160 160c-12.5 12.5-32.8 12.5-45.3 0s-12.5-32.8 0-45.3L210.7 256 73.4 118.6c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0l160 160z"/></svg></span>
+                    </a>
+            </nav>
+
+        </div>
+
+        <template id=fa-eye><span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M288 32c-80.8 0-145.5 36.8-192.6 80.6C48.6 156 17.3 208 2.5 243.7c-3.3 7.9-3.3 16.7 0 24.6C17.3 304 48.6 356 95.4 399.4C142.5 443.2 207.2 480 288 480s145.5-36.8 192.6-80.6c46.8-43.5 78.1-95.4 93-131.1c3.3-7.9 3.3-16.7 0-24.6c-14.9-35.7-46.2-87.7-93-131.1C433.5 68.8 368.8 32 288 32zM432 256c0 79.5-64.5 144-144 144s-144-64.5-144-144s64.5-144 144-144s144 64.5 144 144zM288 192c0 35.3-28.7 64-64 64c-11.5 0-22.3-3-31.6-8.4c-.2 2.8-.4 5.5-.4 8.4c0 53 43 96 96 96s96-43 96-96s-43-96-96-96c-2.8 0-5.6 .1-8.4 .4c5.3 9.3 8.4 20.1 8.4 31.6z"/></svg></span></template>
+        <template id=fa-eye-slash><span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M38.8 5.1C28.4-3.1 13.3-1.2 5.1 9.2S-1.2 34.7 9.2 42.9l592 464c10.4 8.2 25.5 6.3 33.7-4.1s6.3-25.5-4.1-33.7L525.6 386.7c39.6-40.6 66.4-86.1 79.9-118.4c3.3-7.9 3.3-16.7 0-24.6c-14.9-35.7-46.2-87.7-93-131.1C465.5 68.8 400.8 32 320 32c-68.2 0-125 26.3-169.3 60.8L38.8 5.1zM223.1 149.5C248.6 126.2 282.7 112 320 112c79.5 0 144 64.5 144 144c0 24.9-6.3 48.3-17.4 68.7L408 294.5c5.2-11.8 8-24.8 8-38.5c0-53-43-96-96-96c-2.8 0-5.6 .1-8.4 .4c5.3 9.3 8.4 20.1 8.4 31.6c0 10.2-2.4 19.8-6.6 28.3l-90.3-70.8zm223.1 298L373 389.9c-16.4 6.5-34.3 10.1-53 10.1c-79.5 0-144-64.5-144-144c0-6.9 .5-13.6 1.4-20.2L83.1 161.5C60.3 191.2 44 220.8 34.5 243.7c-3.3 7.9-3.3 16.7 0 24.6c14.9 35.7 46.2 87.7 93 131.1C174.5 443.2 239.2 480 320 480c47.8 0 89.9-12.9 126.2-32.5z"/></svg></span></template>
+        <template id=fa-copy><span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M502.6 70.63l-61.25-61.25C435.4 3.371 427.2 0 418.7 0H255.1c-35.35 0-64 28.66-64 64l.0195 256C192 355.4 220.7 384 256 384h192c35.2 0 64-28.8 64-64V93.25C512 84.77 508.6 76.63 502.6 70.63zM464 320c0 8.836-7.164 16-16 16H255.1c-8.838 0-16-7.164-16-16L239.1 64.13c0-8.836 7.164-16 16-16h128L384 96c0 17.67 14.33 32 32 32h47.1V320zM272 448c0 8.836-7.164 16-16 16H63.1c-8.838 0-16-7.164-16-16L47.98 192.1c0-8.836 7.164-16 16-16H160V128H63.99c-35.35 0-64 28.65-64 64l.0098 256C.002 483.3 28.66 512 64 512h192c35.2 0 64-28.8 64-64v-32h-47.1L272 448z"/></svg></span></template>
+        <template id=fa-play><span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M73 39c-14.8-9.1-33.4-9.4-48.5-.9S0 62.6 0 80V432c0 17.4 9.4 33.4 24.5 41.9s33.7 8.1 48.5-.9L361 297c14.3-8.7 23-24.2 23-41s-8.7-32.2-23-41L73 39z"/></svg></span></template>
+        <template id=fa-clock-rotate-left><span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M75 75L41 41C25.9 25.9 0 36.6 0 57.9V168c0 13.3 10.7 24 24 24H134.1c21.4 0 32.1-25.9 17-41l-30.8-30.8C155 85.5 203 64 256 64c106 0 192 86 192 192s-86 192-192 192c-40.8 0-78.6-12.7-109.7-34.4c-14.5-10.1-34.4-6.6-44.6 7.9s-6.6 34.4 7.9 44.6C151.2 495 201.7 512 256 512c141.4 0 256-114.6 256-256S397.4 0 256 0C185.3 0 121.3 28.7 75 75zm181 53c-13.3 0-24 10.7-24 24V256c0 6.4 2.5 12.5 7 17l72 72c9.4 9.4 24.6 9.4 33.9 0s9.4-24.6 0-33.9l-65-65V152c0-13.3-10.7-24-24-24z"/></svg></span></template>
+
+
+
+        <script>
+            window.playground_copyable = true;
+        </script>
+
+
+        <script src="../elasticlunr-ef4e11c1.min.js"></script>
+        <script src="../mark-09e88c2c.min.js"></script>
+        <script src="../searcher-09f2665d.js"></script>
+
+        <script src="../clipboard-1626706a.min.js"></script>
+        <script src="../highlight-abc7f01d.js"></script>
+        <script src="../book-609e4cb8.js"></script>
+
+        <!-- Custom JS scripts -->
+
+
+
+    </div>
+    </body>
+</html>

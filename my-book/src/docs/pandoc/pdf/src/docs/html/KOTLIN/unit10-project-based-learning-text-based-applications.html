@@ -1,0 +1,1019 @@
+<!DOCTYPE HTML>
+<html lang="en" class="rust sidebar-visible" dir="ltr">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>Unit 10 - Accessible Introduction to Computer Science</title>
+
+
+        <!-- Custom HTML head -->
+
+        <meta name="description" content="Introductory programming curricula, each adapted for visually impaired students who use screen readers">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff">
+
+        <link rel="icon" href="../favicon-de23e50b.svg">
+        <link rel="shortcut icon" href="../favicon-8114d1fc.png">
+        <link rel="stylesheet" href="../css/variables-8adf115d.css">
+        <link rel="stylesheet" href="../css/general-e96d0476.css">
+        <link rel="stylesheet" href="../css/chrome-d279d366.css">
+        <link rel="stylesheet" href="../css/print-9e4910d8.css" media="print">
+
+        <!-- Fonts -->
+        <link rel="stylesheet" href="../fonts/fonts-9644e21d.css">
+
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" id="mdbook-highlight-css" href="../highlight-493f70e1.css">
+        <link rel="stylesheet" id="mdbook-tomorrow-night-css" href="../tomorrow-night-4c0ae647.css">
+        <link rel="stylesheet" id="mdbook-ayu-highlight-css" href="../ayu-highlight-3fdfc3ac.css">
+
+        <!-- Custom theme stylesheets -->
+
+
+        <!-- Provide site root and default themes to javascript -->
+        <script>
+            const path_to_root = "../";
+            const default_light_theme = "rust";
+            const default_dark_theme = "navy";
+            window.path_to_searchindex_js = "../searchindex-1d296e4e.js";
+        </script>
+        <!-- Start loading toc.js asap -->
+        <script src="../toc-62d8efca.js"></script>
+    </head>
+    <body>
+    <div id="mdbook-help-container">
+        <div id="mdbook-help-popup">
+            <h2 class="mdbook-help-title">Keyboard shortcuts</h2>
+            <div>
+                <p>Press <kbd>←</kbd> or <kbd>→</kbd> to navigate between chapters</p>
+                <p>Press <kbd>S</kbd> or <kbd>/</kbd> to search in the book</p>
+                <p>Press <kbd>?</kbd> to show this help</p>
+                <p>Press <kbd>Esc</kbd> to hide this help</p>
+            </div>
+        </div>
+    </div>
+    <div id="mdbook-body-container">
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script>
+            try {
+                let theme = localStorage.getItem('mdbook-theme');
+                let sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script>
+            const default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? default_dark_theme : default_light_theme;
+            let theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            const html = document.documentElement;
+            html.classList.remove('rust')
+            html.classList.add(theme);
+            html.classList.add("js");
+        </script>
+
+        <input type="checkbox" id="mdbook-sidebar-toggle-anchor" class="hidden">
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script>
+            let sidebar = null;
+            const sidebar_toggle = document.getElementById("mdbook-sidebar-toggle-anchor");
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            } else {
+                sidebar = 'hidden';
+                sidebar_toggle.checked = false;
+            }
+            if (sidebar === 'visible') {
+                sidebar_toggle.checked = true;
+            } else {
+                html.classList.remove('sidebar-visible');
+            }
+        </script>
+
+        <nav id="mdbook-sidebar" class="sidebar" aria-label="Table of contents">
+            <!-- populated by js -->
+            <mdbook-sidebar-scrollbox class="sidebar-scrollbox"></mdbook-sidebar-scrollbox>
+            <noscript>
+                <iframe class="sidebar-iframe-outer" src="../toc.html"></iframe>
+            </noscript>
+            <div id="mdbook-sidebar-resize-handle" class="sidebar-resize-handle">
+                <div class="sidebar-resize-indicator"></div>
+            </div>
+        </nav>
+
+        <div id="mdbook-page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                <div id="mdbook-menu-bar-hover-placeholder"></div>
+                <div id="mdbook-menu-bar" class="menu-bar sticky">
+                    <div class="left-buttons">
+                        <label id="mdbook-sidebar-toggle" class="icon-button" for="mdbook-sidebar-toggle-anchor" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="mdbook-sidebar">
+                            <span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M0 96C0 78.3 14.3 64 32 64H416c17.7 0 32 14.3 32 32s-14.3 32-32 32H32C14.3 128 0 113.7 0 96zM0 256c0-17.7 14.3-32 32-32H416c17.7 0 32 14.3 32 32s-14.3 32-32 32H32c-17.7 0-32-14.3-32-32zM448 416c0 17.7-14.3 32-32 32H32c-17.7 0-32-14.3-32-32s14.3-32 32-32H416c17.7 0 32 14.3 32 32z"/></svg></span>
+                        </label>
+                        <button id="mdbook-theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="mdbook-theme-list">
+                            <span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M371.3 367.1c27.3-3.9 51.9-19.4 67.2-42.9L600.2 74.1c12.6-19.5 9.4-45.3-7.6-61.2S549.7-4.4 531.1 9.6L294.4 187.2c-24 18-38.2 46.1-38.4 76.1L371.3 367.1zm-19.6 25.4l-116-104.4C175.9 290.3 128 339.6 128 400c0 3.9 .2 7.8 .6 11.6c1.8 17.5-10.2 36.4-27.8 36.4H96c-17.7 0-32 14.3-32 32s14.3 32 32 32H240c61.9 0 112-50.1 112-112c0-2.5-.1-5-.2-7.5z"/></svg></span>
+                        </button>
+                        <ul id="mdbook-theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="mdbook-theme-default_theme">Auto</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="mdbook-theme-light">Light</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="mdbook-theme-rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="mdbook-theme-coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="mdbook-theme-navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="mdbook-theme-ayu">Ayu</button></li>
+                        </ul>
+                        <button id="mdbook-search-toggle" class="icon-button" type="button" title="Search (`/`)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="/ s" aria-controls="mdbook-searchbar">
+                            <span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M416 208c0 45.9-14.9 88.3-40 122.7L502.6 457.4c12.5 12.5 12.5 32.8 0 45.3s-32.8 12.5-45.3 0L330.7 376c-34.4 25.2-76.8 40-122.7 40C93.1 416 0 322.9 0 208S93.1 0 208 0S416 93.1 416 208zM208 352c79.5 0 144-64.5 144-144s-64.5-144-144-144S64 128.5 64 208s64.5 144 144 144z"/></svg></span>
+                        </button>
+                    </div>
+
+                    <h1 class="menu-title">Accessible Introduction to Computer Science</h1>
+
+                    <div class="right-buttons">
+                        <a href="../print.html" title="Print this book" aria-label="Print this book">
+                            <span class=fa-svg id="print-button"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M128 0C92.7 0 64 28.7 64 64v96h64V64H354.7L384 93.3V160h64V93.3c0-17-6.7-33.3-18.7-45.3L400 18.7C388 6.7 371.7 0 354.7 0H128zM384 352v32 64H128V384 368 352H384zm64 32h32c17.7 0 32-14.3 32-32V256c0-35.3-28.7-64-64-64H64c-35.3 0-64 28.7-64 64v96c0 17.7 14.3 32 32 32H64v64c0 35.3 28.7 64 64 64H384c35.3 0 64-28.7 64-64V384zm-16-88c-13.3 0-24-10.7-24-24s10.7-24 24-24s24 10.7 24 24s-10.7 24-24 24z"/></svg></span>
+                        </a>
+                        <a href="https://github.com/mrhunsaker/VI_Focused_Coding_Curricula" title="Git repository" aria-label="Git repository">
+                            <span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"/></svg></span>
+                        </a>
+
+                    </div>
+                </div>
+
+                <div id="mdbook-search-wrapper" class="hidden">
+                    <form id="mdbook-searchbar-outer" class="searchbar-outer">
+                        <div class="search-wrapper">
+                            <input type="search" id="mdbook-searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="mdbook-searchresults-outer" aria-describedby="searchresults-header">
+                            <div class="spinner-wrapper">
+                                <span class=fa-svg id="fa-spin"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M304 48c0-26.5-21.5-48-48-48s-48 21.5-48 48s21.5 48 48 48s48-21.5 48-48zm0 416c0-26.5-21.5-48-48-48s-48 21.5-48 48s21.5 48 48 48s48-21.5 48-48zM48 304c26.5 0 48-21.5 48-48s-21.5-48-48-48s-48 21.5-48 48s21.5 48 48 48zm464-48c0-26.5-21.5-48-48-48s-48 21.5-48 48s21.5 48 48 48s48-21.5 48-48zM142.9 437c18.7-18.7 18.7-49.1 0-67.9s-49.1-18.7-67.9 0s-18.7 49.1 0 67.9s49.1 18.7 67.9 0zm0-294.2c18.7-18.7 18.7-49.1 0-67.9S93.7 56.2 75 75s-18.7 49.1 0 67.9s49.1 18.7 67.9 0zM369.1 437c18.7 18.7 49.1 18.7 67.9 0s18.7-49.1 0-67.9s-49.1-18.7-67.9 0s-18.7 49.1 0 67.9z"/></svg></span>
+                            </div>
+                        </div>
+                    </form>
+                    <div id="mdbook-searchresults-outer" class="searchresults-outer hidden">
+                        <div id="mdbook-searchresults-header" class="searchresults-header"></div>
+                        <ul id="mdbook-searchresults">
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script>
+                    document.getElementById('mdbook-sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('mdbook-sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#mdbook-sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="mdbook-content" class="content">
+                    <main>
+                        <h1 id="unit-10-project-based-learning--text-based-applications"><a class="header" href="#unit-10-project-based-learning--text-based-applications">Unit 10: Project-Based Learning — Text-Based Applications</a></h1>
+<h2 id="overview"><a class="header" href="#overview">Overview</a></h2>
+<p>Plan a text project, build the shared text adventure in two parts, build the command-line to-do manager, and refine input validation.</p>
+<hr>
+<h2 id="lesson-101-planning-a-text-based-project"><a class="header" href="#lesson-101-planning-a-text-based-project">Lesson 10.1: Planning a Text-Based Project</a></h2>
+<h3 id="reading-references"><a class="header" href="#reading-references">Reading References</a></h3>
+<ul>
+<li><a href="https://kotlinlang.org/docs/lambdas.html">Functions: function types</a></li>
+<li><a href="https://kotlinlang.org/docs/collections-overview.html">Collections overview</a></li>
+<li>Matching Python lesson: Lesson 10.1: Project Planning and Design</li>
+</ul>
+<h3 id="learning-objectives"><a class="header" href="#learning-objectives">Learning Objectives</a></h3>
+<ul>
+<li>Write a short requirements list.</li>
+<li>Design a command loop with a map of handlers.</li>
+<li>Plan in small steps and test each one.</li>
+</ul>
+<h3 id="concept-explanation"><a class="header" href="#concept-explanation">Concept Explanation</a></h3>
+<p>A project is easier to finish when it is planned in small steps. Write down what the program must do (<em>requirements</em>), what information it keeps (<em>data</em>), and the commands a person can give (<em>interface</em>). Build one small piece, test it, then add the next.</p>
+<p>Text-based projects share a <em>command loop</em>: show a prompt, read a line, find the matching action, and repeat until the user quits. In Kotlin, a <code>Map&lt;String, () -&gt; Unit&gt;</code> holds actions: the keys are command names and the values are <em>lambdas</em>, small functions with no name. A new command is one new entry, and an unknown command is a failed lookup that prints a helpful message.</p>
+<p>The loop stops on <code>quit</code> and also when input ends (<code>null</code>). The example is a skeleton with two commands; typing <code>help</code>, <code>look</code>, an unknown word, and <code>quit</code> shows each path.</p>
+<h3 id="worked-example"><a class="header" href="#worked-example">Worked Example</a></h3>
+<pre><code class="language-kotlin">fun main() {
+    val commands: Map&lt;String, () -&gt; Unit&gt; = mapOf(
+        "help" to { println("Commands: help, look, quit") },
+        "look" to { println("You are in a dark cave.") },
+    )
+
+    println("Type a command:")
+    var line = readlnOrNull()
+    while (line != null &amp;&amp; line != "quit") {
+        val handler = commands[line]
+        if (handler != null) {
+            handler()
+        } else {
+            println("I don't understand that command. Type help for a list.")
+        }
+        println("Type a command:")
+        line = readlnOrNull()
+    }
+    println("Goodbye!")
+}
+</code></pre>
+<h3 id="expected-behavior-or-output"><a class="header" href="#expected-behavior-or-output">Expected Behavior or Output</a></h3>
+<p>With the following lines typed as standard input (piped input is not echoed, so it does not appear in the output):</p>
+<pre><code class="language-text">help
+look
+dance
+quit
+</code></pre>
+<p>the program prints:</p>
+<pre><code class="language-text">Type a command:
+Commands: help, look, quit
+Type a command:
+You are in a dark cave.
+Type a command:
+I don't understand that command. Type help for a list.
+Type a command:
+Goodbye!
+</code></pre>
+<p>With no standard input at all, the program ends cleanly and prints:</p>
+<pre><code class="language-text">Type a command:
+Goodbye!
+</code></pre>
+<h3 id="common-mistakes"><a class="header" href="#common-mistakes">Common Mistakes</a></h3>
+<ol>
+<li>Starting to code before listing the requirements.</li>
+<li>Using a long chain of <code>if</code> statements instead of a map of handlers.</li>
+<li>Forgetting that an unknown command should say what to do next.</li>
+</ol>
+<h3 id="activities"><a class="header" href="#activities">Activities</a></h3>
+<ol>
+<li>Write five requirements for the text adventure and the to-do list.</li>
+<li>Add a <code>score</code> command that prints the shared scores.</li>
+<li>Add the aliases <code>h</code> and <code>l</code> without copying the lambdas.</li>
+<li>Describe the data for the capstone in three sentences.</li>
+</ol>
+<h3 id="accessibility-practice"><a class="header" href="#accessibility-practice">Accessibility Practice</a></h3>
+<p>Prompts and responses are on separate lines and every response is a complete sentence. Test the prompts by listening to them before you add features.</p>
+<h3 id="skills-checklist"><a class="header" href="#skills-checklist">Skills Checklist</a></h3>
+<ul>
+<li><input disabled="" type="checkbox"> I can list requirements.</li>
+<li><input disabled="" type="checkbox"> I can design a command loop.</li>
+<li><input disabled="" type="checkbox"> I can use a map of lambdas.</li>
+<li><input disabled="" type="checkbox"> I handle unknown commands.</li>
+<li><input disabled="" type="checkbox"> I handle the end of input.</li>
+</ul>
+<hr>
+<h2 id="lesson-102-text-adventure-part-1-five-rooms-and-movement"><a class="header" href="#lesson-102-text-adventure-part-1-five-rooms-and-movement">Lesson 10.2: Text Adventure, Part 1: Five Rooms and Movement</a></h2>
+<h3 id="reading-references-1"><a class="header" href="#reading-references-1">Reading References</a></h3>
+<ul>
+<li><a href="https://kotlinlang.org/docs/data-classes.html">Data classes</a></li>
+<li><a href="https://kotlinlang.org/docs/collections-overview.html">Collections overview</a></li>
+<li>Canonical shared project specification: Python Unit 10, Lesson 10.3</li>
+</ul>
+<h3 id="learning-objectives-1"><a class="header" href="#learning-objectives-1">Learning Objectives</a></h3>
+<ul>
+<li>Represent the five canonical rooms and their exits with Kotlin data.</li>
+<li>Move through valid exits without changing location after an invalid command.</li>
+<li>Explain why the north exit from the locked-door room is not available yet.</li>
+</ul>
+<h3 id="concept-explanation-1"><a class="header" href="#concept-explanation-1">Concept Explanation</a></h3>
+<p>The shared adventure has five rooms: start_room, tunnel, clearing, locked_door_room, and treasure_room. The unconditional connections are start north to tunnel; tunnel south to start and east to clearing; clearing west to tunnel and north to the locked-door room; and locked-door room south to clearing. The north exit to the treasure room is conditional and is added in Part 2 only after the shiny-key puzzle is solved.</p>
+<p>A Room data class stores a description and a map of exits. Looking up a missing direction with square brackets returns null; it does not change the current room.</p>
+<h3 id="worked-example-1"><a class="header" href="#worked-example-1">Worked Example</a></h3>
+<pre><code class="language-kotlin">data class Room(val description: String, val exits: Map&lt;String, String&gt;)
+
+fun main() {
+    val rooms = mapOf(
+        "start_room" to Room("A dimly lit cave. A narrow passage leads north.", mapOf("north" to "tunnel")),
+        "tunnel" to Room("A damp tunnel. Passages lead south and east.", mapOf("south" to "start_room", "east" to "clearing")),
+        "clearing" to Room("A quiet clearing. An antechamber lies to the north.", mapOf("west" to "tunnel", "north" to "locked_door_room")),
+        "locked_door_room" to Room("A chamber with a heavy door to the north.", mapOf("south" to "clearing")),
+        "treasure_room" to Room("You found the treasure. You win!", emptyMap()),
+    )
+
+    var currentRoom = "start_room"
+    while (true) {
+        println("---")
+        println(rooms.getValue(currentRoom).description)
+        println("What do you want to do?")
+        val command = (readlnOrNull() ?: "quit").trim().lowercase()
+        val destination = rooms.getValue(currentRoom).exits[command]
+        when {
+            command == "quit" -&gt; {
+                println("Exiting game. Goodbye!")
+                break
+            }
+            destination != null -&gt; currentRoom = destination
+            else -&gt; println("You cannot go that way. Enter a listed direction or quit.")
+        }
+    }
+}
+</code></pre>
+<h3 id="expected-behavior-or-output-1"><a class="header" href="#expected-behavior-or-output-1">Expected Behavior or Output</a></h3>
+<p>With north, east, north, north, quit entered as separate input lines, the player visits tunnel, clearing, and locked_door_room. The second north from locked_door_room is rejected and the current room does not change. The treasure room exists in the model but cannot be reached in Part 1.</p>
+<h3 id="common-mistakes-1"><a class="header" href="#common-mistakes-1">Common Mistakes</a></h3>
+<ol>
+<li>Adding the treasure-room north exit before implementing the key puzzle.</li>
+<li>Updating currentRoom before confirming that the requested exit exists.</li>
+<li>Using getValue on an exit map when the direction may be absent.</li>
+<li>Defining an exit whose destination is not one of the five room identifiers.</li>
+</ol>
+<h3 id="activities-1"><a class="header" href="#activities-1">Activities</a></h3>
+<ol>
+<li>Trace north, east, north, north and record the room after each command.</li>
+<li>Try west from start_room; confirm that the location does not change.</li>
+<li>Check that every destination in every unconditional exit exists in rooms.</li>
+<li>Explain why treasure_room has no incoming exit in Part 1.</li>
+</ol>
+<h3 id="accessibility-practice-1"><a class="header" href="#accessibility-practice-1">Accessibility Practice</a></h3>
+<p>Read the separator, room description, and prompt in order. The invalid-movement response explains what happened and how to continue. Test the sequence by listening to terminal output; do not rely on a visual map.</p>
+<h3 id="skills-checklist-1"><a class="header" href="#skills-checklist-1">Skills Checklist</a></h3>
+<ul>
+<li><input disabled="" type="checkbox"> I can model all five canonical rooms.</li>
+<li><input disabled="" type="checkbox"> I can represent exits with a map.</li>
+<li><input disabled="" type="checkbox"> I can move only when an exit exists.</li>
+<li><input disabled="" type="checkbox"> I can reject an invalid direction without changing state.</li>
+<li><input disabled="" type="checkbox"> I can explain why the treasure room is not yet reachable.</li>
+</ul>
+<hr>
+<h2 id="lesson-103-text-adventure-part-2-shiny-key-and-locked-door"><a class="header" href="#lesson-103-text-adventure-part-2-shiny-key-and-locked-door">Lesson 10.3: Text Adventure, Part 2: Shiny Key and Locked Door</a></h2>
+<h3 id="reading-references-2"><a class="header" href="#reading-references-2">Reading References</a></h3>
+<ul>
+<li><a href="https://kotlinlang.org/docs/collections-overview.html">Collections overview</a></li>
+<li><a href="https://kotlinlang.org/docs/control-flow.html#when-expression">Control flow: when</a></li>
+<li>Canonical shared project specification: Python Unit 10, Lesson 10.3</li>
+</ul>
+<h3 id="learning-objectives-2"><a class="header" href="#learning-objectives-2">Learning Objectives</a></h3>
+<ul>
+<li>Place the shiny key in start_room and transfer it to inventory exactly once.</li>
+<li>Require the player to use the key while in locked_door_room.</li>
+<li>Unlock the north exit to treasure_room only after the puzzle succeeds.</li>
+<li>End the game when the player reaches the treasure room.</li>
+</ul>
+<h3 id="concept-explanation-2"><a class="header" href="#concept-explanation-2">Concept Explanation</a></h3>
+<p>Part 2 keeps the same five-room graph. The shiny key begins in start_room. The take shiny key command removes it from that room and adds it to inventory. The use shiny key command works only in locked_door_room and only when the key is in inventory. Attempting north from the locked-door room before that action prints a locked-door message and leaves the player in place. After the key is used, north leads to treasure_room.</p>
+<p>Room descriptions do not claim that an item is still present. Room items and inventory are announced on separate lines.</p>
+<h3 id="worked-example-2"><a class="header" href="#worked-example-2">Worked Example</a></h3>
+<pre><code class="language-kotlin">class Room(
+    val description: String,
+    val exits: Map&lt;String, String&gt;,
+    val items: MutableList&lt;String&gt; = mutableListOf(),
+)
+
+fun main() {
+    val rooms = mapOf(
+        "start_room" to Room("A dimly lit cave.", mapOf("north" to "tunnel"), mutableListOf("shiny key")),
+        "tunnel" to Room("A damp tunnel. Passages lead south and east.", mapOf("south" to "start_room", "east" to "clearing")),
+        "clearing" to Room("A quiet clearing. An antechamber lies to the north.", mapOf("west" to "tunnel", "north" to "locked_door_room")),
+        "locked_door_room" to Room("A chamber with a heavy door to the north.", mapOf("south" to "clearing", "north" to "treasure_room")),
+        "treasure_room" to Room("You found the treasure. You win!", emptyMap()),
+    )
+    var currentRoom = "start_room"
+    val inventory = mutableListOf&lt;String&gt;()
+    var doorLocked = true
+
+    while (true) {
+        val room = rooms.getValue(currentRoom)
+        println()
+        println(room.description)
+        if (currentRoom == "treasure_room") break
+        if (room.items.isNotEmpty()) println("You see: " + room.items.joinToString(", "))
+        println("Your inventory: " + if (inventory.isEmpty()) "empty" else inventory.joinToString(", "))
+        println("What do you want to do?")
+        val command = (readlnOrNull() ?: "quit").trim().lowercase()
+
+        when {
+            command == "quit" -&gt; {
+                println("You quit the adventure.")
+                break
+            }
+            command == "take shiny key" -&gt; {
+                if (room.items.remove("shiny key")) {
+                    inventory.add("shiny key")
+                    println("You picked up the shiny key.")
+                } else println("There is no shiny key here to take.")
+            }
+            command == "use shiny key" -&gt; when {
+                currentRoom != "locked_door_room" -&gt; println("You must be at the locked door to use the key.")
+                "shiny key" !in inventory -&gt; println("You do not have the shiny key.")
+                else -&gt; {
+                    doorLocked = false
+                    println("You unlocked the door!")
+                }
+            }
+            currentRoom == "locked_door_room" &amp;&amp; command == "north" &amp;&amp; doorLocked -&gt;
+                println("The door is locked! You need to use the shiny key here.")
+            command in room.exits -&gt; currentRoom = room.exits.getValue(command)
+            else -&gt; println("Invalid command. Enter north, south, east, west, take shiny key, use shiny key, or quit.")
+        }
+    }
+}
+</code></pre>
+<h3 id="expected-behavior-or-output-2"><a class="header" href="#expected-behavior-or-output-2">Expected Behavior or Output</a></h3>
+<p>Use this sequence to verify the puzzle: north, east, north, north, south, west, south, take shiny key, north, east, north, use shiny key, north.</p>
+<p>The first north attempt from locked_door_room must be rejected. Taking the key removes it from start_room and adds it to inventory. Using it outside locked_door_room must be rejected. Using it there prints You unlocked the door!; the next north reaches treasure_room and prints You found the treasure. You win!. End-of-file is treated as quit.</p>
+<h3 id="common-mistakes-2"><a class="header" href="#common-mistakes-2">Common Mistakes</a></h3>
+<ol>
+<li>Leaving the shiny key in the room after adding it to inventory.</li>
+<li>Unlocking the door outside locked_door_room.</li>
+<li>Unlocking the door without checking inventory.</li>
+<li>Allowing north movement before doorLocked becomes false.</li>
+<li>Describing the key as still on the floor after it has been collected.</li>
+</ol>
+<h3 id="activities-2"><a class="header" href="#activities-2">Activities</a></h3>
+<ol>
+<li>Run the full sequence and record room, room items, inventory, and door state after every command.</li>
+<li>Try take shiny key twice; the second attempt must not duplicate the item.</li>
+<li>Try use shiny key in start_room and clearing; both attempts must be rejected.</li>
+<li>Try north from locked_door_room before and after unlocking.</li>
+<li>Add a look command that announces room, visible items, inventory, and exits in a consistent order.</li>
+</ol>
+<h3 id="accessibility-practice-2"><a class="header" href="#accessibility-practice-2">Accessibility Practice</a></h3>
+<p>Announce room description, visible items, inventory, and prompt as separate text lines. Every failed action explains why it failed. Listen to the full puzzle sequence and verify that key location and door state are unambiguous.</p>
+<h3 id="skills-checklist-2"><a class="header" href="#skills-checklist-2">Skills Checklist</a></h3>
+<ul>
+<li><input disabled="" type="checkbox"> I can model the five canonical rooms.</li>
+<li><input disabled="" type="checkbox"> I can transfer the shiny key from a room to inventory.</li>
+<li><input disabled="" type="checkbox"> I can prevent duplicate pickup.</li>
+<li><input disabled="" type="checkbox"> I can require key use in the locked-door room.</li>
+<li><input disabled="" type="checkbox"> I can block and unlock the north exit.</li>
+<li><input disabled="" type="checkbox"> I can end the game when the treasure room is reached.</li>
+</ul>
+<hr>
+<h2 id="lesson-104-command-line-to-do-list"><a class="header" href="#lesson-104-command-line-to-do-list">Lesson 10.4: Command-Line To-Do List</a></h2>
+<h3 id="reading-references-3"><a class="header" href="#reading-references-3">Reading References</a></h3>
+<ul>
+<li><a href="https://kotlinlang.org/docs/collections-overview.html">Collections overview</a></li>
+<li><a href="https://kotlinlang.org/docs/exceptions.html">Exceptions</a></li>
+<li>Matching Python lesson: Lesson 10.4: Building a Command-Line To-Do List</li>
+</ul>
+<h3 id="learning-objectives-3"><a class="header" href="#learning-objectives-3">Learning Objectives</a></h3>
+<ul>
+<li>Keep records with the shared fields.</li>
+<li>Save and load them as JSON.</li>
+<li>Offer add, view, mark-done, save, load, and quit commands.</li>
+</ul>
+<h3 id="concept-explanation-3"><a class="header" href="#concept-explanation-3">Concept Explanation</a></h3>
+<p>A to-do list ties together records, loops, functions, and files. Each task has the shared fields <code>id</code>, <code>title</code>, <code>description</code>, <code>done</code>, and <code>created_at</code>. The program keeps a list of tasks in memory, shows a numbered menu, and saves the list to <code>todos.json</code> when asked and on exit.</p>
+<p>Saving uses the teaching JSON helper from Lesson 8.5, included here so the example runs on its own. At start-up the program loads the file if it exists. A missing file is normal on first use, and a damaged file must not crash the program: it prints a message and starts with an empty list.</p>
+<p>New ids are one more than the highest existing id. The status is shown as the words <code>done</code> and <code>not done</code>, never with a symbol or color alone.</p>
+<p>In the sample session the user adds two tasks, views the list, marks task 2 done, views it again, tries an invalid menu choice, views the list, and quits.</p>
+<h3 id="worked-example-3"><a class="header" href="#worked-example-3">Worked Example</a></h3>
+<pre><code class="language-kotlin">object Json {
+    fun encode(value: Any?): String = when (value) {
+        null -&gt; "null"
+        is String -&gt; quote(value)
+        is Boolean, is Int, is Long, is Double -&gt; value.toString()
+        is Map&lt;*, *&gt; -&gt; value.entries.sortedBy { it.key.toString() }
+            .joinToString(",", "{", "}") { quote(it.key.toString()) + ":" + encode(it.value) }
+        is List&lt;*&gt; -&gt; value.joinToString(",", "[", "]") { encode(it) }
+        else -&gt; throw IllegalArgumentException("cannot encode ${value::class.simpleName}")
+    }
+
+    private fun quote(text: String): String {
+        val out = StringBuilder("\"")
+        for (c in text) {
+            when {
+                c == '"' -&gt; out.append("\\\"")
+                c == '\\' -&gt; out.append("\\\\")
+                c == '\n' -&gt; out.append("\\n")
+                c == '\r' -&gt; out.append("\\r")
+                c == '\t' -&gt; out.append("\\t")
+                c &lt; ' ' -&gt; out.append("\\u%04x".format(c.code))
+                else -&gt; out.append(c)
+            }
+        }
+        return out.append('"').toString()
+    }
+
+    fun decode(text: String): Any? = Parser(text).parse()
+
+    private class Parser(private val text: String) {
+        private var pos = 0
+
+        private fun fail(message: String): Nothing =
+            throw IllegalArgumentException("$message at position $pos")
+
+        private fun skip() {
+            while (pos &lt; text.length &amp;&amp; text[pos].isWhitespace()) pos++
+        }
+
+        fun parse(): Any? {
+            val result = value()
+            skip()
+            if (pos &lt; text.length) fail("unexpected extra text")
+            return result
+        }
+
+        private fun value(): Any? {
+            skip()
+            if (pos &gt;= text.length) fail("unexpected end of text")
+            val c = text[pos]
+            return when {
+                c == '{' -&gt; obj()
+                c == '[' -&gt; list()
+                c == '"' -&gt; str()
+                text.startsWith("true", pos) -&gt; { pos += 4; true }
+                text.startsWith("false", pos) -&gt; { pos += 5; false }
+                text.startsWith("null", pos) -&gt; { pos += 4; null }
+                c == '-' || c.isDigit() -&gt; number()
+                else -&gt; fail("unexpected character")
+            }
+        }
+
+        private fun number(): Any {
+            val start = pos
+            if (text[pos] == '-') pos++
+            while (pos &lt; text.length &amp;&amp; (text[pos].isDigit() || text[pos] in ".eE+-")) pos++
+            val token = text.substring(start, pos)
+            return token.toLongOrNull() ?: token.toDoubleOrNull() ?: fail("bad number")
+        }
+
+        private fun str(): String {
+            pos++
+            val out = StringBuilder()
+            while (true) {
+                if (pos &gt;= text.length) fail("unterminated string")
+                val c = text[pos++]
+                if (c == '"') return out.toString()
+                if (c != '\\') { out.append(c); continue }
+                if (pos &gt;= text.length) fail("bad escape")
+                when (text[pos++]) {
+                    'n' -&gt; out.append('\n')
+                    't' -&gt; out.append('\t')
+                    'r' -&gt; out.append('\r')
+                    '"' -&gt; out.append('"')
+                    '\\' -&gt; out.append('\\')
+                    '/' -&gt; out.append('/')
+                    'u' -&gt; {
+                        if (pos + 4 &gt; text.length) fail("bad escape")
+                        out.append(text.substring(pos, pos + 4).toInt(16).toChar())
+                        pos += 4
+                    }
+                    else -&gt; fail("bad escape")
+                }
+            }
+        }
+
+        private fun obj(): Map&lt;String, Any?&gt; {
+            pos++
+            val map = LinkedHashMap&lt;String, Any?&gt;()
+            skip()
+            if (pos &lt; text.length &amp;&amp; text[pos] == '}') { pos++; return map }
+            while (true) {
+                skip()
+                if (pos &gt;= text.length || text[pos] != '"') fail("expected a key")
+                val key = str()
+                skip()
+                if (pos &gt;= text.length || text[pos] != ':') fail("expected ':'")
+                pos++
+                map[key] = value()
+                skip()
+                if (pos &gt;= text.length) fail("unterminated object")
+                val d = text[pos++]
+                if (d == '}') return map
+                if (d != ',') { pos--; fail("expected ',' or '}'") }
+            }
+        }
+
+        private fun list(): List&lt;Any?&gt; {
+            pos++
+            val items = ArrayList&lt;Any?&gt;()
+            skip()
+            if (pos &lt; text.length &amp;&amp; text[pos] == ']') { pos++; return items }
+            while (true) {
+                items.add(value())
+                skip()
+                if (pos &gt;= text.length) fail("unterminated list")
+                val d = text[pos++]
+                if (d == ']') return items
+                if (d != ',') { pos--; fail("expected ',' or ']'") }
+            }
+        }
+    }
+}
+
+val todoFile = java.io.File("todos.json")
+var todos = mutableListOf&lt;MutableMap&lt;String, Any?&gt;&gt;()
+
+fun loadTodos() {
+    if (!todoFile.exists()) {
+        println("No existing tasks found.")
+        todos = mutableListOf()
+        return
+    }
+    try {
+        val data = Json.decode(todoFile.readText()) as List&lt;*&gt;
+        todos = data.map { (it as Map&lt;*, *&gt;).entries.associate { e -&gt; e.key.toString() to e.value }.toMutableMap() }.toMutableList()
+        println("Tasks loaded.")
+    } catch (e: Exception) {
+        println("Error: todos.json is not valid JSON. Starting with an empty list.")
+        todos = mutableListOf()
+    }
+}
+
+fun saveTodos() {
+    todoFile.writeText(Json.encode(todos))
+    println("Tasks saved.")
+}
+
+fun nextId(): Long = (todos.maxOfOrNull { it["id"] as Long } ?: 0L) + 1
+
+fun addTask(title: String, description: String) {
+    if (title.isBlank()) {
+        println("A title is required.")
+        return
+    }
+    val stamp = java.time.LocalDateTime.now().format(java.time.format.DateTimeFormatter.ofPattern("yyyy-MM-dd'T'HH:mm:ss"))
+    todos.add(mutableMapOf("id" to nextId(), "title" to title.trim(), "description" to description.trim(), "done" to false, "created_at" to stamp))
+    println("Task '${title.trim()}' added.")
+}
+
+fun viewTasks() {
+    if (todos.isEmpty()) {
+        println("No tasks in your list.")
+        return
+    }
+    println("--- Your To-Do List ---")
+    for (task in todos) {
+        val status = if (task["done"] == true) "done" else "not done"
+        println("${task["id"]}. ${task["title"]} ($status)")
+    }
+    println("-----------------------")
+}
+
+fun markDone(text: String?) {
+    val id = text?.trim()?.toLongOrNull()
+    if (id == null) {
+        println("Please enter a whole number.")
+        return
+    }
+    val task = todos.firstOrNull { it["id"] == id }
+    if (task == null) {
+        println("No task has that number.")
+        return
+    }
+    task["done"] = true
+    println("Task '${task["title"]}' marked as done.")
+}
+
+fun showMenu() {
+    println()
+    println("--- To-Do List Menu ---")
+    println("1. Add Task")
+    println("2. View Tasks")
+    println("3. Mark Task Done")
+    println("4. Save Tasks")
+    println("5. Load Tasks")
+    println("6. Quit")
+    println("-----------------------")
+}
+
+fun main() {
+    loadTodos()
+    while (true) {
+        showMenu()
+        println("Enter your choice (1-6):")
+        val choice = readlnOrNull() ?: "6"
+        when (choice) {
+            "1" -&gt; {
+                println("Enter task title:")
+                val title = readlnOrNull() ?: ""
+                println("Enter task description:")
+                val description = readlnOrNull() ?: ""
+                addTask(title, description)
+            }
+            "2" -&gt; viewTasks()
+            "3" -&gt; {
+                viewTasks()
+                println("Enter task number to mark done:")
+                markDone(readlnOrNull())
+            }
+            "4" -&gt; saveTodos()
+            "5" -&gt; loadTodos()
+            "6" -&gt; {
+                saveTodos()
+                println("Goodbye!")
+                return
+            }
+            else -&gt; println("Invalid choice. Please try again.")
+        }
+    }
+}
+</code></pre>
+<h3 id="expected-behavior-or-output-3"><a class="header" href="#expected-behavior-or-output-3">Expected Behavior or Output</a></h3>
+<p>With the following lines typed as standard input (piped input is not echoed, so it does not appear in the output):</p>
+<pre><code class="language-text">1
+Study programming
+Finish Unit 10
+1
+Review scores
+Check the four scores
+2
+3
+2
+3
+7
+2
+6
+</code></pre>
+<p>the program prints:</p>
+<pre><code class="language-text">No existing tasks found.
+
+--- To-Do List Menu ---
+1. Add Task
+2. View Tasks
+3. Mark Task Done
+4. Save Tasks
+5. Load Tasks
+6. Quit
+-----------------------
+Enter your choice (1-6):
+Enter task title:
+Enter task description:
+Task 'Study programming' added.
+
+--- To-Do List Menu ---
+1. Add Task
+2. View Tasks
+3. Mark Task Done
+4. Save Tasks
+5. Load Tasks
+6. Quit
+-----------------------
+Enter your choice (1-6):
+Enter task title:
+Enter task description:
+Task 'Review scores' added.
+
+--- To-Do List Menu ---
+1. Add Task
+2. View Tasks
+3. Mark Task Done
+4. Save Tasks
+5. Load Tasks
+6. Quit
+-----------------------
+Enter your choice (1-6):
+--- Your To-Do List ---
+1. Study programming (not done)
+2. Review scores (not done)
+-----------------------
+
+--- To-Do List Menu ---
+1. Add Task
+2. View Tasks
+3. Mark Task Done
+4. Save Tasks
+5. Load Tasks
+6. Quit
+-----------------------
+Enter your choice (1-6):
+--- Your To-Do List ---
+1. Study programming (not done)
+2. Review scores (not done)
+-----------------------
+Enter task number to mark done:
+Task 'Review scores' marked as done.
+
+--- To-Do List Menu ---
+1. Add Task
+2. View Tasks
+3. Mark Task Done
+4. Save Tasks
+5. Load Tasks
+6. Quit
+-----------------------
+Enter your choice (1-6):
+--- Your To-Do List ---
+1. Study programming (not done)
+2. Review scores (done)
+-----------------------
+Enter task number to mark done:
+No task has that number.
+
+--- To-Do List Menu ---
+1. Add Task
+2. View Tasks
+3. Mark Task Done
+4. Save Tasks
+5. Load Tasks
+6. Quit
+-----------------------
+Enter your choice (1-6):
+--- Your To-Do List ---
+1. Study programming (not done)
+2. Review scores (done)
+-----------------------
+
+--- To-Do List Menu ---
+1. Add Task
+2. View Tasks
+3. Mark Task Done
+4. Save Tasks
+5. Load Tasks
+6. Quit
+-----------------------
+Enter your choice (1-6):
+Tasks saved.
+Goodbye!
+</code></pre>
+<p>With no standard input at all, the program ends cleanly and prints:</p>
+<pre><code class="language-text">No existing tasks found.
+
+--- To-Do List Menu ---
+1. Add Task
+2. View Tasks
+3. Mark Task Done
+4. Save Tasks
+5. Load Tasks
+6. Quit
+-----------------------
+Enter your choice (1-6):
+Tasks saved.
+Goodbye!
+</code></pre>
+<h3 id="common-mistakes-3"><a class="header" href="#common-mistakes-3">Common Mistakes</a></h3>
+<ol>
+<li>Saving the file but never loading it, so tasks disappear between runs.</li>
+<li>Reusing a deleted task’s id, which can confuse saved references.</li>
+<li>Letting a damaged <code>todos.json</code> crash the program instead of printing a message.</li>
+</ol>
+<h3 id="activities-3"><a class="header" href="#activities-3">Activities</a></h3>
+<ol>
+<li>Run the sample session, then run the program again typing <code>2</code> and <code>6</code> to see the saved tasks.</li>
+<li>Add a command to delete a task by number.</li>
+<li>Open <code>todos.json</code> and read the saved text. Edit it to remove a bracket and run the program again.</li>
+<li>Show each task’s description in the view command.</li>
+</ol>
+<h3 id="accessibility-practice-3"><a class="header" href="#accessibility-practice-3">Accessibility Practice</a></h3>
+<p>Every menu is printed as numbered lines and every prompt is on its own line. The status words are <code>done</code> and <code>not done</code>, not symbols, so the list reads clearly in speech and braille.</p>
+<h3 id="skills-checklist-3"><a class="header" href="#skills-checklist-3">Skills Checklist</a></h3>
+<ul>
+<li><input disabled="" type="checkbox"> I can keep records with the shared fields.</li>
+<li><input disabled="" type="checkbox"> I can save and load JSON.</li>
+<li><input disabled="" type="checkbox"> I handle a missing or damaged file.</li>
+<li><input disabled="" type="checkbox"> I keep ids unique.</li>
+<li><input disabled="" type="checkbox"> I show status in words.</li>
+</ul>
+<hr>
+<h2 id="lesson-105-user-experience-and-input-validation"><a class="header" href="#lesson-105-user-experience-and-input-validation">Lesson 10.5: User Experience and Input Validation</a></h2>
+<h3 id="reading-references-4"><a class="header" href="#reading-references-4">Reading References</a></h3>
+<ul>
+<li><a href="https://kotlinlang.org/docs/functions.html">Functions</a></li>
+<li><a href="https://kotlinlang.org/docs/null-safety.html">Null safety</a></li>
+<li>Matching Python lesson: Lesson 10.5: Refining User Experience and Validation</li>
+</ul>
+<h3 id="learning-objectives-4"><a class="header" href="#learning-objectives-4">Learning Objectives</a></h3>
+<ul>
+<li>Write reusable validation functions.</li>
+<li>Limit retries and handle the end of input.</li>
+<li>Write clear, accessible messages.</li>
+</ul>
+<h3 id="concept-explanation-4"><a class="header" href="#concept-explanation-4">Concept Explanation</a></h3>
+<p>Reusable validation functions make every menu and form consistent. <code>askNumber(prompt, low, high, attempts)</code> prints a prompt, reads a line, converts it, checks the range, and either returns the number or explains the problem and asks again. After the allowed attempts, or at the end of input, it returns <code>null</code>. <code>askYesNo(prompt)</code> accepts <code>y</code>, <code>yes</code>, <code>n</code>, and <code>no</code> in any letter case.</p>
+<p>Good messages say <em>what was wrong</em> and <em>what to do</em>: “Enter a whole number from 0 to 100,” not “Invalid.” They never depend on color, position, or symbols alone, and they use the same wording every time. The return type <code>Int?</code> makes the caller deal with the failure case.</p>
+<p>The example reads a score with the typed lines abc, 105, and 88, then asks a yes or no question with the lines maybe and y.</p>
+<h3 id="worked-example-4"><a class="header" href="#worked-example-4">Worked Example</a></h3>
+<pre><code class="language-kotlin">fun askNumber(prompt: String, low: Int, high: Int, attempts: Int): Int? {
+    for (attempt in 1..attempts) {
+        println(prompt)
+        val text = readlnOrNull() ?: return null
+        val number = text.trim().toIntOrNull()
+        if (number != null &amp;&amp; number in low..high) return number
+        println("Enter a whole number from $low to $high. You have ${attempts - attempt} attempt(s) left.")
+    }
+    return null
+}
+
+fun askYesNo(prompt: String): Boolean? {
+    while (true) {
+        println("$prompt (yes or no)")
+        val text = readlnOrNull()?.trim()?.lowercase() ?: return null
+        if (text == "y" || text == "yes") return true
+        if (text == "n" || text == "no") return false
+        println("Please answer yes or no.")
+    }
+}
+
+fun main() {
+    val score = askNumber("Enter a score from 0 to 100:", 0, 100, 3)
+    if (score != null) {
+        println("Accepted score: $score")
+    } else {
+        println("No valid score was entered.")
+    }
+
+    val keep = askYesNo("Save this score?")
+    println("Save answer: $keep")
+}
+</code></pre>
+<h3 id="expected-behavior-or-output-4"><a class="header" href="#expected-behavior-or-output-4">Expected Behavior or Output</a></h3>
+<p>With the following lines typed as standard input (piped input is not echoed, so it does not appear in the output):</p>
+<pre><code class="language-text">abc
+105
+88
+maybe
+y
+</code></pre>
+<p>the program prints:</p>
+<pre><code class="language-text">Enter a score from 0 to 100:
+Enter a whole number from 0 to 100. You have 2 attempt(s) left.
+Enter a score from 0 to 100:
+Enter a whole number from 0 to 100. You have 1 attempt(s) left.
+Enter a score from 0 to 100:
+Accepted score: 88
+Save this score? (yes or no)
+Please answer yes or no.
+Save this score? (yes or no)
+Save answer: true
+</code></pre>
+<p>With no standard input at all, the program ends cleanly and prints:</p>
+<pre><code class="language-text">Enter a score from 0 to 100:
+No valid score was entered.
+Save this score? (yes or no)
+Save answer: null
+</code></pre>
+<h3 id="common-mistakes-4"><a class="header" href="#common-mistakes-4">Common Mistakes</a></h3>
+<ol>
+<li>Writing the message “Invalid” without saying what is valid.</li>
+<li>Accepting a decimal such as 88.5 for a field that requires a whole number.</li>
+<li>Looping forever on bad input instead of limiting attempts.</li>
+</ol>
+<h3 id="activities-4"><a class="header" href="#activities-4">Activities</a></h3>
+<ol>
+<li>Run the sample input and read each message aloud.</li>
+<li>Run with three invalid numbers and read the final message.</li>
+<li>Add <code>askText(prompt)</code> that rejects empty answers.</li>
+<li>Rewrite two messages from earlier lessons so they say what to do next.</li>
+</ol>
+<h3 id="accessibility-practice-4"><a class="header" href="#accessibility-practice-4">Accessibility Practice</a></h3>
+<p>Check that every error message ends with an action the user can take, and that the same situation always produces the same words.</p>
+<h3 id="skills-checklist-4"><a class="header" href="#skills-checklist-4">Skills Checklist</a></h3>
+<ul>
+<li><input disabled="" type="checkbox"> I can write reusable validation functions.</li>
+<li><input disabled="" type="checkbox"> I limit retries.</li>
+<li><input disabled="" type="checkbox"> I handle the end of input.</li>
+<li><input disabled="" type="checkbox"> I write messages that say what to do.</li>
+<li><input disabled="" type="checkbox"> I keep wording consistent.</li>
+</ul>
+<hr>
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                            <a rel="prev" href="../KOTLIN/unit09-testing-and-data-analysis.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M41.4 233.4c-12.5 12.5-12.5 32.8 0 45.3l160 160c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L109.3 256 246.6 118.6c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0l-160 160z"/></svg></span>
+                            </a>
+
+                            <a rel="next prefetch" href="../KOTLIN/unit11-capstone-accessible-personal-data-manager.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M278.6 233.4c12.5 12.5 12.5 32.8 0 45.3l-160 160c-12.5 12.5-32.8 12.5-45.3 0s-12.5-32.8 0-45.3L210.7 256 73.4 118.6c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0l160 160z"/></svg></span>
+                            </a>
+
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                    <a rel="prev" href="../KOTLIN/unit09-testing-and-data-analysis.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M41.4 233.4c-12.5 12.5-12.5 32.8 0 45.3l160 160c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L109.3 256 246.6 118.6c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0l-160 160z"/></svg></span>
+                    </a>
+
+                    <a rel="next prefetch" href="../KOTLIN/unit11-capstone-accessible-personal-data-manager.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M278.6 233.4c12.5 12.5 12.5 32.8 0 45.3l-160 160c-12.5 12.5-32.8 12.5-45.3 0s-12.5-32.8 0-45.3L210.7 256 73.4 118.6c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0l160 160z"/></svg></span>
+                    </a>
+            </nav>
+
+        </div>
+
+        <template id=fa-eye><span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M288 32c-80.8 0-145.5 36.8-192.6 80.6C48.6 156 17.3 208 2.5 243.7c-3.3 7.9-3.3 16.7 0 24.6C17.3 304 48.6 356 95.4 399.4C142.5 443.2 207.2 480 288 480s145.5-36.8 192.6-80.6c46.8-43.5 78.1-95.4 93-131.1c3.3-7.9 3.3-16.7 0-24.6c-14.9-35.7-46.2-87.7-93-131.1C433.5 68.8 368.8 32 288 32zM432 256c0 79.5-64.5 144-144 144s-144-64.5-144-144s64.5-144 144-144s144 64.5 144 144zM288 192c0 35.3-28.7 64-64 64c-11.5 0-22.3-3-31.6-8.4c-.2 2.8-.4 5.5-.4 8.4c0 53 43 96 96 96s96-43 96-96s-43-96-96-96c-2.8 0-5.6 .1-8.4 .4c5.3 9.3 8.4 20.1 8.4 31.6z"/></svg></span></template>
+        <template id=fa-eye-slash><span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M38.8 5.1C28.4-3.1 13.3-1.2 5.1 9.2S-1.2 34.7 9.2 42.9l592 464c10.4 8.2 25.5 6.3 33.7-4.1s6.3-25.5-4.1-33.7L525.6 386.7c39.6-40.6 66.4-86.1 79.9-118.4c3.3-7.9 3.3-16.7 0-24.6c-14.9-35.7-46.2-87.7-93-131.1C465.5 68.8 400.8 32 320 32c-68.2 0-125 26.3-169.3 60.8L38.8 5.1zM223.1 149.5C248.6 126.2 282.7 112 320 112c79.5 0 144 64.5 144 144c0 24.9-6.3 48.3-17.4 68.7L408 294.5c5.2-11.8 8-24.8 8-38.5c0-53-43-96-96-96c-2.8 0-5.6 .1-8.4 .4c5.3 9.3 8.4 20.1 8.4 31.6c0 10.2-2.4 19.8-6.6 28.3l-90.3-70.8zm223.1 298L373 389.9c-16.4 6.5-34.3 10.1-53 10.1c-79.5 0-144-64.5-144-144c0-6.9 .5-13.6 1.4-20.2L83.1 161.5C60.3 191.2 44 220.8 34.5 243.7c-3.3 7.9-3.3 16.7 0 24.6c14.9 35.7 46.2 87.7 93 131.1C174.5 443.2 239.2 480 320 480c47.8 0 89.9-12.9 126.2-32.5z"/></svg></span></template>
+        <template id=fa-copy><span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M502.6 70.63l-61.25-61.25C435.4 3.371 427.2 0 418.7 0H255.1c-35.35 0-64 28.66-64 64l.0195 256C192 355.4 220.7 384 256 384h192c35.2 0 64-28.8 64-64V93.25C512 84.77 508.6 76.63 502.6 70.63zM464 320c0 8.836-7.164 16-16 16H255.1c-8.838 0-16-7.164-16-16L239.1 64.13c0-8.836 7.164-16 16-16h128L384 96c0 17.67 14.33 32 32 32h47.1V320zM272 448c0 8.836-7.164 16-16 16H63.1c-8.838 0-16-7.164-16-16L47.98 192.1c0-8.836 7.164-16 16-16H160V128H63.99c-35.35 0-64 28.65-64 64l.0098 256C.002 483.3 28.66 512 64 512h192c35.2 0 64-28.8 64-64v-32h-47.1L272 448z"/></svg></span></template>
+        <template id=fa-play><span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M73 39c-14.8-9.1-33.4-9.4-48.5-.9S0 62.6 0 80V432c0 17.4 9.4 33.4 24.5 41.9s33.7 8.1 48.5-.9L361 297c14.3-8.7 23-24.2 23-41s-8.7-32.2-23-41L73 39z"/></svg></span></template>
+        <template id=fa-clock-rotate-left><span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M75 75L41 41C25.9 25.9 0 36.6 0 57.9V168c0 13.3 10.7 24 24 24H134.1c21.4 0 32.1-25.9 17-41l-30.8-30.8C155 85.5 203 64 256 64c106 0 192 86 192 192s-86 192-192 192c-40.8 0-78.6-12.7-109.7-34.4c-14.5-10.1-34.4-6.6-44.6 7.9s-6.6 34.4 7.9 44.6C151.2 495 201.7 512 256 512c141.4 0 256-114.6 256-256S397.4 0 256 0C185.3 0 121.3 28.7 75 75zm181 53c-13.3 0-24 10.7-24 24V256c0 6.4 2.5 12.5 7 17l72 72c9.4 9.4 24.6 9.4 33.9 0s9.4-24.6 0-33.9l-65-65V152c0-13.3-10.7-24-24-24z"/></svg></span></template>
+
+
+
+        <script>
+            window.playground_copyable = true;
+        </script>
+
+
+        <script src="../elasticlunr-ef4e11c1.min.js"></script>
+        <script src="../mark-09e88c2c.min.js"></script>
+        <script src="../searcher-09f2665d.js"></script>
+
+        <script src="../clipboard-1626706a.min.js"></script>
+        <script src="../highlight-abc7f01d.js"></script>
+        <script src="../book-609e4cb8.js"></script>
+
+        <!-- Custom JS scripts -->
+
+
+
+    </div>
+    </body>
+</html>

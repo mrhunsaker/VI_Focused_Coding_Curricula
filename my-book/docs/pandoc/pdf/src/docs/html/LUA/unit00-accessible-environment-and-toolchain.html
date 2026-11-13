@@ -1,0 +1,467 @@
+<!DOCTYPE HTML>
+<html lang="en" class="rust sidebar-visible" dir="ltr">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>Unit 0 - Accessible Introduction to Computer Science</title>
+
+
+        <!-- Custom HTML head -->
+
+        <meta name="description" content="Introductory programming curricula, each adapted for visually impaired students who use screen readers">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff">
+
+        <link rel="icon" href="../favicon-de23e50b.svg">
+        <link rel="shortcut icon" href="../favicon-8114d1fc.png">
+        <link rel="stylesheet" href="../css/variables-8adf115d.css">
+        <link rel="stylesheet" href="../css/general-e96d0476.css">
+        <link rel="stylesheet" href="../css/chrome-d279d366.css">
+        <link rel="stylesheet" href="../css/print-9e4910d8.css" media="print">
+
+        <!-- Fonts -->
+        <link rel="stylesheet" href="../fonts/fonts-9644e21d.css">
+
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" id="mdbook-highlight-css" href="../highlight-493f70e1.css">
+        <link rel="stylesheet" id="mdbook-tomorrow-night-css" href="../tomorrow-night-4c0ae647.css">
+        <link rel="stylesheet" id="mdbook-ayu-highlight-css" href="../ayu-highlight-3fdfc3ac.css">
+
+        <!-- Custom theme stylesheets -->
+
+
+        <!-- Provide site root and default themes to javascript -->
+        <script>
+            const path_to_root = "../";
+            const default_light_theme = "rust";
+            const default_dark_theme = "navy";
+            window.path_to_searchindex_js = "../searchindex-1d296e4e.js";
+        </script>
+        <!-- Start loading toc.js asap -->
+        <script src="../toc-62d8efca.js"></script>
+    </head>
+    <body>
+    <div id="mdbook-help-container">
+        <div id="mdbook-help-popup">
+            <h2 class="mdbook-help-title">Keyboard shortcuts</h2>
+            <div>
+                <p>Press <kbd>←</kbd> or <kbd>→</kbd> to navigate between chapters</p>
+                <p>Press <kbd>S</kbd> or <kbd>/</kbd> to search in the book</p>
+                <p>Press <kbd>?</kbd> to show this help</p>
+                <p>Press <kbd>Esc</kbd> to hide this help</p>
+            </div>
+        </div>
+    </div>
+    <div id="mdbook-body-container">
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script>
+            try {
+                let theme = localStorage.getItem('mdbook-theme');
+                let sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script>
+            const default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? default_dark_theme : default_light_theme;
+            let theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            const html = document.documentElement;
+            html.classList.remove('rust')
+            html.classList.add(theme);
+            html.classList.add("js");
+        </script>
+
+        <input type="checkbox" id="mdbook-sidebar-toggle-anchor" class="hidden">
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script>
+            let sidebar = null;
+            const sidebar_toggle = document.getElementById("mdbook-sidebar-toggle-anchor");
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            } else {
+                sidebar = 'hidden';
+                sidebar_toggle.checked = false;
+            }
+            if (sidebar === 'visible') {
+                sidebar_toggle.checked = true;
+            } else {
+                html.classList.remove('sidebar-visible');
+            }
+        </script>
+
+        <nav id="mdbook-sidebar" class="sidebar" aria-label="Table of contents">
+            <!-- populated by js -->
+            <mdbook-sidebar-scrollbox class="sidebar-scrollbox"></mdbook-sidebar-scrollbox>
+            <noscript>
+                <iframe class="sidebar-iframe-outer" src="../toc.html"></iframe>
+            </noscript>
+            <div id="mdbook-sidebar-resize-handle" class="sidebar-resize-handle">
+                <div class="sidebar-resize-indicator"></div>
+            </div>
+        </nav>
+
+        <div id="mdbook-page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                <div id="mdbook-menu-bar-hover-placeholder"></div>
+                <div id="mdbook-menu-bar" class="menu-bar sticky">
+                    <div class="left-buttons">
+                        <label id="mdbook-sidebar-toggle" class="icon-button" for="mdbook-sidebar-toggle-anchor" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="mdbook-sidebar">
+                            <span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M0 96C0 78.3 14.3 64 32 64H416c17.7 0 32 14.3 32 32s-14.3 32-32 32H32C14.3 128 0 113.7 0 96zM0 256c0-17.7 14.3-32 32-32H416c17.7 0 32 14.3 32 32s-14.3 32-32 32H32c-17.7 0-32-14.3-32-32zM448 416c0 17.7-14.3 32-32 32H32c-17.7 0-32-14.3-32-32s14.3-32 32-32H416c17.7 0 32 14.3 32 32z"/></svg></span>
+                        </label>
+                        <button id="mdbook-theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="mdbook-theme-list">
+                            <span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M371.3 367.1c27.3-3.9 51.9-19.4 67.2-42.9L600.2 74.1c12.6-19.5 9.4-45.3-7.6-61.2S549.7-4.4 531.1 9.6L294.4 187.2c-24 18-38.2 46.1-38.4 76.1L371.3 367.1zm-19.6 25.4l-116-104.4C175.9 290.3 128 339.6 128 400c0 3.9 .2 7.8 .6 11.6c1.8 17.5-10.2 36.4-27.8 36.4H96c-17.7 0-32 14.3-32 32s14.3 32 32 32H240c61.9 0 112-50.1 112-112c0-2.5-.1-5-.2-7.5z"/></svg></span>
+                        </button>
+                        <ul id="mdbook-theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="mdbook-theme-default_theme">Auto</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="mdbook-theme-light">Light</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="mdbook-theme-rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="mdbook-theme-coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="mdbook-theme-navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="mdbook-theme-ayu">Ayu</button></li>
+                        </ul>
+                        <button id="mdbook-search-toggle" class="icon-button" type="button" title="Search (`/`)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="/ s" aria-controls="mdbook-searchbar">
+                            <span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M416 208c0 45.9-14.9 88.3-40 122.7L502.6 457.4c12.5 12.5 12.5 32.8 0 45.3s-32.8 12.5-45.3 0L330.7 376c-34.4 25.2-76.8 40-122.7 40C93.1 416 0 322.9 0 208S93.1 0 208 0S416 93.1 416 208zM208 352c79.5 0 144-64.5 144-144s-64.5-144-144-144S64 128.5 64 208s64.5 144 144 144z"/></svg></span>
+                        </button>
+                    </div>
+
+                    <h1 class="menu-title">Accessible Introduction to Computer Science</h1>
+
+                    <div class="right-buttons">
+                        <a href="../print.html" title="Print this book" aria-label="Print this book">
+                            <span class=fa-svg id="print-button"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M128 0C92.7 0 64 28.7 64 64v96h64V64H354.7L384 93.3V160h64V93.3c0-17-6.7-33.3-18.7-45.3L400 18.7C388 6.7 371.7 0 354.7 0H128zM384 352v32 64H128V384 368 352H384zm64 32h32c17.7 0 32-14.3 32-32V256c0-35.3-28.7-64-64-64H64c-35.3 0-64 28.7-64 64v96c0 17.7 14.3 32 32 32H64v64c0 35.3 28.7 64 64 64H384c35.3 0 64-28.7 64-64V384zm-16-88c-13.3 0-24-10.7-24-24s10.7-24 24-24s24 10.7 24 24s-10.7 24-24 24z"/></svg></span>
+                        </a>
+                        <a href="https://github.com/mrhunsaker/VI_Focused_Coding_Curricula" title="Git repository" aria-label="Git repository">
+                            <span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"/></svg></span>
+                        </a>
+
+                    </div>
+                </div>
+
+                <div id="mdbook-search-wrapper" class="hidden">
+                    <form id="mdbook-searchbar-outer" class="searchbar-outer">
+                        <div class="search-wrapper">
+                            <input type="search" id="mdbook-searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="mdbook-searchresults-outer" aria-describedby="searchresults-header">
+                            <div class="spinner-wrapper">
+                                <span class=fa-svg id="fa-spin"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M304 48c0-26.5-21.5-48-48-48s-48 21.5-48 48s21.5 48 48 48s48-21.5 48-48zm0 416c0-26.5-21.5-48-48-48s-48 21.5-48 48s21.5 48 48 48s48-21.5 48-48zM48 304c26.5 0 48-21.5 48-48s-21.5-48-48-48s-48 21.5-48 48s21.5 48 48 48zm464-48c0-26.5-21.5-48-48-48s-48 21.5-48 48s21.5 48 48 48s48-21.5 48-48zM142.9 437c18.7-18.7 18.7-49.1 0-67.9s-49.1-18.7-67.9 0s-18.7 49.1 0 67.9s49.1 18.7 67.9 0zm0-294.2c18.7-18.7 18.7-49.1 0-67.9S93.7 56.2 75 75s-18.7 49.1 0 67.9s49.1 18.7 67.9 0zM369.1 437c18.7 18.7 49.1 18.7 67.9 0s18.7-49.1 0-67.9s-49.1-18.7-67.9 0s-18.7 49.1 0 67.9z"/></svg></span>
+                            </div>
+                        </div>
+                    </form>
+                    <div id="mdbook-searchresults-outer" class="searchresults-outer hidden">
+                        <div id="mdbook-searchresults-header" class="searchresults-header"></div>
+                        <ul id="mdbook-searchresults">
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script>
+                    document.getElementById('mdbook-sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('mdbook-sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#mdbook-sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="mdbook-content" class="content">
+                    <main>
+                        <h1 id="unit-0-accessible-environment-and-toolchain"><a class="header" href="#unit-0-accessible-environment-and-toolchain">Unit 0: Accessible Environment and Toolchain</a></h1>
+<h2 id="course-overview"><a class="header" href="#course-overview">Course overview</a></h2>
+<h2 id="course-alignment-and-implementation-notes"><a class="header" href="#course-alignment-and-implementation-notes">Course alignment and implementation notes</a></h2>
+<p>This course follows the Python canonical sequence in <code>lesson_standardization.json</code>. The shared problem contexts, inputs, records, boundaries, and expected results are preserved; Lua syntax and idioms are taught directly rather than transliterated from Python. Lua tables represent sequences, maps, and records; sequences are one-indexed; only <code>false</code> and <code>nil</code> are false; <code>pairs</code> does not guarantee order; <code>ipairs</code> traverses a consecutive sequence. Lua has no built-in class, tuple, continue statement, or JSON library. These differences are taught explicitly.</p>
+<p><strong>Runtime:</strong> Lua 5.4. Run a file with <code>lua5.4 filename.lua</code>; syntax-check with <code>luac5.4 -p filename.lua</code>. Use local variables by default. The Lua standard library does not include a JSON or general CSV parser; capstone persistence must declare and document an approved dependency (for example, dkjson), and CSV parsing must use a tested parser when quoted fields are in scope.</p>
+<h2 id="accessibility-and-lesson-conventions"><a class="header" href="#accessibility-and-lesson-conventions">Accessibility and lesson conventions</a></h2>
+<p>Use the terminal and keyboard for every exercise. Read code and output sequentially; describe braces, brackets, quotes, punctuation, and indentation in prose. Do not communicate status through color alone. Provide explicit prompts, errors, confirmations, and textual equivalents for any visual output. The course does not claim screen-reader or braille verification until those workflows have been tested on named platforms.</p>
+<p>Each lesson includes a focused explanation, runnable worked example, expected behavior, common mistakes, practice, accessibility practice, and a skills check. Save each fenced example to a separate file or copy it into the Lua REPL.</p>
+<h2 id="overview"><a class="header" href="#overview">Overview</a></h2>
+<p>Install Lua 5.4, create a project folder, set up a keyboard-first editor workflow, and learn how Lua finds modules. No programming experience is needed beyond Unit P.</p>
+<h2 id="lesson-01-install-and-verify-lua"><a class="header" href="#lesson-01-install-and-verify-lua">Lesson 0.1: Install and Verify Lua</a></h2>
+<h3 id="reading-references"><a class="header" href="#reading-references">Reading References</a></h3>
+<ul>
+<li>Programming in Lua, 4th edition (Roberto Ierusalimschy): Chapter 1 (Getting Started)</li>
+<li>Lua 5.4 Reference Manual: Section 7 (Lua Standalone)</li>
+<li>Matching Python lesson: Lesson 0.1 Installing Python and uv</li>
+</ul>
+<h3 id="learning-objectives"><a class="header" href="#learning-objectives">Learning Objectives</a></h3>
+<ul>
+<li>Install Lua 5.4 using a trusted source for your operating system.</li>
+<li>Verify the installed version from the terminal.</li>
+<li>Run a one-line program with the interpreter before creating any file.</li>
+</ul>
+<h3 id="concept-explanation"><a class="header" href="#concept-explanation">Concept Explanation</a></h3>
+<p>Lua is a small interpreted language. The program that reads and runs Lua source is called the <em>interpreter</em>. Installing Lua therefore means installing one command-line program. This course targets <strong>Lua 5.4</strong>; features such as integer and float number subtypes, <code>//</code> integer division, and <code>&lt;close&gt;</code> variables belong to Lua 5.3 and 5.4, so an older 5.1 or 5.2 interpreter will not run every example.</p>
+<p>Choose one installation route and write down which one you used:</p>
+<ul>
+<li>Debian or Ubuntu Linux: the package manager provides <code>lua5.4</code>, and the command is <code>lua5.4</code>.</li>
+<li>macOS: a package manager such as Homebrew provides a <code>lua</code> formula. After installing, check the version, because the command is usually named <code>lua</code>.</li>
+<li>Windows: use a Lua 5.4 binary distribution or a package manager you already trust, then confirm the command name and that it is on your PATH.</li>
+<li>Any system: Lua can be built from the source archive at lua.org if you prefer.</li>
+</ul>
+<p>The command name differs by system (<code>lua5.4</code> or <code>lua</code>). This course writes <code>lua5.4</code>; substitute your own command everywhere. Always confirm the version with <code>-v</code> rather than assuming, because a computer can have an old Lua installed alongside a new one.</p>
+<p>The <code>-e</code> option runs a statement given on the command line, which proves the interpreter works before you create a project.</p>
+<h3 id="worked-example"><a class="header" href="#worked-example">Worked Example</a></h3>
+<pre><code class="language-bash">lua5.4 -v
+lua5.4 -e "print('Hello from Lua')"
+</code></pre>
+<h3 id="expected-behavior-or-output"><a class="header" href="#expected-behavior-or-output">Expected Behavior or Output</a></h3>
+<p>Expected output (the patch number and year depend on the version you installed; this was observed with Lua 5.4.6):</p>
+<pre><code class="language-text">Lua 5.4.6  Copyright (C) 1994-2023 Lua.org, PUC-Rio
+Hello from Lua
+</code></pre>
+<h3 id="common-mistakes"><a class="header" href="#common-mistakes">Common Mistakes</a></h3>
+<ol>
+<li>Installing a package named <code>lua</code> and assuming it is Lua 5.4. Run the version command to confirm.</li>
+<li>Mixing up the command name: typing <code>lua</code> when the installed command is <code>lua5.4</code>, then concluding the install failed.</li>
+<li>Running a Lua statement in a shell without noticing that the shell’s own quoting rules changed the quotation marks.</li>
+</ol>
+<h3 id="activities"><a class="header" href="#activities">Activities</a></h3>
+<ol>
+<li>Install Lua and record the exact output of the version command.</li>
+<li>Run <code>lua5.4 -e "print(1 + 1)"</code> and explain each part of the command in your own words.</li>
+<li>Find out which command name your system uses and write it on the first line of your course notes file.</li>
+<li>Explain the difference between the interpreter and the source file it reads.</li>
+</ol>
+<h3 id="accessibility-practice"><a class="header" href="#accessibility-practice">Accessibility Practice</a></h3>
+<p>Run each command from the keyboard only. After pressing Enter, use your screen reader’s review commands to read the output line by line, and confirm that the version number is announced. If you use a braille display, check that the quotation marks in the second command are shown.</p>
+<h3 id="skills-checklist"><a class="header" href="#skills-checklist">Skills Checklist</a></h3>
+<ul>
+<li><input disabled="" type="checkbox"> I can install Lua 5.4 and say which route I used.</li>
+<li><input disabled="" type="checkbox"> I can run the version command and read the result.</li>
+<li><input disabled="" type="checkbox"> I know which command name my computer uses.</li>
+<li><input disabled="" type="checkbox"> I can run a one-line Lua statement from the terminal.</li>
+<li><input disabled="" type="checkbox"> I can say what the interpreter does.</li>
+</ul>
+<h2 id="lesson-02-workspace-and-first-run"><a class="header" href="#lesson-02-workspace-and-first-run">Lesson 0.2: Workspace and First Run</a></h2>
+<h3 id="reading-references-1"><a class="header" href="#reading-references-1">Reading References</a></h3>
+<ul>
+<li>Programming in Lua, 4th edition (Roberto Ierusalimschy): Chapter 1 (Getting Started)</li>
+<li>Lua 5.4 Reference Manual: Section 7 (Lua Standalone)</li>
+<li>Matching Python lesson: Lesson 0.2 Installing and configuring VS Code or Theia IDE</li>
+</ul>
+<h3 id="learning-objectives-1"><a class="header" href="#learning-objectives-1">Learning Objectives</a></h3>
+<ul>
+<li>Create a course folder with a first source file.</li>
+<li>Run the file from the terminal and read the result.</li>
+<li>Read a Lua error message and find the file name and line number.</li>
+</ul>
+<h3 id="concept-explanation-1"><a class="header" href="#concept-explanation-1">Concept Explanation</a></h3>
+<p>A <em>project folder</em> keeps one program’s files together. Create a folder named <code>lua-course</code>, and inside it save a file named <code>main.lua</code>. Lua source files conventionally end in <code>.lua</code>. From the terminal, change into the folder (this is your <em>working directory</em>) and run the file by giving its name to the interpreter: <code>lua5.4 main.lua</code>.</p>
+<p>Lua runs the file from top to bottom as one unit called a <em>chunk</em>. <code>print</code> writes its arguments to the terminal and ends with a new line. The global variable <code>_VERSION</code> holds the language version as text, which is a quick way to confirm that the file ran under Lua 5.4.</p>
+<p>If a file contains a mistake, the interpreter prints a message of the form <code>lua5.4: main.lua:3: ...</code>. Read it in three parts: the program name, the file name and line number (<code>main.lua:3</code>), and a description of the problem. Always go to that line first.</p>
+<p>To check syntax without running a program, use the compiler front end: <code>luac5.4 -p main.lua</code>. It prints nothing when the file is syntactically valid.</p>
+<h3 id="worked-example-1"><a class="header" href="#worked-example-1">Worked Example</a></h3>
+<pre><code class="language-lua">-- main.lua: the first program in the course project folder
+print("Hello, Lua!")
+print(_VERSION)
+</code></pre>
+<h3 id="expected-behavior-or-output-1"><a class="header" href="#expected-behavior-or-output-1">Expected Behavior or Output</a></h3>
+<p>The program prints:</p>
+<pre><code class="language-text">Hello, Lua!
+Lua 5.4
+</code></pre>
+<h3 id="common-mistakes-1"><a class="header" href="#common-mistakes-1">Common Mistakes</a></h3>
+<ol>
+<li>Running the command from the wrong folder, so the interpreter reports that it cannot open <code>main.lua</code>.</li>
+<li>Saving the file with a hidden extra extension such as <code>main.lua.txt</code>, so the file name does not match.</li>
+<li>Ignoring the line number in an error message and re-reading the whole file instead.</li>
+</ol>
+<h3 id="activities-1"><a class="header" href="#activities-1">Activities</a></h3>
+<ol>
+<li>Create the folder and file, then run them. Record the working directory shown by <code>pwd</code> (macOS and Linux) or <code>cd</code> (Windows).</li>
+<li>Remove the closing quotation mark on line 2, run the file, and write down the file name, line number, and description in the error message. Then restore the file.</li>
+<li>Run <code>luac5.4 -p main.lua</code> before and after the mistake and compare what is printed.</li>
+<li>Add a third line that prints your own name, and predict the output before running it.</li>
+</ol>
+<h3 id="accessibility-practice-1"><a class="header" href="#accessibility-practice-1">Accessibility Practice</a></h3>
+<p>Use a keyboard-only route to create the folder and file (terminal commands or your editor’s keyboard commands). Read your error message with the screen reader’s line-by-line review, and find the line number without relying on a mouse or on color.</p>
+<h3 id="skills-checklist-1"><a class="header" href="#skills-checklist-1">Skills Checklist</a></h3>
+<ul>
+<li><input disabled="" type="checkbox"> I can create a project folder and a <code>.lua</code> file.</li>
+<li><input disabled="" type="checkbox"> I can run the file from the terminal.</li>
+<li><input disabled="" type="checkbox"> I can say what the working directory is.</li>
+<li><input disabled="" type="checkbox"> I can read the file name and line number in an error.</li>
+<li><input disabled="" type="checkbox"> I can check syntax with <code>luac5.4 -p</code>.</li>
+</ul>
+<h2 id="lesson-03-editor-and-accessibility-workflow"><a class="header" href="#lesson-03-editor-and-accessibility-workflow">Lesson 0.3: Editor and Accessibility Workflow</a></h2>
+<h3 id="reading-references-2"><a class="header" href="#reading-references-2">Reading References</a></h3>
+<ul>
+<li>Programming in Lua, 4th edition (Roberto Ierusalimschy): Chapter 1 (Getting Started)</li>
+<li>This repository: <a href="../DEVELOPMENT/IDE_SETUP.html">IDE setup lesson</a></li>
+<li>Matching Python lesson: Lesson 0.3 Editor extensions and project workspace</li>
+</ul>
+<h3 id="learning-objectives-2"><a class="header" href="#learning-objectives-2">Learning Objectives</a></h3>
+<ul>
+<li>Configure an editor so Lua source can be read by speech or braille.</li>
+<li>Choose a punctuation announcement level that distinguishes brackets, braces, and quotation marks.</li>
+<li>Practice navigating a Lua file by line, word, and character.</li>
+</ul>
+<h3 id="concept-explanation-2"><a class="header" href="#concept-explanation-2">Concept Explanation</a></h3>
+<p>Complete the shared <a href="../DEVELOPMENT/IDE_SETUP.html">IDE setup lesson</a> first. Then adapt the editor for Lua:</p>
+<ul>
+<li>Install only a Lua language extension from a source you trust, such as a Lua language server, and read what permissions it requests. An extension is optional; the course works with a plain text editor and the terminal.</li>
+<li>Set your screen reader’s punctuation level high enough to hear the symbols that carry meaning in Lua: braces <code>{ }</code> that surround tables, square brackets <code>[ ]</code> for indexing, the length operator <code>#</code>, the concatenation operator <code>..</code>, the not-equal operator <code>~=</code>, and the comment marker <code>--</code>.</li>
+<li>Lua does not use indentation to decide structure. Blocks end with the keyword <code>end</code>, so each <code>if</code>, <code>for</code>, <code>while</code>, and <code>function</code> needs a matching <code>end</code>. Indentation is for people, and your editor’s indentation guides or announcements still help you count nesting levels.</li>
+</ul>
+<p>Practise reading the example below aloud, saying each symbol: “local scores equals open brace eighty-two comma ninety-one comma seventy-six comma eighty-eight close brace.” Then say what <code>#scores</code> and <code>scores[1]</code> mean.</p>
+<h3 id="worked-example-2"><a class="header" href="#worked-example-2">Worked Example</a></h3>
+<pre><code class="language-lua">local scores = {82, 91, 76, 88}
+print(string.format("count=%d first=%d last=%d", #scores, scores[1], scores[#scores]))
+</code></pre>
+<h3 id="expected-behavior-or-output-2"><a class="header" href="#expected-behavior-or-output-2">Expected Behavior or Output</a></h3>
+<p>The program prints:</p>
+<pre><code class="language-text">count=4 first=82 last=88
+</code></pre>
+<h3 id="common-mistakes-2"><a class="header" href="#common-mistakes-2">Common Mistakes</a></h3>
+<ol>
+<li>Setting punctuation announcement so low that <code>{</code>, <code>}</code>, and <code>..</code> are never spoken, then misreading a table or a string join.</li>
+<li>Forgetting that a Lua block closes with <code>end</code>, and relying on indentation alone.</li>
+<li>Installing several overlapping extensions and getting duplicate, confusing diagnostics.</li>
+</ol>
+<h3 id="activities-2"><a class="header" href="#activities-2">Activities</a></h3>
+<ol>
+<li>Test your editor with the example. Record the punctuation level at which every symbol in line 1 is announced.</li>
+<li>Navigate the file by line, then by word, then by character, and note the keyboard commands you used.</li>
+<li>Introduce a missing <code>end</code> in a small <code>if</code> block, save, and find how your editor reports the problem. Then fix it.</li>
+<li>Write a half-page note describing your edit, run, and fix cycle using only the keyboard.</li>
+</ol>
+<h3 id="accessibility-practice-2"><a class="header" href="#accessibility-practice-2">Accessibility Practice</a></h3>
+<p>This whole lesson is accessibility practice. Verify that you can open the file, move to a given line number, read a line character by character, run the program in the terminal, and read the output. Do not describe this workflow as screen-reader tested for others; record only what you tested yourself, with the names of your operating system, editor, and access technology.</p>
+<h3 id="skills-checklist-2"><a class="header" href="#skills-checklist-2">Skills Checklist</a></h3>
+<ul>
+<li><input disabled="" type="checkbox"> I can configure my editor for keyboard-only use.</li>
+<li><input disabled="" type="checkbox"> I can hear or feel every symbol in a Lua table and string join.</li>
+<li><input disabled="" type="checkbox"> I can explain why Lua blocks end with <code>end</code>.</li>
+<li><input disabled="" type="checkbox"> I can navigate a file by line, word, and character.</li>
+<li><input disabled="" type="checkbox"> I can run and read a program entirely from the keyboard.</li>
+</ul>
+<h2 id="lesson-04-project-environments-dependencies-and-terminal-usage"><a class="header" href="#lesson-04-project-environments-dependencies-and-terminal-usage">Lesson 0.4: Project Environments, Dependencies, and Terminal Usage</a></h2>
+<h3 id="reading-references-3"><a class="header" href="#reading-references-3">Reading References</a></h3>
+<ul>
+<li>Programming in Lua, 4th edition (Roberto Ierusalimschy): Chapter 17 (Modules and Packages)</li>
+<li>Lua 5.4 Reference Manual: Section 6.3 (Modules)</li>
+<li>Matching Python lesson: Lesson 0.4 Python environments and terminal usage</li>
+</ul>
+<h3 id="learning-objectives-3"><a class="header" href="#learning-objectives-3">Learning Objectives</a></h3>
+<ul>
+<li>Keep each project in its own folder and run commands from its root.</li>
+<li>Load code from a second file with <code>require</code> and explain <code>package.path</code>.</li>
+<li>Explain what LuaRocks is and when it is needed.</li>
+</ul>
+<h3 id="concept-explanation-3"><a class="header" href="#concept-explanation-3">Concept Explanation</a></h3>
+<p>Run commands from the <em>project root</em>, the folder that holds your main file. Keep different projects in different folders so their files never mix.</p>
+<p>A Lua <em>module</em> is a file that returns a value, usually a table of functions. The function <code>require("name")</code> finds the file <code>name.lua</code>, runs it once, and returns what it returned. Lua searches the places listed in <code>package.path</code>, a text value where each template uses <code>?</code> as a stand-in for the module name. Adding <code>./?.lua;</code> to the front tells Lua to look in the current folder first.</p>
+<p>The standard library is enough for this course. <strong>LuaRocks</strong> is Lua’s package manager for external packages; it records a package in a <em>rockspec</em> file and can install either system-wide or into a local tree. Use it only when a project needs an external package, and prefer a local tree so a project does not change the whole computer.</p>
+<p>The example below is self-contained: it writes a tiny module file, then loads it with <code>require</code>, so the same lesson works in an empty folder.</p>
+<h3 id="worked-example-3"><a class="header" href="#worked-example-3">Worked Example</a></h3>
+<pre><code class="language-lua">-- Create a small module file, then load it with require.
+local file = assert(io.open("pricing.lua", "w"))
+file:write([[
+local M = {}
+function M.line_total(quantity, unit_price)
+  return quantity * unit_price
+end
+return M
+]])
+file:close()
+
+package.path = "./?.lua;" .. package.path
+local pricing = require("pricing")
+print(pricing.line_total(3, 2.50))
+</code></pre>
+<h3 id="expected-behavior-or-output-3"><a class="header" href="#expected-behavior-or-output-3">Expected Behavior or Output</a></h3>
+<p>The program prints:</p>
+<pre><code class="language-text">7.5
+</code></pre>
+<h3 id="common-mistakes-3"><a class="header" href="#common-mistakes-3">Common Mistakes</a></h3>
+<ol>
+<li>Running a program from a different folder, so <code>require</code> cannot find a module in the current folder.</li>
+<li>Forgetting that a module file must <code>return</code> its table; without it <code>require</code> returns <code>true</code> and calls such as <code>pricing.line_total</code> fail.</li>
+<li>Installing every package system-wide instead of keeping dependencies with the project.</li>
+</ol>
+<h3 id="activities-3"><a class="header" href="#activities-3">Activities</a></h3>
+<ol>
+<li>Run the example, then open the new <code>pricing.lua</code> file and read it aloud, line by line.</li>
+<li>Add a second function, <code>line_value_with_discount</code>, to the module and call it from the main file.</li>
+<li>Run the program from a different folder and record the error message. Explain why it happened.</li>
+<li>Print <code>package.path</code> and write down, in your own words, what the first template means.</li>
+</ol>
+<h3 id="accessibility-practice-3"><a class="header" href="#accessibility-practice-3">Accessibility Practice</a></h3>
+<p>Keep one project per folder and begin every session by confirming your working directory with a command and reading the result. Read the long text in <code>package.path</code> with character navigation, noting where each semicolon separates one template from the next.</p>
+<h3 id="skills-checklist-3"><a class="header" href="#skills-checklist-3">Skills Checklist</a></h3>
+<ul>
+<li><input disabled="" type="checkbox"> I can identify the project root and run commands from it.</li>
+<li><input disabled="" type="checkbox"> I can load a module with <code>require</code>.</li>
+<li><input disabled="" type="checkbox"> I can explain what <code>package.path</code> contains.</li>
+<li><input disabled="" type="checkbox"> I can say when LuaRocks is needed.</li>
+<li><input disabled="" type="checkbox"> I can run a program from the terminal and read its output.</li>
+</ul>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                            <a rel="prev" href="../LUA/lessons.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M41.4 233.4c-12.5 12.5-12.5 32.8 0 45.3l160 160c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L109.3 256 246.6 118.6c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0l-160 160z"/></svg></span>
+                            </a>
+
+                            <a rel="next prefetch" href="../LUA/unit01-foundations-of-computing.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M278.6 233.4c12.5 12.5 12.5 32.8 0 45.3l-160 160c-12.5 12.5-32.8 12.5-45.3 0s-12.5-32.8 0-45.3L210.7 256 73.4 118.6c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0l160 160z"/></svg></span>
+                            </a>
+
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                    <a rel="prev" href="../LUA/lessons.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M41.4 233.4c-12.5 12.5-12.5 32.8 0 45.3l160 160c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L109.3 256 246.6 118.6c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0l-160 160z"/></svg></span>
+                    </a>
+
+                    <a rel="next prefetch" href="../LUA/unit01-foundations-of-computing.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M278.6 233.4c12.5 12.5 12.5 32.8 0 45.3l-160 160c-12.5 12.5-32.8 12.5-45.3 0s-12.5-32.8 0-45.3L210.7 256 73.4 118.6c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0l160 160z"/></svg></span>
+                    </a>
+            </nav>
+
+        </div>
+
+        <template id=fa-eye><span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M288 32c-80.8 0-145.5 36.8-192.6 80.6C48.6 156 17.3 208 2.5 243.7c-3.3 7.9-3.3 16.7 0 24.6C17.3 304 48.6 356 95.4 399.4C142.5 443.2 207.2 480 288 480s145.5-36.8 192.6-80.6c46.8-43.5 78.1-95.4 93-131.1c3.3-7.9 3.3-16.7 0-24.6c-14.9-35.7-46.2-87.7-93-131.1C433.5 68.8 368.8 32 288 32zM432 256c0 79.5-64.5 144-144 144s-144-64.5-144-144s64.5-144 144-144s144 64.5 144 144zM288 192c0 35.3-28.7 64-64 64c-11.5 0-22.3-3-31.6-8.4c-.2 2.8-.4 5.5-.4 8.4c0 53 43 96 96 96s96-43 96-96s-43-96-96-96c-2.8 0-5.6 .1-8.4 .4c5.3 9.3 8.4 20.1 8.4 31.6z"/></svg></span></template>
+        <template id=fa-eye-slash><span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M38.8 5.1C28.4-3.1 13.3-1.2 5.1 9.2S-1.2 34.7 9.2 42.9l592 464c10.4 8.2 25.5 6.3 33.7-4.1s6.3-25.5-4.1-33.7L525.6 386.7c39.6-40.6 66.4-86.1 79.9-118.4c3.3-7.9 3.3-16.7 0-24.6c-14.9-35.7-46.2-87.7-93-131.1C465.5 68.8 400.8 32 320 32c-68.2 0-125 26.3-169.3 60.8L38.8 5.1zM223.1 149.5C248.6 126.2 282.7 112 320 112c79.5 0 144 64.5 144 144c0 24.9-6.3 48.3-17.4 68.7L408 294.5c5.2-11.8 8-24.8 8-38.5c0-53-43-96-96-96c-2.8 0-5.6 .1-8.4 .4c5.3 9.3 8.4 20.1 8.4 31.6c0 10.2-2.4 19.8-6.6 28.3l-90.3-70.8zm223.1 298L373 389.9c-16.4 6.5-34.3 10.1-53 10.1c-79.5 0-144-64.5-144-144c0-6.9 .5-13.6 1.4-20.2L83.1 161.5C60.3 191.2 44 220.8 34.5 243.7c-3.3 7.9-3.3 16.7 0 24.6c14.9 35.7 46.2 87.7 93 131.1C174.5 443.2 239.2 480 320 480c47.8 0 89.9-12.9 126.2-32.5z"/></svg></span></template>
+        <template id=fa-copy><span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M502.6 70.63l-61.25-61.25C435.4 3.371 427.2 0 418.7 0H255.1c-35.35 0-64 28.66-64 64l.0195 256C192 355.4 220.7 384 256 384h192c35.2 0 64-28.8 64-64V93.25C512 84.77 508.6 76.63 502.6 70.63zM464 320c0 8.836-7.164 16-16 16H255.1c-8.838 0-16-7.164-16-16L239.1 64.13c0-8.836 7.164-16 16-16h128L384 96c0 17.67 14.33 32 32 32h47.1V320zM272 448c0 8.836-7.164 16-16 16H63.1c-8.838 0-16-7.164-16-16L47.98 192.1c0-8.836 7.164-16 16-16H160V128H63.99c-35.35 0-64 28.65-64 64l.0098 256C.002 483.3 28.66 512 64 512h192c35.2 0 64-28.8 64-64v-32h-47.1L272 448z"/></svg></span></template>
+        <template id=fa-play><span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M73 39c-14.8-9.1-33.4-9.4-48.5-.9S0 62.6 0 80V432c0 17.4 9.4 33.4 24.5 41.9s33.7 8.1 48.5-.9L361 297c14.3-8.7 23-24.2 23-41s-8.7-32.2-23-41L73 39z"/></svg></span></template>
+        <template id=fa-clock-rotate-left><span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M75 75L41 41C25.9 25.9 0 36.6 0 57.9V168c0 13.3 10.7 24 24 24H134.1c21.4 0 32.1-25.9 17-41l-30.8-30.8C155 85.5 203 64 256 64c106 0 192 86 192 192s-86 192-192 192c-40.8 0-78.6-12.7-109.7-34.4c-14.5-10.1-34.4-6.6-44.6 7.9s-6.6 34.4 7.9 44.6C151.2 495 201.7 512 256 512c141.4 0 256-114.6 256-256S397.4 0 256 0C185.3 0 121.3 28.7 75 75zm181 53c-13.3 0-24 10.7-24 24V256c0 6.4 2.5 12.5 7 17l72 72c9.4 9.4 24.6 9.4 33.9 0s9.4-24.6 0-33.9l-65-65V152c0-13.3-10.7-24-24-24z"/></svg></span></template>
+
+
+
+        <script>
+            window.playground_copyable = true;
+        </script>
+
+
+        <script src="../elasticlunr-ef4e11c1.min.js"></script>
+        <script src="../mark-09e88c2c.min.js"></script>
+        <script src="../searcher-09f2665d.js"></script>
+
+        <script src="../clipboard-1626706a.min.js"></script>
+        <script src="../highlight-abc7f01d.js"></script>
+        <script src="../book-609e4cb8.js"></script>
+
+        <!-- Custom JS scripts -->
+
+
+
+    </div>
+    </body>
+</html>

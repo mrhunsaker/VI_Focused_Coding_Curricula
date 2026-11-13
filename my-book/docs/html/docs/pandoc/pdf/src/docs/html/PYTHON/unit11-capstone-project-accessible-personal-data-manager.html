@@ -1,0 +1,1174 @@
+<!DOCTYPE HTML>
+<html lang="en" class="rust sidebar-visible" dir="ltr">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>Unit 11 - Accessible Introduction to Computer Science</title>
+
+
+        <!-- Custom HTML head -->
+
+        <meta name="description" content="Introductory programming curricula, each adapted for visually impaired students who use screen readers">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff">
+
+        <link rel="icon" href="../favicon-de23e50b.svg">
+        <link rel="shortcut icon" href="../favicon-8114d1fc.png">
+        <link rel="stylesheet" href="../css/variables-8adf115d.css">
+        <link rel="stylesheet" href="../css/general-e96d0476.css">
+        <link rel="stylesheet" href="../css/chrome-d279d366.css">
+        <link rel="stylesheet" href="../css/print-9e4910d8.css" media="print">
+
+        <!-- Fonts -->
+        <link rel="stylesheet" href="../fonts/fonts-9644e21d.css">
+
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" id="mdbook-highlight-css" href="../highlight-493f70e1.css">
+        <link rel="stylesheet" id="mdbook-tomorrow-night-css" href="../tomorrow-night-4c0ae647.css">
+        <link rel="stylesheet" id="mdbook-ayu-highlight-css" href="../ayu-highlight-3fdfc3ac.css">
+
+        <!-- Custom theme stylesheets -->
+
+
+        <!-- Provide site root and default themes to javascript -->
+        <script>
+            const path_to_root = "../";
+            const default_light_theme = "rust";
+            const default_dark_theme = "navy";
+            window.path_to_searchindex_js = "../searchindex-1d296e4e.js";
+        </script>
+        <!-- Start loading toc.js asap -->
+        <script src="../toc-62d8efca.js"></script>
+    </head>
+    <body>
+    <div id="mdbook-help-container">
+        <div id="mdbook-help-popup">
+            <h2 class="mdbook-help-title">Keyboard shortcuts</h2>
+            <div>
+                <p>Press <kbd>←</kbd> or <kbd>→</kbd> to navigate between chapters</p>
+                <p>Press <kbd>S</kbd> or <kbd>/</kbd> to search in the book</p>
+                <p>Press <kbd>?</kbd> to show this help</p>
+                <p>Press <kbd>Esc</kbd> to hide this help</p>
+            </div>
+        </div>
+    </div>
+    <div id="mdbook-body-container">
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script>
+            try {
+                let theme = localStorage.getItem('mdbook-theme');
+                let sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script>
+            const default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? default_dark_theme : default_light_theme;
+            let theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            const html = document.documentElement;
+            html.classList.remove('rust')
+            html.classList.add(theme);
+            html.classList.add("js");
+        </script>
+
+        <input type="checkbox" id="mdbook-sidebar-toggle-anchor" class="hidden">
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script>
+            let sidebar = null;
+            const sidebar_toggle = document.getElementById("mdbook-sidebar-toggle-anchor");
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            } else {
+                sidebar = 'hidden';
+                sidebar_toggle.checked = false;
+            }
+            if (sidebar === 'visible') {
+                sidebar_toggle.checked = true;
+            } else {
+                html.classList.remove('sidebar-visible');
+            }
+        </script>
+
+        <nav id="mdbook-sidebar" class="sidebar" aria-label="Table of contents">
+            <!-- populated by js -->
+            <mdbook-sidebar-scrollbox class="sidebar-scrollbox"></mdbook-sidebar-scrollbox>
+            <noscript>
+                <iframe class="sidebar-iframe-outer" src="../toc.html"></iframe>
+            </noscript>
+            <div id="mdbook-sidebar-resize-handle" class="sidebar-resize-handle">
+                <div class="sidebar-resize-indicator"></div>
+            </div>
+        </nav>
+
+        <div id="mdbook-page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                <div id="mdbook-menu-bar-hover-placeholder"></div>
+                <div id="mdbook-menu-bar" class="menu-bar sticky">
+                    <div class="left-buttons">
+                        <label id="mdbook-sidebar-toggle" class="icon-button" for="mdbook-sidebar-toggle-anchor" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="mdbook-sidebar">
+                            <span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M0 96C0 78.3 14.3 64 32 64H416c17.7 0 32 14.3 32 32s-14.3 32-32 32H32C14.3 128 0 113.7 0 96zM0 256c0-17.7 14.3-32 32-32H416c17.7 0 32 14.3 32 32s-14.3 32-32 32H32c-17.7 0-32-14.3-32-32zM448 416c0 17.7-14.3 32-32 32H32c-17.7 0-32-14.3-32-32s14.3-32 32-32H416c17.7 0 32 14.3 32 32z"/></svg></span>
+                        </label>
+                        <button id="mdbook-theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="mdbook-theme-list">
+                            <span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M371.3 367.1c27.3-3.9 51.9-19.4 67.2-42.9L600.2 74.1c12.6-19.5 9.4-45.3-7.6-61.2S549.7-4.4 531.1 9.6L294.4 187.2c-24 18-38.2 46.1-38.4 76.1L371.3 367.1zm-19.6 25.4l-116-104.4C175.9 290.3 128 339.6 128 400c0 3.9 .2 7.8 .6 11.6c1.8 17.5-10.2 36.4-27.8 36.4H96c-17.7 0-32 14.3-32 32s14.3 32 32 32H240c61.9 0 112-50.1 112-112c0-2.5-.1-5-.2-7.5z"/></svg></span>
+                        </button>
+                        <ul id="mdbook-theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="mdbook-theme-default_theme">Auto</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="mdbook-theme-light">Light</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="mdbook-theme-rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="mdbook-theme-coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="mdbook-theme-navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="mdbook-theme-ayu">Ayu</button></li>
+                        </ul>
+                        <button id="mdbook-search-toggle" class="icon-button" type="button" title="Search (`/`)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="/ s" aria-controls="mdbook-searchbar">
+                            <span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M416 208c0 45.9-14.9 88.3-40 122.7L502.6 457.4c12.5 12.5 12.5 32.8 0 45.3s-32.8 12.5-45.3 0L330.7 376c-34.4 25.2-76.8 40-122.7 40C93.1 416 0 322.9 0 208S93.1 0 208 0S416 93.1 416 208zM208 352c79.5 0 144-64.5 144-144s-64.5-144-144-144S64 128.5 64 208s64.5 144 144 144z"/></svg></span>
+                        </button>
+                    </div>
+
+                    <h1 class="menu-title">Accessible Introduction to Computer Science</h1>
+
+                    <div class="right-buttons">
+                        <a href="../print.html" title="Print this book" aria-label="Print this book">
+                            <span class=fa-svg id="print-button"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M128 0C92.7 0 64 28.7 64 64v96h64V64H354.7L384 93.3V160h64V93.3c0-17-6.7-33.3-18.7-45.3L400 18.7C388 6.7 371.7 0 354.7 0H128zM384 352v32 64H128V384 368 352H384zm64 32h32c17.7 0 32-14.3 32-32V256c0-35.3-28.7-64-64-64H64c-35.3 0-64 28.7-64 64v96c0 17.7 14.3 32 32 32H64v64c0 35.3 28.7 64 64 64H384c35.3 0 64-28.7 64-64V384zm-16-88c-13.3 0-24-10.7-24-24s10.7-24 24-24s24 10.7 24 24s-10.7 24-24 24z"/></svg></span>
+                        </a>
+                        <a href="https://github.com/mrhunsaker/VI_Focused_Coding_Curricula" title="Git repository" aria-label="Git repository">
+                            <span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"/></svg></span>
+                        </a>
+
+                    </div>
+                </div>
+
+                <div id="mdbook-search-wrapper" class="hidden">
+                    <form id="mdbook-searchbar-outer" class="searchbar-outer">
+                        <div class="search-wrapper">
+                            <input type="search" id="mdbook-searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="mdbook-searchresults-outer" aria-describedby="searchresults-header">
+                            <div class="spinner-wrapper">
+                                <span class=fa-svg id="fa-spin"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M304 48c0-26.5-21.5-48-48-48s-48 21.5-48 48s21.5 48 48 48s48-21.5 48-48zm0 416c0-26.5-21.5-48-48-48s-48 21.5-48 48s21.5 48 48 48s48-21.5 48-48zM48 304c26.5 0 48-21.5 48-48s-21.5-48-48-48s-48 21.5-48 48s21.5 48 48 48zm464-48c0-26.5-21.5-48-48-48s-48 21.5-48 48s21.5 48 48 48s48-21.5 48-48zM142.9 437c18.7-18.7 18.7-49.1 0-67.9s-49.1-18.7-67.9 0s-18.7 49.1 0 67.9s49.1 18.7 67.9 0zm0-294.2c18.7-18.7 18.7-49.1 0-67.9S93.7 56.2 75 75s-18.7 49.1 0 67.9s49.1 18.7 67.9 0zM369.1 437c18.7 18.7 49.1 18.7 67.9 0s18.7-49.1 0-67.9s-49.1-18.7-67.9 0s-18.7 49.1 0 67.9z"/></svg></span>
+                            </div>
+                        </div>
+                    </form>
+                    <div id="mdbook-searchresults-outer" class="searchresults-outer hidden">
+                        <div id="mdbook-searchresults-header" class="searchresults-header"></div>
+                        <ul id="mdbook-searchresults">
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script>
+                    document.getElementById('mdbook-sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('mdbook-sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#mdbook-sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="mdbook-content" class="content">
+                    <main>
+                        <h1 id="unit-11-capstone-project--accessible-personal-data-manager"><a class="header" href="#unit-11-capstone-project--accessible-personal-data-manager">Unit 11: Capstone Project — Accessible Personal Data Manager</a></h1>
+<h2 id="overview"><a class="header" href="#overview">Overview</a></h2>
+<p>Students develop a fully functional personal data manager that is built to work with a screen reader and keyboard. The program keeps a list of structured records, lets the user add, view, search, change, complete, and delete them, and saves them to a JSON file. The Python track builds it as a small local web application with NiceGUI. The other language tracks build a text-based version with the same records, rules, and tests.</p>
+<p><strong>Project Goal:</strong> Build an application to manage structured records with list, add, search, update, delete, and JSON persistence operations. The interface may be GUI-based in Python; the same data contract and operation semantics apply to the Lua terminal implementation.</p>
+<p><strong>Project Options:</strong></p>
+<ul>
+<li>Contact Manager</li>
+<li>Book/Movie Tracker</li>
+<li>Study Notes Manager</li>
+<li>Personal Inventory</li>
+</ul>
+<p>Every option uses the same six-field record schema (<code>id</code>, <code>title</code>, <code>description</code>, <code>category</code>, <code>created_at</code>, <code>updated_at</code>). The selected project domain changes the meaning of the field values, not the record shape or required operations.</p>
+<hr>
+<h2 id="lesson-111-introduction-to-nicegui"><a class="header" href="#lesson-111-introduction-to-nicegui">Lesson 11.1: Introduction to NiceGUI</a></h2>
+<ol>
+<li><strong>Add New Item</strong> — A form to input details for a new item.</li>
+<li><strong>View All Items</strong> — Display items in a clear, accessible list format.</li>
+<li><strong>Edit Item</strong> — Select an existing item and modify its details.</li>
+<li><strong>Search Items</strong> — Find records by ID and case-insensitive text in title, description, or category; report no matches explicitly.</li>
+<li><strong>Delete Item</strong> — Remove an item from the collection and confirm the result.</li>
+<li><strong>Save/Load Data</strong> — Persist the data to a JSON file and validate the complete six-field schema on load.</li>
+</ol>
+<h3 id="learning-objectives"><a class="header" href="#learning-objectives">Learning Objectives</a></h3>
+<ul>
+<li>Install NiceGUI with <code>uv</code> and start a page from the terminal.</li>
+<li>Explain that each <code>ui.</code> call creates an element and that an event handler runs when the user acts.</li>
+<li>Give every input a label and report results in a plain text status line.</li>
+</ul>
+<h3 id="concept-explanation"><a class="header" href="#concept-explanation">Concept Explanation</a></h3>
+<p>NiceGUI lets you build a web page in Python. When the program runs it starts a small web server on your own computer and prints an address, normally <code>http://localhost:8080</code>. You open that address in a browser. Nothing is sent to other people; the page is served only from your computer unless you choose otherwise.</p>
+<p><strong>Setup.</strong> Install the package into the project environment:</p>
+<pre><code class="language-bash">uv add nicegui
+</code></pre>
+<p>Windows PowerShell uses the same command:</p>
+<pre><code class="language-powershell">uv add nicegui
+</code></pre>
+<p><strong>Elements and handlers.</strong> Each call such as <code>ui.label(...)</code>, <code>ui.input(...)</code>, or <code>ui.button(...)</code> creates an element on the page. A button takes an <code>on_click</code> function, called a <em>handler</em>, that runs when the user presses it. The code inside <code>@ui.page("/")</code> builds the page each time someone opens it.</p>
+<p><strong>Starting the server.</strong> <code>ui.run(...)</code> starts the server. Guard it with <code>if __name__ in {"__main__", "__mp_main__"}:</code> as NiceGUI requires. Pass <code>show=False</code> so that no browser is opened automatically, and <code>reload=False</code> while learning.</p>
+<p><strong>Accessibility.</strong> NiceGUI pages are ordinary web pages, so a screen reader reads them as any other page. Three habits make them usable: give every input a clear <code>label</code>, because the label text is what a screen reader announces for the field; report every result in a plain text label as well as in a pop-up, because a pop-up message disappears; and never use color as the only signal. The status label below uses the standard attributes <code>role="status"</code> and <code>aria-live="polite"</code>, which ask assistive technology to announce changes. Whether your screen reader announces them as intended must be tested with your own setup.</p>
+<h3 id="worked-example"><a class="header" href="#worked-example">Worked Example</a></h3>
+<p>Save this as <code>hello_app.py</code>:</p>
+<pre><code class="language-python">from nicegui import ui
+
+
+@ui.page("/")
+def main_page():
+    ui.page_title("Personal Data Manager")
+    ui.label("Personal Data Manager")
+    name = ui.input(label="Your name")
+    greeting = ui.label("Type a name and press the button.").props('role="status" aria-live="polite"')
+
+    def greet():
+        if name.value.strip():
+            greeting.set_text(f"Hello, {name.value.strip()}!")
+        else:
+            greeting.set_text("Please enter a name.")
+
+    ui.button("Greet", on_click=greet)
+
+
+if __name__ in {"__main__", "__mp_main__"}:
+    ui.run(title="Personal Data Manager", reload=False, show=False)
+</code></pre>
+<p>Start it from the terminal and open the address that it prints:</p>
+<pre><code class="language-bash">uv run python hello_app.py
+</code></pre>
+<p>The repository also includes a user-level test, <code>test_hello_ui.py</code>, which needs <code>uv add --dev pytest pytest-asyncio</code>:</p>
+<pre><code class="language-python">from nicegui.testing import User
+
+pytest_plugins = ["nicegui.testing.user_plugin"]
+
+
+async def test_greeting(user: User) -&gt; None:
+    await user.open("/")
+    await user.should_see("Personal Data Manager")
+    user.find("Greet").click()
+    await user.should_see("Please enter a name.")
+    user.find("Your name").type("Avery")
+    user.find("Greet").click()
+    await user.should_see("Hello, Avery!")
+</code></pre>
+<pre><code class="language-ini"># pytest.ini
+[pytest]
+asyncio_mode = auto
+asyncio_default_fixture_loop_scope = function
+main_file = hello_app.py
+</code></pre>
+<h3 id="expected-behavior-or-output"><a class="header" href="#expected-behavior-or-output">Expected Behavior or Output</a></h3>
+<p>When the program starts, the terminal prints a line like this one (the address and port depend on your computer; the default port is 8080):</p>
+<pre><code class="language-text">NiceGUI ready to go on http://localhost:8080, and http://192.0.2.2:8080
+</code></pre>
+<p>The page title is Personal Data Manager. Pressing <strong>Greet</strong> with an empty field sets the status line to <code>Please enter a name.</code>; after typing <code>Avery</code> it says <code>Hello, Avery!</code>. Running the test with <code>python -m pytest -q test_hello_ui.py</code> prints:</p>
+<pre><code class="language-text">1 passed
+</code></pre>
+<h3 id="common-mistakes"><a class="header" href="#common-mistakes">Common Mistakes</a></h3>
+<ol>
+<li>Calling <code>ui.run()</code> without the <code>__name__</code> guard, which can start the server twice.</li>
+<li>Relying only on <code>ui.notify</code>, whose message disappears, instead of also updating a text status line.</li>
+<li>Leaving an input without a label, so the screen reader announces only “edit text”.</li>
+<li>Starting a second copy of the program while the first still holds the port.</li>
+</ol>
+<h3 id="activities"><a class="header" href="#activities">Activities</a></h3>
+<ol>
+<li>Start <code>hello_app.py</code> and read the page title and the status line with your screen reader.</li>
+<li>Change the greeting to include the time of day using a second input.</li>
+<li>Run the test file and then break the greeting text on purpose to watch the test fail.</li>
+<li>Add a second button that clears the name and sets the status line to <code>Name cleared.</code></li>
+</ol>
+<h3 id="accessibility-practice"><a class="header" href="#accessibility-practice">Accessibility Practice</a></h3>
+<p>Open the page with the keyboard only: press Tab to move between the input and the button and read each stop. Check that the input’s label is announced and that the status line is read after you press the button. Record the browser, screen reader, and version you tested, and do not claim the page is accessible to other setups.</p>
+<h3 id="skills-checklist"><a class="header" href="#skills-checklist">Skills Checklist</a></h3>
+<ul>
+<li><input disabled="" type="checkbox"> I can install NiceGUI and start a page from the terminal.</li>
+<li><input disabled="" type="checkbox"> I can explain elements and event handlers.</li>
+<li><input disabled="" type="checkbox"> I can give every input a label.</li>
+<li><input disabled="" type="checkbox"> I can report results in a plain text status line.</li>
+<li><input disabled="" type="checkbox"> I can run a user-level test.</li>
+</ul>
+<hr>
+<h2 id="lesson-112-data-model-and-storage"><a class="header" href="#lesson-112-data-model-and-storage">Lesson 11.2: Data Model and Storage</a></h2>
+<h3 id="reading-references"><a class="header" href="#reading-references">Reading References</a></h3>
+<ul>
+<li>Matthes: Chapter 6 (Dictionaries) and Chapter 10 (Files and Exceptions)</li>
+<li>Python documentation: the <code>json</code> and <code>datetime</code> modules</li>
+</ul>
+<h3 id="learning-objectives-1"><a class="header" href="#learning-objectives-1">Learning Objectives</a></h3>
+<ul>
+<li>Represent each record as a dictionary with the shared fields.</li>
+<li>Validate input and return a clear message when it is invalid.</li>
+<li>Save to and load from a JSON file, and handle a missing or damaged file.</li>
+</ul>
+<h3 id="concept-explanation-1"><a class="header" href="#concept-explanation-1">Concept Explanation</a></h3>
+<p>The data and the rules live in one module, <code>records.py</code>, that contains no user-interface code. Keeping logic separate from the page has two benefits: the rules can be tested without a browser, and the same logic can serve a different front end later.</p>
+<p>Each record is a dictionary with the shared fields (<code>id</code>, <code>title</code>, <code>description</code>, <code>category</code>, <code>created_at</code>, <code>updated_at</code>) and the optional <code>done</code> field. Dictionaries convert directly to JSON.</p>
+<p><strong>Rules.</strong> A title and a category are required. A new record gets an <code>id</code> one higher than the highest in use. <code>created_at</code> is set once and never changes. <code>updated_at</code> changes whenever a record is updated, completed, or edited. Every function that can fail returns a clear message instead of raising an error that the user must interpret; functions return a pair <code>(result, message)</code>.</p>
+<p><strong>Storage.</strong> <code>save_records</code> writes the list as JSON. <code>load_records</code> treats a missing file as an empty list (this is normal on first use), and returns a message when the file is damaged or does not contain valid records, so the program never overwrites good data with an empty list without telling the user.</p>
+<p><strong>Testable time.</strong> Functions that stamp a record take a <code>clock</code> argument that defaults to the real time. Tests pass a fake clock so that timestamps are predictable.</p>
+<h3 id="worked-example-1"><a class="header" href="#worked-example-1">Worked Example</a></h3>
+<p>Save this as <code>records.py</code>:</p>
+<pre><code class="language-python">"""Logic for the Personal Data Manager. No user-interface code lives here."""
+import json
+from datetime import datetime
+
+REQUIRED_FIELDS = ("id", "title", "description", "category", "created_at", "updated_at")
+
+
+def now():
+    """Return the current time as ISO 8601 text, for example 2026-01-15T09:00:00."""
+    return datetime.now().isoformat(timespec="seconds")
+
+
+def validate(title, category):
+    """Return an error message for invalid input, or None when it is valid."""
+    if not title or not title.strip():
+        return "A title is required."
+    if not category or not category.strip():
+        return "A category is required."
+    return None
+
+
+def next_id(records):
+    """Return one more than the highest id in use (1 for an empty list)."""
+    return max((record["id"] for record in records), default=0) + 1
+
+
+def find(records, record_id):
+    """Return the record with this id, or None."""
+    for record in records:
+        if record["id"] == record_id:
+            return record
+    return None
+
+
+def add_record(records, title, description, category, clock=now):
+    """Add a record. Return (record, None) on success or (None, message) on failure."""
+    problem = validate(title, category)
+    if problem:
+        return None, problem
+    stamp = clock()
+    record = {
+        "id": next_id(records),
+        "title": title.strip(),
+        "description": (description or "").strip(),
+        "category": category.strip(),
+        "created_at": stamp,
+        "updated_at": stamp,
+        "done": False,
+    }
+    records.append(record)
+    return record, None
+
+
+def update_record(records, record_id, changes, clock=now):
+    """Change fields of a record. created_at and id never change."""
+    record = find(records, record_id)
+    if record is None:
+        return None, "No record has that id."
+    problem = validate(changes.get("title", record["title"]), changes.get("category", record["category"]))
+    if problem:
+        return None, problem
+    for key, value in changes.items():
+        if key not in ("id", "created_at"):
+            record[key] = value.strip() if isinstance(value, str) else value
+    record["updated_at"] = clock()
+    return record, None
+
+
+def complete_record(records, record_id, clock=now):
+    """Mark a record done; this counts as an update."""
+    return update_record(records, record_id, {"done": True}, clock)
+
+
+def delete_record(records, record_id):
+    """Remove one record. Return (True, None) or (False, message)."""
+    record = find(records, record_id)
+    if record is None:
+        return False, "No record has that id."
+    records.remove(record)
+    return True, None
+
+
+def search(records, text):
+    """Return records whose title or description contains the text (ignoring case)."""
+    needle = text.strip().lower()
+    return [r for r in records if needle in r["title"].lower() or needle in r["description"].lower()]
+
+
+def describe(record):
+    """One line of plain text for a record; status is shown in words, never by color."""
+    status = "done" if record.get("done") else "not done"
+    return f"{record['id']}. {record['title']} [{record['category']}] ({status})"
+
+
+def save_records(path, records):
+    """Write records to a JSON file."""
+    with open(path, "w", encoding="utf-8") as file:
+        json.dump(records, file, indent=4)
+
+
+def load_records(path):
+    """Return (records, None) or ([], message). A missing file is not an error."""
+    try:
+        with open(path, "r", encoding="utf-8") as file:
+            data = json.load(file)
+    except FileNotFoundError:
+        return [], None
+    except json.JSONDecodeError:
+        return [], f"{path} is not valid JSON, so the list starts empty."
+    if not isinstance(data, list) or not all(isinstance(r, dict) and all(f in r for f in REQUIRED_FIELDS) for r in data):
+        return [], f"{path} does not contain valid records, so the list starts empty."
+    return data, None
+</code></pre>
+<p>Try it with this short script, <code>demo.py</code>, in the same folder:</p>
+<pre><code class="language-python">import records
+
+ticks = iter(range(1, 100))
+
+
+def clock():
+    return f"2026-01-15T10:00:{next(ticks):02d}"
+
+
+items = []
+records.add_record(items, "Notebook", "Course notes", "supplies", clock)
+records.add_record(items, "Pencil", "Box of 10", "supplies", clock)
+print(records.add_record(items, "  ", "x", "supplies", clock))
+for item in items:
+    print(records.describe(item))
+
+records.save_records("data.json", items)
+loaded, problem = records.load_records("data.json")
+print(loaded == items, problem)
+print(records.load_records("missing.json"))
+</code></pre>
+<h3 id="expected-behavior-or-output-1"><a class="header" href="#expected-behavior-or-output-1">Expected Behavior or Output</a></h3>
+<p>Running <code>python demo.py</code> prints:</p>
+<pre><code class="language-text">(None, 'A title is required.')
+1. Notebook [supplies] (not done)
+2. Pencil [supplies] (not done)
+True None
+([], None)
+</code></pre>
+<p>The invalid record is rejected with <code>(None, 'A title is required.')</code>. The saved and reloaded list equals the original (<code>True None</code>), and a missing file gives an empty list with no message.</p>
+<h3 id="common-mistakes-1"><a class="header" href="#common-mistakes-1">Common Mistakes</a></h3>
+<ol>
+<li>Letting the user interface and the rules share the same code, so neither can be tested alone.</li>
+<li>Overwriting <code>data.json</code> with an empty list after a failed load.</li>
+<li>Changing <code>created_at</code> when a record is edited.</li>
+<li>Reusing an old <code>id</code> by counting the list length instead of using the highest <code>id</code>.</li>
+</ol>
+<h3 id="activities-1"><a class="header" href="#activities-1">Activities</a></h3>
+<ol>
+<li>Run <code>demo.py</code> and open the saved <code>data.json</code>. Read the text aloud.</li>
+<li>Add a rule that a title may not be longer than 60 characters, with a clear message.</li>
+<li>Add an <code>is_done</code> filter function that returns only completed records.</li>
+<li>Damage <code>data.json</code> by deleting a bracket and run <code>load_records</code> again; read the message it returns.</li>
+</ol>
+<h3 id="accessibility-practice-1"><a class="header" href="#accessibility-practice-1">Accessibility Practice</a></h3>
+<p>Messages are complete sentences that say what is wrong (<code>A title is required.</code>) so they read clearly in speech and braille. After saving, read <code>data.json</code> in the terminal; <code>indent=4</code> puts one field per line, which reads well line by line.</p>
+<h3 id="skills-checklist-1"><a class="header" href="#skills-checklist-1">Skills Checklist</a></h3>
+<ul>
+<li><input disabled="" type="checkbox"> I can represent records as dictionaries.</li>
+<li><input disabled="" type="checkbox"> I can validate input and return clear messages.</li>
+<li><input disabled="" type="checkbox"> I can save and load JSON.</li>
+<li><input disabled="" type="checkbox"> I can handle a missing or damaged file.</li>
+<li><input disabled="" type="checkbox"> I can keep logic separate from the user interface.</li>
+</ul>
+<hr>
+<h2 id="lesson-113-displaying-and-searching-items"><a class="header" href="#lesson-113-displaying-and-searching-items">Lesson 11.3: Displaying and Searching Items</a></h2>
+<h3 id="reading-references-1"><a class="header" href="#reading-references-1">Reading References</a></h3>
+<ul>
+<li>NiceGUI documentation (official site, nicegui.io); check the documentation for the version you installed</li>
+</ul>
+<h3 id="learning-objectives-2"><a class="header" href="#learning-objectives-2">Learning Objectives</a></h3>
+<ul>
+<li>Build a page that adds a record and lists all records.</li>
+<li>Filter the list as the user types in a search box.</li>
+<li>Show errors in a status line that is also announced.</li>
+</ul>
+<h3 id="concept-explanation-2"><a class="header" href="#concept-explanation-2">Concept Explanation</a></h3>
+<p>The page uses the functions from <code>records.py</code>. It builds a form for a new record, a search box, and a list. The list is rebuilt by one function, <code>refresh()</code>, that clears the list column and then creates one label per record. Calling <code>refresh()</code> after every change keeps the page and the data in step.</p>
+<p>Each record is shown as one plain sentence produced by <code>describe()</code>, for example <code>1. Notebook [supplies] (not done)</code>. The status is the words <em>done</em> and <em>not done</em>, never a color or an icon alone. The description appears on its own line prefixed <code>Details:</code>.</p>
+<p>The search box filters as the user types: <code>search_text.on_value_change(...)</code> calls <code>refresh()</code>, which uses <code>search()</code> when the box is not empty.</p>
+<p>Every input has a unique label (<code>Record title</code>, <code>Record description</code>, <code>Record category</code>, <code>Search title or description</code>). Unique labels let a screen reader user tell the fields apart and let the tests find them.</p>
+<h3 id="worked-example-2"><a class="header" href="#worked-example-2">Worked Example</a></h3>
+<p>Save this as <code>app_v1.py</code> (it uses <code>records.py</code> from Lesson 11.2):</p>
+<pre><code class="language-python">"""Personal Data Manager, version for Lesson 11.3: add, list, and search."""
+import os
+from pathlib import Path
+
+from nicegui import ui
+
+import records as store
+
+DATA_FILE = Path(os.environ.get("PDM_DATA_FILE", "data.json"))
+items, load_problem = store.load_records(DATA_FILE)
+
+
+@ui.page("/")
+def main_page():
+    ui.page_title("Personal Data Manager")
+    ui.label("Personal Data Manager").classes("text-2xl")
+
+    # A plain-text status line. aria-live asks assistive technology to announce changes.
+    status = ui.label(load_problem or "Ready.").props('role="status" aria-live="polite"')
+
+    def say(message, ok=True):
+        status.set_text(message)
+        ui.notify(message, type="positive" if ok else "negative")
+
+    ui.label("Add a record")
+    title = ui.input(label="Record title")
+    description = ui.input(label="Record description")
+    category = ui.input(label="Record category")
+
+    ui.label("Find records")
+    search_text = ui.input(label="Search title or description")
+
+    ui.label("Records")
+    list_column = ui.column()
+
+    def refresh():
+        shown = store.search(items, search_text.value) if search_text.value else items
+        list_column.clear()
+        with list_column:
+            if not shown:
+                ui.label("No records to show.")
+            for record in shown:
+                ui.label(store.describe(record))
+                if record["description"]:
+                    ui.label("Details: " + record["description"])
+
+    def add_clicked():
+        record, problem = store.add_record(items, title.value, description.value, category.value)
+        if problem:
+            say(problem, ok=False)
+            return
+        store.save_records(DATA_FILE, items)
+        title.set_value("")
+        description.set_value("")
+        category.set_value("")
+        refresh()
+        say(f"Added record {record['id']}: {record['title']}.")
+
+    ui.button("Add record", on_click=add_clicked)
+    search_text.on_value_change(lambda _: refresh())
+    refresh()
+
+
+if __name__ in {"__main__", "__mp_main__"}:
+    ui.run(title="Personal Data Manager", reload=False, show=False)
+</code></pre>
+<p>The user-level test <code>test_app_v1_ui.py</code>:</p>
+<pre><code class="language-python">import os
+import tempfile
+
+from nicegui.testing import User
+
+pytest_plugins = ["nicegui.testing.user_plugin"]
+os.environ["PDM_DATA_FILE"] = os.path.join(tempfile.mkdtemp(), "data.json")
+
+
+async def test_add_and_search(user: User) -&gt; None:
+    await user.open("/")
+    await user.should_see("No records to show.")
+    for title, description, category in [("Notebook", "Course notes", "supplies"), ("Pencil", "Box of 10", "supplies")]:
+        user.find("Record title").type(title)
+        user.find("Record description").type(description)
+        user.find("Record category").type(category)
+        user.find("Add record").click()
+    await user.should_see("2. Pencil [supplies] (not done)")
+    user.find("Search title or description").type("note")
+    await user.should_see("1. Notebook [supplies] (not done)")
+    await user.should_not_see("2. Pencil [supplies] (not done)")
+    user.find("Add record").click()
+    await user.should_see("A title is required.")
+</code></pre>
+<pre><code class="language-ini"># pytest.ini
+[pytest]
+asyncio_mode = auto
+asyncio_default_fixture_loop_scope = function
+main_file = app_v1.py
+</code></pre>
+<h3 id="expected-behavior-or-output-2"><a class="header" href="#expected-behavior-or-output-2">Expected Behavior or Output</a></h3>
+<p>Start the app with <code>uv run python app_v1.py</code> and open the printed address. With no records the list says <code>No records to show.</code> After adding Notebook and Pencil, the list shows <code>1. Notebook [supplies] (not done)</code> and <code>2. Pencil [supplies] (not done)</code>. Typing <code>note</code> in the search box leaves only the Notebook line. Pressing <strong>Add record</strong> with an empty title sets the status line to <code>A title is required.</code> Running the test prints:</p>
+<pre><code class="language-text">1 passed
+</code></pre>
+<h3 id="common-mistakes-2"><a class="header" href="#common-mistakes-2">Common Mistakes</a></h3>
+<ol>
+<li>Building the list outside <code>refresh()</code>, so it is not updated when the data changes.</li>
+<li>Using the same label text for two inputs, so the screen reader cannot tell them apart.</li>
+<li>Showing a record’s status only by color.</li>
+<li>Forgetting to clear the form after a successful add, so the next record starts with old text.</li>
+</ol>
+<h3 id="activities-2"><a class="header" href="#activities-2">Activities</a></h3>
+<ol>
+<li>Add the three shared sample records through the page and compare the list with the sample data.</li>
+<li>Add a category filter next to the search box.</li>
+<li>Show the number of records after the list, for example <code>3 records.</code></li>
+<li>Break the <code>describe()</code> text on purpose and see which test fails.</li>
+</ol>
+<h3 id="accessibility-practice-2"><a class="header" href="#accessibility-practice-2">Accessibility Practice</a></h3>
+<p>Tab through the form and confirm that each field is announced with its label. After pressing <strong>Add record</strong>, listen for the status line. If your screen reader does not announce it, note the browser and screen reader you used, then add a visible sentence under the button as a fallback.</p>
+<h3 id="skills-checklist-2"><a class="header" href="#skills-checklist-2">Skills Checklist</a></h3>
+<ul>
+<li><input disabled="" type="checkbox"> I can build a form and a list in NiceGUI.</li>
+<li><input disabled="" type="checkbox"> I can refresh the list after every change.</li>
+<li><input disabled="" type="checkbox"> I can filter the list with a search box.</li>
+<li><input disabled="" type="checkbox"> I can show status in words.</li>
+<li><input disabled="" type="checkbox"> I can give each input a unique label.</li>
+</ul>
+<hr>
+<h2 id="lesson-114-changing-completing-and-deleting-items"><a class="header" href="#lesson-114-changing-completing-and-deleting-items">Lesson 11.4: Changing, Completing, and Deleting Items</a></h2>
+<h3 id="reading-references-2"><a class="header" href="#reading-references-2">Reading References</a></h3>
+<ul>
+<li>NiceGUI documentation (official site, nicegui.io); check the documentation for the version you installed</li>
+</ul>
+<h3 id="learning-objectives-3"><a class="header" href="#learning-objectives-3">Learning Objectives</a></h3>
+<ul>
+<li>Select a record from a list and change its title or category.</li>
+<li>Mark a record done and delete a record.</li>
+<li>Save after every successful change and report each result.</li>
+</ul>
+<h3 id="concept-explanation-3"><a class="header" href="#concept-explanation-3">Concept Explanation</a></h3>
+<p>The finished page adds a <em>chooser</em> (<code>ui.select</code>) that lists every record by its descriptive sentence, plus buttons to change, complete, or delete the chosen record. All three handlers follow the same pattern: check that a record is chosen, call the matching function in <code>records.py</code>, show the message if it failed, and otherwise save the file, refresh the list, and report what happened.</p>
+<p><code>update_record</code> changes only the fields that are supplied and always updates <code>updated_at</code>. <code>complete_record</code> is an update that sets <code>done</code> to <code>True</code>. <code>delete_record</code> removes exactly one record. After a delete the chooser is cleared so a stale choice cannot be used.</p>
+<p>Notice that the handlers contain no rules. A rule such as “a title is required” exists once, in <code>records.py</code>, and applies the same way no matter which control triggers it.</p>
+<h3 id="worked-example-3"><a class="header" href="#worked-example-3">Worked Example</a></h3>
+<p>The finished <code>app.py</code> (it uses <code>records.py</code> from Lesson 11.2):</p>
+<pre><code class="language-python">"""Personal Data Manager: a NiceGUI front end for records.py."""
+import os
+from pathlib import Path
+
+from nicegui import ui
+
+import records as store
+
+DATA_FILE = Path(os.environ.get("PDM_DATA_FILE", "data.json"))
+items, load_problem = store.load_records(DATA_FILE)
+
+
+@ui.page("/")
+def main_page():
+    ui.page_title("Personal Data Manager")
+    ui.label("Personal Data Manager").classes("text-2xl")
+
+    # A plain-text status line. aria-live asks assistive technology to announce changes.
+    status = ui.label(load_problem or "Ready.").props('role="status" aria-live="polite"')
+
+    def say(message, ok=True):
+        status.set_text(message)
+        ui.notify(message, type="positive" if ok else "negative")
+
+    ui.label("Add a record")
+    title = ui.input(label="Record title")
+    description = ui.input(label="Record description")
+    category = ui.input(label="Record category")
+
+    ui.label("Find records")
+    search_text = ui.input(label="Search title or description")
+
+    ui.label("Records")
+    list_column = ui.column()
+
+    ui.label("Change one record")
+    chooser = ui.select(options={}, label="Choose a record")
+    new_title = ui.input(label="New title (leave blank to keep)")
+    new_category = ui.input(label="New category (leave blank to keep)")
+
+    def refresh():
+        shown = store.search(items, search_text.value) if search_text.value else items
+        list_column.clear()
+        with list_column:
+            if not shown:
+                ui.label("No records to show.")
+            for record in shown:
+                ui.label(store.describe(record))
+                if record["description"]:
+                    ui.label("Details: " + record["description"])
+        chooser.set_options({r["id"]: store.describe(r) for r in items})
+
+    def add_clicked():
+        record, problem = store.add_record(items, title.value, description.value, category.value)
+        if problem:
+            say(problem, ok=False)
+            return
+        store.save_records(DATA_FILE, items)
+        title.set_value("")
+        description.set_value("")
+        category.set_value("")
+        refresh()
+        say(f"Added record {record['id']}: {record['title']}.")
+
+    def change_clicked():
+        if chooser.value is None:
+            say("Choose a record first.", ok=False)
+            return
+        changes = {}
+        if new_title.value.strip():
+            changes["title"] = new_title.value
+        if new_category.value.strip():
+            changes["category"] = new_category.value
+        if not changes:
+            say("Enter a new title or a new category.", ok=False)
+            return
+        record, problem = store.update_record(items, chooser.value, changes)
+        if problem:
+            say(problem, ok=False)
+            return
+        store.save_records(DATA_FILE, items)
+        new_title.set_value("")
+        new_category.set_value("")
+        refresh()
+        say(f"Updated record {record['id']}.")
+
+    def complete_clicked():
+        if chooser.value is None:
+            say("Choose a record first.", ok=False)
+            return
+        record, problem = store.complete_record(items, chooser.value)
+        if problem:
+            say(problem, ok=False)
+            return
+        store.save_records(DATA_FILE, items)
+        refresh()
+        say(f"Marked record {record['id']} as done.")
+
+    def delete_clicked():
+        if chooser.value is None:
+            say("Choose a record first.", ok=False)
+            return
+        record_id = chooser.value
+        ok, problem = store.delete_record(items, record_id)
+        if not ok:
+            say(problem, ok=False)
+            return
+        store.save_records(DATA_FILE, items)
+        chooser.set_value(None)
+        refresh()
+        say(f"Deleted record {record_id}.")
+
+    ui.button("Add record", on_click=add_clicked)
+    search_text.on_value_change(lambda _: refresh())
+    ui.button("Change selected record", on_click=change_clicked)
+    ui.button("Mark selected record done", on_click=complete_clicked)
+    ui.button("Delete selected record", on_click=delete_clicked)
+    refresh()
+
+
+if __name__ in {"__main__", "__mp_main__"}:
+    ui.run(title="Personal Data Manager", reload=False, show=False)
+</code></pre>
+<p>The user-level test <code>test_app_ui.py</code>:</p>
+<pre><code class="language-python">"""User-level tests for app.py. They need: pip install nicegui pytest pytest-asyncio"""
+import os
+import tempfile
+
+from nicegui.testing import User
+
+pytest_plugins = ["nicegui.testing.user_plugin"]
+os.environ["PDM_DATA_FILE"] = os.path.join(tempfile.mkdtemp(), "data.json")
+
+
+async def test_add_search_complete_delete(user: User) -&gt; None:
+    await user.open("/")
+    await user.should_see("Personal Data Manager")
+    await user.should_see("No records to show.")
+
+    user.find("Record title").type("Notebook")
+    user.find("Record description").type("Course notes")
+    user.find("Record category").type("supplies")
+    user.find("Add record").click()
+    await user.should_see("1. Notebook [supplies] (not done)")
+    await user.should_see("Added record 1: Notebook.")
+
+    user.find("Add record").click()
+    await user.should_see("A title is required.")
+
+    user.find("Choose a record").click()
+    user.find("1. Notebook [supplies] (not done)").click()
+    user.find("Mark selected record done").click()
+    await user.should_see("1. Notebook [supplies] (done)")
+
+    user.find("Delete selected record").click()
+    await user.should_see("Deleted record 1.")
+    await user.should_see("No records to show.")
+</code></pre>
+<pre><code class="language-ini"># pytest.ini
+[pytest]
+asyncio_mode = auto
+asyncio_default_fixture_loop_scope = function
+main_file = app.py
+</code></pre>
+<h3 id="expected-behavior-or-output-3"><a class="header" href="#expected-behavior-or-output-3">Expected Behavior or Output</a></h3>
+<p>In the page: choose <code>1. Notebook [supplies] (not done)</code> and press <strong>Mark selected record done</strong>; the list shows <code>1. Notebook [supplies] (done)</code> and the status line says <code>Marked record 1 as done.</code> Pressing <strong>Delete selected record</strong> says <code>Deleted record 1.</code> Pressing a change button with nothing chosen says <code>Choose a record first.</code> The test prints:</p>
+<pre><code class="language-text">1 passed
+</code></pre>
+<h3 id="common-mistakes-3"><a class="header" href="#common-mistakes-3">Common Mistakes</a></h3>
+<ol>
+<li>Using a stale choice after deleting, so a later action targets a record that no longer exists.</li>
+<li>Putting rules in the handlers, so two buttons enforce the same rule differently.</li>
+<li>Forgetting to save after a change, so the change is lost when the program stops.</li>
+<li>Deleting without telling the user, which gives no way to confirm that the action happened.</li>
+</ol>
+<h3 id="activities-3"><a class="header" href="#activities-3">Activities</a></h3>
+<ol>
+<li>Change the title and category of record 2 through the page and read <code>data.json</code> to confirm.</li>
+<li>Add a confirmation step before a delete (for example a second button that must be pressed).</li>
+<li>Add a button that deletes all completed records and reports how many were removed.</li>
+<li>Write a user-level test for the change handler.</li>
+</ol>
+<h3 id="accessibility-practice-3"><a class="header" href="#accessibility-practice-3">Accessibility Practice</a></h3>
+<p>Use the keyboard to choose a record in the chooser and press each button. Confirm that the result of every action is spoken or readable in the status line without using a mouse. Check that buttons have text labels that say what they do; avoid icon-only buttons.</p>
+<h3 id="skills-checklist-3"><a class="header" href="#skills-checklist-3">Skills Checklist</a></h3>
+<ul>
+<li><input disabled="" type="checkbox"> I can select a record and change its fields.</li>
+<li><input disabled="" type="checkbox"> I can mark a record done.</li>
+<li><input disabled="" type="checkbox"> I can delete one record.</li>
+<li><input disabled="" type="checkbox"> I save and refresh after each change.</li>
+<li><input disabled="" type="checkbox"> I keep rules in one place.</li>
+</ul>
+<hr>
+<h2 id="lesson-115-testing-documentation-and-final-submission"><a class="header" href="#lesson-115-testing-documentation-and-final-submission">Lesson 11.5: Testing, Documentation, and Final Submission</a></h2>
+<h3 id="reading-references-3"><a class="header" href="#reading-references-3">Reading References</a></h3>
+<ul>
+<li>Matthes: Chapter 11 (Testing Your Code)</li>
+<li>Python documentation: the <code>unittest</code> module</li>
+<li>NiceGUI documentation (official site, nicegui.io); check the documentation for the version you installed</li>
+</ul>
+<h3 id="learning-objectives-4"><a class="header" href="#learning-objectives-4">Learning Objectives</a></h3>
+<ul>
+<li>Run the shared acceptance tests for the logic module.</li>
+<li>Check the page by hand with the keyboard and your own screen reader.</li>
+<li>Write the README and submit the deliverables.</li>
+</ul>
+<h3 id="concept-explanation-4"><a class="header" href="#concept-explanation-4">Concept Explanation</a></h3>
+<p>The shared acceptance tests (listed in the unit overview) are written once for the logic in <code>records.py</code>. Tests 1 to 5 are automated below; test 6, using every control without color or a mouse, must be checked by hand. The user-level page test from Lesson 11.4 adds a simulated walk through the page, but it runs in Python, so it cannot tell you how a real browser and screen reader behave.</p>
+<p>A <strong>README</strong> tells the next reader what the program does and how to run it. Write it in plain text or Markdown with short headings and complete sentences. Include the project title and your name, a description, the run command (<code>uv run python app.py</code>), the keyboard and screen reader instructions that you actually tested, the shared record fields, and a reflection on what was hard.</p>
+<p><strong>Version control.</strong> Keep your project in Git and commit after each working step so you can return to a working version (see the supplemental section at the end of this unit).</p>
+<h3 id="worked-example-4"><a class="header" href="#worked-example-4">Worked Example</a></h3>
+<p>The test file <code>test_records.py</code> (put it next to <code>records.py</code>):</p>
+<pre><code class="language-python">import json
+import tempfile
+import unittest
+from pathlib import Path
+
+import records
+
+
+def make_clock():
+    state = {"n": 0}
+
+    def clock():
+        state["n"] += 1
+        return f"2026-01-15T10:00:{state['n']:02d}"
+    return clock
+
+
+class TestRecords(unittest.TestCase):
+    def setUp(self):
+        self.clock = make_clock()
+        self.items = []
+        records.add_record(self.items, "Notebook", "Course notes", "supplies", self.clock)
+        records.add_record(self.items, "Pencil", "Box of 10", "supplies", self.clock)
+        records.add_record(self.items, "Study plan", "Weekly schedule", "planning", self.clock)
+
+    def test_1_empty_title_is_rejected(self):
+        record, message = records.add_record(self.items, "   ", "x", "supplies", self.clock)
+        self.assertIsNone(record)
+        self.assertEqual(message, "A title is required.")
+        self.assertEqual(len(self.items), 3)
+
+    def test_2_new_record_gets_an_unused_id(self):
+        records.delete_record(self.items, 2)
+        record, _ = records.add_record(self.items, "Ruler", "30 cm", "supplies", self.clock)
+        self.assertEqual(record["id"], 4)
+
+    def test_3_update_changes_updated_at_but_not_created_at(self):
+        before = dict(records.find(self.items, 1))
+        records.update_record(self.items, 1, {"description": "Lecture notes"}, self.clock)
+        after = records.find(self.items, 1)
+        self.assertEqual(after["created_at"], before["created_at"])
+        self.assertNotEqual(after["updated_at"], before["updated_at"])
+
+    def test_4_delete_removes_only_that_record(self):
+        ok, _ = records.delete_record(self.items, 2)
+        self.assertTrue(ok)
+        self.assertEqual([r["id"] for r in self.items], [1, 3])
+
+    def test_5_save_and_reload_preserves_all_fields(self):
+        with tempfile.TemporaryDirectory() as folder:
+            path = Path(folder) / "data.json"
+            records.save_records(path, self.items)
+            loaded, message = records.load_records(path)
+        self.assertIsNone(message)
+        self.assertEqual(loaded, self.items)
+
+    def test_damaged_file_gives_an_empty_list_and_a_message(self):
+        with tempfile.TemporaryDirectory() as folder:
+            path = Path(folder) / "data.json"
+            path.write_text('[{"id": 1,', encoding="utf-8")
+            loaded, message = records.load_records(path)
+        self.assertEqual(loaded, [])
+        self.assertIn("not valid JSON", message)
+
+    def test_complete_marks_done_and_updates(self):
+        record, _ = records.complete_record(self.items, 3, self.clock)
+        self.assertTrue(record["done"])
+        self.assertNotEqual(record["updated_at"], record["created_at"])
+
+    def test_search_ignores_case_and_checks_description(self):
+        self.assertEqual([r["title"] for r in records.search(self.items, "NOTE")], ["Notebook"])
+        self.assertEqual([r["title"] for r in records.search(self.items, "box")], ["Pencil"])
+
+    def test_blank_title_cannot_be_saved_by_update(self):
+        record, message = records.update_record(self.items, 1, {"title": ""}, self.clock)
+        self.assertIsNone(record)
+        self.assertEqual(message, "A title is required.")
+
+
+if __name__ == "__main__":
+    unittest.main()
+</code></pre>
+<p>Run it from the terminal:</p>
+<pre><code class="language-bash">uv run python -m unittest -v test_records
+</code></pre>
+<p>A starting point for <code>README.md</code>:</p>
+<pre><code class="language-markdown"># Personal Data Manager
+
+By: (your name)
+
+## What it does
+A small web application that keeps a list of records and saves them to data.json.
+
+## How to run
+    uv run python app.py
+Then open the address that the terminal prints.
+
+## Keyboard and screen reader notes
+(Describe what you tested: operating system, browser, screen reader, and versions.)
+
+## Record fields
+id, title, description, category, created_at, updated_at, done
+
+## Reflection
+(What was hard, and what would you improve?)
+</code></pre>
+<h3 id="expected-behavior-or-output-4"><a class="header" href="#expected-behavior-or-output-4">Expected Behavior or Output</a></h3>
+<p>The command prints one line per test and a summary (the timing differs from run to run):</p>
+<pre><code class="language-text">test_1_empty_title_is_rejected (test_records.TestRecords.test_1_empty_title_is_rejected) ... ok
+test_2_new_record_gets_an_unused_id (test_records.TestRecords.test_2_new_record_gets_an_unused_id) ... ok
+test_3_update_changes_updated_at_but_not_created_at (test_records.TestRecords.test_3_update_changes_updated_at_but_not_created_at) ... ok
+test_4_delete_removes_only_that_record (test_records.TestRecords.test_4_delete_removes_only_that_record) ... ok
+test_5_save_and_reload_preserves_all_fields (test_records.TestRecords.test_5_save_and_reload_preserves_all_fields) ... ok
+test_blank_title_cannot_be_saved_by_update (test_records.TestRecords.test_blank_title_cannot_be_saved_by_update) ... ok
+test_complete_marks_done_and_updates (test_records.TestRecords.test_complete_marks_done_and_updates) ... ok
+test_damaged_file_gives_an_empty_list_and_a_message (test_records.TestRecords.test_damaged_file_gives_an_empty_list_and_a_message) ... ok
+test_search_ignores_case_and_checks_description (test_records.TestRecords.test_search_ignores_case_and_checks_description) ... ok
+
+----------------------------------------------------------------------
+Ran 9 tests in 0.001s
+
+OK
+</code></pre>
+<h3 id="common-mistakes-4"><a class="header" href="#common-mistakes-4">Common Mistakes</a></h3>
+<ol>
+<li>Testing only that nothing crashed, and not checking the values returned.</li>
+<li>Sharing one list of records between tests, so one test’s changes affect the next.</li>
+<li>Writing a README that only the author can follow, or claiming accessibility that was never tested.</li>
+<li>Skipping test 6 because it cannot be automated.</li>
+</ol>
+<h3 id="activities-4"><a class="header" href="#activities-4">Activities</a></h3>
+<ol>
+<li>Run the tests, then break <code>update_record</code> so it also changes <code>created_at</code> and watch test 3 fail. Restore it.</li>
+<li>Add a test that deleting an unknown id returns <code>False</code> and a message.</li>
+<li>Ask a classmate to follow your README from an empty folder and note where they get stuck.</li>
+<li>Complete test 6 by hand: use every control with the keyboard only and record what you found.</li>
+</ol>
+<h3 id="accessibility-practice-4"><a class="header" href="#accessibility-practice-4">Accessibility Practice</a></h3>
+<p>Run the tests from the terminal and read the summary line first. For the hand check, use the keyboard only, then repeat with your screen reader or braille display. Record the operating system, browser, screen reader, and versions that you tested, and describe only what you actually tried.</p>
+<h3 id="skills-checklist-4"><a class="header" href="#skills-checklist-4">Skills Checklist</a></h3>
+<ul>
+<li><input disabled="" type="checkbox"> I can run the acceptance tests and read the results.</li>
+<li><input disabled="" type="checkbox"> I can complete a hand check of keyboard and screen reader use.</li>
+<li><input disabled="" type="checkbox"> I can write a README another person can follow.</li>
+<li><input disabled="" type="checkbox"> I know what the page test does and does not show.</li>
+<li><input disabled="" type="checkbox"> I can submit the listed deliverables.</li>
+</ul>
+<hr>
+<h2 id="assessment-criteria"><a class="header" href="#assessment-criteria">Assessment Criteria</a></h2>
+<h3 id="functionality-60"><a class="header" href="#functionality-60">Functionality (60%)</a></h3>
+<ul>
+<li><input disabled="" type="checkbox"> Ability to add new items with all specified attributes.</li>
+<li><input disabled="" type="checkbox"> Correct display of all current items.</li>
+<li><input disabled="" type="checkbox"> Correct editing of existing items.</li>
+<li><input disabled="" type="checkbox"> Correct deletion of items.</li>
+<li><input disabled="" type="checkbox"> Accurate saving and loading to and from <code>data.json</code>.</li>
+<li><input disabled="" type="checkbox"> Search and completion work as described.</li>
+<li><input disabled="" type="checkbox"> No major bugs or crashes during typical usage.</li>
+</ul>
+<h3 id="code-quality-and-structure-20"><a class="header" href="#code-quality-and-structure-20">Code Quality and Structure (20%)</a></h3>
+<ul>
+<li><input disabled="" type="checkbox"> Clear and concise Python code.</li>
+<li><input disabled="" type="checkbox"> Appropriate use of functions, with rules kept in <code>records.py</code>.</li>
+<li><input disabled="" type="checkbox"> Meaningful variable and function names.</li>
+<li><input disabled="" type="checkbox"> Adequate comments where logic is complex.</li>
+<li><input disabled="" type="checkbox"> Proper indentation.</li>
+</ul>
+<h3 id="accessibility-and-user-experience-15"><a class="header" href="#accessibility-and-user-experience-15">Accessibility and User Experience (15%)</a></h3>
+<ul>
+<li><input disabled="" type="checkbox"> All interactive elements are correctly labeled for screen readers.</li>
+<li><input disabled="" type="checkbox"> Clear and consistent feedback in a text status line.</li>
+<li><input disabled="" type="checkbox"> Logical flow and presentation of information.</li>
+<li><input disabled="" type="checkbox"> No visual-only cues for critical information.</li>
+</ul>
+<h3 id="readme-and-reflection-5"><a class="header" href="#readme-and-reflection-5">README and Reflection (5%)</a></h3>
+<ul>
+<li><input disabled="" type="checkbox"> Complete and clear README.</li>
+<li><input disabled="" type="checkbox"> Thoughtful reflection on development and accessibility challenges.</li>
+</ul>
+<hr>
+<h2 id="deliverables"><a class="header" href="#deliverables">Deliverables</a></h2>
+<ol>
+<li><code>app.py</code> and <code>records.py</code>: the complete application code.</li>
+<li><code>test_records.py</code>: the acceptance tests.</li>
+<li><code>data.json</code>: an example file that shows saved data.</li>
+<li><code>README.md</code>, including: the project title and student name; a description of the application; instructions on how to run it (<code>uv run python app.py</code>); instructions for interacting with a screen reader; and a reflection on challenges faced.</li>
+</ol>
+<hr>
+<h2 id="supplemental-ai-tools-and-version-control"><a class="header" href="#supplemental-ai-tools-and-version-control">Supplemental: AI Tools and Version Control</a></h2>
+<h3 id="academic-integrity-ai-and-assessment"><a class="header" href="#academic-integrity-ai-and-assessment">Academic Integrity: AI and Assessment</a></h3>
+<p>AI tools must not write, complete, autocomplete, repair, or generate course code or assessment solutions. Students may use only instructor-authorized conceptual explanations that do not produce deliverable code. Git and version control are taught separately and are not a workaround for the assessment-integrity rule.</p>
+<h3 id="git-and-version-control"><a class="header" href="#git-and-version-control">Git and Version Control</a></h3>
+<p><strong>Git</strong> is the most widely used distributed version control system, invented in 2005 by Linus Torvalds for the Linux kernel project.</p>
+<p><strong>Core workflow:</strong></p>
+<ol>
+<li><strong>Working directory</strong> — Make changes to files.</li>
+<li><strong>Staging area</strong> — <code>git add</code> — Stage changes.</li>
+<li><strong>Repository</strong> — <code>git commit</code> — Save a permanent snapshot.</li>
+<li><strong>Remote</strong> — <code>git push</code> / <code>git pull</code> — Sync with GitHub.</li>
+</ol>
+<p><strong>Why Git is valuable:</strong></p>
+<ul>
+<li><strong>Rollback</strong> — If a change breaks your app, revert instantly.</li>
+<li><strong><code>git blame</code></strong> — See exactly which commit introduced a bug.</li>
+<li><strong>Branches</strong> — Try experiments in isolation without affecting main code.</li>
+<li><strong>Pull requests</strong> — Review changes with others before merging.</li>
+</ul>
+<p><strong>Basic commands:</strong></p>
+<pre><code class="language-bash">git init                    # Initialize a repository
+git add .                   # Stage all changes
+git commit -m "Add feature" # Save a snapshot
+git log                     # View history
+git diff                    # See what changed
+git checkout -- file.py     # Discard changes to a file
+</code></pre>
+<p>Windows Powershell</p>
+<pre><code class="language-powershell">git init                    # Initialize a repository
+git add .                   # Stage all changes
+git commit -m "Add feature" # Save a snapshot
+git log                     # View history
+git diff                    # See what changed
+git restore -- file.py     # Discard changes to a file
+</code></pre>
+<h2 id="canonical-shared-project-contracts"><a class="header" href="#canonical-shared-project-contracts">Canonical Shared Project Contracts</a></h2>
+<h3 id="unit-10-adventure-and-command-line-to-do-projects"><a class="header" href="#unit-10-adventure-and-command-line-to-do-projects">Unit 10: Adventure and command-line to-do projects</a></h3>
+<p>All parallel-language versions must use this exact adventure graph and command set.</p>
+<div class="table-wrapper">
+<table>
+<thead>
+<tr><th>Room</th><th>Exits</th><th>Items / state</th></tr>
+</thead>
+<tbody>
+<tr><td><code>start_room</code></td><td>north → <code>tunnel</code></td><td>shiny key</td></tr>
+<tr><td><code>tunnel</code></td><td>south → <code>start_room</code>; east → <code>clearing</code></td><td>none</td></tr>
+<tr><td><code>clearing</code></td><td>west → <code>tunnel</code>; north → <code>locked_door_room</code></td><td>north exit is blocked until unlocked</td></tr>
+<tr><td><code>locked_door_room</code></td><td>south → <code>clearing</code>; north → <code>treasure_room</code> after unlocking</td><td>locked door</td></tr>
+<tr><td><code>treasure_room</code></td><td>none</td><td>terminal winning room</td></tr>
+</tbody>
+</table>
+</div>
+<p>Commands are <code>north</code>, <code>south</code>, <code>east</code>, <code>west</code>, <code>take shiny key</code>, <code>use shiny key</code>, and <code>quit</code>. The key begins in <code>start_room</code>; the player must take it, travel to <code>locked_door_room</code>, use it there, and then enter <code>treasure_room</code> to win. Invalid movement must not change the current room.</p>
+<p>The CLI to-do manager must store these five fields on every task: <code>id</code>, <code>title</code>, <code>description</code>, <code>done</code>, and <code>created_at</code>. It must support create, list, complete/update, delete, save, and load. Invalid identifiers, empty titles, and malformed persistence data require explicit textual errors.</p>
+<h3 id="unit-11-accessible-personal-data-manager"><a class="header" href="#unit-11-accessible-personal-data-manager">Unit 11: Accessible Personal Data Manager</a></h3>
+<p>The shared capstone record has exactly these fields:</p>
+<pre><code class="language-python">record = {
+    "id": 1,
+    "title": "Programming notes",
+    "description": "Review lists and dictionaries",
+    "category": "Study",
+    "created_at": "2025-01-15T09:00:00Z",
+    "updated_at": "2025-01-15T09:00:00Z",
+}
+</code></pre>
+<p>Required operations are list/display, add, search, update, delete, and JSON save/load. Search is case-insensitive across title, description, and category and must report an empty result set clearly. Updating any field other than the ID must preserve the ID and refresh updated_at using the supplied timestamp. Reject blank titles, duplicate/non-positive IDs, incorrect field types, missing fields, and extra fields. A GUI framework is a Python-specific implementation choice; the data model, operations, textual status/error messages, keyboard access, and acceptance tests are not optional or language-specific.</p>
+<h3 id="academic-integrity-and-ai-policy"><a class="header" href="#academic-integrity-and-ai-policy">Academic integrity and AI policy</a></h3>
+<p>AI tools must not write, complete, autocomplete, repair, or generate course code or assessment solutions. Students may use only instructor-authorized conceptual explanations that do not produce deliverable code. Git and version control remain appropriate topics when taught independently of AI code generation.</p>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                            <a rel="prev" href="../PYTHON/unit10-project-based-learning-building-text-based-applications.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M41.4 233.4c-12.5 12.5-12.5 32.8 0 45.3l160 160c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L109.3 256 246.6 118.6c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0l-160 160z"/></svg></span>
+                            </a>
+
+                            <a rel="next prefetch" href="../RUST/rust_README.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M278.6 233.4c12.5 12.5 12.5 32.8 0 45.3l-160 160c-12.5 12.5-32.8 12.5-45.3 0s-12.5-32.8 0-45.3L210.7 256 73.4 118.6c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0l160 160z"/></svg></span>
+                            </a>
+
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                    <a rel="prev" href="../PYTHON/unit10-project-based-learning-building-text-based-applications.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M41.4 233.4c-12.5 12.5-12.5 32.8 0 45.3l160 160c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L109.3 256 246.6 118.6c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0l-160 160z"/></svg></span>
+                    </a>
+
+                    <a rel="next prefetch" href="../RUST/rust_README.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M278.6 233.4c12.5 12.5 12.5 32.8 0 45.3l-160 160c-12.5 12.5-32.8 12.5-45.3 0s-12.5-32.8 0-45.3L210.7 256 73.4 118.6c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0l160 160z"/></svg></span>
+                    </a>
+            </nav>
+
+        </div>
+
+        <template id=fa-eye><span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M288 32c-80.8 0-145.5 36.8-192.6 80.6C48.6 156 17.3 208 2.5 243.7c-3.3 7.9-3.3 16.7 0 24.6C17.3 304 48.6 356 95.4 399.4C142.5 443.2 207.2 480 288 480s145.5-36.8 192.6-80.6c46.8-43.5 78.1-95.4 93-131.1c3.3-7.9 3.3-16.7 0-24.6c-14.9-35.7-46.2-87.7-93-131.1C433.5 68.8 368.8 32 288 32zM432 256c0 79.5-64.5 144-144 144s-144-64.5-144-144s64.5-144 144-144s144 64.5 144 144zM288 192c0 35.3-28.7 64-64 64c-11.5 0-22.3-3-31.6-8.4c-.2 2.8-.4 5.5-.4 8.4c0 53 43 96 96 96s96-43 96-96s-43-96-96-96c-2.8 0-5.6 .1-8.4 .4c5.3 9.3 8.4 20.1 8.4 31.6z"/></svg></span></template>
+        <template id=fa-eye-slash><span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M38.8 5.1C28.4-3.1 13.3-1.2 5.1 9.2S-1.2 34.7 9.2 42.9l592 464c10.4 8.2 25.5 6.3 33.7-4.1s6.3-25.5-4.1-33.7L525.6 386.7c39.6-40.6 66.4-86.1 79.9-118.4c3.3-7.9 3.3-16.7 0-24.6c-14.9-35.7-46.2-87.7-93-131.1C465.5 68.8 400.8 32 320 32c-68.2 0-125 26.3-169.3 60.8L38.8 5.1zM223.1 149.5C248.6 126.2 282.7 112 320 112c79.5 0 144 64.5 144 144c0 24.9-6.3 48.3-17.4 68.7L408 294.5c5.2-11.8 8-24.8 8-38.5c0-53-43-96-96-96c-2.8 0-5.6 .1-8.4 .4c5.3 9.3 8.4 20.1 8.4 31.6c0 10.2-2.4 19.8-6.6 28.3l-90.3-70.8zm223.1 298L373 389.9c-16.4 6.5-34.3 10.1-53 10.1c-79.5 0-144-64.5-144-144c0-6.9 .5-13.6 1.4-20.2L83.1 161.5C60.3 191.2 44 220.8 34.5 243.7c-3.3 7.9-3.3 16.7 0 24.6c14.9 35.7 46.2 87.7 93 131.1C174.5 443.2 239.2 480 320 480c47.8 0 89.9-12.9 126.2-32.5z"/></svg></span></template>
+        <template id=fa-copy><span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M502.6 70.63l-61.25-61.25C435.4 3.371 427.2 0 418.7 0H255.1c-35.35 0-64 28.66-64 64l.0195 256C192 355.4 220.7 384 256 384h192c35.2 0 64-28.8 64-64V93.25C512 84.77 508.6 76.63 502.6 70.63zM464 320c0 8.836-7.164 16-16 16H255.1c-8.838 0-16-7.164-16-16L239.1 64.13c0-8.836 7.164-16 16-16h128L384 96c0 17.67 14.33 32 32 32h47.1V320zM272 448c0 8.836-7.164 16-16 16H63.1c-8.838 0-16-7.164-16-16L47.98 192.1c0-8.836 7.164-16 16-16H160V128H63.99c-35.35 0-64 28.65-64 64l.0098 256C.002 483.3 28.66 512 64 512h192c35.2 0 64-28.8 64-64v-32h-47.1L272 448z"/></svg></span></template>
+        <template id=fa-play><span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M73 39c-14.8-9.1-33.4-9.4-48.5-.9S0 62.6 0 80V432c0 17.4 9.4 33.4 24.5 41.9s33.7 8.1 48.5-.9L361 297c14.3-8.7 23-24.2 23-41s-8.7-32.2-23-41L73 39z"/></svg></span></template>
+        <template id=fa-clock-rotate-left><span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M75 75L41 41C25.9 25.9 0 36.6 0 57.9V168c0 13.3 10.7 24 24 24H134.1c21.4 0 32.1-25.9 17-41l-30.8-30.8C155 85.5 203 64 256 64c106 0 192 86 192 192s-86 192-192 192c-40.8 0-78.6-12.7-109.7-34.4c-14.5-10.1-34.4-6.6-44.6 7.9s-6.6 34.4 7.9 44.6C151.2 495 201.7 512 256 512c141.4 0 256-114.6 256-256S397.4 0 256 0C185.3 0 121.3 28.7 75 75zm181 53c-13.3 0-24 10.7-24 24V256c0 6.4 2.5 12.5 7 17l72 72c9.4 9.4 24.6 9.4 33.9 0s9.4-24.6 0-33.9l-65-65V152c0-13.3-10.7-24-24-24z"/></svg></span></template>
+
+
+
+        <script>
+            window.playground_copyable = true;
+        </script>
+
+
+        <script src="../elasticlunr-ef4e11c1.min.js"></script>
+        <script src="../mark-09e88c2c.min.js"></script>
+        <script src="../searcher-09f2665d.js"></script>
+
+        <script src="../clipboard-1626706a.min.js"></script>
+        <script src="../highlight-abc7f01d.js"></script>
+        <script src="../book-609e4cb8.js"></script>
+
+        <!-- Custom JS scripts -->
+
+
+
+    </div>
+    </body>
+</html>

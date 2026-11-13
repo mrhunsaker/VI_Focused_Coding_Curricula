@@ -1,0 +1,1706 @@
+<!DOCTYPE HTML>
+<html lang="en" class="rust sidebar-visible" dir="ltr">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>Python Teacher&#x27;s Guide - Accessible Introduction to Computer Science</title>
+
+
+        <!-- Custom HTML head -->
+
+        <meta name="description" content="Introductory programming curricula, each adapted for visually impaired students who use screen readers">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff">
+
+        <link rel="icon" href="../favicon-de23e50b.svg">
+        <link rel="shortcut icon" href="../favicon-8114d1fc.png">
+        <link rel="stylesheet" href="../css/variables-8adf115d.css">
+        <link rel="stylesheet" href="../css/general-e96d0476.css">
+        <link rel="stylesheet" href="../css/chrome-d279d366.css">
+        <link rel="stylesheet" href="../css/print-9e4910d8.css" media="print">
+
+        <!-- Fonts -->
+        <link rel="stylesheet" href="../fonts/fonts-9644e21d.css">
+
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" id="mdbook-highlight-css" href="../highlight-493f70e1.css">
+        <link rel="stylesheet" id="mdbook-tomorrow-night-css" href="../tomorrow-night-4c0ae647.css">
+        <link rel="stylesheet" id="mdbook-ayu-highlight-css" href="../ayu-highlight-3fdfc3ac.css">
+
+        <!-- Custom theme stylesheets -->
+
+
+        <!-- Provide site root and default themes to javascript -->
+        <script>
+            const path_to_root = "../";
+            const default_light_theme = "rust";
+            const default_dark_theme = "navy";
+            window.path_to_searchindex_js = "../searchindex-1d296e4e.js";
+        </script>
+        <!-- Start loading toc.js asap -->
+        <script src="../toc-62d8efca.js"></script>
+    </head>
+    <body>
+    <div id="mdbook-help-container">
+        <div id="mdbook-help-popup">
+            <h2 class="mdbook-help-title">Keyboard shortcuts</h2>
+            <div>
+                <p>Press <kbd>←</kbd> or <kbd>→</kbd> to navigate between chapters</p>
+                <p>Press <kbd>S</kbd> or <kbd>/</kbd> to search in the book</p>
+                <p>Press <kbd>?</kbd> to show this help</p>
+                <p>Press <kbd>Esc</kbd> to hide this help</p>
+            </div>
+        </div>
+    </div>
+    <div id="mdbook-body-container">
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script>
+            try {
+                let theme = localStorage.getItem('mdbook-theme');
+                let sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script>
+            const default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? default_dark_theme : default_light_theme;
+            let theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            const html = document.documentElement;
+            html.classList.remove('rust')
+            html.classList.add(theme);
+            html.classList.add("js");
+        </script>
+
+        <input type="checkbox" id="mdbook-sidebar-toggle-anchor" class="hidden">
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script>
+            let sidebar = null;
+            const sidebar_toggle = document.getElementById("mdbook-sidebar-toggle-anchor");
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            } else {
+                sidebar = 'hidden';
+                sidebar_toggle.checked = false;
+            }
+            if (sidebar === 'visible') {
+                sidebar_toggle.checked = true;
+            } else {
+                html.classList.remove('sidebar-visible');
+            }
+        </script>
+
+        <nav id="mdbook-sidebar" class="sidebar" aria-label="Table of contents">
+            <!-- populated by js -->
+            <mdbook-sidebar-scrollbox class="sidebar-scrollbox"></mdbook-sidebar-scrollbox>
+            <noscript>
+                <iframe class="sidebar-iframe-outer" src="../toc.html"></iframe>
+            </noscript>
+            <div id="mdbook-sidebar-resize-handle" class="sidebar-resize-handle">
+                <div class="sidebar-resize-indicator"></div>
+            </div>
+        </nav>
+
+        <div id="mdbook-page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                <div id="mdbook-menu-bar-hover-placeholder"></div>
+                <div id="mdbook-menu-bar" class="menu-bar sticky">
+                    <div class="left-buttons">
+                        <label id="mdbook-sidebar-toggle" class="icon-button" for="mdbook-sidebar-toggle-anchor" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="mdbook-sidebar">
+                            <span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M0 96C0 78.3 14.3 64 32 64H416c17.7 0 32 14.3 32 32s-14.3 32-32 32H32C14.3 128 0 113.7 0 96zM0 256c0-17.7 14.3-32 32-32H416c17.7 0 32 14.3 32 32s-14.3 32-32 32H32c-17.7 0-32-14.3-32-32zM448 416c0 17.7-14.3 32-32 32H32c-17.7 0-32-14.3-32-32s14.3-32 32-32H416c17.7 0 32 14.3 32 32z"/></svg></span>
+                        </label>
+                        <button id="mdbook-theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="mdbook-theme-list">
+                            <span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M371.3 367.1c27.3-3.9 51.9-19.4 67.2-42.9L600.2 74.1c12.6-19.5 9.4-45.3-7.6-61.2S549.7-4.4 531.1 9.6L294.4 187.2c-24 18-38.2 46.1-38.4 76.1L371.3 367.1zm-19.6 25.4l-116-104.4C175.9 290.3 128 339.6 128 400c0 3.9 .2 7.8 .6 11.6c1.8 17.5-10.2 36.4-27.8 36.4H96c-17.7 0-32 14.3-32 32s14.3 32 32 32H240c61.9 0 112-50.1 112-112c0-2.5-.1-5-.2-7.5z"/></svg></span>
+                        </button>
+                        <ul id="mdbook-theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="mdbook-theme-default_theme">Auto</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="mdbook-theme-light">Light</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="mdbook-theme-rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="mdbook-theme-coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="mdbook-theme-navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="mdbook-theme-ayu">Ayu</button></li>
+                        </ul>
+                        <button id="mdbook-search-toggle" class="icon-button" type="button" title="Search (`/`)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="/ s" aria-controls="mdbook-searchbar">
+                            <span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M416 208c0 45.9-14.9 88.3-40 122.7L502.6 457.4c12.5 12.5 12.5 32.8 0 45.3s-32.8 12.5-45.3 0L330.7 376c-34.4 25.2-76.8 40-122.7 40C93.1 416 0 322.9 0 208S93.1 0 208 0S416 93.1 416 208zM208 352c79.5 0 144-64.5 144-144s-64.5-144-144-144S64 128.5 64 208s64.5 144 144 144z"/></svg></span>
+                        </button>
+                    </div>
+
+                    <h1 class="menu-title">Accessible Introduction to Computer Science</h1>
+
+                    <div class="right-buttons">
+                        <a href="../print.html" title="Print this book" aria-label="Print this book">
+                            <span class=fa-svg id="print-button"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M128 0C92.7 0 64 28.7 64 64v96h64V64H354.7L384 93.3V160h64V93.3c0-17-6.7-33.3-18.7-45.3L400 18.7C388 6.7 371.7 0 354.7 0H128zM384 352v32 64H128V384 368 352H384zm64 32h32c17.7 0 32-14.3 32-32V256c0-35.3-28.7-64-64-64H64c-35.3 0-64 28.7-64 64v96c0 17.7 14.3 32 32 32H64v64c0 35.3 28.7 64 64 64H384c35.3 0 64-28.7 64-64V384zm-16-88c-13.3 0-24-10.7-24-24s10.7-24 24-24s24 10.7 24 24s-10.7 24-24 24z"/></svg></span>
+                        </a>
+                        <a href="https://github.com/mrhunsaker/VI_Focused_Coding_Curricula" title="Git repository" aria-label="Git repository">
+                            <span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"/></svg></span>
+                        </a>
+
+                    </div>
+                </div>
+
+                <div id="mdbook-search-wrapper" class="hidden">
+                    <form id="mdbook-searchbar-outer" class="searchbar-outer">
+                        <div class="search-wrapper">
+                            <input type="search" id="mdbook-searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="mdbook-searchresults-outer" aria-describedby="searchresults-header">
+                            <div class="spinner-wrapper">
+                                <span class=fa-svg id="fa-spin"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M304 48c0-26.5-21.5-48-48-48s-48 21.5-48 48s21.5 48 48 48s48-21.5 48-48zm0 416c0-26.5-21.5-48-48-48s-48 21.5-48 48s21.5 48 48 48s48-21.5 48-48zM48 304c26.5 0 48-21.5 48-48s-21.5-48-48-48s-48 21.5-48 48s21.5 48 48 48zm464-48c0-26.5-21.5-48-48-48s-48 21.5-48 48s21.5 48 48 48s48-21.5 48-48zM142.9 437c18.7-18.7 18.7-49.1 0-67.9s-49.1-18.7-67.9 0s-18.7 49.1 0 67.9s49.1 18.7 67.9 0zm0-294.2c18.7-18.7 18.7-49.1 0-67.9S93.7 56.2 75 75s-18.7 49.1 0 67.9s49.1 18.7 67.9 0zM369.1 437c18.7 18.7 49.1 18.7 67.9 0s18.7-49.1 0-67.9s-49.1-18.7-67.9 0s-18.7 49.1 0 67.9z"/></svg></span>
+                            </div>
+                        </div>
+                    </form>
+                    <div id="mdbook-searchresults-outer" class="searchresults-outer hidden">
+                        <div id="mdbook-searchresults-header" class="searchresults-header"></div>
+                        <ul id="mdbook-searchresults">
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script>
+                    document.getElementById('mdbook-sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('mdbook-sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#mdbook-sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="mdbook-content" class="content">
+                    <main>
+                        <h1 id="teachers-guide-introduction-to-computer-science-with-python"><a class="header" href="#teachers-guide-introduction-to-computer-science-with-python">Teacher’s Guide: Introduction to Computer Science with Python</a></h1>
+<h2 id="for-students-with-visual-impairments--complete-instructor-edition"><a class="header" href="#for-students-with-visual-impairments--complete-instructor-edition">For Students with Visual Impairments — Complete Instructor Edition</a></h2>
+<h2 id="how-to-use-this-teachers-guide"><a class="header" href="#how-to-use-this-teachers-guide">How to use this teacher’s guide</a></h2>
+<p>This guide is a companion for instructors, not a script that must be followed word for word. Read the philosophy, learner-context, and technology sections before the first lesson; use the unit notes while planning; and return to the assessment, differentiation, AI, and quick-reference sections throughout the course. Adapt procedures to the learner’s actual assistive technology, operating system, course goals, and prior experience. Confirm tool-specific instructions in current official documentation because editor, screen-reader, and runtime behavior changes over time.</p>
+<p>Plan for both programming learning and access to the programming environment. Establish what the student can already do independently, what access skills need instruction, what supports are already in place, and how the learner prefers to receive feedback. Never assume a diagnosis predicts a student’s preferred tools or level of independence.</p>
+<hr>
+<h2 id="python-312-baseline-and-current-conventions"><a class="header" href="#python-312-baseline-and-current-conventions">Python 3.12+ baseline and current conventions</a></h2>
+<p>The learner materials target <strong>Python 3.12 and newer</strong>. Python 3.15.2 is the current stable release as of October 30, 2026, while 3.12 is the minimum compatibility floor. Teach and assess against 3.12-compatible syntax and standard-library APIs unless a lesson explicitly identifies a newer feature. Do not require prerelease builds or features introduced after 3.12.</p>
+<p>Model current conventions consistently:</p>
+<ul>
+<li>Follow PEP 8 naming and layout: four-space indentation, snake_case functions/variables, PascalCase classes, UPPER_SNAKE_CASE constants, readable imports, and short logical lines. A strict 79-character limit is a guideline, not a reason to create awkward wrapping; preserve clarity and accessible reading order.</li>
+<li>Prefer built-in collection annotations (list[str], dict[str, int]) over legacy typing.List/Dict in new Python 3.12+ examples. Annotate function inputs and return values when it clarifies the contract; explain that annotations do not enforce runtime types by themselves.</li>
+<li>Use f-strings for interpolation, pathlib.Path for paths, context managers (with) for files, and explicit main guards for runnable modules.</li>
+<li>Use specific exception types, avoid bare except, avoid mutable default arguments, and compare absence with is None.</li>
+<li>Use uv to create project environments and manage dependencies: uv init –python 3.12, uv add package, and uv run command. Commit uv.lock for shared projects. Do not install course dependencies with global pip.</li>
+<li>Introduce Ruff for linting/formatting and pytest for tests only after learners understand the underlying Python and standard-library workflow. Do not make either tool a prerequisite for basic lessons.</li>
+</ul>
+<h3 id="table-of-contents"><a class="header" href="#table-of-contents">Table of Contents</a></h3>
+<ol>
+<li><a href="#1-philosophy-and-foundational-principles">Philosophy and Foundational Principles</a></li>
+<li><a href="#2-understanding-your-students">Understanding Your Students</a></li>
+<li><a href="#3-classroom-setup-and-technology-configuration">Classroom Setup and Technology Configuration</a></li>
+<li><a href="#4-universal-spoken-code-conventions">Universal Spoken Code Conventions</a></li>
+<li><a href="#5-unit-0--setup-and-environment">Unit 0 — Setup and Environment</a></li>
+<li><a href="#6-unit-1--foundations-and-getting-started">Unit 1 — Foundations and Getting Started</a></li>
+<li><a href="#7-unit-2--numeric-computations-and-io">Unit 2 — Numeric Computations and I/O</a></li>
+<li><a href="#8-unit-3--control-flow-decisions-and-loops">Unit 3 — Control Flow, Decisions, and Loops</a></li>
+<li><a href="#9-unit-4--data-structures-lists-and-dictionaries">Unit 4 — Data Structures: Lists and Dictionaries</a></li>
+<li><a href="#10-unit-5--user-input-and-while-loops">Unit 5 — User Input and While Loops</a></li>
+<li><a href="#11-unit-6--functions">Unit 6 — Functions</a></li>
+<li><a href="#12-unit-7--classes-and-object-oriented-programming">Unit 7 — Classes and Object-Oriented Programming</a></li>
+<li><a href="#13-unit-8--files-and-exceptions">Unit 8 — Files and Exceptions</a></li>
+<li><a href="#14-unit-9--testing-and-data-analysis">Unit 9 — Testing and Data Analysis</a></li>
+<li><a href="#15-unit-10--project-based-learning">Unit 10 — Project-Based Learning</a></li>
+<li><a href="#16-unit-11--capstone-project">Unit 11 — Capstone Project</a></li>
+<li><a href="#17-assessment-strategies">Assessment Strategies</a></li>
+<li><a href="#18-supporting-diverse-needs-within-the-visually-impaired-population">Supporting Diverse Needs Within the Visually Impaired Population</a></li>
+<li><a href="#19-teaching-ai-tools-responsibly">Teaching AI Tools Responsibly</a></li>
+<li><a href="#20-alternative-and-supplementary-resources">Alternative and Supplementary Resources</a></li>
+<li><a href="#21-quick-reference-sheets">Quick Reference Sheets</a></li>
+<li><a href="#22-comprehensive-instructional-planning-and-course-implementation">Comprehensive Instructional Planning and Course Implementation</a></li>
+</ol>
+<hr>
+<h2 id="1-philosophy-and-foundational-principles"><a class="header" href="#1-philosophy-and-foundational-principles">1. Philosophy and Foundational Principles</a></h2>
+<h3 id="why-python-for-blind-students"><a class="header" href="#why-python-for-blind-students">Why Python for Blind Students?</a></h3>
+<p>Python is widely recognized as one of the most accessible first programming languages for visually impaired learners for several concrete reasons:</p>
+<ul>
+<li><strong>Text-based I/O is the default.</strong> Unlike languages that push beginners toward GUI frameworks or graphical plotting, Python’s most natural outputs are plain text to the terminal — fully accessible to any screen reader.</li>
+<li><strong>Indentation enforces structure.</strong> While indentation introduces a learning challenge (addressed in detail below), it also means that code read aloud by a screen reader carries structural meaning in the form of announced indent levels — something curly-brace languages do not provide.</li>
+<li><strong>Error messages are descriptive.</strong> Python’s tracebacks include the file name, line number, error type, and a message. A screen reader user can navigate directly to the problem without visual scanning.</li>
+<li><strong>The standard library is enormous.</strong> Python ships with modules for file I/O, JSON, math, random numbers, CSV parsing, unit testing, and more — reducing the complexity of dependency management in a learning context.</li>
+<li><strong>The REPL is an accessible sandbox.</strong> Python’s interactive interpreter provides immediate spoken feedback for any expression, enabling rapid experimentation without the overhead of creating and running files.</li>
+</ul>
+<h3 id="core-pedagogical-commitments"><a class="header" href="#core-pedagogical-commitments">Core Pedagogical Commitments</a></h3>
+<p><strong>Commit to ears-first instruction.</strong> Every demonstration, every example, every debugging session should be conducted as if the teacher is also using a screen reader. Ask yourself before every lesson: “If I could not see the screen, how would I know what was happening right now?” If the answer is unclear, redesign the demonstration.</p>
+<p><strong>Commit to explicit navigation.</strong> Sighted students can glance at code and immediately locate structures. Blind students must navigate deliberately using keyboard shortcuts and screen reader commands. Teach navigation skills as primary content, not auxiliary support.</p>
+<p><strong>Commit to verbal precision.</strong> Vague instructions like “look at the next line” or “you can see here that…” create invisible barriers. Replace all visual language with navigation language: “Move down two lines,” “Jump to line 14 with Ctrl+G,” “Navigate to the end of the file with Ctrl+End.”</p>
+<p><strong>Commit to error-positive culture.</strong> For a sighted student, an error is a red underline they can ignore or address at leisure. For a screen reader user, an unaddressed error is noise that clutters the output of every subsequent navigation. Treat errors as immediate priorities and build the habit of reading and resolving them before moving on.</p>
+<p><strong>Commit to redundancy.</strong> Provide concepts in multiple formats — spoken explanation, written pseudocode, physical analogy, and code. Blind students cannot fall back on visual re-reading; redundant representation builds retention.</p>
+<hr>
+<h2 id="2-understanding-your-students"><a class="header" href="#2-understanding-your-students">2. Understanding Your Students</a></h2>
+<h3 id="the-heterogeneity-of-visual-impairment"><a class="header" href="#the-heterogeneity-of-visual-impairment">The Heterogeneity of Visual Impairment</a></h3>
+<p>“Visually impaired” encompasses a wide spectrum. Your students may include:</p>
+<div class="table-wrapper">
+<table>
+<thead>
+<tr><th>Profile</th><th>Implications for Teaching</th></tr>
+</thead>
+<tbody>
+<tr><td><strong>Congenitally blind</strong> (blind from birth)</td><td>May have no visual spatial metaphors. Analogies must be tactile, auditory, or conceptual. May be faster with screen readers from years of experience.</td></tr>
+<tr><td><strong>Late-onset blindness</strong> (lost vision after sighted years)</td><td>May retain strong visual mental models. Can use these as bridges but should not be required to. May still be learning screen reader skills.</td></tr>
+<tr><td><strong>Low vision</strong> (functional but impaired vision)</td><td>May use a combination of magnification and screen reading. May be able to see some screen content but cannot rely on fine detail. Do not assume screen-only or vision-only.</td></tr>
+<tr><td><strong>Color blindness</strong></td><td>Primarily relevant for syntax highlighting. Ensure themes are not relied upon for meaning.</td></tr>
+<tr><td><strong>Progressive conditions</strong></td><td>Vision may change during the course. Build habits that remain useful at any level of vision.</td></tr>
+</tbody>
+</table>
+</div>
+<p>Never assume a student’s profile without asking. Some students are private about their diagnoses; frame questions around what tools they use and what works best, not what their condition is.</p>
+<h3 id="screen-reader-literacy-varies"><a class="header" href="#screen-reader-literacy-varies">Screen Reader Literacy Varies</a></h3>
+<p>Some students arrive with years of fluent screen reader experience. Others are relatively new to their screen reader and may still be developing efficiency. Assess screen reader fluency separately from programming aptitude — a student who struggles to navigate a file is not struggling with Python; they need more time with their tool.</p>
+<p>Suggest that students spend time with their screen reader in non-programming contexts (browsing documentation, reading formatted text) before or alongside the first programming units.</p>
+<h3 id="braille-display-users"><a class="header" href="#braille-display-users">Braille Display Users</a></h3>
+<p>Some students use a refreshable braille display in addition to or instead of audio output. Key considerations:</p>
+<ul>
+<li>Braille displays have limited width (typically 40 or 80 cells). Long lines of code may need to be panned across. Encourage keeping line length under 79 characters (PEP 8 standard) for this reason.</li>
+<li>Code rendered in braille uses Grade 1 (uncontracted) braille because contractions would misrepresent code characters. Confirm this setting is active.</li>
+<li>Navigation with a braille display typically involves routing cursor buttons — physical buttons above each braille cell that move the cursor to that position. Students using these may navigate differently than audio-only users.</li>
+<li>Braille display users often prefer lower verbosity audio output since they read braille silently. Do not require audio announcements as the only feedback mechanism.</li>
+</ul>
+<h3 id="students-who-are-also-deaf-blind"><a class="header" href="#students-who-are-also-deaf-blind">Students Who Are Also Deaf-Blind</a></h3>
+<p>Students who are deaf-blind rely exclusively on braille for all information. Audio feedback from the screen reader is not available. Considerations:</p>
+<ul>
+<li>All instructional communication must be via tactile means, text-based communication, or tactile sign language interpreters.</li>
+<li>Braille output of code is the primary interface. Pay special attention to line length and symbol representation.</li>
+<li>Terminal output must be navigable via braille display — avoid programs that produce output faster than a braille display can be read.</li>
+<li>Refer to specialists in deaf-blind education for specific accommodation strategies beyond the scope of this guide.</li>
+</ul>
+<hr>
+<h2 id="3-classroom-setup-and-technology-configuration"><a class="header" href="#3-classroom-setup-and-technology-configuration">3. Classroom Setup and Technology Configuration</a></h2>
+<h3 id="physical-environment"><a class="header" href="#physical-environment">Physical Environment</a></h3>
+<ul>
+<li>Ensure the student’s workstation does not have excessive background noise that interferes with screen reader audio. Headphones are often preferable in a shared classroom.</li>
+<li>Position the workstation so the teacher can sit beside (not in front of) the student, allowing them to listen to the screen reader output together.</li>
+<li>If a classroom assistant or orientation and mobility specialist is present, coordinate roles in advance. The programming teacher leads on programming content; the VI specialist leads on accessibility tool configuration.</li>
+</ul>
+<h3 id="vs-code--theia-ide-configuration-checklist"><a class="header" href="#vs-code--theia-ide-configuration-checklist">VS Code / Theia IDE Configuration Checklist</a></h3>
+<p>Work through the equivalent accessibility and language-support settings with the student on day one. VS Code-specific setting names and shortcuts may differ in Theia; confirm each workflow with the learner’s screen reader.</p>
+<p><strong>Screen Reader</strong></p>
+<ul>
+<li>
+<ul>
+<li><input disabled="" type="checkbox"> Screen Reader Optimized Mode ON (Ctrl+Shift+P -&gt; Toggle Screen Reader Optimized)</li>
+</ul>
+</li>
+<li>
+<ul>
+<li><input disabled="" type="checkbox"> Accessibility help panel reviewed (Shift+Alt+F1)</li>
+</ul>
+</li>
+</ul>
+<p><strong>Editor Settings (Ctrl+,)</strong></p>
+<ul>
+<li>
+<ul>
+<li><input disabled="" type="checkbox"> editor.lineNumbers = “on”</li>
+</ul>
+</li>
+<li>
+<ul>
+<li><input disabled="" type="checkbox"> editor.renderWhitespace = “all” or “boundary”</li>
+</ul>
+</li>
+<li>
+<ul>
+<li><input disabled="" type="checkbox"> editor.wordWrap = “on” (for long lines)</li>
+</ul>
+</li>
+<li>
+<ul>
+<li><input disabled="" type="checkbox"> workbench.reduceMotion = “on” (reduces distracting animations)</li>
+</ul>
+</li>
+<li>
+<ul>
+<li><input disabled="" type="checkbox"> editor.tabSize = 4</li>
+</ul>
+</li>
+<li>
+<ul>
+<li><input disabled="" type="checkbox"> editor.insertSpaces = true (spaces not tabs for Python)</li>
+</ul>
+</li>
+</ul>
+<p><strong>Screen Reader Indentation (in screen reader settings, not VS Code)</strong></p>
+<ul>
+<li>
+<ul>
+<li><input disabled="" type="checkbox"> NVDA: Document Formatting -&gt; Indentation -&gt; “Say all” or “Beeps”</li>
+</ul>
+</li>
+<li>
+<ul>
+<li><input disabled="" type="checkbox"> JAWS: Configure speech for VS Code environment</li>
+</ul>
+</li>
+<li>
+<ul>
+<li><input disabled="" type="checkbox"> VoiceOver: Verbosity -&gt; Text -&gt; announce indentation</li>
+</ul>
+</li>
+<li>
+<ul>
+<li><input disabled="" type="checkbox"> Narrator: No built-in indent announcement; use Beep plugin or extension</li>
+</ul>
+</li>
+</ul>
+<p><strong>Extensions Installed</strong></p>
+<ul>
+<li>
+<ul>
+<li><input disabled="" type="checkbox"> Python (Microsoft)</li>
+</ul>
+</li>
+<li>
+<ul>
+<li><input disabled="" type="checkbox"> Pylance</li>
+</ul>
+</li>
+<li>
+<ul>
+<li><input disabled="" type="checkbox"> Python Indent (for consistent auto-indentation)</li>
+</ul>
+</li>
+<li>
+<ul>
+<li><input disabled="" type="checkbox"> GitLens or Git Graph (for version control visibility)</li>
+</ul>
+</li>
+<li>
+<ul>
+<li><input disabled="" type="checkbox"> Error Lens (inline error annotations — screen-reader-readable)</li>
+</ul>
+</li>
+</ul>
+<p><strong>Keyboard Shortcuts Practiced</strong></p>
+<ul>
+<li>
+<ul>
+<li><input disabled="" type="checkbox"> Ctrl+G — Go to line</li>
+</ul>
+</li>
+<li>
+<ul>
+<li><input disabled="" type="checkbox"> F8 — Next error</li>
+</ul>
+</li>
+<li>
+<ul>
+<li><input disabled="" type="checkbox"> Shift+F8 — Previous error</li>
+</ul>
+</li>
+<li>
+<ul>
+<li><input disabled="" type="checkbox"> Ctrl+Shift+M — Problems panel</li>
+</ul>
+</li>
+<li>
+<ul>
+<li><input disabled="" type="checkbox"> Shift+Alt+F2 — Accessible View</li>
+</ul>
+</li>
+<li>
+<ul>
+<li><input disabled="" type="checkbox"> Ctrl+Shift+P — Command Palette</li>
+</ul>
+</li>
+<li>
+<ul>
+<li><input disabled="" type="checkbox"> Ctrl+` — Toggle terminal</li>
+</ul>
+</li>
+<li>
+<ul>
+<li><input disabled="" type="checkbox"> Ctrl+Shift+E — Explorer</li>
+</ul>
+</li>
+<li>
+<ul>
+<li><input disabled="" type="checkbox"> Ctrl+Shift+O — Go to symbol (function/class navigation)</li>
+</ul>
+</li>
+<li>
+<ul>
+<li><input disabled="" type="checkbox"> Alt+F12 — Peek Definition</li>
+</ul>
+</li>
+<li>
+<ul>
+<li><input disabled="" type="checkbox"> F12 — Go to Definition</li>
+</ul>
+</li>
+<li>
+<ul>
+<li><input disabled="" type="checkbox"> Shift+F12 — Find all References</li>
+</ul>
+</li>
+</ul>
+<h3 id="terminal-configuration"><a class="header" href="#terminal-configuration">Terminal Configuration</a></h3>
+<ul>
+<li><strong>Windows Terminal</strong> (preferred over legacy cmd.exe on Windows) has better accessibility with NVDA and JAWS.</li>
+<li><strong>NVDA + Windows Terminal:</strong> Enable “Use UI Automation” in NVDA settings for better terminal reading.</li>
+<li><strong>VoiceOver + macOS Terminal:</strong> Works well by default. Use <code>VO+Shift+Down</code> to interact with terminal content.</li>
+<li><strong>Orca + Linux terminal:</strong> Orca reads terminal output well. Use <code>Orca+T</code> (flat review) to re-read recent output.</li>
+<li>Configure the terminal font to a monospace font at a size comfortable for any residual vision.</li>
+</ul>
+<h3 id="python-project-environment-setup-with-uv"><a class="header" href="#python-project-environment-setup-with-uv">Python Project Environment Setup with uv</a></h3>
+<p>Use <code>uv</code> as the standard environment and dependency manager. It creates a project-local <code>.venv</code>, resolves dependencies, and runs commands in that environment. Manual activation is not required; use <code>uv run</code> so the correct interpreter and dependencies are selected.</p>
+<p>macOS and Linux:</p>
+<pre><code class="language-bash">uv init --python 3.12
+uv add requests
+uv run python --version
+uv tree
+</code></pre>
+<p>Windows Powershell</p>
+<pre><code class="language-powershell">uv init --python 3.12
+uv add requests
+uv run python --version
+uv tree
+</code></pre>
+<p>For an existing project, use <code>uv sync</code> to install the dependencies recorded in <code>pyproject.toml</code> and <code>uv.lock</code>. Do not install course packages with global pip.</p>
+<p>Consider creating a startup script (<code>start.bat</code> on Windows, <code>start.sh</code> on macOS/Linux) that opens VS Code or Theia IDE in the project folder. Use uv run for Python commands. Students can run one command to get their environment ready, reducing setup cognitive load.</p>
+<hr>
+<h2 id="4-universal-spoken-code-conventions"><a class="header" href="#4-universal-spoken-code-conventions">4. Universal Spoken Code Conventions</a></h2>
+<p>Establish this vocabulary on the first day and reinforce it consistently. When a student is reading code aloud (for debugging, peer review, or just narrating their work), they should use these terms without hesitation.</p>
+<h3 id="symbol-pronunciation-table"><a class="header" href="#symbol-pronunciation-table">Symbol Pronunciation Table</a></h3>
+<div class="table-wrapper">
+<table>
+<thead>
+<tr><th>Written Symbol</th><th>Spoken Form</th><th>Notes</th></tr>
+</thead>
+<tbody>
+<tr><td><code>=</code></td><td>“gets”</td><td>Assignment only</td></tr>
+<tr><td><code>==</code></td><td>“equals equals” or “is equal to”</td><td>Comparison</td></tr>
+<tr><td><code>!=</code></td><td>“not equal to” or “bang equals”</td><td></td></tr>
+<tr><td><code>&gt;=</code></td><td>“greater than or equal to”</td><td></td></tr>
+<tr><td><code>&lt;=</code></td><td>“less than or equal to”</td><td></td></tr>
+<tr><td><code>&gt;</code></td><td>“greater than”</td><td></td></tr>
+<tr><td><code>&lt;</code></td><td>“less than”</td><td></td></tr>
+<tr><td><code>+=</code></td><td>“plus equals” or “add and assign”</td><td></td></tr>
+<tr><td><code>-=</code></td><td>“minus equals”</td><td></td></tr>
+<tr><td><code>*=</code></td><td>“times equals”</td><td></td></tr>
+<tr><td><code>**</code></td><td>“to the power of” or “double star”</td><td></td></tr>
+<tr><td><code>//</code></td><td>“floor divide” or “integer divide”</td><td></td></tr>
+<tr><td><code>%</code></td><td>“modulo” or “remainder”</td><td></td></tr>
+<tr><td><code>()</code></td><td>“open paren … close paren”</td><td>Always say both</td></tr>
+<tr><td><code>[]</code></td><td>“open bracket … close bracket”</td><td></td></tr>
+<tr><td><code>{}</code></td><td>“open brace … close brace”</td><td></td></tr>
+<tr><td><code>:</code></td><td>“colon”</td><td>End of if/for/def/class line</td></tr>
+<tr><td><code>"text"</code></td><td>“quote text quote”</td><td></td></tr>
+<tr><td><code>'text'</code></td><td>“single-quote text single-quote”</td><td></td></tr>
+<tr><td><code>f"..."</code></td><td>“f-string”</td><td>Mention the f prefix</td></tr>
+<tr><td><code>{var}</code> inside f-string</td><td>“open brace var close brace”</td><td></td></tr>
+<tr><td><code>#</code></td><td>“hash”</td><td>Followed by comment text</td></tr>
+<tr><td><code>\n</code></td><td>“backslash n” or “newline”</td><td></td></tr>
+<tr><td><code>\t</code></td><td>“backslash t” or “tab”</td><td></td></tr>
+<tr><td><code>_</code></td><td>“underscore”</td><td>In names: “my underscore name”</td></tr>
+<tr><td><code>__init__</code></td><td>“dunder init”</td><td>Double-underscore methods</td></tr>
+<tr><td><code>__str__</code></td><td>“dunder str”</td><td></td></tr>
+<tr><td><code>.</code></td><td>“dot”</td><td>In <code>math.sqrt</code>, say “math dot sqrt”</td></tr>
+<tr><td><code>-&gt;</code></td><td>“arrow”</td><td>Type hints</td></tr>
+<tr><td><code>*args</code></td><td>“star args”</td><td></td></tr>
+<tr><td><code>**kwargs</code></td><td>“double-star kwargs”</td><td></td></tr>
+<tr><td><code>None</code></td><td>“None” (capital N)</td><td>Distinct from the word “none”</td></tr>
+<tr><td><code>True</code> / <code>False</code></td><td>“True” / “False” (capital)</td><td></td></tr>
+<tr><td><code>import</code></td><td>“import”</td><td></td></tr>
+<tr><td><code>from x import y</code></td><td>“from x import y”</td><td>Read as English sentence</td></tr>
+</tbody>
+</table>
+</div>
+<h3 id="reading-a-line-of-code-aloud"><a class="header" href="#reading-a-line-of-code-aloud">Reading a Line of Code Aloud</a></h3>
+<p>Teach students to read full lines this way, left to right, then explain:</p>
+<pre><code class="language-python">total_price = unit_price * quantity + tax
+</code></pre>
+<p><em>“total underscore price gets unit underscore price times quantity plus tax”</em></p>
+<p>Then explain: <em>“This line calculates the total price by multiplying the unit price by the quantity, then adding tax, and stores the result in total_price.”</em></p>
+<p>The two-pass approach — first read the symbols, then explain the meaning — builds both syntax recognition and semantic understanding.</p>
+<hr>
+<h2 id="5-unit-0--setup-and-environment"><a class="header" href="#5-unit-0--setup-and-environment">5. Unit 0 — Setup and Environment</a></h2>
+<h3 id="lesson-01-installing-python-and-vs-code"><a class="header" href="#lesson-01-installing-python-and-vs-code">Lesson 0.1: Installing Python and VS Code</a></h3>
+<h4 id="before-this-lesson"><a class="header" href="#before-this-lesson">Before This Lesson</a></h4>
+<p>Survey the student’s current technology setup:</p>
+<ul>
+<li>What screen reader do they use, and what version?</li>
+<li>Do they use a braille display?</li>
+<li>What operating system?</li>
+<li>Have they used a terminal before?</li>
+<li>Do they have administrator access to their computer?</li>
+</ul>
+<p>Confirm administrator access before scheduling this lesson. Installation without admin rights will fail.</p>
+<h4 id="instructional-cues"><a class="header" href="#instructional-cues">Instructional Cues</a></h4>
+<p>Walk through every installer step verbally as the student performs it. Do not say “click the next button” — say “Tab until you hear ‘Next button,’ then press Enter.” Treat this as teaching screen reader navigation, not just software installation.</p>
+<p><strong>Critical checkpoint — PATH configuration:</strong>
+After installation, before anything else: <code>python3 --version</code>. If this fails, stop and address the PATH issue before proceeding. A student who continues without Python on PATH will encounter mysterious failures throughout the course.</p>
+<h4 id="non-obvious-accessibility-strategies"><a class="header" href="#non-obvious-accessibility-strategies">Non-Obvious Accessibility Strategies</a></h4>
+<ul>
+<li><strong>Windows Defender SmartScreen:</strong> On Windows, running a downloaded <code>.exe</code> from Python.org may trigger a SmartScreen dialog. This dialog can be navigated with Tab and Enter but is not always announced immediately by NVDA. Tell the student what to expect before they run the installer.</li>
+<li><strong>macOS Gatekeeper:</strong> Downloaded packages may require right-click -&gt; Open to bypass security. On a screen reader, right-click is VO+Shift+M (VoiceOver) or App Key (NVDA with keyboard access).</li>
+<li><strong>Linux package managers as an alternative:</strong> For Linux students, <code>sudo apt install python3 curl</code> is often more reliable than the Python.org download and is fully scriptable.</li>
+<li><strong>Portable Python for school computers:</strong> Some schools restrict software installation. Python.org offers portable/embeddable distributions. Replit.com is a web-based Python IDE that requires no installation and is reasonably accessible.</li>
+</ul>
+<h4 id="alternative-installation-methods"><a class="header" href="#alternative-installation-methods">Alternative Installation Methods</a></h4>
+<div class="table-wrapper">
+<table>
+<thead>
+<tr><th>Method</th><th>Accessibility</th><th>Best For</th></tr>
+</thead>
+<tbody>
+<tr><td>Python.org installer</td><td>High — standard dialog flow</td><td>Most installations</td></tr>
+<tr><td>Chocolatey (Windows)</td><td>High — command-line, screen-reader friendly</td><td>Windows power users</td></tr>
+<tr><td>Homebrew (macOS)</td><td>High — command-line</td><td>macOS users comfortable with terminal</td></tr>
+<tr><td>apt/dnf/pacman (Linux)</td><td>High — command-line</td><td>Linux users</td></tr>
+<tr><td>Replit.com</td><td>Medium — web-based, some accessibility gaps</td><td>No local install possible</td></tr>
+<tr><td>Theia IDE</td><td>Verify with learner’s screen reader</td><td>VS Code alternative with similar keyboard workflows</td></tr>
+<tr><td>Thonny IDE</td><td>Medium — simpler UI, bundled Python</td><td>Beginners who struggle with VS Code</td></tr>
+</tbody>
+</table>
+</div>
+<p><strong>On Thonny:</strong> Thonny is a Python IDE specifically designed for beginners. It has a simpler interface than VS Code and is sometimes more accessible for students who are new to both screen readers and programming. The trade-off is fewer advanced accessibility features long-term. Consider Thonny for the first 2–3 lessons to reduce setup burden, then migrate to VS Code or Theia IDE.</p>
+<h4 id="thought-experiments"><a class="header" href="#thought-experiments">Thought Experiments</a></h4>
+<ol>
+<li>
+<p><em>“Why do you think the Python installer has a checkbox called ‘Add Python to PATH’? What is a PATH, and what would happen if Python weren’t on it? Think about it like a phonebook — your operating system looks up programs by name. If Python isn’t in the phonebook, what happens when you type <code>python3</code>?”</em></p>
+</li>
+<li>
+<p><em>“We’re installing two things: Python and VS Code. What role does each one play? If you had only Python and no VS Code, could you still write programs? How? What would you lose?”</em></p>
+</li>
+<li>
+<p><em>“Virtual environments keep each project’s dependencies separate. Imagine two school projects — one requiring a specific edition of a textbook that contradicts the edition another class uses. What would happen if you tried to use both editions at the same time? How does a virtual environment solve the programming equivalent of this problem?”</em></p>
+</li>
+<li>
+<p><em>“Why do we verify every installation immediately after completing it? What could go wrong between downloading something and confirming it works? Name three things that could silently fail.”</em></p>
+</li>
+</ol>
+<hr>
+<h3 id="lesson-02-configuring-your-screen-reader-for-vs-code"><a class="header" href="#lesson-02-configuring-your-screen-reader-for-vs-code">Lesson 0.2: Configuring Your Screen Reader for VS Code</a></h3>
+<h4 id="instructional-cues-1"><a class="header" href="#instructional-cues-1">Instructional Cues</a></h4>
+<p>Before showing any configuration screens, do an unguided exploration: “Open VS Code or Theia IDE, navigate around with only your keyboard and screen reader, and come back in ten minutes. Tell me what you found, what worked, what was confusing.” This builds genuine familiarity and identifies that student’s specific challenges.</p>
+<p>Map each configuration step to a problem the student already identified. This makes the configuration feel purposeful rather than arbitrary.</p>
+<h4 id="screen-reader-specific-guidance"><a class="header" href="#screen-reader-specific-guidance">Screen Reader Specific Guidance</a></h4>
+<p><strong>NVDA users:</strong></p>
+<ul>
+<li>Enable “Use UI Automation to access VS Code” in NVDA preferences (Tools -&gt; Manage Plugins, or via NVDA+N -&gt; Preferences -&gt; Settings -&gt; Advanced -&gt; Use UI Automation where available). This dramatically improves reading accuracy in VS Code.</li>
+<li>Set “Report dynamic content changes” to “All” to hear error highlights and IntelliSense popups.</li>
+<li>Configure Browse Mode to be OFF by default in VS Code — programming requires forms mode (interactive mode) at all times.</li>
+<li>Speech rate: many experienced NVDA users run at 70–90% of maximum speed. For new students, 40–60% allows better comprehension of code read aloud.</li>
+</ul>
+<p><strong>JAWS users:</strong></p>
+<ul>
+<li>JAWS has VS Code-specific scripts maintained by the JAWS community. Check <code>FreedomScientific.com</code> and GitHub for the latest VS Code JAWS scripts.</li>
+<li>PlaceMarkers in JAWS can mark frequently visited locations in a file — teach <code>Ctrl+Win+K</code> to set and <code>Ctrl+Win+J</code> to jump.</li>
+<li>JAWS Verbosity settings: set “Announce line numbers” to ON for code files.</li>
+</ul>
+<p><strong>VoiceOver (macOS) users:</strong></p>
+<ul>
+<li>VoiceOver interacts with VS Code via the macOS Accessibility API. Ensure VS Code is not run with elevated permissions (which can break accessibility API access).</li>
+<li>Use <code>VO+Shift+Down</code> to enter interactive elements (the editor, terminal), then navigate normally.</li>
+<li>Enable “Speak text under mouse” in VoiceOver Utility -&gt; Verbosity if the student uses residual vision with a mouse.</li>
+<li>VoiceOver’s “item chooser” (VO+I) can provide a quick list of interactive elements in the current window.</li>
+</ul>
+<p><strong>Windows Narrator users:</strong></p>
+<ul>
+<li>Narrator is less feature-rich than NVDA or JAWS for programming. It works but may require more keystrokes.</li>
+<li>Narrator scan mode must be OFF in VS Code for normal keyboard input to work. Toggle with Caps Lock+Space.</li>
+<li>Consider recommending the free NVDA screen reader as an upgrade for students using Narrator, as NVDA’s VS Code support is significantly better.</li>
+</ul>
+<p><strong>Orca (Linux) users:</strong></p>
+<ul>
+<li>Orca works well with VS Code on Linux via the AT-SPI2 accessibility interface.</li>
+<li>Use <code>Orca+H</code> for “say all” from cursor position.</li>
+<li>Ensure the <code>at-spi2-core</code> package is installed: <code>sudo apt install at-spi2-core</code>.</li>
+<li>Orca’s “flat review” mode (<code>Orca+KP_Enter</code> or <code>Orca+Insert+KP_Enter</code>) is useful for reading lines that are not focus-accessible.</li>
+</ul>
+<h4 id="indentation-configuration--step-by-step"><a class="header" href="#indentation-configuration--step-by-step">Indentation Configuration — Step by Step</a></h4>
+<p>This is the most important configuration in the entire course. Walk through it during the first session and verify it is working before writing any Python.</p>
+<p><strong>Test procedure:</strong></p>
+<ol>
+<li>Create a temporary file <code>test_indent.py</code>.</li>
+<li>Write:
+<pre><code class="language-python">if True:
+    print("indented")
+print("not indented")
+</code></pre>
+</li>
+<li>Navigate line by line with Down arrow.</li>
+<li>The screen reader should announce the indent level on line 2 before reading its content.</li>
+<li>On line 3, the indent should return to zero.</li>
+</ol>
+<p>If announcement is not happening, troubleshoot screen reader settings before proceeding.</p>
+<h4 id="thought-experiments-1"><a class="header" href="#thought-experiments-1">Thought Experiments</a></h4>
+<ol>
+<li>
+<p><em>“A sighted programmer can look at a Python file and immediately understand its structure from indentation — like an outline. How does your screen reader translate that same 2D visual structure into a 1D audio stream? What information might be lost in that translation?”</em></p>
+</li>
+<li>
+<p><em>“VS Code has hundreds of keyboard shortcuts. No sighted programmer uses all of them — they use the 15 or 20 that matter for their workflow. If you could only keep 10 shortcuts, which 10 would make the biggest difference for writing Python? Why?”</em></p>
+</li>
+<li>
+<p><em>“The Accessible View (Shift+Alt+F2) converts complex visual elements into flat text. What kind of information in VS Code might require this conversion? Can you think of a scenario where the ‘visual’ presentation of something would be unusable without translation?”</em></p>
+</li>
+</ol>
+<hr>
+<h3 id="lesson-03-setting-up-your-vs-code-workspace"><a class="header" href="#lesson-03-setting-up-your-vs-code-workspace">Lesson 0.3: Setting Up Your VS Code Workspace</a></h3>
+<h4 id="alternative-workspace-tools"><a class="header" href="#alternative-workspace-tools">Alternative Workspace Tools</a></h4>
+<p>If VS Code proves too complex initially, consider these alternatives as temporary or permanent solutions:</p>
+<div class="table-wrapper">
+<table>
+<thead>
+<tr><th>Tool</th><th>Platform</th><th>Accessibility Notes</th></tr>
+</thead>
+<tbody>
+<tr><td><strong>IDLE</strong> (bundled with Python)</td><td>All</td><td>Very simple UI. Limited features but highly keyboard accessible. Good for first programs.</td></tr>
+<tr><td><strong>Thonny</strong></td><td>All</td><td>Beginner-focused. Has a “simple mode.” Some screen reader users find it more approachable.</td></tr>
+<tr><td><strong>Mu Editor</strong></td><td>All</td><td>Designed for education. Simpler than VS Code. Python 3 only.</td></tr>
+<tr><td><strong>Jupyter Notebook (terminal)</strong></td><td>All</td><td>Text-based notebook. Accessible for structured exploration.</td></tr>
+<tr><td><strong>Braille Note Apex/Touch</strong></td><td>Device</td><td>For students using these notetakers, Python can be run via their built-in terminals.</td></tr>
+<tr><td><strong>Replit</strong></td><td>Web</td><td>No install required. Accessibility varies; test before recommending.</td></tr>
+<tr><td><strong>NVDA Remote + VS Code</strong></td><td>Windows</td><td>Student uses their own screen reader on their own machine while teacher controls a shared session.</td></tr>
+</tbody>
+</table>
+</div>
+<h4 id="thought-experiments-2"><a class="header" href="#thought-experiments-2">Thought Experiments</a></h4>
+<ol>
+<li>
+<p><em>“Programmers organize their code into folders by project. What happens if every programmer at a company kept all their files in one shared folder with no organization? How does this analogy apply to organizing your own Python projects?”</em></p>
+</li>
+<li>
+<p><em>“VS Code Extensions add features to the editor the same way apps add features to a phone. If you could design one VS Code extension specifically for blind Python programmers that doesn’t exist yet, what would it do?”</em></p>
+</li>
+</ol>
+<hr>
+<h3 id="lesson-04-python-environments-and-terminal-usage"><a class="header" href="#lesson-04-python-environments-and-terminal-usage">Lesson 0.4: Python Environments and Terminal Usage</a></h3>
+<h4 id="terminal-proficiency-as-a-prerequisite"><a class="header" href="#terminal-proficiency-as-a-prerequisite">Terminal Proficiency as a Prerequisite</a></h4>
+<p>Before writing any Python, ensure the student can fluently:</p>
+<ul>
+<li>Navigate to a directory with <code>cd</code></li>
+<li>List files with <code>ls</code> (macOS/Linux) or <code>dir</code> (Windows)</li>
+<li>Create a directory with <code>mkdir</code></li>
+<li>Print the current directory with <code>pwd</code> (macOS/Linux) or <code>cd</code> with no arguments (Windows)</li>
+<li>Use Tab completion for filenames</li>
+<li>Use Up/Down arrow for command history</li>
+<li>Use <code>Ctrl+C</code> to stop a running program</li>
+</ul>
+<p>If these are not automatic, spend additional time on terminal basics. Terminal fluency is foundational to everything else.</p>
+<h4 id="alternative-terminals-for-accessibility"><a class="header" href="#alternative-terminals-for-accessibility">Alternative Terminals for Accessibility</a></h4>
+<div class="table-wrapper">
+<table>
+<thead>
+<tr><th>Terminal</th><th>Platform</th><th>Screen Reader Compatibility</th></tr>
+</thead>
+<tbody>
+<tr><td><strong>Windows Terminal</strong></td><td>Windows</td><td>Excellent with NVDA/JAWS (use UI Automation mode)</td></tr>
+<tr><td><strong>cmd.exe</strong></td><td>Windows</td><td>Good; legacy but very reliable</td></tr>
+<tr><td><strong>PowerShell</strong></td><td>Windows</td><td>Good with NVDA; some JAWS quirks</td></tr>
+<tr><td><strong>macOS Terminal</strong></td><td>macOS</td><td>Excellent with VoiceOver</td></tr>
+<tr><td><strong>iTerm2</strong></td><td>macOS</td><td>Good; more features, slightly more complex</td></tr>
+<tr><td><strong>GNOME Terminal</strong></td><td>Linux</td><td>Good with Orca</td></tr>
+<tr><td><strong>Konsole</strong></td><td>Linux</td><td>Good with Orca</td></tr>
+<tr><td><strong>Terminator</strong></td><td>Linux</td><td>Good; split-pane support</td></tr>
+</tbody>
+</table>
+</div>
+<h4 id="thought-experiments-3"><a class="header" href="#thought-experiments-3">Thought Experiments</a></h4>
+<ol>
+<li>
+<p><em>“Virtual environments isolate each project’s dependencies. Why would this matter for a professional programmer with 20 active projects? What could go wrong without them?”</em></p>
+</li>
+<li>
+<p><em>“When you type <code>python3 hello.py</code> and press Enter, what is the operating system doing? What is Python doing? Walk through it step by step as if explaining to someone who has never used a computer.”</em></p>
+</li>
+<li>
+<p><em>“<code>uv add requests</code> downloads and adds a dependency to the current Python project. What are the risks of running code written by strangers? What does PyPI (the Python Package Index) do to reduce these risks?”</em></p>
+</li>
+</ol>
+<hr>
+<h2 id="6-unit-1--foundations-and-getting-started"><a class="header" href="#6-unit-1--foundations-and-getting-started">6. Unit 1 — Foundations and Getting Started</a></h2>
+<h3 id="lesson-11-welcome-to-computer-science"><a class="header" href="#lesson-11-welcome-to-computer-science">Lesson 1.1: Welcome to Computer Science</a></h3>
+<h4 id="instructional-cues-2"><a class="header" href="#instructional-cues-2">Instructional Cues</a></h4>
+<p>Open with <strong>the “Human Computer” activity</strong> — this is the most valuable exercise in the entire unit for blind students. The student gives verbal, step-by-step instructions for a simple physical task. The teacher follows them literally, making no inferences. This demonstrates the core challenge of programming: computers are perfectly literal and do not fill in gaps.</p>
+<p>Suggest tasks that connect to the student’s daily experience:</p>
+<ul>
+<li>Instructions for making tea or coffee</li>
+<li>Instructions for navigating from the classroom door to their desk</li>
+<li>Instructions for finding a contact in their phone using a screen reader</li>
+</ul>
+<p>After the activity, debrief: <em>“Where did your instructions assume I could see? Where did they assume I already knew something? A computer makes neither assumption.”</em></p>
+<h4 id="connecting-computing-to-accessibility-technology"><a class="header" href="#connecting-computing-to-accessibility-technology">Connecting Computing to Accessibility Technology</a></h4>
+<p>Begin with what the student already knows:</p>
+<ul>
+<li>Their screen reader is software. It runs on hardware. It was written by programmers. It converts visual information (text rendering) into audio output.</li>
+<li>Ask: “What are the inputs to your screen reader? What are the outputs? What would happen if a website used images of text instead of real text — how would that change what your screen reader can do?”</li>
+<li>Connect to ARIA attributes, alt text, and semantic HTML as programming concepts that directly affect the student’s daily experience.</li>
+</ul>
+<h4 id="thought-experiments-4"><a class="header" href="#thought-experiments-4">Thought Experiments</a></h4>
+<ol>
+<li>
+<p><em>“Computer science is described as the study of problem-solving, not just programming. What non-programming problems have you solved using computational thinking — breaking a problem down into steps, looking for patterns, and abstracting the details? Describe one example from daily life.”</em></p>
+</li>
+<li>
+<p><em>“Your screen reader converts text to audio in real time. What ‘algorithm’ do you think it uses? What decisions does it make — when to pause, how to handle punctuation, what to do with symbols? What would a flowchart of those decisions look like?”</em></p>
+</li>
+<li>
+<p><em>“Early computers could only run one program at a time. Modern computers run hundreds simultaneously. Without changing the physical hardware, what concept makes this possible? (Hint: the answer is software — specifically, an operating system.)”</em></p>
+</li>
+<li>
+<p><em>“Software has often been described as ‘making the hardware do something useful.’ But hardware without software is just metal and silicon. In what sense is software more important than hardware? In what sense is hardware more important?”</em></p>
+</li>
+<li>
+<p><em>“Accessibility technology like screen readers, braille displays, and audio description didn’t exist when computers were first invented. Who decided these should be built? What does this history tell you about who gets to shape what technology does?”</em></p>
+</li>
+</ol>
+<h4 id="additional-resources-for-this-lesson"><a class="header" href="#additional-resources-for-this-lesson">Additional Resources for This Lesson</a></h4>
+<ul>
+<li><strong>“The Computer Boys Take Over” by Nathan Ensmenger</strong> — accessible history of how programming became a profession.</li>
+<li><strong>“Technically Wrong” by Sara Wachter-Boettcher</strong> — explores how biases in tech affect users, including disabled users. Good for older students.</li>
+<li><strong>American Foundation for the Blind (AFB) CareerConnect</strong> — profiles of blind professionals in STEM fields, including software engineers. Good for motivation and role models.</li>
+<li><strong>“Haben: The Deafblind Woman Who Conquered Harvard Law” by Haben Girma</strong> — autobiography of a deafblind lawyer and disability rights advocate. Haben’s work directly involves technology access.</li>
+<li><strong>Code.org’s “How Computers Work” video series</strong> — audio-described versions available. Covers hardware and software basics accessibly.</li>
+</ul>
+<hr>
+<h3 id="lesson-12-your-first-python-program"><a class="header" href="#lesson-12-your-first-python-program">Lesson 1.2: Your First Python Program</a></h3>
+<h4 id="instructional-cues-3"><a class="header" href="#instructional-cues-3">Instructional Cues</a></h4>
+<p><strong>Before any code:</strong> Ask the student to predict. “If I write <code>print("Hello, World!")</code> and run it, what do you think will appear in the terminal? Where exactly will it appear?” Let them answer, then verify together.</p>
+<p><strong>Make the first error deliberate.</strong> Remove a closing parenthesis, run the program, and navigate to the error message together. Establish the error-reading protocol:</p>
+<ol>
+<li>Terminal output appears after the code.</li>
+<li>Read from the bottom of the error upward — the bottom is the most specific message.</li>
+<li>Line number tells you where to go. Use <code>Ctrl+G</code>.</li>
+<li>Error type (<code>SyntaxError</code>, <code>NameError</code>) narrows the category of problem.</li>
+</ol>
+<p><strong>The REPL as the first environment.</strong> Before creating any files, start with <code>python3</code> in the terminal and type <code>print("Hello, World!")</code> directly. The immediate audio feedback of the REPL establishes cause and effect more directly than the file -&gt; run -&gt; find output workflow.</p>
+<h4 id="common-first-errors-and-how-to-explain-them"><a class="header" href="#common-first-errors-and-how-to-explain-them">Common First Errors and How to Explain Them</a></h4>
+<div class="table-wrapper">
+<table>
+<thead>
+<tr><th>Error</th><th>Likely Cause</th><th>Explanation for Student</th></tr>
+</thead>
+<tbody>
+<tr><td><code>SyntaxError: unexpected EOF while parsing</code></td><td>Missing closing <code>"</code>, <code>)</code>, or <code>]</code></td><td>“Python reached the end of the file before it expected to. It was waiting for something — probably a closing character.”</td></tr>
+<tr><td><code>NameError: name 'print' is not defined</code></td><td>Capital P in <code>Print</code></td><td>“Python is case-sensitive. <code>Print</code> and <code>print</code> are completely different names. Only <code>print</code> (lowercase) is the built-in function.”</td></tr>
+<tr><td><code>IndentationError</code></td><td>Extra space before first line</td><td>“Python’s first rule: top-level code cannot be indented. Every line that is not inside a function or class must start at column 0.”</td></tr>
+<tr><td><code>SyntaxError: invalid syntax</code> at <code>:</code></td><td>Using = instead of == in a comparison</td><td>“The assignment operator = doesn’t belong inside an if condition. For comparison, you need the double equals ==.”</td></tr>
+</tbody>
+</table>
+</div>
+<h4 id="thought-experiments-5"><a class="header" href="#thought-experiments-5">Thought Experiments</a></h4>
+<ol>
+<li>
+<p><em>“<code>print()</code> produces output in the terminal. What would a program be like with NO output at all? Could such a program still do something useful? (Hint: think about programs that read files, send network requests, or modify a database.)”</em></p>
+</li>
+<li>
+<p><em>“Python is an interpreted language — each line is read and executed one at a time. Other languages are compiled — the entire program is translated before any of it runs. How does this affect the kind of errors you encounter, and when you encounter them?”</em></p>
+</li>
+<li>
+<p><em>“The <code>#</code> symbol starts a comment — text that Python ignores entirely. Why do comments exist? If the computer ignores them, who are they for? Could you write good programs with no comments? Should you?”</em></p>
+</li>
+<li>
+<p><em>“‘Hello, World!’ is the traditional first program in almost every programming language. Why do you think this tradition exists? What does this simple program prove about a working environment?”</em></p>
+</li>
+</ol>
+<h4 id="alternative-resources-for-this-lesson"><a class="header" href="#alternative-resources-for-this-lesson">Alternative Resources for This Lesson</a></h4>
+<ul>
+<li><strong>“Invent Your Own Computer Games with Python” by Al Sweigart (free online):</strong> Text-based games that produce only terminal output — perfectly accessible. Chapter 1 is a good companion to this lesson.</li>
+<li><strong>CS Unplugged — “Parity Magic” activity:</strong> Teaches binary representation and algorithms without a computer. Can precede or follow this lesson.</li>
+<li><strong>Python REPL via iOS/Android with screen reader:</strong> Several apps provide a Python REPL on mobile. For students whose phone screen reader is more familiar than their computer setup, this may be a comfortable way to experiment.</li>
+</ul>
+<hr>
+<h3 id="lesson-13-variables-and-simple-data-types"><a class="header" href="#lesson-13-variables-and-simple-data-types">Lesson 1.3: Variables and Simple Data Types</a></h3>
+<h4 id="instructional-cues-4"><a class="header" href="#instructional-cues-4">Instructional Cues</a></h4>
+<p><strong>The labeled box metaphor</strong> works well across modalities — introduce it verbally and reinforce with tactile analogy if helpful. Provide a physical box (a small container) with a label stuck to it and a slip of paper inside representing the value. The box remains; the paper changes. The label stays the same; the contents change with reassignment.</p>
+<p><strong><code>type()</code> as a diagnostic reflex:</strong> Begin every data type lesson with <code>type()</code>. <code>print(type(42))</code> -&gt; <code>int</code>. <code>print(type("hello"))</code> -&gt; <code>str</code>. Make this a reflex the student uses whenever they’re unsure what kind of data they have. For a student who cannot visually scan code for context clues, <code>type()</code> is often the only reliable way to confirm what a variable contains.</p>
+<p><strong>The string/number audio confusion:</strong> When a screen reader reads <code>"42"</code> and <code>42</code>, they sound identical. This is a critical accessibility issue. Address it directly:</p>
+<ul>
+<li><em>“Your screen reader will read these the same way. The only reliable way to tell them apart is <code>type()</code>. Use it. Constantly.”</em></li>
+<li>Demonstrate the consequence: <code>"42" + 1</code> raises <code>TypeError</code>. <code>42 + 1</code> gives <code>43</code>.</li>
+</ul>
+<h4 id="multiple-explanations-for-variable-naming-rules"><a class="header" href="#multiple-explanations-for-variable-naming-rules">Multiple Explanations for Variable Naming Rules</a></h4>
+<p>Provide all of these; let the student choose what sticks:</p>
+<ul>
+<li><em>Rule-based:</em> Must start with letter or underscore. May contain letters, digits, underscores. May not be a Python keyword.</li>
+<li><em>Analogy:</em> “Variable names are like legal names. They can’t start with a number (no one’s legal name is ‘2Fast’), can’t contain hyphens (the name Mc-Donald would confuse paperwork), and can’t be reserved words like ‘True’ or ‘if’ that already mean something official.”</li>
+<li><em>Mnemonic for invalid starts:</em> “Numbers first? Never. Hyphens? Horrible. Spaces? Surely not.”</li>
+</ul>
+<h4 id="thought-experiments-6"><a class="header" href="#thought-experiments-6">Thought Experiments</a></h4>
+<ol>
+<li>
+<p><em>“If variables are labeled boxes, what happens when you do <code>x = 5</code> and then <code>y = x</code> and then <code>x = 10</code>? What is <code>y</code> now? Does reassigning <code>x</code> affect <code>y</code>? Why or why not?”</em></p>
+</li>
+<li>
+<p><em>“Python is ‘dynamically typed,’ meaning a variable can change its type at any time: <code>x = 5</code> then <code>x = 'hello'</code>. Many languages forbid this. What bugs could dynamic typing accidentally create? What flexibility does it offer?”</em></p>
+</li>
+<li>
+<p><em>“The integer <code>42</code> and the string <code>'42'</code> look identical when spoken aloud. How many other pairs of values can you think of that might be ambiguous when a screen reader reads them? What coding habits help prevent confusion?”</em></p>
+</li>
+<li>
+<p><em>“Constants in programming represent values that never change — like <code>SPEED_OF_LIGHT</code> or <code>MAX_USERS</code>. Python has no true constants (you can always reassign them). Why do programmers use <code>CAPS_SNAKE_CASE</code> as a convention for constants even though Python can’t enforce them?”</em></p>
+</li>
+</ol>
+<h4 id="alternative-resources"><a class="header" href="#alternative-resources">Alternative Resources</a></h4>
+<ul>
+<li><strong>CS50 Python (Harvard, edX):</strong> David Malan’s accessible video lectures. Closed-captions and transcripts available for all lessons. Covers variables and types in Week 0.</li>
+<li><strong>Python.org official tutorial:</strong> Plain HTML, navigable by screen reader. Section 3 covers numbers, strings, and basic types.</li>
+<li><strong>“Python for Everybody” by Dr. Chuck Severance (free online):</strong> Audio-described video lectures available. Chapter 2 covers variables and expressions.</li>
+<li><strong>Codecademy “Learn Python 3”:</strong> Web-based coding environment. Accessibility is partial — code editor is accessible but some UI elements are not. Worth testing with the student’s specific setup.</li>
+</ul>
+<hr>
+<h2 id="7-unit-2--numeric-computations-and-io"><a class="header" href="#7-unit-2--numeric-computations-and-io">7. Unit 2 — Numeric Computations and I/O</a></h2>
+<h3 id="lesson-21-the-software-development-process"><a class="header" href="#lesson-21-the-software-development-process">Lesson 2.1: The Software Development Process</a></h3>
+<h4 id="instructional-cues-5"><a class="header" href="#instructional-cues-5">Instructional Cues</a></h4>
+<p>This is a conceptual lesson. Resist the urge to rush to code. Spend the full session on design and pseudocode.</p>
+<p><strong>The “Five Whys” technique:</strong> Before writing pseudocode, ask the student to state the problem in one sentence. Then ask “why?” five times to reach the root of what the program really needs to do. This technique from Lean manufacturing translates well to programming.</p>
+<p>Example: “My program calculates a restaurant tip.”</p>
+<ul>
+<li>Why? “So the user knows how much to pay.”</li>
+<li>Why do they need to calculate it? “The tip amount isn’t printed on the bill.”</li>
+<li>Why? “The restaurant leaves the amount to the customer’s discretion.”</li>
+<li>So the real problem is: “Given a bill amount, calculate 15%, 18%, and 20% tip options, plus the total.”</li>
+</ul>
+<p>This more complete problem statement produces a better program design.</p>
+<p><strong>Pseudocode format for screen reader users:</strong>
+Plain <code>.txt</code> files work best for pseudocode. Avoid word processors or special formatting tools that add accessibility overhead. The student should be able to read their pseudocode fluently while writing their Python.</p>
+<h4 id="thought-experiments-7"><a class="header" href="#thought-experiments-7">Thought Experiments</a></h4>
+<ol>
+<li>
+<p><em>“In engineering, a bridge is designed many times before a single beam is placed. The cost of redesigning a blueprint is near zero; the cost of redesigning a half-built bridge is enormous. How does this ratio (cheap to redesign early, expensive to redesign later) apply to software?”</em></p>
+</li>
+<li>
+<p><em>“The design phase involves thinking about edge cases — unusual inputs. For a program that calculates how many buses are needed to transport N students, with each bus holding 40 students, what edge cases exist? (Consider: What if N=0? What if N=40? What if N=41? What if N is negative?)”</em></p>
+</li>
+<li>
+<p><em>“Some agile software development methodologies say ‘working software over comprehensive documentation.’ Does this conflict with the value of design? How do you reconcile the two?”</em></p>
+</li>
+<li>
+<p><em>“Testing is described as part of the development process. But some teams test after development is complete. What is lost by testing at the end rather than continuously throughout? What is gained?”</em></p>
+</li>
+</ol>
+<hr>
+<h3 id="lessons-2225-expressions-input-types-math"><a class="header" href="#lessons-2225-expressions-input-types-math">Lessons 2.2–2.5: Expressions, Input, Types, Math</a></h3>
+<h4 id="instructional-cues-6"><a class="header" href="#instructional-cues-6">Instructional Cues</a></h4>
+<p><strong><code>input()</code> always returns a string — make it tangible:</strong></p>
+<pre><code class="language-python">user_input = input("Type the number 5: ")
+print(type(user_input))   # &lt;class 'str'&gt;
+print(user_input + 1)      # TypeError
+print(int(user_input) + 1) # 6
+</code></pre>
+<p>Run this sequence and let the student hear both the error and the fix. The <code>TypeError</code> message should be read aloud and analyzed before the fix is shown.</p>
+<p><strong>Order of operations — the hearing test:</strong>
+Read <code>10 + 5 * 2</code> aloud and ask for the answer before Python is consulted. Most students say 30; Python says 20. This is a memorable demonstration of why precise symbol reading matters. “Your ear parsed it as ‘add 10 and 5, then multiply by 2.’ Python parses it as ‘10 plus the result of 5 times 2.’”</p>
+<p><strong><code>math</code> module exploration via REPL:</strong></p>
+<pre><code class="language-python">import math
+dir(math)  # Lists all functions in the module
+help(math.sqrt)  # Reads the docstring aloud
+</code></pre>
+<p><code>dir()</code> and <code>help()</code> are screen-reader-friendly tools for exploring any module. Teach them as first-resort documentation tools.</p>
+<h4 id="thought-experiments-8"><a class="header" href="#thought-experiments-8">Thought Experiments</a></h4>
+<ol>
+<li>
+<p><em>“Type conversion functions like <code>int()</code> and <code>float()</code> can fail: <code>int('hello')</code> raises a <code>ValueError</code>. Who is responsible — the programmer who called <code>int()</code> on untrusted input, or the user who typed ‘hello’? How should a well-designed program handle this?”</em></p>
+</li>
+<li>
+<p><em>“<code>math.sqrt(25)</code> returns <code>5.0</code>, not <code>5</code>. Why does a function that logically produces a whole number return a float? What would break if it returned an integer instead?”</em></p>
+</li>
+<li>
+<p><em>“Floating-point numbers in computers are approximations — <code>0.1 + 0.2</code> gives <code>0.30000000000000004</code>. Describe a real-world application where this imprecision could cause serious problems. What strategies exist to avoid it?”</em></p>
+</li>
+<li>
+<p><em>“The <code>//</code> operator performs floor division: <code>7 // 2</code> = <code>3</code>. The <code>%</code> operator gives the remainder: <code>7 % 2</code> = <code>1</code>. Together they completely describe integer division. What real-world problem does each solve? Describe a program that would need both.”</em></p>
+</li>
+</ol>
+<h4 id="alternative-resources-1"><a class="header" href="#alternative-resources-1">Alternative Resources</a></h4>
+<ul>
+<li><strong>“Automate the Boring Stuff with Python” Chapter 1–3 (free online):</strong> Covers expressions, data types, and input with practical exercises. Plain HTML, accessible.</li>
+<li><strong>Khan Academy “Introduction to Programming”:</strong> Video series with transcripts. Good for visual-thinker students who benefit from hearing concepts explained differently.</li>
+<li><strong>SoloLearn Python course:</strong> Mobile app with accessible exercises. Works well with iOS VoiceOver and Android TalkBack for students who prefer mobile.</li>
+<li><strong>“Python Crash Course” by Eric Matthes:</strong> The primary textbook for this curriculum. Chapter 2 aligns directly with this unit.</li>
+</ul>
+<hr>
+<h2 id="8-unit-3--control-flow-decisions-and-loops"><a class="header" href="#8-unit-3--control-flow-decisions-and-loops">8. Unit 3 — Control Flow, Decisions, and Loops</a></h2>
+<h3 id="lessons-3132-conditionals"><a class="header" href="#lessons-3132-conditionals">Lessons 3.1–3.2: Conditionals</a></h3>
+<h4 id="instructional-cues-7"><a class="header" href="#instructional-cues-7">Instructional Cues</a></h4>
+<p><strong>Verbal simulation protocol:</strong> Before running any conditional code, have the student perform the simulation verbally:</p>
+<ol>
+<li>“What is the value of <code>score</code>?”</li>
+<li>“Evaluate the condition: is <code>85 &gt;= 90</code>? That’s False.”</li>
+<li>“Because the condition is False, the if block is skipped.”</li>
+<li>“Evaluate the next condition: is <code>85 &gt;= 80</code>? That’s True.”</li>
+<li>“The elif block runs. We print ‘Grade: B’.”</li>
+</ol>
+<p>This 5-step protocol should become automatic before the student runs any code. It builds the mental simulation ability that is the core of debugging.</p>
+<p><strong>The assignment-vs-comparison trap:</strong></p>
+<pre><code class="language-python"># This is a bug that is SILENT in some languages
+if score = 90:   # SyntaxError in Python (good!)
+    print("Perfect!")
+</code></pre>
+<p>Python raises a <code>SyntaxError</code> here, which is actually a safety feature. Other languages (C, JavaScript) allow this and it becomes a silent logic bug. Appreciate Python’s strictness here.</p>
+<h4 id="thought-experiments-9"><a class="header" href="#thought-experiments-9">Thought Experiments</a></h4>
+<ol>
+<li>
+<p><em>“If Python didn’t have <code>elif</code>, only <code>if</code> and <code>else</code>, could you still write a grading program? Show how. What is the cost of doing it without <code>elif</code>?”</em></p>
+</li>
+<li>
+<p><em>“The <code>else</code> clause at the end of an if-elif chain is a catch-all — it runs if nothing else matched. What is the programmer asserting when they write <code>else: print('Invalid input')</code>? What assumptions about the universe of possible inputs does this make? When might those assumptions be wrong?”</em></p>
+</li>
+<li>
+<p><em>“Boolean logic (<code>and</code>, <code>or</code>, <code>not</code>) comes from mathematics (George Boole, 1847). Boolean logic also describes how circuits in a computer work. In what sense is every program you write built on top of millions of tiny <code>and</code>, <code>or</code>, and <code>not</code> operations happening in hardware?”</em></p>
+</li>
+<li>
+<p><em>“Short-circuit evaluation: in <code>if A and B</code>, Python doesn’t evaluate <code>B</code> if <code>A</code> is False (because the result is already False). In <code>if A or B</code>, Python doesn’t evaluate <code>B</code> if <code>A</code> is True. When is this behavior a useful feature rather than just an optimization?”</em></p>
+</li>
+<li>
+<p><em>“Consider a program that decides whether to grant access based on two conditions: correct password AND recognized device. Map this to Python <code>and</code> logic. Now consider: unlock if either condition passes (maybe for emergency access). Map this to <code>or</code>. What are the security implications of each design?”</em></p>
+</li>
+</ol>
+<h4 id="alternative-resources-2"><a class="header" href="#alternative-resources-2">Alternative Resources</a></h4>
+<ul>
+<li><strong>CS Unplugged “Binary Numbers” activity:</strong> Physical, non-computer activity that illustrates Boolean thinking. Can be adapted for tactile use.</li>
+<li><strong>“Think Python” by Allen B. Downey (free online):</strong> Chapter 5 covers conditionals with clear explanation and exercises. HTML version is screen-reader-friendly.</li>
+<li><strong>Parsons Problems (online):</strong> Code ordering exercises — the student arranges given lines into correct order. Does not require typing code from scratch. Available at parsons.problemsolving.org (accessibility varies; test first).</li>
+</ul>
+<hr>
+<h3 id="lessons-3334-lists-and-for-loops"><a class="header" href="#lessons-3334-lists-and-for-loops">Lessons 3.3–3.4: Lists and For Loops</a></h3>
+<h4 id="instructional-cues-8"><a class="header" href="#instructional-cues-8">Instructional Cues</a></h4>
+<p><strong>Mental models for lists — choose one per student:</strong></p>
+<ul>
+<li><em>The train:</em> Each car has a number starting at 0. Car 0 is at the front. You can add cars to the end, remove from anywhere, and swap contents.</li>
+<li><em>The playlist:</em> Songs in order, starting at position 0. You can shuffle, sort, add, or remove tracks.</li>
+<li><em>The physical stack of cards:</em> A sequence of items that can be addressed by position.</li>
+</ul>
+<p><strong>The for loop as a bookmark reader:</strong>
+<em>“Imagine Python has a finger that moves along a list. It starts at position 0. It reads what’s there, runs the loop body, moves the finger to position 1, reads, runs the body, and continues until the finger falls off the end.”</em></p>
+<p><strong>Tracing loops audibly — required exercise:</strong>
+For the first five loops students write, require them to verbally trace every iteration before running the code:</p>
+<ul>
+<li>“Iteration 1: <code>fruit</code> gets ‘apple’. We print ‘I like apple.’”</li>
+<li>“Iteration 2: <code>fruit</code> gets ‘banana’. We print ‘I like banana.’”</li>
+<li>etc.</li>
+</ul>
+<h4 id="non-obvious-accessibility-strategies-1"><a class="header" href="#non-obvious-accessibility-strategies-1">Non-Obvious Accessibility Strategies</a></h4>
+<ul>
+<li>
+<p><strong>Printing list contents accessibly:</strong> A bare <code>print(my_list)</code> produces <code>['apple', 'banana', 'cherry']</code> with brackets and quotes. This is cluttered when read aloud. Teach the clean print pattern early:</p>
+<pre><code class="language-python">for i, item in enumerate(my_list):
+    print(f"  {i}: {item}")
+</code></pre>
+<p>This gives numbered output, one item per line, that is easy to navigate and understand when heard.</p>
+</li>
+<li>
+<p><strong><code>len()</code> as a safety check before index access:</strong> Teach students to always know the length before indexing into a list. This prevents <code>IndexError</code>. Make <code>len(my_list)</code> the first thing printed when debugging a list problem.</p>
+</li>
+<li>
+<p><strong>Index arithmetic verbalized:</strong> When accessing <code>my_list[-1]</code>, say “the last element, which is at index <code>len(my_list) minus 1</code>, which Python shortens to <code>-1</code>.” Connecting the shorthand to the underlying meaning prevents confusion.</p>
+</li>
+</ul>
+<h4 id="thought-experiments-10"><a class="header" href="#thought-experiments-10">Thought Experiments</a></h4>
+<ol>
+<li>
+<p><em>“Zero-based indexing means the first element is at position 0. This feels unnatural but is standard across almost all programming languages. Why? (Hint: think about memory addresses — the address of the first element, and the address of any element as an offset from there.)”</em></p>
+</li>
+<li>
+<p><em>“A list allows duplicate values. A set (which you’ll learn later) does not. When would duplicates in a list be meaningful data? When would they indicate an error in your program?”</em></p>
+</li>
+<li>
+<p><em>“A <code>for</code> loop iterates over every element in a list. Is there any computation a <code>for</code> loop can do that a <code>while</code> loop cannot? Is there any computation a <code>while</code> loop can do that a <code>for</code> loop cannot?”</em></p>
+</li>
+<li>
+<p><em>“What happens when you iterate over an empty list: <code>for item in []:</code>? Does Python crash, print an error, or do nothing? Why is ‘do nothing’ the correct behavior rather than an error?”</em></p>
+</li>
+</ol>
+<hr>
+<h3 id="lesson-35-string-operations"><a class="header" href="#lesson-35-string-operations">Lesson 3.5: String Operations</a></h3>
+<h4 id="instructional-cues-9"><a class="header" href="#instructional-cues-9">Instructional Cues</a></h4>
+<p><strong>Immutability demonstration:</strong></p>
+<pre><code class="language-python">text = "hello"
+text.upper()        # Creates a new string --- doesn't modify text
+print(text)         # Still "hello"
+text = text.upper() # Now reassigned
+print(text)         # "HELLO"
+</code></pre>
+<p>This demonstration catches a persistent beginner misunderstanding. Ask the student to predict the output of <code>print(text)</code> after <code>text.upper()</code> before running it.</p>
+<p><strong>Method chaining verbalized:</strong>
+<code>"  hello world  ".strip().title()</code> — read this as: “Start with the string. Strip whitespace from both ends. Then convert the result to title case.”</p>
+<h4 id="thought-experiments-11"><a class="header" href="#thought-experiments-11">Thought Experiments</a></h4>
+<ol>
+<li>
+<p><em>“Strings are immutable — they cannot be changed, only replaced. Lists are mutable — they can be changed in-place. What architectural difference between strings and lists makes one mutable and the other not? (Think about how they’re stored in memory.)”</em></p>
+</li>
+<li>
+<p><em>“<code>.split()</code> splits a string into a list of words. <code>.join()</code> combines a list of strings into one string. They are inverses. What is the inverse of <code>.replace()</code>? Does it have a direct inverse? If not, how would you reverse a replacement?”</em></p>
+</li>
+<li>
+<p><em>“String formatting with f-strings: <code>f'Value is {x:.2f}'</code> formats <code>x</code> as a float with 2 decimal places. Why does a programming language need a mini-language for formatting numbers? What would programs look like if we had to format every number manually with division and modulo?”</em></p>
+</li>
+</ol>
+<h4 id="alternative-resources-3"><a class="header" href="#alternative-resources-3">Alternative Resources</a></h4>
+<ul>
+<li><strong>Python String Methods documentation</strong> (docs.python.org/3/library/stdtypes.html#string-methods): Plain HTML table of all string methods. Screen-reader navigable. Essential reference.</li>
+<li><strong>“Python for Data Analysis” by Wes McKinney:</strong> Chapter on string manipulation provides real-world examples beyond what this curriculum covers. For motivated students.</li>
+</ul>
+<hr>
+<h2 id="9-unit-4--data-structures-lists-and-dictionaries"><a class="header" href="#9-unit-4--data-structures-lists-and-dictionaries">9. Unit 4 — Data Structures: Lists and Dictionaries</a></h2>
+<p><em>(See all lessons above for list material; this section adds dictionary-specific guidance.)</em></p>
+<h3 id="dictionary-lessons"><a class="header" href="#dictionary-lessons">Dictionary Lessons</a></h3>
+<h4 id="instructional-cues-10"><a class="header" href="#instructional-cues-10">Instructional Cues</a></h4>
+<p><strong>Multiple mental models for dictionaries:</strong></p>
+<ul>
+<li><em>Real dictionary:</em> You look up a word (key) to find its definition (value). Words are unique; definitions can be anything.</li>
+<li><em>Contact list:</em> Each name (key) maps to a phone number (value). No two contacts have the same name in a well-maintained list.</li>
+<li><em>JSON configuration file:</em> Settings names map to their values. This foreshadows Unit 8.</li>
+</ul>
+<p><strong>The <code>.get()</code> method vs. direct access:</strong></p>
+<pre><code class="language-python"># This crashes on missing key
+print(my_dict["nonexistent_key"])   # KeyError
+
+# This returns a default --- never crashes
+print(my_dict.get("nonexistent_key", "Not found"))  # "Not found"
+</code></pre>
+<p>For a screen reader user who may not immediately catch a crash in terminal output, teaching <code>.get()</code> as the default access pattern reduces debugging overhead.</p>
+<h4 id="thought-experiments-12"><a class="header" href="#thought-experiments-12">Thought Experiments</a></h4>
+<ol>
+<li>
+<p><em>“Dictionaries use keys to retrieve values in O(1) time — essentially instant regardless of dictionary size. Lists use indices, also O(1). But searching a list for a specific value (not by index) takes O(n) time — proportional to list length. When does this difference matter in practice?”</em></p>
+</li>
+<li>
+<p><em>“Your dictionary cannot have duplicate keys — adding a second value for an existing key replaces the first. What real-world data problems does this property solve? What problems does it create?”</em></p>
+</li>
+<li>
+<p><em>“JSON (JavaScript Object Notation) is essentially Python dictionaries written in a slightly different format. What does it mean that a data format invented for JavaScript has become the universal language of data exchange? What does this tell you about the value of common standards?”</em></p>
+</li>
+<li>
+<p><em>“A ‘nested dictionary’ contains other dictionaries as values. Model a university course catalog as a nested dictionary. What are the outer keys? What are the inner keys? What would <code>catalog['CS']['101']['instructor']</code> represent?”</em></p>
+</li>
+</ol>
+<hr>
+<h2 id="10-unit-5--user-input-and-while-loops"><a class="header" href="#10-unit-5--user-input-and-while-loops">10. Unit 5 — User Input and While Loops</a></h2>
+<h3 id="thought-experiments-13"><a class="header" href="#thought-experiments-13">Thought Experiments</a></h3>
+<ol>
+<li>
+<p><em>“A while loop with a flag variable and a while loop with <code>break</code> can often accomplish the same thing. Compare these two equivalent programs and explain when you would prefer each:</em></p>
+<pre><code class="language-python"># Version A: flag
+active = True
+while active:
+    cmd = input("&gt; ")
+    if cmd == "quit": active = False
+    else: print("You said:", cmd)
+
+# Version B: break
+while True:
+    cmd = input("&gt; ")
+    if cmd == "quit": break
+    print("You said:", cmd)
+</code></pre>
+<p><em>Which is clearer? Which is easier to extend if you add more exit conditions?“</em></p>
+</li>
+<li>
+<p><em>“An infinite loop that waits for user input is the core pattern of every interactive program — email clients, video games, operating systems. Describe the ‘event loop’ of your screen reader in terms of while loops and if statements. What is it waiting for? What does it do when it gets an event?”</em></p>
+</li>
+<li>
+<p><em>“The <code>continue</code> statement skips the rest of the current iteration. An alternative is to wrap the loop body in an <code>if</code> statement. When is <code>continue</code> cleaner? When does the <code>if</code> approach produce clearer code?”</em></p>
+</li>
+</ol>
+<hr>
+<h2 id="11-unit-6--functions"><a class="header" href="#11-unit-6--functions">11. Unit 6 — Functions</a></h2>
+<h3 id="thought-experiments-in-addition-to-existing-guide"><a class="header" href="#thought-experiments-in-addition-to-existing-guide">Thought Experiments (in addition to existing guide)</a></h3>
+<ol>
+<li>
+<p><em>“A function is described as a ‘black box’ — you give it inputs and get outputs without knowing the internal details. What are the benefits of this abstraction for the programmer who writes the function? For the programmer who uses it? What are the limits of this metaphor?”</em></p>
+</li>
+<li>
+<p><em>“Default parameter values: <code>def greet(name='World')</code>. This allows the function to be called with or without an argument. How does this enable backward compatibility — adding a new feature without breaking existing code that calls the function?”</em></p>
+</li>
+<li>
+<p><em>“Functions should ‘do one thing.’ What does ‘one thing’ mean? Is <code>calculate_and_print_tax()</code> one thing or two? If you separate it into <code>calculate_tax()</code> and <code>print_tax()</code>, what becomes possible that wasn’t before?”</em></p>
+</li>
+<li>
+<p>_“Recursive functions call themselves. <code>factorial(n) = n _ factorial(n-1)</code>. What is the base case and why is it required? What goes wrong if a recursive function has no base case?”*</p>
+</li>
+<li>
+<p>_“A function is a way to name a piece of code. Why does naming matter in programming? What is the cognitive difference between <code>x = a _ b + c - d</code>and<code>x = calculate_net_profit(revenue, cost, overhead, taxes)</code>?”*</p>
+</li>
+</ol>
+<h4 id="alternative-resources-4"><a class="header" href="#alternative-resources-4">Alternative Resources</a></h4>
+<ul>
+<li><strong>“Structure and Interpretation of Computer Programs” (SICP) — MIT OpenCourseWare:</strong> Conceptually deep treatment of functions as first-class objects. Lectures have transcripts. For advanced students.</li>
+<li><strong>Exercism.io Python Track:</strong> Mentor-guided exercises with community feedback. Web platform with reasonable accessibility. Students can complete exercises at their own pace.</li>
+<li><strong>Python Tutor (pythontutor.com):</strong> Step-by-step execution with variable state display. The text-based “state panel” below the code is screen-reader accessible and shows variable values at each step.</li>
+</ul>
+<hr>
+<h2 id="12-unit-7--classes-and-object-oriented-programming"><a class="header" href="#12-unit-7--classes-and-object-oriented-programming">12. Unit 7 — Classes and Object-Oriented Programming</a></h2>
+<h3 id="extended-instructional-cues"><a class="header" href="#extended-instructional-cues">Extended Instructional Cues</a></h3>
+<p><strong>Staged introduction to OOP — do not rush to syntax:</strong></p>
+<p>Stage 1 (no code): Discuss the concept. What is an object? What does “bundling data and behavior” mean? Use tangible examples the student knows.</p>
+<p>Stage 2 (pseudocode): Write a class in plain English before Python syntax:</p>
+<pre><code>Class: BankAccount
+  Has: owner_name, balance, account_number
+  Can do: deposit(amount), withdraw(amount), get_balance()
+</code></pre>
+<p>Stage 3 (Python skeleton): Write the class structure with empty methods and docstrings.</p>
+<p>Stage 4 (full implementation): Fill in method bodies.</p>
+<p>This staging prevents syntax confusion from obscuring the conceptual learning.</p>
+<p><strong><code>__str__</code> is mandatory for accessibility:</strong>
+Every class a student creates must define <code>__str__</code>. Without it, <code>print(my_object)</code> produces <code>&lt;__main__.BankAccount object at 0x7f...&gt;</code> — meaningless when heard. The requirement to define <code>__str__</code> also reinforces thinking about what the object’s most important information is.</p>
+<pre><code class="language-python">def __str__(self):
+    return f"BankAccount(owner={self.owner_name}, balance=${self.balance:.2f})"
+</code></pre>
+<h4 id="thought-experiments-14"><a class="header" href="#thought-experiments-14">Thought Experiments</a></h4>
+<ol>
+<li>
+<p><em>“Encapsulation means hiding internal details. A car’s engine is encapsulated under the hood — you don’t need to know how fuel injection works to drive. What are the analogous ‘hidden internals’ in a BankAccount class? What should be private? What should be public? Why?”</em></p>
+</li>
+<li>
+<p><em>“Inheritance creates ‘is-a’ relationships. Composition creates ‘has-a’ relationships. A <code>SavingsAccount</code> is-a <code>BankAccount</code>. A <code>Bank</code> has-a list of <code>BankAccount</code> objects. Design a simple banking system using both relationships. What would go wrong if you tried to use only inheritance?”</em></p>
+</li>
+<li>
+<p><em>“Method overriding allows a subclass to replace a parent’s method. When is this the right design? When should you call <code>super().method()</code> inside the override vs. replace the method entirely?”</em></p>
+</li>
+<li>
+<p><em>“Python allows multiple inheritance (inheriting from two parent classes). Most languages do not permit this. What problems does multiple inheritance create? What problems does it solve? Would you use it?”</em></p>
+</li>
+<li>
+<p><em>“Object-oriented programming was supposed to make code more reusable. Has it delivered on this promise? What kinds of code reuse are well-served by OOP? What kinds aren’t?”</em></p>
+</li>
+</ol>
+<h4 id="alternative-resources-5"><a class="header" href="#alternative-resources-5">Alternative Resources</a></h4>
+<ul>
+<li><strong>“Object-Oriented Programming in Python” by Michael Goldwasser and David Letscher:</strong> Textbook specifically pairing Python and OOP concepts. More formal treatment for students who want depth.</li>
+<li><strong>“Fluent Python” by Luciano Ramalho:</strong> Advanced but deeply accessible to screen readers. Covers Python’s data model including <code>__str__</code>, <code>__repr__</code>, and special methods. For motivated students.</li>
+<li><strong>Real Python “Object-Oriented Programming in Python” tutorial (realpython.com/python3-object-oriented-programming/):</strong> Long but thorough. Plain HTML.</li>
+</ul>
+<hr>
+<h2 id="13-unit-8--files-and-exceptions"><a class="header" href="#13-unit-8--files-and-exceptions">13. Unit 8 — Files and Exceptions</a></h2>
+<h3 id="extended-instructional-cues-1"><a class="header" href="#extended-instructional-cues-1">Extended Instructional Cues</a></h3>
+<p><strong>Files as persistence — make it tangible:</strong>
+Run a program that stores a number in a variable, quits, and starts again — the variable is gone. Then run the same program storing the number in a file — it persists. Ask: “What changed? What is different about a file vs. a variable?” Let the student reason through it before explaining.</p>
+<p><strong>The <code>with</code> statement — demonstrate the alternative:</strong></p>
+<pre><code class="language-python"># Without 'with' --- dangerous
+f = open("data.txt", "r")
+contents = f.read()
+# If an error occurs here, f.close() is never called
+f.close()
+
+# With 'with' --- safe
+with open("data.txt", "r") as f:
+    contents = f.read()
+# f is closed automatically even if an error occurs
+</code></pre>
+<p><strong>Exception types — teach by demonstration, not memorization:</strong>
+Create a “crash collection” — a series of small programs that each produce a specific exception. Let the student run each one, read the error, and discuss why it occurred before seeing the solution. The goal is pattern recognition, not memorization.</p>
+<h4 id="thought-experiments-15"><a class="header" href="#thought-experiments-15">Thought Experiments</a></h4>
+<ol>
+<li>
+<p><em>“Files are persistent storage — they survive when your program exits. Variables are temporary — they’re gone when the program ends. What determines which data should be stored in files vs. kept only in memory? What are the tradeoffs?”</em></p>
+</li>
+<li>
+<p><em>“The <code>with</code> statement uses Python’s ‘context manager’ protocol. This protocol says: ‘when this block starts, do X; when it ends (even if it ends with an error), do Y.’ What other situations in programming require guaranteed cleanup? What happens in real systems when cleanup is skipped?”</em></p>
+</li>
+<li>
+<p><em>“Exceptions propagate up the call stack — if function A calls B which calls C, and C raises an exception, it moves up to B, then A, until something catches it. If nothing catches it, the program crashes. Design the exception handling strategy for a program that reads a config file, parses it, and then connects to a database. Where should exceptions be caught?”</em></p>
+</li>
+<li>
+<p><em>“JSON stores data as text. Binary formats (like <code>pickle</code> in Python) store data in a compact binary form. JSON is human-readable; binary is not. JSON is language-independent; pickle is Python-only. For each of these use cases, which format would you choose: (a) a config file the user might edit by hand, (b) a large dataset processed only by your own Python code, (c) data shared between a Python backend and a JavaScript frontend?”</em></p>
+</li>
+</ol>
+<hr>
+<h2 id="14-unit-9--testing-and-data-analysis"><a class="header" href="#14-unit-9--testing-and-data-analysis">14. Unit 9 — Testing and Data Analysis</a></h2>
+<h3 id="extended-instructional-cues-2"><a class="header" href="#extended-instructional-cues-2">Extended Instructional Cues</a></h3>
+<p><strong>Tests as documentation — make this concrete:</strong>
+Show two identical functions — one with tests that describe the expected behavior, one without. Ask: “Which function is easier to understand without reading the implementation?” The tests are a specification in executable form.</p>
+<p><strong>Test-driven development (TDD) as a preview:</strong>
+For motivated students, introduce TDD: write the test before the implementation. This inverts the usual workflow:</p>
+<ol>
+<li>Write a test that fails (because the function doesn’t exist yet).</li>
+<li>Write the minimum implementation to make the test pass.</li>
+<li>Refactor.</li>
+</ol>
+<p>This discipline is genuinely useful for beginners because it forces them to think about what a function should do before worrying about how.</p>
+<h4 id="thought-experiments-16"><a class="header" href="#thought-experiments-16">Thought Experiments</a></h4>
+<ol>
+<li>
+<p><em>“Unit testing tests one function in isolation. Integration testing tests multiple components working together. System testing tests the entire program. Why have three levels rather than just one? What does each level catch that the others might miss?”</em></p>
+</li>
+<li>
+<p><em>“A test can only prove that a program behaves correctly for the inputs tested. It cannot prove correctness for all possible inputs. What does this mean for the value of testing? How do you decide which inputs to test?”</em></p>
+</li>
+<li>
+<p><em>“Random numbers make testing difficult — if the output changes every run, how do you write an assertion? Describe a strategy for testing a function that uses <code>random.randint()</code>. (Hint: think about seeding.)”</em></p>
+</li>
+<li>
+<p><em>“CSV data from the real world is often ‘dirty’ — missing values, extra commas, inconsistent formatting, encoding issues. What does a robust CSV parser need to handle? What assumptions would a naive parser make that would cause it to fail on real-world data?”</em></p>
+</li>
+</ol>
+<hr>
+<h2 id="15-unit-10--project-based-learning"><a class="header" href="#15-unit-10--project-based-learning">15. Unit 10 — Project-Based Learning</a></h2>
+<h3 id="extended-instructional-cues-3"><a class="header" href="#extended-instructional-cues-3">Extended Instructional Cues</a></h3>
+<p><strong>Design document requirements:</strong>
+Require a written design document before any code is written. For a screen reader user, a plain text file works best. The document should include:</p>
+<pre><code>Project Name: [title]
+One-sentence purpose: [what problem does this solve?]
+Target user: [who will use this?]
+
+Features (ranked by priority):
+1. [most important feature]
+2. ...
+
+Data I will store: [what information needs to persist?]
+Data structures: [which Python structures will hold this?]
+
+Functions I will write:
+- [function name](inputs) -&gt; output: [brief description]
+- ...
+
+Main loop pseudocode:
+[plain English description of program flow]
+
+Edge cases I have considered:
+- [what happens if the user enters nothing?]
+- [what happens if the file doesn't exist?]
+- ...
+</code></pre>
+<p><strong>Iterative development enforcement:</strong>
+Require demonstrating a working version at the end of every session, no matter how minimal. “Working” means runnable and producing correct output for at least one input. A student who cannot demonstrate working code at session end needs to reduce scope, not work harder overnight.</p>
+<h4 id="thought-experiments-17"><a class="header" href="#thought-experiments-17">Thought Experiments</a></h4>
+<ol>
+<li>
+<p><em>“A program designed for sighted users might use color to indicate status (red for error, green for success), icons to represent actions, and layout to group related information. How would you replicate each of these design patterns in a screen-reader-accessible terminal program?”</em></p>
+</li>
+<li>
+<p><em>“Your contact manager has a search function. How many different search behaviors could be useful? Search by exact name match, partial match, phone prefix, email domain, notes keywords? What should the program do when there are 0 results? 1 result? Multiple results?”</em></p>
+</li>
+<li>
+<p><em>“Error messages should be actionable — they should tell the user not just what went wrong, but what to do next. Rewrite these unhelpful messages to be actionable: ‘Error: invalid input’, ‘File not found’, ‘Operation failed.’”</em></p>
+</li>
+</ol>
+<hr>
+<h2 id="16-unit-11--capstone-project"><a class="header" href="#16-unit-11--capstone-project">16. Unit 11 — Capstone Project</a></h2>
+<h3 id="assessment-guidance"><a class="header" href="#assessment-guidance">Assessment Guidance</a></h3>
+<h4 id="process-checkpoints"><a class="header" href="#process-checkpoints">Process Checkpoints</a></h4>
+<div class="table-wrapper">
+<table>
+<thead>
+<tr><th>Checkpoint</th><th>Timing</th><th>What to Evaluate</th></tr>
+</thead>
+<tbody>
+<tr><td>Written design document</td><td>Before any code</td><td>Is the scope realistic? Are features prioritized? Are data structures appropriate?</td></tr>
+<tr><td>Data model working</td><td>End of week 1</td><td>Can items be created, stored in memory, and printed?</td></tr>
+<tr><td>Core CRUD functional</td><td>End of week 2</td><td>Add, view, edit, delete all work?</td></tr>
+<tr><td>Persistence working</td><td>End of week 3</td><td>Data survives program restart?</td></tr>
+<tr><td>Error handling complete</td><td>End of week 4</td><td>Program handles all invalid inputs without crashing?</td></tr>
+<tr><td>Accessibility review</td><td>End of week 4</td><td>Is all output meaningful when read aloud?</td></tr>
+<tr><td>Final demo</td><td>End</td><td>Full demonstration with screen reader active</td></tr>
+</tbody>
+</table>
+</div>
+<h4 id="the-screen-reader-demo-rubric"><a class="header" href="#the-screen-reader-demo-rubric">The Screen Reader Demo Rubric</a></h4>
+<p>The final demonstration should be performed entirely with the screen reader active. Evaluate each:</p>
+<div class="table-wrapper">
+<table>
+<thead>
+<tr><th>Criterion</th><th>Excellent</th><th>Satisfactory</th><th>Needs Work</th></tr>
+</thead>
+<tbody>
+<tr><td><strong>Menu navigation</strong></td><td>Student navigates menu by listening; confirms choice before acting</td><td>Student navigates but occasionally needs visual cues</td><td>Student needs visual confirmation of menu state</td></tr>
+<tr><td><strong>Input prompts</strong></td><td>All prompts clearly describe expected format and type</td><td>Most prompts are descriptive</td><td>Some prompts are vague or missing</td></tr>
+<tr><td><strong>Confirmation messages</strong></td><td>Every action produces a clear spoken confirmation</td><td>Most actions confirmed</td><td>Some actions succeed silently</td></tr>
+<tr><td><strong>Error messages</strong></td><td>All error messages are specific and actionable</td><td>Most errors give useful messages</td><td>Some errors produce generic or missing messages</td></tr>
+<tr><td><strong>Data persistence</strong></td><td>Student demonstrates save and load by quitting and restarting</td><td>Save/load works but student doesn’t demonstrate live</td><td>Save or load not fully functional</td></tr>
+<tr><td><strong>Code explanation</strong></td><td>Student can explain any line of their code when asked</td><td>Student can explain most of their code</td><td>Student cannot explain sections of their code</td></tr>
+</tbody>
+</table>
+</div>
+<hr>
+<h2 id="17-assessment-strategies"><a class="header" href="#17-assessment-strategies">17. Assessment Strategies</a></h2>
+<h3 id="accessible-assessment-design"><a class="header" href="#accessible-assessment-design">Accessible Assessment Design</a></h3>
+<p>Traditional programming assessments (written tests, timed coding) create unnecessary barriers for blind students. Use alternatives that assess the same competencies:</p>
+<p><strong>Think-aloud problems:</strong> Give the student a short piece of code and ask them to read it aloud and explain what it does, step by step. This assesses reading comprehension and debugging ability without requiring written answers.</p>
+<p><strong>Debugging exercises:</strong> Provide a working program and a broken version. Ask the student to identify the error using only their screen reader and debugging tools. This directly tests real-world skill.</p>
+<p><strong>Feature extension:</strong> Give a working program and ask the student to add a specific feature. This is a more realistic assessment than writing from scratch and allows scaffolding.</p>
+<p><strong>Verbal design review:</strong> Present a programming problem and ask the student to describe their approach — data structures, functions, algorithm — without writing any code. Assess reasoning quality.</p>
+<p><strong>Portfolio review:</strong> Maintain a collection of all programs written during the course. Assess growth, consistency, commenting quality, and the student’s ability to explain their own work.</p>
+<h3 id="grading-considerations"><a class="header" href="#grading-considerations">Grading Considerations</a></h3>
+<ul>
+<li>Do not penalize for missing visual formatting (e.g., a missing newline that only matters visually).</li>
+<li>Do reward for accessibility features the student adds above requirements: clear prompts, confirmation messages, help text.</li>
+<li>Recognize that a blind student may spend significantly more time debugging than a sighted peer on identical problems. Factor this into time expectations.</li>
+<li>Consider allowing oral explanations as alternatives to written code comments for students who find comment-writing slow.</li>
+</ul>
+<hr>
+<h2 id="18-supporting-diverse-needs-within-the-visually-impaired-population"><a class="header" href="#18-supporting-diverse-needs-within-the-visually-impaired-population">18. Supporting Diverse Needs Within the Visually Impaired Population</a></h2>
+<h3 id="for-students-with-low-vision"><a class="header" href="#for-students-with-low-vision">For Students with Low Vision</a></h3>
+<ul>
+<li>Use high-contrast VS Code themes: Dark High Contrast, Light High Contrast (available under Color Themes in settings).</li>
+<li>Increase editor font size: <code>Ctrl+Shift+P</code> -&gt; “Preferences: Open Settings” -&gt; <code>editor.fontSize</code>.</li>
+<li>Enable zoom magnification: <code>Ctrl++</code> to zoom the VS Code window.</li>
+<li>Test whether syntax highlighting is visible with their specific visual condition. Some students benefit from; others are confused by color information they cannot fully perceive.</li>
+</ul>
+<h3 id="for-students-who-are-deaf-blind"><a class="header" href="#for-students-who-are-deaf-blind">For Students Who Are Deaf-Blind</a></h3>
+<ul>
+<li>All communication with the teacher must be through the braille display or tactile signing — no spoken instruction.</li>
+<li>Screen reader audio verbosity settings must be managed by the student (since they cannot hear audio feedback during class).</li>
+<li>Consider pairing with a trained interpreter who knows both tactile communication and computing concepts.</li>
+<li>Review the Perkins School for the Blind’s resources on deaf-blind education technology.</li>
+</ul>
+<h3 id="for-students-with-physical-disabilities-in-addition-to-visual-impairment"><a class="header" href="#for-students-with-physical-disabilities-in-addition-to-visual-impairment">For Students with Physical Disabilities in Addition to Visual Impairment</a></h3>
+<ul>
+<li>Switch access: VS Code is fully keyboard-navigable and can be operated with adapted keyboards, switch interfaces, or eye-gaze systems paired with virtual keyboards.</li>
+<li>Voice control: Dragon NaturallySpeaking and macOS Voice Control can both operate VS Code. Voice coding requires additional voice commands for symbols.</li>
+<li>Sip-and-puff devices: Can control keyboard input. Students using these will have different typing rates — extend all time-based tasks.</li>
+</ul>
+<h3 id="for-students-with-cognitive-differences-in-addition-to-visual-impairment"><a class="header" href="#for-students-with-cognitive-differences-in-addition-to-visual-impairment">For Students with Cognitive Differences in Addition to Visual Impairment</a></h3>
+<ul>
+<li>Reduce the amount of new vocabulary per session.</li>
+<li>Use consistent metaphors across the entire course — do not introduce a new metaphor for the same concept.</li>
+<li>Provide written summaries of every lesson that the student can review with their screen reader later.</li>
+<li>Break complex concepts into smaller steps; complete each step before introducing the next.</li>
+<li>Build in regular review sessions rather than only forward-moving instruction.</li>
+</ul>
+<hr>
+<h2 id="19-teaching-ai-tools-responsibly"><a class="header" href="#19-teaching-ai-tools-responsibly">19. Teaching AI Tools Responsibly</a></h2>
+<p>AI-assisted coding is an optional source of explanation and critique, not an authority, substitute teacher, or replacement for learning to program. The course should remain fully teachable without paid AI access or a student account.</p>
+<p><strong>Course AI policy (shared by all language tracks).</strong> Students may use AI only for personal conceptual understanding and reinforcement. AI may not write, autocomplete, repair, complete, or generate course code or assessment solutions. The rest of this section should be read within that limit.</p>
+<h3 id="instructor-use-of-ai-during-preparation"><a class="header" href="#instructor-use-of-ai-during-preparation">Instructor use of AI during preparation</a></h3>
+<p>An instructor may use an approved AI tool to brainstorm alternative explanations, generate draft practice inputs, propose misconceptions, or review a lesson outline. The instructor remains responsible for the content. Verify every technical statement against the target Python version and official documentation; execute code examples and tests; inspect accessibility with the intended tools; and check references, licensing, bias, and reading level. Never upload identifiable student work, accommodation plans, assessment answers, or confidential school material. Do not use AI-generated feedback as the sole basis for grading or placement. Keep a record of substantive AI assistance when institutional policy or the publication process requires it.</p>
+<h3 id="learning-outcomes"><a class="header" href="#learning-outcomes">Learning outcomes</a></h3>
+<p>Students should be able to explain what an AI coding assistant can and cannot reliably do; write a bounded prompt without exposing private information; verify generated explanations and code against documentation, tests, and course concepts; identify code they cannot understand or navigate; and disclose assistance when required.</p>
+<h3 id="appropriate-uses"><a class="header" href="#appropriate-uses">Appropriate uses</a></h3>
+<p>Within the course policy, students may ask an AI tool to explain a Python concept in another way, for example what a dictionary is or why indexes start at zero, or to restate in plain words what an error category means. Students must not paste course code or assignment prompts into an AI tool and must not accept generated, repaired, or completed code. Model the permitted uses, and ask students to state their own understanding before and after consulting any explanation, and to check it against the official documentation and their own tests.</p>
+<h3 id="uses-that-undermine-learning-or-assessment"><a class="header" href="#uses-that-undermine-learning-or-assessment">Uses that undermine learning or assessment</a></h3>
+<p>Do not permit AI to complete an individual assessment when the purpose is to measure independent design, implementation, code reading, or debugging. Do not accept generated code as evidence of mastery merely because it runs or passes one test. Because the course policy limits AI to conceptual explanation, no assignment or assessment permits AI-written code.</p>
+<p>A student must be able to explain every submitted statement, identify dependencies, predict behavior for new inputs, modify the code, and debug a failure. Inability to do so is a learning need to address instructionally.</p>
+<h3 id="python-specific-failure-modes"><a class="header" href="#python-specific-failure-modes">Python-specific failure modes</a></h3>
+<p>AI-generated Python may invent or misname APIs, recommend unnecessary packages, produce advanced syntax beyond the course level, use mutable default arguments, broad exception handling, unsafe deserialization, or fragile file paths. It may omit validation, resource cleanup, tests, and meaningful errors. It may also generate long lines, deeply nested indentation, unclear identifiers, or output difficult to review with speech or braille.</p>
+<p>Teach students to consult official Python documentation, inspect package provenance, use a virtual environment, and test small examples. Simplify generated code into constructs the learner can explain. Prefer explicit loops and intermediate variables over compressed expressions when they improve comprehension and navigation.</p>
+<h3 id="accessibility-review"><a class="header" href="#accessibility-review">Accessibility review</a></h3>
+<p>Before accepting AI-generated material, review it with the learner:</p>
+<ol>
+<li>Can the learner navigate by line and indentation level?</li>
+<li>Are nested blocks easy to identify through speech or braille?</li>
+<li>Are identifiers descriptive and consistent?</li>
+<li>Are lines and function bodies manageable?</li>
+<li>Are prompts, labels, errors, and results understandable when read sequentially?</li>
+<li>Does the program avoid conveying essential information only through color, layout, graphics, or timing?</li>
+<li>Can the learner inspect output and errors without visual-only panels?</li>
+</ol>
+<p>AI tools may themselves have inaccessible suggestion popups, chat panes, or completion workflows. Test the interface and offer an equivalent documentation- or teacher-supported route.</p>
+<h3 id="privacy-security-copyright-and-equity"><a class="header" href="#privacy-security-copyright-and-equity">Privacy, security, copyright, and equity</a></h3>
+<ul>
+<li>Never enter student records, individualized education program details, disability or medical information, passwords, API keys, private repository contents, or confidential school data into a public AI service.</li>
+<li>Follow district, school, institutional, and applicable data-protection policies; verify age requirements and account terms.</li>
+<li>Treat generated shell commands, installation steps, file operations, and network code as untrusted until reviewed.</li>
+<li>Verify a suggested package’s name, maintainer, source, permissions, and necessity before installing it.</li>
+<li>Do not assume generated content is original or correctly licensed. Attribute sources and avoid submitting copied material.</li>
+<li>Provide a non-AI path. Do not grade students on access to a paid model, faster hardware, or a personal account.</li>
+<li>Discuss bias: generated examples may assume visual interaction, mouse use, graphical output, or a narrow range of users.</li>
+</ul>
+<h3 id="verification-protocol-ask--inspect--verify--adapt--explain--disclose"><a class="header" href="#verification-protocol-ask--inspect--verify--adapt--explain--disclose">Verification protocol: Ask – Inspect – Verify – Adapt – Explain – Disclose</a></h3>
+<ol>
+<li><strong>Ask:</strong> formulate a narrow question and state the student’s current understanding.</li>
+<li><strong>Inspect:</strong> read the entire response; identify assumptions, unfamiliar syntax, dependencies, and claims.</li>
+<li><strong>Verify:</strong> consult official documentation; run the smallest safe experiment; test normal, boundary, and invalid inputs.</li>
+<li><strong>Adapt:</strong> simplify and revise for course level, security, maintainability, and assistive-technology access.</li>
+<li><strong>Explain:</strong> have the student explain the revised result and make a small change independently.</li>
+<li><strong>Disclose:</strong> record the tool and assistance when required by the assignment.</li>
+</ol>
+<h3 id="activity-specific-policy"><a class="header" href="#activity-specific-policy">Activity-specific policy</a></h3>
+<ul>
+<li><strong>Practice:</strong> hints, explanations, and test suggestions may be allowed; complete solutions should be reserved for explicit code-review activities.</li>
+<li><strong>Homework/projects:</strong> define allowed assistance in advance and require disclosure, verification, and explanation of the learner’s contribution.</li>
+<li><strong>Quizzes/individual assessments:</strong> do not permit AI to perform the skill being measured unless the assessment explicitly includes AI use or an accommodation requires it.</li>
+<li><strong>Accessibility support:</strong> screen readers, braille, magnification, and approved access tools are not prohibited answer-generation assistance.</li>
+</ul>
+<h3 id="discussion-prompts"><a class="header" href="#discussion-prompts">Discussion prompts</a></h3>
+<ol>
+<li>A generated program works on sample input but fails on an empty file. What should have been tested?</li>
+<li>An assistant proposes a one-line comprehension that is difficult to navigate. Is shorter always clearer?</li>
+<li>An assistant invents a package with a plausible name. How can the student verify it?</li>
+<li>If AI can generate code, why do problem decomposition, testing, debugging, and explanation remain essential?</li>
+</ol>
+<hr>
+<h2 id="20-alternative-and-supplementary-resources"><a class="header" href="#20-alternative-and-supplementary-resources">20. Alternative and Supplementary Resources</a></h2>
+<h3 id="textbooks-and-reading"><a class="header" href="#textbooks-and-reading">Textbooks and Reading</a></h3>
+<div class="table-wrapper">
+<table>
+<thead>
+<tr><th>Resource</th><th>Level</th><th>Format</th><th>Accessibility</th></tr>
+</thead>
+<tbody>
+<tr><td><strong>Python Crash Course, 3rd Ed.</strong> (Matthes)</td><td>Beginner</td><td>Print/ebook</td><td>Good; primary textbook for this curriculum</td></tr>
+<tr><td><strong>Python Programming: An Introduction to CS</strong> (Zelle)</td><td>Beginner</td><td>Print/ebook</td><td>Good; companion textbook</td></tr>
+<tr><td><strong>Automate the Boring Stuff with Python</strong> (Sweigart)</td><td>Beginner–Intermediate</td><td>Free HTML / print</td><td>Excellent; HTML version fully accessible</td></tr>
+<tr><td><strong>Think Python</strong> (Downey)</td><td>Beginner</td><td>Free HTML / print</td><td>Excellent HTML version</td></tr>
+<tr><td><strong>Learn Python 3 the Hard Way</strong> (Shaw)</td><td>Beginner</td><td>Print/ebook</td><td>Plain text exercises, highly accessible</td></tr>
+<tr><td><strong>Python for Everybody</strong> (Severance)</td><td>Beginner</td><td>Free HTML + video</td><td>Video lectures have transcripts; good accessibility</td></tr>
+<tr><td><strong>Fluent Python</strong> (Ramalho)</td><td>Advanced</td><td>Print/ebook</td><td>Dense but thorough; for motivated advanced students</td></tr>
+<tr><td><strong>Python Docs</strong> (python.org/3)</td><td>Reference</td><td>Free HTML</td><td>Excellent screen-reader accessibility; definitive</td></tr>
+</tbody>
+</table>
+</div>
+<h3 id="online-courses-and-platforms"><a class="header" href="#online-courses-and-platforms">Online Courses and Platforms</a></h3>
+<div class="table-wrapper">
+<table>
+<thead>
+<tr><th>Platform</th><th>Course</th><th>Screen Reader Compatibility</th><th>Notes</th></tr>
+</thead>
+<tbody>
+<tr><td><strong>edX / CS50P</strong> (Harvard)</td><td>Introduction to Programming with Python</td><td>High — video transcripts, accessible exercises</td><td>Free audit. Very high quality.</td></tr>
+<tr><td><strong>Coursera</strong></td><td>Python for Everybody (Michigan)</td><td>Medium — some interactive elements inaccessible</td><td>Free audit available</td></tr>
+<tr><td><strong>Codecademy</strong></td><td>Learn Python 3</td><td>Partial — editor accessible, some UI not</td><td>Requires testing with specific screen reader</td></tr>
+<tr><td><strong>SoloLearn</strong></td><td>Python Core</td><td>High — mobile app works well with VoiceOver/TalkBack</td><td>Good for mobile-first learners</td></tr>
+<tr><td><strong>freeCodeCamp</strong></td><td>Python curriculum</td><td>Medium — varies by module</td><td>Free; large community</td></tr>
+<tr><td><strong>Exercism</strong></td><td>Python Track</td><td>High — terminal-based, mentor feedback</td><td>Excellent for structured practice after basics</td></tr>
+<tr><td><strong>CodingBat</strong></td><td>Python problems</td><td>High — plain HTML, browser-based</td><td>Good for logic practice; no complex UI</td></tr>
+<tr><td><strong>replit.com</strong></td><td>Any Python project</td><td>Medium — test with student’s setup</td><td>No-install option; accessibility variable</td></tr>
+</tbody>
+</table>
+</div>
+<h3 id="video-resources"><a class="header" href="#video-resources">Video Resources</a></h3>
+<div class="table-wrapper">
+<table>
+<thead>
+<tr><th>Resource</th><th>Description</th><th>Accessibility</th></tr>
+</thead>
+<tbody>
+<tr><td><strong>CS50P (Harvard)</strong></td><td>Full course lectures, free on YouTube and edX</td><td>Closed captions, transcripts; very high production quality</td></tr>
+<tr><td><strong>Corey Schafer Python tutorials</strong> (YouTube)</td><td>In-depth concept tutorials</td><td>Closed captions available</td></tr>
+<tr><td><strong>Tech With Tim Python</strong> (YouTube)</td><td>Project-based tutorials</td><td>Closed captions available</td></tr>
+<tr><td><strong>Sentdex Python tutorials</strong> (YouTube)</td><td>Large series from beginner to advanced</td><td>Captions available</td></tr>
+<tr><td><strong>Python.org Getting Started</strong></td><td>Short official tutorials</td><td>Plain text, no video</td></tr>
+</tbody>
+</table>
+</div>
+<h3 id="tools-specifically-for-accessibility-in-programming-education"><a class="header" href="#tools-specifically-for-accessibility-in-programming-education">Tools Specifically for Accessibility in Programming Education</a></h3>
+<div class="table-wrapper">
+<table>
+<thead>
+<tr><th>Tool</th><th>Purpose</th><th>Notes</th></tr>
+</thead>
+<tbody>
+<tr><td><strong>Python Tutor</strong> (pythontutor.com)</td><td>Step-by-step code execution with state display</td><td>Text-based state panel is screen-reader accessible</td></tr>
+<tr><td><strong>Mu Editor</strong></td><td>Beginner-focused Python IDE</td><td>Simpler than VS Code; reasonable screen reader support</td></tr>
+<tr><td><strong>Thonny</strong></td><td>Beginner IDE with step debugger</td><td>Variable viewer is navigable via keyboard</td></tr>
+<tr><td><strong>NVDA + Remote</strong></td><td>Remote screen sharing for teacher support</td><td>Student’s screen reader on their machine; teacher can see output</td></tr>
+<tr><td><strong>GitHub Codespaces</strong></td><td>Cloud VS Code environment</td><td>Same accessibility as local VS Code; useful when local setup fails</td></tr>
+<tr><td><strong>Braille Institute Resources</strong></td><td>General adaptive technology guidance</td><td>brailleinstitute.org</td></tr>
+<tr><td><strong>APH (American Printing House)</strong></td><td>Educational materials for blind students</td><td>aph.org</td></tr>
+</tbody>
+</table>
+</div>
+<h3 id="communities-and-professional-organizations"><a class="header" href="#communities-and-professional-organizations">Communities and Professional Organizations</a></h3>
+<div class="table-wrapper">
+<table>
+<thead>
+<tr><th>Organization</th><th>Relevance</th></tr>
+</thead>
+<tbody>
+<tr><td><strong>National Federation of the Blind (NFB) — Science &amp; Engineering Division</strong></td><td>Blind scientists and engineers; mentorship opportunities</td></tr>
+<tr><td><strong>American Council of the Blind (ACB) — Technology Interest Group</strong></td><td>Accessible technology advocacy and resources</td></tr>
+<tr><td><strong>CSUN Assistive Technology Conference</strong></td><td>Annual conference; many papers on computing education for blind students</td></tr>
+<tr><td><strong>SIGACCESS</strong> (ACM SIG on Computers and Accessibility)</td><td>Academic research on accessible computing</td></tr>
+<tr><td><strong>Ability Central</strong></td><td>Technology resources for people with disabilities</td></tr>
+<tr><td><strong>Hadley Institute for the Blind</strong></td><td>Professional development for educators of blind students</td></tr>
+<tr><td><strong>Perkins School for the Blind</strong></td><td>Resources including STEM education for blind students</td></tr>
+<tr><td><strong>Carroll Center for the Blind</strong></td><td>Technology training for blind adults; may have curriculum resources</td></tr>
+<tr><td><strong>Stack Overflow Blind/VI Community</strong></td><td>Informal community; blind developers helping each other</td></tr>
+</tbody>
+</table>
+</div>
+<hr>
+<h2 id="21-quick-reference-sheets"><a class="header" href="#21-quick-reference-sheets">21. Quick Reference Sheets</a></h2>
+<h3 id="error-message-reading-protocol"><a class="header" href="#error-message-reading-protocol">Error Message Reading Protocol</a></h3>
+<p>When an error occurs, guide the student through this sequence:</p>
+<pre><code>1. Navigate to terminal output (Ctrl+` or click panel)
+2. Read from the BOTTOM of the error output upward
+3. Note the ERROR TYPE (last line): SyntaxError, NameError, TypeError, etc.
+4. Note the ERROR MESSAGE: specific description of what went wrong
+5. Note the LINE NUMBER in the traceback
+6. Jump to that line with Ctrl+G -&gt; [line number] -&gt; Enter
+7. Read the line and the lines immediately before and after it
+8. Categorize the error (see table below)
+9. Fix and re-run
+</code></pre>
+<h3 id="error-type-quick-reference"><a class="header" href="#error-type-quick-reference">Error Type Quick Reference</a></h3>
+<div class="table-wrapper">
+<table>
+<thead>
+<tr><th>Error Type</th><th>Common Cause</th><th>First Thing to Check</th></tr>
+</thead>
+<tbody>
+<tr><td><code>SyntaxError</code></td><td>Missing <code>:</code>, <code>)</code>, <code>"</code>, <code>]</code>, or <code>=</code> instead of <code>==</code></td><td>The exact column number in the error message</td></tr>
+<tr><td><code>IndentationError</code></td><td>Inconsistent spaces/tabs</td><td>Line indentation; use <code>cat -A</code> or <code>show whitespace</code> in VS Code</td></tr>
+<tr><td><code>NameError</code></td><td>Variable not defined, or misspelled</td><td>Check spelling; check if variable was defined before use</td></tr>
+<tr><td><code>TypeError</code></td><td>Wrong data type</td><td>Use <code>type()</code> on each variable involved in the operation</td></tr>
+<tr><td><code>ValueError</code></td><td>Right type, wrong value</td><td>Check what you’re converting: <code>int('hello')</code> fails; <code>int('5')</code> works</td></tr>
+<tr><td><code>IndexError</code></td><td>List index out of range</td><td>Print <code>len(list)</code> and check what index you’re trying to use</td></tr>
+<tr><td><code>KeyError</code></td><td>Dictionary key doesn’t exist</td><td>Use <code>.get()</code> or check with <code>if key in dict</code> first</td></tr>
+<tr><td><code>FileNotFoundError</code></td><td>File doesn’t exist at that path</td><td>Print <code>os.getcwd()</code> and verify the file path</td></tr>
+<tr><td><code>AttributeError</code></td><td>Called a method that doesn’t exist</td><td>Check spelling and whether the object is the type you think it is</td></tr>
+<tr><td><code>ZeroDivisionError</code></td><td>Dividing by zero</td><td>Add a check before the division: <code>if denominator != 0</code></td></tr>
+<tr><td><code>RecursionError</code></td><td>Infinite recursion</td><td>Verify base case exists and is reachable</td></tr>
+</tbody>
+</table>
+</div>
+<h3 id="accessible-output-patterns"><a class="header" href="#accessible-output-patterns">Accessible Output Patterns</a></h3>
+<pre><code class="language-python"># Instead of: print(my_list)
+# Use:
+print("Items in collection:")
+for i, item in enumerate(my_list, 1):
+    print(f"  {i}. {item}")
+print(f"Total: {len(my_list)} items")
+
+# Instead of: print(my_dict)
+# Use:
+print("Current settings:")
+for key, value in my_dict.items():
+    print(f"  {key}: {value}")
+
+# Menu display:
+print("\n--- Main Menu ---")
+print("1. Add item")
+print("2. View all items")
+print("3. Search")
+print("4. Delete item")
+print("5. Save and quit")
+print("-----------------")
+choice = input("Enter option number (1-5): ")
+
+# Confirmation messages:
+print(f"Contact '{name}' added successfully.")
+print(f"Found {len(results)} matching records.")
+print("Data saved to contacts.json.")
+print("No matching records found.")
+print("Error: Name field cannot be empty. Please try again.")
+</code></pre>
+<h3 id="vs-code-keyboard-shortcut-reference-card"><a class="header" href="#vs-code-keyboard-shortcut-reference-card">VS Code Keyboard Shortcut Reference Card</a></h3>
+<pre><code>NAVIGATION
+  Ctrl+G          Go to specific line number
+  Ctrl+Home       Jump to start of file
+  Ctrl+End        Jump to end of file
+  Ctrl+Shift+O    Go to function/class (symbol picker)
+  F12             Go to Definition
+  Alt+F12         Peek Definition
+  Shift+F12       Find all References
+  Ctrl+P          Quick open file by name
+
+ERRORS AND DIAGNOSTICS
+  F8              Next error/warning
+  Shift+F8        Previous error/warning
+  Ctrl+Shift+M    Open Problems panel
+  Shift+Alt+F2    Accessible View (for hover/tooltip content)
+
+EDITING
+  Shift+Alt+F     Format document (auto-indent)
+  Ctrl+/          Toggle comment on selected lines
+  Tab             Indent selected lines
+  Shift+Tab       Outdent selected lines
+  Ctrl+D          Select next occurrence of word
+  Ctrl+H          Find and replace
+
+TERMINAL
+  Ctrl+`          Toggle integrated terminal
+  Ctrl+Shift+`    New terminal
+  Up/Down arrows  Navigate command history
+  Tab             Auto-complete filenames
+  Ctrl+C          Stop running program
+
+SCREEN READER
+  Ctrl+Shift+P    Command Palette
+  Ctrl+Shift+P -&gt; "Toggle Screen Reader Optimized"
+  Shift+Alt+F1    Accessibility help
+</code></pre>
+<h2 id="22-comprehensive-instructional-planning-and-course-implementation"><a class="header" href="#22-comprehensive-instructional-planning-and-course-implementation">22. Comprehensive Instructional Planning and Course Implementation</a></h2>
+<p>This section supplements the unit-by-unit notes with a full course implementation framework. Use it alongside Sections 1–21.</p>
+<h3 id="221-course-alignment-and-pacing"><a class="header" href="#221-course-alignment-and-pacing">22.1 Course alignment and pacing</a></h3>
+<p>Map each unit to prerequisites, learning objectives, practice opportunities, and evidence of mastery. The sequence builds from environment setup and computing foundations through expressions and input/output, control flow, collections, functions, object-oriented programming, files, exceptions, testing, data analysis, and projects. Do not rush the transition from collections to functions or from functions to classes; learners need to trace and explain smaller programs first.</p>
+<p>Plan time to learn the tools. Editor navigation, terminal use, indentation awareness, virtual environments, and reading tracebacks are course skills, not unrelated overhead.</p>
+<h3 id="222-lesson-planning-template"><a class="header" href="#222-lesson-planning-template">22.2 Lesson planning template</a></h3>
+<p>For every lesson, prepare measurable objectives, a plain-language explanation, new vocabulary and spoken symbol conventions, a small example with expected output, a prediction question, guided and independent practice, a likely misconception or intentional bug, a formative check, and an optional extension.</p>
+<p>Use a consistent rhythm: orient, retrieve prior knowledge, model, trace, predict, run, practice, debug, explain, and reflect.</p>
+<h3 id="223-python-specific-instructional-checkpoints"><a class="header" href="#223-python-specific-instructional-checkpoints">22.3 Python-specific instructional checkpoints</a></h3>
+<ul>
+<li><strong>Indentation:</strong> teach indentation as syntax and structure. Identify the suite belonging to each <code>if</code>, loop, function, and class. Distinguish tabs from spaces and inspect whitespace.</li>
+<li><strong>Names and types:</strong> ask learners to state the type and current value of important variables. Use <code>type()</code> for targeted experiments, not as a substitute for explanation.</li>
+<li><strong>Input conversion:</strong> reinforce that <code>input()</code> returns a string. Require explicit conversion and validation before arithmetic.</li>
+<li><strong>Loops and collections:</strong> trace index ranges, iteration variables, mutation, and empty collections. Distinguish iterating over values from indexing by position.</li>
+<li><strong>Functions:</strong> identify parameters, arguments, local variables, return values, and side effects. Test functions with multiple inputs.</li>
+<li><strong>Classes:</strong> connect each instance to its own state and distinguish class definitions from object creation and method calls.</li>
+<li><strong>Files and exceptions:</strong> teach working directories, relative paths, context managers, expected exceptions, and meaningful recovery messages.</li>
+<li><strong>Testing:</strong> begin with expected results and simple assertions; introduce a framework after learners understand what a test checks.</li>
+</ul>
+<h3 id="224-accessibility-and-independence-checkpoints"><a class="header" href="#224-accessibility-and-independence-checkpoints">22.4 Accessibility and independence checkpoints</a></h3>
+<p>Ask the learner to demonstrate how to locate a function, identify the active indentation level, read a traceback, move to a reported line, run a program, and review output. If a step is inaccessible, troubleshoot the tool configuration and provide an alternate route before concluding that the programming concept is not understood.</p>
+<p>Do not prescribe one screen-reader verbosity setting. Work with the learner to balance punctuation, indentation announcements, and speech rate. Ensure braille users can inspect symbols and line structure and low-vision students can adjust font, contrast, and magnification without losing keyboard access.</p>
+<h3 id="225-assessment-and-feedback"><a class="header" href="#225-assessment-and-feedback">22.5 Assessment and feedback</a></h3>
+<p>Use low-stakes checks: predict output, explain a branch, trace a loop, select a collection, write a function with a clear contract, find and fix an exception or logic error, add a boundary test, or explain a design decision. Assess reasoning, correctness, code comprehension, testing, accessible interaction, and reflection. Do not grade speech, typing, or navigation speed as proxies for programming competence.</p>
+<h3 id="226-differentiation-and-enrichment"><a class="header" href="#226-differentiation-and-enrichment">22.6 Differentiation and enrichment</a></h3>
+<p>Use starter code, worked examples, vocabulary previews, smaller practice sets, additional time, or alternative explanation modes where appropriate. Fade scaffolds to build independence. Enrichment can compare algorithms, improve validation, add tests, refactor repeated logic, or document trade-offs.</p>
+<h3 id="227-project-checkpoints"><a class="header" href="#227-project-checkpoints">22.7 Project checkpoints</a></h3>
+<p>Require a problem statement, user needs, feature list, input/output plan, data model, and test plan before implementation. Review one working feature at a time. For a text adventure, test movement, inventory, invalid commands, and save/load behavior separately. For command-line tools and capstones, review persistence, validation, error handling, and the clarity of prompts and confirmations.</p>
+<h3 id="228-collaboration-and-safeguarding"><a class="header" href="#228-collaboration-and-safeguarding">22.8 Collaboration and safeguarding</a></h3>
+<p>Coordinate with assistive-technology specialists and other professionals with the learner’s participation. Keep confidential student information out of shared examples, public issue trackers, AI prompts, and source-control history. Use synthetic data and remove credentials from logs before sharing them.</p>
+<h3 id="229-continuous-improvement"><a class="header" href="#229-continuous-improvement">22.9 Continuous improvement</a></h3>
+<p>At the end of each unit, record outdated setup steps, unclear directions, inaccessible output, and concepts needing another example. Verify software instructions against official documentation. Report reproducible issues with operating system, Python version, editor, screen reader, and steps—without sharing personal student information.</p>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                            <a rel="prev" href="../LUA/teachers-guide.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M41.4 233.4c-12.5 12.5-12.5 32.8 0 45.3l160 160c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L109.3 256 246.6 118.6c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0l-160 160z"/></svg></span>
+                            </a>
+
+                            <a rel="next prefetch" href="../RUST/teachers-guide.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M278.6 233.4c12.5 12.5 12.5 32.8 0 45.3l-160 160c-12.5 12.5-32.8 12.5-45.3 0s-12.5-32.8 0-45.3L210.7 256 73.4 118.6c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0l160 160z"/></svg></span>
+                            </a>
+
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                    <a rel="prev" href="../LUA/teachers-guide.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M41.4 233.4c-12.5 12.5-12.5 32.8 0 45.3l160 160c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L109.3 256 246.6 118.6c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0l-160 160z"/></svg></span>
+                    </a>
+
+                    <a rel="next prefetch" href="../RUST/teachers-guide.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M278.6 233.4c12.5 12.5 12.5 32.8 0 45.3l-160 160c-12.5 12.5-32.8 12.5-45.3 0s-12.5-32.8 0-45.3L210.7 256 73.4 118.6c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0l160 160z"/></svg></span>
+                    </a>
+            </nav>
+
+        </div>
+
+        <template id=fa-eye><span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M288 32c-80.8 0-145.5 36.8-192.6 80.6C48.6 156 17.3 208 2.5 243.7c-3.3 7.9-3.3 16.7 0 24.6C17.3 304 48.6 356 95.4 399.4C142.5 443.2 207.2 480 288 480s145.5-36.8 192.6-80.6c46.8-43.5 78.1-95.4 93-131.1c3.3-7.9 3.3-16.7 0-24.6c-14.9-35.7-46.2-87.7-93-131.1C433.5 68.8 368.8 32 288 32zM432 256c0 79.5-64.5 144-144 144s-144-64.5-144-144s64.5-144 144-144s144 64.5 144 144zM288 192c0 35.3-28.7 64-64 64c-11.5 0-22.3-3-31.6-8.4c-.2 2.8-.4 5.5-.4 8.4c0 53 43 96 96 96s96-43 96-96s-43-96-96-96c-2.8 0-5.6 .1-8.4 .4c5.3 9.3 8.4 20.1 8.4 31.6z"/></svg></span></template>
+        <template id=fa-eye-slash><span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M38.8 5.1C28.4-3.1 13.3-1.2 5.1 9.2S-1.2 34.7 9.2 42.9l592 464c10.4 8.2 25.5 6.3 33.7-4.1s6.3-25.5-4.1-33.7L525.6 386.7c39.6-40.6 66.4-86.1 79.9-118.4c3.3-7.9 3.3-16.7 0-24.6c-14.9-35.7-46.2-87.7-93-131.1C465.5 68.8 400.8 32 320 32c-68.2 0-125 26.3-169.3 60.8L38.8 5.1zM223.1 149.5C248.6 126.2 282.7 112 320 112c79.5 0 144 64.5 144 144c0 24.9-6.3 48.3-17.4 68.7L408 294.5c5.2-11.8 8-24.8 8-38.5c0-53-43-96-96-96c-2.8 0-5.6 .1-8.4 .4c5.3 9.3 8.4 20.1 8.4 31.6c0 10.2-2.4 19.8-6.6 28.3l-90.3-70.8zm223.1 298L373 389.9c-16.4 6.5-34.3 10.1-53 10.1c-79.5 0-144-64.5-144-144c0-6.9 .5-13.6 1.4-20.2L83.1 161.5C60.3 191.2 44 220.8 34.5 243.7c-3.3 7.9-3.3 16.7 0 24.6c14.9 35.7 46.2 87.7 93 131.1C174.5 443.2 239.2 480 320 480c47.8 0 89.9-12.9 126.2-32.5z"/></svg></span></template>
+        <template id=fa-copy><span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M502.6 70.63l-61.25-61.25C435.4 3.371 427.2 0 418.7 0H255.1c-35.35 0-64 28.66-64 64l.0195 256C192 355.4 220.7 384 256 384h192c35.2 0 64-28.8 64-64V93.25C512 84.77 508.6 76.63 502.6 70.63zM464 320c0 8.836-7.164 16-16 16H255.1c-8.838 0-16-7.164-16-16L239.1 64.13c0-8.836 7.164-16 16-16h128L384 96c0 17.67 14.33 32 32 32h47.1V320zM272 448c0 8.836-7.164 16-16 16H63.1c-8.838 0-16-7.164-16-16L47.98 192.1c0-8.836 7.164-16 16-16H160V128H63.99c-35.35 0-64 28.65-64 64l.0098 256C.002 483.3 28.66 512 64 512h192c35.2 0 64-28.8 64-64v-32h-47.1L272 448z"/></svg></span></template>
+        <template id=fa-play><span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M73 39c-14.8-9.1-33.4-9.4-48.5-.9S0 62.6 0 80V432c0 17.4 9.4 33.4 24.5 41.9s33.7 8.1 48.5-.9L361 297c14.3-8.7 23-24.2 23-41s-8.7-32.2-23-41L73 39z"/></svg></span></template>
+        <template id=fa-clock-rotate-left><span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M75 75L41 41C25.9 25.9 0 36.6 0 57.9V168c0 13.3 10.7 24 24 24H134.1c21.4 0 32.1-25.9 17-41l-30.8-30.8C155 85.5 203 64 256 64c106 0 192 86 192 192s-86 192-192 192c-40.8 0-78.6-12.7-109.7-34.4c-14.5-10.1-34.4-6.6-44.6 7.9s-6.6 34.4 7.9 44.6C151.2 495 201.7 512 256 512c141.4 0 256-114.6 256-256S397.4 0 256 0C185.3 0 121.3 28.7 75 75zm181 53c-13.3 0-24 10.7-24 24V256c0 6.4 2.5 12.5 7 17l72 72c9.4 9.4 24.6 9.4 33.9 0s9.4-24.6 0-33.9l-65-65V152c0-13.3-10.7-24-24-24z"/></svg></span></template>
+
+
+
+        <script>
+            window.playground_copyable = true;
+        </script>
+
+
+        <script src="../elasticlunr-ef4e11c1.min.js"></script>
+        <script src="../mark-09e88c2c.min.js"></script>
+        <script src="../searcher-09f2665d.js"></script>
+
+        <script src="../clipboard-1626706a.min.js"></script>
+        <script src="../highlight-abc7f01d.js"></script>
+        <script src="../book-609e4cb8.js"></script>
+
+        <!-- Custom JS scripts -->
+
+
+
+    </div>
+    </body>
+</html>

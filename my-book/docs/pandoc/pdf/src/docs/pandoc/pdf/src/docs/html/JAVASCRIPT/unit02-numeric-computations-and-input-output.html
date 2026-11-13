@@ -1,0 +1,553 @@
+<!DOCTYPE HTML>
+<html lang="en" class="rust sidebar-visible" dir="ltr">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>Unit 2 - Accessible Introduction to Computer Science</title>
+
+
+        <!-- Custom HTML head -->
+
+        <meta name="description" content="Introductory programming curricula, each adapted for visually impaired students who use screen readers">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff">
+
+        <link rel="icon" href="../favicon-de23e50b.svg">
+        <link rel="shortcut icon" href="../favicon-8114d1fc.png">
+        <link rel="stylesheet" href="../css/variables-8adf115d.css">
+        <link rel="stylesheet" href="../css/general-e96d0476.css">
+        <link rel="stylesheet" href="../css/chrome-d279d366.css">
+        <link rel="stylesheet" href="../css/print-9e4910d8.css" media="print">
+
+        <!-- Fonts -->
+        <link rel="stylesheet" href="../fonts/fonts-9644e21d.css">
+
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" id="mdbook-highlight-css" href="../highlight-493f70e1.css">
+        <link rel="stylesheet" id="mdbook-tomorrow-night-css" href="../tomorrow-night-4c0ae647.css">
+        <link rel="stylesheet" id="mdbook-ayu-highlight-css" href="../ayu-highlight-3fdfc3ac.css">
+
+        <!-- Custom theme stylesheets -->
+
+
+        <!-- Provide site root and default themes to javascript -->
+        <script>
+            const path_to_root = "../";
+            const default_light_theme = "rust";
+            const default_dark_theme = "navy";
+            window.path_to_searchindex_js = "../searchindex-1d296e4e.js";
+        </script>
+        <!-- Start loading toc.js asap -->
+        <script src="../toc-62d8efca.js"></script>
+    </head>
+    <body>
+    <div id="mdbook-help-container">
+        <div id="mdbook-help-popup">
+            <h2 class="mdbook-help-title">Keyboard shortcuts</h2>
+            <div>
+                <p>Press <kbd>←</kbd> or <kbd>→</kbd> to navigate between chapters</p>
+                <p>Press <kbd>S</kbd> or <kbd>/</kbd> to search in the book</p>
+                <p>Press <kbd>?</kbd> to show this help</p>
+                <p>Press <kbd>Esc</kbd> to hide this help</p>
+            </div>
+        </div>
+    </div>
+    <div id="mdbook-body-container">
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script>
+            try {
+                let theme = localStorage.getItem('mdbook-theme');
+                let sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script>
+            const default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? default_dark_theme : default_light_theme;
+            let theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            const html = document.documentElement;
+            html.classList.remove('rust')
+            html.classList.add(theme);
+            html.classList.add("js");
+        </script>
+
+        <input type="checkbox" id="mdbook-sidebar-toggle-anchor" class="hidden">
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script>
+            let sidebar = null;
+            const sidebar_toggle = document.getElementById("mdbook-sidebar-toggle-anchor");
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            } else {
+                sidebar = 'hidden';
+                sidebar_toggle.checked = false;
+            }
+            if (sidebar === 'visible') {
+                sidebar_toggle.checked = true;
+            } else {
+                html.classList.remove('sidebar-visible');
+            }
+        </script>
+
+        <nav id="mdbook-sidebar" class="sidebar" aria-label="Table of contents">
+            <!-- populated by js -->
+            <mdbook-sidebar-scrollbox class="sidebar-scrollbox"></mdbook-sidebar-scrollbox>
+            <noscript>
+                <iframe class="sidebar-iframe-outer" src="../toc.html"></iframe>
+            </noscript>
+            <div id="mdbook-sidebar-resize-handle" class="sidebar-resize-handle">
+                <div class="sidebar-resize-indicator"></div>
+            </div>
+        </nav>
+
+        <div id="mdbook-page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                <div id="mdbook-menu-bar-hover-placeholder"></div>
+                <div id="mdbook-menu-bar" class="menu-bar sticky">
+                    <div class="left-buttons">
+                        <label id="mdbook-sidebar-toggle" class="icon-button" for="mdbook-sidebar-toggle-anchor" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="mdbook-sidebar">
+                            <span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M0 96C0 78.3 14.3 64 32 64H416c17.7 0 32 14.3 32 32s-14.3 32-32 32H32C14.3 128 0 113.7 0 96zM0 256c0-17.7 14.3-32 32-32H416c17.7 0 32 14.3 32 32s-14.3 32-32 32H32c-17.7 0-32-14.3-32-32zM448 416c0 17.7-14.3 32-32 32H32c-17.7 0-32-14.3-32-32s14.3-32 32-32H416c17.7 0 32 14.3 32 32z"/></svg></span>
+                        </label>
+                        <button id="mdbook-theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="mdbook-theme-list">
+                            <span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M371.3 367.1c27.3-3.9 51.9-19.4 67.2-42.9L600.2 74.1c12.6-19.5 9.4-45.3-7.6-61.2S549.7-4.4 531.1 9.6L294.4 187.2c-24 18-38.2 46.1-38.4 76.1L371.3 367.1zm-19.6 25.4l-116-104.4C175.9 290.3 128 339.6 128 400c0 3.9 .2 7.8 .6 11.6c1.8 17.5-10.2 36.4-27.8 36.4H96c-17.7 0-32 14.3-32 32s14.3 32 32 32H240c61.9 0 112-50.1 112-112c0-2.5-.1-5-.2-7.5z"/></svg></span>
+                        </button>
+                        <ul id="mdbook-theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="mdbook-theme-default_theme">Auto</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="mdbook-theme-light">Light</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="mdbook-theme-rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="mdbook-theme-coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="mdbook-theme-navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="mdbook-theme-ayu">Ayu</button></li>
+                        </ul>
+                        <button id="mdbook-search-toggle" class="icon-button" type="button" title="Search (`/`)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="/ s" aria-controls="mdbook-searchbar">
+                            <span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M416 208c0 45.9-14.9 88.3-40 122.7L502.6 457.4c12.5 12.5 12.5 32.8 0 45.3s-32.8 12.5-45.3 0L330.7 376c-34.4 25.2-76.8 40-122.7 40C93.1 416 0 322.9 0 208S93.1 0 208 0S416 93.1 416 208zM208 352c79.5 0 144-64.5 144-144s-64.5-144-144-144S64 128.5 64 208s64.5 144 144 144z"/></svg></span>
+                        </button>
+                    </div>
+
+                    <h1 class="menu-title">Accessible Introduction to Computer Science</h1>
+
+                    <div class="right-buttons">
+                        <a href="../print.html" title="Print this book" aria-label="Print this book">
+                            <span class=fa-svg id="print-button"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M128 0C92.7 0 64 28.7 64 64v96h64V64H354.7L384 93.3V160h64V93.3c0-17-6.7-33.3-18.7-45.3L400 18.7C388 6.7 371.7 0 354.7 0H128zM384 352v32 64H128V384 368 352H384zm64 32h32c17.7 0 32-14.3 32-32V256c0-35.3-28.7-64-64-64H64c-35.3 0-64 28.7-64 64v96c0 17.7 14.3 32 32 32H64v64c0 35.3 28.7 64 64 64H384c35.3 0 64-28.7 64-64V384zm-16-88c-13.3 0-24-10.7-24-24s10.7-24 24-24s24 10.7 24 24s-10.7 24-24 24z"/></svg></span>
+                        </a>
+                        <a href="https://github.com/mrhunsaker/VI_Focused_Coding_Curricula" title="Git repository" aria-label="Git repository">
+                            <span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"/></svg></span>
+                        </a>
+
+                    </div>
+                </div>
+
+                <div id="mdbook-search-wrapper" class="hidden">
+                    <form id="mdbook-searchbar-outer" class="searchbar-outer">
+                        <div class="search-wrapper">
+                            <input type="search" id="mdbook-searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="mdbook-searchresults-outer" aria-describedby="searchresults-header">
+                            <div class="spinner-wrapper">
+                                <span class=fa-svg id="fa-spin"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M304 48c0-26.5-21.5-48-48-48s-48 21.5-48 48s21.5 48 48 48s48-21.5 48-48zm0 416c0-26.5-21.5-48-48-48s-48 21.5-48 48s21.5 48 48 48s48-21.5 48-48zM48 304c26.5 0 48-21.5 48-48s-21.5-48-48-48s-48 21.5-48 48s21.5 48 48 48zm464-48c0-26.5-21.5-48-48-48s-48 21.5-48 48s21.5 48 48 48s48-21.5 48-48zM142.9 437c18.7-18.7 18.7-49.1 0-67.9s-49.1-18.7-67.9 0s-18.7 49.1 0 67.9s49.1 18.7 67.9 0zm0-294.2c18.7-18.7 18.7-49.1 0-67.9S93.7 56.2 75 75s-18.7 49.1 0 67.9s49.1 18.7 67.9 0zM369.1 437c18.7 18.7 49.1 18.7 67.9 0s18.7-49.1 0-67.9s-49.1-18.7-67.9 0s-18.7 49.1 0 67.9z"/></svg></span>
+                            </div>
+                        </div>
+                    </form>
+                    <div id="mdbook-searchresults-outer" class="searchresults-outer hidden">
+                        <div id="mdbook-searchresults-header" class="searchresults-header"></div>
+                        <ul id="mdbook-searchresults">
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script>
+                    document.getElementById('mdbook-sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('mdbook-sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#mdbook-sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="mdbook-content" class="content">
+                    <main>
+                        <h1 id="unit-2-numeric-computations-and-inputoutput"><a class="header" href="#unit-2-numeric-computations-and-inputoutput">Unit 2: Numeric Computations and Input/Output</a></h1>
+<p><strong>Runtime baseline:</strong> Node.js 26.x. Examples use built-in ECMAScript and Node.js APIs; no third-party package is required for these lessons.</p>
+<h2 id="overview"><a class="header" href="#overview">Overview</a></h2>
+<p>This unit follows the same design, expression, input/output, numeric-conversion, and mathematics sequence as the Python course. Use the shared bill of $24.50 and tip rate of 0.15, the student profile Avery (age 16, height 1.72 m), and the coordinates (3, 4). JavaScript is dynamically typed; input from a terminal arrives as text and must be converted and validated before arithmetic.</p>
+<h2 id="lesson-21-the-software-development-process"><a class="header" href="#lesson-21-the-software-development-process">Lesson 2.1: The Software Development Process</a></h2>
+<h3 id="reading-references"><a class="header" href="#reading-references">Reading References</a></h3>
+<ul>
+<li>Python source counterpart: Unit 2, Lesson 2.1.</li>
+<li>MDN: JavaScript Guide, Grammar and Types.</li>
+</ul>
+<h3 id="learning-objectives"><a class="header" href="#learning-objectives">Learning Objectives</a></h3>
+<ul>
+<li>Separate problem analysis, design, implementation, and testing.</li>
+<li>Identify inputs, outputs, assumptions, and boundary cases before coding.</li>
+<li>Write language-neutral pseudocode before JavaScript.</li>
+</ul>
+<h3 id="concept-explanation"><a class="header" href="#concept-explanation">Concept Explanation</a></h3>
+<p>Use the same three-phase cycle for every language: <strong>design</strong>, <strong>implement</strong>, and <strong>test/debug</strong>. For a tip calculator, inputs are bill amount and tip rate; outputs are tip amount and total. State assumptions explicitly: the bill is nonnegative, the rate is a decimal fraction, and money is displayed to two decimal places. Pseudocode should describe the calculation without depending on JavaScript syntax.</p>
+<h3 id="worked-example"><a class="header" href="#worked-example">Worked Example</a></h3>
+<p>Pseudocode:</p>
+<pre><code class="language-text">GET bill amount
+GET tip rate
+CALCULATE tip = bill amount * tip rate
+CALCULATE total = bill amount + tip
+DISPLAY tip and total to two decimal places
+</code></pre>
+<p>JavaScript implementation using the canonical values:</p>
+<pre><code class="language-javascript">const bill = 24.50;
+const tipRate = 0.15;
+const tip = bill * tipRate;
+const total = bill + tip;
+
+console.log(`Tip: $${tip.toFixed(2)}`);
+console.log(`Total: $${total.toFixed(2)}`);
+</code></pre>
+<p>Expected output:</p>
+<pre><code class="language-text">Tip: $3.67
+Total: $28.18
+</code></pre>
+<h3 id="expected-behavior-or-output"><a class="header" href="#expected-behavior-or-output">Expected Behavior or Output</a></h3>
+<p>The canonical bill of $24.50 at a 0.15 rate produces a displayed tip of $3.67 and total of $28.18 with JavaScript’s binary floating-point and <code>toFixed(2)</code> behavior.</p>
+<h3 id="common-mistakes"><a class="header" href="#common-mistakes">Common Mistakes</a></h3>
+<ul>
+<li>Coding before deciding what the program should accept and display.</li>
+<li>Treating 15 as equivalent to 0.15 for a percentage rate.</li>
+<li>Forgetting to test zero, negative, and unusually large inputs.</li>
+<li>Rounding intermediate values when only the displayed result needs formatting.</li>
+</ul>
+<h3 id="activities"><a class="header" href="#activities">Activities</a></h3>
+<ol>
+<li>Write input/output tables for the tip calculator before coding.</li>
+<li>Add a test case for a $0.00 bill and explain its expected result.</li>
+<li>Change the tip rate to 0.20 and predict the output before running the program.</li>
+<li>Describe one invalid input and the validation rule that should reject it.</li>
+</ol>
+<h3 id="accessibility-practice"><a class="header" href="#accessibility-practice">Accessibility Practice</a></h3>
+<p>Read the pseudocode and output in order. Use explicit labels for each displayed amount; do not rely on alignment, color, or visual placement to communicate which value is the tip and which is the total.</p>
+<h3 id="skills-checklist"><a class="header" href="#skills-checklist">Skills Checklist</a></h3>
+<ul>
+<li><input disabled="" type="checkbox"> I can identify a program’s inputs, outputs, assumptions, and edge cases.</li>
+<li><input disabled="" type="checkbox"> I can write pseudocode independently of JavaScript syntax.</li>
+<li><input disabled="" type="checkbox"> I can distinguish design, implementation, and testing.</li>
+<li><input disabled="" type="checkbox"> I can explain why expected results should be predicted before execution.</li>
+</ul>
+<hr>
+<h2 id="lesson-22-expressions-and-assignment"><a class="header" href="#lesson-22-expressions-and-assignment">Lesson 2.2: Expressions and Assignment</a></h2>
+<h3 id="reading-references-1"><a class="header" href="#reading-references-1">Reading References</a></h3>
+<ul>
+<li>Python source counterpart: Unit 2, Lesson 2.2.</li>
+<li>MDN: Expressions and operators.</li>
+</ul>
+<h3 id="learning-objectives-1"><a class="header" href="#learning-objectives-1">Learning Objectives</a></h3>
+<ul>
+<li>Evaluate arithmetic expressions using precedence and parentheses.</li>
+<li>Assign and update variables with clear, predictable statements.</li>
+<li>Explain the difference between <code>=</code>, <code>===</code>, and arithmetic operators.</li>
+</ul>
+<h3 id="concept-explanation-1"><a class="header" href="#concept-explanation-1">Concept Explanation</a></h3>
+<p>An expression produces a value. An assignment stores a value in a variable. JavaScript evaluates multiplication and division before addition and subtraction; parentheses make intended grouping explicit. Use <code>===</code> for strict equality in beginner examples so that JavaScript does not silently coerce unlike types during comparison.</p>
+<h3 id="worked-example-1"><a class="header" href="#worked-example-1">Worked Example</a></h3>
+<pre><code class="language-javascript">let score = 10;
+score = score + 5;
+const subtotal = 3 * 4 + 2;
+const grouped = 3 * (4 + 2);
+
+console.log(`Score: ${score}`);
+console.log(`Subtotal: ${subtotal}`);
+console.log(`Grouped: ${grouped}`);
+console.log(`Is score 15? ${score === 15}`);
+</code></pre>
+<p>Expected output:</p>
+<pre><code class="language-text">Score: 15
+Subtotal: 14
+Grouped: 18
+Is score 15? true
+</code></pre>
+<h3 id="expected-behavior-or-output-1"><a class="header" href="#expected-behavior-or-output-1">Expected Behavior or Output</a></h3>
+<p>The program prints score 15, subtotal 14, grouped result 18, and strict comparison result true.</p>
+<h3 id="common-mistakes-1"><a class="header" href="#common-mistakes-1">Common Mistakes</a></h3>
+<ul>
+<li>Using <code>=</code> when a comparison with <code>===</code> is intended.</li>
+<li>Forgetting that <code>const</code> prevents reassignment of the binding.</li>
+<li>Assuming arithmetic with a string will always behave like arithmetic with a number.</li>
+<li>Omitting parentheses when they would make a multi-step expression easier to audit.</li>
+</ul>
+<h3 id="activities-1"><a class="header" href="#activities-1">Activities</a></h3>
+<ol>
+<li>Predict and then verify <code>8 + 4 * 2</code> and <code>(8 + 4) * 2</code>.</li>
+<li>Update a score from 82 by adding 9, then print the new value.</li>
+<li>Create a bill expression with a 15% tip using the canonical $24.50 bill.</li>
+<li>Explain why <code>"15" === 15</code> evaluates to false.</li>
+</ol>
+<h3 id="accessibility-practice-1"><a class="header" href="#accessibility-practice-1">Accessibility Practice</a></h3>
+<p>When reading code aloud, identify parentheses, operators, and assignment separately. Keep one calculation per line when that makes the sequence easier to navigate.</p>
+<h3 id="skills-checklist-1"><a class="header" href="#skills-checklist-1">Skills Checklist</a></h3>
+<ul>
+<li><input disabled="" type="checkbox"> I can evaluate expressions using operator precedence.</li>
+<li><input disabled="" type="checkbox"> I can use parentheses to control grouping.</li>
+<li><input disabled="" type="checkbox"> I can update a variable with <code>let</code>.</li>
+<li><input disabled="" type="checkbox"> I can explain assignment versus strict equality.</li>
+</ul>
+<hr>
+<h2 id="lesson-23-input-and-output-revisited"><a class="header" href="#lesson-23-input-and-output-revisited">Lesson 2.3: Input and Output Revisited</a></h2>
+<h3 id="reading-references-2"><a class="header" href="#reading-references-2">Reading References</a></h3>
+<ul>
+<li>Python source counterpart: Unit 2, Lesson 2.3.</li>
+<li>Node.js documentation: readline.</li>
+</ul>
+<h3 id="learning-objectives-2"><a class="header" href="#learning-objectives-2">Learning Objectives</a></h3>
+<ul>
+<li>Read terminal input with Node.js <code>readline/promises</code>.</li>
+<li>Explain that terminal input is returned as a string.</li>
+<li>Display a greeting and the sum of two validated numeric inputs.</li>
+</ul>
+<h3 id="concept-explanation-2"><a class="header" href="#concept-explanation-2">Concept Explanation</a></h3>
+<p>Unlike Python’s built-in <code>input()</code>, Node.js uses an input API. The <code>readline/promises</code> module provides an asynchronous <code>question()</code> method. It returns text, so numeric input must be converted and checked. Always close the interface so the process can exit cleanly.</p>
+<h3 id="worked-example-2"><a class="header" href="#worked-example-2">Worked Example</a></h3>
+<p>Save as <code>sum-input.js</code> and run with <code>node sum-input.js</code>:</p>
+<pre><code class="language-javascript">const readline = require("node:readline/promises");
+const { stdin, stdout } = require("node:process");
+
+async function main() {
+  const rl = readline.createInterface({ input: stdin, output: stdout });
+  try {
+    const name = await rl.question("What is your name? ");
+    const firstText = await rl.question("Enter the first number: ");
+    const secondText = await rl.question("Enter the second number: ");
+    const first = Number(firstText);
+    const second = Number(secondText);
+
+    if (firstText.trim() === "" || secondText.trim() === ""
+        || !Number.isFinite(first) || !Number.isFinite(second)) {
+      console.log("Error: enter two valid numbers.");
+      return;
+    }
+
+    console.log(`Hello, ${name}!`);
+    console.log(`Sum: ${first + second}`);
+  } finally {
+    rl.close();
+  }
+}
+
+main();
+</code></pre>
+<p>Example interaction:</p>
+<pre><code class="language-text">What is your name? Avery
+Enter the first number: 12
+Enter the second number: 8
+Hello, Avery!
+Sum: 20
+</code></pre>
+<h3 id="expected-behavior-or-output-2"><a class="header" href="#expected-behavior-or-output-2">Expected Behavior or Output</a></h3>
+<p>For inputs Avery, 12, and 8, the program prints <code>Hello, Avery!</code> and <code>Sum: 20</code>. Blank or nonnumeric input produces the validation message.</p>
+<h3 id="common-mistakes-2"><a class="header" href="#common-mistakes-2">Common Mistakes</a></h3>
+<ul>
+<li>Adding two input strings and getting concatenation instead of numeric addition.</li>
+<li>Treating <code>Number("")</code> as invalid even though it evaluates to zero; validate blank text explicitly.</li>
+<li>Forgetting to await <code>question()</code>.</li>
+<li>Leaving the readline interface open.</li>
+</ul>
+<h3 id="activities-2"><a class="header" href="#activities-2">Activities</a></h3>
+<ol>
+<li>Run the example with the name Avery and numbers 12 and 8.</li>
+<li>Enter a blank value and confirm that the validation message appears.</li>
+<li>Enter a decimal and a negative number; explain why both are valid numeric values.</li>
+<li>Change the program to ask for the canonical age 16 and print the year of birth only after asking for a reference year.</li>
+</ol>
+<h3 id="accessibility-practice-2"><a class="header" href="#accessibility-practice-2">Accessibility Practice</a></h3>
+<p>Use prompts that state exactly what input is expected. Announce the full error message and re-prompt when extending this example. Keep the interaction linear and keyboard-only.</p>
+<h3 id="skills-checklist-2"><a class="header" href="#skills-checklist-2">Skills Checklist</a></h3>
+<ul>
+<li><input disabled="" type="checkbox"> I can create a Node.js readline interface.</li>
+<li><input disabled="" type="checkbox"> I can read terminal input asynchronously.</li>
+<li><input disabled="" type="checkbox"> I can convert and validate numeric text.</li>
+<li><input disabled="" type="checkbox"> I can close the interface in a <code>finally</code> block.</li>
+</ul>
+<hr>
+<h2 id="lesson-24-computing-with-numbers-and-type-conversions"><a class="header" href="#lesson-24-computing-with-numbers-and-type-conversions">Lesson 2.4: Computing with Numbers and Type Conversions</a></h2>
+<h3 id="reading-references-3"><a class="header" href="#reading-references-3">Reading References</a></h3>
+<ul>
+<li>Python source counterpart: Unit 2, Lesson 2.4.</li>
+<li>MDN: Number, Number.isFinite, and Number.isInteger.</li>
+</ul>
+<h3 id="learning-objectives-3"><a class="header" href="#learning-objectives-3">Learning Objectives</a></h3>
+<ul>
+<li>Distinguish JavaScript numbers from numeric strings.</li>
+<li>Convert text using <code>Number()</code> and parse integer text when appropriate.</li>
+<li>Detect invalid numeric values, including <code>NaN</code>.</li>
+</ul>
+<h3 id="concept-explanation-3"><a class="header" href="#concept-explanation-3">Concept Explanation</a></h3>
+<p>JavaScript has one ordinary <code>Number</code> type for integers and floating-point values. It uses IEEE 754 double-precision floating-point arithmetic. <code>Number("16")</code> returns 16; <code>Number("sixteen")</code> returns <code>NaN</code>. <code>parseInt()</code> parses an integer prefix, so it should not be used as a substitute for strict validation. Use <code>Number.isFinite()</code> to reject <code>NaN</code> and infinities.</p>
+<h3 id="worked-example-3"><a class="header" href="#worked-example-3">Worked Example</a></h3>
+<pre><code class="language-javascript">const ageText = "16";
+const heightText = "1.72";
+const age = Number(ageText);
+const height = Number(heightText);
+
+console.log(`Age next year: ${age + 1}`);
+console.log(`Height in centimeters: ${(height * 100).toFixed(0)}`);
+console.log(`Is age valid? ${Number.isInteger(age) &amp;&amp; age &gt;= 0}`);
+console.log(`Is 'sixteen' valid? ${Number.isFinite(Number("sixteen"))}`);
+</code></pre>
+<p>Expected output:</p>
+<pre><code class="language-text">Age next year: 17
+Height in centimeters: 172
+Is age valid? true
+Is 'sixteen' valid? false
+</code></pre>
+<h3 id="expected-behavior-or-output-3"><a class="header" href="#expected-behavior-or-output-3">Expected Behavior or Output</a></h3>
+<p>The program prints age next year 17, height 172 centimetres, a valid age result of true, and an invalid numeric-text result of false.</p>
+<h3 id="common-mistakes-3"><a class="header" href="#common-mistakes-3">Common Mistakes</a></h3>
+<ul>
+<li>Assuming JavaScript separates integers and floats into different primitive types.</li>
+<li>Forgetting that <code>typeof NaN</code> is <code>"number"</code>.</li>
+<li>Using <code>parseInt("12abc")</code> and accepting the partial result 12 without checking the entire input.</li>
+<li>Comparing floating-point calculations for exact equality when a tolerance is needed.</li>
+</ul>
+<h3 id="activities-3"><a class="header" href="#activities-3">Activities</a></h3>
+<ol>
+<li>Convert the canonical age text <code>"16"</code> and height text <code>"1.72"</code> to numbers.</li>
+<li>Convert <code>"abc"</code> and <code>""</code>; explain why blank input needs separate validation.</li>
+<li>Calculate the bill total from $24.50 and a 0.15 tip rate.</li>
+<li>Test whether 3.5 is an integer and whether <code>Infinity</code> is finite.</li>
+</ol>
+<h3 id="accessibility-practice-3"><a class="header" href="#accessibility-practice-3">Accessibility Practice</a></h3>
+<p>Use textual labels that name the value and its unit. State why a conversion failed rather than only printing <code>NaN</code>.</p>
+<h3 id="skills-checklist-3"><a class="header" href="#skills-checklist-3">Skills Checklist</a></h3>
+<ul>
+<li><input disabled="" type="checkbox"> I can convert numeric strings with <code>Number()</code>.</li>
+<li><input disabled="" type="checkbox"> I can detect invalid numeric values with <code>Number.isFinite()</code>.</li>
+<li><input disabled="" type="checkbox"> I can distinguish integers from non-integer numbers.</li>
+<li><input disabled="" type="checkbox"> I can explain JavaScript’s single ordinary Number type.</li>
+</ul>
+<hr>
+<h2 id="lesson-25-using-the-math-object"><a class="header" href="#lesson-25-using-the-math-object">Lesson 2.5: Using the Math Object</a></h2>
+<h3 id="reading-references-4"><a class="header" href="#reading-references-4">Reading References</a></h3>
+<ul>
+<li>Python source counterpart: Unit 2, Lesson 2.5.</li>
+<li>MDN: Math.</li>
+</ul>
+<h3 id="learning-objectives-4"><a class="header" href="#learning-objectives-4">Learning Objectives</a></h3>
+<ul>
+<li>Use <code>Math.PI</code>, <code>Math.sqrt()</code>, <code>Math.ceil()</code>, and <code>Math.floor()</code>.</li>
+<li>Calculate circle area and circumference.</li>
+<li>Calculate distance from the origin using the canonical coordinates (3, 4).</li>
+</ul>
+<h3 id="concept-explanation-4"><a class="header" href="#concept-explanation-4">Concept Explanation</a></h3>
+<p>JavaScript’s built-in <code>Math</code> object provides mathematical constants and functions. It is used directly; it is not imported. <code>Math.PI</code> is the value of pi, <code>Math.sqrt()</code> calculates a square root, <code>Math.ceil()</code> rounds upward, and <code>Math.floor()</code> rounds downward.</p>
+<h3 id="worked-example-4"><a class="header" href="#worked-example-4">Worked Example</a></h3>
+<pre><code class="language-javascript">const radius = 5;
+const area = Math.PI * radius ** 2;
+const circumference = 2 * Math.PI * radius;
+
+const x = 3;
+const y = 4;
+const distance = Math.sqrt(x ** 2 + y ** 2);
+
+console.log(`Area: ${area.toFixed(2)}`);
+console.log(`Circumference: ${circumference.toFixed(2)}`);
+console.log(`Distance from origin: ${distance.toFixed(2)}`);
+console.log(`Ceiling of 4.2: ${Math.ceil(4.2)}`);
+console.log(`Floor of 4.8: ${Math.floor(4.8)}`);
+</code></pre>
+<p>Expected output:</p>
+<pre><code class="language-text">Area: 78.54
+Circumference: 31.42
+Distance from origin: 5.00
+Ceiling of 4.2: 5
+Floor of 4.8: 4
+</code></pre>
+<h3 id="expected-behavior-or-output-4"><a class="header" href="#expected-behavior-or-output-4">Expected Behavior or Output</a></h3>
+<p>For radius 5 and coordinates (3, 4), the program prints area 78.54, circumference 31.42, distance 5.00, ceiling 5, and floor 4.</p>
+<h3 id="common-mistakes-4"><a class="header" href="#common-mistakes-4">Common Mistakes</a></h3>
+<ul>
+<li>Writing <code>Math.pi</code> instead of the case-sensitive <code>Math.PI</code>.</li>
+<li>Calling <code>Math.sqrt</code> without parentheses.</li>
+<li>Confusing <code>Math.round()</code> with ceiling or floor.</li>
+<li>Forgetting that <code>toFixed()</code> returns a string for display.</li>
+</ul>
+<h3 id="activities-4"><a class="header" href="#activities-4">Activities</a></h3>
+<ol>
+<li>Calculate the area and circumference of a circle with radius 5.</li>
+<li>Calculate the distance from (3, 4) to the origin.</li>
+<li>Predict the results of <code>Math.ceil(2.01)</code> and <code>Math.floor(2.99)</code>.</li>
+<li>Change the radius to 2.5 and report both results to two decimal places.</li>
+</ol>
+<h3 id="accessibility-practice-4"><a class="header" href="#accessibility-practice-4">Accessibility Practice</a></h3>
+<p>Read each result with its label. Preserve units in prompts and output. Ensure mathematical notation is also explained in words when students are using a screen reader or braille display.</p>
+<h3 id="skills-checklist-4"><a class="header" href="#skills-checklist-4">Skills Checklist</a></h3>
+<ul>
+<li><input disabled="" type="checkbox"> I can use <code>Math.PI</code> and <code>Math.sqrt()</code>.</li>
+<li><input disabled="" type="checkbox"> I can calculate circle area and circumference.</li>
+<li><input disabled="" type="checkbox"> I can calculate distance from the origin.</li>
+<li><input disabled="" type="checkbox"> I can distinguish ceiling, floor, and rounding.</li>
+</ul>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                            <a rel="prev" href="../JAVASCRIPT/unit01-foundations-getting-started-with-javascript.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M41.4 233.4c-12.5 12.5-12.5 32.8 0 45.3l160 160c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L109.3 256 246.6 118.6c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0l-160 160z"/></svg></span>
+                            </a>
+
+                            <a rel="next prefetch" href="../JAVASCRIPT/unit03-control-flow-decisions-lists-and-strings.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M278.6 233.4c12.5 12.5 12.5 32.8 0 45.3l-160 160c-12.5 12.5-32.8 12.5-45.3 0s-12.5-32.8 0-45.3L210.7 256 73.4 118.6c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0l160 160z"/></svg></span>
+                            </a>
+
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                    <a rel="prev" href="../JAVASCRIPT/unit01-foundations-getting-started-with-javascript.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M41.4 233.4c-12.5 12.5-12.5 32.8 0 45.3l160 160c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L109.3 256 246.6 118.6c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0l-160 160z"/></svg></span>
+                    </a>
+
+                    <a rel="next prefetch" href="../JAVASCRIPT/unit03-control-flow-decisions-lists-and-strings.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M278.6 233.4c12.5 12.5 12.5 32.8 0 45.3l-160 160c-12.5 12.5-32.8 12.5-45.3 0s-12.5-32.8 0-45.3L210.7 256 73.4 118.6c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0l160 160z"/></svg></span>
+                    </a>
+            </nav>
+
+        </div>
+
+        <template id=fa-eye><span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M288 32c-80.8 0-145.5 36.8-192.6 80.6C48.6 156 17.3 208 2.5 243.7c-3.3 7.9-3.3 16.7 0 24.6C17.3 304 48.6 356 95.4 399.4C142.5 443.2 207.2 480 288 480s145.5-36.8 192.6-80.6c46.8-43.5 78.1-95.4 93-131.1c3.3-7.9 3.3-16.7 0-24.6c-14.9-35.7-46.2-87.7-93-131.1C433.5 68.8 368.8 32 288 32zM432 256c0 79.5-64.5 144-144 144s-144-64.5-144-144s64.5-144 144-144s144 64.5 144 144zM288 192c0 35.3-28.7 64-64 64c-11.5 0-22.3-3-31.6-8.4c-.2 2.8-.4 5.5-.4 8.4c0 53 43 96 96 96s96-43 96-96s-43-96-96-96c-2.8 0-5.6 .1-8.4 .4c5.3 9.3 8.4 20.1 8.4 31.6z"/></svg></span></template>
+        <template id=fa-eye-slash><span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M38.8 5.1C28.4-3.1 13.3-1.2 5.1 9.2S-1.2 34.7 9.2 42.9l592 464c10.4 8.2 25.5 6.3 33.7-4.1s6.3-25.5-4.1-33.7L525.6 386.7c39.6-40.6 66.4-86.1 79.9-118.4c3.3-7.9 3.3-16.7 0-24.6c-14.9-35.7-46.2-87.7-93-131.1C465.5 68.8 400.8 32 320 32c-68.2 0-125 26.3-169.3 60.8L38.8 5.1zM223.1 149.5C248.6 126.2 282.7 112 320 112c79.5 0 144 64.5 144 144c0 24.9-6.3 48.3-17.4 68.7L408 294.5c5.2-11.8 8-24.8 8-38.5c0-53-43-96-96-96c-2.8 0-5.6 .1-8.4 .4c5.3 9.3 8.4 20.1 8.4 31.6c0 10.2-2.4 19.8-6.6 28.3l-90.3-70.8zm223.1 298L373 389.9c-16.4 6.5-34.3 10.1-53 10.1c-79.5 0-144-64.5-144-144c0-6.9 .5-13.6 1.4-20.2L83.1 161.5C60.3 191.2 44 220.8 34.5 243.7c-3.3 7.9-3.3 16.7 0 24.6c14.9 35.7 46.2 87.7 93 131.1C174.5 443.2 239.2 480 320 480c47.8 0 89.9-12.9 126.2-32.5z"/></svg></span></template>
+        <template id=fa-copy><span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M502.6 70.63l-61.25-61.25C435.4 3.371 427.2 0 418.7 0H255.1c-35.35 0-64 28.66-64 64l.0195 256C192 355.4 220.7 384 256 384h192c35.2 0 64-28.8 64-64V93.25C512 84.77 508.6 76.63 502.6 70.63zM464 320c0 8.836-7.164 16-16 16H255.1c-8.838 0-16-7.164-16-16L239.1 64.13c0-8.836 7.164-16 16-16h128L384 96c0 17.67 14.33 32 32 32h47.1V320zM272 448c0 8.836-7.164 16-16 16H63.1c-8.838 0-16-7.164-16-16L47.98 192.1c0-8.836 7.164-16 16-16H160V128H63.99c-35.35 0-64 28.65-64 64l.0098 256C.002 483.3 28.66 512 64 512h192c35.2 0 64-28.8 64-64v-32h-47.1L272 448z"/></svg></span></template>
+        <template id=fa-play><span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M73 39c-14.8-9.1-33.4-9.4-48.5-.9S0 62.6 0 80V432c0 17.4 9.4 33.4 24.5 41.9s33.7 8.1 48.5-.9L361 297c14.3-8.7 23-24.2 23-41s-8.7-32.2-23-41L73 39z"/></svg></span></template>
+        <template id=fa-clock-rotate-left><span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M75 75L41 41C25.9 25.9 0 36.6 0 57.9V168c0 13.3 10.7 24 24 24H134.1c21.4 0 32.1-25.9 17-41l-30.8-30.8C155 85.5 203 64 256 64c106 0 192 86 192 192s-86 192-192 192c-40.8 0-78.6-12.7-109.7-34.4c-14.5-10.1-34.4-6.6-44.6 7.9s-6.6 34.4 7.9 44.6C151.2 495 201.7 512 256 512c141.4 0 256-114.6 256-256S397.4 0 256 0C185.3 0 121.3 28.7 75 75zm181 53c-13.3 0-24 10.7-24 24V256c0 6.4 2.5 12.5 7 17l72 72c9.4 9.4 24.6 9.4 33.9 0s9.4-24.6 0-33.9l-65-65V152c0-13.3-10.7-24-24-24z"/></svg></span></template>
+
+
+
+        <script>
+            window.playground_copyable = true;
+        </script>
+
+
+        <script src="../elasticlunr-ef4e11c1.min.js"></script>
+        <script src="../mark-09e88c2c.min.js"></script>
+        <script src="../searcher-09f2665d.js"></script>
+
+        <script src="../clipboard-1626706a.min.js"></script>
+        <script src="../highlight-abc7f01d.js"></script>
+        <script src="../book-609e4cb8.js"></script>
+
+        <!-- Custom JS scripts -->
+
+
+
+    </div>
+    </body>
+</html>

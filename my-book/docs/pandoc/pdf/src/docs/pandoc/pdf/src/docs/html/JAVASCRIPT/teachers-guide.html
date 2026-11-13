@@ -1,0 +1,1607 @@
+<!DOCTYPE HTML>
+<html lang="en" class="rust sidebar-visible" dir="ltr">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>JavaScript Teacher&#x27;s Guide - Accessible Introduction to Computer Science</title>
+
+
+        <!-- Custom HTML head -->
+
+        <meta name="description" content="Introductory programming curricula, each adapted for visually impaired students who use screen readers">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff">
+
+        <link rel="icon" href="../favicon-de23e50b.svg">
+        <link rel="shortcut icon" href="../favicon-8114d1fc.png">
+        <link rel="stylesheet" href="../css/variables-8adf115d.css">
+        <link rel="stylesheet" href="../css/general-e96d0476.css">
+        <link rel="stylesheet" href="../css/chrome-d279d366.css">
+        <link rel="stylesheet" href="../css/print-9e4910d8.css" media="print">
+
+        <!-- Fonts -->
+        <link rel="stylesheet" href="../fonts/fonts-9644e21d.css">
+
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" id="mdbook-highlight-css" href="../highlight-493f70e1.css">
+        <link rel="stylesheet" id="mdbook-tomorrow-night-css" href="../tomorrow-night-4c0ae647.css">
+        <link rel="stylesheet" id="mdbook-ayu-highlight-css" href="../ayu-highlight-3fdfc3ac.css">
+
+        <!-- Custom theme stylesheets -->
+
+
+        <!-- Provide site root and default themes to javascript -->
+        <script>
+            const path_to_root = "../";
+            const default_light_theme = "rust";
+            const default_dark_theme = "navy";
+            window.path_to_searchindex_js = "../searchindex-1d296e4e.js";
+        </script>
+        <!-- Start loading toc.js asap -->
+        <script src="../toc-62d8efca.js"></script>
+    </head>
+    <body>
+    <div id="mdbook-help-container">
+        <div id="mdbook-help-popup">
+            <h2 class="mdbook-help-title">Keyboard shortcuts</h2>
+            <div>
+                <p>Press <kbd>←</kbd> or <kbd>→</kbd> to navigate between chapters</p>
+                <p>Press <kbd>S</kbd> or <kbd>/</kbd> to search in the book</p>
+                <p>Press <kbd>?</kbd> to show this help</p>
+                <p>Press <kbd>Esc</kbd> to hide this help</p>
+            </div>
+        </div>
+    </div>
+    <div id="mdbook-body-container">
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script>
+            try {
+                let theme = localStorage.getItem('mdbook-theme');
+                let sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script>
+            const default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? default_dark_theme : default_light_theme;
+            let theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            const html = document.documentElement;
+            html.classList.remove('rust')
+            html.classList.add(theme);
+            html.classList.add("js");
+        </script>
+
+        <input type="checkbox" id="mdbook-sidebar-toggle-anchor" class="hidden">
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script>
+            let sidebar = null;
+            const sidebar_toggle = document.getElementById("mdbook-sidebar-toggle-anchor");
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            } else {
+                sidebar = 'hidden';
+                sidebar_toggle.checked = false;
+            }
+            if (sidebar === 'visible') {
+                sidebar_toggle.checked = true;
+            } else {
+                html.classList.remove('sidebar-visible');
+            }
+        </script>
+
+        <nav id="mdbook-sidebar" class="sidebar" aria-label="Table of contents">
+            <!-- populated by js -->
+            <mdbook-sidebar-scrollbox class="sidebar-scrollbox"></mdbook-sidebar-scrollbox>
+            <noscript>
+                <iframe class="sidebar-iframe-outer" src="../toc.html"></iframe>
+            </noscript>
+            <div id="mdbook-sidebar-resize-handle" class="sidebar-resize-handle">
+                <div class="sidebar-resize-indicator"></div>
+            </div>
+        </nav>
+
+        <div id="mdbook-page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                <div id="mdbook-menu-bar-hover-placeholder"></div>
+                <div id="mdbook-menu-bar" class="menu-bar sticky">
+                    <div class="left-buttons">
+                        <label id="mdbook-sidebar-toggle" class="icon-button" for="mdbook-sidebar-toggle-anchor" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="mdbook-sidebar">
+                            <span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M0 96C0 78.3 14.3 64 32 64H416c17.7 0 32 14.3 32 32s-14.3 32-32 32H32C14.3 128 0 113.7 0 96zM0 256c0-17.7 14.3-32 32-32H416c17.7 0 32 14.3 32 32s-14.3 32-32 32H32c-17.7 0-32-14.3-32-32zM448 416c0 17.7-14.3 32-32 32H32c-17.7 0-32-14.3-32-32s14.3-32 32-32H416c17.7 0 32 14.3 32 32z"/></svg></span>
+                        </label>
+                        <button id="mdbook-theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="mdbook-theme-list">
+                            <span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M371.3 367.1c27.3-3.9 51.9-19.4 67.2-42.9L600.2 74.1c12.6-19.5 9.4-45.3-7.6-61.2S549.7-4.4 531.1 9.6L294.4 187.2c-24 18-38.2 46.1-38.4 76.1L371.3 367.1zm-19.6 25.4l-116-104.4C175.9 290.3 128 339.6 128 400c0 3.9 .2 7.8 .6 11.6c1.8 17.5-10.2 36.4-27.8 36.4H96c-17.7 0-32 14.3-32 32s14.3 32 32 32H240c61.9 0 112-50.1 112-112c0-2.5-.1-5-.2-7.5z"/></svg></span>
+                        </button>
+                        <ul id="mdbook-theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="mdbook-theme-default_theme">Auto</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="mdbook-theme-light">Light</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="mdbook-theme-rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="mdbook-theme-coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="mdbook-theme-navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="mdbook-theme-ayu">Ayu</button></li>
+                        </ul>
+                        <button id="mdbook-search-toggle" class="icon-button" type="button" title="Search (`/`)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="/ s" aria-controls="mdbook-searchbar">
+                            <span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M416 208c0 45.9-14.9 88.3-40 122.7L502.6 457.4c12.5 12.5 12.5 32.8 0 45.3s-32.8 12.5-45.3 0L330.7 376c-34.4 25.2-76.8 40-122.7 40C93.1 416 0 322.9 0 208S93.1 0 208 0S416 93.1 416 208zM208 352c79.5 0 144-64.5 144-144s-64.5-144-144-144S64 128.5 64 208s64.5 144 144 144z"/></svg></span>
+                        </button>
+                    </div>
+
+                    <h1 class="menu-title">Accessible Introduction to Computer Science</h1>
+
+                    <div class="right-buttons">
+                        <a href="../print.html" title="Print this book" aria-label="Print this book">
+                            <span class=fa-svg id="print-button"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M128 0C92.7 0 64 28.7 64 64v96h64V64H354.7L384 93.3V160h64V93.3c0-17-6.7-33.3-18.7-45.3L400 18.7C388 6.7 371.7 0 354.7 0H128zM384 352v32 64H128V384 368 352H384zm64 32h32c17.7 0 32-14.3 32-32V256c0-35.3-28.7-64-64-64H64c-35.3 0-64 28.7-64 64v96c0 17.7 14.3 32 32 32H64v64c0 35.3 28.7 64 64 64H384c35.3 0 64-28.7 64-64V384zm-16-88c-13.3 0-24-10.7-24-24s10.7-24 24-24s24 10.7 24 24s-10.7 24-24 24z"/></svg></span>
+                        </a>
+                        <a href="https://github.com/mrhunsaker/VI_Focused_Coding_Curricula" title="Git repository" aria-label="Git repository">
+                            <span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"/></svg></span>
+                        </a>
+
+                    </div>
+                </div>
+
+                <div id="mdbook-search-wrapper" class="hidden">
+                    <form id="mdbook-searchbar-outer" class="searchbar-outer">
+                        <div class="search-wrapper">
+                            <input type="search" id="mdbook-searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="mdbook-searchresults-outer" aria-describedby="searchresults-header">
+                            <div class="spinner-wrapper">
+                                <span class=fa-svg id="fa-spin"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M304 48c0-26.5-21.5-48-48-48s-48 21.5-48 48s21.5 48 48 48s48-21.5 48-48zm0 416c0-26.5-21.5-48-48-48s-48 21.5-48 48s21.5 48 48 48s48-21.5 48-48zM48 304c26.5 0 48-21.5 48-48s-21.5-48-48-48s-48 21.5-48 48s21.5 48 48 48zm464-48c0-26.5-21.5-48-48-48s-48 21.5-48 48s21.5 48 48 48s48-21.5 48-48zM142.9 437c18.7-18.7 18.7-49.1 0-67.9s-49.1-18.7-67.9 0s-18.7 49.1 0 67.9s49.1 18.7 67.9 0zm0-294.2c18.7-18.7 18.7-49.1 0-67.9S93.7 56.2 75 75s-18.7 49.1 0 67.9s49.1 18.7 67.9 0zM369.1 437c18.7 18.7 49.1 18.7 67.9 0s18.7-49.1 0-67.9s-49.1-18.7-67.9 0s-18.7 49.1 0 67.9z"/></svg></span>
+                            </div>
+                        </div>
+                    </form>
+                    <div id="mdbook-searchresults-outer" class="searchresults-outer hidden">
+                        <div id="mdbook-searchresults-header" class="searchresults-header"></div>
+                        <ul id="mdbook-searchresults">
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script>
+                    document.getElementById('mdbook-sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('mdbook-sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#mdbook-sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="mdbook-content" class="content">
+                    <main>
+                        <h1 id="teachers-guide-introduction-to-computer-science-with-javascript"><a class="header" href="#teachers-guide-introduction-to-computer-science-with-javascript">Teacher’s Guide: Introduction to Computer Science with JavaScript</a></h1>
+<h2 id="for-students-with-visual-impairments--complete-instructor-edition"><a class="header" href="#for-students-with-visual-impairments--complete-instructor-edition">For Students with Visual Impairments — Complete Instructor Edition</a></h2>
+<h2 id="how-to-use-this-teachers-guide"><a class="header" href="#how-to-use-this-teachers-guide">How to use this teacher’s guide</a></h2>
+<p>This guide is a companion for instructors, not a script that must be followed word for word. Read the philosophy, learner-context, and technology sections before the first lesson; use the unit notes while planning; and return to the assessment, differentiation, AI, and quick-reference sections throughout the course. Adapt procedures to the learner’s actual assistive technology, operating system, course goals, and prior experience. Confirm tool-specific instructions in current official documentation because editor, screen-reader, and runtime behavior changes over time.</p>
+<p>Plan for both programming learning and access to the programming environment. Establish what the student can already do independently, what access skills need instruction, what supports are already in place, and how the learner prefers to receive feedback. Never assume a diagnosis predicts a student’s preferred tools or level of independence.</p>
+<hr>
+<h2 id="table-of-contents"><a class="header" href="#table-of-contents">Table of Contents</a></h2>
+<ol>
+<li><a href="#1-philosophy-and-why-javascript">Philosophy and Why JavaScript</a></li>
+<li><a href="#2-javascript-specific-accessibility-challenges">JavaScript-Specific Accessibility Challenges</a></li>
+<li><a href="#3-classroom-setup-and-configuration">Classroom Setup and Configuration</a></li>
+<li><a href="#4-spoken-javascript-conventions">Spoken JavaScript Conventions</a></li>
+<li><a href="#5-unit-01-setup-and-foundations">Unit 0–1: Setup and Foundations</a></li>
+<li><a href="#6-unit-2-numbers-input-and-math">Unit 2: Numbers, Input, and Math</a></li>
+<li><a href="#7-unit-3-control-flow">Unit 3: Control Flow</a></li>
+<li><a href="#8-unit-4-arrays-and-objects">Unit 4: Arrays and Objects</a></li>
+<li><a href="#9-unit-5-strings">Unit 5: Strings</a></li>
+<li><a href="#10-unit-6-functions">Unit 6: Functions</a></li>
+<li><a href="#11-unit-7-classes-and-oop">Unit 7: Classes and OOP</a></li>
+<li><a href="#12-unit-8-files-modules-and-error-handling">Unit 8: Files, Modules, and Error Handling</a></li>
+<li><a href="#13-unit-9-collections-analysis-and-testing">Unit 9: Collections, Analysis, and Testing</a></li>
+<li><a href="#14-units-1011-projects-and-capstone">Units 10–11: Projects and Capstone</a></li>
+<li><a href="#15-bridging-from-pythonjava-to-javascript">Bridging from Python/Java to JavaScript</a></li>
+<li><a href="#16-assessment-strategies">Assessment Strategies</a></li>
+<li><a href="#17-supporting-diverse-needs">Supporting Diverse Needs</a></li>
+<li><a href="#18-alternative-and-supplementary-resources">Alternative and Supplementary Resources</a></li>
+<li><a href="#19-quick-reference-sheets">Quick Reference Sheets</a></li>
+<li><a href="#20-teaching-ai-tools-responsibly">Teaching AI Tools Responsibly</a></li>
+<li><a href="#21-comprehensive-instructional-planning-and-course-implementation">Comprehensive Instructional Planning and Course Implementation</a></li>
+</ol>
+<hr>
+<h2 id="1-philosophy-and-why-javascript"><a class="header" href="#1-philosophy-and-why-javascript">1. Philosophy and Why JavaScript</a></h2>
+<h3 id="the-case-for-teaching-javascript-to-blind-students"><a class="header" href="#the-case-for-teaching-javascript-to-blind-students">The Case for Teaching JavaScript to Blind Students</a></h3>
+<p>JavaScript has a unique profile of benefits and challenges for visually impaired learners:</p>
+<p><strong>Universal relevance.</strong> JavaScript is the only language that runs natively in every web browser. A student who learns JavaScript can eventually build tools that improve their own accessibility experience — custom browser extensions, accessible widgets, automation scripts. This self-advocacy potential is meaningful.</p>
+<p><strong>Node.js enables accessible terminal programs.</strong> While JavaScript began in browsers, Node.js allows running JavaScript programs in the terminal — the same accessible text-based environment used for Python. This curriculum focuses on Node.js to keep all I/O in the terminal where screen readers excel.</p>
+<p><strong>Asynchronous programming is a real-world skill.</strong> JavaScript’s <code>async</code>/<code>await</code> model reflects how most modern software actually works — programs that wait for I/O, network requests, and user events. Learning this early prepares students for professional development.</p>
+<p><strong>The npm ecosystem.</strong> Over 2 million packages on npm provide pre-built solutions for almost any problem. This is a double-edged concern for beginners (dependency complexity), but the ability to say <code>npm install</code> and gain powerful functionality is professionally relevant.</p>
+<p><strong>JSON is native.</strong> <code>JSON.parse()</code> and <code>JSON.stringify()</code> are built into JavaScript with no import required. For data persistence projects, this reduces friction.</p>
+<h3 id="an-honest-account-of-challenges"><a class="header" href="#an-honest-account-of-challenges">An Honest Account of Challenges</a></h3>
+<p><strong>JavaScript’s permissiveness is a silent-failure risk.</strong> Unlike Python (which raises exceptions for type mismatches) and Java (which rejects them at compile time), JavaScript silently converts types. <code>"5" + 3</code> = <code>"53"</code>. <code>"5" - 3</code> = <code>2</code>. <code>0 == false</code> = <code>true</code>. Without visual scanning of intermediate results, these silent failures can propagate through a program undetected. This must be addressed through defensive programming habits taught from day one.</p>
+<p><strong>Asynchronous programming is conceptually hard.</strong> The <code>async</code>/<code>await</code> pattern required for user input is a genuine hurdle for beginners. There is no way to eliminate it from a Node.js input-based curriculum. The approach in this guide is to scaffold it carefully and defer full explanation of the event loop to later units.</p>
+<p><strong>Multiple valid syntaxes.</strong> Function declarations, function expressions, arrow functions, methods — all do essentially the same thing. <code>var</code>, <code>let</code>, <code>const</code> — three variable declarations. <code>==</code> and <code>===</code> — two equality operators. This variety, which professionals call “JavaScript fatigue,” creates unnecessary cognitive overhead for beginners. The approach in this curriculum is to teach one style consistently (<code>const</code>/<code>let</code>, arrow functions, <code>===</code>) and acknowledge alternatives exist without teaching them in parallel.</p>
+<hr>
+<h2 id="2-javascript-specific-accessibility-challenges"><a class="header" href="#2-javascript-specific-accessibility-challenges">2. JavaScript-Specific Accessibility Challenges</a></h2>
+<h3 id="silent-type-coercion"><a class="header" href="#silent-type-coercion">Silent Type Coercion</a></h3>
+<p>This is the greatest accessibility risk in JavaScript for blind students. Unlike Python’s <code>TypeError</code> and Java’s compile-time type check, JavaScript silently converts types in ways that can produce wrong answers with no error:</p>
+<div class="table-wrapper">
+<table>
+<thead>
+<tr><th>Expression</th><th>Result</th><th>Expected by Programmer</th><th>Problem</th></tr>
+</thead>
+<tbody>
+<tr><td><code>"5" + 3</code></td><td><code>"53"</code></td><td><code>8</code></td><td><code>+</code> concatenates when one operand is a string</td></tr>
+<tr><td><code>"5" - 3</code></td><td><code>2</code></td><td><code>2</code></td><td><code>-</code> converts string to number</td></tr>
+<tr><td><code>"5" * "3"</code></td><td><code>15</code></td><td><code>15</code></td><td>Multiplication converts both</td></tr>
+<tr><td><code>"" == false</code></td><td><code>true</code></td><td>Maybe?</td><td>Loose equality coercion</td></tr>
+<tr><td><code>0 == false</code></td><td><code>true</code></td><td>Maybe?</td><td>Same</td></tr>
+<tr><td><code>null == undefined</code></td><td><code>true</code></td><td>Probably not</td><td></td></tr>
+<tr><td><code>NaN === NaN</code></td><td><code>false</code></td><td><code>true</code></td><td>NaN is not equal to itself</td></tr>
+</tbody>
+</table>
+</div>
+<p><strong>Mitigation:</strong> Require <code>Number()</code> before any arithmetic on user input. Require <code>===</code> always. Teach <code>typeof</code> and <code>isNaN()</code> as defensive checks. Make logging intermediate values an explicit exercise before running any calculation.</p>
+<h3 id="undefined-vs-null-vs-nan-vs-false-vs-0-vs-"><a class="header" href="#undefined-vs-null-vs-nan-vs-false-vs-0-vs-"><code>undefined</code> vs. <code>null</code> vs. <code>NaN</code> vs. <code>false</code> vs. <code>0</code> vs. <code>""</code></a></h3>
+<p>All six of these are “falsy” in JavaScript. Aurally, they are indistinguishable unless you call <code>typeof</code> or check explicitly. A student who hears <code>console.log(result)</code> and the screen reader announces “false” cannot know whether <code>result</code> is <code>false</code>, <code>0</code>, <code>""</code>, <code>null</code>, <code>undefined</code>, or <code>NaN</code> without further inspection.</p>
+<p><strong>Teaching approach:</strong> Establish a diagnostic template:</p>
+<pre><code class="language-javascript">console.log("Value:", result, "Type:", typeof result);
+</code></pre>
+<p>This outputs both the value and its type, providing audio context that <code>console.log(result)</code> alone does not.</p>
+<h3 id="callback-hell-and-asynchronous-confusion"><a class="header" href="#callback-hell-and-asynchronous-confusion">Callback Hell and Asynchronous Confusion</a></h3>
+<p>Before <code>async</code>/<code>await</code>, Node.js input used nested callbacks:</p>
+<pre><code class="language-javascript">// Confusing nesting --- avoid in teaching
+rl.question("Name? ", (name) =&gt; {
+  rl.question("Age? ", (age) =&gt; {
+    rl.question("City? ", (city) =&gt; {
+      console.log(`${name}, ${age}, ${city}`);
+    });
+  });
+});
+</code></pre>
+<p>This nesting produces code that is confusing to read AND to hear — the indentation deepens with each question. The <code>async</code>/<code>await</code> pattern linearizes this:</p>
+<pre><code class="language-javascript">// Clear and linear --- use this exclusively
+const name = await askQuestion("Name? ");
+const age = await askQuestion("Age? ");
+const city = await askQuestion("City? ");
+console.log(`${name}, ${age}, ${city}`);
+</code></pre>
+<p>Teach <code>async</code>/<code>await</code> from the start and avoid callback patterns entirely in this course.</p>
+<hr>
+<h2 id="3-classroom-setup-and-configuration"><a class="header" href="#3-classroom-setup-and-configuration">3. Classroom Setup and Configuration</a></h2>
+<h3 id="vs-code-or-theia-ide-for-javascript"><a class="header" href="#vs-code-or-theia-ide-for-javascript">VS Code or Theia IDE for JavaScript</a></h3>
+<p>Theia IDE is an alternative editor with keyboard- and screen-reader-oriented workflows suitable for this course. It supports many VS Code extensions through Open VSX; check availability of ESLint, Prettier, and JavaScript language support, and verify each workflow with the learner’s screen reader. VS Code-specific settings and shortcuts may differ.</p>
+<p><strong>Required extensions:</strong></p>
+<ul>
+<li><strong>ESLint</strong> — catches type issues, undefined variables, and style violations before running code</li>
+<li><strong>Prettier</strong> — auto-formats code consistently (run on save with <code>editor.formatOnSave: true</code>)</li>
+<li><strong>JavaScript (ES6) code snippets</strong> — tab-complete common patterns</li>
+</ul>
+<p><strong>Recommended ESLint flat configuration</strong> (<code>eslint.config.mjs</code> in project root; install the current ESLint, <code>@eslint/js</code>, and <code>globals</code> packages as local development dependencies):</p>
+<pre><code class="language-javascript">import js from "@eslint/js";
+import globals from "globals";
+
+export default [
+  {
+    files: ["**/*.js"],
+    languageOptions: {
+      ecmaVersion: "latest",
+      sourceType: "commonjs",
+      globals: globals.node
+    },
+    rules: {
+      ...js.configs.recommended.rules,
+      eqeqeq: "error",
+      "no-unused-vars": "warn",
+      "no-console": "off"
+    }
+  }
+];
+</code></pre>
+<p>The <code>eqeqeq: error</code> rule makes <code>==</code> a linting error — it must be <code>===</code>. This is an automated enforcement of the rule that prevents the most common silent bugs.</p>
+<p><strong>Node.js REPL accessibility:</strong></p>
+<pre><code class="language-bash">node                      # Start REPL
+.help                     # List REPL commands
+.exit                     # Quit (or Ctrl+D)
+</code></pre>
+<p>Windows Powershell</p>
+<pre><code class="language-powershell">node                      # Start REPL
+.help                     # List REPL commands
+.exit                     # Quit (or Ctrl+D)
+</code></pre>
+<p>The Node.js REPL is excellent for early exploration. Results are printed immediately after each expression, providing audio feedback without the compile-run-read cycle.</p>
+<h3 id="alternative-javascript-environments"><a class="header" href="#alternative-javascript-environments">Alternative JavaScript Environments</a></h3>
+<div class="table-wrapper">
+<table>
+<thead>
+<tr><th>Environment</th><th>Platform</th><th>Accessibility</th><th>Notes</th></tr>
+</thead>
+<tbody>
+<tr><td><strong>Node.js + VS Code</strong></td><td>All</td><td>High</td><td>Recommended setup</td></tr>
+<tr><td><strong>Node.js + terminal only</strong></td><td>All</td><td>High</td><td>For students who prefer minimal UI</td></tr>
+<tr><td><strong>Replit.com</strong></td><td>Web</td><td>Medium</td><td>No-install; test with student’s setup</td></tr>
+<tr><td><strong>CodeSandbox</strong></td><td>Web</td><td>Medium</td><td>Cloud editor; variable accessibility</td></tr>
+<tr><td><strong>GitHub Codespaces</strong></td><td>Web</td><td>High</td><td>Cloud VS Code; same accessibility as local</td></tr>
+<tr><td><strong>Glitch.com</strong></td><td>Web</td><td>Medium</td><td>Project-based; variable accessibility</td></tr>
+<tr><td><strong>Observable</strong></td><td>Web</td><td>Low</td><td>Notebook-style; primarily visual</td></tr>
+<tr><td><strong>Deno</strong></td><td>Runtime</td><td>High</td><td>Alternative to Node.js; similar accessibility</td></tr>
+</tbody>
+</table>
+</div>
+<hr>
+<h2 id="4-spoken-javascript-conventions"><a class="header" href="#4-spoken-javascript-conventions">4. Spoken JavaScript Conventions</a></h2>
+<div class="table-wrapper">
+<table>
+<thead>
+<tr><th>Symbol/Pattern</th><th>Spoken Form</th></tr>
+</thead>
+<tbody>
+<tr><td><code>const</code></td><td>“const”</td></tr>
+<tr><td><code>let</code></td><td>“let”</td></tr>
+<tr><td><code>var</code></td><td>“var” (avoid; legacy)</td></tr>
+<tr><td><code>===</code></td><td>“triple equals” or “strict equal”</td></tr>
+<tr><td><code>!==</code></td><td>“strict not equal”</td></tr>
+<tr><td><code>==</code></td><td>“loose equal” (should hear this rarely)</td></tr>
+<tr><td><code>=&gt;</code></td><td>“arrow” or “fat arrow”</td></tr>
+<tr><td><code>...arr</code></td><td>“spread arr”</td></tr>
+<tr><td><code>...args</code></td><td>“rest args”</td></tr>
+<tr><td><code>async</code></td><td>“async”</td></tr>
+<tr><td><code>await</code></td><td>“await”</td></tr>
+<tr><td><code>undefined</code></td><td>“undefined”</td></tr>
+<tr><td><code>null</code></td><td>“null”</td></tr>
+<tr><td><code>NaN</code></td><td>“NaN” (say each letter N-A-N)</td></tr>
+<tr><td><code>typeof</code></td><td>“typeof”</td></tr>
+<tr><td><code>instanceof</code></td><td>“instanceof”</td></tr>
+<tr><td><code>new</code></td><td>“new”</td></tr>
+<tr><td><code>this</code></td><td>“this”</td></tr>
+<tr><td><code>class</code></td><td>“class”</td></tr>
+<tr><td><code>extends</code></td><td>“extends”</td></tr>
+<tr><td><code>super</code></td><td>“super”</td></tr>
+<tr><td><code>import</code></td><td>“import”</td></tr>
+<tr><td><code>export</code></td><td>“export”</td></tr>
+<tr><td><code>require()</code></td><td>“require”</td></tr>
+<tr><td><code>module.exports</code></td><td>“module dot exports”</td></tr>
+<tr><td><code>Promise</code></td><td>“Promise”</td></tr>
+<tr><td><code>async function</code></td><td>“async function”</td></tr>
+<tr><td><code>() =&gt; {}</code></td><td>“arrow function”</td></tr>
+<tr><td><code>(x) =&gt; x * 2</code></td><td>“arrow function taking x, returning x times 2”</td></tr>
+<tr><td><code>#field</code></td><td>“hash field” or “private field”</td></tr>
+<tr><td><code>`template ${var}`</code></td><td>“backtick template literal with variable var”</td></tr>
+</tbody>
+</table>
+</div>
+<p><strong>Reading an arrow function:</strong></p>
+<pre><code class="language-javascript">const doubleIfPositive = (n) =&gt; (n &gt; 0 ? n * 2 : n);
+</code></pre>
+<p><em>“const doubleIfPositive gets arrow function taking n, returning: if n greater than 0, n times 2, else n”</em></p>
+<hr>
+<h2 id="modern-javascript-and-nodejs-conventions"><a class="header" href="#modern-javascript-and-nodejs-conventions">Modern JavaScript and Node.js conventions</a></h2>
+<p>Teach the curriculum against the current Node.js 26 LTS line. Node.js 26.13.0 entered LTS on October 28, 2026; use the latest security patch in the 26.x line rather than pinning students to an old patch. Node.js 24 remains supported as LTS, but is not the current LTS line.</p>
+<p>For new course examples, consistently use const/let, strict equality, explicit numeric conversion, async/await, and node: built-in module specifiers. Prefer the built-in node:test runner for basic unit tests; Jest is a valid optional framework, not a requirement. Keep the two module systems explicit: use a package.json type field and matching file extensions/configuration, and never mix CommonJS and ES module syntax in one file. Use current ESLint flat configuration (eslint.config.mjs) rather than the deprecated .eslintrc format. Check input and parsed JSON at runtime: JavaScript’s runtime values remain dynamic even when editor tooling or static analysis is used.</p>
+<h2 id="5-unit-01-setup-and-foundations"><a class="header" href="#5-unit-01-setup-and-foundations">5. Unit 0–1: Setup and Foundations</a></h2>
+<h3 id="lesson-01-installing-nodejs"><a class="header" href="#lesson-01-installing-nodejs">Lesson 0.1: Installing Node.js</a></h3>
+<h4 id="instructional-cues"><a class="header" href="#instructional-cues">Instructional Cues</a></h4>
+<p><strong>Verify installation at every step:</strong></p>
+<pre><code class="language-bash">node --version    # Should print v26.x.x (26.13.0 or a newer 26.x maintenance release)
+npm --version     # Should print a version number
+npx --version     # Should print a version number (npx is bundled with npm)
+</code></pre>
+<p>Windows Powershell</p>
+<pre><code class="language-powershell">node --version    # Should print v26.x.x (26.13.0 or a newer 26.x maintenance release)
+npm --version     # Should print a version number
+npx --version     # Should print a version number (npx is bundled with npm)
+</code></pre>
+<p>All three must work. If <code>npm</code> is missing, the student may have installed only the Node.js runtime without npm. Reinstall from nodejs.org (npm is included in the standard installer).</p>
+<p><strong>REPL first — files second:</strong>
+Begin with <code>node</code> in the terminal. Let the student type expressions and hear results immediately. This builds confidence before introducing the file -&gt; run -&gt; read cycle:</p>
+<pre><code>$ node
+&gt; 5 + 3
+8
+&gt; "Hello " + "World"
+'Hello World'
+&gt; typeof 42
+'number'
+&gt; typeof "hello"
+'string'
+&gt; .exit
+</code></pre>
+<p><strong>The npm init conversation:</strong>
+When initializing a project, <code>npm init -y</code> generates <code>package.json</code> automatically. Walk the student through reading the generated file:</p>
+<pre><code class="language-bash">npm init -y
+cat package.json   # or type package.json on Windows
+</code></pre>
+<p>Windows Powershell</p>
+<pre><code class="language-powershell">npm init -y
+Get-Content package.json
+</code></pre>
+<p><code>package.json</code> is plain JSON text — fully readable with a screen reader. Understanding its structure is important for later lessons about dependencies and scripts.</p>
+<h4 id="non-obvious-accessibility-strategies"><a class="header" href="#non-obvious-accessibility-strategies">Non-Obvious Accessibility Strategies</a></h4>
+<ul>
+<li><strong>Node.js version managers:</strong> <code>nvm</code> (Node Version Manager) allows multiple Node.js versions. For a student who may work on multiple machines or projects, run <code>nvm install 26</code> and then <code>nvm use 26</code> to select the Node.js 26 LTS line. <code>nvm</code> is command-line-only and fully accessible.</li>
+<li><strong>Project-local dependencies:</strong> install course tools with <code>npm install</code> or <code>npm install --save-dev</code> from the project folder. Run local executables with <code>npx</code> or npm scripts. Avoid <code>npm install -g</code> for course tools; global installations can conflict across projects.</li>
+</ul>
+<h4 id="thought-experiments"><a class="header" href="#thought-experiments">Thought Experiments</a></h4>
+<ol>
+<li>
+<p><em>“JavaScript was created in 10 days in 1995. What marks of that hasty design are still visible in modern JavaScript? (Think about <code>typeof null === 'object'</code>, <code>NaN !== NaN</code>, <code>0 == false</code>.) Why haven’t these been fixed?”</em></p>
+</li>
+<li>
+<p><em>“Node.js uses a single-threaded event loop to handle many concurrent operations. A traditional multi-threaded approach uses multiple threads running in parallel. For a web server handling thousands of requests, what are the tradeoffs of each approach? Which tends to be more memory efficient?”</em></p>
+</li>
+<li>
+<p><em>“npm has millions of packages. The average Node.js project depends on hundreds of packages, many maintained by single developers with no organizational backing. The ‘left-pad incident’ in 2016 broke thousands of projects when one 11-line package was unpublished. What does this incident reveal about the risks and benefits of the npm ecosystem?”</em></p>
+</li>
+<li>
+<p><em>“JavaScript runs in browsers, in Node.js servers, in mobile apps via React Native, in desktop apps via Electron, in IoT devices, and even in serverless cloud functions. What does this ubiquity tell you about the relationship between a language’s design and its adoption?”</em></p>
+</li>
+</ol>
+<hr>
+<h3 id="lesson-13-variables-and-data-types"><a class="header" href="#lesson-13-variables-and-data-types">Lesson 1.3: Variables and Data Types</a></h3>
+<h4 id="instructional-cues-1"><a class="header" href="#instructional-cues-1">Instructional Cues</a></h4>
+<p><strong><code>const</code> vs. <code>let</code> — establish the rule on day one:</strong></p>
+<p><em>“Use <code>const</code> for everything. If you get an error saying you’re trying to reassign a <code>const</code>, THEN change it to <code>let</code>. This approach produces cleaner code and prevents accidental reassignment bugs.”</em></p>
+<p>Demonstrate the error:</p>
+<pre><code class="language-javascript">const x = 5;
+x = 10; // TypeError: Assignment to constant variable.
+</code></pre>
+<p><em>“This error is helpful. <code>const</code> is protecting you from changing something you said was fixed.”</em></p>
+<p><strong>Dynamic typing with auditory ambiguity:</strong></p>
+<p>Run this sequence in the REPL and ask the student to predict each output before pressing Enter:</p>
+<pre><code class="language-javascript">typeof 42; // "number"
+typeof "42"; // "string"
+typeof true; // "boolean"
+typeof null; // "object"  &lt;- the famous bug
+typeof undefined; // "undefined"
+typeof {}; // "object"
+typeof []; // "object"  &lt;- arrays are objects!
+typeof function () {}; // "function"
+</code></pre>
+<p><em>“Notice that both <code>{}</code> (object) and <code>[]</code> (array) produce ‘object’. How do you tell them apart? <code>Array.isArray([])</code> returns <code>true</code>. <code>Array.isArray({})</code> returns <code>false</code>.”</em></p>
+<p><strong>Template literals vs. concatenation:</strong></p>
+<pre><code class="language-javascript">const name = "Alice";
+const age = 15;
+
+// Concatenation --- confusing order of operations when read aloud
+console.log("Hello, " + name + "! You are " + age + " years old.");
+
+// Template literal --- linear, clean, easy to hear
+console.log(`Hello, ${name}! You are ${age} years old.`);
+</code></pre>
+<p>Read both versions aloud with the student. Ask which is easier to follow aurally. Template literals are almost universally clearer when heard, because the variable values appear where they belong in the sentence.</p>
+<h4 id="thought-experiments-1"><a class="header" href="#thought-experiments-1">Thought Experiments</a></h4>
+<ol>
+<li>
+<p><em>“JavaScript has only one number type for integers and decimals. Python has separate <code>int</code> and <code>float</code>. Java has <code>int</code>, <code>long</code>, <code>double</code>, <code>float</code>. What precision problems arise from having a single number type? When does <code>0.1 + 0.2 = 0.30000000000000004</code> matter, and when doesn’t it?”</em></p>
+</li>
+<li>
+<p><em>“JavaScript has six falsy values: <code>false</code>, <code>0</code>, <code>""</code>, <code>null</code>, <code>undefined</code>, <code>NaN</code>. Everything else is truthy — including <code>"false"</code> (a non-empty string), <code>[]</code> (an empty array), and <code>{}</code> (an empty object). Design a quiz: ask the student whether ten different expressions are truthy or falsy. Which answers are surprising?”</em></p>
+</li>
+<li>
+<p><em>“<code>var</code> has function scope; <code>let</code> and <code>const</code> have block scope. What does ‘scope’ mean? How does a variable declared inside an <code>if</code> block with <code>var</code> vs. <code>let</code> behave differently? Which behavior is more predictable and why?”</em></p>
+</li>
+</ol>
+<hr>
+<h2 id="6-unit-2-numbers-input-and-math"><a class="header" href="#6-unit-2-numbers-input-and-math">6. Unit 2: Numbers, Input, and Math</a></h2>
+<h3 id="lesson-22-user-input-in-nodejs"><a class="header" href="#lesson-22-user-input-in-nodejs">Lesson 2.2: User Input in Node.js</a></h3>
+<h4 id="instructional-cues-2"><a class="header" href="#instructional-cues-2">Instructional Cues</a></h4>
+<p><strong>The input helper module pattern:</strong></p>
+<p>Provide the <code>input.js</code> module in every project skeleton. Students should not need to re-create this boilerplate:</p>
+<pre><code class="language-javascript">// input.js
+const readline = require("node:readline");
+const rl = readline.createInterface({
+  input: process.stdin,
+  output: process.stdout,
+});
+
+function askQuestion(prompt) {
+  return new Promise((resolve) =&gt; rl.question(prompt, resolve));
+}
+
+function close() {
+  rl.close();
+}
+
+module.exports = { askQuestion, close };
+</code></pre>
+<p>Walk through what each line does at least once so students understand the structure, but do not require students to write it from scratch until they’re comfortable with async programming.</p>
+<p><strong>The <code>async</code>/<code>await</code> mental model — teach this story:</strong></p>
+<p><em>“When your code hits <code>await</code>, imagine it puts up a ‘please wait’ sign and steps aside. Other things can happen while you wait. When the answer arrives, your code picks up exactly where it paused. The <code>async</code> keyword on the function declaration is your promise that ‘this function may pause at some point.’”</em></p>
+<pre><code class="language-javascript">async function main() {
+  console.log("Starting..."); // 1: runs immediately
+  const name = await askQuestion("Name? "); // 2: pauses here until user types
+  console.log("Got name:", name); // 3: runs after user answers
+  const age = await askQuestion("Age? "); // 4: pauses again
+  console.log(`${name} is ${age}`); // 5: runs after user answers again
+  close();
+}
+
+main(); // Kick off the async function
+</code></pre>
+<p>Ask: “What line is running while the program waits for user input?” (None — the function is paused. The event loop can handle other things.)</p>
+<p><strong>Why <code>main()</code> must be called at the bottom:</strong>
+<code>async function main()</code> defines the function but doesn’t run it. The <code>main()</code> call at the end actually starts execution. Without the call, nothing happens. This trips up beginners — demonstrate it.</p>
+<h4 id="non-obvious-accessibility-strategies-1"><a class="header" href="#non-obvious-accessibility-strategies-1">Non-Obvious Accessibility Strategies</a></h4>
+<ul>
+<li>
+<p><strong><code>rl.close()</code> is mandatory:</strong> Without <code>rl.close()</code>, the Node.js process continues running after <code>main()</code> finishes. The terminal appears to hang — cursor blinks but no prompt. For a screen reader user, this is confusing. Teach <code>close()</code> as the final step of every program that uses input.</p>
+</li>
+<li>
+<p><strong>Prompt trailing space:</strong> Always include a trailing space in prompt strings: <code>"Enter your name: "</code>. Without the space, the cursor appears immediately after the colon with no separation, which some screen readers render as “Enter your name:cursor” — an awkward audio experience.</p>
+</li>
+<li>
+<p><strong>Input validation loop:</strong> Without validation, a blank Enter or a non-numeric string for a number causes silent failure. Provide this reusable pattern:</p>
+</li>
+</ul>
+<pre><code class="language-javascript">async function getNumber(prompt) {
+  while (true) {
+    const input = await askQuestion(prompt);
+    const num = Number(input.trim());
+    if (!isNaN(num)) return num;
+    console.log("Invalid input: please enter a number.");
+  }
+}
+</code></pre>
+<p>Teach this pattern and require students to use it whenever they need numeric input.</p>
+<h4 id="thought-experiments-2"><a class="header" href="#thought-experiments-2">Thought Experiments</a></h4>
+<ol>
+<li>
+<p><em>“The <code>readline</code> module uses an ‘event listener’ pattern — <code>rl.question(prompt, callback)</code> means ‘when the user answers, call this function.’ The <code>async</code>/<code>await</code> pattern wraps this in a Promise. What problem does the Promise solve that the raw callback doesn’t? (Think about reading the code linearly.)”</em></p>
+</li>
+<li>
+<p><em>“Node.js uses a single-threaded event loop. While your program is waiting for user input (<code>await askQuestion</code>), the thread is free. What else could the thread be doing? In a real application, this might mean handling a different request or updating state. What does this tell you about why <code>async</code>/<code>await</code> is important for scalable programs?”</em></p>
+</li>
+<li>
+<p><em>“Synchronous input (blocking until the user responds) and asynchronous input (doing other things while waiting) represent fundamentally different programming models. For a single-user command-line program, which matters? For a server handling 10,000 simultaneous users, which matters more? Why?”</em></p>
+</li>
+</ol>
+<hr>
+<h2 id="7-unit-3-control-flow"><a class="header" href="#7-unit-3-control-flow">7. Unit 3: Control Flow</a></h2>
+<h3 id="lessons-3133"><a class="header" href="#lessons-3133">Lessons 3.1–3.3</a></h3>
+<h4 id="instructional-cues-3"><a class="header" href="#instructional-cues-3">Instructional Cues</a></h4>
+<p><strong><code>===</code> enforcement — make it automatic:</strong></p>
+<p>With ESLint configured to flag <code>==</code>, the student will hear a warning whenever they use loose equality. Walk through the first warning together:</p>
+<pre><code class="language-javascript">if (userInput == 5) {   // ESLint: Expected '===' and instead saw '=='
+</code></pre>
+<p><em>“ESLint is protecting you from a common silent bug. Change this to <code>===</code>. The only exception is checking for null-or-undefined: <code>x == null</code> is sometimes used as a shorthand for <code>x === null || x === undefined</code> — but avoid this until you understand it.”</em></p>
+<p><strong>Truthy/falsy in input validation:</strong></p>
+<pre><code class="language-javascript">const name = await askQuestion("Enter your name: ");
+if (!name.trim()) {
+  console.log("Name cannot be empty.");
+  // re-prompt...
+}
+</code></pre>
+<p><code>!name.trim()</code> is true when the trimmed string is empty (<code>""</code> is falsy). This is idiomatic JavaScript. Read it aloud: “if not name dot trim” — ask: “What does ‘not an empty string’ mean? Why is an empty string falsy?”</p>
+<p><strong>Ternary operator — limit its use:</strong></p>
+<p>The ternary <code>condition ? valueIfTrue : valueIfFalse</code> is concise but can be hard to follow when read aloud:</p>
+<pre><code class="language-javascript">const status = score &gt;= 60 ? "pass" : "fail";
+</code></pre>
+<p>Read: <em>“const status gets: if score greater-than-or-equal 60, quote pass, else quote fail”</em></p>
+<p>Teach it but establish this rule: “If the ternary is easy to read aloud in one breath, use it. If it requires re-reading, use if-else.”</p>
+<h4 id="thought-experiments-3"><a class="header" href="#thought-experiments-3">Thought Experiments</a></h4>
+<ol>
+<li>
+<p><em>“JavaScript’s <code>==</code> performs type coercion before comparing. TypeScript (a typed superset of JavaScript) was partly created to address this. What does TypeScript’s existence tell you about the real-world cost of JavaScript’s permissiveness? What did developers gain from TypeScript that JavaScript didn’t provide?”</em></p>
+</li>
+<li>
+<p><em>“Consider: <code>if (userName)</code> vs. <code>if (userName !== '' &amp;&amp; userName !== null &amp;&amp; userName !== undefined)</code>. The first uses JavaScript’s truthiness; the second is explicit. In a code review, which would you prefer seeing? What are the readability and correctness tradeoffs?”</em></p>
+</li>
+<li>
+<p><em>“JavaScript’s optional chaining (<code>?.</code>) and nullish coalescing (<code>??</code>) were added to the language to handle null/undefined more gracefully. <code>user?.address?.city</code> returns <code>undefined</code> instead of throwing if <code>user</code> or <code>address</code> is null. Why did this feature take decades to add to a language created in 1995?”</em></p>
+</li>
+<li>
+<p><em>“The <code>switch</code> statement falls through by default in JavaScript. Modern JavaScript has been moving away from <code>switch</code> toward mapping objects for dispatch tables. <code>const actions = { 'add': addFunc, 'delete': deleteFunc }; actions[command]?.();</code>. What are the accessibility implications of this pattern vs. a <code>switch</code> statement when read with a screen reader?”</em></p>
+</li>
+</ol>
+<hr>
+<h2 id="8-unit-4-arrays-and-objects"><a class="header" href="#8-unit-4-arrays-and-objects">8. Unit 4: Arrays and Objects</a></h2>
+<h3 id="lesson-41-arrays-and-functional-methods"><a class="header" href="#lesson-41-arrays-and-functional-methods">Lesson 4.1: Arrays and Functional Methods</a></h3>
+<h4 id="instructional-cues-4"><a class="header" href="#instructional-cues-4">Instructional Cues</a></h4>
+<p><strong>Introduce <code>map</code>, <code>filter</code>, <code>reduce</code> as a trio:</strong></p>
+<p>Don’t teach them one per lesson — teach the relationship between them first:</p>
+<p><em>“These three methods each take a function and apply it to every element in an array. <code>map</code> transforms elements. <code>filter</code> keeps or removes elements. <code>reduce</code> combines elements into one value. Together they cover most array processing.”</em></p>
+<p>Then give one shared example that uses all three:</p>
+<pre><code class="language-javascript">const students = [
+  { name: "Alice", score: 88 },
+  { name: "Bob", score: 62 },
+  { name: "Charlie", score: 95 },
+  { name: "Diana", score: 71 },
+];
+
+// 1. Filter passing students (score &gt;= 70)
+const passing = students.filter((s) =&gt; s.score &gt;= 70);
+
+// 2. Map to get just names
+const passingNames = passing.map((s) =&gt; s.name);
+
+// 3. Reduce to build a report string
+const report = passingNames.reduce(
+  (acc, name) =&gt; acc + name + ", ",
+  "Passing: ",
+);
+
+console.log(report); // "Passing: Alice, Charlie, Diana, "
+console.log("Count:", passing.length);
+</code></pre>
+<p><strong>Accessible printing for arrays of objects:</strong></p>
+<pre><code class="language-javascript">// Accessible: numbered, labeled fields
+students.forEach((student, index) =&gt; {
+  console.log(`${index + 1}. ${student.name}: ${student.score}`);
+});
+
+// Less accessible: raw object output
+console.log(students); // Produces cluttered bracket notation when read aloud
+</code></pre>
+<p><strong>Chaining — build up incrementally:</strong></p>
+<p>Show chaining as a composition of steps, each of which you can trace separately:</p>
+<pre><code class="language-javascript">const result = numbers
+  .filter((n) =&gt; n % 2 === 0) // Step 1: keep evens
+  .map((n) =&gt; n ** 2) // Step 2: square each
+  .reduce((sum, n) =&gt; sum + n, 0); // Step 3: sum
+
+// DEBUG: break the chain to trace each step
+const step1 = numbers.filter((n) =&gt; n % 2 === 0);
+console.log("After filter:", step1);
+const step2 = step1.map((n) =&gt; n ** 2);
+console.log("After map:", step2);
+const step3 = step2.reduce((sum, n) =&gt; sum + n, 0);
+console.log("Final sum:", step3);
+</code></pre>
+<p>The debug version (step-by-step) is more accessible during development. Consolidate to the chain after confirming correctness.</p>
+<h4 id="thought-experiments-4"><a class="header" href="#thought-experiments-4">Thought Experiments</a></h4>
+<ol>
+<li>
+<p><em>“<code>map</code>, <code>filter</code>, and <code>reduce</code> come from functional programming — a paradigm based on mathematical functions that have no side effects. JavaScript arrays also have <code>forEach</code> which is for side effects only. What is the philosophical distinction between <code>map</code> and <code>forEach</code>? Why does this distinction matter for reasoning about code correctness?”</em></p>
+</li>
+<li>
+<p><em>“The <code>sort</code> method in JavaScript sorts in-place and mutates the original array. <code>filter</code>, <code>map</code>, and <code>reduce</code> return new arrays, leaving the original unchanged. Why the asymmetry? What bugs could arise from <code>sort</code>’s mutation? How would you sort without mutating: <code>[...arr].sort(...)</code>?”</em></p>
+</li>
+<li>
+<p>_“Functional composition: <code>const double = n =&gt; n _ 2; const addOne = n =&gt; n + 1; const doubleAndAdd = n =&gt; addOne(double(n))</code>. How does function composition scale? What is the advantage of composing small, focused functions over writing one large function that does everything?”*</p>
+</li>
+<li>
+<p><em>“The spread operator <code>[...arr]</code> creates a shallow copy of an array. For an array of primitives <code>[1, 2, 3]</code>, the spread copy is fully independent. For an array of objects <code>[{name: 'A'}, {name: 'B'}]</code>, the objects inside are still shared. What does ‘shallow copy’ mean? When does this distinction cause bugs?”</em></p>
+</li>
+</ol>
+<hr>
+<h3 id="lesson-42-objects"><a class="header" href="#lesson-42-objects">Lesson 4.2: Objects</a></h3>
+<h4 id="instructional-cues-5"><a class="header" href="#instructional-cues-5">Instructional Cues</a></h4>
+<p><strong>Destructuring — introduce before objects are complex:</strong></p>
+<pre><code class="language-javascript">const person = { name: "Alice", age: 15, city: "Portland" };
+
+// Without destructuring:
+const name = person.name;
+const age = person.age;
+
+// With destructuring:
+const { name, age } = person;
+
+// In function parameter:
+function introduce({ name, age }) {
+  console.log(`Hi, I'm ${name}, ${age} years old.`);
+}
+introduce(person);
+</code></pre>
+<p>Destructuring is ubiquitous in modern JavaScript. Teaching it early reduces the verbosity of object access code, which in turn makes programs cleaner to read and hear.</p>
+<p><strong><code>Object.keys()</code>, <code>Object.values()</code>, <code>Object.entries()</code> as navigation tools:</strong></p>
+<p>For a student who cannot visually inspect an object in a debugger panel, these methods provide audio-accessible object introspection:</p>
+<pre><code class="language-javascript">const config = { theme: "dark", fontSize: 14, notifications: true };
+
+// What properties does this object have?
+console.log(Object.keys(config).join(", "));
+
+// What are all the values?
+Object.values(config).forEach((v) =&gt; console.log(v));
+
+// Both together:
+Object.entries(config).forEach(([key, value]) =&gt; {
+  console.log(`${key}: ${value}`);
+});
+</code></pre>
+<p><strong>Optional chaining for safe nested access:</strong></p>
+<pre><code class="language-javascript">const user = { profile: { address: null } };
+
+// Without optional chaining --- crashes if address is null
+const city = user.profile.address.city; // TypeError!
+
+// With optional chaining --- returns undefined instead
+const city = user?.profile?.address?.city; // undefined, no crash
+
+// With nullish coalescing for a default
+const city = user?.profile?.address?.city ?? "Unknown city";
+</code></pre>
+<p>This pattern is essential for working with real-world data where fields may be missing.</p>
+<h4 id="thought-experiments-5"><a class="header" href="#thought-experiments-5">Thought Experiments</a></h4>
+<ol>
+<li>
+<p><em>“JavaScript objects can have properties added or removed at any time. <code>user.newField = 'value'</code> just works. Java objects have a fixed set of fields defined at compile time. Which approach is better for representing data from an API that might add new fields in future versions? Which is better for ensuring all required fields are present?”</em></p>
+</li>
+<li>
+<p><em>“<code>Object.freeze(obj)</code> makes an object immutable — you can’t add, remove, or modify properties. This mimics the behavior of a Java <code>final</code> field or Python’s <code>frozenset</code>. When would immutable objects be useful? What patterns become possible when you can guarantee an object won’t change?”</em></p>
+</li>
+<li>
+<p><em>“Prototype-based inheritance means JavaScript objects can inherit from other objects directly, without classes. Classes (introduced in ES6) are ‘syntactic sugar’ over this prototype system. What does this mean? What can you do with prototypes that you cannot easily express with class syntax?”</em></p>
+</li>
+<li>
+<p><em>“JSON (JavaScript Object Notation) is the universal data exchange format. It looks almost like JavaScript object literals but has stricter rules: all keys must be double-quoted strings, no functions, no comments. Why must JSON be stricter than JavaScript object literals? What security problems would arise if JSON allowed functions?”</em></p>
+</li>
+</ol>
+<hr>
+<h2 id="9-unit-5-strings"><a class="header" href="#9-unit-5-strings">9. Unit 5: Strings</a></h2>
+<h4 id="instructional-cues-6"><a class="header" href="#instructional-cues-6">Instructional Cues</a></h4>
+<p><strong>Template literals for multiline strings:</strong></p>
+<pre><code class="language-javascript">const menu = `
+--- Main Menu ---
+1. Add item
+2. View all
+3. Search
+4. Delete
+5. Quit
+-----------------`;
+
+console.log(menu);
+</code></pre>
+<p>Template literals with newlines are much cleaner for building multiline output than repeated <code>console.log()</code> calls. Teach this pattern for menus and reports.</p>
+<p><strong>Regular expression basics — connect to real need:</strong></p>
+<p>Before introducing regex syntax, establish the problem it solves:</p>
+<p><em>“You have user input that might have extra spaces, uppercase, or punctuation. You want just the words. Without regex, you’d call <code>.trim().toLowerCase().replace(',', '').replace('.', '')...</code> for every punctuation mark. Regex lets you express ‘any non-letter character’ once.”</em></p>
+<pre><code class="language-javascript">const messy = "  Hello, World!   How are you?  ";
+const words = messy
+  .trim()
+  .toLowerCase()
+  .split(/\W+/)
+  .filter((w) =&gt; w.length &gt; 0);
+console.log(words); // ['hello', 'world', 'how', 'are', 'you']
+</code></pre>
+<p>Teach <code>\w+</code> (word characters), <code>\d+</code> (digits), <code>\s+</code> (whitespace), and the <code>g</code> and <code>i</code> flags. Don’t attempt to teach full regex — a basic vocabulary is enough for data cleaning tasks.</p>
+<h4 id="thought-experiments-6"><a class="header" href="#thought-experiments-6">Thought Experiments</a></h4>
+<ol>
+<li>
+<p><em>“Template literals use backticks <code>`</code> while regular strings use <code>"</code> or <code>'</code>. Backticks on a keyboard are typically in the upper-left corner. For touch typists, backticks are less natural than quotes. What keyboard shortcuts or text expansions might a blind programmer use to reduce the friction of frequently-needed but awkward characters?”</em></p>
+</li>
+<li>
+<p><em>“String immutability in JavaScript (same as Python) means every <code>.toUpperCase()</code>, <code>.replace()</code>, and <code>.slice()</code> creates a new string. For a loop that builds a long string incrementally, what is the efficient alternative? (Hint: consider <code>Array.push()</code> + <code>.join()</code> as a form of StringBuilder.)”</em></p>
+</li>
+</ol>
+<hr>
+<h2 id="10-unit-6-functions"><a class="header" href="#10-unit-6-functions">10. Unit 6: Functions</a></h2>
+<h3 id="extended-instructional-cues"><a class="header" href="#extended-instructional-cues">Extended Instructional Cues</a></h3>
+<p><strong>The four function forms — teach one style, acknowledge the rest:</strong></p>
+<pre><code class="language-javascript">// 1. Function declaration (hoisted --- can be called before declaration)
+function add(a, b) {
+  return a + b;
+}
+
+// 2. Function expression (not hoisted)
+const multiply = function (a, b) {
+  return a * b;
+};
+
+// 3. Arrow function --- SHORT BODY (implicit return)
+const square = (n) =&gt; n * n;
+
+// 4. Arrow function --- LONG BODY (explicit return required)
+const absolute = (n) =&gt; {
+  if (n &lt; 0) return -n;
+  return n;
+};
+</code></pre>
+<p><strong>Teach style 3 (short arrow) and style 4 (long arrow) as the primary forms.</strong> Acknowledge 1 and 2 exist and how to read them. Do not attempt to teach all four simultaneously.</p>
+<p><strong>The implicit return trap — a critical accessibility issue:</strong></p>
+<pre><code class="language-javascript">// These DO return a value:
+const double = (n) =&gt; n * 2; // [x] implicit return
+const greet = (name) =&gt; `Hi ${name}`; // [x] implicit return
+
+// This does NOT return a value (the curly brace requires explicit return):
+const broken = (n) =&gt; {
+  n * 2; // No return statement! Returns undefined.
+};
+
+// Fixed:
+const fixed = (n) =&gt; {
+  return n * 2;
+};
+</code></pre>
+<p>When heard aloud, <code>n =&gt; { n * 2; }</code> and <code>n =&gt; { return n * 2; }</code> sound different — the <code>return</code> keyword is present in one and absent in the other. Teach students to listen for <code>return</code> inside block-bodied arrow functions.</p>
+<p><strong>Higher-order functions — connect to previous array methods:</strong></p>
+<pre><code class="language-javascript">// map() takes a function as argument
+const doubled = [1, 2, 3].map((n) =&gt; n * 2);
+
+// We can also pass a named function
+const double = (n) =&gt; n * 2;
+const doubled2 = [1, 2, 3].map(double);
+
+// This works because map expects a function --- it doesn't care if it's
+// named or anonymous, arrow or traditional
+</code></pre>
+<p><em>“Every time you used <code>array.map(...)</code>, you were passing a function as an argument. Higher-order functions — functions that take other functions — are normal JavaScript.”</em></p>
+<p><strong>Closures — establish the mental model before the code:</strong></p>
+<p><em>“A closure is a function that remembers the environment where it was created, even after that environment is gone. Imagine a letter in an envelope. The letter is the function. The envelope is the environment — it contains variables the function needs. Even if the person who wrote the letter is gone, the letter still has access to everything in its envelope.”</em></p>
+<pre><code class="language-javascript">function makeCounter(startValue = 0) {
+  let count = startValue; // This is the "envelope"
+
+  return {
+    increment: () =&gt; ++count,
+    decrement: () =&gt; --count,
+    reset: () =&gt; {
+      count = startValue;
+    },
+    getCount: () =&gt; count,
+  };
+}
+
+const counter = makeCounter(10);
+counter.increment();
+counter.increment();
+counter.increment();
+console.log(counter.getCount()); // 13 --- count persists!
+</code></pre>
+<h4 id="thought-experiments-7"><a class="header" href="#thought-experiments-7">Thought Experiments</a></h4>
+<ol>
+<li>
+<p><em>“Arrow functions don’t have their own <code>this</code> — they inherit <code>this</code> from the surrounding scope. Regular functions create their own <code>this</code>. This was a major source of bugs in pre-ES6 JavaScript. How many of the following do you think involved confusing <code>this</code>? (a) Typos, (b) Variable scope errors, (c) Async timing bugs, (d) <code>this</code> binding bugs. In JavaScript specifically, (d) is disproportionately common — why?”</em></p>
+</li>
+<li>
+<p><em>“Pure functions always produce the same output for the same input and have no side effects. <code>Math.sin(x)</code> is pure. <code>console.log(x)</code> is not (it has a side effect). Why are pure functions easier to test? Why are pure functions easier to reason about in a screen-reader debugging session?”</em></p>
+</li>
+<li>
+<p><em>“Memoization caches the results of function calls so repeated calls with the same arguments return the cached result. Write a description of a memoized <code>fibonacci(n)</code> function. What is saved? What is the tradeoff? When would memoization be harmful rather than helpful?”</em></p>
+</li>
+<li>
+<p><em>“JavaScript is a multi-paradigm language: you can write imperative code (explicit step-by-step), object-oriented code (classes and methods), or functional code (pure functions and immutable data). For the accessible data manager project, which paradigm produces the most maintainable code? The most testable? The most readable when heard aloud?”</em></p>
+</li>
+</ol>
+<hr>
+<h2 id="11-unit-7-classes-and-oop"><a class="header" href="#11-unit-7-classes-and-oop">11. Unit 7: Classes and OOP</a></h2>
+<h4 id="instructional-cues-7"><a class="header" href="#instructional-cues-7">Instructional Cues</a></h4>
+<p><strong><code>toString()</code> is mandatory:</strong></p>
+<pre><code class="language-javascript">class BankAccount {
+  #balance;
+
+  constructor(owner, initialBalance = 0) {
+    this.owner = owner;
+    this.#balance = initialBalance;
+  }
+
+  toString() {
+    return `BankAccount[owner=${this.owner}, balance=$${this.#balance.toFixed(2)}]`;
+  }
+}
+
+const account = new BankAccount("Alice", 1000);
+console.log(account.toString()); // BankAccount[owner=Alice, balance=$1000.00]
+console.log(`${account}`); // Also calls toString() implicitly
+</code></pre>
+<p>Require <code>toString()</code> in every class. Explain: “When your screen reader reads <code>console.log(myAccount)</code>, it reads <code>toString()</code>. Without it, you hear <code>[object Object]</code> — completely useless. Define <code>toString()</code> to hear meaningful information.”</p>
+<p><strong>Private fields <code>#</code> — establish as the default:</strong></p>
+<pre><code class="language-javascript">class Dog {
+  #name; // Private --- cannot be accessed outside the class
+  #age;
+
+  constructor(name, age) {
+    this.#name = name;
+    this.#age = age;
+  }
+
+  get name() {
+    return this.#name;
+  } // Getter --- controlled access
+  get age() {
+    return this.#age;
+  }
+
+  set age(value) {
+    if (value &lt; 0) throw new Error("Age cannot be negative");
+    this.#age = value;
+  }
+
+  bark() {
+    console.log(`${this.#name} says: Woof!`);
+  }
+
+  toString() {
+    return `Dog[name=${this.#name}, age=${this.#age}]`;
+  }
+}
+</code></pre>
+<p><em>“Private fields starting with <code>#</code> are truly private — not just conventional privacy. <code>myDog.#name</code> outside the class throws a SyntaxError. This is real encapsulation.”</em></p>
+<h4 id="thought-experiments-8"><a class="header" href="#thought-experiments-8">Thought Experiments</a></h4>
+<ol>
+<li>
+<p><em>“JavaScript classes are ‘syntactic sugar’ over prototype-based inheritance. TypeScript adds static typing on top of JavaScript classes. With three layers (prototypes -&gt; ES6 classes -&gt; TypeScript classes), is JavaScript’s OOP model more or less trustworthy than Java’s, which has only one layer? What does ‘syntactic sugar’ imply about the behavior of the underlying mechanism?”</em></p>
+</li>
+<li>
+<p><em>“The <code>class</code> keyword was added to JavaScript in 2015, 20 years after the language was created. In those 20 years, JavaScript developers built massive applications without classes using only prototypes and closures. What does this tell you about the role of syntax vs. capability in programming languages?”</em></p>
+</li>
+<li>
+<p><em>“Mixins are a way to compose behavior from multiple sources without inheritance. Instead of <code>class A extends B</code>, you copy methods from B onto A’s prototype. JavaScript supports this; Java does not (without interfaces). When would mixins be more flexible than single inheritance? What problems could they cause?”</em></p>
+</li>
+</ol>
+<hr>
+<h2 id="12-unit-8-files-modules-and-error-handling"><a class="header" href="#12-unit-8-files-modules-and-error-handling">12. Unit 8: Files, Modules, and Error Handling</a></h2>
+<h3 id="lesson-81-files"><a class="header" href="#lesson-81-files">Lesson 8.1: Files</a></h3>
+<h4 id="instructional-cues-8"><a class="header" href="#instructional-cues-8">Instructional Cues</a></h4>
+<p><strong><code>__dirname</code> and path construction:</strong></p>
+<pre><code class="language-javascript">const path = require("node:path");
+const fs = require("node:fs");
+
+// __dirname is the directory of the current file
+const dataFile = path.join(__dirname, "data", "contacts.json");
+
+// Path joining prevents slash vs. backslash issues on Windows/macOS/Linux
+console.log("Data file location:", dataFile);
+</code></pre>
+<p>For a student who cannot visually navigate a file tree, <code>console.log(__dirname)</code> and <code>console.log(dataFile)</code> are essential diagnostic tools. Teach them to print file paths as the first debugging step when a file isn’t found.</p>
+<p><strong><code>fs.existsSync()</code> before file operations:</strong></p>
+<pre><code class="language-javascript">if (fs.existsSync(dataFile)) {
+  const data = fs.readFileSync(dataFile, "utf8");
+  return JSON.parse(data);
+} else {
+  console.log("No data file found. Starting with empty data.");
+  return [];
+}
+</code></pre>
+<p>Always check existence before reading. The alternative — catching <code>ENOENT</code> in a try-catch — works but puts normal “first run” behavior in the error path.</p>
+<h3 id="lesson-83-commonjs-modules"><a class="header" href="#lesson-83-commonjs-modules">Lesson 8.3: CommonJS Modules</a></h3>
+<p><strong>Module design for accessibility:</strong></p>
+<p>A well-designed module has a clear exports interface. Teach students to think of their module’s exports as its “public API” — what other files can use:</p>
+<pre><code class="language-javascript">// contacts.js --- exports only what other files need
+const path = require("node:path");
+const fs = require("node:fs");
+
+const DATA_FILE = path.join(__dirname, "..", "data", "contacts.json");
+
+function loadContacts() {
+  /* ... */
+}
+function saveContacts(contacts) {
+  /* ... */
+}
+function findContact(contacts, name) {
+  /* ... */
+}
+
+// Export only the public interface
+module.exports = { loadContacts, saveContacts, findContact };
+</code></pre>
+<p><em>“Everything not in <code>module.exports</code> is private to this file. Other files can use <code>loadContacts</code> and <code>saveContacts</code>, but they cannot directly access <code>DATA_FILE</code>. This is encapsulation at the module level.”</em></p>
+<h4 id="thought-experiments-9"><a class="header" href="#thought-experiments-9">Thought Experiments</a></h4>
+<ol>
+<li>
+<p><em>“Node.js’s CommonJS (<code>require</code>) and the ES Module standard (<code>import</code>) are two different module systems in JavaScript. This creates confusion — some packages use one, some use the other. TypeScript can use both. Why did two module systems emerge? What does this history say about how standards develop in open-source ecosystems?”</em></p>
+</li>
+<li>
+<p><em>“Synchronous file I/O (<code>readFileSync</code>) blocks execution until the file is read. Asynchronous file I/O (<code>readFile</code> or <code>fs.promises.readFile</code>) allows other code to run while waiting. For a startup script that reads configuration before doing anything else, which makes more sense? For a web server that handles thousands of requests, which matters more?”</em></p>
+</li>
+<li>
+<p><em>“Custom error classes allow code to throw and catch specific, named errors: <code>throw new ValidationError('email', 'Invalid format')</code>. What is the advantage of this over throwing <code>new Error('Validation failed: email field invalid format')</code>? Think about code that catches and handles the error.”</em></p>
+</li>
+</ol>
+<hr>
+<h2 id="13-unit-9-collections-analysis-and-testing"><a class="header" href="#13-unit-9-collections-analysis-and-testing">13. Unit 9: Collections, Analysis, and Testing</a></h2>
+<h3 id="jest-testing"><a class="header" href="#jest-testing">Jest Testing</a></h3>
+<h4 id="instructional-cues-9"><a class="header" href="#instructional-cues-9">Instructional Cues</a></h4>
+<p><strong>Jest output is accessible:</strong></p>
+<p>Run <code>npx jest --verbose</code> for maximum accessibility. The <code>--verbose</code> flag produces:</p>
+<pre><code>PASS src/math.test.js
+  add function
+    [x] adds two positive numbers (3ms)
+    [x] adds negative numbers (1ms)
+    [x] handles zero (0ms)
+  getGrade function
+    [x] returns A for score &gt;= 90 (0ms)
+    [x] returns F for score &lt; 60 (0ms)
+
+Test Suites: 1 passed, 1 total
+Tests:       5 passed, 5 total
+</code></pre>
+<p>Each test name is announced. Failures include file path, test name, expected vs. received values, and a diff. All of this is plain text — fully screen-reader-accessible.</p>
+<p><strong>Add to <code>package.json</code> scripts:</strong></p>
+<pre><code class="language-json">"scripts": {
+    "test": "jest --verbose",
+    "test:watch": "jest --verbose --watch"
+}
+</code></pre>
+<p><code>npm test</code> runs all tests. <code>npm run test:watch</code> reruns tests whenever a file changes — useful during active development.</p>
+<p><strong>Test naming convention:</strong></p>
+<pre><code class="language-javascript">describe("BankAccount", () =&gt; {
+  describe("deposit", () =&gt; {
+    test("increases balance by deposited amount", () =&gt; {
+      /* ... */
+    });
+    test("rejects negative amounts", () =&gt; {
+      /* ... */
+    });
+    test("rejects zero amount", () =&gt; {
+      /* ... */
+    });
+  });
+  describe("withdraw", () =&gt; {
+    test("decreases balance by withdrawn amount", () =&gt; {
+      /* ... */
+    });
+    test("throws InsufficientFundsError when balance is too low", () =&gt; {
+      /* ... */
+    });
+  });
+});
+</code></pre>
+<p>The nested <code>describe</code> / <code>test</code> structure, when announced by Jest with <code>--verbose</code>, reads as complete sentences: “BankAccount &gt; deposit &gt; increases balance by deposited amount.”</p>
+<h4 id="thought-experiments-10"><a class="header" href="#thought-experiments-10">Thought Experiments</a></h4>
+<ol>
+<li>
+<p><em>“Jest’s <code>expect(value).toEqual(expected)</code> performs deep comparison — it checks that two objects have the same structure and values, not that they are the same object in memory. Why is deep comparison usually what you want when testing? When would you specifically want reference equality (<code>toBe</code>)?”</em></p>
+</li>
+<li>
+<p><em>“Snapshot testing in Jest captures the output of a component or function the first time, then checks future runs against that snapshot. What are the advantages? What are the risks? When might a snapshot become ‘stale’ and mislead you into thinking code is correct when it isn’t?”</em></p>
+</li>
+<li>
+<p><em>“Code coverage measures what percentage of your code is executed by tests. 100% coverage is a goal but not a guarantee of correctness. Design a function with 100% test coverage that still has a bug. (Hint: think about boundary conditions — what if the test covers the case where x=5 but not x=0?)”</em></p>
+</li>
+</ol>
+<hr>
+<h2 id="14-units-1011-projects-and-capstone"><a class="header" href="#14-units-1011-projects-and-capstone">14. Units 10–11: Projects and Capstone</a></h2>
+<h3 id="javascript-project-structure"><a class="header" href="#javascript-project-structure">JavaScript Project Structure</a></h3>
+<pre><code>my-data-manager/
+|--- src/
+|   |--- models/
+|   |   +--- contact.js
+|   |--- storage/
+|   |   +--- dataManager.js
+|   |--- ui/
+|   |   +--- consoleUI.js
+|   +--- utils/
+|       |--- input.js         (the readline helper)
+|       +--- validation.js    (reusable validation functions)
+|--- data/
+|   +--- contacts.json
+|--- tests/
+|   |--- models/
+|   |   +--- contact.test.js
+|   +--- storage/
+|       +--- dataManager.test.js
+|--- eslint.config.mjs
+|--- package.json
++--- index.js
+</code></pre>
+<p><strong><code>package.json</code> scripts — teach as accessibility tools:</strong></p>
+<pre><code class="language-json">{
+  "scripts": {
+    "start": "node index.js",
+    "test": "jest --verbose",
+    "test:watch": "jest --verbose --watch",
+    "lint": "eslint src/",
+    "lint:fix": "eslint src/ --fix"
+  }
+}
+</code></pre>
+<p><code>npm start</code> — consistent command regardless of entry point filename.
+<code>npm test</code> — runs all tests.
+<code>npm run lint</code> — checks for errors without running the program.</p>
+<p><strong><code>npm run lint</code> as a pre-run check:</strong>
+Teach students to run <code>npm run lint</code> before running the program. ESLint catches undefined variables, unused variables, and <code>==</code> before the program runs — much faster than finding runtime errors.</p>
+<h3 id="accessible-output-design-for-capstone"><a class="header" href="#accessible-output-design-for-capstone">Accessible Output Design for Capstone</a></h3>
+<p>Require students to design their program’s output to be navigable and self-describing:</p>
+<pre><code class="language-javascript">// Navigation landmark prints
+function printSeparator(title) {
+  const line = "-".repeat(40);
+  console.log(line);
+  if (title) console.log(`  ${title.toUpperCase()}`);
+  console.log(line);
+}
+
+// Numbered list with clear field labels
+function printContactList(contacts) {
+  if (contacts.length === 0) {
+    console.log("No contacts found.");
+    return;
+  }
+  printSeparator("contacts");
+  contacts.forEach((c, i) =&gt; {
+    console.log(`${i + 1}. ${c.name}`);
+    console.log(`   Phone: ${c.phone || "not provided"}`);
+    console.log(`   Email: ${c.email || "not provided"}`);
+  });
+  console.log(`Total: ${contacts.length} contact(s)`);
+}
+
+// Confirmation messages --- every action must produce one
+function confirmAction(action, details) {
+  console.log(`[x] ${action}: ${details}`);
+}
+</code></pre>
+<h4 id="thought-experiments-11"><a class="header" href="#thought-experiments-11">Thought Experiments</a></h4>
+<ol>
+<li>
+<p><em>“Your capstone is a command-line program. Eventually, it could become a web application. What would need to change? What would transfer directly? Write a two-column list: ‘Can reuse as-is’ and ‘Must rewrite.’”</em></p>
+</li>
+<li>
+<p><em>“The accessible design principle ‘no visual-only cues for critical information’ means every status, error, or confirmation must be communicated through text, not color or icon alone. Where in your program have you relied on visual formatting? How would you replace it?”</em></p>
+</li>
+<li>
+<p><em>“Open-source your capstone project. Write a README that explains: what the program does, how to install it, how to run it, and specifically how to use it with a screen reader. What information would a sighted user find obvious but a blind user needs explicitly stated?”</em></p>
+</li>
+</ol>
+<hr>
+<h2 id="15-bridging-from-pythonjava-to-javascript"><a class="header" href="#15-bridging-from-pythonjava-to-javascript">15. Bridging from Python/Java to JavaScript</a></h2>
+<h3 id="from-python-to-javascript"><a class="header" href="#from-python-to-javascript">From Python to JavaScript</a></h3>
+<div class="table-wrapper">
+<table>
+<thead>
+<tr><th>Python</th><th>JavaScript</th><th>Key Difference</th></tr>
+</thead>
+<tbody>
+<tr><td><code>print("hello")</code></td><td><code>console.log("hello")</code></td><td>Method vs. function</td></tr>
+<tr><td><code>input("prompt")</code></td><td><code>await askQuestion("prompt")</code></td><td>Async in JavaScript</td></tr>
+<tr><td><code>f"Hello {name}"</code></td><td><code>`Hello ${name}`</code></td><td>f-string vs. template literal</td></tr>
+<tr><td><code>def func(x):</code></td><td><code>const func = x =&gt; ...</code></td><td>Arrow function style</td></tr>
+<tr><td><code>True</code>/<code>False</code></td><td><code>true</code>/<code>false</code></td><td>Lowercase in JavaScript</td></tr>
+<tr><td><code>None</code></td><td><code>null</code> and <code>undefined</code></td><td>JS has two “nothing” values</td></tr>
+<tr><td><code>my_list</code></td><td><code>myList</code></td><td>JavaScript uses camelCase</td></tr>
+<tr><td><code>len(x)</code></td><td><code>x.length</code></td><td>Property, not function</td></tr>
+<tr><td><code>x is None</code></td><td><code>x === null</code> or <code>x === undefined</code></td><td>Different null checks</td></tr>
+<tr><td><code>import json</code></td><td><code>const fs = require('node:fs')</code></td><td>Built-in <code>JSON</code> object, no import</td></tr>
+<tr><td><code>if __name__ == '__main__':</code></td><td>No direct equivalent (just call <code>main()</code>)</td><td></td></tr>
+</tbody>
+</table>
+</div>
+<p><strong>Thought experiments for Python-&gt;JS students:</strong></p>
+<ol>
+<li>
+<p><em>“In Python, you use spaces to define blocks (indentation). In JavaScript, you use <code>{}</code>. Python’s blocks are invisible — they’re just the alignment of characters. JavaScript’s blocks are explicitly marked. Which feels more natural? Which provides clearer information when read aloud?”</em></p>
+</li>
+<li>
+<p><em>“Python’s <code>None</code> and JavaScript’s <code>null</code>/<code>undefined</code> both represent ‘nothing,’ but they behave differently. Python has one ‘nothing’; JavaScript has two. When is <code>null</code> appropriate? When is <code>undefined</code> appropriate? Under what circumstances would you encounter one vs. the other?”</em></p>
+</li>
+<li>
+<p><em>“Python’s type system and JavaScript’s both use dynamic typing, but JavaScript’s is more permissive — it coerces types rather than raising errors. After using both, which approach do you find more helpful for learning? Which is more appropriate for production software?”</em></p>
+</li>
+</ol>
+<hr>
+<h2 id="16-assessment-strategies"><a class="header" href="#16-assessment-strategies">16. Assessment Strategies</a></h2>
+<h3 id="alternative-assessments-for-javascript"><a class="header" href="#alternative-assessments-for-javascript">Alternative Assessments for JavaScript</a></h3>
+<p><strong>Console output analysis:</strong> Provide a JavaScript program and 3–4 sample inputs. Ask the student to predict what the program prints for each input before running it. This tests reading comprehension without requiring writing.</p>
+<p><strong>Linting-first review:</strong> Submit code that is free of all ESLint warnings. A student who achieves this has internalized JavaScript’s best practices at the syntax level.</p>
+<p><strong>Refactoring exercises:</strong> Give a working but poorly structured program. Ask the student to refactor it to use functions, modules, or classes appropriately. Assess the quality of the architecture, not just whether it runs.</p>
+<p><strong>Test-first implementation:</strong> Give the student a set of failing tests. Ask them to write the implementation that makes the tests pass. This tests code comprehension and problem-solving without a blank-page start.</p>
+<hr>
+<h2 id="17-supporting-diverse-needs"><a class="header" href="#17-supporting-diverse-needs">17. Supporting Diverse Needs</a></h2>
+<h3 id="for-students-who-are-new-to-async-programming"><a class="header" href="#for-students-who-are-new-to-async-programming">For Students Who Are New to Async Programming</a></h3>
+<p>Async/await is conceptually hard. For students who struggle:</p>
+<ol>
+<li>Provide the complete <code>input.js</code> helper and instruct them to use it without modifying it.</li>
+<li>For the first several lessons, treat <code>async function main() { ... } main();</code> as boilerplate, not content.</li>
+<li>Introduce the conceptual explanation of async/await only after students are comfortable with the rest of the language.</li>
+<li>Consider deferring async until after basic functions are mastered.</li>
+</ol>
+<h3 id="for-students-with-additional-cognitive-considerations"><a class="header" href="#for-students-with-additional-cognitive-considerations">For Students with Additional Cognitive Considerations</a></h3>
+<ul>
+<li>ESLint provides immediate text feedback for common errors — use it as a learning tool. Hearing “no-unused-vars” and then explaining what that means is a teaching moment triggered by the student’s own code.</li>
+<li>JavaScript’s many syntactic variations can be overwhelming. Enforce a single consistent style (arrow functions, <code>const</code>/<code>let</code>, <code>===</code>) and defer alternatives.</li>
+<li>Use the REPL liberally for short experiments so the student gets immediate feedback without file management overhead.</li>
+</ul>
+<hr>
+<h2 id="18-alternative-and-supplementary-resources"><a class="header" href="#18-alternative-and-supplementary-resources">18. Alternative and Supplementary Resources</a></h2>
+<h3 id="textbooks-and-reading"><a class="header" href="#textbooks-and-reading">Textbooks and Reading</a></h3>
+<div class="table-wrapper">
+<table>
+<thead>
+<tr><th>Resource</th><th>Level</th><th>Format</th><th>Accessibility</th></tr>
+</thead>
+<tbody>
+<tr><td><strong>Eloquent JavaScript</strong> (Haverbeke, free online)</td><td>Beginner–Intermediate</td><td>Free HTML</td><td>Excellent screen-reader-friendly HTML</td></tr>
+<tr><td><strong>You Don’t Know JS</strong> (Simpson, free on GitHub)</td><td>Intermediate</td><td>Free HTML/PDF</td><td>In-depth on closures, scope, types</td></tr>
+<tr><td><strong>JavaScript: The Good Parts</strong> (Crockford)</td><td>Intermediate</td><td>Print</td><td>Short; focuses on the reliable subset of JS</td></tr>
+<tr><td><strong>JavaScript: The Definitive Guide</strong> (Flanagan)</td><td>Reference</td><td>Print/ebook</td><td>Comprehensive; good for looking up specifics</td></tr>
+<tr><td><strong>MDN Web Docs</strong> (developer.mozilla.org)</td><td>Reference</td><td>Free HTML</td><td>Excellent HTML accessibility; definitive JS reference</td></tr>
+<tr><td><strong>Node.js Documentation</strong> (nodejs.org/docs)</td><td>Reference</td><td>Free HTML</td><td>Official Node.js API reference</td></tr>
+<tr><td><strong>JavaScript.info</strong></td><td>Beginner–Advanced</td><td>Free HTML</td><td>Very well-organized; plain HTML; comprehensive</td></tr>
+</tbody>
+</table>
+</div>
+<p><strong>javascript.info is especially recommended</strong> — it’s a comprehensive free tutorial organized from basics to advanced topics, all in clean, accessible HTML. It’s often more readable than MDN for learning (vs. reference), and screen readers navigate it very well.</p>
+<h3 id="online-courses-and-platforms"><a class="header" href="#online-courses-and-platforms">Online Courses and Platforms</a></h3>
+<div class="table-wrapper">
+<table>
+<thead>
+<tr><th>Platform</th><th>Course</th><th>Accessibility</th><th>Notes</th></tr>
+</thead>
+<tbody>
+<tr><td><strong>freeCodeCamp</strong></td><td>JavaScript Algorithms &amp; Data Structures</td><td>Medium</td><td>Certification path; some UI inaccessible</td></tr>
+<tr><td><strong>Codecademy</strong></td><td>Learn JavaScript</td><td>Partial</td><td>Editor accessible; some UI elements not</td></tr>
+<tr><td><strong>Exercism.io</strong></td><td>JavaScript Track</td><td>High</td><td>Terminal-based; mentor feedback</td></tr>
+<tr><td><strong>JavaScript30</strong> (Wesbos)</td><td>30 vanilla JS projects</td><td>Medium</td><td>Video-based; transcripts available</td></tr>
+<tr><td><strong>edX</strong></td><td>Various JavaScript courses</td><td>High</td><td>Video transcripts; accessible exercises</td></tr>
+<tr><td><strong>Scrimba</strong></td><td>Learn JavaScript</td><td>Low</td><td>Interactive video; poor screen reader support</td></tr>
+<tr><td><strong>Khan Academy</strong></td><td>JavaScript course</td><td>Medium</td><td>Browser-based editor; variable accessibility</td></tr>
+<tr><td><strong>NodeSchool.io</strong></td><td>Node.js workshops</td><td>High</td><td>Command-line workshopper format; fully accessible</td></tr>
+</tbody>
+</table>
+</div>
+<p><strong>NodeSchool.io is especially recommended</strong> — workshops are run entirely in the terminal via a command-line tool. Students work through exercises, get feedback from the tool, and progress at their own pace. The terminal-first design makes it highly accessible.</p>
+<h3 id="video-and-audio-resources"><a class="header" href="#video-and-audio-resources">Video and Audio Resources</a></h3>
+<div class="table-wrapper">
+<table>
+<thead>
+<tr><th>Resource</th><th>Description</th><th>Accessibility</th></tr>
+</thead>
+<tbody>
+<tr><td><strong>Traversy Media</strong> (YouTube)</td><td>JavaScript crash courses and projects</td><td>Captions available</td></tr>
+<tr><td><strong>The Net Ninja</strong> (YouTube)</td><td>In-depth JavaScript series</td><td>Captions available</td></tr>
+<tr><td><strong>Academind</strong> (YouTube)</td><td>Deep dives into JS/Node</td><td>Captions available</td></tr>
+<tr><td><strong>Kevin Powell</strong> (YouTube)</td><td>JavaScript and web fundamentals</td><td>Captions; clear explanations</td></tr>
+<tr><td><strong>CS50W</strong> (Harvard)</td><td>Web programming with Python and JavaScript</td><td>Full transcripts; high quality</td></tr>
+<tr><td><strong>JavaScript: Understanding the Weird Parts</strong> (Udemy)</td><td>Deep JS internals</td><td>Captions</td></tr>
+</tbody>
+</table>
+</div>
+<h3 id="javascript-specific-accessibility-tools"><a class="header" href="#javascript-specific-accessibility-tools">JavaScript-Specific Accessibility Tools</a></h3>
+<div class="table-wrapper">
+<table>
+<thead>
+<tr><th>Tool</th><th>Purpose</th><th>Notes</th></tr>
+</thead>
+<tbody>
+<tr><td><strong>ESLint</strong></td><td>Code quality and error prevention</td><td>Command-line; fully accessible</td></tr>
+<tr><td><strong>Prettier</strong></td><td>Consistent code formatting</td><td>Run on save; no screen interaction needed</td></tr>
+<tr><td><strong>Jest</strong></td><td>Testing framework</td><td>Accessible output; <code>--verbose</code> flag</td></tr>
+<tr><td><strong>jshint.com</strong></td><td>Online JS linter</td><td>Plain HTML; basic linting</td></tr>
+<tr><td><strong>node-inspect</strong></td><td>Node.js debugger</td><td>Terminal-based debugging</td></tr>
+<tr><td><strong>0x</strong></td><td>Node.js profiler</td><td>Terminal output</td></tr>
+<tr><td><strong>nvm</strong></td><td>Node version manager</td><td>Command-line; accessible</td></tr>
+</tbody>
+</table>
+</div>
+<h3 id="communities"><a class="header" href="#communities">Communities</a></h3>
+<div class="table-wrapper">
+<table>
+<thead>
+<tr><th>Community</th><th>Relevance</th></tr>
+</thead>
+<tbody>
+<tr><td><strong>Node.js Community</strong> (nodejs.org/community)</td><td>Official Node.js community resources</td></tr>
+<tr><td><strong>JavaScript Weekly</strong> (newsletter)</td><td>Weekly digest of JS news; plain HTML email</td></tr>
+<tr><td><strong>Stack Overflow JavaScript</strong></td><td>Q&amp;A community; plain HTML; excellent accessibility</td></tr>
+<tr><td><strong>Dev.to</strong></td><td>Developer blog platform; reasonable accessibility</td></tr>
+<tr><td><strong>GitHub Discussions</strong> on popular JS projects</td><td>Community support; text-based</td></tr>
+<tr><td><strong>NFB Jernigan Institute</strong></td><td>Resources for blind STEM students</td></tr>
+<tr><td><strong>SIGACCESS</strong></td><td>Research on accessible computing including programming</td></tr>
+</tbody>
+</table>
+</div>
+<hr>
+<h2 id="19-quick-reference-sheets"><a class="header" href="#19-quick-reference-sheets">19. Quick Reference Sheets</a></h2>
+<h3 id="javascript-vs-python-vs-java-at-a-glance"><a class="header" href="#javascript-vs-python-vs-java-at-a-glance">JavaScript vs Python vs Java at a Glance</a></h3>
+<div class="table-wrapper">
+<table>
+<thead>
+<tr><th>Concept</th><th>Python</th><th>Java</th><th>JavaScript</th></tr>
+</thead>
+<tbody>
+<tr><td>Print</td><td><code>print("x")</code></td><td><code>System.out.println("x")</code></td><td><code>console.log("x")</code></td></tr>
+<tr><td>Variable</td><td><code>x = 5</code></td><td><code>int x = 5;</code></td><td><code>const x = 5;</code></td></tr>
+<tr><td>String format</td><td><code>f"Hi {name}"</code></td><td><code>String.format("Hi %s", name)</code></td><td><code>`Hi ${name}`</code></td></tr>
+<tr><td>User input</td><td><code>input("? ")</code></td><td><code>scanner.nextLine()</code></td><td><code>await askQuestion("? ")</code></td></tr>
+<tr><td>Array/List</td><td><code>[1, 2, 3]</code></td><td><code>int[] arr = {1,2,3}</code></td><td><code>[1, 2, 3]</code></td></tr>
+<tr><td>Dictionary/Map</td><td><code>{"a": 1}</code></td><td><code>new HashMap&lt;&gt;()</code></td><td><code>{ a: 1 }</code></td></tr>
+<tr><td>Function</td><td><code>def f(x):</code></td><td><code>public int f(int x) {</code></td><td><code>const f = x =&gt; ...</code></td></tr>
+<tr><td>Class</td><td><code>class Dog:</code></td><td><code>public class Dog {</code></td><td><code>class Dog {</code></td></tr>
+<tr><td>Exception</td><td><code>try/except</code></td><td><code>try/catch</code></td><td><code>try/catch</code></td></tr>
+<tr><td>Null</td><td><code>None</code></td><td><code>null</code></td><td><code>null</code>/<code>undefined</code></td></tr>
+<tr><td>Boolean</td><td><code>True</code>/<code>False</code></td><td><code>true</code>/<code>false</code></td><td><code>true</code>/<code>false</code></td></tr>
+<tr><td>Length</td><td><code>len(x)</code></td><td><code>x.length</code></td><td><code>x.length</code></td></tr>
+<tr><td>For each</td><td><code>for x in list:</code></td><td><code>for (T x : list) {</code></td><td><code>for (const x of list) {</code></td></tr>
+<tr><td>Import</td><td><code>import math</code></td><td><code>import java.util.*;</code></td><td><code>const x = require('./x')</code></td></tr>
+</tbody>
+</table>
+</div>
+<h3 id="accessible-output-patterns"><a class="header" href="#accessible-output-patterns">Accessible Output Patterns</a></h3>
+<pre><code class="language-javascript">// Standard separator
+console.log("-".repeat(40));
+
+// Section header
+console.log(`\n=== ${title.toUpperCase()} ===`);
+
+// Numbered list with details
+items.forEach((item, i) =&gt; {
+  console.log(`${i + 1}. ${item.name}`);
+  console.log(`   ${item.detail}`);
+});
+console.log(`Total: ${items.length}`);
+
+// Menu
+const MENU = `
+--- Main Menu ---
+1. Add item
+2. View all items
+3. Search
+4. Edit item
+5. Delete item
+6. Save
+7. Quit
+-----------------`;
+
+// Confirmation
+console.log(`[x] Added: "${name}"`);
+console.log(`[x] Deleted: "${name}"`);
+console.log(`[x] Saved to ${filename}`);
+
+// Error messages
+console.log(`Error: Name cannot be empty. Please try again.`);
+console.log(`Error: "${filename}" not found. Starting with empty data.`);
+console.log(`Error: Task number must be between 1 and ${count}.`);
+</code></pre>
+<h3 id="common-javascript-error-quick-reference"><a class="header" href="#common-javascript-error-quick-reference">Common JavaScript Error Quick Reference</a></h3>
+<div class="table-wrapper">
+<table>
+<thead>
+<tr><th>Error</th><th>Common Cause</th><th>First Check</th></tr>
+</thead>
+<tbody>
+<tr><td><code>ReferenceError: x is not defined</code></td><td>Typo or not declared</td><td>Spelling; scope</td></tr>
+<tr><td><code>TypeError: Cannot read property of undefined</code></td><td>Accessing property on <code>undefined</code></td><td>Which variable is undefined; optional chaining</td></tr>
+<tr><td><code>TypeError: x is not a function</code></td><td>Calling non-function</td><td><code>typeof x</code> before calling</td></tr>
+<tr><td><code>SyntaxError: Unexpected token</code></td><td>Syntax mistake</td><td>Line number; check brackets, commas</td></tr>
+<tr><td><code>SyntaxError: Cannot use import statement</code></td><td>ES module syntax in CommonJS</td><td>Use <code>require()</code> or add <code>"type": "module"</code></td></tr>
+<tr><td><code>Error: ENOENT: no such file or directory</code></td><td>File not found</td><td><code>console.log(__dirname)</code> and check path</td></tr>
+<tr><td><code>Error: EACCES: permission denied</code></td><td>No write permission</td><td>Check file permissions</td></tr>
+<tr><td><code>RangeError: Maximum call stack size exceeded</code></td><td>Infinite recursion</td><td>Check recursive function’s base case</td></tr>
+<tr><td><code>UnhandledPromiseRejectionWarning</code></td><td>Missing <code>await</code> or <code>.catch()</code></td><td>Add <code>try/catch</code> around <code>await</code> calls</td></tr>
+<tr><td><code>NaN</code> (not an error, but wrong value)</td><td>Arithmetic on non-number</td><td><code>console.log(typeof variable)</code> before math</td></tr>
+</tbody>
+</table>
+</div>
+<h3 id="input-helper-module-copy-into-every-project"><a class="header" href="#input-helper-module-copy-into-every-project">Input Helper Module (Copy into every project)</a></h3>
+<pre><code class="language-javascript">// utils/input.js
+const readline = require("node:readline");
+
+const rl = readline.createInterface({
+  input: process.stdin,
+  output: process.stdout,
+});
+
+/**
+ * Prompts the user and returns their response as a string.
+ * @param {string} prompt - The question to display
+ * @returns {Promise&lt;string&gt;} The user's trimmed response
+ */
+function askQuestion(prompt) {
+  return new Promise((resolve) =&gt; {
+    rl.question(prompt, (answer) =&gt; resolve(answer));
+  });
+}
+
+/**
+ * Prompts until a valid number is entered.
+ * @param {string} prompt - The question to display
+ * @returns {Promise&lt;number&gt;} A valid number
+ */
+async function askNumber(prompt) {
+  while (true) {
+    const input = await askQuestion(prompt);
+    const num = Number(input.trim());
+    if (!isNaN(num)) return num;
+    console.log("Invalid input: please enter a number.");
+  }
+}
+
+/**
+ * Closes the readline interface. Call at the end of every program.
+ */
+function close() {
+  rl.close();
+}
+
+module.exports = { askQuestion, askNumber, close };
+</code></pre>
+<h2 id="20-teaching-ai-tools-responsibly"><a class="header" href="#20-teaching-ai-tools-responsibly">20. Teaching AI Tools Responsibly</a></h2>
+<p>AI coding assistants can provide explanations, hints, test ideas, and alternative examples. They can also produce incorrect JavaScript, misunderstand Node.js module configuration, recommend untrusted npm packages, or conceal asynchronous behavior. Treat every response as an unverified proposal. The course must remain accessible without paid AI access or a personal account.</p>
+<h3 id="instructor-use-of-ai-during-preparation"><a class="header" href="#instructor-use-of-ai-during-preparation">Instructor use of AI during preparation</a></h3>
+<p>Instructors may use approved AI tools to brainstorm examples, draft alternative explanations, propose test inputs, or identify likely misconceptions. The instructor remains accountable for accuracy and pedagogy. Verify every API and language claim against the target Node.js release and MDN or Node.js documentation; run examples and tests; review package recommendations; and test the learning workflow with the intended access technology. Never upload identifiable student work, accommodation plans, credentials, assessment answers, or confidential school information. Do not use AI-generated feedback as the sole basis for grading. Disclose substantive AI assistance when institutional policy or the publication process requires it.</p>
+<h3 id="learning-goals-and-appropriate-uses"><a class="header" href="#learning-goals-and-appropriate-uses">Learning goals and appropriate uses</a></h3>
+<p>Students should describe the limitations of code generation, ask focused questions, verify JavaScript behavior using the runtime and official documentation, identify generated code beyond their current level, and disclose assistance when required. When permitted, AI may explain a diagnostic, rephrase a concept, suggest edge cases, critique an algorithm, or generate test inputs. Prefer hint-based prompts and have the learner describe their own understanding first.</p>
+<h3 id="javascript-and-nodejs-risks"><a class="header" href="#javascript-and-nodejs-risks">JavaScript and Node.js risks</a></h3>
+<p>Review AI output for:</p>
+<ul>
+<li>Confusion between CommonJS <code>require()</code> and ES module <code>import</code>, including package <code>type</code>, file extensions, and runtime version.</li>
+<li>Incorrect claims about semicolon insertion, equality, coercion, truthy/falsy values, <code>undefined</code>, <code>null</code>, or <code>NaN</code>.</li>
+<li>Missing <code>await</code>, unhandled promise rejections, callbacks that do not complete, or incorrect execution-order assumptions.</li>
+<li>Browser-only APIs used in a Node.js lesson or incorrect Node.js APIs.</li>
+<li>Unsafe file paths, command execution, network requests, or untrusted input handling.</li>
+<li>Unnecessary npm dependencies, typo-squatted or abandoned packages, or packages with excessive permissions.</li>
+<li>Dense chaining, nested callbacks, clever one-liners, and output difficult to review sequentially.</li>
+</ul>
+<p>Run examples in the course’s declared Node.js environment, inspect values and types, and test success, boundary, and failure cases. Verify API claims in official Node.js documentation or MDN.</p>
+<h3 id="screen-reader-and-output-review"><a class="header" href="#screen-reader-and-output-review">Screen-reader and output review</a></h3>
+<p>Review whether braces, nested callbacks, and asynchronous control flow are navigable and explainable; identifiers are descriptive; prompts and output provide context; results arrive in a predictable order; module style is consistent; and the AI interface itself is accessible. Prefer named functions and intermediate variables when they improve understanding. Make asynchronous behavior explicit.</p>
+<h3 id="privacy-security-and-equity"><a class="header" href="#privacy-security-and-equity">Privacy, security, and equity</a></h3>
+<p>Do not submit student records, credentials, private code, API keys, or confidential school information to public AI systems. Follow institutional policies, age requirements, and approved-tool lists. Treat terminal commands and package recommendations as untrusted. Verify package names and provenance before installation. Provide a non-AI path and never make a paid account a prerequisite. Discuss how generated examples may assume mouse use, visual browser interaction, graphical output, or a particular operating system.</p>
+<h3 id="verification-protocol-ask--inspect--verify--adapt--explain--disclose"><a class="header" href="#verification-protocol-ask--inspect--verify--adapt--explain--disclose">Verification protocol: Ask – Inspect – Verify – Adapt – Explain – Disclose</a></h3>
+<ol>
+<li><strong>Ask:</strong> state the problem and what has already been tried.</li>
+<li><strong>Inspect:</strong> read the response and flag unfamiliar APIs, packages, syntax, and assumptions.</li>
+<li><strong>Verify:</strong> check MDN or Node.js documentation; run a minimal example; test normal, boundary, and invalid input.</li>
+<li><strong>Adapt:</strong> simplify, secure, format, and make code accessible to sequential reading.</li>
+<li><strong>Explain:</strong> have the student explain control flow and make a new change without AI.</li>
+<li><strong>Disclose:</strong> record the tool and assistance when required.</li>
+</ol>
+<h3 id="activity-specific-policy"><a class="header" href="#activity-specific-policy">Activity-specific policy</a></h3>
+<ul>
+<li><strong>Practice:</strong> hints and explanations may be allowed; request complete solutions only for code-review activities.</li>
+<li><strong>Homework/projects:</strong> define permitted assistance and require disclosure and verification.</li>
+<li><strong>Individual assessments:</strong> do not permit AI to perform the skill being measured unless explicitly included in the assessment or an accommodation.</li>
+<li><strong>Accessibility tools:</strong> screen-reader, braille, magnification, and keyboard access tools are not prohibited answer-generation tools.</li>
+</ul>
+<h3 id="discussion-prompts"><a class="header" href="#discussion-prompts">Discussion prompts</a></h3>
+<ul>
+<li>An AI answer mixes CommonJS and ES module syntax. How would you diagnose the mismatch?</li>
+<li>A suggested npm package has a plausible name but few trustworthy details. What should you check?</li>
+<li>A promise-based program prints results in an unexpected order. How can you reason about <code>await</code>?</li>
+<li>What must a student understand if AI generated most of a function?</li>
+</ul>
+<hr>
+<h2 id="21-comprehensive-instructional-planning-and-course-implementation"><a class="header" href="#21-comprehensive-instructional-planning-and-course-implementation">21. Comprehensive Instructional Planning and Course Implementation</a></h2>
+<p>This section consolidates practices that apply across the philosophy, learner-context, classroom setup, spoken-code, unit, assessment, differentiation, and resource sections above. Use it as a course-planning reference from intake through capstone evaluation.</p>
+<h3 id="211-course-planning-and-alignment"><a class="header" href="#211-course-planning-and-alignment">21.1 Course planning and alignment</a></h3>
+<p>Map each unit to prerequisites, learning objectives, practice opportunities, and evidence of mastery. Do not assume every unit needs equal time.</p>
+<ul>
+<li>Identify outcomes: problem decomposition, code reading and writing, data representation, control flow, functions or methods, debugging, testing, and communication.</li>
+<li>Separate programming prerequisites from access-tool prerequisites.</li>
+<li>Record the operating system, editor/IDE, runtime, terminal, screen reader, braille display, magnification, and adaptive input technology used.</li>
+<li>Identify essential concepts, enrichment topics, and material that can be deferred without breaking later lessons.</li>
+<li>Plan checkpoints after each major concept group and adjust pacing using student evidence.</li>
+<li>Maintain a map linking each lesson to objectives, practice, assessment, accessibility considerations, and likely misconceptions.</li>
+</ul>
+<p>A suggested progression is environment and navigation; computing foundations; expressions and data; input/output; decisions and loops; collections; functions or methods; object-oriented concepts; files and errors; testing; projects; capstone. Preserve prerequisites when reordering.</p>
+<h3 id="212-readiness-and-learner-partnership"><a class="header" href="#212-readiness-and-learner-partnership">21.2 Readiness and learner partnership</a></h3>
+<p>Ask about preferred access methods, prior programming experience, keyboard navigation, file management, and what makes technical instruction usable. Ask about functional access requirements rather than requesting unnecessary diagnostic details.</p>
+<p>Use a low-stakes baseline activity to observe how the learner opens and navigates a source file, moves by line/word/character/symbol, creates and saves a file, runs a command, locates output, and reads a diagnostic. Record strengths and supports, not just deficits. Revisit the baseline to recognize growth. Keep the learner central to decisions about tools and workflow.</p>
+<h3 id="213-repeatable-lesson-architecture"><a class="header" href="#213-repeatable-lesson-architecture">21.3 Repeatable lesson architecture</a></h3>
+<ol>
+<li><strong>Purpose:</strong> state the problem the lesson addresses.</li>
+<li><strong>Prerequisite retrieval:</strong> revisit the prior concept needed today.</li>
+<li><strong>Vocabulary:</strong> define technical terms and spoken symbol conventions.</li>
+<li><strong>Explicit model:</strong> demonstrate a small runnable example and narrate navigation and code changes.</li>
+<li><strong>Trace:</strong> read the code structurally and predict behavior.</li>
+<li><strong>Guided practice:</strong> solve a similar problem with prompts and fading support.</li>
+<li><strong>Independent transfer:</strong> apply the concept to a new requirement.</li>
+<li><strong>Debug and reflect:</strong> examine an intentional error or unexpected result.</li>
+<li><strong>Exit check:</strong> collect an explanation, prediction, code change, or test.</li>
+</ol>
+<p>State one navigation action at a time, allow the learner to complete it, and confirm the result before continuing. Provide source files and commands in advance when possible. Narrate all actions in shared-screen demonstrations and provide an equivalent text-based route.</p>
+<h3 id="214-explicit-instruction-for-accessible-code-navigation"><a class="header" href="#214-explicit-instruction-for-accessible-code-navigation">21.4 Explicit instruction for accessible code navigation</a></h3>
+<p>Teach file structure before reading every line. Identify current focus and how to return to a known location. Teach line, word, character, symbol, selection, search, and go-to-line navigation, plus navigation to functions, methods, classes, and diagnostics. Explain indentation and block boundaries. Use manageable line lengths and avoid unnecessarily nested expressions. Give students time to read diagnostics and output independently. Do not take over the keyboard without explaining the action and obtaining the learner’s agreement.</p>
+<h3 id="215-language-specific-instructional-emphasis-javascript"><a class="header" href="#215-language-specific-instructional-emphasis-javascript">21.5 Language-specific instructional emphasis: JavaScript</a></h3>
+<p>JavaScript’s dynamic type system and runtime should be made explicit:</p>
+<ul>
+<li>Teach <code>let</code>, <code>const</code>, and scope before elaborate function patterns.</li>
+<li>Contrast <code>===</code> and <code>==</code> with concrete values; make coercion visible in REPL experiments.</li>
+<li>Treat <code>undefined</code>, <code>null</code>, empty strings, zero, false, and <code>NaN</code> as distinct values.</li>
+<li>Distinguish arrays from objects and explain property access, index ranges, mutation, and iteration.</li>
+<li>Introduce asynchronous input deliberately. Explain promises, <code>async</code>, <code>await</code>, and output order.</li>
+<li>Teach CommonJS and ES modules as separate systems. State module mode and Node.js version before troubleshooting imports.</li>
+<li>Make error handling and file paths explicit; distinguish syntax errors, runtime exceptions, rejected promises, and logic errors.</li>
+<li>Use ESLint and formatting tools as feedback aids, but explain each diagnostic.</li>
+</ul>
+<h3 id="216-misconceptions-and-diagnostic-teaching"><a class="header" href="#216-misconceptions-and-diagnostic-teaching">21.6 Misconceptions and diagnostic teaching</a></h3>
+<p>Ask learners to predict behavior, explain their prediction, run a small experiment, and revise their mental model.</p>
+<div class="table-wrapper">
+<table>
+<thead>
+<tr><th>Common issue</th><th>Instructional response</th></tr>
+</thead>
+<tbody>
+<tr><td>Confusing assignment with comparison</td><td>Contrast operators and trace values before and after execution.</td></tr>
+<tr><td>Treating input as already numeric</td><td>Identify input type, convert explicitly, and test valid and invalid values.</td></tr>
+<tr><td>Off-by-one loop or index errors</td><td>Trace first, typical, and final iterations; state the valid index range.</td></tr>
+<tr><td>Choosing an unsuitable collection</td><td>Describe access patterns and required operations before choosing a structure.</td></tr>
+<tr><td>Writing one large function or method</td><td>Decompose the task by responsibility and test each part.</td></tr>
+<tr><td>Treating a running program as necessarily correct</td><td>Define expected behavior and test normal, boundary, and invalid inputs.</td></tr>
+<tr><td>Copying code without tracing it</td><td>Ask the learner to predict a new case and make a modification.</td></tr>
+<tr><td>Misreading an error message</td><td>Locate the useful diagnostic, identify file and line, and inspect surrounding code.</td></tr>
+</tbody>
+</table>
+</div>
+<p>Language-specific pitfalls include: coercion and equality; <code>undefined</code> versus <code>null</code>; truthy and falsy values; array mutation; callback and promise ordering; CommonJS versus ES modules; and browser APIs versus Node.js APIs.</p>
+<h3 id="217-differentiation-without-lowering-the-learning-objective"><a class="header" href="#217-differentiation-without-lowering-the-learning-objective">21.7 Differentiation without lowering the learning objective</a></h3>
+<p>Adjust the path, not the intellectual goal. Supports may include smaller task increments, additional practice, explicit worked examples, alternative information formats, extra navigation time, starter code with gradually faded scaffolding, oral explanation or accessible demonstration, pair programming with rotating roles, predictable routines, and enrichment tasks that deepen the same concept.</p>
+<p>Do not assume all blind students need the same support or that all low-vision students prefer magnification. Ask, document, and review supports with the learner.</p>
+<h3 id="218-formative-assessment-feedback-and-grading"><a class="header" href="#218-formative-assessment-feedback-and-grading">21.8 Formative assessment, feedback, and grading</a></h3>
+<p>Collect evidence frequently: explain a concept, predict output, trace a loop, justify a data structure, find and fix a bug, write a boundary test, refactor code, or demonstrate an accessible workflow.</p>
+<p>A practical rubric can score each dimension from 1 (beginning) to 4 (independent and consistent):</p>
+<div class="table-wrapper">
+<table>
+<thead>
+<tr><th>Dimension</th><th>Evidence</th></tr>
+</thead>
+<tbody>
+<tr><td>Conceptual reasoning</td><td>Explains the problem, algorithm, and language concepts</td></tr>
+<tr><td>Implementation</td><td>Produces a solution that meets requirements</td></tr>
+<tr><td>Code comprehension</td><td>Reads, traces, explains, and modifies code</td></tr>
+<tr><td>Testing and debugging</td><td>Uses test cases and interprets diagnostics</td></tr>
+<tr><td>Accessibility and communication</td><td>Produces understandable interaction and operates the workflow with access tools</td></tr>
+<tr><td>Independence and reflection</td><td>Describes decisions, limitations, and next steps</td></tr>
+</tbody>
+</table>
+</div>
+<p>Share criteria before assessment. Feedback should name observed behavior, explain its impact, and identify an actionable next step. Do not grade screen-reader speed, typing speed, or visual formatting as proxies for programming competence.</p>
+<h3 id="219-debugging-and-classroom-support-protocol"><a class="header" href="#219-debugging-and-classroom-support-protocol">21.9 Debugging and classroom support protocol</a></h3>
+<ol>
+<li>Ask the learner to describe expected behavior.</li>
+<li>Ask what actually happened.</li>
+<li>Read the complete error or diagnostic, including source and location.</li>
+<li>Identify the smallest relevant code section.</li>
+<li>Form one hypothesis.</li>
+<li>Change one thing and rerun the program or test.</li>
+<li>Record what the result taught the learner.</li>
+</ol>
+<p>Distinguish environment failures, tool-access failures, syntax/compile errors, runtime errors, and logic errors. Maintain a troubleshooting record with environment, exact command, error text, attempted correction, and outcome. Remove credentials and private information before sharing logs.</p>
+<h3 id="2110-pair-programming-and-collaboration"><a class="header" href="#2110-pair-programming-and-collaboration">21.10 Pair programming and collaboration</a></h3>
+<p>Use explicit roles: the <strong>driver</strong> controls the keyboard and implements the agreed step; the <strong>navigator</strong> reasons about the algorithm, checks requirements, proposes tests, and reviews the result. Rotate roles. Do not automatically assign a blind student the navigator role. Both learners should have opportunities to operate tools and write code. Provide shared source files and task instructions in accessible formats.</p>
+<h3 id="2111-project-and-capstone-supervision"><a class="header" href="#2111-project-and-capstone-supervision">21.11 Project and capstone supervision</a></h3>
+<p>Require a proposal that includes the problem and intended user, functional requirements, out-of-scope features, input/output design, data representation, major functions/methods/classes, accessibility requirements, milestones, tests, and any libraries or AI assistance used.</p>
+<p>Review milestones: requirements, design, first working slice, feature completion, tests, documentation, and final explanation. Encourage a modest, complete, well-tested project over an ambitious unfinished one.</p>
+<h3 id="2112-collaboration-with-families-and-support-professionals"><a class="header" href="#2112-collaboration-with-families-and-support-professionals">21.12 Collaboration with families and support professionals</a></h3>
+<p>When appropriate and with learner consent, coordinate with special educators, teachers of students with visual impairments, assistive-technology specialists, interpreters, and families. Agree on who supports access technology, who teaches programming, and how the student obtains help. Keep the learner’s agency central, share only necessary information, and follow school privacy policies. Do not make aides the default operators of the student’s computer.</p>
+<h3 id="2113-instructor-preparation-checklist"><a class="header" href="#2113-instructor-preparation-checklist">21.13 Instructor preparation checklist</a></h3>
+<p>Before each unit, complete the learner-facing activities; verify commands and versions on the classroom platform; test keyboard and assistive-technology workflows; prepare expected output and common error examples; identify vocabulary, symbols, misconceptions, and prerequisites; provide accessible instructions and assessment criteria; and decide how understanding will be observed.</p>
+<p>After each unit, review student work and feedback, note barriers, adjust pacing and scaffolds, and record reproducible corrections. Document agreed accommodations rather than silently changing expectations.</p>
+<h3 id="2114-quality-assurance-and-continuous-improvement"><a class="header" href="#2114-quality-assurance-and-continuous-improvement">21.14 Quality assurance and continuous improvement</a></h3>
+<p>Review links, software versions, commands, APIs, package recommendations, and assessment assumptions periodically. Test with actual screen readers and braille displays where possible; a successful build or visual inspection alone does not establish accessibility.</p>
+<p>When reporting a barrier, include the page, reproduction steps, operating system, editor/runtime version, assistive technology and version, expected behavior, and actual behavior. Exclude personally identifying or sensitive student information. Submit corrections through the project contribution process.</p>
+<hr>
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                            <a rel="prev" href="../JAVA/teachers-guide.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M41.4 233.4c-12.5 12.5-12.5 32.8 0 45.3l160 160c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L109.3 256 246.6 118.6c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0l-160 160z"/></svg></span>
+                            </a>
+
+                            <a rel="next prefetch" href="../JULIA/teachers-guide.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M278.6 233.4c12.5 12.5 12.5 32.8 0 45.3l-160 160c-12.5 12.5-32.8 12.5-45.3 0s-12.5-32.8 0-45.3L210.7 256 73.4 118.6c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0l160 160z"/></svg></span>
+                            </a>
+
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                    <a rel="prev" href="../JAVA/teachers-guide.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M41.4 233.4c-12.5 12.5-12.5 32.8 0 45.3l160 160c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L109.3 256 246.6 118.6c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0l-160 160z"/></svg></span>
+                    </a>
+
+                    <a rel="next prefetch" href="../JULIA/teachers-guide.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M278.6 233.4c12.5 12.5 12.5 32.8 0 45.3l-160 160c-12.5 12.5-32.8 12.5-45.3 0s-12.5-32.8 0-45.3L210.7 256 73.4 118.6c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0l160 160z"/></svg></span>
+                    </a>
+            </nav>
+
+        </div>
+
+        <template id=fa-eye><span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M288 32c-80.8 0-145.5 36.8-192.6 80.6C48.6 156 17.3 208 2.5 243.7c-3.3 7.9-3.3 16.7 0 24.6C17.3 304 48.6 356 95.4 399.4C142.5 443.2 207.2 480 288 480s145.5-36.8 192.6-80.6c46.8-43.5 78.1-95.4 93-131.1c3.3-7.9 3.3-16.7 0-24.6c-14.9-35.7-46.2-87.7-93-131.1C433.5 68.8 368.8 32 288 32zM432 256c0 79.5-64.5 144-144 144s-144-64.5-144-144s64.5-144 144-144s144 64.5 144 144zM288 192c0 35.3-28.7 64-64 64c-11.5 0-22.3-3-31.6-8.4c-.2 2.8-.4 5.5-.4 8.4c0 53 43 96 96 96s96-43 96-96s-43-96-96-96c-2.8 0-5.6 .1-8.4 .4c5.3 9.3 8.4 20.1 8.4 31.6z"/></svg></span></template>
+        <template id=fa-eye-slash><span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M38.8 5.1C28.4-3.1 13.3-1.2 5.1 9.2S-1.2 34.7 9.2 42.9l592 464c10.4 8.2 25.5 6.3 33.7-4.1s6.3-25.5-4.1-33.7L525.6 386.7c39.6-40.6 66.4-86.1 79.9-118.4c3.3-7.9 3.3-16.7 0-24.6c-14.9-35.7-46.2-87.7-93-131.1C465.5 68.8 400.8 32 320 32c-68.2 0-125 26.3-169.3 60.8L38.8 5.1zM223.1 149.5C248.6 126.2 282.7 112 320 112c79.5 0 144 64.5 144 144c0 24.9-6.3 48.3-17.4 68.7L408 294.5c5.2-11.8 8-24.8 8-38.5c0-53-43-96-96-96c-2.8 0-5.6 .1-8.4 .4c5.3 9.3 8.4 20.1 8.4 31.6c0 10.2-2.4 19.8-6.6 28.3l-90.3-70.8zm223.1 298L373 389.9c-16.4 6.5-34.3 10.1-53 10.1c-79.5 0-144-64.5-144-144c0-6.9 .5-13.6 1.4-20.2L83.1 161.5C60.3 191.2 44 220.8 34.5 243.7c-3.3 7.9-3.3 16.7 0 24.6c14.9 35.7 46.2 87.7 93 131.1C174.5 443.2 239.2 480 320 480c47.8 0 89.9-12.9 126.2-32.5z"/></svg></span></template>
+        <template id=fa-copy><span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M502.6 70.63l-61.25-61.25C435.4 3.371 427.2 0 418.7 0H255.1c-35.35 0-64 28.66-64 64l.0195 256C192 355.4 220.7 384 256 384h192c35.2 0 64-28.8 64-64V93.25C512 84.77 508.6 76.63 502.6 70.63zM464 320c0 8.836-7.164 16-16 16H255.1c-8.838 0-16-7.164-16-16L239.1 64.13c0-8.836 7.164-16 16-16h128L384 96c0 17.67 14.33 32 32 32h47.1V320zM272 448c0 8.836-7.164 16-16 16H63.1c-8.838 0-16-7.164-16-16L47.98 192.1c0-8.836 7.164-16 16-16H160V128H63.99c-35.35 0-64 28.65-64 64l.0098 256C.002 483.3 28.66 512 64 512h192c35.2 0 64-28.8 64-64v-32h-47.1L272 448z"/></svg></span></template>
+        <template id=fa-play><span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M73 39c-14.8-9.1-33.4-9.4-48.5-.9S0 62.6 0 80V432c0 17.4 9.4 33.4 24.5 41.9s33.7 8.1 48.5-.9L361 297c14.3-8.7 23-24.2 23-41s-8.7-32.2-23-41L73 39z"/></svg></span></template>
+        <template id=fa-clock-rotate-left><span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M75 75L41 41C25.9 25.9 0 36.6 0 57.9V168c0 13.3 10.7 24 24 24H134.1c21.4 0 32.1-25.9 17-41l-30.8-30.8C155 85.5 203 64 256 64c106 0 192 86 192 192s-86 192-192 192c-40.8 0-78.6-12.7-109.7-34.4c-14.5-10.1-34.4-6.6-44.6 7.9s-6.6 34.4 7.9 44.6C151.2 495 201.7 512 256 512c141.4 0 256-114.6 256-256S397.4 0 256 0C185.3 0 121.3 28.7 75 75zm181 53c-13.3 0-24 10.7-24 24V256c0 6.4 2.5 12.5 7 17l72 72c9.4 9.4 24.6 9.4 33.9 0s9.4-24.6 0-33.9l-65-65V152c0-13.3-10.7-24-24-24z"/></svg></span></template>
+
+
+
+        <script>
+            window.playground_copyable = true;
+        </script>
+
+
+        <script src="../elasticlunr-ef4e11c1.min.js"></script>
+        <script src="../mark-09e88c2c.min.js"></script>
+        <script src="../searcher-09f2665d.js"></script>
+
+        <script src="../clipboard-1626706a.min.js"></script>
+        <script src="../highlight-abc7f01d.js"></script>
+        <script src="../book-609e4cb8.js"></script>
+
+        <!-- Custom JS scripts -->
+
+
+
+    </div>
+    </body>
+</html>

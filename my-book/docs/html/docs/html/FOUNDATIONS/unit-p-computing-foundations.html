@@ -1,0 +1,936 @@
+<!DOCTYPE HTML>
+<html lang="en" class="rust sidebar-visible" dir="ltr">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>Unit P: Computing Foundations Primer - Accessible Introduction to Computer Science</title>
+
+
+        <!-- Custom HTML head -->
+
+        <meta name="description" content="Introductory programming curricula, each adapted for visually impaired students who use screen readers">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff">
+
+        <link rel="icon" href="../favicon-de23e50b.svg">
+        <link rel="shortcut icon" href="../favicon-8114d1fc.png">
+        <link rel="stylesheet" href="../css/variables-8adf115d.css">
+        <link rel="stylesheet" href="../css/general-e96d0476.css">
+        <link rel="stylesheet" href="../css/chrome-d279d366.css">
+        <link rel="stylesheet" href="../css/print-9e4910d8.css" media="print">
+
+        <!-- Fonts -->
+        <link rel="stylesheet" href="../fonts/fonts-9644e21d.css">
+
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" id="mdbook-highlight-css" href="../highlight-493f70e1.css">
+        <link rel="stylesheet" id="mdbook-tomorrow-night-css" href="../tomorrow-night-4c0ae647.css">
+        <link rel="stylesheet" id="mdbook-ayu-highlight-css" href="../ayu-highlight-3fdfc3ac.css">
+
+        <!-- Custom theme stylesheets -->
+
+
+        <!-- Provide site root and default themes to javascript -->
+        <script>
+            const path_to_root = "../";
+            const default_light_theme = "rust";
+            const default_dark_theme = "navy";
+            window.path_to_searchindex_js = "../searchindex-1d296e4e.js";
+        </script>
+        <!-- Start loading toc.js asap -->
+        <script src="../toc-62d8efca.js"></script>
+    </head>
+    <body>
+    <div id="mdbook-help-container">
+        <div id="mdbook-help-popup">
+            <h2 class="mdbook-help-title">Keyboard shortcuts</h2>
+            <div>
+                <p>Press <kbd>←</kbd> or <kbd>→</kbd> to navigate between chapters</p>
+                <p>Press <kbd>S</kbd> or <kbd>/</kbd> to search in the book</p>
+                <p>Press <kbd>?</kbd> to show this help</p>
+                <p>Press <kbd>Esc</kbd> to hide this help</p>
+            </div>
+        </div>
+    </div>
+    <div id="mdbook-body-container">
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script>
+            try {
+                let theme = localStorage.getItem('mdbook-theme');
+                let sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script>
+            const default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? default_dark_theme : default_light_theme;
+            let theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            const html = document.documentElement;
+            html.classList.remove('rust')
+            html.classList.add(theme);
+            html.classList.add("js");
+        </script>
+
+        <input type="checkbox" id="mdbook-sidebar-toggle-anchor" class="hidden">
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script>
+            let sidebar = null;
+            const sidebar_toggle = document.getElementById("mdbook-sidebar-toggle-anchor");
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            } else {
+                sidebar = 'hidden';
+                sidebar_toggle.checked = false;
+            }
+            if (sidebar === 'visible') {
+                sidebar_toggle.checked = true;
+            } else {
+                html.classList.remove('sidebar-visible');
+            }
+        </script>
+
+        <nav id="mdbook-sidebar" class="sidebar" aria-label="Table of contents">
+            <!-- populated by js -->
+            <mdbook-sidebar-scrollbox class="sidebar-scrollbox"></mdbook-sidebar-scrollbox>
+            <noscript>
+                <iframe class="sidebar-iframe-outer" src="../toc.html"></iframe>
+            </noscript>
+            <div id="mdbook-sidebar-resize-handle" class="sidebar-resize-handle">
+                <div class="sidebar-resize-indicator"></div>
+            </div>
+        </nav>
+
+        <div id="mdbook-page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                <div id="mdbook-menu-bar-hover-placeholder"></div>
+                <div id="mdbook-menu-bar" class="menu-bar sticky">
+                    <div class="left-buttons">
+                        <label id="mdbook-sidebar-toggle" class="icon-button" for="mdbook-sidebar-toggle-anchor" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="mdbook-sidebar">
+                            <span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M0 96C0 78.3 14.3 64 32 64H416c17.7 0 32 14.3 32 32s-14.3 32-32 32H32C14.3 128 0 113.7 0 96zM0 256c0-17.7 14.3-32 32-32H416c17.7 0 32 14.3 32 32s-14.3 32-32 32H32c-17.7 0-32-14.3-32-32zM448 416c0 17.7-14.3 32-32 32H32c-17.7 0-32-14.3-32-32s14.3-32 32-32H416c17.7 0 32 14.3 32 32z"/></svg></span>
+                        </label>
+                        <button id="mdbook-theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="mdbook-theme-list">
+                            <span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M371.3 367.1c27.3-3.9 51.9-19.4 67.2-42.9L600.2 74.1c12.6-19.5 9.4-45.3-7.6-61.2S549.7-4.4 531.1 9.6L294.4 187.2c-24 18-38.2 46.1-38.4 76.1L371.3 367.1zm-19.6 25.4l-116-104.4C175.9 290.3 128 339.6 128 400c0 3.9 .2 7.8 .6 11.6c1.8 17.5-10.2 36.4-27.8 36.4H96c-17.7 0-32 14.3-32 32s14.3 32 32 32H240c61.9 0 112-50.1 112-112c0-2.5-.1-5-.2-7.5z"/></svg></span>
+                        </button>
+                        <ul id="mdbook-theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="mdbook-theme-default_theme">Auto</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="mdbook-theme-light">Light</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="mdbook-theme-rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="mdbook-theme-coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="mdbook-theme-navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="mdbook-theme-ayu">Ayu</button></li>
+                        </ul>
+                        <button id="mdbook-search-toggle" class="icon-button" type="button" title="Search (`/`)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="/ s" aria-controls="mdbook-searchbar">
+                            <span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M416 208c0 45.9-14.9 88.3-40 122.7L502.6 457.4c12.5 12.5 12.5 32.8 0 45.3s-32.8 12.5-45.3 0L330.7 376c-34.4 25.2-76.8 40-122.7 40C93.1 416 0 322.9 0 208S93.1 0 208 0S416 93.1 416 208zM208 352c79.5 0 144-64.5 144-144s-64.5-144-144-144S64 128.5 64 208s64.5 144 144 144z"/></svg></span>
+                        </button>
+                    </div>
+
+                    <h1 class="menu-title">Accessible Introduction to Computer Science</h1>
+
+                    <div class="right-buttons">
+                        <a href="../print.html" title="Print this book" aria-label="Print this book">
+                            <span class=fa-svg id="print-button"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M128 0C92.7 0 64 28.7 64 64v96h64V64H354.7L384 93.3V160h64V93.3c0-17-6.7-33.3-18.7-45.3L400 18.7C388 6.7 371.7 0 354.7 0H128zM384 352v32 64H128V384 368 352H384zm64 32h32c17.7 0 32-14.3 32-32V256c0-35.3-28.7-64-64-64H64c-35.3 0-64 28.7-64 64v96c0 17.7 14.3 32 32 32H64v64c0 35.3 28.7 64 64 64H384c35.3 0 64-28.7 64-64V384zm-16-88c-13.3 0-24-10.7-24-24s10.7-24 24-24s24 10.7 24 24s-10.7 24-24 24z"/></svg></span>
+                        </a>
+                        <a href="https://github.com/mrhunsaker/VI_Focused_Coding_Curricula" title="Git repository" aria-label="Git repository">
+                            <span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"/></svg></span>
+                        </a>
+
+                    </div>
+                </div>
+
+                <div id="mdbook-search-wrapper" class="hidden">
+                    <form id="mdbook-searchbar-outer" class="searchbar-outer">
+                        <div class="search-wrapper">
+                            <input type="search" id="mdbook-searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="mdbook-searchresults-outer" aria-describedby="searchresults-header">
+                            <div class="spinner-wrapper">
+                                <span class=fa-svg id="fa-spin"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M304 48c0-26.5-21.5-48-48-48s-48 21.5-48 48s21.5 48 48 48s48-21.5 48-48zm0 416c0-26.5-21.5-48-48-48s-48 21.5-48 48s21.5 48 48 48s48-21.5 48-48zM48 304c26.5 0 48-21.5 48-48s-21.5-48-48-48s-48 21.5-48 48s21.5 48 48 48zm464-48c0-26.5-21.5-48-48-48s-48 21.5-48 48s21.5 48 48 48s48-21.5 48-48zM142.9 437c18.7-18.7 18.7-49.1 0-67.9s-49.1-18.7-67.9 0s-18.7 49.1 0 67.9s49.1 18.7 67.9 0zm0-294.2c18.7-18.7 18.7-49.1 0-67.9S93.7 56.2 75 75s-18.7 49.1 0 67.9s49.1 18.7 67.9 0zM369.1 437c18.7 18.7 49.1 18.7 67.9 0s18.7-49.1 0-67.9s-49.1-18.7-67.9 0s-18.7 49.1 0 67.9z"/></svg></span>
+                            </div>
+                        </div>
+                    </form>
+                    <div id="mdbook-searchresults-outer" class="searchresults-outer hidden">
+                        <div id="mdbook-searchresults-header" class="searchresults-header"></div>
+                        <ul id="mdbook-searchresults">
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script>
+                    document.getElementById('mdbook-sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('mdbook-sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#mdbook-sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="mdbook-content" class="content">
+                    <main>
+                        <h1 id="unit-p-computing-foundations-primer-complete-before-any-language-track"><a class="header" href="#unit-p-computing-foundations-primer-complete-before-any-language-track">Unit P: Computing Foundations Primer (Complete Before Any Language Track)</a></h1>
+<h2 id="overview"><a class="header" href="#overview">Overview</a></h2>
+<p><strong>Compatibility:</strong> This unit is language-neutral. It contains no code that you must run. Where code-like text appears, it is <em>pseudocode</em>: plain, structured English that every language track in this course later turns into real syntax.</p>
+<p>Every language in this course (Python, Java, JavaScript, TypeScript, Kotlin, C, C++, C#, Julia, Swift, Rust, Go, and Lua) teaches the same ideas with different punctuation. This unit teaches the ideas once, so each language track can focus on its own syntax and rules.</p>
+<p><strong>How this unit is written.</strong> Everything here can be read in order, line by line, with a screen reader or a braille display. There are no diagrams, no charts, and no colour cues. Where a picture would normally help, the lesson uses a spoken description, a numbered trace, or a tactile comparison such as braille cells. Lists are used instead of tables so that each item is read in sequence.</p>
+<p><strong>Shared data.</strong> The examples reuse the course’s shared data so that you will recognise it later in every language:</p>
+<ul>
+<li>Student profile: name Avery, age 16, height 1.72 meters, favorite subject Computer Science.</li>
+<li>Calculator: a bill of 24.50 and a tip rate of 0.15.</li>
+<li>Scores: 82, 91, 76, 88.</li>
+<li>Inventory: Notebook (quantity 3, unit price 2.50), Pencil (quantity 10, unit price 0.50), Folder (quantity 4, unit price 1.25).</li>
+<li>Text sample: “A student studies programming. Programming develops problem-solving skills.”</li>
+</ul>
+<p><strong>Unit objectives:</strong></p>
+<ul>
+<li>Explain what a computer does and how hardware, software, and data relate.</li>
+<li>Explain how text, numbers, and decisions are represented as bits.</li>
+<li>Describe an algorithm in pseudocode and trace it by hand.</li>
+<li>Use the core vocabulary shared by all languages.</li>
+<li>Explain how source code becomes a running program and how to read an error message.</li>
+<li>Describe files and structured data formats, and know how to read code aloud.</li>
+</ul>
+<p><strong>Lessons in this unit:</strong></p>
+<ul>
+<li>P.1 What a Computer Does</li>
+<li>P.2 Representing Information as Bits</li>
+<li>P.3 Algorithms, Pseudocode, and Tracing</li>
+<li>P.4 The Shared Vocabulary of Programming</li>
+<li>P.5 From Source Code to Running Program</li>
+<li>P.6 Files, Data Formats, and Reading Code Without Sight</li>
+</ul>
+<p><strong>AI policy for this course.</strong> AI tools may be used only for personal conceptual understanding and reinforcement, for example asking for another explanation of what a variable is. AI may not write, autocomplete, repair, complete, or generate course code or assessment solutions.</p>
+<hr>
+<h2 id="lesson-p1-what-a-computer-does"><a class="header" href="#lesson-p1-what-a-computer-does">Lesson P.1: What a Computer Does</a></h2>
+<h3 id="reading-references"><a class="header" href="#reading-references">Reading References</a></h3>
+<ul>
+<li>Zelle: Chapter 1, pages 1–7</li>
+<li>Matthes: Chapter 1</li>
+<li>The “Foundations of Computing” lesson (Lesson 1.1) of your chosen language track revisits this material.</li>
+</ul>
+<h3 id="learning-objectives"><a class="header" href="#learning-objectives">Learning Objectives</a></h3>
+<ul>
+<li>Describe the cycle of input, processing, output, and storage.</li>
+<li>Distinguish hardware from software and name the main hardware parts by their job.</li>
+<li>Explain what a program, an instruction, and an operating system are.</li>
+<li>Explain why a computer follows instructions literally.</li>
+</ul>
+<h3 id="concept-explanation"><a class="header" href="#concept-explanation">Concept Explanation</a></h3>
+<p>A computer is a machine that follows precise instructions to change information. Almost everything a computer does fits one cycle with four parts:</p>
+<ol>
+<li><strong>Input.</strong> Information enters the computer: a key pressed, a spoken word, a file opened, a number typed into a terminal.</li>
+<li><strong>Processing.</strong> The computer changes the information by following instructions: adding numbers, comparing two names, sorting scores.</li>
+<li><strong>Output.</strong> Results leave the computer: text printed in a terminal, speech from a screen reader, a line of braille on a display, a file saved.</li>
+<li><strong>Storage.</strong> Information is kept for later, either briefly while a program runs or permanently in a file.</li>
+</ol>
+<p><strong>Hardware</strong> is the physical equipment: the keyboard, the processor, the memory, the storage drive, the speakers, the braille display. <strong>Software</strong> is the set of instructions that tells hardware what to do. The same hardware can do very different jobs depending on which software it runs.</p>
+<p>The main hardware parts, described by their job:</p>
+<ul>
+<li>The <strong>CPU (central processor)</strong> carries out instructions one very small step at a time, billions of times per second.</li>
+<li><strong>Memory (RAM)</strong> is fast, temporary working space. It holds the programs and data that are in use right now. When power is lost or a program ends, its memory contents are gone.</li>
+<li><strong>Storage</strong> (a solid-state drive or hard drive) keeps files permanently, but is slower than memory.</li>
+<li><strong>Input and output devices</strong> connect the computer to people: keyboards, microphones, speakers, braille displays.</li>
+</ul>
+<p>The <strong>operating system</strong> (Windows, macOS, Linux) is software that manages the hardware and starts other programs. It also keeps track of files and folders.</p>
+<p>A <strong>program</strong> is a list of instructions written so a computer can carry it out. A computer does exactly what the instructions say, no more and no less. It cannot guess what you meant. This is the most important habit of mind in programming: <em>say exactly what you want, in order, with nothing left unstated.</em></p>
+<p><strong>Analogy without a picture.</strong> Imagine a very fast, very obedient helper who cannot see your intentions, only your words. If you say “make tea,” the helper stops, because nothing said where the kettle is. If you say “walk to the kitchen, fill the kettle with water, switch it on, wait until it clicks,” the helper succeeds. A program is the second kind of instruction.</p>
+<h3 id="worked-example"><a class="header" href="#worked-example">Worked Example</a></h3>
+<p>Trace the tip calculator through the four-part cycle, using the shared data.</p>
+<ol>
+<li>Input: the program receives a bill of 24.50 and a tip rate of 0.15.</li>
+<li>Processing: the program multiplies 24.50 by 0.15 to get the tip, then adds the tip to the bill to get the total.</li>
+<li>Output: the program prints the tip and the total as text.</li>
+<li>Storage: while the program runs, the values 24.50, 0.15, the tip, and the total are held in memory. When the program ends, they are gone unless the program saved them to a file.</li>
+</ol>
+<h3 id="expected-behavior-or-output"><a class="header" href="#expected-behavior-or-output">Expected Behavior or Output</a></h3>
+<p>The tip is 3.675 and the total is 28.175 before rounding. Programs usually display money with two decimal places, so they show 3.67 or 3.68 and 28.18 depending on the language’s rounding rules. Later tracks explain the exact rounding behavior of each language. The point of this lesson is the four-part cycle, not the final digits.</p>
+<h3 id="common-mistakes"><a class="header" href="#common-mistakes">Common Mistakes</a></h3>
+<ul>
+<li>Believing the computer will fill in a missing step. It will not.</li>
+<li>Mixing up memory and storage. Memory is temporary and fast; storage is permanent and slower.</li>
+<li>Thinking software and hardware are interchangeable. Software is instructions; hardware is the machine that carries them out.</li>
+</ul>
+<h3 id="activities"><a class="header" href="#activities">Activities</a></h3>
+<ol>
+<li><strong>Human computer.</strong> Work with a partner. One person gives spoken instructions for making a sandwich or tying a knot; the other follows only what is literally said. Note every place where a missing detail caused a wrong result.</li>
+<li><strong>Classify five things.</strong> List five things you use daily. For each, say whether it is hardware or software, and what its input, processing, output, and storage are.</li>
+<li><strong>Write the cycle.</strong> For a talking clock, write one sentence each for input, processing, output, and storage.</li>
+<li><strong>Find the unstated step.</strong> Write six instructions for “log in to a website.” Ask a partner to find one step that was assumed but never stated.</li>
+</ol>
+<h3 id="accessibility-practice"><a class="header" href="#accessibility-practice">Accessibility Practice</a></h3>
+<p>Open a terminal with your keyboard only. Type a short command such as <code>echo hello</code> (Windows, macOS, and Linux terminals all accept it), press Enter, and listen to or read the output. Note that you gave input, the computer processed it, and output appeared in order. Do not rely on any colour or icon.</p>
+<h3 id="skills-checklist"><a class="header" href="#skills-checklist">Skills Checklist</a></h3>
+<ul>
+<li><input disabled="" type="checkbox"> I can name the four parts of the input, processing, output, and storage cycle.</li>
+<li><input disabled="" type="checkbox"> I can say what the CPU, memory, and storage each do.</li>
+<li><input disabled="" type="checkbox"> I can explain the difference between hardware and software.</li>
+<li><input disabled="" type="checkbox"> I can explain why a program must be precise.</li>
+<li><input disabled="" type="checkbox"> I can describe one task from my day using the four-part cycle.</li>
+</ul>
+<hr>
+<h2 id="lesson-p2-representing-information-as-bits"><a class="header" href="#lesson-p2-representing-information-as-bits">Lesson P.2: Representing Information as Bits</a></h2>
+<h3 id="reading-references-1"><a class="header" href="#reading-references-1">Reading References</a></h3>
+<ul>
+<li>Zelle: Chapter 1 (data and computation) and Chapter 3 (numbers)</li>
+<li>Matthes: Chapter 2 (variables and simple data types)</li>
+</ul>
+<h3 id="learning-objectives-1"><a class="header" href="#learning-objectives-1">Learning Objectives</a></h3>
+<ul>
+<li>Explain what a bit and a byte are.</li>
+<li>Convert small whole numbers between binary and decimal.</li>
+<li>Explain how text is stored as numbers.</li>
+<li>Explain why whole numbers and decimal numbers behave differently in programs.</li>
+</ul>
+<h3 id="concept-explanation-1"><a class="header" href="#concept-explanation-1">Concept Explanation</a></h3>
+<p><strong>A bit</strong> is the smallest unit of information: one of two possible values, written 0 and 1. Think of a single braille dot that is either raised or flat. A computer’s circuits are built from billions of such two-state switches, so all information is stored as patterns of bits.</p>
+<p><strong>A byte</strong> is a group of 8 bits. Eight bits can form 2 multiplied by itself 8 times, which is 256 different patterns.</p>
+<p><strong>Braille as a bit pattern.</strong> A computer braille cell has 8 dots, and each dot is either raised or flat. That is exactly one byte: 8 two-state positions, 256 possible cells. A traditional literary braille cell has 6 dots, so it has 2 to the power 6, which is 64 patterns. This is not just a comparison: the Unicode braille block gives each cell a number built from its dots. Dot 1 is the lowest bit, so the cell with only dot 1 raised is the letter “a” and has the bit pattern 00000001. The cell with dots 1 and 2 raised (“b”) is 00000011. The cell with dots 1 and 4 (“c”) is 00001001. Reading a braille cell and reading a byte are the same kind of act.</p>
+<p><strong>Counting in binary.</strong> In decimal, each place is worth ten times the place to its right. In binary, each place is worth <em>two</em> times the place to its right. Reading from the right, the places are worth 1, 2, 4, 8, 16, 32, 64, 128.</p>
+<p>To read binary 1101: the places from the right are 1, 2, 4, 8. The digits from the right are 1, 0, 1, 1. Add the places that have a 1: 1 plus 4 plus 8 equals 13. So binary 1101 is decimal 13. A byte with all eight bits set to 1 is 128 plus 64 plus 32 plus 16 plus 8 plus 4 plus 2 plus 1, which is 255. The largest value in a byte is therefore 255, and the smallest is 0.</p>
+<p><strong>Hexadecimal</strong> is a shorthand that uses 16 symbols (0–9 then A–F) so that one symbol stands for 4 bits. Two hexadecimal symbols describe one byte. You will see it in error messages and memory addresses.</p>
+<p><strong>Text is numbers.</strong> A character encoding is an agreed table that assigns a number to each character. In ASCII and Unicode, the capital letter “A” is the number 65, which in a byte is 01000001. The lowercase “a” is 97, which is 01100001. Unicode extends this idea to every writing system and to braille patterns. A <strong>string</strong> is a sequence of such characters. The text “Avery” has 5 characters; the first is “A” and the last is “y”.</p>
+<p><strong>Whole numbers and decimal numbers.</strong> Programs store whole numbers (<strong>integers</strong>) exactly, within a limited range. They store decimal numbers (<strong>floating-point numbers</strong>) using a binary format that can only approximate many values. For example, 0.1 cannot be written exactly with a finite number of binary places, in the same way that one third cannot be written exactly with a finite number of decimal places. As a result, adding 0.1 and 0.2 in most languages gives 0.30000000000000004, not exactly 0.3. This is correct behavior, not a bug. It is also why the tip of 24.50 times 0.15 is stored as 3.6749999999999998 in most languages, and why some languages display it as 3.67 and others as 3.68 when rounded to two places.</p>
+<p><strong>Integer division.</strong> In many languages, dividing two integers discards the fractional part. Seven divided by two gives 3, and the remainder is 1. The remainder operation is usually called <em>modulo</em>. Whether a language divides integers this way is one of the first things each language track will tell you.</p>
+<p><strong>Booleans.</strong> A <strong>Boolean</strong> value is true or false. It needs only one bit. Decisions in programs are made from Boolean values.</p>
+<h3 id="worked-example-1"><a class="header" href="#worked-example-1">Worked Example</a></h3>
+<p>Show that the score 82 is stored as a number, and the name “Avery” as a sequence of numbers.</p>
+<ol>
+<li>The score 82 is a whole number. In binary its places from the right are 1, 2, 4, 8, 16, 32, 64. 82 is 64 plus 16 plus 2. So the bit pattern is 1010010 (bits set in the 64, 16, and 2 places).</li>
+<li>The name “Avery” is five characters. Each character is stored as its own number: “A” is 65, and the remaining lowercase letters have numbers starting at 97 for “a”.</li>
+<li>The Boolean “is the score at least 80?” is true for 82, and needs one bit.</li>
+</ol>
+<h3 id="expected-behavior-or-output-1"><a class="header" href="#expected-behavior-or-output-1">Expected Behavior or Output</a></h3>
+<p>You should be able to say aloud: “Binary one-zero-one-zero-zero-one-zero is decimal 82.” You should also be able to say that “A” is 65 and “a” is 97, and that these two differ because a program treats upper and lower case as different characters.</p>
+<h3 id="common-mistakes-1"><a class="header" href="#common-mistakes-1">Common Mistakes</a></h3>
+<ul>
+<li>Reading binary left to right as if each place were worth ten. Each place is worth twice the place to its right.</li>
+<li>Assuming “7” the character and 7 the number are the same thing. The character “7” has its own code; the number 7 is a different bit pattern.</li>
+<li>Expecting decimal arithmetic such as 0.1 plus 0.2 to be exact.</li>
+<li>Forgetting that upper-case and lower-case letters have different codes.</li>
+</ul>
+<h3 id="activities-1"><a class="header" href="#activities-1">Activities</a></h3>
+<ol>
+<li><strong>Binary by hand.</strong> Convert 5, 13, and 82 to binary, then convert 0110 and 11111111 back to decimal. Check your answers by adding place values.</li>
+<li><strong>Braille bits.</strong> Write the 8-bit pattern for the braille letters “a”, “b”, and “c” from the lesson. Then work out the pattern for the cell with only dot 3 raised, using the rule that dot <em>n</em> is the bit in place <em>n</em>.</li>
+<li><strong>Count the patterns.</strong> How many different patterns can 3 bits make? Explain how you counted.</li>
+<li><strong>Why not exact?</strong> In two sentences, explain why a computer cannot store one third exactly in decimal digits, and how that compares with 0.1 in binary.</li>
+</ol>
+<h3 id="accessibility-practice-1"><a class="header" href="#accessibility-practice-1">Accessibility Practice</a></h3>
+<p>Say each binary number aloud as digits, for example “one zero one zero zero one zero,” and say the place values aloud in a steady rhythm. If you use a braille display, feel a computer braille cell and name which dots are raised before converting it to a number.</p>
+<h3 id="skills-checklist-1"><a class="header" href="#skills-checklist-1">Skills Checklist</a></h3>
+<ul>
+<li><input disabled="" type="checkbox"> I can say what a bit and a byte are.</li>
+<li><input disabled="" type="checkbox"> I can convert a small number between binary and decimal.</li>
+<li><input disabled="" type="checkbox"> I can explain that text is stored as numbers.</li>
+<li><input disabled="" type="checkbox"> I can explain why 0.1 plus 0.2 is not exactly 0.3.</li>
+<li><input disabled="" type="checkbox"> I can say what a Boolean value is.</li>
+</ul>
+<hr>
+<h2 id="lesson-p3-algorithms-pseudocode-and-tracing"><a class="header" href="#lesson-p3-algorithms-pseudocode-and-tracing">Lesson P.3: Algorithms, Pseudocode, and Tracing</a></h2>
+<h3 id="reading-references-2"><a class="header" href="#reading-references-2">Reading References</a></h3>
+<ul>
+<li>Zelle: Chapter 1 (problem solving) and Chapter 2 (software development process)</li>
+<li>Matthes: Chapter 1</li>
+</ul>
+<h3 id="learning-objectives-2"><a class="header" href="#learning-objectives-2">Learning Objectives</a></h3>
+<ul>
+<li>Define an algorithm and give an example.</li>
+<li>Use the three building blocks of every algorithm: sequence, selection, and repetition.</li>
+<li>Write simple pseudocode.</li>
+<li>Trace an algorithm by hand using a spoken or written trace.</li>
+</ul>
+<h3 id="concept-explanation-2"><a class="header" href="#concept-explanation-2">Concept Explanation</a></h3>
+<p>An <strong>algorithm</strong> is a finite, ordered set of clear steps that solves a problem. A recipe, driving directions, and a process for sorting mail are all algorithms.</p>
+<p>Every algorithm is built from three ideas.</p>
+<ol>
+<li><strong>Sequence.</strong> Steps happen one after another, in order. The order matters: adding the tip to the bill before calculating the tip gives the wrong answer.</li>
+<li><strong>Selection.</strong> The algorithm chooses between paths based on a condition. “If the score is at least 90, the grade is A; otherwise check the next threshold” is selection.</li>
+<li><strong>Repetition.</strong> Steps repeat, either a set number of times or until a condition changes. “For each score, add it to the running total” is repetition.</li>
+</ol>
+<p><strong>Pseudocode</strong> is a plain-language description of an algorithm. It is not a real programming language, so no computer can run it, but it has no punctuation rules to worry about. Here is the grade rule as pseudocode, read as a numbered list:</p>
+<ol>
+<li>Receive a score.</li>
+<li>If the score is at least 90, the grade is A.</li>
+<li>Otherwise, if the score is at least 80, the grade is B.</li>
+<li>Otherwise, if the score is at least 70, the grade is C.</li>
+<li>Otherwise, if the score is at least 60, the grade is D.</li>
+<li>Otherwise, the grade is F.</li>
+<li>Report the grade.</li>
+</ol>
+<p><strong>Boundary cases</strong> are values on the edge of a rule. For the grade rule, 90, 89, 60, and 59 are boundary cases. Good testing always includes them.</p>
+<p><strong>Decomposition</strong> means breaking a large problem into smaller steps you can solve one at a time. <strong>Abstraction</strong> means giving a group of steps a name so you can use it without re-reading its details.</p>
+<p><strong>Tracing</strong> means executing an algorithm by hand, recording what each step does. A trace is a list of sentences, one per step, saying what changed. Tracing is the best way to find a mistake before running any code, and it works as a plain list that a screen reader reads in order.</p>
+<p><strong>The development cycle.</strong> Programmers repeat four stages: understand the problem, design a solution, implement it in a language, and test and refine it. Later tracks call this the software development process.</p>
+<h3 id="worked-example-2"><a class="header" href="#worked-example-2">Worked Example</a></h3>
+<p>Algorithm: find the total and average of the shared scores 82, 91, 76, and 88.</p>
+<p>Pseudocode:</p>
+<ol>
+<li>Set total to 0.</li>
+<li>For each score in the list, add the score to total.</li>
+<li>Set average to total divided by the number of scores.</li>
+<li>Report total and average.</li>
+</ol>
+<p>Trace, one sentence per step:</p>
+<ol>
+<li>Total starts at 0.</li>
+<li>First score is 82. Total becomes 82.</li>
+<li>Second score is 91. Total becomes 173.</li>
+<li>Third score is 76. Total becomes 249.</li>
+<li>Fourth score is 88. Total becomes 337.</li>
+<li>There are 4 scores, so average is 337 divided by 4, which is 84.25.</li>
+<li>Report total 337 and average 84.25.</li>
+</ol>
+<h3 id="expected-behavior-or-output-2"><a class="header" href="#expected-behavior-or-output-2">Expected Behavior or Output</a></h3>
+<p>The report says total 337 and average 84.25. If your hand trace reaches a different result, find the first sentence where your running total differs from the one above. That is where your mistake is.</p>
+<h3 id="common-mistakes-2"><a class="header" href="#common-mistakes-2">Common Mistakes</a></h3>
+<ul>
+<li>Skipping the trace and going straight to code.</li>
+<li>Forgetting boundary cases: scores of exactly 90, exactly 60, and below 60.</li>
+<li>Putting steps in the wrong order, such as dividing by the count before the total is complete.</li>
+<li>Writing a step that is too vague to follow, such as “work out the grade” without the thresholds.</li>
+</ul>
+<h3 id="activities-2"><a class="header" href="#activities-2">Activities</a></h3>
+<ol>
+<li><strong>Grade trace.</strong> Trace the grade rule for the scores 82, 91, 76, 88, 90, 89, 60, and 59. The grades should be B, A, C, B, A, B, D, and F.</li>
+<li><strong>Inventory value.</strong> Write pseudocode for the total value of the shared inventory (quantity times unit price, summed). Trace it. The total should be 17.50, which is 7.50 plus 5.00 plus 5.00.</li>
+<li><strong>Find the largest.</strong> Write pseudocode that finds the highest score in the shared list and trace it. The answer is 91.</li>
+<li><strong>Break it down.</strong> Decompose “print a report card for Avery” into at least four smaller steps.</li>
+</ol>
+<h3 id="accessibility-practice-2"><a class="header" href="#accessibility-practice-2">Accessibility Practice</a></h3>
+<p>Write traces as numbered sentences rather than tables, so they read cleanly in a screen reader or on a braille display. After writing one, read it aloud in order and check that each sentence alone tells you what changed.</p>
+<h3 id="skills-checklist-2"><a class="header" href="#skills-checklist-2">Skills Checklist</a></h3>
+<ul>
+<li><input disabled="" type="checkbox"> I can define an algorithm.</li>
+<li><input disabled="" type="checkbox"> I can identify sequence, selection, and repetition.</li>
+<li><input disabled="" type="checkbox"> I can write simple pseudocode.</li>
+<li><input disabled="" type="checkbox"> I can trace an algorithm by hand.</li>
+<li><input disabled="" type="checkbox"> I can name boundary cases for a rule.</li>
+</ul>
+<hr>
+<h2 id="lesson-p4-the-shared-vocabulary-of-programming"><a class="header" href="#lesson-p4-the-shared-vocabulary-of-programming">Lesson P.4: The Shared Vocabulary of Programming</a></h2>
+<h3 id="reading-references-3"><a class="header" href="#reading-references-3">Reading References</a></h3>
+<ul>
+<li>Zelle: Chapters 2–3</li>
+<li>Matthes: Chapters 2–4</li>
+</ul>
+<h3 id="learning-objectives-3"><a class="header" href="#learning-objectives-3">Learning Objectives</a></h3>
+<ul>
+<li>Define the core terms used in every language track.</li>
+<li>Tell an expression from a statement.</li>
+<li>Explain what a type is and why it matters.</li>
+<li>Read a function definition aloud and name its parts.</li>
+</ul>
+<h3 id="concept-explanation-3"><a class="header" href="#concept-explanation-3">Concept Explanation</a></h3>
+<p>These terms mean the same thing in all thirteen languages. The punctuation changes; the ideas do not.</p>
+<ul>
+<li><strong>Source code:</strong> the text a programmer writes.</li>
+<li><strong>Syntax:</strong> the rules for how code must be written, including punctuation and word order. A syntax error means the rules were broken.</li>
+<li><strong>Semantics:</strong> what the code means and does when it runs.</li>
+<li><strong>Comment:</strong> text the computer ignores, written for people.</li>
+<li><strong>Keyword:</strong> a word with a fixed meaning in the language, such as the words used for decisions or loops. You cannot use a keyword as your own name.</li>
+<li><strong>Identifier:</strong> a name you choose, for a variable, function, or type. Choose descriptive names, such as <code>tip_rate</code> or <code>tipRate</code>, depending on the language’s convention.</li>
+<li><strong>Value:</strong> a piece of data, such as 24.50 or “Avery”.</li>
+<li><strong>Variable:</strong> a named place that holds a value, which can change as the program runs. <em>Assignment</em> stores a value into a variable. Read “bill = 24.50” aloud as “bill is assigned 24.50,” not “bill equals 24.50.”</li>
+<li><strong>Constant:</strong> a name whose value must not change. Some languages enforce this.</li>
+<li><strong>Type:</strong> the kind of value, which decides what operations make sense. The common types are integer, floating-point number, string, and Boolean. Adding two numbers makes sense; adding a number to a name usually does not.</li>
+<li><strong>Static and dynamic typing:</strong> in a <em>statically typed</em> language, you or the compiler fix each variable’s type before the program runs. In a <em>dynamically typed</em> language, the type belongs to the value at run time. Your language track tells you which applies.</li>
+<li><strong>Type conversion:</strong> turning one type into another, such as the text “12” into the number 12. Input from a keyboard arrives as text, so conversion is common.</li>
+<li><strong>Expression:</strong> a piece of code that produces a value, such as <code>bill * rate</code>.</li>
+<li><strong>Statement:</strong> a complete instruction that performs an action, such as storing a value or printing text.</li>
+<li><strong>Operator:</strong> a symbol that combines values: arithmetic (+, -, *, /), comparison (is equal to, is less than), and logical (and, or, not).</li>
+<li><strong>Precedence:</strong> the order in which operators are applied. Multiplication happens before addition, so 8 + 4 * 2 is 16, while (8 + 4) * 2 is 24. Parentheses make order explicit.</li>
+<li><strong>Function:</strong> a named, reusable block of code. It may take <strong>parameters</strong> (names for the inputs it expects) and may <strong>return</strong> a result. The actual values you supply when you call it are <strong>arguments</strong>.</li>
+<li><strong>Collection:</strong> a value that holds several values. An <strong>array</strong> or <strong>list</strong> is an ordered sequence. A <strong>map</strong> (also called dictionary, hash table, or table) pairs keys with values, such as an item name with its quantity.</li>
+<li><strong>Index:</strong> a position in an ordered collection. Some languages count from 0 (the first score is at index 0) and some from 1. This is the most common source of off-by-one errors, and each track states its rule.</li>
+<li><strong>Loop:</strong> code that repeats. <strong>Condition:</strong> a Boolean expression that decides whether to take a path or repeat.</li>
+<li><strong>Class, object, and method:</strong> a <strong>class</strong> describes a kind of thing (a Student) with its data and abilities. An <strong>object</strong> is one actual instance (Avery). A <strong>method</strong> is a function belonging to a class. Some languages call similar ideas structs, records, or types with functions attached.</li>
+<li><strong>Exception or error value:</strong> a signal that something went wrong, such as a missing file. Languages handle it differently: some “throw” and “catch” exceptions, others return an error value you must check.</li>
+<li><strong>Module, package, or library:</strong> reusable code someone else wrote, which you bring into your program.</li>
+</ul>
+<p><strong>Reading code aloud.</strong> Programs use punctuation heavily, and a screen reader may or may not announce each symbol. Use this convention, which your language tracks also follow:</p>
+<ul>
+<li>Say the symbol’s name when the symbol matters: “open parenthesis,” “close brace,” “colon,” “semicolon,” “double quote.”</li>
+<li>State indentation or nesting depth when it changes meaning, for example “indent one level.” In some languages indentation is the structure; in others braces are, and indentation is only for people.</li>
+<li>Say “block begins” and “block ends” for the grouping of statements, then name the symbols your language uses.</li>
+<li>Always announce the <em>name</em> of a quote or bracket you are inside, so you know what must be closed.</li>
+</ul>
+<h3 id="worked-example-3"><a class="header" href="#worked-example-3">Worked Example</a></h3>
+<p>Read the following description of the student profile aloud and name each term.</p>
+<p>“Create a variable named <code>name</code> and assign it the string value Avery. Create a variable named <code>age</code> and assign it the integer 16. Create a variable named <code>height</code> and assign it the floating-point number 1.72. Create a Boolean variable named <code>likes_cs</code> and assign it true. Report the student by joining the name and age into one string.”</p>
+<ul>
+<li><code>name</code>, <code>age</code>, <code>height</code>, and <code>likes_cs</code> are identifiers and variables.</li>
+<li>“Avery”, 16, 1.72, and true are values, of types string, integer, floating-point, and Boolean.</li>
+<li>The line that joins name and age is a statement that contains an expression.</li>
+<li>Joining a string to an integer may require a type conversion in your language.</li>
+</ul>
+<h3 id="expected-behavior-or-output-3"><a class="header" href="#expected-behavior-or-output-3">Expected Behavior or Output</a></h3>
+<p>You can recite each term with a one-sentence definition and point to an example in the description above. In your language track, the same description will be a four- or five-line program that prints a line about Avery.</p>
+<h3 id="common-mistakes-3"><a class="header" href="#common-mistakes-3">Common Mistakes</a></h3>
+<ul>
+<li>Reading “=” as “equals” in an assignment. It means “store this value.”</li>
+<li>Confusing a parameter with an argument. The parameter is the name in the definition; the argument is the value you pass.</li>
+<li>Forgetting that input from the keyboard arrives as text and may need type conversion.</li>
+<li>Assuming indexes start at the same number in every language.</li>
+<li>Using a keyword as an identifier.</li>
+</ul>
+<h3 id="activities-3"><a class="header" href="#activities-3">Activities</a></h3>
+<ol>
+<li><strong>Name the parts.</strong> For the sentence “The function <code>tip</code> takes a bill and a rate and returns the tip,” name the function, its parameters, and its return value.</li>
+<li><strong>Expression or statement.</strong> Label each as an expression or a statement: “bill times rate”; “store bill times rate into tip”; “print tip.”</li>
+<li><strong>Precedence.</strong> Work out the value of 82 + 9 * 2, then of (82 + 9) * 2. The answers are 100 and 182.</li>
+<li><strong>Read aloud.</strong> Choose a two-line piece of code from your language track’s first lesson later. Write out how you would say each symbol aloud, including nesting.</li>
+</ol>
+<h3 id="accessibility-practice-3"><a class="header" href="#accessibility-practice-3">Accessibility Practice</a></h3>
+<p>Choose your screen reader’s punctuation level (for example, “most” or “all”) and test how it reads brackets, quotes, and operators in a short text file. Record the setting that lets you tell an open bracket from a close bracket reliably. If you use braille, check how your display shows indentation (leading spaces) so that you can read nesting depth by touch.</p>
+<h3 id="skills-checklist-3"><a class="header" href="#skills-checklist-3">Skills Checklist</a></h3>
+<ul>
+<li><input disabled="" type="checkbox"> I can define variable, type, expression, statement, function, and collection.</li>
+<li><input disabled="" type="checkbox"> I can tell a parameter from an argument.</li>
+<li><input disabled="" type="checkbox"> I can say how “=” is read in an assignment.</li>
+<li><input disabled="" type="checkbox"> I can explain why index rules differ between languages.</li>
+<li><input disabled="" type="checkbox"> I can read a short piece of code aloud, naming punctuation and nesting.</li>
+</ul>
+<hr>
+<h2 id="lesson-p5-from-source-code-to-running-program"><a class="header" href="#lesson-p5-from-source-code-to-running-program">Lesson P.5: From Source Code to Running Program</a></h2>
+<h3 id="reading-references-4"><a class="header" href="#reading-references-4">Reading References</a></h3>
+<ul>
+<li>Zelle: Chapter 1 (the programming environment)</li>
+<li>Matthes: Chapter 1 (setting up and running programs)</li>
+<li>The “Accessible Development Environment” lessons (Unit 0) of your chosen language track.</li>
+</ul>
+<h3 id="learning-objectives-4"><a class="header" href="#learning-objectives-4">Learning Objectives</a></h3>
+<ul>
+<li>Explain the difference between a compiler, an interpreter, and a virtual machine.</li>
+<li>Use the terminal vocabulary: command, argument, path, standard input, standard output, standard error, and exit status.</li>
+<li>Tell syntax, runtime, and logic errors apart.</li>
+<li>Read an error message from top to bottom and find the file and line.</li>
+</ul>
+<h3 id="concept-explanation-4"><a class="header" href="#concept-explanation-4">Concept Explanation</a></h3>
+<p>A processor understands only machine instructions, which are bits. Programmers write source code in a human-readable language, so some program must connect the two. The languages in this course use one of three approaches. Your language track tells you which.</p>
+<ol>
+<li><strong>Compiled to machine code.</strong> A <em>compiler</em> translates the entire source into a standalone executable file <em>before</em> the program runs. You then run that file. C, C++, Rust, Go, and Swift work this way. If the compiler finds a problem, it reports a <strong>compile-time error</strong> and produces nothing to run.</li>
+<li><strong>Interpreted.</strong> An <em>interpreter</em> reads the source and carries out its instructions while the program runs. Python and Lua work this way (with some internal translation steps).</li>
+<li><strong>Compiled to an intermediate form and run on a virtual machine.</strong> The compiler translates source into <em>bytecode</em>, and a <em>virtual machine</em> (VM) runs it. Java, Kotlin, and C# work this way. JavaScript and TypeScript run in an engine such as Node.js; TypeScript is first translated into JavaScript. Julia compiles pieces of code as it runs.</li>
+</ol>
+<p>The line between these is blurry, and you do not need to memorise it. What matters is the workflow: <em>write source, run a tool, read the result.</em></p>
+<p><strong>The terminal.</strong> A terminal is a text window for typing commands. A <strong>command</strong> is a program’s name followed by <strong>arguments</strong>, which are extra words that tell it what to do. For example, running a program file means typing the language’s tool name and the file name. Terminal output is plain text, which makes it screen-reader and braille friendly.</p>
+<ul>
+<li>The <strong>working directory</strong> is the folder the terminal is currently “in.” Commands look for files relative to it.</li>
+<li>A <strong>path</strong> is the address of a file or folder. An <em>absolute path</em> starts from the top of the file system; a <em>relative path</em> starts from the working directory.</li>
+<li><strong>Standard input (stdin)</strong> is where a program reads typed input. <strong>Standard output (stdout)</strong> is where it prints normal results. <strong>Standard error (stderr)</strong> is a second channel for error messages. Terminals show both, but they can be separated.</li>
+<li>The <strong>exit status</strong> is a number a program returns when it ends. By convention, 0 means success and anything else means a problem.</li>
+</ul>
+<p><strong>Three kinds of errors.</strong></p>
+<ol>
+<li><strong>Syntax error:</strong> the code breaks the language’s writing rules, such as a missing closing parenthesis. The tool refuses to run it and names a file and line. Compilers and interpreters report it before any of your code takes effect (with interpreters, before the offending line runs).</li>
+<li><strong>Runtime error:</strong> the code is valid but fails while running, such as dividing by zero, opening a file that does not exist, or converting the text “abc” to a number.</li>
+<li><strong>Logic error:</strong> the program runs without complaint but gives the wrong answer, such as using the wrong threshold for a grade. No tool reports this, so you find it with tracing and tests.</li>
+</ol>
+<p><strong>Reading an error message.</strong> Messages follow a pattern: the <em>kind</em> of problem, the <em>file name</em>, the <em>line number</em>, and often the <em>offending text</em>. Read from the top, because the first error often causes the ones below it. In many languages the most useful line is the last line of the message; in others it is the first. Fix the first error, then run again.</p>
+<p><strong>Testing.</strong> A <strong>test</strong> compares what a function actually returns with what you expect, using values you chose in advance. The tip function given 24.50 and 0.15 should return a value close to 3.675. Note the word <em>close</em>: because of floating-point approximation, tests of decimal values compare with a small tolerance, not exact equality.</p>
+<h3 id="worked-example-4"><a class="header" href="#worked-example-4">Worked Example</a></h3>
+<p>Imagine a terminal session described in words, as a screen reader would announce it.</p>
+<ol>
+<li>The working directory is the folder <code>course</code>.</li>
+<li>You type the command to run <code>hello</code>, naming the file in the folder. The tool begins.</li>
+<li>The tool prints, on standard output, one line: <code>Hello, Avery!</code></li>
+<li>The tool ends, with exit status 0.</li>
+</ol>
+<p>Now suppose you mistyped a closing quote. The tool prints on standard error: the kind of problem (a syntax error), the file name, the line number, and a short description such as “unterminated string.” It ends with a non-zero exit status, and no greeting is printed.</p>
+<h3 id="expected-behavior-or-output-4"><a class="header" href="#expected-behavior-or-output-4">Expected Behavior or Output</a></h3>
+<p>In the success case: one line of output and exit status 0. In the failure case: no program output, a message naming a file and line, and a non-zero exit status. In your own language track you will see this exact pattern.</p>
+<h3 id="common-mistakes-4"><a class="header" href="#common-mistakes-4">Common Mistakes</a></h3>
+<ul>
+<li>Running a command from the wrong working directory, so the file is “not found.”</li>
+<li>Ignoring the file name and line number in an error message.</li>
+<li>Fixing many errors at once instead of the first one.</li>
+<li>Expecting a logic error to produce an error message.</li>
+<li>Forgetting that a compiled program must be rebuilt after each source change.</li>
+</ul>
+<h3 id="activities-4"><a class="header" href="#activities-4">Activities</a></h3>
+<ol>
+<li><strong>Sort the errors.</strong> For each case, say whether it is a syntax, runtime, or logic error: a missing closing bracket; dividing by zero; a grade rule that treats 90 as a B; reading a file that does not exist.</li>
+<li><strong>Read a message.</strong> Write out in plain sentences the four parts of this fictional message: “File main, line 3: unterminated string.”</li>
+<li><strong>Paths.</strong> If the working directory is <code>course</code> and <code>notes.txt</code> is inside it, give a relative path to the file. Then explain why an absolute path to the same file is longer.</li>
+<li><strong>Three streams.</strong> In one sentence each, say what stdin, stdout, and stderr are for.</li>
+</ol>
+<h3 id="accessibility-practice-4"><a class="header" href="#accessibility-practice-4">Accessibility Practice</a></h3>
+<p>Practise a keyboard-only workflow: open a terminal, move to your course folder, list its files, and read the list line by line. Run a short command and press the key your screen reader uses to review the last line of output. Learn how to jump to the <em>start</em> of the output, because error messages often begin there. Always run programs from the terminal at least once, even if your editor has a Run button, so the output stays readable in text.</p>
+<h3 id="skills-checklist-4"><a class="header" href="#skills-checklist-4">Skills Checklist</a></h3>
+<ul>
+<li><input disabled="" type="checkbox"> I can explain the difference between compiled, interpreted, and virtual-machine languages.</li>
+<li><input disabled="" type="checkbox"> I can explain working directory, path, stdin, stdout, stderr, and exit status.</li>
+<li><input disabled="" type="checkbox"> I can tell syntax, runtime, and logic errors apart.</li>
+<li><input disabled="" type="checkbox"> I can find the file and line in an error message.</li>
+<li><input disabled="" type="checkbox"> I can explain why decimal tests use a tolerance.</li>
+</ul>
+<hr>
+<h2 id="lesson-p6-files-data-formats-and-reading-code-without-sight"><a class="header" href="#lesson-p6-files-data-formats-and-reading-code-without-sight">Lesson P.6: Files, Data Formats, and Reading Code Without Sight</a></h2>
+<h3 id="reading-references-5"><a class="header" href="#reading-references-5">Reading References</a></h3>
+<ul>
+<li>Matthes: Chapter 10 (files and exceptions)</li>
+<li>Zelle: Chapter 5 (file processing)</li>
+<li>The “Files and Exceptions” lessons (Unit 8) of your chosen language track.</li>
+</ul>
+<h3 id="learning-objectives-5"><a class="header" href="#learning-objectives-5">Learning Objectives</a></h3>
+<ul>
+<li>Explain what a file is and why programs read and write them.</li>
+<li>Describe plain text, CSV, and JSON formats.</li>
+<li>Explain why input can be invalid and why programs must check it.</li>
+<li>Preview how the units of this course fit together.</li>
+</ul>
+<h3 id="concept-explanation-5"><a class="header" href="#concept-explanation-5">Concept Explanation</a></h3>
+<p><strong>A file</strong> is a named collection of data kept in storage. A <strong>text file</strong> holds characters (the encodings from Lesson P.2). A <strong>binary file</strong> holds arbitrary bytes, such as a compiled program or a picture. Programs <em>read</em> from files to get data and <em>write</em> to files to keep data after the program ends. Opening a file can fail: the file may not exist, you may lack permission, or the data may be malformed. A well-written program expects this and reports a clear message.</p>
+<p><strong>Resource lifetime.</strong> Opening a file borrows something from the operating system. A program must <em>close</em> it when finished. Each language track shows its own idiom so that a file is closed even when an error happens.</p>
+<p><strong>Plain text</strong> is lines of characters. A program reads it one line at a time.</p>
+<p><strong>CSV (comma-separated values)</strong> stores a table as text: one row per line, with values separated by commas, and usually a first line that names the columns. The shared student file uses the columns <code>student_id</code>, <code>first_name</code>, <code>last_name</code>, <code>score</code>, and <code>active</code>. A row might be read aloud as: “student id 1, first name Avery, last name Student, score 91, active true.” Note that simply splitting a line at each comma breaks when a value itself contains a comma, so real programs use a proper CSV reader.</p>
+<p><strong>JSON (JavaScript Object Notation)</strong> stores structured data as text, using braces for records (key and value pairs), square brackets for lists, and quotation marks around text. It is readable by people and by nearly every language. A record for the shared to-do data has the fields <code>id</code>, <code>title</code>, <code>description</code>, <code>done</code>, and <code>created_at</code>. Read aloud, a JSON record is “open brace, key <code>id</code> colon value 1 comma …, close brace.” Saving a record as JSON is called <em>serialising</em>; loading it is <em>deserialising</em>.</p>
+<p><strong>Validating input.</strong> Data from a keyboard or a file cannot be trusted to be correct. A program should check for empty values, wrong types, and out-of-range numbers, and explain the problem in clear words. For example: “Enter a whole number from 0 to 100.” Messages should say what was wrong and what to do, never rely on colour, and read well aloud.</p>
+<p><strong>How the course fits together.</strong> After this unit, each language track follows the same order:</p>
+<ul>
+<li>Unit 0: set up an accessible environment.</li>
+<li>Unit 1: the first program and variables.</li>
+<li>Unit 2: numbers, input, and output.</li>
+<li>Unit 3: decisions, lists, loops, and strings.</li>
+<li>Unit 4: lists and dictionaries.</li>
+<li>Unit 5: user input and while loops.</li>
+<li>Unit 6: functions.</li>
+<li>Unit 7: classes and object-oriented design.</li>
+<li>Unit 8: files and exceptions.</li>
+<li>Unit 9: testing and data analysis.</li>
+<li>Unit 10: text-based projects (a text adventure and a command-line to-do tool).</li>
+<li>Unit 11: a capstone personal data manager.</li>
+</ul>
+<p>Every Unit 1–11 lesson in a track uses the same sections: Reading References, Learning Objectives, Concept Explanation, Worked Example, Expected Behavior or Output, Common Mistakes, Activities, Accessibility Practice, and Skills Checklist.</p>
+<p><strong>Working the accessible way, in every unit.</strong></p>
+<ul>
+<li>Use the keyboard first; do not depend on a mouse.</li>
+<li>Run programs from the terminal so output and errors are plain text.</li>
+<li>Print descriptive prompts and error messages in words.</li>
+<li>When a program would produce a chart or picture, produce a text description or a list of numbers as well.</li>
+<li>Read code with your own punctuation settings, and say symbol names aloud when they matter.</li>
+</ul>
+<h3 id="worked-example-5"><a class="header" href="#worked-example-5">Worked Example</a></h3>
+<p>Describe the saved form of one inventory item in two formats.</p>
+<p>Shared data: Notebook, quantity 3, unit price 2.50.</p>
+<ul>
+<li><strong>As a line of text:</strong> “Notebook, 3, 2.50.”</li>
+<li><strong>As a CSV pair of lines:</strong> the first line names the columns, <code>name</code>, <code>quantity</code>, and <code>unit_price</code>, separated by commas; the second line holds <code>Notebook</code>, <code>3</code>, and <code>2.50</code>, separated by commas.</li>
+<li><strong>As JSON, read aloud:</strong> “Open brace. Key name, colon, string Notebook, comma. Key quantity, colon, number 3, comma. Key unit price, colon, number 2.5. Close brace.”</li>
+</ul>
+<p>Note that JSON stores 2.50 as the number 2.5, because trailing zeros carry no meaning in a number.</p>
+<h3 id="expected-behavior-or-output-5"><a class="header" href="#expected-behavior-or-output-5">Expected Behavior or Output</a></h3>
+<p>Each of the three forms contains the same three facts: the name, the quantity, and the price. A program that reads any of them should recover Notebook, 3, and 2.5. A program that reads a file which does not exist should produce a clear message and not a crash.</p>
+<h3 id="common-mistakes-5"><a class="header" href="#common-mistakes-5">Common Mistakes</a></h3>
+<ul>
+<li>Assuming a file exists and is well-formed.</li>
+<li>Forgetting to close a file, or not using the language’s safe pattern for it.</li>
+<li>Splitting CSV lines at commas when values may contain commas.</li>
+<li>Treating all input as valid.</li>
+<li>Writing an error message that says only “invalid” without saying why.</li>
+</ul>
+<h3 id="activities-5"><a class="header" href="#activities-5">Activities</a></h3>
+<ol>
+<li><strong>Same facts, three forms.</strong> Write the Pencil item (quantity 10, unit price 0.50) as a plain text line, a CSV pair of lines, and JSON read aloud.</li>
+<li><strong>Predict the failure.</strong> List three different ways opening <code>notes.txt</code> could fail, and write the message a user should see for each.</li>
+<li><strong>Read the plan.</strong> In your own words, say what Unit 7 and Unit 8 will teach and how they connect to the Student and to-do examples.</li>
+<li><strong>Write an error message.</strong> Write an accessible message for a user who enters “abc” where a whole number from 0 to 100 is required.</li>
+</ol>
+<h3 id="accessibility-practice-5"><a class="header" href="#accessibility-practice-5">Accessibility Practice</a></h3>
+<p>Create a small text file with three lines, save it, and read it back in the terminal with a command that prints a file (your operating system’s command is <code>cat</code> on macOS and Linux and <code>type</code> on Windows). Compare it with what you see in your editor. Confirm that both are readable line by line.</p>
+<h3 id="skills-checklist-5"><a class="header" href="#skills-checklist-5">Skills Checklist</a></h3>
+<ul>
+<li><input disabled="" type="checkbox"> I can explain what a file is and that opening one can fail.</li>
+<li><input disabled="" type="checkbox"> I can describe plain text, CSV, and JSON.</li>
+<li><input disabled="" type="checkbox"> I can write a clear, accessible input error message.</li>
+<li><input disabled="" type="checkbox"> I can state the order of units in my language track.</li>
+<li><input disabled="" type="checkbox"> I can describe the accessible workflow used throughout the course.</li>
+</ul>
+<hr>
+<hr>
+<h2 id="lesson-p7-self-documenting-code-naming-types-and-comments"><a class="header" href="#lesson-p7-self-documenting-code-naming-types-and-comments">Lesson P.7: Self-Documenting Code, Naming, Types, and Comments</a></h2>
+<h3 id="learning-objectives-6"><a class="header" href="#learning-objectives-6">Learning Objectives</a></h3>
+<p>By the end of this lesson, learners should be able to:</p>
+<ul>
+<li>Explain what self-documenting code is and why code must communicate intent to another person and to their future self.</li>
+<li>Choose clear, specific names for variables, constants, functions, classes, and files.</li>
+<li>Break complex work into small, purpose-named functions with clear inputs, outputs, and side effects.</li>
+<li>Use type annotations, signatures, contracts, and documentation features when a language supports them.</li>
+<li>Distinguish useful comments from comments that merely repeat the code.</li>
+<li>Improve an unclear code example without changing its behavior.</li>
+</ul>
+<h3 id="why-readability-is-a-correctness-and-maintenance-concern"><a class="header" href="#why-readability-is-a-correctness-and-maintenance-concern">Why readability is a correctness and maintenance concern</a></h3>
+<p>Programs are read many more times than they are written. A person may need to understand a program months or years after its author last worked on it. That person may be a teammate—or the original author returning after forgetting the details.</p>
+<p>Readable code reduces the amount of context a reader must reconstruct. It makes defects easier to find, changes safer to make, and reviews more effective. The goal is not to make every line verbose. The goal is to make the purpose, assumptions, and important decisions apparent with the least unnecessary effort.</p>
+<p>A useful rule is: <strong>write code for the next reader, including the future version of yourself.</strong> Do not assume that you will remember why a calculation, condition, workaround, or unusual choice was made.</p>
+<h3 id="names-communicate-purpose"><a class="header" href="#names-communicate-purpose">Names communicate purpose</a></h3>
+<p>Choose names that describe meaning rather than merely recording a type, position, or implementation detail.</p>
+<p>Prefer:</p>
+<ul>
+<li><code>student_score</code> over <code>x</code> when the value represents a student’s score.</li>
+<li><code>active_student_count</code> over <code>n</code> when the value counts active students.</li>
+<li><code>calculate_average_score</code> over <code>do_stuff</code> for a function that calculates an average.</li>
+<li><code>is_file_readable</code> over <code>check</code> for a function that returns whether a file can be read.</li>
+<li><code>MAX_RETRY_ATTEMPTS</code> over <code>m</code> for a constant that defines a retry limit.</li>
+</ul>
+<p>Names should be precise and honest. A variable called <code>total_price</code> should not hold a quantity; a function called <code>save_record</code> should not also send an email unless that behavior is clear in its name and documentation.</p>
+<p>Follow the naming conventions of the language and project. Examples include snake_case in Python and many C projects, camelCase in JavaScript, TypeScript, Java, and Kotlin, PascalCase for many class and type names in C# and other ecosystems, and the conventions of the relevant standard library. Consistency within a project is more valuable than imposing a personal style that conflicts with its conventions.</p>
+<p>Avoid both extremes:</p>
+<ul>
+<li>Names that are too short to convey meaning, except for conventional short-lived loop indices or established mathematical notation.</li>
+<li>Names that repeat obvious context or become entire sentences. A name should be informative, not a paragraph.</li>
+</ul>
+<p>Use domain vocabulary consistently. If the project calls a person a <code>student</code>, do not alternate among <code>learner</code>, <code>user</code>, <code>record</code>, and <code>person</code> for the same concept without a reason.</p>
+<h3 id="functions-should-have-clear-responsibilities"><a class="header" href="#functions-should-have-clear-responsibilities">Functions should have clear responsibilities</a></h3>
+<p>A function name should describe the action or result. Its parameters should make the required inputs clear, and its return value should communicate the result. Prefer a function with one coherent responsibility over a long function that validates input, calculates a result, writes a file, prints a report, and changes unrelated state.</p>
+<p>For example, the following pseudocode hides its purpose:</p>
+<pre><code class="language-text">function process(a, b):
+    return a * b * 0.15
+</code></pre>
+<p>A clearer version communicates the domain meaning:</p>
+<pre><code class="language-text">function calculate_sales_tax(item_price, tax_rate):
+    return item_price * tax_rate
+</code></pre>
+<p>The second version also avoids hiding the tax rate inside the function. A caller can see which rate is being used and tests can supply different rates.</p>
+<p>A function should make its important behavior predictable. Be especially clear about whether it changes data, writes files, sends network requests, prints output, or modifies shared state. These are side effects; they should not be surprising.</p>
+<h3 id="use-types-and-contracts-to-make-assumptions-visible"><a class="header" href="#use-types-and-contracts-to-make-assumptions-visible">Use types and contracts to make assumptions visible</a></h3>
+<p>When a language supports static types, use them to express the kinds of values a function expects and returns. Types help readers, editors, compilers, and static-analysis tools detect mistakes before a program runs.</p>
+<p>For example, a TypeScript function can make its contract explicit:</p>
+<pre><code class="language-typescript">function calculateAverage(scores: number[]): number {
+    if (scores.length === 0) {
+        throw new Error("At least one score is required.");
+    }
+
+    const total = scores.reduce((sum, score) =&gt; sum + score, 0);
+    return total / scores.length;
+}
+</code></pre>
+<p>The parameter type says that <code>scores</code> is an array of numbers; the return type says that the function produces a number. The empty-list check documents and enforces an important precondition.</p>
+<p>Python is dynamically typed, but it supports optional type annotations:</p>
+<pre><code class="language-python">def calculate_average(scores: list[float]) -&gt; float:
+    """Return the arithmetic mean of a non-empty list of scores."""
+    if not scores:
+        raise ValueError("At least one score is required.")
+
+    return sum(scores) / len(scores)
+</code></pre>
+<p>Python does not enforce these annotations at runtime by default. Tools such as type checkers and IDEs can use them to find inconsistencies. Runtime validation is still necessary when data comes from files, users, networks, or other untrusted sources.</p>
+<p>Other languages express contracts in different ways:</p>
+<ul>
+<li>Java, Kotlin, C#, Swift, Go, Rust, C, and C++ use declarations and type systems to communicate parameter, return, field, and variable types. Use the language’s normal type system rather than obscuring it with unnecessary conversions or overly broad types.</li>
+<li>JavaScript does not have built-in static type annotations in ordinary JavaScript syntax. Use clear object shapes, JSDoc annotations where useful, runtime validation for external data, or TypeScript when static checking is appropriate.</li>
+<li>Lua and R are dynamically typed. Use clear names, documentation, assertions or validation at boundaries, and any maintained static-analysis or annotation conventions adopted by the project.</li>
+<li>SQL schemas communicate data types, nullability, keys, and constraints. Give columns meaningful names and declare constraints that express valid data.</li>
+<li>Bash and PowerShell benefit from descriptive parameter names, parameter types or validation attributes where supported, and explicit checks for required inputs.</li>
+</ul>
+<p>Do not add annotations merely to decorate code. They should make a real contract clearer. A type annotation is not a substitute for validating untrusted input, and a declared type does not explain business rules such as allowed ranges or relationships between values.</p>
+<h3 id="comments-explain-what-the-code-cannot-say-clearly"><a class="header" href="#comments-explain-what-the-code-cannot-say-clearly">Comments: explain what the code cannot say clearly</a></h3>
+<p>Self-documenting code does not mean comment-free code. It means that names and structure explain the straightforward parts, leaving comments to explain information that code alone cannot communicate well.</p>
+<p>Useful comments explain:</p>
+<ul>
+<li><strong>Why:</strong> the reason for a non-obvious decision, trade-off, workaround, or constraint.</li>
+<li><strong>Assumptions:</strong> conditions the code relies on but cannot fully enforce.</li>
+<li><strong>Risks:</strong> important edge cases, security concerns, or data-integrity requirements.</li>
+<li><strong>Intent:</strong> why a particular algorithm or unusual approach was chosen instead of an obvious alternative.</li>
+<li><strong>Public behavior:</strong> how a reusable function, module, or API should be called, including meaningful preconditions, return values, exceptions, and side effects.</li>
+</ul>
+<p>For example, this comment adds little:</p>
+<pre><code class="language-python"># Add one to count.
+count += 1
+</code></pre>
+<p>The code already says exactly that. A more useful comment records the reason for a less obvious rule:</p>
+<pre><code class="language-python"># The source file numbers its first record as 1; convert to
+# Python's zero-based index before selecting the row.
+row_index = source_record_number - 1
+</code></pre>
+<p>Do not write comments that merely paraphrase each line. They become stale when code changes and can mislead the next reader. If a comment is needed to explain a complicated block, first consider whether clearer names, a smaller function, or a simpler algorithm would make the code easier to understand.</p>
+<p>Keep comments accurate. Update or remove them when behavior changes. A wrong comment is worse than no comment because it teaches the reader an incorrect explanation.</p>
+<h3 id="documentation-for-reusable-code"><a class="header" href="#documentation-for-reusable-code">Documentation for reusable code</a></h3>
+<p>Use the documentation conventions of the language and project:</p>
+<ul>
+<li>Python: docstrings for public modules, classes, and functions; type annotations for parameters and return values.</li>
+<li>Java: Javadoc for public APIs and meaningful method contracts.</li>
+<li>JavaScript and TypeScript: JSDoc where it adds information beyond the code and TypeScript signatures.</li>
+<li>C and C++: project-standard API comments, often in header files, with clear ownership and lifetime expectations where relevant.</li>
+<li>C#: XML documentation comments for public APIs.</li>
+<li>Kotlin: KDoc for public declarations.</li>
+<li>Swift: documentation comments for public APIs, including parameter and return descriptions where useful.</li>
+<li>Go: doc comments for exported identifiers, following Go conventions.</li>
+<li>Rust: rustdoc comments for public items, including examples when they clarify usage.</li>
+<li>Julia: docstrings for functions and types.</li>
+<li>Lua: project-consistent API comments and examples.</li>
+<li>R: roxygen2 or the documentation convention used by the package.</li>
+<li>SQL: schema comments and migration notes where supported, plus clear query and report documentation.</li>
+<li>Bash and PowerShell: comments and help metadata for scripts and reusable functions; PowerShell functions can use comment-based help.</li>
+</ul>
+<p>Document public contracts and surprising behavior. Do not write a paragraph for every obvious private helper. Documentation should answer questions a caller cannot reliably infer from the signature: what the function does, what inputs mean, what it returns, what it changes, and what errors or limitations matter.</p>
+<h3 id="worked-example-make-a-future-change-understandable"><a class="header" href="#worked-example-make-a-future-change-understandable">Worked Example: make a future change understandable</a></h3>
+<p>Consider this deliberately unclear Python code:</p>
+<pre><code class="language-python">def f(a, b):
+    c = 0
+    for x in a:
+        if x &gt;= b:
+            c += x
+    return c
+</code></pre>
+<p>A reader must infer what <code>a</code>, <code>b</code>, <code>c</code>, and <code>x</code> represent, what the comparison means, and why only some values are included.</p>
+<p>A more maintainable version is:</p>
+<pre><code class="language-python">def sum_scores_at_or_above(
+    scores: list[int],
+    minimum_score: int
+) -&gt; int:
+    """Return the sum of scores meeting the inclusive minimum."""
+    qualifying_score_total = 0
+
+    for score in scores:
+        if score &gt;= minimum_score:
+            qualifying_score_total += score
+
+    return qualifying_score_total
+</code></pre>
+<p>The function name, parameter names, local variable, type annotations, and docstring communicate the intent. The comparison is inclusive, and the docstring records that contract. A separate comment is unnecessary because the code already expresses the rule clearly.</p>
+<p>If a future requirement changes the threshold rule, a maintainer can find the comparison quickly and understand what it means. Good names and structure reduce the chance of changing the wrong behavior.</p>
+<h3 id="practical-rules-for-code-you-will-revisit-in-six-months"><a class="header" href="#practical-rules-for-code-you-will-revisit-in-six-months">Practical rules for code you will revisit in six months</a></h3>
+<p>Before considering a piece of code finished, ask:</p>
+<ol>
+<li>Can a reader understand the purpose of each important variable without tracing every assignment?</li>
+<li>Does each function name describe its behavior accurately?</li>
+<li>Are parameters and return values clear from names and types?</li>
+<li>Are important assumptions, valid ranges, and failure cases explicit?</li>
+<li>Are side effects—file access, output, network calls, and state changes—obvious?</li>
+<li>Does each comment explain a reason, constraint, or contract rather than repeat syntax?</li>
+<li>Would a comment become misleading if the implementation changed?</li>
+<li>Can a complicated block be simplified or given a meaningful helper function?</li>
+<li>Are names and formatting consistent with the language and project?</li>
+<li>Could you safely make a small change after not seeing this code for six months?</li>
+</ol>
+<p>Readable code is not necessarily the code with the most comments or the longest names. It is code whose intent and constraints are easy to recover.</p>
+<h3 id="common-mistakes-6"><a class="header" href="#common-mistakes-6">Common Mistakes</a></h3>
+<ul>
+<li>Using single-letter names for values whose meaning is not conventional or obvious.</li>
+<li>Naming a function after its implementation rather than its purpose.</li>
+<li>Using vague verbs such as <code>process</code>, <code>handle</code>, or <code>do_work</code> when a more precise name is possible.</li>
+<li>Writing comments that repeat the next line of code.</li>
+<li>Leaving comments in place after the implementation has changed.</li>
+<li>Treating type annotations as runtime validation of external data.</li>
+<li>Giving a function several unrelated responsibilities and relying on comments to explain the complexity.</li>
+<li>Omitting important side effects, assumptions, units, or boundary conditions from public API documentation.</li>
+<li>Renaming code inconsistently so the same concept has several names in one project.</li>
+</ul>
+<h3 id="activities-6"><a class="header" href="#activities-6">Activities</a></h3>
+<ol>
+<li><strong>Name the intent.</strong> Rewrite these names for a program that manages student scores: <code>x</code>, <code>do_it</code>, <code>temp2</code>, <code>n</code>, and <code>flag</code>. State what each value or operation represents.</li>
+<li><strong>Comment audit.</strong> Write three lines of code with comments that simply repeat them. Remove the comments and improve the names instead. Then write one comment that explains a non-obvious reason or constraint.</li>
+<li><strong>Function contract.</strong> Design a function that converts a temperature from Celsius to Fahrenheit. Write a clear function name, parameter name, return type or type annotation where supported, and a one-sentence description of its behavior.</li>
+<li><strong>Six-month test.</strong> Select an earlier exercise. Without running it first, read the code and write down what each function and important variable does. Revise unclear names and add only comments that explain intent or assumptions.</li>
+<li><strong>Language comparison.</strong> In your chosen language, identify how a function declares parameter types and return types, and how public functions or modules are documented. If the language is dynamically typed, identify the validation and documentation conventions used instead.</li>
+</ol>
+<h3 id="accessibility-practice-6"><a class="header" href="#accessibility-practice-6">Accessibility Practice</a></h3>
+<p>Read one of your programs from top to bottom using your normal screen-reader or text-navigation workflow. Check that names are pronounceable and distinguishable when spoken, that abbreviations are understandable, and that comments do not create unnecessary noise. Avoid names that differ only by capitalization or a single easily confused character. Use punctuation and underscores consistently so names are easier to navigate and dictate. Ask another learner to explain the program using only its names, signatures, and documentation before consulting the implementation.</p>
+<h3 id="skills-checklist-6"><a class="header" href="#skills-checklist-6">Skills Checklist</a></h3>
+<ul>
+<li><input disabled="" type="checkbox"> I can explain why code must be understandable to a future reader and to my future self.</li>
+<li><input disabled="" type="checkbox"> I can choose meaningful names for variables, functions, classes, and constants.</li>
+<li><input disabled="" type="checkbox"> I can describe the purpose and side effects of a function.</li>
+<li><input disabled="" type="checkbox"> I can use the type system or annotation conventions of my language to clarify contracts.</li>
+<li><input disabled="" type="checkbox"> I can distinguish useful comments from comments that merely restate the code.</li>
+<li><input disabled="" type="checkbox"> I can document public behavior, assumptions, and important constraints.</li>
+<li><input disabled="" type="checkbox"> I can review an earlier program and improve its readability without changing its behavior.</li>
+</ul>
+<h2 id="unit-p-glossary-quick-reference"><a class="header" href="#unit-p-glossary-quick-reference">Unit P Glossary (Quick Reference)</a></h2>
+<ul>
+<li><strong>Algorithm:</strong> an ordered, finite set of clear steps that solves a problem.</li>
+<li><strong>Argument:</strong> the actual value supplied to a function when it is called.</li>
+<li><strong>Bit:</strong> one two-state value, 0 or 1.</li>
+<li><strong>Boolean:</strong> a value that is true or false.</li>
+<li><strong>Byte:</strong> 8 bits.</li>
+<li><strong>Compiler:</strong> a tool that translates source code before it runs.</li>
+<li><strong>Constant:</strong> a named value that must not change.</li>
+<li><strong>Exit status:</strong> a number a program returns when it ends; 0 means success by convention.</li>
+<li><strong>Expression:</strong> code that produces a value.</li>
+<li><strong>Function:</strong> a named, reusable block of code.</li>
+<li><strong>Index:</strong> a position in an ordered collection.</li>
+<li><strong>Interpreter:</strong> a tool that carries out source code while the program runs.</li>
+<li><strong>Self-documenting code:</strong> code whose names, structure, types, and interfaces communicate its intent with minimal need for explanatory comments.</li>
+<li><strong>Side effect:</strong> an observable change made by a function beyond returning a value, such as writing a file, printing output, or modifying shared state.</li>
+<li><strong>Type annotation:</strong> optional or required syntax that states the expected type of a variable, parameter, or return value.</li>
+<li><strong>Parameter:</strong> a name in a function’s definition for an expected input.</li>
+<li><strong>Pseudocode:</strong> structured plain-language description of an algorithm.</li>
+<li><strong>Statement:</strong> a complete instruction that performs an action.</li>
+<li><strong>Syntax:</strong> the rules for how code is written.</li>
+<li><strong>Type:</strong> the kind of value, such as integer, floating-point number, string, or Boolean.</li>
+<li><strong>Variable:</strong> a named place that holds a value that can change.</li>
+</ul>
+<h2 id="verification-notes"><a class="header" href="#verification-notes">Verification Notes</a></h2>
+<ul>
+<li>The arithmetic in this unit was checked by computation: scores total 337 and average 84.25; inventory value 17.50; “A” is 65 (01000001) and “a” is 97 (01100001); binary 1101 is 13; 0.1 plus 0.2 gives 0.30000000000000004; 24.50 times 0.15 is stored as 3.6749999999999998 in standard double-precision arithmetic; braille cells for “a”, “b”, and “c” correspond to the 8-bit patterns 00000001, 00000011, and 00001001.</li>
+<li>Statements about which languages are compiled, interpreted, or virtual-machine based are simplified; implementations vary.</li>
+<li>This unit has not been tested with screen readers or braille displays. The accessibility practices are design intentions, not test results. Test them with named access technologies before claiming compliance.</li>
+</ul>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                            <a rel="prev" href="../FOUNDATIONS/FOUNDATIONS_README.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M41.4 233.4c-12.5 12.5-12.5 32.8 0 45.3l160 160c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L109.3 256 246.6 118.6c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0l-160 160z"/></svg></span>
+                            </a>
+
+                            <a rel="next prefetch" href="../C/c_README.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M278.6 233.4c12.5 12.5 12.5 32.8 0 45.3l-160 160c-12.5 12.5-32.8 12.5-45.3 0s-12.5-32.8 0-45.3L210.7 256 73.4 118.6c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0l160 160z"/></svg></span>
+                            </a>
+
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                    <a rel="prev" href="../FOUNDATIONS/FOUNDATIONS_README.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M41.4 233.4c-12.5 12.5-12.5 32.8 0 45.3l160 160c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L109.3 256 246.6 118.6c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0l-160 160z"/></svg></span>
+                    </a>
+
+                    <a rel="next prefetch" href="../C/c_README.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M278.6 233.4c12.5 12.5 12.5 32.8 0 45.3l-160 160c-12.5 12.5-32.8 12.5-45.3 0s-12.5-32.8 0-45.3L210.7 256 73.4 118.6c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0l160 160z"/></svg></span>
+                    </a>
+            </nav>
+
+        </div>
+
+        <template id=fa-eye><span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M288 32c-80.8 0-145.5 36.8-192.6 80.6C48.6 156 17.3 208 2.5 243.7c-3.3 7.9-3.3 16.7 0 24.6C17.3 304 48.6 356 95.4 399.4C142.5 443.2 207.2 480 288 480s145.5-36.8 192.6-80.6c46.8-43.5 78.1-95.4 93-131.1c3.3-7.9 3.3-16.7 0-24.6c-14.9-35.7-46.2-87.7-93-131.1C433.5 68.8 368.8 32 288 32zM432 256c0 79.5-64.5 144-144 144s-144-64.5-144-144s64.5-144 144-144s144 64.5 144 144zM288 192c0 35.3-28.7 64-64 64c-11.5 0-22.3-3-31.6-8.4c-.2 2.8-.4 5.5-.4 8.4c0 53 43 96 96 96s96-43 96-96s-43-96-96-96c-2.8 0-5.6 .1-8.4 .4c5.3 9.3 8.4 20.1 8.4 31.6z"/></svg></span></template>
+        <template id=fa-eye-slash><span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M38.8 5.1C28.4-3.1 13.3-1.2 5.1 9.2S-1.2 34.7 9.2 42.9l592 464c10.4 8.2 25.5 6.3 33.7-4.1s6.3-25.5-4.1-33.7L525.6 386.7c39.6-40.6 66.4-86.1 79.9-118.4c3.3-7.9 3.3-16.7 0-24.6c-14.9-35.7-46.2-87.7-93-131.1C465.5 68.8 400.8 32 320 32c-68.2 0-125 26.3-169.3 60.8L38.8 5.1zM223.1 149.5C248.6 126.2 282.7 112 320 112c79.5 0 144 64.5 144 144c0 24.9-6.3 48.3-17.4 68.7L408 294.5c5.2-11.8 8-24.8 8-38.5c0-53-43-96-96-96c-2.8 0-5.6 .1-8.4 .4c5.3 9.3 8.4 20.1 8.4 31.6c0 10.2-2.4 19.8-6.6 28.3l-90.3-70.8zm223.1 298L373 389.9c-16.4 6.5-34.3 10.1-53 10.1c-79.5 0-144-64.5-144-144c0-6.9 .5-13.6 1.4-20.2L83.1 161.5C60.3 191.2 44 220.8 34.5 243.7c-3.3 7.9-3.3 16.7 0 24.6c14.9 35.7 46.2 87.7 93 131.1C174.5 443.2 239.2 480 320 480c47.8 0 89.9-12.9 126.2-32.5z"/></svg></span></template>
+        <template id=fa-copy><span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M502.6 70.63l-61.25-61.25C435.4 3.371 427.2 0 418.7 0H255.1c-35.35 0-64 28.66-64 64l.0195 256C192 355.4 220.7 384 256 384h192c35.2 0 64-28.8 64-64V93.25C512 84.77 508.6 76.63 502.6 70.63zM464 320c0 8.836-7.164 16-16 16H255.1c-8.838 0-16-7.164-16-16L239.1 64.13c0-8.836 7.164-16 16-16h128L384 96c0 17.67 14.33 32 32 32h47.1V320zM272 448c0 8.836-7.164 16-16 16H63.1c-8.838 0-16-7.164-16-16L47.98 192.1c0-8.836 7.164-16 16-16H160V128H63.99c-35.35 0-64 28.65-64 64l.0098 256C.002 483.3 28.66 512 64 512h192c35.2 0 64-28.8 64-64v-32h-47.1L272 448z"/></svg></span></template>
+        <template id=fa-play><span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M73 39c-14.8-9.1-33.4-9.4-48.5-.9S0 62.6 0 80V432c0 17.4 9.4 33.4 24.5 41.9s33.7 8.1 48.5-.9L361 297c14.3-8.7 23-24.2 23-41s-8.7-32.2-23-41L73 39z"/></svg></span></template>
+        <template id=fa-clock-rotate-left><span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M75 75L41 41C25.9 25.9 0 36.6 0 57.9V168c0 13.3 10.7 24 24 24H134.1c21.4 0 32.1-25.9 17-41l-30.8-30.8C155 85.5 203 64 256 64c106 0 192 86 192 192s-86 192-192 192c-40.8 0-78.6-12.7-109.7-34.4c-14.5-10.1-34.4-6.6-44.6 7.9s-6.6 34.4 7.9 44.6C151.2 495 201.7 512 256 512c141.4 0 256-114.6 256-256S397.4 0 256 0C185.3 0 121.3 28.7 75 75zm181 53c-13.3 0-24 10.7-24 24V256c0 6.4 2.5 12.5 7 17l72 72c9.4 9.4 24.6 9.4 33.9 0s9.4-24.6 0-33.9l-65-65V152c0-13.3-10.7-24-24-24z"/></svg></span></template>
+
+
+
+        <script>
+            window.playground_copyable = true;
+        </script>
+
+
+        <script src="../elasticlunr-ef4e11c1.min.js"></script>
+        <script src="../mark-09e88c2c.min.js"></script>
+        <script src="../searcher-09f2665d.js"></script>
+
+        <script src="../clipboard-1626706a.min.js"></script>
+        <script src="../highlight-abc7f01d.js"></script>
+        <script src="../book-609e4cb8.js"></script>
+
+        <!-- Custom JS scripts -->
+
+
+
+    </div>
+    </body>
+</html>

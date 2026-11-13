@@ -1,0 +1,1323 @@
+<!DOCTYPE HTML>
+<html lang="en" class="rust sidebar-visible" dir="ltr">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>Java Teacher&#x27;s Guide - Accessible Introduction to Computer Science</title>
+
+
+        <!-- Custom HTML head -->
+
+        <meta name="description" content="Introductory programming curricula, each adapted for visually impaired students who use screen readers">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff">
+
+        <link rel="icon" href="../favicon-de23e50b.svg">
+        <link rel="shortcut icon" href="../favicon-8114d1fc.png">
+        <link rel="stylesheet" href="../css/variables-8adf115d.css">
+        <link rel="stylesheet" href="../css/general-e96d0476.css">
+        <link rel="stylesheet" href="../css/chrome-d279d366.css">
+        <link rel="stylesheet" href="../css/print-9e4910d8.css" media="print">
+
+        <!-- Fonts -->
+        <link rel="stylesheet" href="../fonts/fonts-9644e21d.css">
+
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" id="mdbook-highlight-css" href="../highlight-493f70e1.css">
+        <link rel="stylesheet" id="mdbook-tomorrow-night-css" href="../tomorrow-night-4c0ae647.css">
+        <link rel="stylesheet" id="mdbook-ayu-highlight-css" href="../ayu-highlight-3fdfc3ac.css">
+
+        <!-- Custom theme stylesheets -->
+
+
+        <!-- Provide site root and default themes to javascript -->
+        <script>
+            const path_to_root = "../";
+            const default_light_theme = "rust";
+            const default_dark_theme = "navy";
+            window.path_to_searchindex_js = "../searchindex-1d296e4e.js";
+        </script>
+        <!-- Start loading toc.js asap -->
+        <script src="../toc-62d8efca.js"></script>
+    </head>
+    <body>
+    <div id="mdbook-help-container">
+        <div id="mdbook-help-popup">
+            <h2 class="mdbook-help-title">Keyboard shortcuts</h2>
+            <div>
+                <p>Press <kbd>←</kbd> or <kbd>→</kbd> to navigate between chapters</p>
+                <p>Press <kbd>S</kbd> or <kbd>/</kbd> to search in the book</p>
+                <p>Press <kbd>?</kbd> to show this help</p>
+                <p>Press <kbd>Esc</kbd> to hide this help</p>
+            </div>
+        </div>
+    </div>
+    <div id="mdbook-body-container">
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script>
+            try {
+                let theme = localStorage.getItem('mdbook-theme');
+                let sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script>
+            const default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? default_dark_theme : default_light_theme;
+            let theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            const html = document.documentElement;
+            html.classList.remove('rust')
+            html.classList.add(theme);
+            html.classList.add("js");
+        </script>
+
+        <input type="checkbox" id="mdbook-sidebar-toggle-anchor" class="hidden">
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script>
+            let sidebar = null;
+            const sidebar_toggle = document.getElementById("mdbook-sidebar-toggle-anchor");
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            } else {
+                sidebar = 'hidden';
+                sidebar_toggle.checked = false;
+            }
+            if (sidebar === 'visible') {
+                sidebar_toggle.checked = true;
+            } else {
+                html.classList.remove('sidebar-visible');
+            }
+        </script>
+
+        <nav id="mdbook-sidebar" class="sidebar" aria-label="Table of contents">
+            <!-- populated by js -->
+            <mdbook-sidebar-scrollbox class="sidebar-scrollbox"></mdbook-sidebar-scrollbox>
+            <noscript>
+                <iframe class="sidebar-iframe-outer" src="../toc.html"></iframe>
+            </noscript>
+            <div id="mdbook-sidebar-resize-handle" class="sidebar-resize-handle">
+                <div class="sidebar-resize-indicator"></div>
+            </div>
+        </nav>
+
+        <div id="mdbook-page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                <div id="mdbook-menu-bar-hover-placeholder"></div>
+                <div id="mdbook-menu-bar" class="menu-bar sticky">
+                    <div class="left-buttons">
+                        <label id="mdbook-sidebar-toggle" class="icon-button" for="mdbook-sidebar-toggle-anchor" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="mdbook-sidebar">
+                            <span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M0 96C0 78.3 14.3 64 32 64H416c17.7 0 32 14.3 32 32s-14.3 32-32 32H32C14.3 128 0 113.7 0 96zM0 256c0-17.7 14.3-32 32-32H416c17.7 0 32 14.3 32 32s-14.3 32-32 32H32c-17.7 0-32-14.3-32-32zM448 416c0 17.7-14.3 32-32 32H32c-17.7 0-32-14.3-32-32s14.3-32 32-32H416c17.7 0 32 14.3 32 32z"/></svg></span>
+                        </label>
+                        <button id="mdbook-theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="mdbook-theme-list">
+                            <span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M371.3 367.1c27.3-3.9 51.9-19.4 67.2-42.9L600.2 74.1c12.6-19.5 9.4-45.3-7.6-61.2S549.7-4.4 531.1 9.6L294.4 187.2c-24 18-38.2 46.1-38.4 76.1L371.3 367.1zm-19.6 25.4l-116-104.4C175.9 290.3 128 339.6 128 400c0 3.9 .2 7.8 .6 11.6c1.8 17.5-10.2 36.4-27.8 36.4H96c-17.7 0-32 14.3-32 32s14.3 32 32 32H240c61.9 0 112-50.1 112-112c0-2.5-.1-5-.2-7.5z"/></svg></span>
+                        </button>
+                        <ul id="mdbook-theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="mdbook-theme-default_theme">Auto</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="mdbook-theme-light">Light</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="mdbook-theme-rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="mdbook-theme-coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="mdbook-theme-navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="mdbook-theme-ayu">Ayu</button></li>
+                        </ul>
+                        <button id="mdbook-search-toggle" class="icon-button" type="button" title="Search (`/`)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="/ s" aria-controls="mdbook-searchbar">
+                            <span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M416 208c0 45.9-14.9 88.3-40 122.7L502.6 457.4c12.5 12.5 12.5 32.8 0 45.3s-32.8 12.5-45.3 0L330.7 376c-34.4 25.2-76.8 40-122.7 40C93.1 416 0 322.9 0 208S93.1 0 208 0S416 93.1 416 208zM208 352c79.5 0 144-64.5 144-144s-64.5-144-144-144S64 128.5 64 208s64.5 144 144 144z"/></svg></span>
+                        </button>
+                    </div>
+
+                    <h1 class="menu-title">Accessible Introduction to Computer Science</h1>
+
+                    <div class="right-buttons">
+                        <a href="../print.html" title="Print this book" aria-label="Print this book">
+                            <span class=fa-svg id="print-button"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M128 0C92.7 0 64 28.7 64 64v96h64V64H354.7L384 93.3V160h64V93.3c0-17-6.7-33.3-18.7-45.3L400 18.7C388 6.7 371.7 0 354.7 0H128zM384 352v32 64H128V384 368 352H384zm64 32h32c17.7 0 32-14.3 32-32V256c0-35.3-28.7-64-64-64H64c-35.3 0-64 28.7-64 64v96c0 17.7 14.3 32 32 32H64v64c0 35.3 28.7 64 64 64H384c35.3 0 64-28.7 64-64V384zm-16-88c-13.3 0-24-10.7-24-24s10.7-24 24-24s24 10.7 24 24s-10.7 24-24 24z"/></svg></span>
+                        </a>
+                        <a href="https://github.com/mrhunsaker/VI_Focused_Coding_Curricula" title="Git repository" aria-label="Git repository">
+                            <span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"/></svg></span>
+                        </a>
+
+                    </div>
+                </div>
+
+                <div id="mdbook-search-wrapper" class="hidden">
+                    <form id="mdbook-searchbar-outer" class="searchbar-outer">
+                        <div class="search-wrapper">
+                            <input type="search" id="mdbook-searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="mdbook-searchresults-outer" aria-describedby="searchresults-header">
+                            <div class="spinner-wrapper">
+                                <span class=fa-svg id="fa-spin"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M304 48c0-26.5-21.5-48-48-48s-48 21.5-48 48s21.5 48 48 48s48-21.5 48-48zm0 416c0-26.5-21.5-48-48-48s-48 21.5-48 48s21.5 48 48 48s48-21.5 48-48zM48 304c26.5 0 48-21.5 48-48s-21.5-48-48-48s-48 21.5-48 48s21.5 48 48 48zm464-48c0-26.5-21.5-48-48-48s-48 21.5-48 48s21.5 48 48 48s48-21.5 48-48zM142.9 437c18.7-18.7 18.7-49.1 0-67.9s-49.1-18.7-67.9 0s-18.7 49.1 0 67.9s49.1 18.7 67.9 0zm0-294.2c18.7-18.7 18.7-49.1 0-67.9S93.7 56.2 75 75s-18.7 49.1 0 67.9s49.1 18.7 67.9 0zM369.1 437c18.7 18.7 49.1 18.7 67.9 0s18.7-49.1 0-67.9s-49.1-18.7-67.9 0s-18.7 49.1 0 67.9z"/></svg></span>
+                            </div>
+                        </div>
+                    </form>
+                    <div id="mdbook-searchresults-outer" class="searchresults-outer hidden">
+                        <div id="mdbook-searchresults-header" class="searchresults-header"></div>
+                        <ul id="mdbook-searchresults">
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script>
+                    document.getElementById('mdbook-sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('mdbook-sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#mdbook-sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="mdbook-content" class="content">
+                    <main>
+                        <h1 id="teachers-guide-introduction-to-computer-science-with-java"><a class="header" href="#teachers-guide-introduction-to-computer-science-with-java">Teacher’s Guide: Introduction to Computer Science with Java</a></h1>
+<h2 id="for-students-with-visual-impairments--complete-instructor-edition"><a class="header" href="#for-students-with-visual-impairments--complete-instructor-edition">For Students with Visual Impairments — Complete Instructor Edition</a></h2>
+<h2 id="how-to-use-this-teachers-guide"><a class="header" href="#how-to-use-this-teachers-guide">How to use this teacher’s guide</a></h2>
+<p>This guide is a companion for instructors, not a script that must be followed word for word. Read the philosophy, learner-context, and technology sections before the first lesson; use the unit notes while planning; and return to the assessment, differentiation, AI, and quick-reference sections throughout the course. Adapt procedures to the learner’s actual assistive technology, operating system, course goals, and prior experience. Confirm tool-specific instructions in current official documentation because editor, screen-reader, and runtime behavior changes over time.</p>
+<p>Plan for both programming learning and access to the programming environment. Establish what the student can already do independently, what access skills need instruction, what supports are already in place, and how the learner prefers to receive feedback. Never assume a diagnosis predicts a student’s preferred tools or level of independence.</p>
+<hr>
+<h2 id="jdk-25-lts-baseline-and-current-java-conventions"><a class="header" href="#jdk-25-lts-baseline-and-current-java-conventions">JDK 25 LTS baseline and current Java conventions</a></h2>
+<p>Use <strong>JDK 25 LTS</strong> for the learner materials. JDK 25 is the current LTS release as of October 30, 2026; install its latest security update. JDK 27 is newer but is not the LTS baseline. Teach and assess against standard Java 25, not preview features or vendor-specific extensions. Keep classic class-based program structure in the early lessons even though newer Java releases offer more concise launch forms; this keeps the progression explicit and transferable.</p>
+<p>Model current Java conventions consistently: PascalCase types; camelCase fields, methods, parameters, and local variables; UPPER_SNAKE_CASE constants; explicit imports; generics instead of raw types; interfaces such as List/Map in declarations; braces for all control-flow blocks; and meaningful method boundaries. Use String.equals for content equality, never ==. Prefer try-with-resources for files and scanners that own resources. Use var only for local variables when the initializer makes the type obvious; keep explicit types in beginner code. Use descriptive exception handling and avoid swallowing exceptions. Avoid preview features unless a lesson explicitly identifies them.</p>
+<h2 id="table-of-contents"><a class="header" href="#table-of-contents">Table of Contents</a></h2>
+<ol>
+<li><a href="#1-philosophy-and-why-java">Philosophy and Why Java</a></li>
+<li><a href="#2-java-specific-accessibility-challenges">Java-Specific Accessibility Challenges</a></li>
+<li><a href="#3-classroom-setup-and-configuration">Classroom Setup and Configuration</a></li>
+<li><a href="#4-spoken-java-conventions">Spoken Java Conventions</a></li>
+<li><a href="#5-unit-01-setup-and-foundations">Unit 0–1: Setup and Foundations</a></li>
+<li><a href="#6-unit-2-io-and-the-math-class">Unit 2: I/O and the Math Class</a></li>
+<li><a href="#7-unit-3-control-flow">Unit 3: Control Flow</a></li>
+<li><a href="#8-unit-4-arrays-and-arraylists">Unit 4: Arrays and ArrayLists</a></li>
+<li><a href="#9-unit-5-strings-and-string-processing">Unit 5: Strings and String Processing</a></li>
+<li><a href="#10-unit-6-methods">Unit 6: Methods</a></li>
+<li><a href="#11-unit-7-classes-and-oop">Unit 7: Classes and OOP</a></li>
+<li><a href="#12-unit-8-files-and-exception-handling">Unit 8: Files and Exception Handling</a></li>
+<li><a href="#13-unit-9-collections-analysis-and-testing">Unit 9: Collections, Analysis, and Testing</a></li>
+<li><a href="#14-units-1011-projects-and-capstone">Units 10–11: Projects and Capstone</a></li>
+<li><a href="#15-bridging-from-python-to-java">Bridging from Python to Java</a></li>
+<li><a href="#16-assessment-strategies">Assessment Strategies</a></li>
+<li><a href="#17-supporting-diverse-needs">Supporting Diverse Needs</a></li>
+<li><a href="#18-alternative-and-supplementary-resources">Alternative and Supplementary Resources</a></li>
+<li><a href="#19-quick-reference-sheets">Quick Reference Sheets</a></li>
+<li><a href="#20-teaching-ai-tools-responsibly">Teaching AI Tools Responsibly</a></li>
+<li><a href="#21-comprehensive-instructional-planning-and-course-implementation">Comprehensive Instructional Planning and Course Implementation</a></li>
+</ol>
+<hr>
+<h2 id="1-philosophy-and-why-java"><a class="header" href="#1-philosophy-and-why-java">1. Philosophy and Why Java</a></h2>
+<h3 id="the-case-for-teaching-java-to-blind-students"><a class="header" href="#the-case-for-teaching-java-to-blind-students">The Case for Teaching Java to Blind Students</a></h3>
+<p>Java is not the easiest language for beginners, and its verbosity creates overhead that requires specific pedagogical attention. Despite this, Java has genuine advantages for visually impaired learners that are often overlooked:</p>
+<p><strong>Compile-time error detection.</strong> Java’s compiler catches type errors, name errors, and structural mistakes before any code runs. A blind student does not need to search through runtime output for subtle type mismatches — the compiler announces them precisely and immediately with file name, line number, and error description.</p>
+<p><strong>Strong, static typing is auditorily informative.</strong> When IntelliSense in VS Code suggests methods, it includes the return type: “<code>double getBalance()</code> — returns a double.” This type information helps a screen reader user understand what a method does without having to navigate to its definition.</p>
+<p><strong>Enforced code structure.</strong> Every Java program requires a class; every executable program requires a <code>main</code> method with a specific signature. This structure is more overhead to type but less ambiguity about how programs are organized. For a student who cannot visually scan a file for structure, predictable structural conventions reduce cognitive load.</p>
+<p><strong>Exception specification.</strong> Java’s checked exceptions force programmers to declare which exceptions a method can throw. This means a screen reader user reading a method signature gets information about failure modes that Python provides only through documentation.</p>
+<p><strong>Enterprise relevance.</strong> Java remains a dominant language in enterprise software, Android development, and many backend systems. A student who learns Java learns patterns that transfer directly to professional employment.</p>
+<hr>
+<h2 id="2-java-specific-accessibility-challenges"><a class="header" href="#2-java-specific-accessibility-challenges">2. Java-Specific Accessibility Challenges</a></h2>
+<h3 id="the-verbosity-problem"><a class="header" href="#the-verbosity-problem">The Verbosity Problem</a></h3>
+<p>Java requires significantly more text than Python to accomplish the same task:</p>
+<pre><code class="language-java">// Java: Hello, World
+public class HelloWorld {
+    public static void main(String[] args) {
+        System.out.println("Hello, World!");
+    }
+}
+</code></pre>
+<pre><code class="language-python"># Python: Hello, World
+print("Hello, World!")
+</code></pre>
+<p>For a sighted student, extra text is a visual annoyance. For a blind student, it is additional audio before they reach the meaningful code. <strong>Mitigation strategies:</strong></p>
+<ol>
+<li>
+<p><strong>Code templates.</strong> Provide a starter file the student copies for every new program. They modify only the method body for early lessons. This reduces the typing burden and prevents structural errors while the student is learning concepts.</p>
+</li>
+<li>
+<p><strong>JShell (Java REPL).</strong> Java includes an interactive shell since Java 9: run <code>jshell</code> in the terminal. JShell strips away class and method boilerplate. For exploration and experimentation, JShell is far more accessible than creating files:</p>
+<pre><code>jshell&gt; int x = 5;
+x ==&gt; 5
+jshell&gt; System.out.println(x * 2);
+10
+</code></pre>
+</li>
+<li>
+<p><strong>Progressive disclosure.</strong> In early lessons, treat <code>public static void main(String[] args) {</code> as a formula, not something to understand. Students learn to recognize it by ear. Explain each word only when the concept it relates to (access modifiers, static methods, arrays) is being taught.</p>
+</li>
+</ol>
+<h3 id="integer-division-surprises"><a class="header" href="#integer-division-surprises">Integer Division Surprises</a></h3>
+<p>Java’s <code>/</code> operator performs integer division when both operands are integers:</p>
+<ul>
+<li><code>15 / 4</code> = <code>3</code> (not <code>3.75</code>)</li>
+<li><code>15.0 / 4</code> = <code>3.75</code></li>
+<li><code>(double) 15 / 4</code> = <code>3.75</code></li>
+</ul>
+<p>This is silent — there is no error or warning. A blind student may not catch a calculation that silently discards its decimal portion. Teach the rule explicitly: <strong>if you want a decimal result, at least one operand must be a <code>double</code>.</strong></p>
+<h3 id="the-string-equality-trap"><a class="header" href="#the-string-equality-trap">The String Equality Trap</a></h3>
+<p><code>==</code> on Strings compares memory addresses, not content. Two strings with identical characters in different memory locations are <code>==</code> false but <code>.equals()</code> true. This never appears in Python; blind students coming from Python are not conditioned to suspect <code>==</code> as a source of String bugs.</p>
+<p><strong>Teaching approach:</strong> Show the broken behavior explicitly. Use <code>new String("hello") == new String("hello")</code> which is guaranteed to be <code>false</code> even though the strings are identical. Then show <code>.equals()</code> which is <code>true</code>. Make <code>.equals()</code> for Strings a non-negotiable rule from day one.</p>
+<h3 id="null-pointer-exceptions"><a class="header" href="#null-pointer-exceptions">Null Pointer Exceptions</a></h3>
+<p><code>NullPointerException</code> is the most common Java runtime error. It occurs when you call a method or access a field on a variable that holds <code>null</code> (no object reference). Unlike Python’s <code>AttributeError</code> which gives useful context, Java’s NPE message is often terse. Teaching students to recognize and debug NPEs is essential.</p>
+<hr>
+<h2 id="3-classroom-setup-and-configuration"><a class="header" href="#3-classroom-setup-and-configuration">3. Classroom Setup and Configuration</a></h2>
+<h3 id="ide-configuration"><a class="header" href="#ide-configuration">IDE Configuration</a></h3>
+<p><strong>Visual Studio Code with Extension Pack for Java:</strong>
+This is the primary documented setup. The Extension Pack includes Language Support for Java (Red Hat), Debugger for Java, Java Test Runner, Maven for Java, and Project Manager for Java.</p>
+<p><strong>Theia IDE:</strong> <a href="https://theia-ide.org/#theiaide">Theia IDE</a> is an alternative with the keyboard- and screen-reader-oriented accessibility workflows expected in this course. Check the Open VSX registry for compatible Java language support, debugging, and test extensions. Not every VS Code extension is available or behaves identically, so verify the student’s actual workflow.</p>
+<p><strong>Other tools:</strong> BlueJ, DrJava, and Eclipse may be considered only when their accessibility and feature set fit the learner and the lesson. JetBrains IDEs (including IntelliJ IDEA) are intentionally not recommended for this introductory course. They are capable products, but their extensive feature set and complexity add unnecessary overhead for beginning programmers.</p>
+<p><strong>VS Code Java Specific Settings:</strong></p>
+<pre><code class="language-json">{
+  "java.completion.enabled": true,
+  "java.format.enabled": true,
+  "editor.formatOnSave": true,
+  "java.saveActions.organizeImports": true,
+  "java.completion.importOrder": ["java", "javax", "com", ""],
+  "editor.suggestOnTriggerCharacters": true
+}
+</code></pre>
+<p><strong>Key accessibility setting:</strong> Enable “Trigger suggestions” on <code>.</code> so that typing <code>myObject.</code> causes IntelliSense to announce available methods. This allows audio exploration of an object’s API.</p>
+<h3 id="jdk-installation-verification"><a class="header" href="#jdk-installation-verification">JDK Installation Verification</a></h3>
+<pre><code class="language-bash">java --version      # Runtime version
+javac --version     # Compiler version
+jshell              # Start REPL (Ctrl+D or /exit to quit)
+</code></pre>
+<p>Windows Powershell</p>
+<pre><code class="language-powershell">java --version      # Runtime version
+javac --version     # Compiler version
+jshell              # Start REPL (Ctrl+D or /exit to quit)
+</code></pre>
+<p>All three must work before proceeding. If <code>jshell</code> is not found, the student may have installed only the JRE (runtime), not the full JDK. The JDK must be installed.</p>
+<hr>
+<h2 id="4-spoken-java-conventions"><a class="header" href="#4-spoken-java-conventions">4. Spoken Java Conventions</a></h2>
+<p>Extend the Python symbol conventions with Java-specific additions:</p>
+<div class="table-wrapper">
+<table>
+<thead>
+<tr><th>Symbol/Pattern</th><th>Spoken Form</th></tr>
+</thead>
+<tbody>
+<tr><td><code>public</code></td><td>“public”</td></tr>
+<tr><td><code>private</code></td><td>“private”</td></tr>
+<tr><td><code>static</code></td><td>“static”</td></tr>
+<tr><td><code>void</code></td><td>“void” (returns nothing)</td></tr>
+<tr><td><code>new</code></td><td>“new”</td></tr>
+<tr><td><code>this.</code></td><td>“this dot”</td></tr>
+<tr><td><code>super.</code></td><td>“super dot”</td></tr>
+<tr><td><code>@Override</code></td><td>“at-override annotation”</td></tr>
+<tr><td><code>// comment</code></td><td>“double-slash comment”</td></tr>
+<tr><td><code>/* ... */</code></td><td>“block comment”</td></tr>
+<tr><td><code>/** ... */</code></td><td>“JavaDoc comment”</td></tr>
+<tr><td><code>String[]</code></td><td>“String array”</td></tr>
+<tr><td><code>ArrayList&lt;String&gt;</code></td><td>“ArrayList of String”</td></tr>
+<tr><td><code>HashMap&lt;String, Integer&gt;</code></td><td>“HashMap from String to Integer”</td></tr>
+<tr><td><code>throws IOException</code></td><td>“throws IOException”</td></tr>
+<tr><td><code>System.out.println()</code></td><td>“sysout” or “system-out-println”</td></tr>
+<tr><td><code>System.out.printf()</code></td><td>“system-out-printf”</td></tr>
+<tr><td><code>Integer.parseInt()</code></td><td>“Integer-parse-int”</td></tr>
+<tr><td><code>(int) x</code></td><td>“cast to int”</td></tr>
+<tr><td><code>null</code></td><td>“null”</td></tr>
+<tr><td><code>NullPointerException</code></td><td>“null pointer exception”</td></tr>
+<tr><td><code>ArrayIndexOutOfBoundsException</code></td><td>“array index out of bounds”</td></tr>
+</tbody>
+</table>
+</div>
+<p><strong>Reading a method signature:</strong></p>
+<pre><code class="language-java">public double calculateArea(double radius) throws IllegalArgumentException
+</code></pre>
+<p><em>“public double method calculateArea, takes a double called radius, may throw IllegalArgumentException”</em></p>
+<hr>
+<h2 id="5-unit-01-setup-and-foundations"><a class="header" href="#5-unit-01-setup-and-foundations">5. Unit 0–1: Setup and Foundations</a></h2>
+<h3 id="lesson-01-installing-the-jdk"><a class="header" href="#lesson-01-installing-the-jdk">Lesson 0.1: Installing the JDK</a></h3>
+<h4 id="instructional-cues"><a class="header" href="#instructional-cues">Instructional Cues</a></h4>
+<ul>
+<li><strong>Use Adoptium (Eclipse Temurin) rather than Oracle JDK.</strong> The Oracle JDK requires account creation and license agreement navigation. Adoptium is fully open-source and simpler to download.</li>
+<li><strong>Verify the download before running.</strong> Adoptium provides SHA checksums. Teaching students to verify downloads is a security habit worth establishing.</li>
+<li><strong>Windows installer tip:</strong> The Adoptium <code>.msi</code> installer includes a checkbox for “Set JAVA_HOME variable.” Ensure this is checked. Many Java tools (Maven, Gradle, some IDEs) require <code>JAVA_HOME</code> to be set.</li>
+</ul>
+<h4 id="jshell-as-the-first-environment"><a class="header" href="#jshell-as-the-first-environment">JShell as the First Environment</a></h4>
+<p>Before any file-based Java, spend time in JShell:</p>
+<pre><code>$ jshell
+|  Welcome to JShell -- Version 17.0.x
+|  For an introduction type: /help intro
+
+jshell&gt; 5 + 3
+$1 ==&gt; 8
+
+jshell&gt; "Hello " + "World"
+$2 ==&gt; "Hello World"
+
+jshell&gt; int x = 42;
+x ==&gt; 42
+
+jshell&gt; System.out.println("Value: " + x);
+Value: 42
+</code></pre>
+<p>JShell gives immediate auditory feedback — type an expression, hear the result. This is much more accessible for early exploration than the compile-run-read cycle.</p>
+<p>JShell commands to teach:</p>
+<ul>
+<li><code>/list</code> — show all code entered so far</li>
+<li><code>/edit</code> — open in editor</li>
+<li><code>/vars</code> — show all variables</li>
+<li><code>/methods</code> — show all methods defined</li>
+<li><code>/exit</code> — quit JShell</li>
+</ul>
+<h4 id="thought-experiments"><a class="header" href="#thought-experiments">Thought Experiments</a></h4>
+<ol>
+<li>
+<p><em>“Python is interpreted — each line runs immediately. Java compiles to bytecode first, then runs. What does this mean for the kind of errors you encounter, and when? If you have a SyntaxError on line 50, in Python you might not discover it until the program reaches line 50. In Java, when do you discover it?”</em></p>
+</li>
+<li>
+<p><em>“The Java Virtual Machine (JVM) allows the same Java bytecode to run on Windows, macOS, and Linux. The JVM is different on each platform, but the bytecode is the same. What does this tell you about how Java achieves portability? What alternative approaches could a language designer take?”</em></p>
+</li>
+<li>
+<p><em>“JShell is a Read-Eval-Print Loop (REPL). Python has one; JavaScript has one; many languages have one. But Java didn’t have one until 2016. Why might a language’s designers add a REPL 20 years after the language was created? What did programmers do without it?”</em></p>
+</li>
+<li>
+<p><em>“Java was originally designed for embedded systems (like televisions), then became dominant for web servers, then for Android apps. Each time it succeeded in a new domain, it required extending the language. What does this history suggest about the relationship between a language’s design and the problems it eventually solves?”</em></p>
+</li>
+</ol>
+<hr>
+<h3 id="lesson-12-your-first-java-program"><a class="header" href="#lesson-12-your-first-java-program">Lesson 1.2: Your First Java Program</a></h3>
+<h4 id="instructional-cues-1"><a class="header" href="#instructional-cues-1">Instructional Cues</a></h4>
+<p><strong>Anatomy reading exercise — before typing any code:</strong>
+Read the Hello World program aloud, symbol by symbol, using the pronunciation table:</p>
+<pre><code class="language-java">public class HelloWorld {
+    public static void main(String[] args) {
+        System.out.println("Hello, World!");
+    }
+}
+</code></pre>
+<p><em>“public class HelloWorld open-brace newline four-spaces public static void main open-paren String array args close-paren open-brace newline eight-spaces System dot out dot println open-paren quote Hello comma World! close-quote close-paren semicolon newline four-spaces close-brace newline close-brace”</em></p>
+<p>This exercise establishes pattern recognition for the boilerplate that the student will type hundreds of times. Making it auditorily familiar early reduces cognitive load later.</p>
+<p><strong>Three <code>System.out</code> methods:</strong></p>
+<pre><code class="language-java">System.out.println("With newline at end");     // Most common
+System.out.print("No newline at end");          // For prompts
+System.out.printf("Pi is %.2f%n", Math.PI);    // Formatted
+</code></pre>
+<p>For accessible programs, <code>printf</code> is extremely valuable — it produces consistent, predictable output formatting that reads cleanly with a screen reader.</p>
+<h4 id="thought-experiments-1"><a class="header" href="#thought-experiments-1">Thought Experiments</a></h4>
+<ol>
+<li>
+<p><em>“Every Java program requires a <code>public class</code> whose name matches the file name. Why does Java enforce this one-to-one correspondence? What would break if you could put multiple public classes in one file?”</em></p>
+</li>
+<li>
+<p><em>“The <code>main</code> method signature is exactly <code>public static void main(String[] args)</code>. It cannot be <code>public void main()</code> or <code>static void main(String[] args)</code>. Why is this signature fixed? What does each word contribute?”</em></p>
+</li>
+<li>
+<p><em>“Java uses curly braces <code>{}</code> to delimit code blocks; Python uses indentation. From an accessibility perspective — for a blind programmer — which approach provides better information about structure when read aloud? Consider that braces can be read as ‘open block’ and ‘close block,’ while indentation changes require screen reader configuration.”</em></p>
+</li>
+<li>
+<p><em>“<code>System.out.println()</code> is long to type but descriptively named. Python’s <code>print()</code> is short. What naming philosophy does each represent? When does conciseness become ambiguity?”</em></p>
+</li>
+</ol>
+<hr>
+<h3 id="lesson-13-variables-and-primitive-data-types"><a class="header" href="#lesson-13-variables-and-primitive-data-types">Lesson 1.3: Variables and Primitive Data Types</a></h3>
+<h4 id="instructional-cues-2"><a class="header" href="#instructional-cues-2">Instructional Cues</a></h4>
+<p><strong>Type declaration as specification:</strong>
+Frame Java’s type declarations positively: <em>“When you write <code>int score = 85</code>, you’re telling Java: this variable will always hold a whole number. Java then protects you — if you accidentally try to put a name or a decimal into it, the compiler tells you immediately.”</em></p>
+<p><strong>The eight primitive types — prioritize four:</strong>
+In this curriculum, students need: <code>int</code>, <code>double</code>, <code>boolean</code>, <code>char</code>. The others (<code>byte</code>, <code>short</code>, <code>long</code>, <code>float</code>) exist but are rarely needed in beginner programs. Introduce the four primary types fully before acknowledging the others exist.</p>
+<p><strong>Type casting demonstration:</strong></p>
+<pre><code class="language-java">// Widening (automatic)
+int i = 100;
+double d = i;   // 100 -&gt; 100.0, automatic
+
+// Narrowing (explicit, may lose data)
+double pi = 3.14159;
+int truncated = (int) pi;  // 3.14159 -&gt; 3, data LOST
+
+System.out.println("Truncated: " + truncated);  // 3, not 4!
+</code></pre>
+<p>The truncation behavior (not rounding) is consistently surprising. Demonstrate it with <code>(int) 3.9</code> producing <code>3</code>, and ask: “Is this rounding or truncating? What is the difference? When would truncation cause a bug?”</p>
+<h4 id="non-obvious-accessibility-strategies"><a class="header" href="#non-obvious-accessibility-strategies">Non-Obvious Accessibility Strategies</a></h4>
+<ul>
+<li>
+<p><strong><code>System.out.printf()</code> for consistent numeric output:</strong> <code>printf("Balance: $%.2f%n", balance)</code> always produces exactly 2 decimal places. Without formatting, <code>double</code> values may produce varying numbers of decimal places (<code>3.0</code>, <code>3.14</code>, <code>3.1415926535...</code>) that read differently each time. Consistent formatting makes output more predictable.</p>
+</li>
+<li>
+<p><strong><code>Scanner.hasNext___()</code> methods:</strong> Before calling <code>scanner.nextInt()</code>, check <code>scanner.hasNextInt()</code>. If the user typed a non-integer, this returns <code>false</code> and prevents the exception, allowing graceful re-prompting. For a blind student who may not immediately catch an exception in terminal output, this is defensive programming with real accessibility value.</p>
+</li>
+</ul>
+<h4 id="thought-experiments-2"><a class="header" href="#thought-experiments-2">Thought Experiments</a></h4>
+<ol>
+<li>
+<p><em>“Java’s <code>int</code> holds values from about -2.1 billion to +2.1 billion. What happens if you exceed this limit (integer overflow)? The value silently wraps around to the opposite extreme. Name a real-world system where integer overflow has caused a documented failure.”</em></p>
+</li>
+<li>
+<p><em>“Java has <code>int</code> (primitive) and <code>Integer</code> (object). They hold the same values but behave differently. <code>int</code> cannot be null; <code>Integer</code> can. <code>int</code> cannot be used in a <code>List&lt;int&gt;</code> — you need <code>List&lt;Integer&gt;</code>. Why would a language designer make this distinction? What does it cost? What does it protect against?”</em></p>
+</li>
+<li>
+<p><em>“Java’s <code>char</code> holds a single Unicode character. <code>char c = 'A'</code> stores the letter A. But <code>char</code> is also a numeric type — <code>(int) 'A'</code> is <code>65</code>. What does this dual nature (character and number) tell you about how computers store text internally?”</em></p>
+</li>
+</ol>
+<hr>
+<h2 id="6-unit-2-io-and-the-math-class"><a class="header" href="#6-unit-2-io-and-the-math-class">6. Unit 2: I/O and the Math Class</a></h2>
+<h3 id="lesson-22-scanner-for-user-input"><a class="header" href="#lesson-22-scanner-for-user-input">Lesson 2.2: Scanner for User Input</a></h3>
+<h4 id="instructional-cues-3"><a class="header" href="#instructional-cues-3">Instructional Cues</a></h4>
+<p><strong>The Scanner as a wrapper — explain the layers:</strong></p>
+<pre><code>Keyboard
+  V produces bytes
+System.in (InputStream)
+  V raw byte stream
+new Scanner(System.in)
+  V wraps with text-reading methods
+scanner.nextLine(), scanner.nextInt(), etc.
+</code></pre>
+<p>This layered model explains why <code>Scanner</code> is needed rather than reading from <code>System.in</code> directly. It also foreshadows file reading where <code>new Scanner(new File(...))</code> replaces <code>new Scanner(System.in)</code>.</p>
+<p><strong><code>nextInt()</code> / <code>nextLine()</code> pitfall — mandatory demonstration:</strong></p>
+<pre><code class="language-java">Scanner scanner = new Scanner(System.in);
+System.out.print("Enter your age: ");
+int age = scanner.nextInt();          // Reads "25", leaves "\n" in buffer
+System.out.print("Enter your name: ");
+String name = scanner.nextLine();     // Reads the leftover "\n" --- gets EMPTY string!
+System.out.println("Hello " + name + ", age " + age);
+// Output: "Hello , age 25" --- name is empty!
+</code></pre>
+<p>The fix:</p>
+<pre><code class="language-java">int age = scanner.nextInt();
+scanner.nextLine();          // Consume the leftover newline
+String name = scanner.nextLine();   // Now reads properly
+</code></pre>
+<p>Run the broken version first. The student should hear the incorrect output and understand why before seeing the fix.</p>
+<h4 id="thought-experiments-3"><a class="header" href="#thought-experiments-3">Thought Experiments</a></h4>
+<ol>
+<li>
+<p><em>“The <code>Scanner</code> reads from a ‘stream’ of input. A stream is a sequence of data that flows from a source to a destination. <code>System.in</code> is the keyboard stream. What other streams exist in a typical program? (Think about file streams, network streams, the output stream.)”</em></p>
+</li>
+<li>
+<p><em>“After <code>scanner.nextInt()</code>, there’s a leftover newline in the buffer. What IS a buffer? Why does the operating system buffer keyboard input rather than delivering each character the moment a key is pressed?”</em></p>
+</li>
+<li>
+<p><em>“In GUI (graphical) programs, users fill out forms with text fields and click buttons. There’s no <code>scanner.nextLine()</code>. What mechanism do GUI programs use to collect user input? How does event-driven GUI input differ from sequential console input?”</em></p>
+</li>
+</ol>
+<hr>
+<h2 id="7-unit-3-control-flow"><a class="header" href="#7-unit-3-control-flow">7. Unit 3: Control Flow</a></h2>
+<h3 id="lessons-3133"><a class="header" href="#lessons-3133">Lessons 3.1–3.3</a></h3>
+<h4 id="instructional-cues-4"><a class="header" href="#instructional-cues-4">Instructional Cues</a></h4>
+<p><strong>String comparison — immediate practice:</strong></p>
+<pre><code class="language-java">String day = "Wednesday";
+
+// Wrong --- compares memory addresses
+if (day == "Wednesday") {
+    System.out.println("Middle of the week");  // May or may not print
+}
+
+// Correct --- compares content
+if (day.equals("Wednesday")) {
+    System.out.println("Middle of the week");  // Always correct
+}
+
+// Case-insensitive
+if (day.equalsIgnoreCase("wednesday")) {
+    System.out.println("This works too");
+}
+</code></pre>
+<p>Create a practice file with 10 comparisons, half using <code>==</code> and half using <code>.equals()</code>. Ask the student to predict which ones will work correctly before running.</p>
+<p><strong>Switch expressions (Java 14+):</strong></p>
+<p>Modern Java supports switch expressions that return a value:</p>
+<pre><code class="language-java">String dayType = switch (day) {
+    case "Monday", "Tuesday", "Wednesday", "Thursday", "Friday" -&gt; "Weekday";
+    case "Saturday", "Sunday" -&gt; "Weekend";
+    default -&gt; "Unknown";
+};
+System.out.println(day + " is a " + dayType);
+</code></pre>
+<p>This eliminates the fallthrough problem and is more concise. Teach both traditional <code>switch</code> (for reading legacy code) and switch expressions (for writing new code).</p>
+<h4 id="thought-experiments-4"><a class="header" href="#thought-experiments-4">Thought Experiments</a></h4>
+<ol>
+<li>
+<p><em>“Java uses <code>&amp;&amp;</code> for AND, <code>||</code> for OR, <code>!</code> for NOT. Python uses the words <code>and</code>, <code>or</code>, <code>not</code>. Which approach is more readable when heard aloud by a screen reader? Is there a meaningful accessibility argument for one over the other?”</em></p>
+</li>
+<li>
+<p><em>“The enhanced for loop <code>for (String item : list)</code> is simpler to write than the traditional <code>for (int i = 0; i &lt; list.size(); i++)</code>. But sometimes you need the index. Name three operations you can do with the traditional loop that you cannot do (directly) with the enhanced loop.”</em></p>
+</li>
+<li>
+<p><em>“Java’s <code>switch</code> statement traditionally falls through from one case to the next unless you write <code>break</code>. This ‘feature’ has caused countless bugs. Modern Java (14+) has switch expressions that don’t fall through. What does this change tell you about how programming language design evolves in response to real-world usage patterns?”</em></p>
+</li>
+<li>
+<p><em>“Short-circuit evaluation: <code>if (obj != null &amp;&amp; obj.getValue() &gt; 0)</code> — if <code>obj</code> is null, the second condition is never evaluated. This prevents a NullPointerException. How does this behavior make certain coding patterns possible that would otherwise crash?”</em></p>
+</li>
+</ol>
+<hr>
+<h2 id="8-unit-4-arrays-and-arraylists"><a class="header" href="#8-unit-4-arrays-and-arraylists">8. Unit 4: Arrays and ArrayLists</a></h2>
+<h3 id="lesson-41-arrays"><a class="header" href="#lesson-41-arrays">Lesson 4.1: Arrays</a></h3>
+<h4 id="instructional-cues-5"><a class="header" href="#instructional-cues-5">Instructional Cues</a></h4>
+<p><strong>The fixed-size limitation — demonstrate, don’t just describe:</strong></p>
+<pre><code class="language-java">String[] fruits = new String[3];
+fruits[0] = "apple";
+fruits[1] = "banana";
+fruits[2] = "cherry";
+fruits[3] = "date";   // ArrayIndexOutOfBoundsException!
+</code></pre>
+<p>Let the student hear the exception and analyze the message: <code>Index 3 out of bounds for length 3</code>. Ask: “The message gives you two numbers. What are they? What does each tell you?”</p>
+<p><strong><code>Arrays.toString()</code> as mandatory print method:</strong></p>
+<p>The first time <code>print(fruits)</code> produces <code>[Ljava.lang.String;@7a5d012b</code>, stop and explain: “This is the memory address of the array, not its contents. Java arrays don’t have a built-in ‘print nicely’ behavior. Always use <code>Arrays.toString(fruits)</code> or loop through manually.”</p>
+<p><strong>The <code>for</code> vs <code>for-each</code> tradeoff — make it concrete:</strong></p>
+<pre><code class="language-java">// for-each: simple, clear, but no index
+for (String fruit : fruits) {
+    System.out.println(fruit);
+}
+
+// traditional: more complex, but gives index
+for (int i = 0; i &lt; fruits.length; i++) {
+    System.out.println(i + ": " + fruits[i]);
+}
+
+// The numbered version is more accessible!
+</code></pre>
+<p>For blind students, numbered output (showing both index and value) is generally more useful than unnumbered output. Teach the traditional <code>for</code> loop for array printing specifically because it enables indexed output.</p>
+<h4 id="thought-experiments-5"><a class="header" href="#thought-experiments-5">Thought Experiments</a></h4>
+<ol>
+<li>
+<p><em>“Arrays are stored in contiguous memory — all elements in a row, one after another. This is why accessing by index is fast: the address of element <code>i</code> is just the start address plus <code>i × element size</code>. Why does this contiguous storage make inserting into the middle of an array slow? What must happen to all the elements after the insertion point?”</em></p>
+</li>
+<li>
+<p><em>“If you create <code>String[] arr = new String[5]</code>, what are the initial values of <code>arr[0]</code> through <code>arr[4]</code>? Now create <code>int[] nums = new int[5]</code> — what are the initial values? Why are the defaults different between String arrays and int arrays?”</em></p>
+</li>
+<li>
+<p><em>“Two-dimensional arrays in Java are ‘arrays of arrays.’ This means each row can have a different length — a ‘jagged array.’ When would a jagged array be more appropriate than a rectangular 2D array? Give a real-world data example.”</em></p>
+</li>
+</ol>
+<hr>
+<h3 id="lesson-42-arraylists"><a class="header" href="#lesson-42-arraylists">Lesson 4.2: ArrayLists</a></h3>
+<h4 id="instructional-cues-6"><a class="header" href="#instructional-cues-6">Instructional Cues</a></h4>
+<p><strong>Autoboxing — explain the invisibility:</strong></p>
+<pre><code class="language-java">ArrayList&lt;Integer&gt; numbers = new ArrayList&lt;&gt;();
+numbers.add(42);        // 42 (int) is auto-boxed to Integer(42)
+int first = numbers.get(0);  // Integer(42) is auto-unboxed to 42
+</code></pre>
+<p>This happens invisibly but has a performance cost. For the course, tell students: “Use <code>ArrayList&lt;Integer&gt;</code> when you need a flexible list of integers. The boxing/unboxing is automatic but slightly less efficient than an array of <code>int</code>.”</p>
+<p><strong>Removal by index vs. by value:</strong></p>
+<pre><code class="language-java">ArrayList&lt;String&gt; list = new ArrayList&lt;&gt;(Arrays.asList("a", "b", "c", "b", "d"));
+list.remove(1);            // Removes by INDEX --- removes "b" at position 1
+list.remove("b");          // Removes by VALUE --- removes first "b" found
+list.removeAll(Arrays.asList("b", "c"));  // Removes all matching values
+</code></pre>
+<p>Ask the student: “If I call <code>list.remove(0)</code> on a list of integers <code>[10, 20, 30]</code>, does this remove the element at index 0 (which is <code>10</code>) or remove the value <code>0</code> (which doesn’t exist)? How does Java decide?” (Answer: removes index 0, because <code>0</code> is an <code>int</code>, not an <code>Integer</code>.)</p>
+<h4 id="thought-experiments-6"><a class="header" href="#thought-experiments-6">Thought Experiments</a></h4>
+<ol>
+<li>
+<p><em>“An <code>ArrayList</code> doubles its internal capacity when it runs out of space. If you start with capacity 16 and keep adding elements, when does reallocation occur? Trace the capacity: 16 -&gt; 32 -&gt; 64 -&gt; 128… What is the total cost (in element moves) of adding 1000 elements to an initially empty ArrayList this way? Is this efficient?”</em></p>
+</li>
+<li>
+<p><em>“Java generics <code>ArrayList&lt;String&gt;</code> enforce type safety at compile time. Python lists can hold any types mixed together. When is a typed list (Java style) better? When is a mixed list (Python style) more flexible? Which approach produces more reliable programs?”</em></p>
+</li>
+</ol>
+<hr>
+<h2 id="9-unit-5-strings-and-string-processing"><a class="header" href="#9-unit-5-strings-and-string-processing">9. Unit 5: Strings and String Processing</a></h2>
+<h4 id="instructional-cues-7"><a class="header" href="#instructional-cues-7">Instructional Cues</a></h4>
+<p><strong>String immutability — the Java version:</strong></p>
+<p>In Java, Strings are immutable for the same reason as Python. But Java’s <code>String</code> object is also <strong>interned</strong> — the JVM may reuse the same <code>String</code> object for two variables holding the same literal value. This is why <code>==</code> sometimes works for String comparison (when both refer to the same interned object) but is not reliable.</p>
+<p><strong><code>StringBuilder</code> motivation:</strong></p>
+<pre><code class="language-java">// Inefficient --- creates 100,000 String objects
+String result = "";
+for (int i = 0; i &lt; 100000; i++) {
+    result += "x";
+}
+
+// Efficient --- modifies a single buffer
+StringBuilder sb = new StringBuilder();
+for (int i = 0; i &lt; 100000; i++) {
+    sb.append("x");
+}
+String result = sb.toString();
+</code></pre>
+<p>The <code>+</code> in a loop creates a new String object on every iteration, then discards the old one. For small loops this is fine; for large loops it’s a significant performance problem. <code>StringBuilder</code> maintains a mutable buffer.</p>
+<h4 id="thought-experiments-7"><a class="header" href="#thought-experiments-7">Thought Experiments</a></h4>
+<ol>
+<li>
+<p><em>“String concatenation with <code>+</code> is convenient but expensive in loops. In Python, the equivalent is also discouraged — use <code>''.join(list)</code> instead. What does this common advice across two languages tell you about how immutable strings interact with loops?”</em></p>
+</li>
+<li>
+<p><em>“Java’s <code>String.format()</code> and <code>printf()</code> use format specifiers like <code>%s</code>, <code>%d</code>, <code>%f</code>. Python uses f-strings with <code>{}</code>. What are the accessibility tradeoffs of each approach? Which reads more naturally when heard aloud? Which is easier to type?”</em></p>
+</li>
+<li>
+<p><em>“Regular expressions are a tiny language inside a programming language. <code>\\d+</code> matches one or more digits. <code>[a-zA-Z]+</code> matches one or more letters. Why do programmers use regular expressions despite their difficult-to-read syntax? What would the alternative be for complex pattern matching?”</em></p>
+</li>
+</ol>
+<hr>
+<h2 id="10-unit-6-methods"><a class="header" href="#10-unit-6-methods">10. Unit 6: Methods</a></h2>
+<h4 id="instructional-cues-8"><a class="header" href="#instructional-cues-8">Instructional Cues</a></h4>
+<p><strong>Method overloading — auditory navigation:</strong></p>
+<pre><code class="language-java">public static int add(int a, int b) { return a + b; }
+public static double add(double a, double b) { return a + b; }
+public static int add(int a, int b, int c) { return a + b + c; }
+</code></pre>
+<p>When IntelliSense shows overloads in VS Code, pressing <code>Shift+Alt+F2</code> (Accessible View) lists them all. Teach students to use this to discover available overloads.</p>
+<p><strong><code>void</code> vs. return type — make the distinction tangible:</strong></p>
+<pre><code class="language-java">// void: for side effects only
+public static void printGreeting(String name) {
+    System.out.println("Hello, " + name + "!");
+}
+
+// Return type: for computation
+public static double calculateTip(double billAmount, double rate) {
+    return billAmount * rate;
+}
+
+// Using them:
+printGreeting("Alice");                      // Standalone call
+double tip = calculateTip(50.00, 0.18);      // Must capture return value
+System.out.printf("Tip: $%.2f%n", tip);
+</code></pre>
+<p><em>“<code>void</code> methods exist to DO something. Return-type methods exist to CALCULATE something and give you the result. Ask: ‘Do I need to use the output later in my code?’ If yes, it needs a return type.”</em></p>
+<h4 id="thought-experiments-8"><a class="header" href="#thought-experiments-8">Thought Experiments</a></h4>
+<ol>
+<li>
+<p><em>“Java methods can throw exceptions: <code>public double sqrt(double n) throws IllegalArgumentException</code>. This signature tells callers that the method might fail in a specific way. Python has no equivalent syntax. What is the programmer’s obligation when they see <code>throws</code> in a method signature?”</em></p>
+</li>
+<li>
+<p><em>“Static methods belong to the class, not to any instance: <code>Math.sqrt(25)</code> — you don’t need a <code>Math</code> object. Instance methods belong to an object: <code>myString.length()</code>. What is the conceptual difference? When should a method be static vs. instance?”</em></p>
+</li>
+<li>
+<p><em>“Method parameters in Java are ‘pass by value’ for primitives and ‘pass by reference’ for objects. For primitives: the method gets a copy, and modifying the parameter doesn’t affect the original. For objects: the method gets the reference, and modifications to the object’s fields DO affect the original. Design a test to confirm this behavior for both cases.”</em></p>
+</li>
+<li>
+<p>_“Recursion: a method that calls itself. <code>int factorial(int n) { return n == 0 ? 1 : n _ factorial(n-1); }</code>. Every recursive solution has an iterative equivalent. When is the recursive version clearer? What is the risk of deep recursion (many nested calls)?”*</p>
+</li>
+</ol>
+<hr>
+<h2 id="11-unit-7-classes-and-oop"><a class="header" href="#11-unit-7-classes-and-oop">11. Unit 7: Classes and OOP</a></h2>
+<h3 id="extended-instructional-cues"><a class="header" href="#extended-instructional-cues">Extended Instructional Cues</a></h3>
+<p><strong>The mandatory <code>__str__</code> equivalent in Java — <code>toString()</code>:</strong></p>
+<p>Every student-defined class must override <code>toString()</code>. Without it, <code>System.out.println(myObject)</code> produces an unreadable string. The <code>@Override</code> annotation makes this explicit:</p>
+<pre><code class="language-java">@Override
+public String toString() {
+    return String.format("Dog[name=%s, age=%d]", name, age);
+}
+</code></pre>
+<p>Require this in every class from Unit 7 onward. Explain: “When your screen reader reads <code>System.out.println(myDog)</code>, it reads whatever <code>toString()</code> returns. If you don’t define <code>toString()</code>, you’ll hear a memory address. That’s useless.”</p>
+<p><strong>JavaDoc comments as accessible documentation:</strong></p>
+<p>Teach this format for every method:</p>
+<pre><code class="language-java">/**
+ * Calculates the area of this circle.
+ *
+ * @return the area as a double, in square units
+ * @throws IllegalArgumentException if radius is negative
+ */
+public double getArea() {
+    if (radius &lt; 0) throw new IllegalArgumentException("Radius cannot be negative");
+    return Math.PI * radius * radius;
+}
+</code></pre>
+<p>When IntelliSense shows this method in VS Code, pressing <code>Shift+Alt+F2</code> reads the JavaDoc aloud. This makes the student’s own code navigable via audio — a profound accessibility benefit.</p>
+<p><strong>The VS Code symbol navigator:</strong>
+<code>Ctrl+Shift+O</code> opens a dropdown listing all methods in the current file. Type a few letters to filter. This allows jumping to any method by name — much more efficient than arrow-key navigation through a long file.</p>
+<p><strong>Access modifiers — enforce from day one:</strong></p>
+<div class="table-wrapper">
+<table>
+<thead>
+<tr><th>Modifier</th><th>Rule</th><th>Reason</th></tr>
+</thead>
+<tbody>
+<tr><td><code>private</code> on fields</td><td>Always</td><td>Encapsulation; prevents direct manipulation</td></tr>
+<tr><td><code>public</code> on getters/setters</td><td>When needed</td><td>Controlled access</td></tr>
+<tr><td><code>private</code> on helper methods</td><td>Yes</td><td>Internal implementation detail</td></tr>
+<tr><td><code>public</code> on methods the user calls</td><td>Yes</td><td>Interface to the class</td></tr>
+</tbody>
+</table>
+</div>
+<p>Establish this as a non-negotiable habit, not a preference. <em>“Private fields, public interface. Every time.”</em></p>
+<h4 id="thought-experiments-9"><a class="header" href="#thought-experiments-9">Thought Experiments</a></h4>
+<ol>
+<li>
+<p><em>“Encapsulation means the internal state of an object is private. Only its public methods can access or modify it. Why would you want to prevent direct access to <code>account.balance</code>? What bugs could occur if balance were public?”</em></p>
+</li>
+<li>
+<p><em>“Inheritance creates a hierarchy. A <code>SavingsAccount</code> extends <code>BankAccount</code>. Every <code>SavingsAccount</code> is-a <code>BankAccount</code>, but not every <code>BankAccount</code> is-a <code>SavingsAccount</code>. What are the type-safety implications of this? If you have a <code>BankAccount</code> variable, can it hold a <code>SavingsAccount</code> object?”</em></p>
+</li>
+<li>
+<p><em>“Java interfaces define contracts — a list of methods that any implementing class must provide. A class can implement multiple interfaces but can only extend one class. Why this asymmetry? What problem does single inheritance solve? What does it prevent?”</em></p>
+</li>
+<li>
+<p><em>“Design Pattern: the Factory Method creates objects without specifying the exact class. Instead of <code>new Dog()</code>, you’d call <code>AnimalFactory.create("dog")</code>. What is the advantage of this indirection? When would it be useful?”</em></p>
+</li>
+<li>
+<p><em>“Object-oriented programming was supposed to model the real world. A <code>Dog</code> is-a <code>Animal</code>. But real-world relationships are complex — a <code>FlyingFish</code> is both a <code>Fish</code> and can fly like a <code>Bird</code>. How does Java’s single-inheritance model handle this situation? What alternatives exist?”</em></p>
+</li>
+<li>
+<p><em>“Polymorphism means one interface, many implementations. <code>Animal[] animals = {new Dog(), new Cat(), new Bird()}; for (Animal a : animals) { a.speak(); }</code> — each animal speaks differently. Why is this more flexible than checking <code>instanceof</code> and calling different methods explicitly?”</em></p>
+</li>
+</ol>
+<h4 id="alternative-resources"><a class="header" href="#alternative-resources">Alternative Resources</a></h4>
+<ul>
+<li><strong>“Head First Design Patterns” by Freeman, Robson et al.:</strong> Visual book, but audio-describable concepts. Covers fundamental OOP design patterns. For advanced students.</li>
+<li><strong>“Effective Java” by Joshua Bloch:</strong> The definitive book on Java best practices. Dense but invaluable for understanding WHY Java is designed the way it is.</li>
+<li><strong>Oracle Java Tutorials (docs.oracle.com/javase/tutorial/):</strong> Comprehensive, plain HTML, fully accessible. Covers OOP concepts with extensive examples.</li>
+</ul>
+<hr>
+<h2 id="12-unit-8-files-and-exception-handling"><a class="header" href="#12-unit-8-files-and-exception-handling">12. Unit 8: Files and Exception Handling</a></h2>
+<h4 id="instructional-cues-9"><a class="header" href="#instructional-cues-9">Instructional Cues</a></h4>
+<p><strong>Checked vs. unchecked exceptions — the core distinction:</strong></p>
+<div class="table-wrapper">
+<table>
+<thead>
+<tr><th>Type</th><th>Examples</th><th>Must Handle?</th><th>Why?</th></tr>
+</thead>
+<tbody>
+<tr><td><strong>Checked</strong></td><td><code>IOException</code>, <code>FileNotFoundException</code>, <code>SQLException</code></td><td>Yes — compiler enforces</td><td>These are recoverable; programmer should handle them</td></tr>
+<tr><td><strong>Unchecked (RuntimeException)</strong></td><td><code>NullPointerException</code>, <code>ArrayIndexOutOfBoundsException</code>, <code>IllegalArgumentException</code></td><td>No — optional</td><td>Usually indicate programming errors; may not be recoverable</td></tr>
+</tbody>
+</table>
+</div>
+<p><em>“Checked exceptions are like warning labels: ‘This operation can fail. You must decide what to do if it does.’ Unchecked exceptions are usually bugs — the program did something wrong.”</em></p>
+<p><strong>Try-with-resources — teach first, manual close second:</strong></p>
+<pre><code class="language-java">// Modern: try-with-resources (always teach this first)
+try (BufferedReader reader = new BufferedReader(new FileReader("data.txt"))) {
+    String line;
+    while ((line = reader.readLine()) != null) {
+        System.out.println(line);
+    }
+} catch (IOException e) {
+    System.out.println("Error reading file: " + e.getMessage());
+}
+// reader is automatically closed here, even if an exception occurred
+
+// Legacy: manual close (show this so students understand what try-with-resources does)
+BufferedReader reader = null;
+try {
+    reader = new BufferedReader(new FileReader("data.txt"));
+    // ... use reader
+} catch (IOException e) {
+    System.out.println("Error: " + e.getMessage());
+} finally {
+    if (reader != null) {
+        try { reader.close(); } catch (IOException e) { /* ignore */ }
+    }
+}
+</code></pre>
+<p>Show the legacy version to explain why try-with-resources exists and what it simplifies.</p>
+<h4 id="thought-experiments-10"><a class="header" href="#thought-experiments-10">Thought Experiments</a></h4>
+<ol>
+<li>
+<p><em>“Checked exceptions force you to handle failures at compile time. Critics argue this creates ‘exception chaining hell’ — every method signature becomes littered with <code>throws</code> clauses. Defenders argue it makes failure modes explicit and programs more reliable. Which side do you find more persuasive? Why?”</em></p>
+</li>
+<li>
+<p><em>“Java’s <code>Path</code> and <code>Files</code> classes (java.nio.file) are a modern replacement for the older <code>File</code> class. The older <code>File</code> class’s <code>delete()</code> method returns a <code>boolean</code> (true/false) instead of throwing an exception. What is the danger of reporting failure via a return value? What might a programmer accidentally do wrong?”</em></p>
+</li>
+<li>
+<p><em>“A <code>NullPointerException</code> is called ‘The Billion Dollar Mistake’ by its inventor Tony Hoare. Explain why null references cause so many bugs. Newer languages (Kotlin, Swift) have built-in null safety. What would Java code look like if null didn’t exist?”</em></p>
+</li>
+</ol>
+<hr>
+<h2 id="13-unit-9-collections-analysis-and-testing"><a class="header" href="#13-unit-9-collections-analysis-and-testing">13. Unit 9: Collections, Analysis, and Testing</a></h2>
+<h3 id="junit-testing-deep-dive"><a class="header" href="#junit-testing-deep-dive">JUnit Testing Deep Dive</a></h3>
+<h4 id="instructional-cues-10"><a class="header" href="#instructional-cues-10">Instructional Cues</a></h4>
+<p><strong>Test output is inherently accessible:</strong>
+JUnit produces plain text output: <code>.</code> for each passing test, <code>F</code> for failures, with descriptive failure messages. This is one of the most screen-reader-friendly outputs in the entire course. Let students experience testing by running a test suite and listening to the results before writing their own tests.</p>
+<p><strong>Test naming convention — sentence style:</strong></p>
+<pre><code class="language-java">@Test
+public void calculateArea_withPositiveRadius_returnsCorrectValue() { }
+
+@Test
+public void calculateArea_withZeroRadius_returnsZero() { }
+
+@Test
+public void calculateArea_withNegativeRadius_throwsException() { }
+</code></pre>
+<p>The naming convention <code>methodName_condition_expectedBehavior</code> makes test names read as complete sentences when the test runner announces them. This is both good practice and an accessibility benefit — each test announcement tells you exactly what was tested.</p>
+<p><strong><code>assertThrows</code> — test that exceptions work correctly:</strong></p>
+<pre><code class="language-java">@Test
+public void withdraw_withInsufficientFunds_throwsException() {
+    BankAccount account = new BankAccount(100.0);
+    assertThrows(InsufficientFundsException.class, () -&gt; account.withdraw(200.0));
+}
+</code></pre>
+<p>Testing for exceptions is as important as testing for correct outputs. Many beginners only test the “happy path.”</p>
+<h4 id="thought-experiments-11"><a class="header" href="#thought-experiments-11">Thought Experiments</a></h4>
+<ol>
+<li>
+<p><em>“Test-driven development (TDD) says: write the test first, then write the implementation. How does writing a test first change the way you think about a method? What is forced to be clear before you write a line of implementation?”</em></p>
+</li>
+<li>
+<p><em>“Mocking means replacing real dependencies (like a database or file system) with fake versions for testing. Why would you want to test a method that reads from a database without using a real database? What complexity does mocking introduce?”</em></p>
+</li>
+<li>
+<p><em>“A project has 100% test coverage — tests execute every line. Is the software correct? Name a bug that 100% coverage would not catch. (Hint: think about a bug that only appears with certain combinations of inputs.)”</em></p>
+</li>
+</ol>
+<hr>
+<h2 id="14-units-1011-projects-and-capstone"><a class="header" href="#14-units-1011-projects-and-capstone">14. Units 10–11: Projects and Capstone</a></h2>
+<h3 id="java-project-architecture"><a class="header" href="#java-project-architecture">Java Project Architecture</a></h3>
+<p>For the capstone, encourage a clean package structure:</p>
+<pre><code>src/
+|--- com/
+|   +--- student/
+|       +--- datamanager/
+|           |--- model/
+|           |   +--- Contact.java
+|           |--- storage/
+|           |   |--- DataManager.java
+|           |   +--- JsonStorage.java
+|           |--- ui/
+|           |   +--- ConsoleUI.java
+|           +--- Main.java
+test/
++--- com/
+    +--- student/
+        +--- datamanager/
+            |--- model/
+            |   +--- ContactTest.java
+            +--- storage/
+                +--- DataManagerTest.java
+</code></pre>
+<p>Navigating packages in VS Code: <code>Ctrl+Shift+E</code> for Explorer (shows package tree), <code>Ctrl+P</code> to open any file by name, <code>Ctrl+Shift+O</code> for symbols within the current file.</p>
+<h3 id="ide-generated-code-accessibility"><a class="header" href="#ide-generated-code-accessibility">IDE-Generated Code Accessibility</a></h3>
+<p>VS Code and compatible Java IDE extensions can generate getters, setters, constructors, and toString. Teach these as time-savers, but require students to read and understand all generated code:</p>
+<ul>
+<li><code>Ctrl+Shift+P</code> -&gt; “Java: Generate Getters and Setters”</li>
+<li><code>Ctrl+Shift+P</code> -&gt; “Java: Override/Implement Methods”</li>
+<li><code>Ctrl+Shift+P</code> -&gt; “Java: Generate toString”</li>
+</ul>
+<p>Generated code is correct but often not styled for accessibility (missing JavaDoc, generic names). Require students to add JavaDoc and verify <code>toString()</code> output is meaningful when heard.</p>
+<h4 id="thought-experiments-12"><a class="header" href="#thought-experiments-12">Thought Experiments</a></h4>
+<ol>
+<li>
+<p><em>“Java in enterprise software is often criticized for having too much ‘boilerplate’ — code that exists for structural reasons rather than to express logic. How does this boilerplate affect the experience of maintaining a large Java codebase? What tools and patterns does the Java ecosystem provide to reduce it?”</em></p>
+</li>
+<li>
+<p><em>“Your capstone application stores data in a file. If your team adds a new field to the data class, existing saved files no longer match the new format. This is a ‘schema migration’ problem. How would you design your storage layer to handle this gracefully?”</em></p>
+</li>
+</ol>
+<hr>
+<h2 id="15-bridging-from-python-to-java"><a class="header" href="#15-bridging-from-python-to-java">15. Bridging from Python to Java</a></h2>
+<p>For courses that teach Python before Java, use these comparison thought experiments to bridge the languages:</p>
+<p><strong>Syntax bridge table:</strong></p>
+<div class="table-wrapper">
+<table>
+<thead>
+<tr><th>Python</th><th>Java</th><th>Notes</th></tr>
+</thead>
+<tbody>
+<tr><td><code>print("Hello")</code></td><td><code>System.out.println("Hello")</code></td><td></td></tr>
+<tr><td><code>x = 5</code></td><td><code>int x = 5;</code></td><td>Java requires type declaration and semicolon</td></tr>
+<tr><td><code>if condition:</code></td><td><code>if (condition) {</code></td><td>Parens around condition; brace instead of colon</td></tr>
+<tr><td><code>elif</code></td><td><code>else if</code></td><td>Two words in Java</td></tr>
+<tr><td><code>for item in list:</code></td><td><code>for (Type item : list) {</code></td><td>Java requires type</td></tr>
+<tr><td><code>def func(x):</code></td><td><code>public static void func(int x) {</code></td><td>Return type and access modifier required</td></tr>
+<tr><td><code>return x</code></td><td><code>return x;</code></td><td>Semicolon</td></tr>
+<tr><td><code># comment</code></td><td><code>// comment</code></td><td></td></tr>
+<tr><td><code>None</code></td><td><code>null</code></td><td></td></tr>
+<tr><td><code>True</code>/<code>False</code></td><td><code>true</code>/<code>false</code></td><td>Lowercase in Java</td></tr>
+<tr><td><code>len(list)</code></td><td><code>list.size()</code></td><td>Method call, not function</td></tr>
+<tr><td><code>list.append(x)</code></td><td><code>list.add(x)</code></td><td></td></tr>
+<tr><td><code>dict["key"]</code></td><td><code>map.get("key")</code></td><td></td></tr>
+<tr><td><code>try/except</code></td><td><code>try/catch</code></td><td></td></tr>
+<tr><td><code>import math</code></td><td><code>import java.lang.Math;</code> (or use <code>Math.</code> directly)</td><td></td></tr>
+</tbody>
+</table>
+</div>
+<p><strong>Thought experiments for bridging:</strong></p>
+<ol>
+<li>
+<p><em>“In Python you write <code>x = 5</code> and Python figures out the type. In Java you write <code>int x = 5</code> and declare the type explicitly. Which approach do you prefer after using both? Which one would you choose for a large team project? For a quick experiment?”</em></p>
+</li>
+<li>
+<p><em>“Python lists can hold any mixture of types: <code>[1, 'hello', True, 3.14]</code>. Java’s <code>ArrayList&lt;String&gt;</code> can only hold Strings. What bugs does Python’s flexibility enable? What bugs does it prevent compared to Java?”</em></p>
+</li>
+<li>
+<p><em>“Python functions are first-class objects — you can store them in variables, pass them as arguments. In Java (before lambdas), this was much more complex. Java added lambdas in 2014. What does it mean for a language to add a major feature 19 years after it was created?”</em></p>
+</li>
+</ol>
+<hr>
+<h2 id="16-assessment-strategies"><a class="header" href="#16-assessment-strategies">16. Assessment Strategies</a></h2>
+<h3 id="alternative-assessment-forms"><a class="header" href="#alternative-assessment-forms">Alternative Assessment Forms</a></h3>
+<p><strong>Code review presentations:</strong> The student explains their code out loud, as if presenting to a team. The teacher asks questions about design decisions. This tests understanding more authentically than multiple-choice questions.</p>
+<p><strong>Bug-hunting assessments:</strong> Provide a working program with 5–8 intentional bugs of different types. The student must find and fix them using only their screen reader and development tools. This directly tests real-world debugging skill.</p>
+<p><strong>Design walkthroughs:</strong> Give the student a problem and ask them to design the solution — class structure, methods, data structures — without writing any code. Assess the quality of the design, not the typing speed.</p>
+<p><strong>Pair programming sessions:</strong> Two students work on one computer. One dictates code; the other types. Roles swap every 10–15 minutes. This surfaces communication and reasoning skills that solo assessments miss.</p>
+<hr>
+<h2 id="17-supporting-diverse-needs"><a class="header" href="#17-supporting-diverse-needs">17. Supporting Diverse Needs</a></h2>
+<h3 id="for-braille-display-users"><a class="header" href="#for-braille-display-users">For Braille Display Users</a></h3>
+<p>Java’s verbose syntax can be particularly burdensome on a braille display with limited width. Strategies:</p>
+<ul>
+<li>Keep lines under 79 characters (PEP 8 applies to style; the Java equivalent is generally under 100).</li>
+<li>Use shorter variable names for very long class hierarchies where the full name is unwieldy.</li>
+<li>Test the learner’s chosen editor with their braille display and screen reader. Prefer the documented VS Code or Theia workflows and avoid adding IDE complexity before it is needed.</li>
+</ul>
+<h3 id="for-students-new-to-screen-readers"><a class="header" href="#for-students-new-to-screen-readers">For Students New to Screen Readers</a></h3>
+<p>If a student is still developing screen reader proficiency:</p>
+<ul>
+<li>Begin with JShell instead of file-based programming. Single-line interactions provide immediate feedback.</li>
+<li>Use pair work more extensively until independent navigation is fluent.</li>
+<li>Reduce the number of new concepts per session until screen reader fluency stabilizes.</li>
+</ul>
+<hr>
+<h2 id="18-alternative-and-supplementary-resources"><a class="header" href="#18-alternative-and-supplementary-resources">18. Alternative and Supplementary Resources</a></h2>
+<h3 id="textbooks-and-reading"><a class="header" href="#textbooks-and-reading">Textbooks and Reading</a></h3>
+<div class="table-wrapper">
+<table>
+<thead>
+<tr><th>Resource</th><th>Level</th><th>Format</th><th>Accessibility</th></tr>
+</thead>
+<tbody>
+<tr><td><strong>Introduction to Programming Using Java</strong> (Eck, free online)</td><td>Beginner–Intermediate</td><td>Free HTML/PDF</td><td>HTML version excellent; comprehensive</td></tr>
+<tr><td><strong>Big Java: Early Objects</strong> (Horstmann)</td><td>Beginner</td><td>Print/ebook</td><td>Standard university text; clear explanations</td></tr>
+<tr><td><strong>Effective Java, 3rd Ed.</strong> (Bloch)</td><td>Intermediate–Advanced</td><td>Print/ebook</td><td>Essential for understanding Java’s design philosophy</td></tr>
+<tr><td><strong>Head First Java</strong> (Sierra, Bates)</td><td>Beginner</td><td>Print</td><td>Very visual; but text portions accessible; engaging writing style</td></tr>
+<tr><td><strong>Java: The Complete Reference</strong> (Schildt)</td><td>Reference</td><td>Print/ebook</td><td>Encyclopedic; good for looking up specific features</td></tr>
+<tr><td><strong>Oracle Java Tutorials</strong> (docs.oracle.com)</td><td>Beginner–Advanced</td><td>Free HTML</td><td>Excellent HTML accessibility; definitive</td></tr>
+<tr><td><strong>Java Documentation</strong> (javadoc)</td><td>Reference</td><td>Free HTML</td><td>Standard library docs; fully screen-reader-accessible</td></tr>
+</tbody>
+</table>
+</div>
+<h3 id="online-courses-and-platforms"><a class="header" href="#online-courses-and-platforms">Online Courses and Platforms</a></h3>
+<div class="table-wrapper">
+<table>
+<thead>
+<tr><th>Platform</th><th>Course</th><th>Accessibility</th><th>Notes</th></tr>
+</thead>
+<tbody>
+<tr><td><strong>edX / MITx 6.092</strong></td><td>Introduction to Programming in Java</td><td>High</td><td>MIT course; video transcripts available</td></tr>
+<tr><td><strong>Coursera</strong></td><td>Java Programming (Duke)</td><td>Medium</td><td>Free audit available</td></tr>
+<tr><td><strong>Codecademy</strong></td><td>Learn Java</td><td>Partial</td><td>Some UI inaccessible; editor readable</td></tr>
+<tr><td><strong>MOOC.fi</strong> (University of Helsinki)</td><td>Java Programming MOOC</td><td>High</td><td>Text-based exercises; excellent accessibility</td></tr>
+<tr><td><strong>CodingBat Java</strong></td><td>Java practice problems</td><td>High</td><td>Plain HTML; no complex UI</td></tr>
+<tr><td><strong>Exercism Java Track</strong></td><td>Structured exercises with mentoring</td><td>High</td><td>Terminal-based; excellent</td></tr>
+<tr><td><strong>LeetCode</strong></td><td>Algorithm problems</td><td>Medium</td><td>Code editor accessible; UI moderate</td></tr>
+</tbody>
+</table>
+</div>
+<p><strong>MOOC.fi is especially recommended</strong> for blind students — the University of Helsinki’s Java course has no-frills HTML exercises and very clear progression. It is one of the most accessible Java learning platforms available.</p>
+<h3 id="video-and-audio-resources"><a class="header" href="#video-and-audio-resources">Video and Audio Resources</a></h3>
+<div class="table-wrapper">
+<table>
+<thead>
+<tr><th>Resource</th><th>Description</th><th>Accessibility</th></tr>
+</thead>
+<tbody>
+<tr><td><strong>CS50 AP</strong> (Harvard)</td><td>AP Computer Science A course using Java</td><td>Captions and transcripts</td></tr>
+<tr><td><strong>Derek Banas Java Tutorials</strong> (YouTube)</td><td>Concise concept-by-concept tutorials</td><td>Captions available</td></tr>
+<tr><td><strong>Cave of Programming Java</strong> (YouTube/website)</td><td>Beginner Java series</td><td>Captions; text summaries</td></tr>
+<tr><td><strong>thenewboston Java</strong> (YouTube)</td><td>Large beginner series</td><td>Captions available</td></tr>
+<tr><td><strong>Coding with John</strong> (YouTube)</td><td>Clear explanations of Java concepts</td><td>Good pacing for beginners</td></tr>
+</tbody>
+</table>
+</div>
+<hr>
+<h2 id="19-quick-reference-sheets"><a class="header" href="#19-quick-reference-sheets">19. Quick Reference Sheets</a></h2>
+<h3 id="java-compilation-and-running"><a class="header" href="#java-compilation-and-running">Java Compilation and Running</a></h3>
+<pre><code class="language-bash"># Compile a single file
+javac HelloWorld.java    # Creates HelloWorld.class
+
+# Run compiled program
+java HelloWorld          # No .class extension!
+
+# Compile with output directory
+javac -d bin src/HelloWorld.java
+
+# Run JShell
+jshell                   # Interactive REPL
+/exit                    # Exit JShell
+
+# Run tests (if the project includes Maven Wrapper)
+./mvnw test
+
+# Run tests (if using Gradle)
+./gradlew test
+</code></pre>
+<p>Windows Powershell</p>
+<pre><code class="language-powershell"># Compile a single file
+javac HelloWorld.java    # Creates HelloWorld.class
+# Run compiled program
+java HelloWorld          # No .class extension!
+# Compile with output directory
+javac -d bin src/HelloWorld.java
+# Run JShell
+jshell                   # Interactive REPL
+/exit                    # Exit JShell
+# Run tests (if the project includes Maven Wrapper)
+.\mvnw.cmd test
+# Run tests (if using Gradle)
+.\gradlew.bat test
+</code></pre>
+<h3 id="error-type-quick-reference"><a class="header" href="#error-type-quick-reference">Error Type Quick Reference</a></h3>
+<div class="table-wrapper">
+<table>
+<thead>
+<tr><th>Error Type</th><th>Common Cause</th><th>First Check</th></tr>
+</thead>
+<tbody>
+<tr><td><code>cannot find symbol</code></td><td>Misspelled name or missing import</td><td>Spelling; check imports</td></tr>
+<tr><td><code>incompatible types</code></td><td>Assigning wrong type or missing cast</td><td>Type of both sides of assignment</td></tr>
+<tr><td><code>';' expected</code></td><td>Missing semicolon</td><td>End of the line indicated</td></tr>
+<tr><td><code>reached end of file while parsing</code></td><td>Missing <code>}</code></td><td>Count open braces vs close braces</td></tr>
+<tr><td><code>non-static method cannot be referenced from a static context</code></td><td>Calling instance method from <code>main</code> without object</td><td>Need to create an object first</td></tr>
+<tr><td><code>NullPointerException</code></td><td>Calling method on null reference</td><td>Which variable is null</td></tr>
+<tr><td><code>ArrayIndexOutOfBoundsException</code></td><td>Index beyond array length</td><td>Print length and the index used</td></tr>
+<tr><td><code>ClassCastException</code></td><td>Invalid cast</td><td>Check <code>instanceof</code> before casting</td></tr>
+<tr><td><code>StackOverflowError</code></td><td>Infinite recursion</td><td>Verify base case</td></tr>
+<tr><td><code>NumberFormatException</code></td><td><code>parseInt()</code> on non-numeric string</td><td>Check input string before parsing</td></tr>
+</tbody>
+</table>
+</div>
+<h3 id="scanner-method-reference"><a class="header" href="#scanner-method-reference">Scanner Method Reference</a></h3>
+<pre><code class="language-java">Scanner scanner = new Scanner(System.in);
+
+String line   = scanner.nextLine();     // Entire line as String
+String word   = scanner.next();         // Single token (whitespace-delimited)
+int n         = scanner.nextInt();      // Integer
+double d      = scanner.nextDouble();   // Double
+boolean b     = scanner.nextBoolean();  // Boolean (true/false)
+
+// Safe versions with type checking
+if (scanner.hasNextInt()) {
+    int n = scanner.nextInt();
+}
+
+// After nextInt(), consume leftover newline:
+scanner.nextLine();  // ALWAYS do this before reading a String
+
+// From file
+Scanner fileScanner = new Scanner(new File("data.txt"));
+// Same methods work; wrap in try-catch for FileNotFoundException
+
+scanner.close();  // Always close when done
+</code></pre>
+<h3 id="accessible-output-template"><a class="header" href="#accessible-output-template">Accessible Output Template</a></h3>
+<pre><code class="language-java">// Numbered list output
+System.out.println("--- Contacts ---");
+for (int i = 0; i &lt; contacts.size(); i++) {
+    System.out.printf("%d. %s%n", i + 1, contacts.get(i));
+}
+System.out.printf("Total: %d contacts%n", contacts.size());
+
+// Menu
+System.out.println("\n--- Main Menu ---");
+System.out.println("1. Add contact");
+System.out.println("2. View all contacts");
+System.out.println("3. Search contacts");
+System.out.println("4. Delete contact");
+System.out.println("5. Save and quit");
+System.out.println("-----------------");
+System.out.print("Enter option (1-5): ");
+
+// Confirmation messages
+System.out.printf("Contact '%s' added successfully.%n", name);
+System.out.printf("Found %d matching records.%n", count);
+System.out.println("Data saved to contacts.json.");
+System.out.println("Error: Name field cannot be empty. Please try again.");
+</code></pre>
+<h2 id="20-teaching-ai-tools-responsibly"><a class="header" href="#20-teaching-ai-tools-responsibly">20. Teaching AI Tools Responsibly</a></h2>
+<p>AI coding assistants can explain compiler messages, offer hints, compare designs, or suggest test cases. They can also invent Java APIs, use language features unsupported by the configured JDK, omit imports, produce incompatible types, mishandle exceptions, or create unnecessary class hierarchies. Treat generated answers as unverified drafts. The course must remain teachable without paid AI access or a personal account.</p>
+<h3 id="instructor-use-of-ai-during-preparation"><a class="header" href="#instructor-use-of-ai-during-preparation">Instructor use of AI during preparation</a></h3>
+<p>Instructors may use approved AI tools to brainstorm examples, draft alternate explanations, suggest test cases, or identify likely misconceptions. The instructor remains accountable for correctness and accessibility. Verify APIs and language features against the target JDK and official Java documentation; compile and test examples; inspect dependencies and build instructions; and test the workflow with the intended access technology. Never upload identifiable student work, accommodation plans, credentials, assessment answers, or confidential school information. Do not use AI-generated feedback as the sole basis for grading. Disclose substantive AI assistance when institutional policy or the publication process requires it.</p>
+<h3 id="learning-goals-and-appropriate-uses"><a class="header" href="#learning-goals-and-appropriate-uses">Learning goals and appropriate uses</a></h3>
+<p>Students should explain that generated responses can be plausible and incorrect, ask focused questions, verify claims against official Java documentation and compiler feedback, identify unfamiliar APIs and dependencies, review code for accessibility and security, and disclose assistance when required. When permitted, AI may explain a diagnostic, ask guiding questions, rephrase a concept, suggest tests, or critique a proposed class design.</p>
+<h3 id="java-specific-risks"><a class="header" href="#java-specific-risks">Java-specific risks</a></h3>
+<p>Review generated Java for:</p>
+<ul>
+<li>Language features or APIs requiring a newer JDK than the course environment.</li>
+<li>Incorrect imports, package declarations, class/file names, or <code>main</code> signatures.</li>
+<li>Incompatible types, unsafe casts, incorrect generics, and confusion between primitive and reference types.</li>
+<li>Incorrect use of <code>==</code> for String content comparison instead of <code>.equals()</code>.</li>
+<li>Null handling that can cause <code>NullPointerException</code>.</li>
+<li>Incorrect resource handling, file paths, exception declarations, or broad catch blocks.</li>
+<li>Confusion among <code>Scanner.next()</code>, <code>nextLine()</code>, and numeric input, including the pending-newline issue.</li>
+<li>Unnecessary frameworks, Maven/Gradle dependencies, or architecture beyond the lesson.</li>
+<li>Long declarations, deeply nested code, and IDE-generated scaffolding that is difficult to navigate.</li>
+</ul>
+<p>Compile with the course’s JDK, read the complete diagnostic, and run tests. Check API and language claims in official Java documentation and the Java Language Specification.</p>
+<h3 id="screen-reader-and-ide-review"><a class="header" href="#screen-reader-and-ide-review">Screen-reader and IDE review</a></h3>
+<p>Review whether the learner can navigate package and class declarations, fields, constructors, methods, and <code>main</code>; identify braces and nested blocks; understand method names, parameters, return types, and access modifiers; and access diagnostics as text with reliable file and line references. Prefer a small number of clear classes and methods over elaborate architecture. Explain generated boilerplate rather than treating it as magic.</p>
+<h3 id="privacy-security-copyright-and-equity"><a class="header" href="#privacy-security-copyright-and-equity">Privacy, security, copyright, and equity</a></h3>
+<p>Do not enter student records, credentials, API keys, private repositories, or confidential school information into public AI systems. Follow school policy, approved-tool lists, age requirements, and data-protection obligations. Treat generated shell commands, build files, and dependency recommendations as untrusted. Verify library coordinates and maintainers before adding dependencies. Do not assume generated code is original or correctly licensed. Provide a non-AI alternative and discuss assumptions about visual IDE workflows and graphical output.</p>
+<h3 id="verification-protocol-ask--inspect--verify--adapt--explain--disclose"><a class="header" href="#verification-protocol-ask--inspect--verify--adapt--explain--disclose">Verification protocol: Ask – Inspect – Verify – Adapt – Explain – Disclose</a></h3>
+<ol>
+<li><strong>Ask:</strong> state the concept or error and what the student understands.</li>
+<li><strong>Inspect:</strong> identify unfamiliar types, APIs, dependencies, and assumptions.</li>
+<li><strong>Verify:</strong> consult official documentation, compile with the target JDK, and test normal, boundary, and invalid cases.</li>
+<li><strong>Adapt:</strong> simplify, correct, secure, and format for the learner’s level and access workflow.</li>
+<li><strong>Explain:</strong> have the learner explain each class, method, type, and exception path and make a modification independently.</li>
+<li><strong>Disclose:</strong> record the tool and its contribution when required.</li>
+</ol>
+<h3 id="activity-specific-policy"><a class="header" href="#activity-specific-policy">Activity-specific policy</a></h3>
+<ul>
+<li><strong>Practice:</strong> hints, explanations, and test ideas may be allowed; full solutions should be reserved for explicit code-review activities.</li>
+<li><strong>Projects:</strong> define permitted AI assistance in advance; require disclosure, tests, and an explanation of design decisions.</li>
+<li><strong>Individual assessments:</strong> AI should not perform the skill being measured unless the assessment explicitly evaluates AI-assisted development or an accommodation requires it.</li>
+<li><strong>Accessibility:</strong> screen readers, braille displays, magnification, and approved access tools are not prohibited answer-generation tools.</li>
+</ul>
+<h3 id="discussion-prompts"><a class="header" href="#discussion-prompts">Discussion prompts</a></h3>
+<ul>
+<li>An AI example compiles on a newer JDK but not on class machines. How can the learner identify the version dependency?</li>
+<li>An assistant uses <code>==</code> to compare two strings. How can the student demonstrate the defect?</li>
+<li>A generated program catches every exception and prints “Something went wrong.” Why is that inadequate?</li>
+<li>How can a learner distinguish understanding an object-oriented design from merely running it?</li>
+</ul>
+<hr>
+<h2 id="21-comprehensive-instructional-planning-and-course-implementation"><a class="header" href="#21-comprehensive-instructional-planning-and-course-implementation">21. Comprehensive Instructional Planning and Course Implementation</a></h2>
+<p>This section consolidates practices that apply across the philosophy, learner-context, classroom setup, spoken-code, unit, assessment, differentiation, and resource sections above. Use it as a course-planning reference from intake through capstone evaluation.</p>
+<h3 id="211-course-planning-and-alignment"><a class="header" href="#211-course-planning-and-alignment">21.1 Course planning and alignment</a></h3>
+<p>Map each unit to prerequisites, learning objectives, practice opportunities, and evidence of mastery. Do not assume every unit needs equal time.</p>
+<ul>
+<li>Identify outcomes: problem decomposition, code reading and writing, data representation, control flow, functions or methods, debugging, testing, and communication.</li>
+<li>Separate programming prerequisites from access-tool prerequisites.</li>
+<li>Record the operating system, editor/IDE, runtime, terminal, screen reader, braille display, magnification, and adaptive input technology used.</li>
+<li>Identify essential concepts, enrichment topics, and material that can be deferred without breaking later lessons.</li>
+<li>Plan checkpoints after each major concept group and adjust pacing using student evidence.</li>
+<li>Maintain a map linking each lesson to objectives, practice, assessment, accessibility considerations, and likely misconceptions.</li>
+</ul>
+<p>A suggested progression is environment and navigation; computing foundations; expressions and data; input/output; decisions and loops; collections; functions or methods; object-oriented concepts; files and errors; testing; projects; capstone. Preserve prerequisites when reordering.</p>
+<h3 id="212-readiness-and-learner-partnership"><a class="header" href="#212-readiness-and-learner-partnership">21.2 Readiness and learner partnership</a></h3>
+<p>Ask about preferred access methods, prior programming experience, keyboard navigation, file management, and what makes technical instruction usable. Ask about functional access requirements rather than requesting unnecessary diagnostic details.</p>
+<p>Use a low-stakes baseline activity to observe how the learner opens and navigates a source file, moves by line/word/character/symbol, creates and saves a file, runs a command, locates output, and reads a diagnostic. Record strengths and supports, not just deficits. Revisit the baseline to recognize growth. Keep the learner central to decisions about tools and workflow.</p>
+<h3 id="213-repeatable-lesson-architecture"><a class="header" href="#213-repeatable-lesson-architecture">21.3 Repeatable lesson architecture</a></h3>
+<ol>
+<li><strong>Purpose:</strong> state the problem the lesson addresses.</li>
+<li><strong>Prerequisite retrieval:</strong> revisit the prior concept needed today.</li>
+<li><strong>Vocabulary:</strong> define technical terms and spoken symbol conventions.</li>
+<li><strong>Explicit model:</strong> demonstrate a small runnable example and narrate navigation and code changes.</li>
+<li><strong>Trace:</strong> read the code structurally and predict behavior.</li>
+<li><strong>Guided practice:</strong> solve a similar problem with prompts and fading support.</li>
+<li><strong>Independent transfer:</strong> apply the concept to a new requirement.</li>
+<li><strong>Debug and reflect:</strong> examine an intentional error or unexpected result.</li>
+<li><strong>Exit check:</strong> collect an explanation, prediction, code change, or test.</li>
+</ol>
+<p>State one navigation action at a time, allow the learner to complete it, and confirm the result before continuing. Provide source files and commands in advance when possible. Narrate all actions in shared-screen demonstrations and provide an equivalent text-based route.</p>
+<h3 id="214-explicit-instruction-for-accessible-code-navigation"><a class="header" href="#214-explicit-instruction-for-accessible-code-navigation">21.4 Explicit instruction for accessible code navigation</a></h3>
+<p>Teach file structure before reading every line. Identify current focus and how to return to a known location. Teach line, word, character, symbol, selection, search, and go-to-line navigation, plus navigation to functions, methods, classes, and diagnostics. Explain indentation and block boundaries. Use manageable line lengths and avoid unnecessarily nested expressions. Give students time to read diagnostics and output independently. Do not take over the keyboard without explaining the action and obtaining the learner’s agreement.</p>
+<h3 id="215-language-specific-instructional-emphasis-java"><a class="header" href="#215-language-specific-instructional-emphasis-java">21.5 Language-specific instructional emphasis: Java</a></h3>
+<p>Java’s explicit types, compilation, and class structure require deliberate sequencing:</p>
+<ul>
+<li>Teach the JDK, compiler, runtime, source file, class, and <code>main</code> method before IDE-generated projects.</li>
+<li>State the target JDK version and explain when features require a newer release.</li>
+<li>Contrast primitive values and reference types, assignment and comparison, conversions, and integer versus floating-point division.</li>
+<li>Teach String content comparison with <code>.equals()</code>, not <code>==</code>, and explain null references.</li>
+<li>Model <code>Scanner</code> input carefully, especially the newline remaining after token or numeric reads.</li>
+<li>Teach array bounds, ArrayList operations, generic types, and collection selection with small examples.</li>
+<li>Separate method signature, parameter, argument, return type, and method call. Explain <code>static</code> versus instance behavior.</li>
+<li>Teach constructors, encapsulation, inheritance, and composition as design choices, not just syntax.</li>
+<li>Read compiler diagnostics before running; distinguish compile-time errors, runtime exceptions, and logic defects.</li>
+<li>Keep build tools and external dependencies out of early lessons unless required. Explain Maven or Gradle when introduced.</li>
+</ul>
+<h3 id="216-misconceptions-and-diagnostic-teaching"><a class="header" href="#216-misconceptions-and-diagnostic-teaching">21.6 Misconceptions and diagnostic teaching</a></h3>
+<p>Ask learners to predict behavior, explain their prediction, run a small experiment, and revise their mental model.</p>
+<div class="table-wrapper">
+<table>
+<thead>
+<tr><th>Common issue</th><th>Instructional response</th></tr>
+</thead>
+<tbody>
+<tr><td>Confusing assignment with comparison</td><td>Contrast operators and trace values before and after execution.</td></tr>
+<tr><td>Treating input as already numeric</td><td>Identify input type, convert explicitly, and test valid and invalid values.</td></tr>
+<tr><td>Off-by-one loop or index errors</td><td>Trace first, typical, and final iterations; state the valid index range.</td></tr>
+<tr><td>Choosing an unsuitable collection</td><td>Describe access patterns and required operations before choosing a structure.</td></tr>
+<tr><td>Writing one large function or method</td><td>Decompose the task by responsibility and test each part.</td></tr>
+<tr><td>Treating a running program as necessarily correct</td><td>Define expected behavior and test normal, boundary, and invalid inputs.</td></tr>
+<tr><td>Copying code without tracing it</td><td>Ask the learner to predict a new case and make a modification.</td></tr>
+<tr><td>Misreading an error message</td><td>Locate the useful diagnostic, identify file and line, and inspect surrounding code.</td></tr>
+</tbody>
+</table>
+</div>
+<p>Language-specific pitfalls include: primitive versus reference values; integer division; String identity versus content equality; null references; array bounds; constructor and method signatures; static versus instance members; checked exceptions; and the Scanner newline behavior.</p>
+<h3 id="217-differentiation-without-lowering-the-learning-objective"><a class="header" href="#217-differentiation-without-lowering-the-learning-objective">21.7 Differentiation without lowering the learning objective</a></h3>
+<p>Adjust the path, not the intellectual goal. Supports may include smaller task increments, additional practice, explicit worked examples, alternative information formats, extra navigation time, starter code with gradually faded scaffolding, oral explanation or accessible demonstration, pair programming with rotating roles, predictable routines, and enrichment tasks that deepen the same concept.</p>
+<p>Do not assume all blind students need the same support or that all low-vision students prefer magnification. Ask, document, and review supports with the learner.</p>
+<h3 id="218-formative-assessment-feedback-and-grading"><a class="header" href="#218-formative-assessment-feedback-and-grading">21.8 Formative assessment, feedback, and grading</a></h3>
+<p>Collect evidence frequently: explain a concept, predict output, trace a loop, justify a data structure, find and fix a bug, write a boundary test, refactor code, or demonstrate an accessible workflow.</p>
+<p>A practical rubric can score each dimension from 1 (beginning) to 4 (independent and consistent):</p>
+<div class="table-wrapper">
+<table>
+<thead>
+<tr><th>Dimension</th><th>Evidence</th></tr>
+</thead>
+<tbody>
+<tr><td>Conceptual reasoning</td><td>Explains the problem, algorithm, and language concepts</td></tr>
+<tr><td>Implementation</td><td>Produces a solution that meets requirements</td></tr>
+<tr><td>Code comprehension</td><td>Reads, traces, explains, and modifies code</td></tr>
+<tr><td>Testing and debugging</td><td>Uses test cases and interprets diagnostics</td></tr>
+<tr><td>Accessibility and communication</td><td>Produces understandable interaction and operates the workflow with access tools</td></tr>
+<tr><td>Independence and reflection</td><td>Describes decisions, limitations, and next steps</td></tr>
+</tbody>
+</table>
+</div>
+<p>Share criteria before assessment. Feedback should name observed behavior, explain its impact, and identify an actionable next step. Do not grade screen-reader speed, typing speed, or visual formatting as proxies for programming competence.</p>
+<h3 id="219-debugging-and-classroom-support-protocol"><a class="header" href="#219-debugging-and-classroom-support-protocol">21.9 Debugging and classroom support protocol</a></h3>
+<ol>
+<li>Ask the learner to describe expected behavior.</li>
+<li>Ask what actually happened.</li>
+<li>Read the complete error or diagnostic, including source and location.</li>
+<li>Identify the smallest relevant code section.</li>
+<li>Form one hypothesis.</li>
+<li>Change one thing and rerun the program or test.</li>
+<li>Record what the result taught the learner.</li>
+</ol>
+<p>Distinguish environment failures, tool-access failures, syntax/compile errors, runtime errors, and logic errors. Maintain a troubleshooting record with environment, exact command, error text, attempted correction, and outcome. Remove credentials and private information before sharing logs.</p>
+<h3 id="2110-pair-programming-and-collaboration"><a class="header" href="#2110-pair-programming-and-collaboration">21.10 Pair programming and collaboration</a></h3>
+<p>Use explicit roles: the <strong>driver</strong> controls the keyboard and implements the agreed step; the <strong>navigator</strong> reasons about the algorithm, checks requirements, proposes tests, and reviews the result. Rotate roles. Do not automatically assign a blind student the navigator role. Both learners should have opportunities to operate tools and write code. Provide shared source files and task instructions in accessible formats.</p>
+<h3 id="2111-project-and-capstone-supervision"><a class="header" href="#2111-project-and-capstone-supervision">21.11 Project and capstone supervision</a></h3>
+<p>Require a proposal that includes the problem and intended user, functional requirements, out-of-scope features, input/output design, data representation, major functions/methods/classes, accessibility requirements, milestones, tests, and any libraries or AI assistance used.</p>
+<p>Review milestones: requirements, design, first working slice, feature completion, tests, documentation, and final explanation. Encourage a modest, complete, well-tested project over an ambitious unfinished one.</p>
+<h3 id="2112-collaboration-with-families-and-support-professionals"><a class="header" href="#2112-collaboration-with-families-and-support-professionals">21.12 Collaboration with families and support professionals</a></h3>
+<p>When appropriate and with learner consent, coordinate with special educators, teachers of students with visual impairments, assistive-technology specialists, interpreters, and families. Agree on who supports access technology, who teaches programming, and how the student obtains help. Keep the learner’s agency central, share only necessary information, and follow school privacy policies. Do not make aides the default operators of the student’s computer.</p>
+<h3 id="2113-instructor-preparation-checklist"><a class="header" href="#2113-instructor-preparation-checklist">21.13 Instructor preparation checklist</a></h3>
+<p>Before each unit, complete the learner-facing activities; verify commands and versions on the classroom platform; test keyboard and assistive-technology workflows; prepare expected output and common error examples; identify vocabulary, symbols, misconceptions, and prerequisites; provide accessible instructions and assessment criteria; and decide how understanding will be observed.</p>
+<p>After each unit, review student work and feedback, note barriers, adjust pacing and scaffolds, and record reproducible corrections. Document agreed accommodations rather than silently changing expectations.</p>
+<h3 id="2114-quality-assurance-and-continuous-improvement"><a class="header" href="#2114-quality-assurance-and-continuous-improvement">21.14 Quality assurance and continuous improvement</a></h3>
+<p>Review links, software versions, commands, APIs, package recommendations, and assessment assumptions periodically. Test with actual screen readers and braille displays where possible; a successful build or visual inspection alone does not establish accessibility.</p>
+<p>When reporting a barrier, include the page, reproduction steps, operating system, editor/runtime version, assistive technology and version, expected behavior, and actual behavior. Exclude personally identifying or sensitive student information. Submit corrections through the project contribution process.</p>
+<hr>
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                            <a rel="prev" href="../GO/teachers-guide.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M41.4 233.4c-12.5 12.5-12.5 32.8 0 45.3l160 160c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L109.3 256 246.6 118.6c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0l-160 160z"/></svg></span>
+                            </a>
+
+                            <a rel="next prefetch" href="../JAVASCRIPT/teachers-guide.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M278.6 233.4c12.5 12.5 12.5 32.8 0 45.3l-160 160c-12.5 12.5-32.8 12.5-45.3 0s-12.5-32.8 0-45.3L210.7 256 73.4 118.6c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0l160 160z"/></svg></span>
+                            </a>
+
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                    <a rel="prev" href="../GO/teachers-guide.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M41.4 233.4c-12.5 12.5-12.5 32.8 0 45.3l160 160c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L109.3 256 246.6 118.6c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0l-160 160z"/></svg></span>
+                    </a>
+
+                    <a rel="next prefetch" href="../JAVASCRIPT/teachers-guide.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M278.6 233.4c12.5 12.5 12.5 32.8 0 45.3l-160 160c-12.5 12.5-32.8 12.5-45.3 0s-12.5-32.8 0-45.3L210.7 256 73.4 118.6c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0l160 160z"/></svg></span>
+                    </a>
+            </nav>
+
+        </div>
+
+        <template id=fa-eye><span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M288 32c-80.8 0-145.5 36.8-192.6 80.6C48.6 156 17.3 208 2.5 243.7c-3.3 7.9-3.3 16.7 0 24.6C17.3 304 48.6 356 95.4 399.4C142.5 443.2 207.2 480 288 480s145.5-36.8 192.6-80.6c46.8-43.5 78.1-95.4 93-131.1c3.3-7.9 3.3-16.7 0-24.6c-14.9-35.7-46.2-87.7-93-131.1C433.5 68.8 368.8 32 288 32zM432 256c0 79.5-64.5 144-144 144s-144-64.5-144-144s64.5-144 144-144s144 64.5 144 144zM288 192c0 35.3-28.7 64-64 64c-11.5 0-22.3-3-31.6-8.4c-.2 2.8-.4 5.5-.4 8.4c0 53 43 96 96 96s96-43 96-96s-43-96-96-96c-2.8 0-5.6 .1-8.4 .4c5.3 9.3 8.4 20.1 8.4 31.6z"/></svg></span></template>
+        <template id=fa-eye-slash><span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M38.8 5.1C28.4-3.1 13.3-1.2 5.1 9.2S-1.2 34.7 9.2 42.9l592 464c10.4 8.2 25.5 6.3 33.7-4.1s6.3-25.5-4.1-33.7L525.6 386.7c39.6-40.6 66.4-86.1 79.9-118.4c3.3-7.9 3.3-16.7 0-24.6c-14.9-35.7-46.2-87.7-93-131.1C465.5 68.8 400.8 32 320 32c-68.2 0-125 26.3-169.3 60.8L38.8 5.1zM223.1 149.5C248.6 126.2 282.7 112 320 112c79.5 0 144 64.5 144 144c0 24.9-6.3 48.3-17.4 68.7L408 294.5c5.2-11.8 8-24.8 8-38.5c0-53-43-96-96-96c-2.8 0-5.6 .1-8.4 .4c5.3 9.3 8.4 20.1 8.4 31.6c0 10.2-2.4 19.8-6.6 28.3l-90.3-70.8zm223.1 298L373 389.9c-16.4 6.5-34.3 10.1-53 10.1c-79.5 0-144-64.5-144-144c0-6.9 .5-13.6 1.4-20.2L83.1 161.5C60.3 191.2 44 220.8 34.5 243.7c-3.3 7.9-3.3 16.7 0 24.6c14.9 35.7 46.2 87.7 93 131.1C174.5 443.2 239.2 480 320 480c47.8 0 89.9-12.9 126.2-32.5z"/></svg></span></template>
+        <template id=fa-copy><span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M502.6 70.63l-61.25-61.25C435.4 3.371 427.2 0 418.7 0H255.1c-35.35 0-64 28.66-64 64l.0195 256C192 355.4 220.7 384 256 384h192c35.2 0 64-28.8 64-64V93.25C512 84.77 508.6 76.63 502.6 70.63zM464 320c0 8.836-7.164 16-16 16H255.1c-8.838 0-16-7.164-16-16L239.1 64.13c0-8.836 7.164-16 16-16h128L384 96c0 17.67 14.33 32 32 32h47.1V320zM272 448c0 8.836-7.164 16-16 16H63.1c-8.838 0-16-7.164-16-16L47.98 192.1c0-8.836 7.164-16 16-16H160V128H63.99c-35.35 0-64 28.65-64 64l.0098 256C.002 483.3 28.66 512 64 512h192c35.2 0 64-28.8 64-64v-32h-47.1L272 448z"/></svg></span></template>
+        <template id=fa-play><span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M73 39c-14.8-9.1-33.4-9.4-48.5-.9S0 62.6 0 80V432c0 17.4 9.4 33.4 24.5 41.9s33.7 8.1 48.5-.9L361 297c14.3-8.7 23-24.2 23-41s-8.7-32.2-23-41L73 39z"/></svg></span></template>
+        <template id=fa-clock-rotate-left><span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M75 75L41 41C25.9 25.9 0 36.6 0 57.9V168c0 13.3 10.7 24 24 24H134.1c21.4 0 32.1-25.9 17-41l-30.8-30.8C155 85.5 203 64 256 64c106 0 192 86 192 192s-86 192-192 192c-40.8 0-78.6-12.7-109.7-34.4c-14.5-10.1-34.4-6.6-44.6 7.9s-6.6 34.4 7.9 44.6C151.2 495 201.7 512 256 512c141.4 0 256-114.6 256-256S397.4 0 256 0C185.3 0 121.3 28.7 75 75zm181 53c-13.3 0-24 10.7-24 24V256c0 6.4 2.5 12.5 7 17l72 72c9.4 9.4 24.6 9.4 33.9 0s9.4-24.6 0-33.9l-65-65V152c0-13.3-10.7-24-24-24z"/></svg></span></template>
+
+
+
+        <script>
+            window.playground_copyable = true;
+        </script>
+
+
+        <script src="../elasticlunr-ef4e11c1.min.js"></script>
+        <script src="../mark-09e88c2c.min.js"></script>
+        <script src="../searcher-09f2665d.js"></script>
+
+        <script src="../clipboard-1626706a.min.js"></script>
+        <script src="../highlight-abc7f01d.js"></script>
+        <script src="../book-609e4cb8.js"></script>
+
+        <!-- Custom JS scripts -->
+
+
+
+    </div>
+    </body>
+</html>

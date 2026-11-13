@@ -1,0 +1,597 @@
+<!DOCTYPE HTML>
+<html lang="en" class="rust sidebar-visible" dir="ltr">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>Unit 2 - Accessible Introduction to Computer Science</title>
+
+
+        <!-- Custom HTML head -->
+
+        <meta name="description" content="Introductory programming curricula, each adapted for visually impaired students who use screen readers">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff">
+
+        <link rel="icon" href="../favicon-de23e50b.svg">
+        <link rel="shortcut icon" href="../favicon-8114d1fc.png">
+        <link rel="stylesheet" href="../css/variables-8adf115d.css">
+        <link rel="stylesheet" href="../css/general-e96d0476.css">
+        <link rel="stylesheet" href="../css/chrome-d279d366.css">
+        <link rel="stylesheet" href="../css/print-9e4910d8.css" media="print">
+
+        <!-- Fonts -->
+        <link rel="stylesheet" href="../fonts/fonts-9644e21d.css">
+
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" id="mdbook-highlight-css" href="../highlight-493f70e1.css">
+        <link rel="stylesheet" id="mdbook-tomorrow-night-css" href="../tomorrow-night-4c0ae647.css">
+        <link rel="stylesheet" id="mdbook-ayu-highlight-css" href="../ayu-highlight-3fdfc3ac.css">
+
+        <!-- Custom theme stylesheets -->
+
+
+        <!-- Provide site root and default themes to javascript -->
+        <script>
+            const path_to_root = "../";
+            const default_light_theme = "rust";
+            const default_dark_theme = "navy";
+            window.path_to_searchindex_js = "../searchindex-1d296e4e.js";
+        </script>
+        <!-- Start loading toc.js asap -->
+        <script src="../toc-62d8efca.js"></script>
+    </head>
+    <body>
+    <div id="mdbook-help-container">
+        <div id="mdbook-help-popup">
+            <h2 class="mdbook-help-title">Keyboard shortcuts</h2>
+            <div>
+                <p>Press <kbd>←</kbd> or <kbd>→</kbd> to navigate between chapters</p>
+                <p>Press <kbd>S</kbd> or <kbd>/</kbd> to search in the book</p>
+                <p>Press <kbd>?</kbd> to show this help</p>
+                <p>Press <kbd>Esc</kbd> to hide this help</p>
+            </div>
+        </div>
+    </div>
+    <div id="mdbook-body-container">
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script>
+            try {
+                let theme = localStorage.getItem('mdbook-theme');
+                let sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script>
+            const default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? default_dark_theme : default_light_theme;
+            let theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            const html = document.documentElement;
+            html.classList.remove('rust')
+            html.classList.add(theme);
+            html.classList.add("js");
+        </script>
+
+        <input type="checkbox" id="mdbook-sidebar-toggle-anchor" class="hidden">
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script>
+            let sidebar = null;
+            const sidebar_toggle = document.getElementById("mdbook-sidebar-toggle-anchor");
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            } else {
+                sidebar = 'hidden';
+                sidebar_toggle.checked = false;
+            }
+            if (sidebar === 'visible') {
+                sidebar_toggle.checked = true;
+            } else {
+                html.classList.remove('sidebar-visible');
+            }
+        </script>
+
+        <nav id="mdbook-sidebar" class="sidebar" aria-label="Table of contents">
+            <!-- populated by js -->
+            <mdbook-sidebar-scrollbox class="sidebar-scrollbox"></mdbook-sidebar-scrollbox>
+            <noscript>
+                <iframe class="sidebar-iframe-outer" src="../toc.html"></iframe>
+            </noscript>
+            <div id="mdbook-sidebar-resize-handle" class="sidebar-resize-handle">
+                <div class="sidebar-resize-indicator"></div>
+            </div>
+        </nav>
+
+        <div id="mdbook-page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                <div id="mdbook-menu-bar-hover-placeholder"></div>
+                <div id="mdbook-menu-bar" class="menu-bar sticky">
+                    <div class="left-buttons">
+                        <label id="mdbook-sidebar-toggle" class="icon-button" for="mdbook-sidebar-toggle-anchor" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="mdbook-sidebar">
+                            <span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M0 96C0 78.3 14.3 64 32 64H416c17.7 0 32 14.3 32 32s-14.3 32-32 32H32C14.3 128 0 113.7 0 96zM0 256c0-17.7 14.3-32 32-32H416c17.7 0 32 14.3 32 32s-14.3 32-32 32H32c-17.7 0-32-14.3-32-32zM448 416c0 17.7-14.3 32-32 32H32c-17.7 0-32-14.3-32-32s14.3-32 32-32H416c17.7 0 32 14.3 32 32z"/></svg></span>
+                        </label>
+                        <button id="mdbook-theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="mdbook-theme-list">
+                            <span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M371.3 367.1c27.3-3.9 51.9-19.4 67.2-42.9L600.2 74.1c12.6-19.5 9.4-45.3-7.6-61.2S549.7-4.4 531.1 9.6L294.4 187.2c-24 18-38.2 46.1-38.4 76.1L371.3 367.1zm-19.6 25.4l-116-104.4C175.9 290.3 128 339.6 128 400c0 3.9 .2 7.8 .6 11.6c1.8 17.5-10.2 36.4-27.8 36.4H96c-17.7 0-32 14.3-32 32s14.3 32 32 32H240c61.9 0 112-50.1 112-112c0-2.5-.1-5-.2-7.5z"/></svg></span>
+                        </button>
+                        <ul id="mdbook-theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="mdbook-theme-default_theme">Auto</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="mdbook-theme-light">Light</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="mdbook-theme-rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="mdbook-theme-coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="mdbook-theme-navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="mdbook-theme-ayu">Ayu</button></li>
+                        </ul>
+                        <button id="mdbook-search-toggle" class="icon-button" type="button" title="Search (`/`)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="/ s" aria-controls="mdbook-searchbar">
+                            <span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M416 208c0 45.9-14.9 88.3-40 122.7L502.6 457.4c12.5 12.5 12.5 32.8 0 45.3s-32.8 12.5-45.3 0L330.7 376c-34.4 25.2-76.8 40-122.7 40C93.1 416 0 322.9 0 208S93.1 0 208 0S416 93.1 416 208zM208 352c79.5 0 144-64.5 144-144s-64.5-144-144-144S64 128.5 64 208s64.5 144 144 144z"/></svg></span>
+                        </button>
+                    </div>
+
+                    <h1 class="menu-title">Accessible Introduction to Computer Science</h1>
+
+                    <div class="right-buttons">
+                        <a href="../print.html" title="Print this book" aria-label="Print this book">
+                            <span class=fa-svg id="print-button"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M128 0C92.7 0 64 28.7 64 64v96h64V64H354.7L384 93.3V160h64V93.3c0-17-6.7-33.3-18.7-45.3L400 18.7C388 6.7 371.7 0 354.7 0H128zM384 352v32 64H128V384 368 352H384zm64 32h32c17.7 0 32-14.3 32-32V256c0-35.3-28.7-64-64-64H64c-35.3 0-64 28.7-64 64v96c0 17.7 14.3 32 32 32H64v64c0 35.3 28.7 64 64 64H384c35.3 0 64-28.7 64-64V384zm-16-88c-13.3 0-24-10.7-24-24s10.7-24 24-24s24 10.7 24 24s-10.7 24-24 24z"/></svg></span>
+                        </a>
+                        <a href="https://github.com/mrhunsaker/VI_Focused_Coding_Curricula" title="Git repository" aria-label="Git repository">
+                            <span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"/></svg></span>
+                        </a>
+
+                    </div>
+                </div>
+
+                <div id="mdbook-search-wrapper" class="hidden">
+                    <form id="mdbook-searchbar-outer" class="searchbar-outer">
+                        <div class="search-wrapper">
+                            <input type="search" id="mdbook-searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="mdbook-searchresults-outer" aria-describedby="searchresults-header">
+                            <div class="spinner-wrapper">
+                                <span class=fa-svg id="fa-spin"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M304 48c0-26.5-21.5-48-48-48s-48 21.5-48 48s21.5 48 48 48s48-21.5 48-48zm0 416c0-26.5-21.5-48-48-48s-48 21.5-48 48s21.5 48 48 48s48-21.5 48-48zM48 304c26.5 0 48-21.5 48-48s-21.5-48-48-48s-48 21.5-48 48s21.5 48 48 48zm464-48c0-26.5-21.5-48-48-48s-48 21.5-48 48s21.5 48 48 48s48-21.5 48-48zM142.9 437c18.7-18.7 18.7-49.1 0-67.9s-49.1-18.7-67.9 0s-18.7 49.1 0 67.9s49.1 18.7 67.9 0zm0-294.2c18.7-18.7 18.7-49.1 0-67.9S93.7 56.2 75 75s-18.7 49.1 0 67.9s49.1 18.7 67.9 0zM369.1 437c18.7 18.7 49.1 18.7 67.9 0s18.7-49.1 0-67.9s-49.1-18.7-67.9 0s-18.7 49.1 0 67.9z"/></svg></span>
+                            </div>
+                        </div>
+                    </form>
+                    <div id="mdbook-searchresults-outer" class="searchresults-outer hidden">
+                        <div id="mdbook-searchresults-header" class="searchresults-header"></div>
+                        <ul id="mdbook-searchresults">
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script>
+                    document.getElementById('mdbook-sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('mdbook-sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#mdbook-sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="mdbook-content" class="content">
+                    <main>
+                        <h1 id="unit-2-numeric-computations"><a class="header" href="#unit-2-numeric-computations">Unit 2: Numeric Computations</a></h1>
+<h2 id="overview"><a class="header" href="#overview">Overview</a></h2>
+<p>Plan and build the tip calculator, learn the language’s numeric operators and conversions, read typed input safely, and use the math library.</p>
+<hr>
+<h2 id="lesson-21-the-software-development-process"><a class="header" href="#lesson-21-the-software-development-process">Lesson 2.1: The Software Development Process</a></h2>
+<h3 id="reading-references"><a class="header" href="#reading-references">Reading References</a></h3>
+<ul>
+<li><a href="https://kotlinlang.org/docs/basic-syntax.html">Basic syntax</a></li>
+<li><a href="https://kotlinlang.org/docs/basic-types.html">Basic types</a></li>
+<li>Matching Python lesson: Lesson 2.1: The Software Development Process</li>
+</ul>
+<h3 id="learning-objectives"><a class="header" href="#learning-objectives">Learning Objectives</a></h3>
+<ul>
+<li>Describe the design, implement, and test cycle.</li>
+<li>Write pseudocode for the tip calculator and implement it.</li>
+<li>Explain why money is formatted to two decimals.</li>
+</ul>
+<h3 id="concept-explanation"><a class="header" href="#concept-explanation">Concept Explanation</a></h3>
+<p>Software is built in a cycle: understand the problem, design a solution, implement it, test it, and refine it. Design comes first. For the tip calculator the plan is: get the bill, calculate 15 percent of it as the tip, add the tip to the bill for the total, and print the tip and the total.</p>
+<p>With the shared values (bill 24.50, tip rate 0.15) the exact tip is 3.675 and the total is 28.175. <code>"%.2f".format(x)</code> formats a number with two decimals. On the JVM, formatting rounds half up using the decimal digits of the <code>Double</code>, so Kotlin and Java display the tip as <strong>3.68</strong>; Python, C, Go, and several other languages display 3.67 for the same stored number. Both are correct displays of the same value.</p>
+<p>Formatting uses the default <em>locale</em>. In a locale that writes decimals with a comma, <code>"%.2f".format(x)</code> prints a comma. Pass <code>java.util.Locale.US</code> as the first argument for fixed output.</p>
+<h3 id="worked-example"><a class="header" href="#worked-example">Worked Example</a></h3>
+<pre><code class="language-kotlin">fun main() {
+    val bill = 24.5
+    val tipRate = 0.15
+
+    val tip = bill * tipRate
+    val total = bill + tip
+
+    println("Bill: " + "%.2f".format(bill))
+    println("Tip: " + "%.2f".format(tip))
+    println("Total: " + "%.2f".format(total))
+    println("Tip with an explicit locale: " + "%.2f".format(java.util.Locale.US, tip))
+    println("Unformatted tip: $tip")
+}
+</code></pre>
+<h3 id="expected-behavior-or-output"><a class="header" href="#expected-behavior-or-output">Expected Behavior or Output</a></h3>
+<p>The program prints:</p>
+<pre><code class="language-text">Bill: 24.50
+Tip: 3.68
+Total: 28.18
+Tip with an explicit locale: 3.68
+Unformatted tip: 3.675
+</code></pre>
+<h3 id="common-mistakes"><a class="header" href="#common-mistakes">Common Mistakes</a></h3>
+<ol>
+<li>Writing the rate as 15 instead of 0.15, which makes the tip fifteen times too large.</li>
+<li>Rounding the tip first and then adding it, which can change the total by a cent.</li>
+<li>Assuming every language prints the same two-decimal text for 3.675.</li>
+</ol>
+<h3 id="activities"><a class="header" href="#activities">Activities</a></h3>
+<ol>
+<li>Trace the plan with the shared values and write each result as a sentence.</li>
+<li>Change the rate to 0.20 and predict the tip and total (4.90 and 29.40).</li>
+<li>Add a test for a bill of 100 with a written expected result before running.</li>
+<li>Explain in two sentences why the program prints 3.68 even though the stored value is just below 3.675.</li>
+</ol>
+<h3 id="accessibility-practice"><a class="header" href="#accessibility-practice">Accessibility Practice</a></h3>
+<p>Print each result on its own labelled line (<code>Tip: 3.68</code>) so a screen reader announces one clear unit per line. Never use alignment or spacing to carry meaning.</p>
+<h3 id="skills-checklist"><a class="header" href="#skills-checklist">Skills Checklist</a></h3>
+<ul>
+<li><input disabled="" type="checkbox"> I can name the stages of the development cycle.</li>
+<li><input disabled="" type="checkbox"> I can write pseudocode for a calculation.</li>
+<li><input disabled="" type="checkbox"> I can format a number with <code>format</code>.</li>
+<li><input disabled="" type="checkbox"> I know formatting depends on the locale.</li>
+<li><input disabled="" type="checkbox"> I can explain why displays can differ between languages.</li>
+</ul>
+<hr>
+<h2 id="lesson-22-expressions-and-assignment"><a class="header" href="#lesson-22-expressions-and-assignment">Lesson 2.2: Expressions and Assignment</a></h2>
+<h3 id="reading-references-1"><a class="header" href="#reading-references-1">Reading References</a></h3>
+<ul>
+<li><a href="https://kotlinlang.org/docs/basic-types.html">Basic types</a></li>
+<li><a href="https://kotlinlang.org/docs/basic-syntax.html">Basic syntax</a></li>
+<li>Matching Python lesson: Lesson 2.2: Elements of Programs - Expressions and Assignment</li>
+</ul>
+<h3 id="learning-objectives-1"><a class="header" href="#learning-objectives-1">Learning Objectives</a></h3>
+<ul>
+<li>Evaluate expressions using operator precedence.</li>
+<li>Use integer division, remainder, and compound assignment.</li>
+<li>Join strings with templates and <code>+</code>.</li>
+</ul>
+<h3 id="concept-explanation-1"><a class="header" href="#concept-explanation-1">Concept Explanation</a></h3>
+<p>An <em>expression</em> produces a value. The arithmetic operators are <code>+</code>, <code>-</code>, <code>*</code>, <code>/</code>, and <code>%</code> (remainder). Multiplication, division, and remainder happen before addition and subtraction, and parentheses change the order, so <code>8 + 4 * 2</code> is 16 and <code>(8 + 4) * 2</code> is 24.</p>
+<p><strong>Division depends on the types.</strong> Two <code>Int</code> values give an <code>Int</code>, so <code>7 / 2</code> is <code>3</code>. If either side is a <code>Double</code>, the result is a <code>Double</code>, so <code>7 / 2.0</code> is <code>3.5</code>. The remainder <code>7 % 2</code> is <code>1</code>.</p>
+<p><em>Assignment</em> stores a value: <code>score = score + 9</code>, shortened to <code>score += 9</code>. Only a <code>var</code> can be assigned again. Comparison uses <code>==</code>, <code>!=</code>, <code>&lt;</code>, <code>&lt;=</code>, <code>&gt;</code>, and <code>&gt;=</code>. In Kotlin <code>==</code> compares values, not identities.</p>
+<p>Kotlin does not convert numbers automatically: you cannot add an <code>Int</code> variable to a <code>Long</code> variable without a conversion. This catches mistakes at compile time.</p>
+<h3 id="worked-example-1"><a class="header" href="#worked-example-1">Worked Example</a></h3>
+<pre><code class="language-kotlin">fun main() {
+    println(8 + 4 * 2)
+    println((8 + 4) * 2)
+
+    var score = 82
+    score += 9
+    println("New score: $score")
+
+    println(7 / 2)
+    println(7 / 2.0)
+    println(7 % 2)
+    println(-7 / 2)
+    println(5 != 6)
+    println("Avery" + " " + "Student")
+}
+</code></pre>
+<h3 id="expected-behavior-or-output-1"><a class="header" href="#expected-behavior-or-output-1">Expected Behavior or Output</a></h3>
+<p>The program prints:</p>
+<pre><code class="language-text">16
+24
+New score: 91
+3
+3.5
+1
+-3
+true
+Avery Student
+</code></pre>
+<h3 id="common-mistakes-1"><a class="header" href="#common-mistakes-1">Common Mistakes</a></h3>
+<ol>
+<li>Expecting <code>7 / 2</code> to be <code>3.5</code>. With two <code>Int</code> values the fraction is dropped.</li>
+<li>Reassigning a <code>val</code>, which is a compile error.</li>
+<li>Writing <code>score =+ 9</code> and storing positive nine instead of adding.</li>
+</ol>
+<h3 id="activities-1"><a class="header" href="#activities-1">Activities</a></h3>
+<ol>
+<li>Predict the ten output lines before running, then compare.</li>
+<li>Write an expression for the area and the perimeter of a 12 by 8 rectangle.</li>
+<li>Explain why <code>-7 / 2</code> prints <code>-3</code> rather than <code>-4</code>.</li>
+<li>Join your name, a space, and your age into one string in two different ways.</li>
+</ol>
+<h3 id="accessibility-practice-1"><a class="header" href="#accessibility-practice-1">Accessibility Practice</a></h3>
+<p>Say operators by name when reading code aloud (‘slash’, ‘percent’, ‘plus equals’). Raise your punctuation level while checking expressions so that parentheses and operators are all announced.</p>
+<h3 id="skills-checklist-1"><a class="header" href="#skills-checklist-1">Skills Checklist</a></h3>
+<ul>
+<li><input disabled="" type="checkbox"> I can apply operator precedence.</li>
+<li><input disabled="" type="checkbox"> I can predict <code>Int</code> and <code>Double</code> division.</li>
+<li><input disabled="" type="checkbox"> I can use <code>+=</code> and <code>%</code>.</li>
+<li><input disabled="" type="checkbox"> I know only <code>var</code> can be reassigned.</li>
+<li><input disabled="" type="checkbox"> I can join strings.</li>
+</ul>
+<hr>
+<h2 id="lesson-23-console-input-and-output"><a class="header" href="#lesson-23-console-input-and-output">Lesson 2.3: Console Input and Output</a></h2>
+<h3 id="reading-references-2"><a class="header" href="#reading-references-2">Reading References</a></h3>
+<ul>
+<li><a href="https://kotlinlang.org/docs/basic-syntax.html">Basic syntax</a></li>
+<li><a href="https://kotlinlang.org/docs/null-safety.html">Null safety</a></li>
+<li>Matching Python lesson: Lesson 2.3: Input and Output Revisited</li>
+</ul>
+<h3 id="learning-objectives-2"><a class="header" href="#learning-objectives-2">Learning Objectives</a></h3>
+<ul>
+<li>Read a line with <code>readlnOrNull</code>.</li>
+<li>Convert text with <code>toIntOrNull</code>.</li>
+<li>Handle missing and invalid input.</li>
+</ul>
+<h3 id="concept-explanation-2"><a class="header" href="#concept-explanation-2">Concept Explanation</a></h3>
+<p><code>readlnOrNull()</code> reads one line from standard input and returns a <code>String?</code>: the text without the line ending, or <code>null</code> at the end of input. <code>readln()</code> is similar but throws an exception at the end of input, so this course prefers <code>readlnOrNull()</code>.</p>
+<p>Typed text is always a string. <code>toIntOrNull()</code> returns an <code>Int?</code>: the number, or <code>null</code> when the text is not a valid whole number. The safe-call operator <code>?.</code> stops a chain at <code>null</code>, so <code>readlnOrNull()?.trim()?.toIntOrNull()</code> reads, trims, and converts, and gives <code>null</code> if any step has nothing to work on.</p>
+<p>After a null check on a <code>val</code>, Kotlin treats the value as non-null: this is a <em>smart cast</em>. The example reads a name and two numbers and prints a greeting and their sum. With Avery, 12, and 8 the sum is 20. Prompts are printed on their own lines so the screen reader reads each cleanly.</p>
+<h3 id="worked-example-2"><a class="header" href="#worked-example-2">Worked Example</a></h3>
+<pre><code class="language-kotlin">fun main() {
+    println("Enter your name:")
+    val name = readlnOrNull()
+    println("Enter the first number:")
+    val first = readlnOrNull()?.trim()?.toIntOrNull()
+    println("Enter the second number:")
+    val second = readlnOrNull()?.trim()?.toIntOrNull()
+
+    if (name != null &amp;&amp; first != null &amp;&amp; second != null) {
+        println("Hello, $name!")
+        println("The sum of $first and $second is ${first + second}.")
+    } else {
+        println("Input was missing or not a number.")
+    }
+}
+</code></pre>
+<h3 id="expected-behavior-or-output-2"><a class="header" href="#expected-behavior-or-output-2">Expected Behavior or Output</a></h3>
+<p>With the following lines typed as standard input (piped input is not echoed, so it does not appear in the output):</p>
+<pre><code class="language-text">Avery
+12
+8
+</code></pre>
+<p>the program prints:</p>
+<pre><code class="language-text">Enter your name:
+Enter the first number:
+Enter the second number:
+Hello, Avery!
+The sum of 12 and 8 is 20.
+</code></pre>
+<p>With no standard input at all, the program ends cleanly and prints:</p>
+<pre><code class="language-text">Enter your name:
+Enter the first number:
+Enter the second number:
+Input was missing or not a number.
+</code></pre>
+<h3 id="common-mistakes-2"><a class="header" href="#common-mistakes-2">Common Mistakes</a></h3>
+<ol>
+<li>Using <code>readln()</code> and crashing at the end of input.</li>
+<li>Doing arithmetic on a <code>String</code> read from input without converting it.</li>
+<li>Using <code>!!</code> to silence the null check, which crashes on exactly the input the program should handle.</li>
+</ol>
+<h3 id="activities-2"><a class="header" href="#activities-2">Activities</a></h3>
+<ol>
+<li>Run with Avery, 12, and 8 and confirm the output.</li>
+<li>Type <code>twelve</code> for the first number and explain the result.</li>
+<li>Run with no input and describe the output.</li>
+<li>Change the program to subtract the second number from the first.</li>
+</ol>
+<h3 id="accessibility-practice-2"><a class="header" href="#accessibility-practice-2">Accessibility Practice</a></h3>
+<p>Every prompt is a complete sentence on its own line and every result is a complete sentence. When you test, listen for whether the prompt is read in full before you begin to type.</p>
+<h3 id="skills-checklist-2"><a class="header" href="#skills-checklist-2">Skills Checklist</a></h3>
+<ul>
+<li><input disabled="" type="checkbox"> I can read a line with <code>readlnOrNull</code>.</li>
+<li><input disabled="" type="checkbox"> I can convert text with <code>toIntOrNull</code>.</li>
+<li><input disabled="" type="checkbox"> I understand <code>String?</code> and <code>?.</code>.</li>
+<li><input disabled="" type="checkbox"> I can write clear prompts.</li>
+<li><input disabled="" type="checkbox"> I handle missing and invalid input.</li>
+</ul>
+<hr>
+<h2 id="lesson-24-numbers-and-type-conversions"><a class="header" href="#lesson-24-numbers-and-type-conversions">Lesson 2.4: Numbers and Type Conversions</a></h2>
+<h3 id="reading-references-3"><a class="header" href="#reading-references-3">Reading References</a></h3>
+<ul>
+<li><a href="https://kotlinlang.org/docs/basic-types.html">Basic types</a></li>
+<li><a href="https://kotlinlang.org/docs/basic-syntax.html">Basic syntax</a></li>
+<li>Matching Python lesson: Lesson 2.4: Computing with Numbers and Type Conversions</li>
+</ul>
+<h3 id="learning-objectives-3"><a class="header" href="#learning-objectives-3">Learning Objectives</a></h3>
+<ul>
+<li>Convert explicitly between numbers and text.</li>
+<li>Explain truncation and rounding.</li>
+<li>Explain why decimal arithmetic is approximate.</li>
+</ul>
+<h3 id="concept-explanation-3"><a class="header" href="#concept-explanation-3">Concept Explanation</a></h3>
+<p>Kotlin never converts numeric types for you. Use the conversion functions: <code>toInt()</code>, <code>toLong()</code>, <code>toDouble()</code>, and <code>toString()</code>. <code>"16".toInt()</code> converts text and throws an exception if the text is invalid, so for typed input prefer <code>toIntOrNull()</code> and <code>toDoubleOrNull()</code>, which return <code>null</code> instead.</p>
+<p><code>toInt()</code> on a <code>Double</code> <strong>truncates</strong> toward zero: <code>3.9.toInt()</code> is <code>3</code>. To round, use <code>kotlin.math.roundToInt()</code>, which rounds halves up: <code>3.5.roundToInt()</code> is <code>4</code>.</p>
+<p>A <code>Double</code> is a binary approximation. <code>0.1 + 0.2</code> is <code>0.30000000000000004</code>, not <code>0.3</code>; this is correct behavior. Compare decimals with a tolerance and format them for display.</p>
+<p>The shared student has age 16 and height 1.72 meters; the example converts text to those values and computes the height in centimeters.</p>
+<h3 id="worked-example-3"><a class="header" href="#worked-example-3">Worked Example</a></h3>
+<pre><code class="language-kotlin">import kotlin.math.roundToInt
+
+fun main() {
+    val age = "16".toInt()
+    val height = "1.72".toDouble()
+    println("$age ${age::class.simpleName}")
+    println("$height ${height::class.simpleName}")
+
+    println("abc".toIntOrNull())
+    println("".toIntOrNull())
+    println(42.toString() + " is now text")
+
+    println(3.9.toInt())
+    println(3.5.roundToInt())
+    println(0.1 + 0.2)
+
+    val heightCm = height * 100
+    println("Height in centimeters: " + "%.1f".format(heightCm))
+}
+</code></pre>
+<h3 id="expected-behavior-or-output-3"><a class="header" href="#expected-behavior-or-output-3">Expected Behavior or Output</a></h3>
+<p>The program prints:</p>
+<pre><code class="language-text">16 Int
+1.72 Double
+null
+null
+42 is now text
+3
+4
+0.30000000000000004
+Height in centimeters: 172.0
+</code></pre>
+<h3 id="common-mistakes-3"><a class="header" href="#common-mistakes-3">Common Mistakes</a></h3>
+<ol>
+<li>Using <code>toInt()</code> on untrusted text and crashing with <code>NumberFormatException</code>.</li>
+<li>Expecting <code>toInt()</code> to round. It truncates.</li>
+<li>Comparing decimals with <code>==</code> after arithmetic.</li>
+</ol>
+<h3 id="activities-3"><a class="header" href="#activities-3">Activities</a></h3>
+<ol>
+<li>Predict each of the ten lines before running, then compare.</li>
+<li>Check what <code>" 16 ".toIntOrNull()</code> and <code>"1e3".toDoubleOrNull()</code> return and explain each.</li>
+<li>Write code that reads a line and prints a clear message when the conversion fails.</li>
+<li>Explain the difference between <code>3.5.toInt()</code> and <code>3.5.roundToInt()</code>.</li>
+</ol>
+<h3 id="accessibility-practice-3"><a class="header" href="#accessibility-practice-3">Accessibility Practice</a></h3>
+<p>Format floating-point results so that the screen reader reads short numbers. Read the type names aloud and note that <code>Int</code> and <code>Double</code> are announced as words, not symbols.</p>
+<h3 id="skills-checklist-3"><a class="header" href="#skills-checklist-3">Skills Checklist</a></h3>
+<ul>
+<li><input disabled="" type="checkbox"> I can convert between text and numbers.</li>
+<li><input disabled="" type="checkbox"> I know <code>toInt()</code> truncates.</li>
+<li><input disabled="" type="checkbox"> I can use <code>roundToInt()</code>.</li>
+<li><input disabled="" type="checkbox"> I can use <code>toIntOrNull()</code>.</li>
+<li><input disabled="" type="checkbox"> I can explain why decimals are approximate.</li>
+</ul>
+<hr>
+<h2 id="lesson-25-using-the-math-library"><a class="header" href="#lesson-25-using-the-math-library">Lesson 2.5: Using the Math Library</a></h2>
+<h3 id="reading-references-4"><a class="header" href="#reading-references-4">Reading References</a></h3>
+<ul>
+<li><a href="https://kotlinlang.org/docs/basic-types.html">Basic types</a></li>
+<li><a href="https://kotlinlang.org/docs/../api/latest/jvm/stdlib/kotlin.math/">Kotlin standard library: kotlin.math</a></li>
+<li>Matching Python lesson: Lesson 2.5: Using the Math Library</li>
+</ul>
+<h3 id="learning-objectives-4"><a class="header" href="#learning-objectives-4">Learning Objectives</a></h3>
+<ul>
+<li>Use <code>PI</code>, <code>sqrt</code>, <code>pow</code>, and <code>hypot</code> from <code>kotlin.math</code>.</li>
+<li>Compute circle area and circumference.</li>
+<li>Compute the distance from the origin.</li>
+</ul>
+<h3 id="concept-explanation-4"><a class="header" href="#concept-explanation-4">Concept Explanation</a></h3>
+<p>The <code>kotlin.math</code> package supplies <code>PI</code>, <code>sqrt</code>, <code>abs</code>, <code>max</code>, <code>min</code>, <code>floor</code>, <code>ceil</code>, <code>hypot</code>, and the <code>pow</code> extension function. Import what you use: <code>import kotlin.math.PI</code>, or <code>import kotlin.math.*</code> for everything.</p>
+<p>For a circle of radius 5 the area is <code>PI * radius.pow(2)</code> (about 78.54) and the circumference is <code>2 * PI * radius</code> (about 31.42). Kotlin has a built-in hypotenuse function, so the distance from the origin to the shared point (3, 4) is <code>hypot(3.0, 4.0)</code>, which is 5.0.</p>
+<p>The math functions take <code>Double</code> values. <code>sqrt(81.0)</code> returns <code>9.0</code>, a <code>Double</code>, so it prints with a decimal point.</p>
+<h3 id="worked-example-4"><a class="header" href="#worked-example-4">Worked Example</a></h3>
+<pre><code class="language-kotlin">import kotlin.math.PI
+import kotlin.math.abs
+import kotlin.math.hypot
+import kotlin.math.max
+import kotlin.math.min
+import kotlin.math.pow
+import kotlin.math.sqrt
+
+fun main() {
+    val radius = 5.0
+    val area = PI * radius.pow(2)
+    val circumference = 2 * PI * radius
+    println("Area: " + "%.2f".format(area))
+    println("Circumference: " + "%.2f".format(circumference))
+
+    println(sqrt(81.0))
+    println("Distance from origin: " + "%.2f".format(hypot(3.0, 4.0)))
+    println("${max(82, 91)} ${min(76, 88)} ${abs(-5)}")
+}
+</code></pre>
+<h3 id="expected-behavior-or-output-4"><a class="header" href="#expected-behavior-or-output-4">Expected Behavior or Output</a></h3>
+<p>The program prints:</p>
+<pre><code class="language-text">Area: 78.54
+Circumference: 31.42
+9.0
+Distance from origin: 5.00
+91 76 5
+</code></pre>
+<h3 id="common-mistakes-4"><a class="header" href="#common-mistakes-4">Common Mistakes</a></h3>
+<ol>
+<li>Forgetting the import, so <code>sqrt</code> is an unresolved reference.</li>
+<li>Passing an <code>Int</code> to <code>sqrt</code>, which needs a <code>Double</code>.</li>
+<li>Writing the area as <code>PI * radius * 2</code>; the radius must be squared.</li>
+</ol>
+<h3 id="activities-4"><a class="header" href="#activities-4">Activities</a></h3>
+<ol>
+<li>Predict each printed line and then run the program.</li>
+<li>Compute the area for radius 2.5 by hand and with the program.</li>
+<li>Change the point to (6, 8) and predict the distance before running.</li>
+<li>Print the larger of two shared scores using <code>max</code>.</li>
+</ol>
+<h3 id="accessibility-practice-4"><a class="header" href="#accessibility-practice-4">Accessibility Practice</a></h3>
+<p>Round results with <code>format</code> so that the screen reader announces <code>78.54</code> rather than fifteen digits. Say ‘dot’ aloud in <code>kotlin.math</code> and <code>radius.pow</code>.</p>
+<h3 id="skills-checklist-4"><a class="header" href="#skills-checklist-4">Skills Checklist</a></h3>
+<ul>
+<li><input disabled="" type="checkbox"> I can import and use <code>kotlin.math</code>.</li>
+<li><input disabled="" type="checkbox"> I can compute circle area and circumference.</li>
+<li><input disabled="" type="checkbox"> I can compute distance with <code>hypot</code>.</li>
+<li><input disabled="" type="checkbox"> I can format results to two decimals.</li>
+<li><input disabled="" type="checkbox"> I know math functions take <code>Double</code>.</li>
+</ul>
+<hr>
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                            <a rel="prev" href="../KOTLIN/unit01-foundations-of-computing.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M41.4 233.4c-12.5 12.5-12.5 32.8 0 45.3l160 160c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L109.3 256 246.6 118.6c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0l-160 160z"/></svg></span>
+                            </a>
+
+                            <a rel="next prefetch" href="../KOTLIN/unit03-control-flow-decisions-and-loops.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M278.6 233.4c12.5 12.5 12.5 32.8 0 45.3l-160 160c-12.5 12.5-32.8 12.5-45.3 0s-12.5-32.8 0-45.3L210.7 256 73.4 118.6c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0l160 160z"/></svg></span>
+                            </a>
+
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                    <a rel="prev" href="../KOTLIN/unit01-foundations-of-computing.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M41.4 233.4c-12.5 12.5-12.5 32.8 0 45.3l160 160c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L109.3 256 246.6 118.6c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0l-160 160z"/></svg></span>
+                    </a>
+
+                    <a rel="next prefetch" href="../KOTLIN/unit03-control-flow-decisions-and-loops.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M278.6 233.4c12.5 12.5 12.5 32.8 0 45.3l-160 160c-12.5 12.5-32.8 12.5-45.3 0s-12.5-32.8 0-45.3L210.7 256 73.4 118.6c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0l160 160z"/></svg></span>
+                    </a>
+            </nav>
+
+        </div>
+
+        <template id=fa-eye><span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M288 32c-80.8 0-145.5 36.8-192.6 80.6C48.6 156 17.3 208 2.5 243.7c-3.3 7.9-3.3 16.7 0 24.6C17.3 304 48.6 356 95.4 399.4C142.5 443.2 207.2 480 288 480s145.5-36.8 192.6-80.6c46.8-43.5 78.1-95.4 93-131.1c3.3-7.9 3.3-16.7 0-24.6c-14.9-35.7-46.2-87.7-93-131.1C433.5 68.8 368.8 32 288 32zM432 256c0 79.5-64.5 144-144 144s-144-64.5-144-144s64.5-144 144-144s144 64.5 144 144zM288 192c0 35.3-28.7 64-64 64c-11.5 0-22.3-3-31.6-8.4c-.2 2.8-.4 5.5-.4 8.4c0 53 43 96 96 96s96-43 96-96s-43-96-96-96c-2.8 0-5.6 .1-8.4 .4c5.3 9.3 8.4 20.1 8.4 31.6z"/></svg></span></template>
+        <template id=fa-eye-slash><span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M38.8 5.1C28.4-3.1 13.3-1.2 5.1 9.2S-1.2 34.7 9.2 42.9l592 464c10.4 8.2 25.5 6.3 33.7-4.1s6.3-25.5-4.1-33.7L525.6 386.7c39.6-40.6 66.4-86.1 79.9-118.4c3.3-7.9 3.3-16.7 0-24.6c-14.9-35.7-46.2-87.7-93-131.1C465.5 68.8 400.8 32 320 32c-68.2 0-125 26.3-169.3 60.8L38.8 5.1zM223.1 149.5C248.6 126.2 282.7 112 320 112c79.5 0 144 64.5 144 144c0 24.9-6.3 48.3-17.4 68.7L408 294.5c5.2-11.8 8-24.8 8-38.5c0-53-43-96-96-96c-2.8 0-5.6 .1-8.4 .4c5.3 9.3 8.4 20.1 8.4 31.6c0 10.2-2.4 19.8-6.6 28.3l-90.3-70.8zm223.1 298L373 389.9c-16.4 6.5-34.3 10.1-53 10.1c-79.5 0-144-64.5-144-144c0-6.9 .5-13.6 1.4-20.2L83.1 161.5C60.3 191.2 44 220.8 34.5 243.7c-3.3 7.9-3.3 16.7 0 24.6c14.9 35.7 46.2 87.7 93 131.1C174.5 443.2 239.2 480 320 480c47.8 0 89.9-12.9 126.2-32.5z"/></svg></span></template>
+        <template id=fa-copy><span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M502.6 70.63l-61.25-61.25C435.4 3.371 427.2 0 418.7 0H255.1c-35.35 0-64 28.66-64 64l.0195 256C192 355.4 220.7 384 256 384h192c35.2 0 64-28.8 64-64V93.25C512 84.77 508.6 76.63 502.6 70.63zM464 320c0 8.836-7.164 16-16 16H255.1c-8.838 0-16-7.164-16-16L239.1 64.13c0-8.836 7.164-16 16-16h128L384 96c0 17.67 14.33 32 32 32h47.1V320zM272 448c0 8.836-7.164 16-16 16H63.1c-8.838 0-16-7.164-16-16L47.98 192.1c0-8.836 7.164-16 16-16H160V128H63.99c-35.35 0-64 28.65-64 64l.0098 256C.002 483.3 28.66 512 64 512h192c35.2 0 64-28.8 64-64v-32h-47.1L272 448z"/></svg></span></template>
+        <template id=fa-play><span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M73 39c-14.8-9.1-33.4-9.4-48.5-.9S0 62.6 0 80V432c0 17.4 9.4 33.4 24.5 41.9s33.7 8.1 48.5-.9L361 297c14.3-8.7 23-24.2 23-41s-8.7-32.2-23-41L73 39z"/></svg></span></template>
+        <template id=fa-clock-rotate-left><span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M75 75L41 41C25.9 25.9 0 36.6 0 57.9V168c0 13.3 10.7 24 24 24H134.1c21.4 0 32.1-25.9 17-41l-30.8-30.8C155 85.5 203 64 256 64c106 0 192 86 192 192s-86 192-192 192c-40.8 0-78.6-12.7-109.7-34.4c-14.5-10.1-34.4-6.6-44.6 7.9s-6.6 34.4 7.9 44.6C151.2 495 201.7 512 256 512c141.4 0 256-114.6 256-256S397.4 0 256 0C185.3 0 121.3 28.7 75 75zm181 53c-13.3 0-24 10.7-24 24V256c0 6.4 2.5 12.5 7 17l72 72c9.4 9.4 24.6 9.4 33.9 0s9.4-24.6 0-33.9l-65-65V152c0-13.3-10.7-24-24-24z"/></svg></span></template>
+
+
+
+        <script>
+            window.playground_copyable = true;
+        </script>
+
+
+        <script src="../elasticlunr-ef4e11c1.min.js"></script>
+        <script src="../mark-09e88c2c.min.js"></script>
+        <script src="../searcher-09f2665d.js"></script>
+
+        <script src="../clipboard-1626706a.min.js"></script>
+        <script src="../highlight-abc7f01d.js"></script>
+        <script src="../book-609e4cb8.js"></script>
+
+        <!-- Custom JS scripts -->
+
+
+
+    </div>
+    </body>
+</html>

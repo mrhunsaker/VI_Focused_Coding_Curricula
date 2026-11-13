@@ -1,0 +1,704 @@
+<!DOCTYPE HTML>
+<html lang="en" class="rust sidebar-visible" dir="ltr">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>Unit 0 - Accessible Introduction to Computer Science</title>
+
+
+        <!-- Custom HTML head -->
+
+        <meta name="description" content="Introductory programming curricula, each adapted for visually impaired students who use screen readers">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff">
+
+        <link rel="icon" href="../favicon-de23e50b.svg">
+        <link rel="shortcut icon" href="../favicon-8114d1fc.png">
+        <link rel="stylesheet" href="../css/variables-8adf115d.css">
+        <link rel="stylesheet" href="../css/general-e96d0476.css">
+        <link rel="stylesheet" href="../css/chrome-d279d366.css">
+        <link rel="stylesheet" href="../css/print-9e4910d8.css" media="print">
+
+        <!-- Fonts -->
+        <link rel="stylesheet" href="../fonts/fonts-9644e21d.css">
+
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" id="mdbook-highlight-css" href="../highlight-493f70e1.css">
+        <link rel="stylesheet" id="mdbook-tomorrow-night-css" href="../tomorrow-night-4c0ae647.css">
+        <link rel="stylesheet" id="mdbook-ayu-highlight-css" href="../ayu-highlight-3fdfc3ac.css">
+
+        <!-- Custom theme stylesheets -->
+
+
+        <!-- Provide site root and default themes to javascript -->
+        <script>
+            const path_to_root = "../";
+            const default_light_theme = "rust";
+            const default_dark_theme = "navy";
+            window.path_to_searchindex_js = "../searchindex-1d296e4e.js";
+        </script>
+        <!-- Start loading toc.js asap -->
+        <script src="../toc-62d8efca.js"></script>
+    </head>
+    <body>
+    <div id="mdbook-help-container">
+        <div id="mdbook-help-popup">
+            <h2 class="mdbook-help-title">Keyboard shortcuts</h2>
+            <div>
+                <p>Press <kbd>←</kbd> or <kbd>→</kbd> to navigate between chapters</p>
+                <p>Press <kbd>S</kbd> or <kbd>/</kbd> to search in the book</p>
+                <p>Press <kbd>?</kbd> to show this help</p>
+                <p>Press <kbd>Esc</kbd> to hide this help</p>
+            </div>
+        </div>
+    </div>
+    <div id="mdbook-body-container">
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script>
+            try {
+                let theme = localStorage.getItem('mdbook-theme');
+                let sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script>
+            const default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? default_dark_theme : default_light_theme;
+            let theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            const html = document.documentElement;
+            html.classList.remove('rust')
+            html.classList.add(theme);
+            html.classList.add("js");
+        </script>
+
+        <input type="checkbox" id="mdbook-sidebar-toggle-anchor" class="hidden">
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script>
+            let sidebar = null;
+            const sidebar_toggle = document.getElementById("mdbook-sidebar-toggle-anchor");
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            } else {
+                sidebar = 'hidden';
+                sidebar_toggle.checked = false;
+            }
+            if (sidebar === 'visible') {
+                sidebar_toggle.checked = true;
+            } else {
+                html.classList.remove('sidebar-visible');
+            }
+        </script>
+
+        <nav id="mdbook-sidebar" class="sidebar" aria-label="Table of contents">
+            <!-- populated by js -->
+            <mdbook-sidebar-scrollbox class="sidebar-scrollbox"></mdbook-sidebar-scrollbox>
+            <noscript>
+                <iframe class="sidebar-iframe-outer" src="../toc.html"></iframe>
+            </noscript>
+            <div id="mdbook-sidebar-resize-handle" class="sidebar-resize-handle">
+                <div class="sidebar-resize-indicator"></div>
+            </div>
+        </nav>
+
+        <div id="mdbook-page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                <div id="mdbook-menu-bar-hover-placeholder"></div>
+                <div id="mdbook-menu-bar" class="menu-bar sticky">
+                    <div class="left-buttons">
+                        <label id="mdbook-sidebar-toggle" class="icon-button" for="mdbook-sidebar-toggle-anchor" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="mdbook-sidebar">
+                            <span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M0 96C0 78.3 14.3 64 32 64H416c17.7 0 32 14.3 32 32s-14.3 32-32 32H32C14.3 128 0 113.7 0 96zM0 256c0-17.7 14.3-32 32-32H416c17.7 0 32 14.3 32 32s-14.3 32-32 32H32c-17.7 0-32-14.3-32-32zM448 416c0 17.7-14.3 32-32 32H32c-17.7 0-32-14.3-32-32s14.3-32 32-32H416c17.7 0 32 14.3 32 32z"/></svg></span>
+                        </label>
+                        <button id="mdbook-theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="mdbook-theme-list">
+                            <span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M371.3 367.1c27.3-3.9 51.9-19.4 67.2-42.9L600.2 74.1c12.6-19.5 9.4-45.3-7.6-61.2S549.7-4.4 531.1 9.6L294.4 187.2c-24 18-38.2 46.1-38.4 76.1L371.3 367.1zm-19.6 25.4l-116-104.4C175.9 290.3 128 339.6 128 400c0 3.9 .2 7.8 .6 11.6c1.8 17.5-10.2 36.4-27.8 36.4H96c-17.7 0-32 14.3-32 32s14.3 32 32 32H240c61.9 0 112-50.1 112-112c0-2.5-.1-5-.2-7.5z"/></svg></span>
+                        </button>
+                        <ul id="mdbook-theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="mdbook-theme-default_theme">Auto</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="mdbook-theme-light">Light</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="mdbook-theme-rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="mdbook-theme-coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="mdbook-theme-navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="mdbook-theme-ayu">Ayu</button></li>
+                        </ul>
+                        <button id="mdbook-search-toggle" class="icon-button" type="button" title="Search (`/`)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="/ s" aria-controls="mdbook-searchbar">
+                            <span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M416 208c0 45.9-14.9 88.3-40 122.7L502.6 457.4c12.5 12.5 12.5 32.8 0 45.3s-32.8 12.5-45.3 0L330.7 376c-34.4 25.2-76.8 40-122.7 40C93.1 416 0 322.9 0 208S93.1 0 208 0S416 93.1 416 208zM208 352c79.5 0 144-64.5 144-144s-64.5-144-144-144S64 128.5 64 208s64.5 144 144 144z"/></svg></span>
+                        </button>
+                    </div>
+
+                    <h1 class="menu-title">Accessible Introduction to Computer Science</h1>
+
+                    <div class="right-buttons">
+                        <a href="../print.html" title="Print this book" aria-label="Print this book">
+                            <span class=fa-svg id="print-button"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M128 0C92.7 0 64 28.7 64 64v96h64V64H354.7L384 93.3V160h64V93.3c0-17-6.7-33.3-18.7-45.3L400 18.7C388 6.7 371.7 0 354.7 0H128zM384 352v32 64H128V384 368 352H384zm64 32h32c17.7 0 32-14.3 32-32V256c0-35.3-28.7-64-64-64H64c-35.3 0-64 28.7-64 64v96c0 17.7 14.3 32 32 32H64v64c0 35.3 28.7 64 64 64H384c35.3 0 64-28.7 64-64V384zm-16-88c-13.3 0-24-10.7-24-24s10.7-24 24-24s24 10.7 24 24s-10.7 24-24 24z"/></svg></span>
+                        </a>
+                        <a href="https://github.com/mrhunsaker/VI_Focused_Coding_Curricula" title="Git repository" aria-label="Git repository">
+                            <span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"/></svg></span>
+                        </a>
+
+                    </div>
+                </div>
+
+                <div id="mdbook-search-wrapper" class="hidden">
+                    <form id="mdbook-searchbar-outer" class="searchbar-outer">
+                        <div class="search-wrapper">
+                            <input type="search" id="mdbook-searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="mdbook-searchresults-outer" aria-describedby="searchresults-header">
+                            <div class="spinner-wrapper">
+                                <span class=fa-svg id="fa-spin"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M304 48c0-26.5-21.5-48-48-48s-48 21.5-48 48s21.5 48 48 48s48-21.5 48-48zm0 416c0-26.5-21.5-48-48-48s-48 21.5-48 48s21.5 48 48 48s48-21.5 48-48zM48 304c26.5 0 48-21.5 48-48s-21.5-48-48-48s-48 21.5-48 48s21.5 48 48 48zm464-48c0-26.5-21.5-48-48-48s-48 21.5-48 48s21.5 48 48 48s48-21.5 48-48zM142.9 437c18.7-18.7 18.7-49.1 0-67.9s-49.1-18.7-67.9 0s-18.7 49.1 0 67.9s49.1 18.7 67.9 0zm0-294.2c18.7-18.7 18.7-49.1 0-67.9S93.7 56.2 75 75s-18.7 49.1 0 67.9s49.1 18.7 67.9 0zM369.1 437c18.7 18.7 49.1 18.7 67.9 0s18.7-49.1 0-67.9s-49.1-18.7-67.9 0s-18.7 49.1 0 67.9z"/></svg></span>
+                            </div>
+                        </div>
+                    </form>
+                    <div id="mdbook-searchresults-outer" class="searchresults-outer hidden">
+                        <div id="mdbook-searchresults-header" class="searchresults-header"></div>
+                        <ul id="mdbook-searchresults">
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script>
+                    document.getElementById('mdbook-sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('mdbook-sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#mdbook-sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="mdbook-content" class="content">
+                    <main>
+                        <h1 id="unit-0-setting-up-your-accessible-python-development-environment"><a class="header" href="#unit-0-setting-up-your-accessible-python-development-environment">Unit 0: Setting Up Your Accessible Python Development Environment</a></h1>
+<p><strong>Before you start:</strong> complete <a href="../FOUNDATIONS/unit-p-computing-foundations.html">Unit P: Computing Foundations Primer</a>. It explains the language-neutral vocabulary and concepts used in every language track, using non-visual examples.</p>
+<h2 id="overview"><a class="header" href="#overview">Overview</a></h2>
+<p>A detailed environment setup is not merely a technical prerequisite; it empowers students and reduces dependency on external assistance. For visually impaired students, relying on external help for every setup or environment issue can be disempowering and slow down the learning process. This unit provides extremely detailed, screen-reader-friendly instructions for environment setup.</p>
+<p><strong>Target Audience:</strong> Students with no prior programming experience, relying on screen readers for all computer interactions.</p>
+<hr>
+<h2 id="lesson-01-installing-python-and-uv"><a class="header" href="#lesson-01-installing-python-and-uv">Lesson 0.1: Installing Python and uv</a></h2>
+<h3 id="reading-references"><a class="header" href="#reading-references">Reading References</a></h3>
+<ul>
+<li>Matthes: Chapter 1, pages 3–14</li>
+<li>Matthes: Appendix A, pages 463–468</li>
+</ul>
+<h3 id="learning-objectives"><a class="header" href="#learning-objectives">Learning Objectives</a></h3>
+<ul>
+<li>Successfully download the Python 3 installer for my operating system.</li>
+<li>Run the Python installer and correctly select the “Add Python to PATH” option.</li>
+<li>Successfully download the VS Code installer for my operating system.</li>
+<li>Run the VS Code installer and correctly select the “Add to PATH” option.</li>
+<li>Open my computer’s system terminal.</li>
+<li>Verify Python’s installation by running <code>python3 --version</code> in the terminal.</li>
+<li>Verify VS Code’s installation by running <code>code --version</code> in the terminal.</li>
+</ul>
+<h3 id="concept-explanation"><a class="header" href="#concept-explanation">Concept Explanation</a></h3>
+<h4 id="installing-python-3"><a class="header" href="#installing-python-3">Installing Python 3</a></h4>
+<p>Python is not always installed on a computer by default. You may install <strong>Python 3.12 or newer</strong> from <a href="https://www.python.org/downloads/">the official Python downloads page</a>, or let <code>uv</code> install and manage the course interpreter after you install uv. All course examples remain compatible with Python 3.12.</p>
+<h4 id="windows"><a class="header" href="#windows">Windows</a></h4>
+<ol>
+<li>Locate the downloaded <code>.exe</code> file (usually in your Downloads folder). Activate it.</li>
+<li><strong>CRUCIAL STEP:</strong> When the installer window appears, check the <strong>“Add Python to PATH”</strong> checkbox. Use Tab to navigate to this checkbox and press Spacebar to check it.</li>
+<li>Navigate to “Install Now” and activate it.</li>
+<li>Follow any further prompts. Activate “Close” when finished.</li>
+</ol>
+<h4 id="macos"><a class="header" href="#macos">macOS</a></h4>
+<ol>
+<li>Locate the downloaded <code>.pkg</code> file. Activate it.</li>
+<li>Activate “Continue” through the steps.</li>
+<li>Agree to the license terms. Choose the installation location (default is fine).</li>
+<li>Enter your administrator password when prompted.</li>
+<li>Activate “Install” and then “Close” when finished.</li>
+</ol>
+<h4 id="linux"><a class="header" href="#linux">Linux</a></h4>
+<p>Python 3 is often pre-installed. Verify in a terminal:</p>
+<pre><code class="language-bash">python3 --version
+</code></pre>
+<p><strong>Windows PowerShell (Windows 11):</strong></p>
+<pre><code class="language-powershell">py -3 --version
+</code></pre>
+<p>If not installed (Debian/Ubuntu):</p>
+<pre><code class="language-bash">sudo apt update
+sudo apt install python3 curl
+python3 --version  # Confirm this is 3.12 or newer
+</code></pre>
+<p><strong>Windows PowerShell (Windows 11):</strong></p>
+<pre><code class="language-powershell"># Windows uses winget; no apt package-index update is needed.
+winget install --id Python.Python.3.12 -e
+py -3 --version  # Confirm this is 3.12 or newer
+</code></pre>
+<h4 id="installing-uv-and-a-managed-python-interpreter"><a class="header" href="#installing-uv-and-a-managed-python-interpreter">Installing uv and a managed Python interpreter</a></h4>
+<p><code>uv</code> is the recommended Python project and environment manager. It installs and manages Python interpreters, creates a project-local <code>.venv</code>, records dependencies, and runs commands in the correct environment. Install uv using the official standalone installer; this does not require Python or pip to be installed first.</p>
+<p>macOS and Linux:</p>
+<pre><code class="language-bash">curl -LsSf https://astral.sh/uv/install.sh | sh
+uv --version
+uv python install 3.12
+uv python list
+</code></pre>
+<p><strong>Windows PowerShell (Windows 11):</strong></p>
+<pre><code class="language-powershell">powershell -ExecutionPolicy ByPass -c "irm https://astral.sh/uv/install.ps1 | iex"
+uv --version
+uv python install 3.12
+uv python list
+</code></pre>
+<p>If the <code>uv</code> command is not found immediately after installation, open a new terminal as instructed by the installer. The managed interpreter must be Python 3.12 or newer for this course.</p>
+<h4 id="installing-visual-studio-code-or-theia-ide"><a class="header" href="#installing-visual-studio-code-or-theia-ide">Installing Visual Studio Code or Theia IDE</a></h4>
+<ol>
+<li>Install <a href="https://code.visualstudio.com/">Visual Studio Code</a> or <a href="https://theia-ide.org/#theiaide">Theia IDE</a>. Theia supports many VS Code extensions through Open VSX, but check that the required extensions are available and test them with the learner’s screen reader.</li>
+</ol>
+<h4 id="windows-1"><a class="header" href="#windows-1">Windows</a></h4>
+<ul>
+<li><strong>CRUCIAL STEP:</strong> On the “Select Additional Tasks” screen, check <strong>“Add to PATH”</strong>.</li>
+<li>Activate “Next” and then “Install”.</li>
+</ul>
+<h4 id="macos-1"><a class="header" href="#macos-1">macOS</a></h4>
+<ul>
+<li>Drag the “Visual Studio Code” application to your “Applications” folder.</li>
+</ul>
+<h4 id="linux-debianubuntu"><a class="header" href="#linux-debianubuntu">Linux (Debian/Ubuntu)</a></h4>
+<pre><code class="language-bash">cd Downloads
+sudo dpkg -i code_*.deb
+</code></pre>
+<p><strong>Windows PowerShell (Windows 11):</strong></p>
+<pre><code class="language-powershell">Set-Location "$HOME\Downloads"
+winget install --id Microsoft.VisualStudioCode -e
+</code></pre>
+<h4 id="verify-vs-code"><a class="header" href="#verify-vs-code">Verify VS Code</a></h4>
+<pre><code class="language-bash">code --version
+</code></pre>
+<p><strong>Windows PowerShell (Windows 11):</strong></p>
+<pre><code class="language-powershell">code --version
+</code></pre>
+<h4 id="editor-alternative-theia-ide"><a class="header" href="#editor-alternative-theia-ide">Editor alternative: Theia IDE</a></h4>
+<p><a href="https://theia-ide.org/#theiaide">Theia IDE</a> is another option instead of Visual Studio Code. It supports the keyboard- and screen-reader-oriented accessibility workflows used in this course. Its interface is similar in many respects and it supports many VS Code extensions through the Open VSX registry, but not every extension or shortcut is identical. Install the Python and language-support extensions available for Theia, then test navigation, diagnostics, terminal access, and screen-reader announcements with the learner’s access technology.</p>
+<h3 id="worked-example"><a class="header" href="#worked-example">Worked Example</a></h3>
+<p>Run these commands in a terminal after installing Python and uv. On Windows, <code>py</code> replaces <code>python3</code> if that is how your installation was set up.</p>
+<pre><code class="language-bash">python3 --version
+uv --version
+python3 -c "print('Hello from Python')"
+</code></pre>
+<h3 id="expected-behavior-or-output"><a class="header" href="#expected-behavior-or-output">Expected Behavior or Output</a></h3>
+<p>The first two commands print version numbers, and the third prints one line. The numbers depend on what you installed; this was observed with Python 3.12.3 and uv 0.11.7 on Linux:</p>
+<pre><code class="language-text">Python 3.12.3
+uv 0.11.7
+Hello from Python
+</code></pre>
+<p>If a command is not found, the installation or the PATH setting is incomplete; reopen the terminal and try again before changing anything else.</p>
+<h3 id="common-mistakes"><a class="header" href="#common-mistakes">Common Mistakes</a></h3>
+<ol>
+<li>Installing Python but not opening a new terminal, so the old PATH is still in use and the command is reported as not found.</li>
+<li>Using the system Python for everything instead of a project environment, which later causes version and package conflicts.</li>
+<li>Copying an installer command from an unknown website. Use the official download pages and read what a command does before running it.</li>
+</ol>
+<h3 id="activities"><a class="header" href="#activities">Activities</a></h3>
+<ol>
+<li>Run the three verification commands and record the exact output in your notes file.</li>
+<li>Find which command name your system uses for Python (<code>python</code>, <code>python3</code>, or <code>py</code>) and write it down.</li>
+<li>Explain in two sentences what <code>uv</code> is used for in this course.</li>
+<li>Close and reopen the terminal and repeat the commands; note whether anything changed.</li>
+</ol>
+<h3 id="accessibility-practice"><a class="header" href="#accessibility-practice">Accessibility Practice</a></h3>
+<p>Run every command from the keyboard and read the output with your screen reader’s line-by-line review. Confirm that the version numbers are announced clearly, digit by digit. Prefer the terminal route to any graphical installer step that is hard to operate with your access technology, and ask a sighted or experienced helper only for steps you cannot perform yourself.</p>
+<h3 id="skills-checklist"><a class="header" href="#skills-checklist">Skills Checklist</a></h3>
+<ul>
+<li><input disabled="" type="checkbox"> I can successfully download the Python 3 installer for my operating system.</li>
+<li><input disabled="" type="checkbox"> I can run the Python installer and correctly select the “Add Python to PATH” option.</li>
+<li><input disabled="" type="checkbox"> I can successfully download the VS Code installer for my operating system.</li>
+<li><input disabled="" type="checkbox"> I can run the VS Code installer and correctly select the “Add to PATH” option.</li>
+<li><input disabled="" type="checkbox"> I can open my computer’s system terminal.</li>
+<li><input disabled="" type="checkbox"> I can verify Python’s installation by running <code>python3 --version</code> in the terminal.</li>
+<li><input disabled="" type="checkbox"> I can verify VS Code’s installation by running <code>code --version</code> in the terminal.</li>
+</ul>
+<hr>
+<h2 id="lesson-02-configuring-your-screen-reader-for-vs-code-or-theia-ide"><a class="header" href="#lesson-02-configuring-your-screen-reader-for-vs-code-or-theia-ide">Lesson 0.2: Configuring Your Screen Reader for VS Code or Theia IDE</a></h2>
+<h3 id="reading-references-1"><a class="header" href="#reading-references-1">Reading References</a></h3>
+<ul>
+<li>Matthes: Appendix B, pages 469–476</li>
+<li>Matthes: Appendix C, pages 477–482</li>
+</ul>
+<h3 id="learning-objectives-1"><a class="header" href="#learning-objectives-1">Learning Objectives</a></h3>
+<ul>
+<li>Identify and toggle VS Code’s “Screen Reader Optimized Mode”.</li>
+<li>Open and close the “Accessible View”.</li>
+<li>Navigate between VS Code panes using Tab and Shift+Tab.</li>
+<li>Navigate line by line and character by character within the editor.</li>
+<li>Locate and listen to information in the VS Code Status Bar.</li>
+<li>Configure my screen reader to announce indentation changes.</li>
+</ul>
+<h3 id="concept-explanation-1"><a class="header" href="#concept-explanation-1">Concept Explanation</a></h3>
+<h4 id="general-screen-reader-tips-for-vs-code"><a class="header" href="#general-screen-reader-tips-for-vs-code">General Screen Reader Tips for VS Code</a></h4>
+<p><strong>1. Use Screen Reader Mode</strong></p>
+<ul>
+<li>Press <code>Ctrl + Shift + P</code> to open the Command Palette.</li>
+<li>Type “Toggle Screen Reader Optimized” and press Enter.</li>
+</ul>
+<p><strong>2. Accessible View</strong></p>
+<ul>
+<li>Press <code>Shift + Alt + F2</code> (Windows/Linux) or <code>Shift + Option + F2</code> (macOS).</li>
+<li>Opens a flat, text-based representation of complex UI elements.</li>
+<li>Press <code>Esc</code> to close.</li>
+</ul>
+<p><strong>3. Keyboard-First Navigation</strong></p>
+<ul>
+<li><code>Tab</code> and <code>Shift+Tab</code>: Move focus between UI elements.</li>
+<li>Arrow Keys: Navigate within active panes.</li>
+</ul>
+<p><strong>4. Status Bar</strong>
+The status bar at the bottom provides current line/column number, file type, active Python environment, and error/warning counts.</p>
+<h4 id="screen-reader-indentation-configuration"><a class="header" href="#screen-reader-indentation-configuration">Screen Reader Indentation Configuration</a></h4>
+<p>Python relies heavily on indentation. Configure your screen reader to announce indentation changes.</p>
+<h4 id="nvda-windows"><a class="header" href="#nvda-windows">NVDA (Windows)</a></h4>
+<ol>
+<li>Press <code>NVDA Key + N</code> → Preferences → Settings.</li>
+<li>Find “Document Formatting”.</li>
+<li>Locate “Indentation” and set it to <strong>“Say all”</strong> or <strong>“Beeps”</strong>.</li>
+<li>Activate “OK”.</li>
+</ol>
+<h4 id="jaws-windows"><a class="header" href="#jaws-windows">JAWS (Windows)</a></h4>
+<ol>
+<li>Press <code>JAWS Key + J</code> → Alt+O for Options → B for Basics.</li>
+<li>Find “Text Processing” settings.</li>
+<li>Configure indentation announcement.</li>
+</ol>
+<h4 id="voiceover-macos"><a class="header" href="#voiceover-macos">VoiceOver (macOS)</a></h4>
+<p>VoiceOver generally handles indentation well by default, announcing “4 spaces” or “tab” as you navigate.</p>
+<h3 id="worked-example-1"><a class="header" href="#worked-example-1">Worked Example</a></h3>
+<p>Create a file named <code>indent_test.py</code> with exactly these lines, using four spaces for each indentation level:</p>
+<pre><code class="language-python">score = 82
+if score &gt;= 60:
+    print("Passed")
+    if score &gt;= 80:
+        print("Strong pass")
+print("Done")
+</code></pre>
+<p>Move through it line by line and have your screen reader announce the indentation of lines 3 to 5.</p>
+<h3 id="expected-behavior-or-output-1"><a class="header" href="#expected-behavior-or-output-1">Expected Behavior or Output</a></h3>
+<p>When the file is read line by line, line 3 and line 5 are announced one indentation level in, line 4 two levels in, and the last line at the left margin. Running <code>python3 indent_test.py</code> prints:</p>
+<pre><code class="language-text">Passed
+Strong pass
+Done
+</code></pre>
+<p>If the screen reader does not report indentation, adjust the settings described above until it does; Python uses indentation to decide which lines belong together.</p>
+<h3 id="common-mistakes-1"><a class="header" href="#common-mistakes-1">Common Mistakes</a></h3>
+<ol>
+<li>Leaving the indentation announcement turned off and then misreading which lines belong to an <code>if</code> block.</li>
+<li>Mixing tabs and spaces in one file, which Python rejects with an <code>IndentationError</code>.</li>
+<li>Changing several screen reader settings at once, so it is impossible to tell which change helped.</li>
+</ol>
+<h3 id="activities-1"><a class="header" href="#activities-1">Activities</a></h3>
+<ol>
+<li>Change one setting at a time and record how the reading of <code>indent_test.py</code> changes.</li>
+<li>Add a fifth indented line inside the inner <code>if</code> and predict the output before running.</li>
+<li>Read the file once by character and once by word; note which is faster for checking indentation.</li>
+<li>Write the keyboard commands you use to jump to the next line with the same indentation as the current line, if your editor has one.</li>
+</ol>
+<h3 id="accessibility-practice-1"><a class="header" href="#accessibility-practice-1">Accessibility Practice</a></h3>
+<p>This lesson is the accessibility foundation for the course. Record, in your own notes, the operating system, editor, screen reader, and version you tested with. Do not describe a setup as verified for other users; it is verified only for the combination you actually ran.</p>
+<h3 id="skills-checklist-1"><a class="header" href="#skills-checklist-1">Skills Checklist</a></h3>
+<ul>
+<li><input disabled="" type="checkbox"> I can identify and toggle VS Code’s “Screen Reader Optimized Mode”.</li>
+<li><input disabled="" type="checkbox"> I can open and close the “Accessible View”.</li>
+<li><input disabled="" type="checkbox"> I can navigate between VS Code panes using Tab and Shift+Tab.</li>
+<li><input disabled="" type="checkbox"> I can navigate line by line and character by character within the editor.</li>
+<li><input disabled="" type="checkbox"> I can locate and listen to information in the VS Code Status Bar.</li>
+<li><input disabled="" type="checkbox"> I can configure my screen reader to announce indentation changes.</li>
+</ul>
+<hr>
+<h2 id="lesson-03-setting-up-your-vs-code-or-theia-ide-workspace"><a class="header" href="#lesson-03-setting-up-your-vs-code-or-theia-ide-workspace">Lesson 0.3: Setting Up Your VS Code or Theia IDE Workspace</a></h2>
+<h3 id="reading-references-2"><a class="header" href="#reading-references-2">Reading References</a></h3>
+<ul>
+<li>Matthes: Appendix B, pages 469–476</li>
+<li>Matthes: Chapter 8, pages 149–152</li>
+</ul>
+<h3 id="learning-objectives-2"><a class="header" href="#learning-objectives-2">Learning Objectives</a></h3>
+<ul>
+<li>Open the Extensions view in my selected editor.</li>
+<li>Verify that Python language support and its language server are installed and enabled.</li>
+<li>Create a new folder for Python projects.</li>
+<li>Open the project folder as the editor workspace.</li>
+<li>Navigate the editor, file explorer, terminal, and diagnostics using the keyboard.</li>
+<li>Use the Command Palette or equivalent command interface.</li>
+</ul>
+<h3 id="concept-explanation-2"><a class="header" href="#concept-explanation-2">Concept Explanation</a></h3>
+<h4 id="install-and-verify-python-language-extensions"><a class="header" href="#install-and-verify-python-language-extensions">Install and verify Python language extensions</a></h4>
+<p>Choose the extension instructions for the editor you are using. The Python interpreter and project environment are separate from the editor extensions; installing an extension does not install Python or project dependencies.</p>
+<p><strong>Visual Studio Code</strong></p>
+<ol>
+<li>Open the Extensions view with <code>Ctrl + Shift + X</code> (Windows/Linux) or <code>Command + Shift + X</code> (macOS).</li>
+<li>Install <strong>Python</strong> by Microsoft. This provides Python environment discovery, run/debug integration, and interpreter selection.</li>
+<li>Install <strong>Pylance</strong> for language intelligence, completion, navigation, and type diagnostics.</li>
+<li>Confirm both extensions are enabled for this workspace. Do not use Code Runner for course projects: it can run a file outside the project’s managed environment and bypass the standard <code>uv run</code> workflow.</li>
+</ol>
+<p><strong>Theia IDE</strong></p>
+<ol>
+<li>Open View → Extensions (or the Extensions view available in your Theia distribution).</li>
+<li>Search the configured Open VSX registry for a Python language extension and a compatible Python language server.</li>
+<li>Check the extension publisher, supported Theia version, and extension documentation. Do not assume that Microsoft’s Python or Pylance extensions are available or interchangeable in Theia.</li>
+<li>Confirm that completion, go-to-definition, diagnostics, interpreter discovery, terminal access, and debugging work with the selected Python installation. If a required capability is unavailable, use a verified supported extension or choose VS Code for this course.</li>
+</ol>
+<p>In either editor, install only extensions needed for the course, keep them enabled for the project workspace, and test their announcements and keyboard navigation with the learner’s screen reader before relying on them.</p>
+<h4 id="creating-your-first-workspace-folder"><a class="header" href="#creating-your-first-workspace-folder">Creating Your First Workspace Folder</a></h4>
+<p><strong>Windows:</strong> Open File Explorer (<code>Windows Key + E</code>). Navigate to Documents. Press <code>Ctrl + Shift + N</code> to create a new folder named <code>PythonProjects</code>.</p>
+<p><strong>macOS:</strong> Open Finder. Navigate to Documents. Press <code>Command + Shift + N</code> to create <code>PythonProjects</code>.</p>
+<h4 id="opening-the-folder-in-vs-code"><a class="header" href="#opening-the-folder-in-vs-code">Opening the Folder in VS Code</a></h4>
+<p><strong>Method 1 (Recommended):</strong> Open terminal, navigate to the folder, then:</p>
+<pre><code class="language-bash">code .
+</code></pre>
+<p><strong>Windows PowerShell (Windows 11):</strong></p>
+<pre><code class="language-powershell">code .
+</code></pre>
+<p><strong>Method 2 (VS Code):</strong> Press <code>Ctrl + K, Ctrl + O</code> to open a folder.</p>
+<p><strong>Theia IDE:</strong> Use the File → Open Folder command (or the equivalent workspace-opening command in your Theia distribution) and select the project folder. Confirm that the folder containing <code>pyproject.toml</code> is the workspace root; opening only <code>hello.py</code> can prevent the editor from discovering the project’s <code>.venv</code> and configuration.</p>
+<h4 id="vs-code-navigation-shortcuts"><a class="header" href="#vs-code-navigation-shortcuts">VS Code Navigation Shortcuts</a></h4>
+<div class="table-wrapper">
+<table>
+<thead>
+<tr><th>Area</th><th>Shortcut</th></tr>
+</thead>
+<tbody>
+<tr><td>Explorer</td><td><code>Ctrl + Shift + E</code></td></tr>
+<tr><td>Search</td><td><code>Ctrl + Shift + F</code></td></tr>
+<tr><td>Extensions</td><td><code>Ctrl + Shift + X</code></td></tr>
+<tr><td>Toggle Sidebar</td><td><code>Ctrl + B</code></td></tr>
+<tr><td>Command Palette</td><td><code>Ctrl + Shift + P</code></td></tr>
+<tr><td>Problems View</td><td><code>Ctrl + Shift + M</code></td></tr>
+<tr><td>Next Error</td><td><code>F8</code></td></tr>
+<tr><td>Previous Error</td><td><code>Shift + F8</code></td></tr>
+<tr><td>Integrated Terminal</td><td>`Ctrl + ``</td></tr>
+</tbody>
+</table>
+</div>
+<h4 id="advanced-editor-options"><a class="header" href="#advanced-editor-options">Advanced editor options</a></h4>
+<p>Experienced coders may prefer JetBrains IDEs such as PyCharm. These are advanced alternatives, not the recommended starting point for this beginner curriculum. This course does not provide JetBrains installation or usage instructions.</p>
+<h3 id="worked-example-2"><a class="header" href="#worked-example-2">Worked Example</a></h3>
+<p>Create a project folder and a first file, then run it from the terminal as well as from the editor:</p>
+<pre><code class="language-bash">mkdir python-course
+cd python-course
+code .
+</code></pre>
+<p>In the editor, create <code>hello.py</code> containing <code>print("Hello, Avery!")</code>, save it, and then run it from the terminal with <code>python3 hello.py</code>.</p>
+<h3 id="expected-behavior-or-output-2"><a class="header" href="#expected-behavior-or-output-2">Expected Behavior or Output</a></h3>
+<p>The terminal prints one line:</p>
+<pre><code class="language-text">Hello, Avery!
+</code></pre>
+<p>The editor’s Run command should produce the same line in its integrated terminal. If the two differ, the editor is using a different Python interpreter from the terminal; check which interpreter is selected.</p>
+<h3 id="common-mistakes-2"><a class="header" href="#common-mistakes-2">Common Mistakes</a></h3>
+<ol>
+<li>Opening a single file instead of the project folder, so the editor does not know the project’s interpreter or files.</li>
+<li>Selecting a different Python interpreter in the editor from the one used in the terminal, so the same program behaves differently.</li>
+<li>Depending only on the editor’s Run button, which hides the exact command being run.</li>
+</ol>
+<h3 id="activities-2"><a class="header" href="#activities-2">Activities</a></h3>
+<ol>
+<li>Create the folder and file from the keyboard only and write down each keyboard command you used.</li>
+<li>Open the folder in the editor and list the files using the keyboard.</li>
+<li>Run <code>hello.py</code> from the editor and from the terminal, and compare the output.</li>
+<li>Change the greeting to use your own name and rerun it.</li>
+</ol>
+<h3 id="accessibility-practice-2"><a class="header" href="#accessibility-practice-2">Accessibility Practice</a></h3>
+<p>Use the keyboard to open the folder, move between the file list, the editor, and the terminal, and return. Note which shortcuts your screen reader announces and which you must learn by heart. Always keep one terminal route available, since it does not depend on any editor feature.</p>
+<h3 id="skills-checklist-2"><a class="header" href="#skills-checklist-2">Skills Checklist</a></h3>
+<ul>
+<li><input disabled="" type="checkbox"> I can open the Extensions view in my selected editor.</li>
+<li><input disabled="" type="checkbox"> I can verify that Python language support and its language server are installed and enabled.</li>
+<li><input disabled="" type="checkbox"> I can create a new folder for Python projects.</li>
+<li><input disabled="" type="checkbox"> I can open the project folder as the editor workspace.</li>
+<li><input disabled="" type="checkbox"> I can navigate the editor, file explorer, terminal, and diagnostics using the keyboard.</li>
+<li><input disabled="" type="checkbox"> I can use the Command Palette or equivalent command interface.</li>
+</ul>
+<hr>
+<h2 id="lesson-04-python-environments-terminal-usage-and-accessibility-tools"><a class="header" href="#lesson-04-python-environments-terminal-usage-and-accessibility-tools">Lesson 0.4: Python Environments, Terminal Usage, and Accessibility Tools</a></h2>
+<h3 id="reading-references-3"><a class="header" href="#reading-references-3">Reading References</a></h3>
+<ul>
+<li>Matthes: Chapter 1, pages 3–14</li>
+<li>Matthes: Chapter 8, pages 149–152</li>
+<li>Matthes: Chapter 11, pages 210–211</li>
+</ul>
+<h3 id="learning-objectives-3"><a class="header" href="#learning-objectives-3">Learning Objectives</a></h3>
+<ul>
+<li>Create a new Python file (.py) in VS Code.</li>
+<li>Write a simple <code>print()</code> statement.</li>
+<li>Run a Python script from the system terminal.</li>
+<li>Run a Python script from the integrated terminal in VS Code.</li>
+<li>Understand why virtual environments are useful.</li>
+<li>Initialize a Python project with <code>uv init</code>.</li>
+<li>Add a project dependency with <code>uv add</code> and inspect it with <code>uv tree</code>.</li>
+<li>Run a program with <code>uv run</code> and select the project’s <code>.venv</code> interpreter in my editor.</li>
+</ul>
+<h3 id="concept-explanation-3"><a class="header" href="#concept-explanation-3">Concept Explanation</a></h3>
+<h4 id="creating-your-first-python-file"><a class="header" href="#creating-your-first-python-file">Creating Your First Python File</a></h4>
+<ol>
+<li>Ensure Explorer is focused: <code>Ctrl + Shift + E</code>.</li>
+<li>Create new file: <code>Ctrl + N</code>.</li>
+<li>Save: <code>Ctrl + S</code>. Name it <code>hello.py</code>.</li>
+<li>Type:</li>
+</ol>
+<pre><code class="language-python">print("Hello from VS Code!")
+</code></pre>
+<h4 id="running-python-scripts"><a class="header" href="#running-python-scripts">Running Python Scripts</a></h4>
+<p><strong>From System Terminal:</strong></p>
+<pre><code class="language-bash">cd ~/Documents/PythonProjects
+python3 hello.py
+</code></pre>
+<p><strong>Windows PowerShell (Windows 11):</strong></p>
+<pre><code class="language-powershell">Set-Location "$HOME\Documents\PythonProjects"
+py -3 hello.py
+</code></pre>
+<p><strong>From VS Code Integrated Terminal:</strong></p>
+<ol>
+<li>Open terminal: `Ctrl + ``</li>
+<li>The terminal opens in your project folder automatically.</li>
+<li>Run: <code>python3 hello.py</code></li>
+</ol>
+<h4 id="project-environments-and-dependencies-with-uv"><a class="header" href="#project-environments-and-dependencies-with-uv">Project environments and dependencies with uv</a></h4>
+<p>Use one isolated environment per Python project. The recommended course workflow uses <code>uv</code>; it creates and manages the project’s <code>.venv</code> automatically, so learners do not need to activate it manually. Run these commands from the project folder. If the folder does not yet contain a project, initialize it first.</p>
+<p><strong>Create the project environment, add a dependency, and run the program:</strong></p>
+<pre><code class="language-bash">uv init --python 3.12
+uv add requests
+uv run python hello.py
+uv tree
+</code></pre>
+<p><strong>Windows PowerShell (Windows 11):</strong></p>
+<pre><code class="language-powershell">uv init --python 3.12
+uv add requests
+uv run python hello.py
+uv tree
+</code></pre>
+<ul>
+<li><code>uv init</code> creates the project configuration.</li>
+<li><code>uv add requests</code> installs the package into the project environment and records it in <code>pyproject.toml</code> and <code>uv.lock</code>.</li>
+<li><code>uv run python hello.py</code> runs the program with the project’s managed interpreter and dependencies.</li>
+<li><code>uv tree</code> lists the dependency tree.</li>
+</ul>
+<p><strong>Run without installing a project dependency:</strong> for a one-off tool or script dependency, use <code>uv run --with package command</code> or <code>uvx tool-name</code>. Do not use bare/global <code>pip install</code> or <code>python -m pip install</code> for course packages.</p>
+<p><strong>Select and verify the project interpreter in VS Code or Theia IDE:</strong> open the project folder (the folder containing <code>pyproject.toml</code>) as the workspace, then choose the interpreter inside that project’s <code>.venv</code> directory: <code>.venv/bin/python</code> on macOS/Linux or <code>.venv\\Scripts\\python.exe</code> on Windows. In VS Code, use <strong>Python: Select Interpreter</strong> and select the workspace environment. In Theia, use the Python extension’s interpreter-selection command or setting. If the environment is not listed, create it with <code>uv init --python 3.12</code>, reopen the project folder, and select it again.</p>
+<p>Build the habit of checking the active environment before running or debugging code. The editor’s selected interpreter, its integrated terminal, and the command-line workflow must all point to the same project. Run course programs with <code>uv run python filename.py</code>; add packages with <code>uv add package-name</code>. Do not install course dependencies globally. If an editor’s Run or Debug action does not use the project interpreter, correct its interpreter/launch configuration or use the terminal command rather than accepting a run from the wrong environment.</p>
+<p><strong>Optional venv concepts:</strong> <code>uv</code> uses the standard <code>.venv</code> directory. Students may inspect it and learn that it isolates project dependencies, but routine manual activation is not required when commands are run with <code>uv run</code>.</p>
+<h4 id="vs-code-and-theia-ide-accessibility-features"><a class="header" href="#vs-code-and-theia-ide-accessibility-features">VS Code and Theia IDE Accessibility Features</a></h4>
+<p>The following shortcuts are VS Code defaults. Theia provides comparable keyboard and screen-reader workflows, but verify command names and keybindings in the installed version.</p>
+<ul>
+<li><strong>Accessible View</strong> (<code>Shift+Alt+F2</code>): Reveals hover information and error details.</li>
+<li><strong>Focus on Errors</strong> (<code>F8</code> / <code>Shift+F8</code>): Jump between errors without visual scanning.</li>
+<li><strong>Go to Definition</strong> (<code>F12</code>): Navigate to where a function or variable is defined.</li>
+<li><strong>Go to Reference</strong> (<code>Shift+F12</code>): Find all usages of a symbol.</li>
+<li><strong>Go to Line/Column</strong> (<code>Ctrl+G</code>): Jump to a specific line number.</li>
+</ul>
+<h4 id="python-documentation"><a class="header" href="#python-documentation">Python Documentation</a></h4>
+<p>The official Python documentation is well-structured and accessible: <a href="https://docs.python.org/3/">https://docs.python.org/3/</a></p>
+<h4 id="unit-0-completion-checklist"><a class="header" href="#unit-0-completion-checklist">Unit 0 Completion Checklist</a></h4>
+<ul>
+<li><input disabled="" type="checkbox"> uv is installed and <code>uv run python --version</code> reports Python 3.12 or newer.</li>
+<li><input disabled="" type="checkbox"> VS Code or Theia IDE is installed and I can open the course project.</li>
+<li><input disabled="" type="checkbox"> Your screen reader is configured to announce indentation changes in your chosen editor.</li>
+<li><input disabled="" type="checkbox"> You can open your PythonProjects folder in VS Code or Theia IDE.</li>
+<li><input disabled="" type="checkbox"> You have installed Python language support in your chosen editor (the Python extension in VS Code or its compatible Theia alternative).</li>
+<li><input disabled="" type="checkbox"> You can create a new .py file, write <code>print("Hello!")</code>, and save it.</li>
+<li><input disabled="" type="checkbox"> You can run your hello.py file from both terminals.</li>
+<li><input disabled="" type="checkbox"> You can create a project environment with <code>uv init</code> and add dependencies with <code>uv add</code>.</li>
+<li><input disabled="" type="checkbox"> You can run project code with <code>uv run</code> and select the project’s <code>.venv</code> interpreter in your editor.</li>
+<li><input disabled="" type="checkbox"> You know how to use <code>Ctrl + Shift + P</code> (Command Palette) and <code>F8</code> (Go to next error).</li>
+</ul>
+<p><strong>Congratulations! You now have a powerful and accessible development environment ready for your Python journey.</strong></p>
+<h3 id="worked-example-3"><a class="header" href="#worked-example-3">Worked Example</a></h3>
+<p>Create a project environment with uv, add nothing, and run a script inside it:</p>
+<pre><code class="language-bash">mkdir env-demo
+cd env-demo
+uv init
+uv run python -c "print('Running inside the project environment')"
+</code></pre>
+<h3 id="expected-behavior-or-output-3"><a class="header" href="#expected-behavior-or-output-3">Expected Behavior or Output</a></h3>
+<p><code>uv init</code> creates project files and the last command prints:</p>
+<pre><code class="language-text">Running inside the project environment
+</code></pre>
+<p>Use <code>uv run</code> (or activate the environment) every time you run the project, so the same Python and the same packages are used.</p>
+<h3 id="common-mistakes-3"><a class="header" href="#common-mistakes-3">Common Mistakes</a></h3>
+<ol>
+<li>Installing packages into the system Python instead of the project environment.</li>
+<li>Running a script from the wrong working directory, so relative file names are not found.</li>
+<li>Forgetting which environment is active and getting different results for the same code.</li>
+</ol>
+<h3 id="activities-3"><a class="header" href="#activities-3">Activities</a></h3>
+<ol>
+<li>Run <code>pwd</code> (macOS and Linux) or <code>cd</code> (Windows) and write down the working directory.</li>
+<li>List the files that <code>uv init</code> created and say what each one is for.</li>
+<li>Create a second project folder and confirm that its environment is separate.</li>
+<li>Write the three terminal commands you need to start work on a project each day.</li>
+</ol>
+<h3 id="accessibility-practice-3"><a class="header" href="#accessibility-practice-3">Accessibility Practice</a></h3>
+<p>Terminal output is plain text and works well with a screen reader or braille display. Learn the keys that jump to the start and end of the last command’s output, and confirm the working directory before every run. Avoid long one-line commands you cannot navigate; break them with line continuation or run them in steps.</p>
+<h3 id="skills-checklist-3"><a class="header" href="#skills-checklist-3">Skills Checklist</a></h3>
+<ul>
+<li><input disabled="" type="checkbox"> I can create a new Python file (.py) in VS Code.</li>
+<li><input disabled="" type="checkbox"> I can write a simple <code>print()</code> statement.</li>
+<li><input disabled="" type="checkbox"> I can run a Python script from the system terminal.</li>
+<li><input disabled="" type="checkbox"> I can run a Python script from the integrated terminal in VS Code.</li>
+<li><input disabled="" type="checkbox"> I understand why virtual environments are useful.</li>
+<li><input disabled="" type="checkbox"> I can initialize a Python project with <code>uv init</code>.</li>
+<li><input disabled="" type="checkbox"> I can add a project dependency with <code>uv add</code> and inspect it with <code>uv tree</code>.</li>
+<li><input disabled="" type="checkbox"> I can run a program with <code>uv run</code> and select the project’s <code>.venv</code> interpreter in my editor.</li>
+</ul>
+<hr>
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                            <a rel="prev" href="../PYTHON/lessons.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M41.4 233.4c-12.5 12.5-12.5 32.8 0 45.3l160 160c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L109.3 256 246.6 118.6c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0l-160 160z"/></svg></span>
+                            </a>
+
+                            <a rel="next prefetch" href="../PYTHON/unit01-foundations-of-computing-and-getting-started-with-pytho.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M278.6 233.4c12.5 12.5 12.5 32.8 0 45.3l-160 160c-12.5 12.5-32.8 12.5-45.3 0s-12.5-32.8 0-45.3L210.7 256 73.4 118.6c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0l160 160z"/></svg></span>
+                            </a>
+
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                    <a rel="prev" href="../PYTHON/lessons.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M41.4 233.4c-12.5 12.5-12.5 32.8 0 45.3l160 160c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L109.3 256 246.6 118.6c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0l-160 160z"/></svg></span>
+                    </a>
+
+                    <a rel="next prefetch" href="../PYTHON/unit01-foundations-of-computing-and-getting-started-with-pytho.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M278.6 233.4c12.5 12.5 12.5 32.8 0 45.3l-160 160c-12.5 12.5-32.8 12.5-45.3 0s-12.5-32.8 0-45.3L210.7 256 73.4 118.6c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0l160 160z"/></svg></span>
+                    </a>
+            </nav>
+
+        </div>
+
+        <template id=fa-eye><span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M288 32c-80.8 0-145.5 36.8-192.6 80.6C48.6 156 17.3 208 2.5 243.7c-3.3 7.9-3.3 16.7 0 24.6C17.3 304 48.6 356 95.4 399.4C142.5 443.2 207.2 480 288 480s145.5-36.8 192.6-80.6c46.8-43.5 78.1-95.4 93-131.1c3.3-7.9 3.3-16.7 0-24.6c-14.9-35.7-46.2-87.7-93-131.1C433.5 68.8 368.8 32 288 32zM432 256c0 79.5-64.5 144-144 144s-144-64.5-144-144s64.5-144 144-144s144 64.5 144 144zM288 192c0 35.3-28.7 64-64 64c-11.5 0-22.3-3-31.6-8.4c-.2 2.8-.4 5.5-.4 8.4c0 53 43 96 96 96s96-43 96-96s-43-96-96-96c-2.8 0-5.6 .1-8.4 .4c5.3 9.3 8.4 20.1 8.4 31.6z"/></svg></span></template>
+        <template id=fa-eye-slash><span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M38.8 5.1C28.4-3.1 13.3-1.2 5.1 9.2S-1.2 34.7 9.2 42.9l592 464c10.4 8.2 25.5 6.3 33.7-4.1s6.3-25.5-4.1-33.7L525.6 386.7c39.6-40.6 66.4-86.1 79.9-118.4c3.3-7.9 3.3-16.7 0-24.6c-14.9-35.7-46.2-87.7-93-131.1C465.5 68.8 400.8 32 320 32c-68.2 0-125 26.3-169.3 60.8L38.8 5.1zM223.1 149.5C248.6 126.2 282.7 112 320 112c79.5 0 144 64.5 144 144c0 24.9-6.3 48.3-17.4 68.7L408 294.5c5.2-11.8 8-24.8 8-38.5c0-53-43-96-96-96c-2.8 0-5.6 .1-8.4 .4c5.3 9.3 8.4 20.1 8.4 31.6c0 10.2-2.4 19.8-6.6 28.3l-90.3-70.8zm223.1 298L373 389.9c-16.4 6.5-34.3 10.1-53 10.1c-79.5 0-144-64.5-144-144c0-6.9 .5-13.6 1.4-20.2L83.1 161.5C60.3 191.2 44 220.8 34.5 243.7c-3.3 7.9-3.3 16.7 0 24.6c14.9 35.7 46.2 87.7 93 131.1C174.5 443.2 239.2 480 320 480c47.8 0 89.9-12.9 126.2-32.5z"/></svg></span></template>
+        <template id=fa-copy><span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M502.6 70.63l-61.25-61.25C435.4 3.371 427.2 0 418.7 0H255.1c-35.35 0-64 28.66-64 64l.0195 256C192 355.4 220.7 384 256 384h192c35.2 0 64-28.8 64-64V93.25C512 84.77 508.6 76.63 502.6 70.63zM464 320c0 8.836-7.164 16-16 16H255.1c-8.838 0-16-7.164-16-16L239.1 64.13c0-8.836 7.164-16 16-16h128L384 96c0 17.67 14.33 32 32 32h47.1V320zM272 448c0 8.836-7.164 16-16 16H63.1c-8.838 0-16-7.164-16-16L47.98 192.1c0-8.836 7.164-16 16-16H160V128H63.99c-35.35 0-64 28.65-64 64l.0098 256C.002 483.3 28.66 512 64 512h192c35.2 0 64-28.8 64-64v-32h-47.1L272 448z"/></svg></span></template>
+        <template id=fa-play><span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M73 39c-14.8-9.1-33.4-9.4-48.5-.9S0 62.6 0 80V432c0 17.4 9.4 33.4 24.5 41.9s33.7 8.1 48.5-.9L361 297c14.3-8.7 23-24.2 23-41s-8.7-32.2-23-41L73 39z"/></svg></span></template>
+        <template id=fa-clock-rotate-left><span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M75 75L41 41C25.9 25.9 0 36.6 0 57.9V168c0 13.3 10.7 24 24 24H134.1c21.4 0 32.1-25.9 17-41l-30.8-30.8C155 85.5 203 64 256 64c106 0 192 86 192 192s-86 192-192 192c-40.8 0-78.6-12.7-109.7-34.4c-14.5-10.1-34.4-6.6-44.6 7.9s-6.6 34.4 7.9 44.6C151.2 495 201.7 512 256 512c141.4 0 256-114.6 256-256S397.4 0 256 0C185.3 0 121.3 28.7 75 75zm181 53c-13.3 0-24 10.7-24 24V256c0 6.4 2.5 12.5 7 17l72 72c9.4 9.4 24.6 9.4 33.9 0s9.4-24.6 0-33.9l-65-65V152c0-13.3-10.7-24-24-24z"/></svg></span></template>
+
+
+
+        <script>
+            window.playground_copyable = true;
+        </script>
+
+
+        <script src="../elasticlunr-ef4e11c1.min.js"></script>
+        <script src="../mark-09e88c2c.min.js"></script>
+        <script src="../searcher-09f2665d.js"></script>
+
+        <script src="../clipboard-1626706a.min.js"></script>
+        <script src="../highlight-abc7f01d.js"></script>
+        <script src="../book-609e4cb8.js"></script>
+
+        <!-- Custom JS scripts -->
+
+
+
+    </div>
+    </body>
+</html>

@@ -1,0 +1,1304 @@
+<!DOCTYPE HTML>
+<html lang="en" class="rust sidebar-visible" dir="ltr">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>Unit 11 - Accessible Introduction to Computer Science</title>
+
+
+        <!-- Custom HTML head -->
+
+        <meta name="description" content="Introductory programming curricula, each adapted for visually impaired students who use screen readers">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff">
+
+        <link rel="icon" href="../favicon-de23e50b.svg">
+        <link rel="shortcut icon" href="../favicon-8114d1fc.png">
+        <link rel="stylesheet" href="../css/variables-8adf115d.css">
+        <link rel="stylesheet" href="../css/general-e96d0476.css">
+        <link rel="stylesheet" href="../css/chrome-d279d366.css">
+        <link rel="stylesheet" href="../css/print-9e4910d8.css" media="print">
+
+        <!-- Fonts -->
+        <link rel="stylesheet" href="../fonts/fonts-9644e21d.css">
+
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" id="mdbook-highlight-css" href="../highlight-493f70e1.css">
+        <link rel="stylesheet" id="mdbook-tomorrow-night-css" href="../tomorrow-night-4c0ae647.css">
+        <link rel="stylesheet" id="mdbook-ayu-highlight-css" href="../ayu-highlight-3fdfc3ac.css">
+
+        <!-- Custom theme stylesheets -->
+
+
+        <!-- Provide site root and default themes to javascript -->
+        <script>
+            const path_to_root = "../";
+            const default_light_theme = "rust";
+            const default_dark_theme = "navy";
+            window.path_to_searchindex_js = "../searchindex-1d296e4e.js";
+        </script>
+        <!-- Start loading toc.js asap -->
+        <script src="../toc-62d8efca.js"></script>
+    </head>
+    <body>
+    <div id="mdbook-help-container">
+        <div id="mdbook-help-popup">
+            <h2 class="mdbook-help-title">Keyboard shortcuts</h2>
+            <div>
+                <p>Press <kbd>←</kbd> or <kbd>→</kbd> to navigate between chapters</p>
+                <p>Press <kbd>S</kbd> or <kbd>/</kbd> to search in the book</p>
+                <p>Press <kbd>?</kbd> to show this help</p>
+                <p>Press <kbd>Esc</kbd> to hide this help</p>
+            </div>
+        </div>
+    </div>
+    <div id="mdbook-body-container">
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script>
+            try {
+                let theme = localStorage.getItem('mdbook-theme');
+                let sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script>
+            const default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? default_dark_theme : default_light_theme;
+            let theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            const html = document.documentElement;
+            html.classList.remove('rust')
+            html.classList.add(theme);
+            html.classList.add("js");
+        </script>
+
+        <input type="checkbox" id="mdbook-sidebar-toggle-anchor" class="hidden">
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script>
+            let sidebar = null;
+            const sidebar_toggle = document.getElementById("mdbook-sidebar-toggle-anchor");
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            } else {
+                sidebar = 'hidden';
+                sidebar_toggle.checked = false;
+            }
+            if (sidebar === 'visible') {
+                sidebar_toggle.checked = true;
+            } else {
+                html.classList.remove('sidebar-visible');
+            }
+        </script>
+
+        <nav id="mdbook-sidebar" class="sidebar" aria-label="Table of contents">
+            <!-- populated by js -->
+            <mdbook-sidebar-scrollbox class="sidebar-scrollbox"></mdbook-sidebar-scrollbox>
+            <noscript>
+                <iframe class="sidebar-iframe-outer" src="../toc.html"></iframe>
+            </noscript>
+            <div id="mdbook-sidebar-resize-handle" class="sidebar-resize-handle">
+                <div class="sidebar-resize-indicator"></div>
+            </div>
+        </nav>
+
+        <div id="mdbook-page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                <div id="mdbook-menu-bar-hover-placeholder"></div>
+                <div id="mdbook-menu-bar" class="menu-bar sticky">
+                    <div class="left-buttons">
+                        <label id="mdbook-sidebar-toggle" class="icon-button" for="mdbook-sidebar-toggle-anchor" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="mdbook-sidebar">
+                            <span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M0 96C0 78.3 14.3 64 32 64H416c17.7 0 32 14.3 32 32s-14.3 32-32 32H32C14.3 128 0 113.7 0 96zM0 256c0-17.7 14.3-32 32-32H416c17.7 0 32 14.3 32 32s-14.3 32-32 32H32c-17.7 0-32-14.3-32-32zM448 416c0 17.7-14.3 32-32 32H32c-17.7 0-32-14.3-32-32s14.3-32 32-32H416c17.7 0 32 14.3 32 32z"/></svg></span>
+                        </label>
+                        <button id="mdbook-theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="mdbook-theme-list">
+                            <span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M371.3 367.1c27.3-3.9 51.9-19.4 67.2-42.9L600.2 74.1c12.6-19.5 9.4-45.3-7.6-61.2S549.7-4.4 531.1 9.6L294.4 187.2c-24 18-38.2 46.1-38.4 76.1L371.3 367.1zm-19.6 25.4l-116-104.4C175.9 290.3 128 339.6 128 400c0 3.9 .2 7.8 .6 11.6c1.8 17.5-10.2 36.4-27.8 36.4H96c-17.7 0-32 14.3-32 32s14.3 32 32 32H240c61.9 0 112-50.1 112-112c0-2.5-.1-5-.2-7.5z"/></svg></span>
+                        </button>
+                        <ul id="mdbook-theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="mdbook-theme-default_theme">Auto</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="mdbook-theme-light">Light</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="mdbook-theme-rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="mdbook-theme-coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="mdbook-theme-navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="mdbook-theme-ayu">Ayu</button></li>
+                        </ul>
+                        <button id="mdbook-search-toggle" class="icon-button" type="button" title="Search (`/`)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="/ s" aria-controls="mdbook-searchbar">
+                            <span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M416 208c0 45.9-14.9 88.3-40 122.7L502.6 457.4c12.5 12.5 12.5 32.8 0 45.3s-32.8 12.5-45.3 0L330.7 376c-34.4 25.2-76.8 40-122.7 40C93.1 416 0 322.9 0 208S93.1 0 208 0S416 93.1 416 208zM208 352c79.5 0 144-64.5 144-144s-64.5-144-144-144S64 128.5 64 208s64.5 144 144 144z"/></svg></span>
+                        </button>
+                    </div>
+
+                    <h1 class="menu-title">Accessible Introduction to Computer Science</h1>
+
+                    <div class="right-buttons">
+                        <a href="../print.html" title="Print this book" aria-label="Print this book">
+                            <span class=fa-svg id="print-button"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M128 0C92.7 0 64 28.7 64 64v96h64V64H354.7L384 93.3V160h64V93.3c0-17-6.7-33.3-18.7-45.3L400 18.7C388 6.7 371.7 0 354.7 0H128zM384 352v32 64H128V384 368 352H384zm64 32h32c17.7 0 32-14.3 32-32V256c0-35.3-28.7-64-64-64H64c-35.3 0-64 28.7-64 64v96c0 17.7 14.3 32 32 32H64v64c0 35.3 28.7 64 64 64H384c35.3 0 64-28.7 64-64V384zm-16-88c-13.3 0-24-10.7-24-24s10.7-24 24-24s24 10.7 24 24s-10.7 24-24 24z"/></svg></span>
+                        </a>
+                        <a href="https://github.com/mrhunsaker/VI_Focused_Coding_Curricula" title="Git repository" aria-label="Git repository">
+                            <span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"/></svg></span>
+                        </a>
+
+                    </div>
+                </div>
+
+                <div id="mdbook-search-wrapper" class="hidden">
+                    <form id="mdbook-searchbar-outer" class="searchbar-outer">
+                        <div class="search-wrapper">
+                            <input type="search" id="mdbook-searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="mdbook-searchresults-outer" aria-describedby="searchresults-header">
+                            <div class="spinner-wrapper">
+                                <span class=fa-svg id="fa-spin"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M304 48c0-26.5-21.5-48-48-48s-48 21.5-48 48s21.5 48 48 48s48-21.5 48-48zm0 416c0-26.5-21.5-48-48-48s-48 21.5-48 48s21.5 48 48 48s48-21.5 48-48zM48 304c26.5 0 48-21.5 48-48s-21.5-48-48-48s-48 21.5-48 48s21.5 48 48 48zm464-48c0-26.5-21.5-48-48-48s-48 21.5-48 48s21.5 48 48 48s48-21.5 48-48zM142.9 437c18.7-18.7 18.7-49.1 0-67.9s-49.1-18.7-67.9 0s-18.7 49.1 0 67.9s49.1 18.7 67.9 0zm0-294.2c18.7-18.7 18.7-49.1 0-67.9S93.7 56.2 75 75s-18.7 49.1 0 67.9s49.1 18.7 67.9 0zM369.1 437c18.7 18.7 49.1 18.7 67.9 0s18.7-49.1 0-67.9s-49.1-18.7-67.9 0s-18.7 49.1 0 67.9z"/></svg></span>
+                            </div>
+                        </div>
+                    </form>
+                    <div id="mdbook-searchresults-outer" class="searchresults-outer hidden">
+                        <div id="mdbook-searchresults-header" class="searchresults-header"></div>
+                        <ul id="mdbook-searchresults">
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script>
+                    document.getElementById('mdbook-sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('mdbook-sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#mdbook-sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="mdbook-content" class="content">
+                    <main>
+                        <h1 id="unit-11-capstone"><a class="header" href="#unit-11-capstone">Unit 11: Capstone</a></h1>
+<h2 id="overview"><a class="header" href="#overview">Overview</a></h2>
+<p>This unit develops capstone through Rust’s type system and standard library. Prerequisites: prior units, a working Cargo project, and the ability to read compiler diagnostics. Preserve shared course datasets and test boundary conditions explicitly.</p>
+<h2 id="lesson-111-requirements-and-design"><a class="header" href="#lesson-111-requirements-and-design">Lesson 11.1: Requirements and design</a></h2>
+<h3 id="reading-references"><a class="header" href="#reading-references">Reading References</a></h3>
+<ul>
+<li><a href="https://doc.rust-lang.org/book/ch05-01-defining-structs.html">The Rust Programming Language: Structs</a></li>
+<li><a href="https://doc.rust-lang.org/book/ch09-02-recoverable-errors-with-result.html">The Rust Programming Language: Result</a></li>
+<li><a href="https://doc.rust-lang.org/std/">Rust standard library documentation</a></li>
+<li>Matching Python lesson: Lesson 11.1: Introduction to NiceGUI</li>
+</ul>
+<h3 id="learning-objectives"><a class="header" href="#learning-objectives">Learning Objectives</a></h3>
+<ul>
+<li>Write requirements for a personal data manager.</li>
+<li>Define the shared record schema as a struct.</li>
+<li>Check records against the validation rules before building features.</li>
+</ul>
+<h3 id="concept-explanation"><a class="header" href="#concept-explanation">Concept Explanation</a></h3>
+<p>The capstone is a <em>personal data manager</em>: a program that keeps a list of records, lets the user add, view, search, change, complete, and delete them, and saves them to a file. In the Rust track it is a text program, so it runs from the terminal and is fully usable with a screen reader or braille display.</p>
+<p><strong>Shared record schema (all general-purpose language tracks).</strong> Every record has <code>id</code> (unique whole number), <code>title</code>, <code>description</code>, <code>category</code>, <code>created_at</code>, and <code>updated_at</code> (ISO 8601 text). A project may add fields, such as an optional <code>done</code> flag, but must not remove these. Rust field names use <code>snake_case</code>, the same as the stored JSON.</p>
+<p><strong>Validation rules.</strong> A record must have a non-empty title and a non-empty category. Timestamps are ISO 8601 text such as <code>2026-01-15T09:00:00</code>. A <code>Result&lt;(), String&gt;</code> return type states in the signature that validation can fail with a message.</p>
+<p>Design before coding: list the operations, then the data, then the messages. The example checks the three shared sample records against the rules and prints them as a plain-text list.</p>
+<h3 id="worked-example"><a class="header" href="#worked-example">Worked Example</a></h3>
+<pre class="playground"><code class="language-rust">struct Entry {
+    id: i32,
+    title: String,
+    description: String,
+    category: String,
+    created_at: String,
+    updated_at: String,
+}
+
+fn validate(title: &amp;str, category: &amp;str) -&gt; Result&lt;(), String&gt; {
+    if title.trim().is_empty() {
+        return Err("A title is required.".to_string());
+    }
+    if category.trim().is_empty() {
+        return Err("A category is required.".to_string());
+    }
+    Ok(())
+}
+
+fn entry(id: i32, title: &amp;str, description: &amp;str, category: &amp;str, created_at: &amp;str) -&gt; Entry {
+    Entry {
+        id,
+        title: title.to_string(),
+        description: description.to_string(),
+        category: category.to_string(),
+        created_at: created_at.to_string(),
+        updated_at: created_at.to_string(),
+    }
+}
+
+fn main() {
+    let sample = vec![
+        entry(1, "Notebook", "Course notes", "supplies", "2026-01-15T09:00:00"),
+        entry(2, "Pencil", "Box of 10", "supplies", "2026-01-15T09:05:00"),
+        entry(3, "Study plan", "Weekly schedule", "planning", "2026-01-15T09:10:00"),
+    ];
+
+    for record in &amp;sample {
+        let outcome = match validate(&amp;record.title, &amp;record.category) {
+            Ok(()) =&gt; "valid".to_string(),
+            Err(message) =&gt; message,
+        };
+        println!("{}. {} [{}] - {}", record.id, record.title, record.category, outcome);
+    }
+    println!("{} | {} | {}", sample[0].description, sample[0].created_at, sample[0].updated_at);
+
+    println!("{:?}", validate("  ", "supplies"));
+    println!("{:?}", validate("Ruler", ""));
+}</code></pre>
+<h3 id="expected-behavior-or-output"><a class="header" href="#expected-behavior-or-output">Expected Behavior or Output</a></h3>
+<p>The program prints:</p>
+<pre><code class="language-text">1. Notebook [supplies] - valid
+2. Pencil [supplies] - valid
+3. Study plan [planning] - valid
+Course notes | 2026-01-15T09:00:00 | 2026-01-15T09:00:00
+Err("A title is required.")
+Err("A category is required.")
+</code></pre>
+<h3 id="common-mistakes"><a class="header" href="#common-mistakes">Common Mistakes</a></h3>
+<ol>
+<li>Starting to build features before agreeing on the record fields.</li>
+<li>Allowing a record with an empty title because the check was left for later.</li>
+<li>Storing timestamps in different formats in different places.</li>
+</ol>
+<h3 id="activities"><a class="header" href="#activities">Activities</a></h3>
+<ol>
+<li>Write the seven operations as a numbered list of requirements.</li>
+<li>Add one project-specific field and say how it is validated.</li>
+<li>Write three sample records for your own project.</li>
+<li>Describe in plain sentences what each shared field means.</li>
+</ol>
+<h3 id="accessibility-practice"><a class="header" href="#accessibility-practice">Accessibility Practice</a></h3>
+<p>Design the screen output as lines of plain text: one record per line, with the same field order each time. Decide the wording of every message now so that it can be tested.</p>
+<h3 id="skills-checklist"><a class="header" href="#skills-checklist">Skills Checklist</a></h3>
+<ul>
+<li><input disabled="" type="checkbox"> I can write requirements.</li>
+<li><input disabled="" type="checkbox"> I know the shared record fields.</li>
+<li><input disabled="" type="checkbox"> I can write validation rules.</li>
+<li><input disabled="" type="checkbox"> I can describe sample data.</li>
+<li><input disabled="" type="checkbox"> I can plan messages before coding.</li>
+</ul>
+<hr>
+<h2 id="lesson-112-data-model-and-storage"><a class="header" href="#lesson-112-data-model-and-storage">Lesson 11.2: Data model and storage</a></h2>
+<h3 id="reading-references-1"><a class="header" href="#reading-references-1">Reading References</a></h3>
+<ul>
+<li><a href="https://doc.rust-lang.org/book/ch09-02-recoverable-errors-with-result.html">The Rust Programming Language: Result</a></li>
+<li><a href="https://doc.rust-lang.org/book/ch12-02-reading-a-file.html">The Rust Programming Language: Reading a File</a></li>
+<li><a href="https://doc.rust-lang.org/std/">Rust standard library documentation</a></li>
+<li>Matching Python lesson: Lesson 11.2: Data Model and Storage</li>
+</ul>
+<h3 id="learning-objectives-1"><a class="header" href="#learning-objectives-1">Learning Objectives</a></h3>
+<ul>
+<li>Store records as structs.</li>
+<li>Save and load them as JSON.</li>
+<li>Confirm that every field survives a round trip.</li>
+</ul>
+<h3 id="concept-explanation-1"><a class="header" href="#concept-explanation-1">Concept Explanation</a></h3>
+<p>Records are stored as a <code>Vec&lt;Entry&gt;</code> in memory and as a JSON array on disk. The storage layer has two functions: <code>save_entries(path, entries)</code> and <code>load_entries(path)</code>, which returns <code>Result&lt;Vec&lt;Entry&gt;, String&gt;</code> so the caller decides what to do when the file is missing or damaged.</p>
+<p>An <code>Entry</code> is converted to a <code>Json::Object</code> for saving (<code>to_json</code>) and rebuilt from one when loading (<code>from_json</code>), which checks that each field is present and has the right type. The optional <code>done</code> field defaults to <code>false</code>.</p>
+<p>The example uses the teaching JSON helper from Lesson 8.5 (included so the program runs on its own). After saving and reloading it compares the lists; deriving <code>PartialEq</code> lets Rust compare structs field by field, so this <em>round-trip test</em> checks every field of every entry. It is the first acceptance test for storage.</p>
+<h3 id="worked-example-1"><a class="header" href="#worked-example-1">Worked Example</a></h3>
+<pre class="playground"><code class="language-rust">#![allow(dead_code)]
+use std::collections::BTreeMap;
+
+#[derive(Debug, Clone, PartialEq)]
+enum Json {
+    Null,
+    Bool(bool),
+    Int(i64),
+    Float(f64),
+    Str(String),
+    List(Vec&lt;Json&gt;),
+    Object(BTreeMap&lt;String, Json&gt;),
+}
+
+fn quote(text: &amp;str) -&gt; String {
+    let mut out = String::from("\"");
+    for c in text.chars() {
+        match c {
+            '"' =&gt; out.push_str("\\\""),
+            '\\' =&gt; out.push_str("\\\\"),
+            '\n' =&gt; out.push_str("\\n"),
+            '\r' =&gt; out.push_str("\\r"),
+            '\t' =&gt; out.push_str("\\t"),
+            c if (c as u32) &lt; 0x20 =&gt; out.push_str(&amp;format!("\\u{:04x}", c as u32)),
+            c =&gt; out.push(c),
+        }
+    }
+    out.push('"');
+    out
+}
+
+fn encode(value: &amp;Json) -&gt; String {
+    match value {
+        Json::Null =&gt; "null".to_string(),
+        Json::Bool(flag) =&gt; flag.to_string(),
+        Json::Int(number) =&gt; number.to_string(),
+        Json::Float(number) =&gt; number.to_string(),
+        Json::Str(text) =&gt; quote(text),
+        Json::List(items) =&gt; {
+            let parts: Vec&lt;String&gt; = items.iter().map(encode).collect();
+            format!("[{}]", parts.join(","))
+        }
+        Json::Object(map) =&gt; {
+            let parts: Vec&lt;String&gt; = map.iter().map(|(key, item)| format!("{}:{}", quote(key), encode(item))).collect();
+            format!("{{{}}}", parts.join(","))
+        }
+    }
+}
+
+struct Parser {
+    chars: Vec&lt;char&gt;,
+    pos: usize,
+}
+
+impl Parser {
+    fn fail&lt;T&gt;(&amp;self, message: &amp;str) -&gt; Result&lt;T, String&gt; {
+        Err(format!("{message} at position {}", self.pos))
+    }
+
+    fn skip(&amp;mut self) {
+        while self.pos &lt; self.chars.len() &amp;&amp; self.chars[self.pos].is_whitespace() {
+            self.pos += 1;
+        }
+    }
+
+    fn peek(&amp;self) -&gt; Option&lt;char&gt; {
+        self.chars.get(self.pos).copied()
+    }
+
+    fn starts_with(&amp;self, word: &amp;str) -&gt; bool {
+        word.chars().enumerate().all(|(i, c)| self.chars.get(self.pos + i) == Some(&amp;c))
+    }
+
+    fn value(&amp;mut self) -&gt; Result&lt;Json, String&gt; {
+        self.skip();
+        match self.peek() {
+            None =&gt; self.fail("unexpected end of text"),
+            Some('{') =&gt; self.object(),
+            Some('[') =&gt; self.list(),
+            Some('"') =&gt; Ok(Json::Str(self.string()?)),
+            Some(c) if c == '-' || c.is_ascii_digit() =&gt; self.number(),
+            Some(_) if self.starts_with("true") =&gt; {
+                self.pos += 4;
+                Ok(Json::Bool(true))
+            }
+            Some(_) if self.starts_with("false") =&gt; {
+                self.pos += 5;
+                Ok(Json::Bool(false))
+            }
+            Some(_) if self.starts_with("null") =&gt; {
+                self.pos += 4;
+                Ok(Json::Null)
+            }
+            Some(_) =&gt; self.fail("unexpected character"),
+        }
+    }
+
+    fn number(&amp;mut self) -&gt; Result&lt;Json, String&gt; {
+        let start = self.pos;
+        if self.peek() == Some('-') {
+            self.pos += 1;
+        }
+        while let Some(c) = self.peek() {
+            if c.is_ascii_digit() || ".eE+-".contains(c) {
+                self.pos += 1;
+            } else {
+                break;
+            }
+        }
+        let token: String = self.chars[start..self.pos].iter().collect();
+        if let Ok(number) = token.parse::&lt;i64&gt;() {
+            return Ok(Json::Int(number));
+        }
+        match token.parse::&lt;f64&gt;() {
+            Ok(number) =&gt; Ok(Json::Float(number)),
+            Err(_) =&gt; self.fail("bad number"),
+        }
+    }
+
+    fn string(&amp;mut self) -&gt; Result&lt;String, String&gt; {
+        self.pos += 1;
+        let mut out = String::new();
+        loop {
+            let Some(c) = self.peek() else {
+                return self.fail("unterminated string");
+            };
+            self.pos += 1;
+            match c {
+                '"' =&gt; return Ok(out),
+                '\\' =&gt; {
+                    let Some(escape) = self.peek() else {
+                        return self.fail("bad escape");
+                    };
+                    self.pos += 1;
+                    match escape {
+                        'n' =&gt; out.push('\n'),
+                        't' =&gt; out.push('\t'),
+                        'r' =&gt; out.push('\r'),
+                        '"' =&gt; out.push('"'),
+                        '\\' =&gt; out.push('\\'),
+                        '/' =&gt; out.push('/'),
+                        'u' =&gt; {
+                            if self.pos + 4 &gt; self.chars.len() {
+                                return self.fail("bad escape");
+                            }
+                            let hex: String = self.chars[self.pos..self.pos + 4].iter().collect();
+                            let code = u32::from_str_radix(&amp;hex, 16).map_err(|_| "bad escape".to_string())?;
+                            out.push(char::from_u32(code).unwrap_or('?'));
+                            self.pos += 4;
+                        }
+                        _ =&gt; return self.fail("bad escape"),
+                    }
+                }
+                other =&gt; out.push(other),
+            }
+        }
+    }
+
+    fn object(&amp;mut self) -&gt; Result&lt;Json, String&gt; {
+        self.pos += 1;
+        let mut map = BTreeMap::new();
+        self.skip();
+        if self.peek() == Some('}') {
+            self.pos += 1;
+            return Ok(Json::Object(map));
+        }
+        loop {
+            self.skip();
+            if self.peek() != Some('"') {
+                return self.fail("expected a key");
+            }
+            let key = self.string()?;
+            self.skip();
+            if self.peek() != Some(':') {
+                return self.fail("expected ':'");
+            }
+            self.pos += 1;
+            let item = self.value()?;
+            map.insert(key, item);
+            self.skip();
+            match self.peek() {
+                None =&gt; return self.fail("unterminated object"),
+                Some('}') =&gt; {
+                    self.pos += 1;
+                    return Ok(Json::Object(map));
+                }
+                Some(',') =&gt; self.pos += 1,
+                Some(_) =&gt; return self.fail("expected ',' or '}'"),
+            }
+        }
+    }
+
+    fn list(&amp;mut self) -&gt; Result&lt;Json, String&gt; {
+        self.pos += 1;
+        let mut items = Vec::new();
+        self.skip();
+        if self.peek() == Some(']') {
+            self.pos += 1;
+            return Ok(Json::List(items));
+        }
+        loop {
+            items.push(self.value()?);
+            self.skip();
+            match self.peek() {
+                None =&gt; return self.fail("unterminated list"),
+                Some(']') =&gt; {
+                    self.pos += 1;
+                    return Ok(Json::List(items));
+                }
+                Some(',') =&gt; self.pos += 1,
+                Some(_) =&gt; return self.fail("expected ',' or ']'"),
+            }
+        }
+    }
+}
+
+fn decode(text: &amp;str) -&gt; Result&lt;Json, String&gt; {
+    let mut parser = Parser { chars: text.chars().collect(), pos: 0 };
+    let value = parser.value()?;
+    parser.skip();
+    if parser.pos &lt; parser.chars.len() {
+        return parser.fail("unexpected extra text");
+    }
+    Ok(value)
+}
+
+use std::fs;
+
+#[derive(Debug, Clone, PartialEq)]
+struct Entry {
+    id: i64,
+    title: String,
+    description: String,
+    category: String,
+    created_at: String,
+    updated_at: String,
+    done: bool,
+}
+
+fn to_json(entry: &amp;Entry) -&gt; Json {
+    let mut map = BTreeMap::new();
+    map.insert("id".to_string(), Json::Int(entry.id));
+    map.insert("title".to_string(), Json::Str(entry.title.clone()));
+    map.insert("description".to_string(), Json::Str(entry.description.clone()));
+    map.insert("category".to_string(), Json::Str(entry.category.clone()));
+    map.insert("created_at".to_string(), Json::Str(entry.created_at.clone()));
+    map.insert("updated_at".to_string(), Json::Str(entry.updated_at.clone()));
+    map.insert("done".to_string(), Json::Bool(entry.done));
+    Json::Object(map)
+}
+
+fn text_field(map: &amp;BTreeMap&lt;String, Json&gt;, key: &amp;str) -&gt; Result&lt;String, String&gt; {
+    match map.get(key) {
+        Some(Json::Str(text)) =&gt; Ok(text.clone()),
+        _ =&gt; Err(format!("missing field {key}")),
+    }
+}
+
+fn from_json(value: &amp;Json) -&gt; Result&lt;Entry, String&gt; {
+    let Json::Object(map) = value else {
+        return Err("a record must be an object".to_string());
+    };
+    let id = match map.get("id") {
+        Some(Json::Int(number)) =&gt; *number,
+        _ =&gt; return Err("missing field id".to_string()),
+    };
+    Ok(Entry {
+        id,
+        title: text_field(map, "title")?,
+        description: text_field(map, "description")?,
+        category: text_field(map, "category")?,
+        created_at: text_field(map, "created_at")?,
+        updated_at: text_field(map, "updated_at")?,
+        done: map.get("done") == Some(&amp;Json::Bool(true)),
+    })
+}
+
+fn save_entries(path: &amp;str, entries: &amp;[Entry]) -&gt; Result&lt;(), String&gt; {
+    let list = Json::List(entries.iter().map(to_json).collect());
+    fs::write(path, encode(&amp;list)).map_err(|_| format!("Could not write {path}."))
+}
+
+fn load_entries(path: &amp;str) -&gt; Result&lt;Vec&lt;Entry&gt;, String&gt; {
+    let text = fs::read_to_string(path).map_err(|_| format!("Could not open {path}: file not found."))?;
+    match decode(&amp;text) {
+        Ok(Json::List(items)) =&gt; items.iter().map(from_json).collect::&lt;Result&lt;Vec&lt;Entry&gt;, String&gt;&gt;().map_err(|e| format!("The data file is not valid: {e}")),
+        Ok(_) =&gt; Err("The data file is not valid: expected a list".to_string()),
+        Err(message) =&gt; Err(format!("The data file is not valid: {message}")),
+    }
+}
+
+fn entry(id: i64, title: &amp;str, description: &amp;str, category: &amp;str, stamp: &amp;str) -&gt; Entry {
+    Entry {
+        id,
+        title: title.to_string(),
+        description: description.to_string(),
+        category: category.to_string(),
+        created_at: stamp.to_string(),
+        updated_at: stamp.to_string(),
+        done: false,
+    }
+}
+
+fn main() {
+    let sample = vec![
+        entry(1, "Notebook", "Course notes", "supplies", "2026-01-15T09:00:00"),
+        entry(2, "Pencil", "Box of 10", "supplies", "2026-01-15T09:05:00"),
+        entry(3, "Study plan", "Weekly schedule", "planning", "2026-01-15T09:10:00"),
+    ];
+
+    println!("{:?}", save_entries("records.json", &amp;sample));
+    match load_entries("records.json") {
+        Ok(loaded) =&gt; {
+            println!("Round trip preserved all fields: {}", loaded == sample);
+            println!("Records loaded: {}", loaded.len());
+        }
+        Err(message) =&gt; println!("{message}"),
+    }
+
+    if let Err(message) = load_entries("missing.json") {
+        println!("{message}");
+    }
+
+    fs::write("broken.json", "[{\"id\": 1,").expect("could not write the broken file");
+    if let Err(message) = load_entries("broken.json") {
+        println!("{message}");
+    }
+}</code></pre>
+<h3 id="expected-behavior-or-output-1"><a class="header" href="#expected-behavior-or-output-1">Expected Behavior or Output</a></h3>
+<p>The program prints:</p>
+<pre><code class="language-text">Ok(())
+Round trip preserved all fields: true
+Records loaded: 3
+Could not open missing.json: file not found.
+The data file is not valid: expected a key at position 10
+</code></pre>
+<h3 id="common-mistakes-1"><a class="header" href="#common-mistakes-1">Common Mistakes</a></h3>
+<ol>
+<li>Overwriting the data file with an empty list after a failed load.</li>
+<li>Saving only some of the fields.</li>
+<li>Assuming a loaded record has every field without checking.</li>
+</ol>
+<h3 id="activities-1"><a class="header" href="#activities-1">Activities</a></h3>
+<ol>
+<li>Run the program and open <code>records.json</code> to read the saved text.</li>
+<li>Add a field to <code>Entry</code>, save it, and confirm that it survives the round trip.</li>
+<li>Make <code>from_json</code> reject a record whose title is blank.</li>
+<li>Explain why <code>load_entries</code> returns a <code>Result</code> and does not panic.</li>
+</ol>
+<h3 id="accessibility-practice-1"><a class="header" href="#accessibility-practice-1">Accessibility Practice</a></h3>
+<p>Messages that name the file and the problem read clearly in speech. After saving, read the file in the terminal to confirm it contains what you expect.</p>
+<h3 id="skills-checklist-1"><a class="header" href="#skills-checklist-1">Skills Checklist</a></h3>
+<ul>
+<li><input disabled="" type="checkbox"> I can store records in structs.</li>
+<li><input disabled="" type="checkbox"> I can save and load JSON.</li>
+<li><input disabled="" type="checkbox"> I can run a round-trip test.</li>
+<li><input disabled="" type="checkbox"> I handle missing and damaged files.</li>
+<li><input disabled="" type="checkbox"> I do not overwrite good data after a failed load.</li>
+</ul>
+<hr>
+<h2 id="lesson-113-create-read-update-delete"><a class="header" href="#lesson-113-create-read-update-delete">Lesson 11.3: Create, read, update, delete</a></h2>
+<h3 id="reading-references-2"><a class="header" href="#reading-references-2">Reading References</a></h3>
+<ul>
+<li><a href="https://doc.rust-lang.org/book/ch05-03-method-syntax.html">The Rust Programming Language: Method Syntax</a></li>
+<li><a href="https://doc.rust-lang.org/book/ch09-02-recoverable-errors-with-result.html">The Rust Programming Language: Result</a></li>
+<li><a href="https://doc.rust-lang.org/std/">Rust standard library documentation</a></li>
+<li>Matching Python lesson: Lesson 11.3: Displaying and Managing Items</li>
+</ul>
+<h3 id="learning-objectives-2"><a class="header" href="#learning-objectives-2">Learning Objectives</a></h3>
+<ul>
+<li>Add, list, search, change, complete, and delete records.</li>
+<li>Assign new ids and update timestamps correctly.</li>
+<li>Return a <code>Result</code> with a message when an operation cannot be done.</li>
+</ul>
+<h3 id="concept-explanation-2"><a class="header" href="#concept-explanation-2">Concept Explanation</a></h3>
+<p>A <code>Manager</code> struct owns the entries and offers one method per operation. Each method that can fail returns a <code>Result&lt;_, String&gt;</code> whose <code>Err</code> holds the message to show. New ids are one more than the highest id, so ids are never reused while higher ids exist. Updating an entry sets <code>updated_at</code> but never changes <code>created_at</code>. A <code>Changes</code> struct with <code>Option</code> fields says which fields to change, so <code>Changes { done: Some(true), ..Default::default() }</code> changes only <code>done</code>. Completing an entry counts as an update.</p>
+<p>For repeatable output the example passes in a <em>fake clock</em>: a boxed closure that returns a new fixed time on each call. A real program passes a closure that reads the real time.</p>
+<p>The example adds the three shared sample records, lists them, searches for “note”, changes one description, completes one entry, deletes one, and tries to delete an entry that does not exist.</p>
+<h3 id="worked-example-2"><a class="header" href="#worked-example-2">Worked Example</a></h3>
+<pre class="playground"><code class="language-rust">#![allow(dead_code)]
+struct Entry {
+    id: i32,
+    title: String,
+    description: String,
+    category: String,
+    created_at: String,
+    updated_at: String,
+    done: bool,
+}
+
+impl Entry {
+    fn describe(&amp;self) -&gt; String {
+        format!("{}. {} [{}] ({})", self.id, self.title, self.category, if self.done { "done" } else { "not done" })
+    }
+}
+
+#[derive(Default)]
+struct Changes {
+    title: Option&lt;String&gt;,
+    description: Option&lt;String&gt;,
+    category: Option&lt;String&gt;,
+    done: Option&lt;bool&gt;,
+}
+
+fn validate(title: &amp;str, category: &amp;str) -&gt; Result&lt;(), String&gt; {
+    if title.trim().is_empty() {
+        return Err("A title is required.".to_string());
+    }
+    if category.trim().is_empty() {
+        return Err("A category is required.".to_string());
+    }
+    Ok(())
+}
+
+struct Manager {
+    entries: Vec&lt;Entry&gt;,
+    clock: Box&lt;dyn FnMut() -&gt; String&gt;,
+}
+
+impl Manager {
+    fn new(clock: Box&lt;dyn FnMut() -&gt; String&gt;) -&gt; Manager {
+        Manager { entries: Vec::new(), clock }
+    }
+
+    fn next_id(&amp;self) -&gt; i32 {
+        self.entries.iter().map(|entry| entry.id).max().unwrap_or(0) + 1
+    }
+
+    fn find(&amp;self, id: i32) -&gt; Option&lt;&amp;Entry&gt; {
+        self.entries.iter().find(|entry| entry.id == id)
+    }
+
+    fn add(&amp;mut self, title: &amp;str, description: &amp;str, category: &amp;str) -&gt; Result&lt;i32, String&gt; {
+        validate(title, category)?;
+        let stamp = (self.clock)();
+        let id = self.next_id();
+        self.entries.push(Entry {
+            id,
+            title: title.trim().to_string(),
+            description: description.trim().to_string(),
+            category: category.trim().to_string(),
+            created_at: stamp.clone(),
+            updated_at: stamp,
+            done: false,
+        });
+        Ok(id)
+    }
+
+    fn update(&amp;mut self, id: i32, changes: Changes) -&gt; Result&lt;(), String&gt; {
+        let (title, category) = match self.find(id) {
+            Some(entry) =&gt; (
+                changes.title.clone().unwrap_or_else(|| entry.title.clone()),
+                changes.category.clone().unwrap_or_else(|| entry.category.clone()),
+            ),
+            None =&gt; return Err("No record has that id.".to_string()),
+        };
+        validate(&amp;title, &amp;category)?;
+        let stamp = (self.clock)();
+        let entry = self.entries.iter_mut().find(|entry| entry.id == id).ok_or("No record has that id.")?;
+        if let Some(value) = changes.title {
+            entry.title = value.trim().to_string();
+        }
+        if let Some(value) = changes.description {
+            entry.description = value.trim().to_string();
+        }
+        if let Some(value) = changes.category {
+            entry.category = value.trim().to_string();
+        }
+        if let Some(value) = changes.done {
+            entry.done = value;
+        }
+        entry.updated_at = stamp;
+        Ok(())
+    }
+
+    fn complete(&amp;mut self, id: i32) -&gt; Result&lt;(), String&gt; {
+        self.update(id, Changes { done: Some(true), ..Default::default() })
+    }
+
+    fn delete(&amp;mut self, id: i32) -&gt; Result&lt;(), String&gt; {
+        let position = self.entries.iter().position(|entry| entry.id == id).ok_or("No record has that id.")?;
+        self.entries.remove(position);
+        Ok(())
+    }
+
+    fn search(&amp;self, text: &amp;str) -&gt; Vec&lt;&amp;Entry&gt; {
+        let needle = text.trim().to_lowercase();
+        self.entries
+            .iter()
+            .filter(|entry| entry.title.to_lowercase().contains(&amp;needle) || entry.description.to_lowercase().contains(&amp;needle))
+            .collect()
+    }
+}
+
+fn fake_clock() -&gt; Box&lt;dyn FnMut() -&gt; String&gt; {
+    let mut ticks = 0;
+    Box::new(move || {
+        ticks += 1;
+        format!("2026-01-15T10:00:{ticks:02}")
+    })
+}
+
+fn show(manager: &amp;Manager) {
+    for entry in &amp;manager.entries {
+        println!("{}", entry.describe());
+    }
+}
+
+fn main() {
+    let mut manager = Manager::new(fake_clock());
+    manager.add("Notebook", "Course notes", "supplies").unwrap();
+    manager.add("Pencil", "Box of 10", "supplies").unwrap();
+    manager.add("Study plan", "Weekly schedule", "planning").unwrap();
+    show(&amp;manager);
+
+    println!("Search for 'note':");
+    for entry in manager.search("note") {
+        println!("{}", entry.title);
+    }
+
+    manager.update(2, Changes { description: Some("Box of 12".to_string()), ..Default::default() }).unwrap();
+    manager.complete(3).unwrap();
+    if let Some(entry) = manager.find(2) {
+        println!("{} {} {}", entry.description, entry.created_at, entry.updated_at);
+    }
+
+    println!("{:?}", manager.delete(1));
+    println!("{:?}", manager.delete(99));
+    show(&amp;manager);
+}</code></pre>
+<h3 id="expected-behavior-or-output-2"><a class="header" href="#expected-behavior-or-output-2">Expected Behavior or Output</a></h3>
+<p>The program prints:</p>
+<pre><code class="language-text">1. Notebook [supplies] (not done)
+2. Pencil [supplies] (not done)
+3. Study plan [planning] (not done)
+Search for 'note':
+Notebook
+Box of 12 2026-01-15T10:00:02 2026-01-15T10:00:04
+Ok(())
+Err("No record has that id.")
+2. Pencil [supplies] (not done)
+3. Study plan [planning] (done)
+</code></pre>
+<h3 id="common-mistakes-2"><a class="header" href="#common-mistakes-2">Common Mistakes</a></h3>
+<ol>
+<li>Reusing a deleted entry’s id by counting the vector length instead of using the highest id.</li>
+<li>Changing <code>created_at</code> when updating a record.</li>
+<li>Calling <code>unwrap()</code> on every <code>Result</code> in a real program instead of showing the message to the user.</li>
+</ol>
+<h3 id="activities-2"><a class="header" href="#activities-2">Activities</a></h3>
+<ol>
+<li>Predict the output before running.</li>
+<li>Add <code>list_by_category(category)</code> to <code>Manager</code>.</li>
+<li>Add a rule that blocks completing an entry that is already complete, with a message.</li>
+<li>Explain how the fake clock makes the output repeatable.</li>
+</ol>
+<h3 id="accessibility-practice-2"><a class="header" href="#accessibility-practice-2">Accessibility Practice</a></h3>
+<p>List output uses the same fixed format for every record and the words <code>done</code> and <code>not done</code>. Search results print only titles, so each line is short.</p>
+<h3 id="skills-checklist-2"><a class="header" href="#skills-checklist-2">Skills Checklist</a></h3>
+<ul>
+<li><input disabled="" type="checkbox"> I can implement add, list, search, change, complete, and delete.</li>
+<li><input disabled="" type="checkbox"> I assign unique ids.</li>
+<li><input disabled="" type="checkbox"> I update timestamps correctly.</li>
+<li><input disabled="" type="checkbox"> I return clear messages for failures.</li>
+<li><input disabled="" type="checkbox"> I can make output repeatable with a fake clock.</li>
+</ul>
+<hr>
+<h2 id="lesson-114-validation-and-tests"><a class="header" href="#lesson-114-validation-and-tests">Lesson 11.4: Validation and tests</a></h2>
+<h3 id="reading-references-3"><a class="header" href="#reading-references-3">Reading References</a></h3>
+<ul>
+<li><a href="https://doc.rust-lang.org/book/ch11-01-writing-tests.html">The Rust Programming Language: How to Write Tests</a></li>
+<li><a href="https://doc.rust-lang.org/book/ch11-03-test-organization.html">The Rust Programming Language: Test Organization</a></li>
+<li><a href="https://doc.rust-lang.org/std/">Rust standard library documentation</a></li>
+<li>Matching Python lesson: Lesson 11.4: Testing and Refinement</li>
+</ul>
+<h3 id="learning-objectives-3"><a class="header" href="#learning-objectives-3">Learning Objectives</a></h3>
+<ul>
+<li>Run the shared acceptance tests.</li>
+<li>Verify that validation rejects bad data.</li>
+<li>Read and interpret test results.</li>
+</ul>
+<h3 id="concept-explanation-3"><a class="header" href="#concept-explanation-3">Concept Explanation</a></h3>
+<p>The shared acceptance tests describe behavior that every language track’s capstone must show:</p>
+<ol>
+<li>Adding a record with an empty title is rejected with a clear message.</li>
+<li>A new record receives an unused <code>id</code>.</li>
+<li>Updating a record changes <code>updated_at</code> but not <code>created_at</code>.</li>
+<li>Deleting a record removes only that record.</li>
+<li>Saving and reloading preserves all fields and values (shown in Lesson 11.2).</li>
+<li>Every message and control can be used without color or a mouse (checked by hand in Lesson 11.5).</li>
+</ol>
+<p>This lesson automates tests 1 to 4 and also tests completion and the rejection of a blank title in an update. Each test builds a new <code>Manager</code>, so tests cannot affect each other. The fake clock keeps timestamps predictable so a test can check that <code>updated_at</code> changed while <code>created_at</code> did not. Each test is a function returning <code>Result&lt;(), String&gt;</code>, run by a small loop that prints PASS or FAIL.</p>
+<h3 id="worked-example-3"><a class="header" href="#worked-example-3">Worked Example</a></h3>
+<pre class="playground"><code class="language-rust">#![allow(dead_code)]
+struct Entry {
+    id: i32,
+    title: String,
+    description: String,
+    category: String,
+    created_at: String,
+    updated_at: String,
+    done: bool,
+}
+
+impl Entry {
+    fn describe(&amp;self) -&gt; String {
+        format!("{}. {} [{}] ({})", self.id, self.title, self.category, if self.done { "done" } else { "not done" })
+    }
+}
+
+#[derive(Default)]
+struct Changes {
+    title: Option&lt;String&gt;,
+    description: Option&lt;String&gt;,
+    category: Option&lt;String&gt;,
+    done: Option&lt;bool&gt;,
+}
+
+fn validate(title: &amp;str, category: &amp;str) -&gt; Result&lt;(), String&gt; {
+    if title.trim().is_empty() {
+        return Err("A title is required.".to_string());
+    }
+    if category.trim().is_empty() {
+        return Err("A category is required.".to_string());
+    }
+    Ok(())
+}
+
+struct Manager {
+    entries: Vec&lt;Entry&gt;,
+    clock: Box&lt;dyn FnMut() -&gt; String&gt;,
+}
+
+impl Manager {
+    fn new(clock: Box&lt;dyn FnMut() -&gt; String&gt;) -&gt; Manager {
+        Manager { entries: Vec::new(), clock }
+    }
+
+    fn next_id(&amp;self) -&gt; i32 {
+        self.entries.iter().map(|entry| entry.id).max().unwrap_or(0) + 1
+    }
+
+    fn find(&amp;self, id: i32) -&gt; Option&lt;&amp;Entry&gt; {
+        self.entries.iter().find(|entry| entry.id == id)
+    }
+
+    fn add(&amp;mut self, title: &amp;str, description: &amp;str, category: &amp;str) -&gt; Result&lt;i32, String&gt; {
+        validate(title, category)?;
+        let stamp = (self.clock)();
+        let id = self.next_id();
+        self.entries.push(Entry {
+            id,
+            title: title.trim().to_string(),
+            description: description.trim().to_string(),
+            category: category.trim().to_string(),
+            created_at: stamp.clone(),
+            updated_at: stamp,
+            done: false,
+        });
+        Ok(id)
+    }
+
+    fn update(&amp;mut self, id: i32, changes: Changes) -&gt; Result&lt;(), String&gt; {
+        let (title, category) = match self.find(id) {
+            Some(entry) =&gt; (
+                changes.title.clone().unwrap_or_else(|| entry.title.clone()),
+                changes.category.clone().unwrap_or_else(|| entry.category.clone()),
+            ),
+            None =&gt; return Err("No record has that id.".to_string()),
+        };
+        validate(&amp;title, &amp;category)?;
+        let stamp = (self.clock)();
+        let entry = self.entries.iter_mut().find(|entry| entry.id == id).ok_or("No record has that id.")?;
+        if let Some(value) = changes.title {
+            entry.title = value.trim().to_string();
+        }
+        if let Some(value) = changes.description {
+            entry.description = value.trim().to_string();
+        }
+        if let Some(value) = changes.category {
+            entry.category = value.trim().to_string();
+        }
+        if let Some(value) = changes.done {
+            entry.done = value;
+        }
+        entry.updated_at = stamp;
+        Ok(())
+    }
+
+    fn complete(&amp;mut self, id: i32) -&gt; Result&lt;(), String&gt; {
+        self.update(id, Changes { done: Some(true), ..Default::default() })
+    }
+
+    fn delete(&amp;mut self, id: i32) -&gt; Result&lt;(), String&gt; {
+        let position = self.entries.iter().position(|entry| entry.id == id).ok_or("No record has that id.")?;
+        self.entries.remove(position);
+        Ok(())
+    }
+
+    fn search(&amp;self, text: &amp;str) -&gt; Vec&lt;&amp;Entry&gt; {
+        let needle = text.trim().to_lowercase();
+        self.entries
+            .iter()
+            .filter(|entry| entry.title.to_lowercase().contains(&amp;needle) || entry.description.to_lowercase().contains(&amp;needle))
+            .collect()
+    }
+}
+
+fn fake_clock() -&gt; Box&lt;dyn FnMut() -&gt; String&gt; {
+    let mut ticks = 0;
+    Box::new(move || {
+        ticks += 1;
+        format!("2026-01-15T10:00:{ticks:02}")
+    })
+}
+
+fn expect(condition: bool, message: &amp;str) -&gt; Result&lt;(), String&gt; {
+    if condition {
+        Ok(())
+    } else {
+        Err(message.to_string())
+    }
+}
+
+fn fresh() -&gt; Manager {
+    let mut manager = Manager::new(fake_clock());
+    manager.add("Notebook", "Course notes", "supplies").unwrap();
+    manager.add("Pencil", "Box of 10", "supplies").unwrap();
+    manager.add("Study plan", "Weekly schedule", "planning").unwrap();
+    manager
+}
+
+fn empty_title_is_rejected() -&gt; Result&lt;(), String&gt; {
+    let mut manager = fresh();
+    expect(manager.add("   ", "x", "supplies") == Err("A title is required.".to_string()), "expected the title message")?;
+    expect(manager.entries.len() == 3, "the list should be unchanged")
+}
+
+fn new_record_gets_an_unused_id() -&gt; Result&lt;(), String&gt; {
+    let mut manager = fresh();
+    manager.delete(2)?;
+    let id = manager.add("Ruler", "30 cm", "supplies")?;
+    expect(id == 4, "expected id 4")
+}
+
+fn update_changes_updated_at_but_not_created_at() -&gt; Result&lt;(), String&gt; {
+    let mut manager = fresh();
+    let (created, updated) = {
+        let entry = manager.find(1).ok_or("record 1 missing")?;
+        (entry.created_at.clone(), entry.updated_at.clone())
+    };
+    manager.update(1, Changes { description: Some("Lecture notes".to_string()), ..Default::default() })?;
+    let entry = manager.find(1).ok_or("record 1 missing")?;
+    expect(entry.created_at == created, "created_at changed")?;
+    expect(entry.updated_at != updated, "updated_at did not change")
+}
+
+fn delete_removes_only_that_record() -&gt; Result&lt;(), String&gt; {
+    let mut manager = fresh();
+    manager.delete(2)?;
+    let ids: Vec&lt;i32&gt; = manager.entries.iter().map(|entry| entry.id).collect();
+    expect(ids == vec![1, 3], "wrong records remain")
+}
+
+fn complete_marks_done_and_updates_the_record() -&gt; Result&lt;(), String&gt; {
+    let mut manager = fresh();
+    manager.complete(3)?;
+    let entry = manager.find(3).ok_or("record 3 missing")?;
+    expect(entry.done &amp;&amp; entry.updated_at != entry.created_at, "completion not recorded")
+}
+
+fn blank_title_cannot_be_saved_by_update() -&gt; Result&lt;(), String&gt; {
+    let mut manager = fresh();
+    let result = manager.update(1, Changes { title: Some(String::new()), ..Default::default() });
+    expect(result == Err("A title is required.".to_string()), "update accepted a blank title")
+}
+
+fn main() {
+    let tests: [(&amp;str, fn() -&gt; Result&lt;(), String&gt;); 6] = [
+        ("1. an empty title is rejected", empty_title_is_rejected),
+        ("2. a new record gets an unused id", new_record_gets_an_unused_id),
+        ("3. update changes updated_at but not created_at", update_changes_updated_at_but_not_created_at),
+        ("4. delete removes only that record", delete_removes_only_that_record),
+        ("5. complete marks done and updates the record", complete_marks_done_and_updates_the_record),
+        ("6. a blank title cannot be saved by update", blank_title_cannot_be_saved_by_update),
+    ];
+
+    let mut failures = 0;
+    for (name, test) in tests {
+        match test() {
+            Ok(()) =&gt; println!("PASS {name}"),
+            Err(message) =&gt; {
+                failures += 1;
+                println!("FAIL {name}: {message}");
+            }
+        }
+    }
+    if failures == 0 {
+        println!("All acceptance tests passed.");
+    } else {
+        println!("{failures} test(s) failed.");
+    }
+}</code></pre>
+<h3 id="expected-behavior-or-output-3"><a class="header" href="#expected-behavior-or-output-3">Expected Behavior or Output</a></h3>
+<p>The program prints:</p>
+<pre><code class="language-text">PASS 1. an empty title is rejected
+PASS 2. a new record gets an unused id
+PASS 3. update changes updated_at but not created_at
+PASS 4. delete removes only that record
+PASS 5. complete marks done and updates the record
+PASS 6. a blank title cannot be saved by update
+All acceptance tests passed.
+</code></pre>
+<h3 id="common-mistakes-3"><a class="header" href="#common-mistakes-3">Common Mistakes</a></h3>
+<ol>
+<li>Sharing one manager between tests, so one test’s deletions change the next test.</li>
+<li>Checking only that no error occurred, and not checking the result.</li>
+<li>Writing the expected message differently from the program, so a correct program fails the test.</li>
+</ol>
+<h3 id="activities-3"><a class="header" href="#activities-3">Activities</a></h3>
+<ol>
+<li>Break <code>Manager::update</code> so it also changes <code>created_at</code> and watch test 3 fail. Restore it.</li>
+<li>Add a test that searching ignores case.</li>
+<li>Add a test that deleting an unknown id returns a message.</li>
+<li>Explain why test 2 deletes record 2 before adding the new one.</li>
+</ol>
+<h3 id="accessibility-practice-3"><a class="header" href="#accessibility-practice-3">Accessibility Practice</a></h3>
+<p>The test names begin with the acceptance-test number, so PASS and FAIL lines can be matched to the specification. Read only the first word of each line to hear the overall result quickly.</p>
+<h3 id="skills-checklist-3"><a class="header" href="#skills-checklist-3">Skills Checklist</a></h3>
+<ul>
+<li><input disabled="" type="checkbox"> I can run the shared acceptance tests.</li>
+<li><input disabled="" type="checkbox"> I can test validation failures.</li>
+<li><input disabled="" type="checkbox"> I can test timestamps with a fake clock.</li>
+<li><input disabled="" type="checkbox"> I can read PASS and FAIL lines.</li>
+<li><input disabled="" type="checkbox"> I use a fresh manager for every test.</li>
+</ul>
+<hr>
+<h2 id="lesson-115-documentation-and-presentation"><a class="header" href="#lesson-115-documentation-and-presentation">Lesson 11.5: Documentation and presentation</a></h2>
+<h3 id="reading-references-4"><a class="header" href="#reading-references-4">Reading References</a></h3>
+<ul>
+<li><a href="https://doc.rust-lang.org/std/">Rust standard library documentation</a></li>
+<li><a href="../FOUNDATIONS/unit-p-computing-foundations.html">Unit P, Lesson P.6</a>: files, data formats, and the shared accessible workflow</li>
+<li>Matching Python lesson: Lesson 11.5: Final Submission</li>
+</ul>
+<h3 id="learning-objectives-4"><a class="header" href="#learning-objectives-4">Learning Objectives</a></h3>
+<ul>
+<li>Write a plain-text project summary.</li>
+<li>Report a count of records by category.</li>
+<li>Complete a manual accessibility check.</li>
+</ul>
+<h3 id="concept-explanation-4"><a class="header" href="#concept-explanation-4">Concept Explanation</a></h3>
+<p>Documentation tells a future reader what the program does and how to run it. Write it as plain text or Markdown with short headings, numbered steps, and complete sentences. Include: the purpose of the program, the <code>cargo</code> commands to build and run it, the shared record fields, the commands a user can give, the accessibility checks you carried out, and what you would improve next.</p>
+<p>The example generates a summary from the shared sample data. It counts records by category in a <code>BTreeMap</code>, which keeps its keys sorted, so the output is stable. It then prints the manual accessibility checklist. The unchecked boxes <code>[ ]</code> are for <em>you</em> to complete by hand with your own access technology; the program cannot verify them.</p>
+<p>Acceptance test 6 is a manual check: every message and control can be used without color or a mouse. Test it with the keyboard only, and with the screen reader or braille display you actually use. Record what you tested and its version; do not claim compatibility with software you did not test.</p>
+<h3 id="worked-example-4"><a class="header" href="#worked-example-4">Worked Example</a></h3>
+<pre class="playground"><code class="language-rust">use std::collections::BTreeMap;
+
+struct Entry {
+    id: i32,
+    title: String,
+    category: String,
+}
+
+fn main() {
+    let sample = vec![
+        Entry { id: 1, title: "Notebook".to_string(), category: "supplies".to_string() },
+        Entry { id: 2, title: "Pencil".to_string(), category: "supplies".to_string() },
+        Entry { id: 3, title: "Study plan".to_string(), category: "planning".to_string() },
+    ];
+
+    let mut counts: BTreeMap&lt;&amp;str, u32&gt; = BTreeMap::new();
+    for entry in &amp;sample {
+        *counts.entry(entry.category.as_str()).or_insert(0) += 1;
+    }
+
+    println!("Personal Data Manager - Summary");
+    println!("Records: {}", sample.len());
+    println!("Categories:");
+    for (category, count) in &amp;counts {
+        println!("- {category}: {count}");
+    }
+    let titles: Vec&lt;String&gt; = sample.iter().map(|entry| format!("{} ({})", entry.title, entry.id)).collect();
+    println!("Titles: {}", titles.join(", "));
+
+    println!();
+    println!("Manual accessibility checklist (complete this by hand):");
+    let checks = [
+        "[ ] Every command can be used with the keyboard only.",
+        "[ ] Every message is a complete sentence that says what to do next.",
+        "[ ] No meaning depends on color, position, or symbols alone.",
+        "[ ] The output was read with my own screen reader or braille display.",
+        "[ ] I recorded the operating system, program, and version I tested.",
+    ];
+    for check in checks {
+        println!("{check}");
+    }
+}</code></pre>
+<h3 id="expected-behavior-or-output-4"><a class="header" href="#expected-behavior-or-output-4">Expected Behavior or Output</a></h3>
+<p>The program prints:</p>
+<pre><code class="language-text">Personal Data Manager - Summary
+Records: 3
+Categories:
+- planning: 1
+- supplies: 2
+Titles: Notebook (1), Pencil (2), Study plan (3)
+
+Manual accessibility checklist (complete this by hand):
+[ ] Every command can be used with the keyboard only.
+[ ] Every message is a complete sentence that says what to do next.
+[ ] No meaning depends on color, position, or symbols alone.
+[ ] The output was read with my own screen reader or braille display.
+[ ] I recorded the operating system, program, and version I tested.
+</code></pre>
+<h3 id="common-mistakes-4"><a class="header" href="#common-mistakes-4">Common Mistakes</a></h3>
+<ol>
+<li>Writing documentation that only the author can follow.</li>
+<li>Claiming that a program is accessible without recording what was tested and how.</li>
+<li>Letting the documentation drift from the program after later changes.</li>
+</ol>
+<h3 id="activities-4"><a class="header" href="#activities-4">Activities</a></h3>
+<ol>
+<li>Write the project summary for your own capstone using the headings above.</li>
+<li>Run the keyboard-only check and record each problem you find.</li>
+<li>Ask a classmate to follow your run instructions from a fresh folder and note where they get stuck.</li>
+<li>Write three improvements for the next version, ordered by user benefit.</li>
+</ol>
+<h3 id="accessibility-practice-4"><a class="header" href="#accessibility-practice-4">Accessibility Practice</a></h3>
+<p>This is the final accessibility lesson. Read your own documentation aloud from start to finish. Anything you have to look at the screen to understand needs rewriting.</p>
+<h3 id="skills-checklist-4"><a class="header" href="#skills-checklist-4">Skills Checklist</a></h3>
+<ul>
+<li><input disabled="" type="checkbox"> I can write a plain-text project summary.</li>
+<li><input disabled="" type="checkbox"> I can report counts by category.</li>
+<li><input disabled="" type="checkbox"> I can run a manual accessibility check.</li>
+<li><input disabled="" type="checkbox"> I record what I tested.</li>
+<li><input disabled="" type="checkbox"> I do not claim untested compatibility.</li>
+</ul>
+<hr>
+<h2 id="course-wide-assessment-and-portfolio"><a class="header" href="#course-wide-assessment-and-portfolio">Course-Wide Assessment and Portfolio</a></h2>
+<p>Submit a Cargo project that compiles with the Rust 2024 edition, passes cargo fmt –check, cargo check, and cargo test, and documents its data model, input validation, error handling, persistence format, and keyboard/screen-reader workflow. Include a README with exact build, test, and run commands.</p>
+<h2 id="ai-policy"><a class="header" href="#ai-policy">AI Policy</a></h2>
+<p>AI tools may explain compiler diagnostics, compare ownership strategies, and suggest tests. Learners must explain every ownership transfer, borrow, trait bound, error path, and dependency. Compile and test generated code, review dependency provenance, and do not expose private data or credentials. AI output is a draft, not evidence of correctness.</p>
+<h2 id="rust-specific-verification-notes"><a class="header" href="#rust-specific-verification-notes">Rust-Specific Verification Notes</a></h2>
+<p>The JSON example demonstrates the serialized record shape only; production code should use serde_json. The deterministic pseudo-random example is not cryptographically secure and is not a substitute for a maintained random-number generator.</p>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                            <a rel="prev" href="../RUST/unit10-project-based-learning.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M41.4 233.4c-12.5 12.5-12.5 32.8 0 45.3l160 160c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L109.3 256 246.6 118.6c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0l-160 160z"/></svg></span>
+                            </a>
+
+                            <a rel="next prefetch" href="../SWIFT/swift_README.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M278.6 233.4c12.5 12.5 12.5 32.8 0 45.3l-160 160c-12.5 12.5-32.8 12.5-45.3 0s-12.5-32.8 0-45.3L210.7 256 73.4 118.6c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0l160 160z"/></svg></span>
+                            </a>
+
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                    <a rel="prev" href="../RUST/unit10-project-based-learning.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M41.4 233.4c-12.5 12.5-12.5 32.8 0 45.3l160 160c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L109.3 256 246.6 118.6c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0l-160 160z"/></svg></span>
+                    </a>
+
+                    <a rel="next prefetch" href="../SWIFT/swift_README.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M278.6 233.4c12.5 12.5 12.5 32.8 0 45.3l-160 160c-12.5 12.5-32.8 12.5-45.3 0s-12.5-32.8 0-45.3L210.7 256 73.4 118.6c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0l160 160z"/></svg></span>
+                    </a>
+            </nav>
+
+        </div>
+
+        <template id=fa-eye><span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M288 32c-80.8 0-145.5 36.8-192.6 80.6C48.6 156 17.3 208 2.5 243.7c-3.3 7.9-3.3 16.7 0 24.6C17.3 304 48.6 356 95.4 399.4C142.5 443.2 207.2 480 288 480s145.5-36.8 192.6-80.6c46.8-43.5 78.1-95.4 93-131.1c3.3-7.9 3.3-16.7 0-24.6c-14.9-35.7-46.2-87.7-93-131.1C433.5 68.8 368.8 32 288 32zM432 256c0 79.5-64.5 144-144 144s-144-64.5-144-144s64.5-144 144-144s144 64.5 144 144zM288 192c0 35.3-28.7 64-64 64c-11.5 0-22.3-3-31.6-8.4c-.2 2.8-.4 5.5-.4 8.4c0 53 43 96 96 96s96-43 96-96s-43-96-96-96c-2.8 0-5.6 .1-8.4 .4c5.3 9.3 8.4 20.1 8.4 31.6z"/></svg></span></template>
+        <template id=fa-eye-slash><span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M38.8 5.1C28.4-3.1 13.3-1.2 5.1 9.2S-1.2 34.7 9.2 42.9l592 464c10.4 8.2 25.5 6.3 33.7-4.1s6.3-25.5-4.1-33.7L525.6 386.7c39.6-40.6 66.4-86.1 79.9-118.4c3.3-7.9 3.3-16.7 0-24.6c-14.9-35.7-46.2-87.7-93-131.1C465.5 68.8 400.8 32 320 32c-68.2 0-125 26.3-169.3 60.8L38.8 5.1zM223.1 149.5C248.6 126.2 282.7 112 320 112c79.5 0 144 64.5 144 144c0 24.9-6.3 48.3-17.4 68.7L408 294.5c5.2-11.8 8-24.8 8-38.5c0-53-43-96-96-96c-2.8 0-5.6 .1-8.4 .4c5.3 9.3 8.4 20.1 8.4 31.6c0 10.2-2.4 19.8-6.6 28.3l-90.3-70.8zm223.1 298L373 389.9c-16.4 6.5-34.3 10.1-53 10.1c-79.5 0-144-64.5-144-144c0-6.9 .5-13.6 1.4-20.2L83.1 161.5C60.3 191.2 44 220.8 34.5 243.7c-3.3 7.9-3.3 16.7 0 24.6c14.9 35.7 46.2 87.7 93 131.1C174.5 443.2 239.2 480 320 480c47.8 0 89.9-12.9 126.2-32.5z"/></svg></span></template>
+        <template id=fa-copy><span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M502.6 70.63l-61.25-61.25C435.4 3.371 427.2 0 418.7 0H255.1c-35.35 0-64 28.66-64 64l.0195 256C192 355.4 220.7 384 256 384h192c35.2 0 64-28.8 64-64V93.25C512 84.77 508.6 76.63 502.6 70.63zM464 320c0 8.836-7.164 16-16 16H255.1c-8.838 0-16-7.164-16-16L239.1 64.13c0-8.836 7.164-16 16-16h128L384 96c0 17.67 14.33 32 32 32h47.1V320zM272 448c0 8.836-7.164 16-16 16H63.1c-8.838 0-16-7.164-16-16L47.98 192.1c0-8.836 7.164-16 16-16H160V128H63.99c-35.35 0-64 28.65-64 64l.0098 256C.002 483.3 28.66 512 64 512h192c35.2 0 64-28.8 64-64v-32h-47.1L272 448z"/></svg></span></template>
+        <template id=fa-play><span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M73 39c-14.8-9.1-33.4-9.4-48.5-.9S0 62.6 0 80V432c0 17.4 9.4 33.4 24.5 41.9s33.7 8.1 48.5-.9L361 297c14.3-8.7 23-24.2 23-41s-8.7-32.2-23-41L73 39z"/></svg></span></template>
+        <template id=fa-clock-rotate-left><span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M75 75L41 41C25.9 25.9 0 36.6 0 57.9V168c0 13.3 10.7 24 24 24H134.1c21.4 0 32.1-25.9 17-41l-30.8-30.8C155 85.5 203 64 256 64c106 0 192 86 192 192s-86 192-192 192c-40.8 0-78.6-12.7-109.7-34.4c-14.5-10.1-34.4-6.6-44.6 7.9s-6.6 34.4 7.9 44.6C151.2 495 201.7 512 256 512c141.4 0 256-114.6 256-256S397.4 0 256 0C185.3 0 121.3 28.7 75 75zm181 53c-13.3 0-24 10.7-24 24V256c0 6.4 2.5 12.5 7 17l72 72c9.4 9.4 24.6 9.4 33.9 0s9.4-24.6 0-33.9l-65-65V152c0-13.3-10.7-24-24-24z"/></svg></span></template>
+
+
+
+        <script>
+            window.playground_copyable = true;
+        </script>
+
+
+        <script src="../elasticlunr-ef4e11c1.min.js"></script>
+        <script src="../mark-09e88c2c.min.js"></script>
+        <script src="../searcher-09f2665d.js"></script>
+
+        <script src="../clipboard-1626706a.min.js"></script>
+        <script src="../highlight-abc7f01d.js"></script>
+        <script src="../book-609e4cb8.js"></script>
+
+        <!-- Custom JS scripts -->
+
+
+
+    </div>
+    </body>
+</html>

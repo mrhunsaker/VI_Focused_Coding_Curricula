@@ -1,0 +1,824 @@
+<!DOCTYPE HTML>
+<html lang="en" class="rust sidebar-visible" dir="ltr">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>Unit 8 - Accessible Introduction to Computer Science</title>
+
+
+        <!-- Custom HTML head -->
+
+        <meta name="description" content="Introductory programming curricula, each adapted for visually impaired students who use screen readers">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff">
+
+        <link rel="icon" href="../favicon-de23e50b.svg">
+        <link rel="shortcut icon" href="../favicon-8114d1fc.png">
+        <link rel="stylesheet" href="../css/variables-8adf115d.css">
+        <link rel="stylesheet" href="../css/general-e96d0476.css">
+        <link rel="stylesheet" href="../css/chrome-d279d366.css">
+        <link rel="stylesheet" href="../css/print-9e4910d8.css" media="print">
+
+        <!-- Fonts -->
+        <link rel="stylesheet" href="../fonts/fonts-9644e21d.css">
+
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" id="mdbook-highlight-css" href="../highlight-493f70e1.css">
+        <link rel="stylesheet" id="mdbook-tomorrow-night-css" href="../tomorrow-night-4c0ae647.css">
+        <link rel="stylesheet" id="mdbook-ayu-highlight-css" href="../ayu-highlight-3fdfc3ac.css">
+
+        <!-- Custom theme stylesheets -->
+
+
+        <!-- Provide site root and default themes to javascript -->
+        <script>
+            const path_to_root = "../";
+            const default_light_theme = "rust";
+            const default_dark_theme = "navy";
+            window.path_to_searchindex_js = "../searchindex-1d296e4e.js";
+        </script>
+        <!-- Start loading toc.js asap -->
+        <script src="../toc-62d8efca.js"></script>
+    </head>
+    <body>
+    <div id="mdbook-help-container">
+        <div id="mdbook-help-popup">
+            <h2 class="mdbook-help-title">Keyboard shortcuts</h2>
+            <div>
+                <p>Press <kbd>←</kbd> or <kbd>→</kbd> to navigate between chapters</p>
+                <p>Press <kbd>S</kbd> or <kbd>/</kbd> to search in the book</p>
+                <p>Press <kbd>?</kbd> to show this help</p>
+                <p>Press <kbd>Esc</kbd> to hide this help</p>
+            </div>
+        </div>
+    </div>
+    <div id="mdbook-body-container">
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script>
+            try {
+                let theme = localStorage.getItem('mdbook-theme');
+                let sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script>
+            const default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? default_dark_theme : default_light_theme;
+            let theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            const html = document.documentElement;
+            html.classList.remove('rust')
+            html.classList.add(theme);
+            html.classList.add("js");
+        </script>
+
+        <input type="checkbox" id="mdbook-sidebar-toggle-anchor" class="hidden">
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script>
+            let sidebar = null;
+            const sidebar_toggle = document.getElementById("mdbook-sidebar-toggle-anchor");
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            } else {
+                sidebar = 'hidden';
+                sidebar_toggle.checked = false;
+            }
+            if (sidebar === 'visible') {
+                sidebar_toggle.checked = true;
+            } else {
+                html.classList.remove('sidebar-visible');
+            }
+        </script>
+
+        <nav id="mdbook-sidebar" class="sidebar" aria-label="Table of contents">
+            <!-- populated by js -->
+            <mdbook-sidebar-scrollbox class="sidebar-scrollbox"></mdbook-sidebar-scrollbox>
+            <noscript>
+                <iframe class="sidebar-iframe-outer" src="../toc.html"></iframe>
+            </noscript>
+            <div id="mdbook-sidebar-resize-handle" class="sidebar-resize-handle">
+                <div class="sidebar-resize-indicator"></div>
+            </div>
+        </nav>
+
+        <div id="mdbook-page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                <div id="mdbook-menu-bar-hover-placeholder"></div>
+                <div id="mdbook-menu-bar" class="menu-bar sticky">
+                    <div class="left-buttons">
+                        <label id="mdbook-sidebar-toggle" class="icon-button" for="mdbook-sidebar-toggle-anchor" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="mdbook-sidebar">
+                            <span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M0 96C0 78.3 14.3 64 32 64H416c17.7 0 32 14.3 32 32s-14.3 32-32 32H32C14.3 128 0 113.7 0 96zM0 256c0-17.7 14.3-32 32-32H416c17.7 0 32 14.3 32 32s-14.3 32-32 32H32c-17.7 0-32-14.3-32-32zM448 416c0 17.7-14.3 32-32 32H32c-17.7 0-32-14.3-32-32s14.3-32 32-32H416c17.7 0 32 14.3 32 32z"/></svg></span>
+                        </label>
+                        <button id="mdbook-theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="mdbook-theme-list">
+                            <span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M371.3 367.1c27.3-3.9 51.9-19.4 67.2-42.9L600.2 74.1c12.6-19.5 9.4-45.3-7.6-61.2S549.7-4.4 531.1 9.6L294.4 187.2c-24 18-38.2 46.1-38.4 76.1L371.3 367.1zm-19.6 25.4l-116-104.4C175.9 290.3 128 339.6 128 400c0 3.9 .2 7.8 .6 11.6c1.8 17.5-10.2 36.4-27.8 36.4H96c-17.7 0-32 14.3-32 32s14.3 32 32 32H240c61.9 0 112-50.1 112-112c0-2.5-.1-5-.2-7.5z"/></svg></span>
+                        </button>
+                        <ul id="mdbook-theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="mdbook-theme-default_theme">Auto</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="mdbook-theme-light">Light</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="mdbook-theme-rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="mdbook-theme-coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="mdbook-theme-navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="mdbook-theme-ayu">Ayu</button></li>
+                        </ul>
+                        <button id="mdbook-search-toggle" class="icon-button" type="button" title="Search (`/`)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="/ s" aria-controls="mdbook-searchbar">
+                            <span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M416 208c0 45.9-14.9 88.3-40 122.7L502.6 457.4c12.5 12.5 12.5 32.8 0 45.3s-32.8 12.5-45.3 0L330.7 376c-34.4 25.2-76.8 40-122.7 40C93.1 416 0 322.9 0 208S93.1 0 208 0S416 93.1 416 208zM208 352c79.5 0 144-64.5 144-144s-64.5-144-144-144S64 128.5 64 208s64.5 144 144 144z"/></svg></span>
+                        </button>
+                    </div>
+
+                    <h1 class="menu-title">Accessible Introduction to Computer Science</h1>
+
+                    <div class="right-buttons">
+                        <a href="../print.html" title="Print this book" aria-label="Print this book">
+                            <span class=fa-svg id="print-button"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M128 0C92.7 0 64 28.7 64 64v96h64V64H354.7L384 93.3V160h64V93.3c0-17-6.7-33.3-18.7-45.3L400 18.7C388 6.7 371.7 0 354.7 0H128zM384 352v32 64H128V384 368 352H384zm64 32h32c17.7 0 32-14.3 32-32V256c0-35.3-28.7-64-64-64H64c-35.3 0-64 28.7-64 64v96c0 17.7 14.3 32 32 32H64v64c0 35.3 28.7 64 64 64H384c35.3 0 64-28.7 64-64V384zm-16-88c-13.3 0-24-10.7-24-24s10.7-24 24-24s24 10.7 24 24s-10.7 24-24 24z"/></svg></span>
+                        </a>
+                        <a href="https://github.com/mrhunsaker/VI_Focused_Coding_Curricula" title="Git repository" aria-label="Git repository">
+                            <span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"/></svg></span>
+                        </a>
+
+                    </div>
+                </div>
+
+                <div id="mdbook-search-wrapper" class="hidden">
+                    <form id="mdbook-searchbar-outer" class="searchbar-outer">
+                        <div class="search-wrapper">
+                            <input type="search" id="mdbook-searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="mdbook-searchresults-outer" aria-describedby="searchresults-header">
+                            <div class="spinner-wrapper">
+                                <span class=fa-svg id="fa-spin"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M304 48c0-26.5-21.5-48-48-48s-48 21.5-48 48s21.5 48 48 48s48-21.5 48-48zm0 416c0-26.5-21.5-48-48-48s-48 21.5-48 48s21.5 48 48 48s48-21.5 48-48zM48 304c26.5 0 48-21.5 48-48s-21.5-48-48-48s-48 21.5-48 48s21.5 48 48 48zm464-48c0-26.5-21.5-48-48-48s-48 21.5-48 48s21.5 48 48 48s48-21.5 48-48zM142.9 437c18.7-18.7 18.7-49.1 0-67.9s-49.1-18.7-67.9 0s-18.7 49.1 0 67.9s49.1 18.7 67.9 0zm0-294.2c18.7-18.7 18.7-49.1 0-67.9S93.7 56.2 75 75s-18.7 49.1 0 67.9s49.1 18.7 67.9 0zM369.1 437c18.7 18.7 49.1 18.7 67.9 0s18.7-49.1 0-67.9s-49.1-18.7-67.9 0s-18.7 49.1 0 67.9z"/></svg></span>
+                            </div>
+                        </div>
+                    </form>
+                    <div id="mdbook-searchresults-outer" class="searchresults-outer hidden">
+                        <div id="mdbook-searchresults-header" class="searchresults-header"></div>
+                        <ul id="mdbook-searchresults">
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script>
+                    document.getElementById('mdbook-sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('mdbook-sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#mdbook-sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="mdbook-content" class="content">
+                    <main>
+                        <h1 id="unit-8-files-and-error-handling"><a class="header" href="#unit-8-files-and-error-handling">Unit 8: Files and Error Handling</a></h1>
+<h2 id="overview"><a class="header" href="#overview">Overview</a></h2>
+<p>This unit develops files and error handling through Rust’s type system and standard library. Prerequisites: prior units, a working Cargo project, and the ability to read compiler diagnostics. Preserve shared course datasets and test boundary conditions explicitly.</p>
+<h2 id="lesson-81-reading-text-files"><a class="header" href="#lesson-81-reading-text-files">Lesson 8.1: Reading text files</a></h2>
+<h3 id="reading-references"><a class="header" href="#reading-references">Reading References</a></h3>
+<ul>
+<li><a href="https://doc.rust-lang.org/book/">The Rust Programming Language</a></li>
+<li><a href="https://doc.rust-lang.org/std/">Rust standard library</a></li>
+<li><a href="https://doc.rust-lang.org/cargo/">Cargo Book</a></li>
+<li>Matching Python curriculum lesson for the shared problem context.</li>
+</ul>
+<h3 id="learning-objectives"><a class="header" href="#learning-objectives">Learning Objectives</a></h3>
+<ul>
+<li>Explain Reading text files using Rust’s types, ownership model, and standard-library conventions.</li>
+<li>Select an idiomatic Rust construct rather than transliterating Python syntax.</li>
+<li>Predict, compile, and verify the example’s behavior.</li>
+<li>Test a relevant boundary condition and explain a common failure.</li>
+</ul>
+<h3 id="concept-explanation"><a class="header" href="#concept-explanation">Concept Explanation</a></h3>
+<p>File APIs return Result. The ? operator propagates compatible failures. RAII releases resources when owners leave scope. Use a maintained parser/serializer such as serde_json for production JSON; the standard-library-only example illustrates the serialized record shape. This lesson retains the canonical course data so learners practice Rust rather than a new domain problem. Use cargo fmt, cargo check, and cargo test as routine development tools.</p>
+<h3 id="worked-example"><a class="header" href="#worked-example">Worked Example</a></h3>
+<pre class="playground"><code class="language-rust">use std::fs; fn main(){let p=std::env::temp_dir().join("rust_read_demo.txt");fs::write(&amp;p,"Avery,82\\n").unwrap();let s=fs::read_to_string(&amp;p).unwrap();print!("{s}");let _=fs::remove_file(p);}</code></pre>
+<p><strong>Expected behavior:</strong> Demonstrates a scoped file operation in the system temporary directory and removes its demonstration file.</p>
+<h3 id="common-mistakes"><a class="header" href="#common-mistakes">Common Mistakes</a></h3>
+<ol>
+<li>Using unwrap on production I/O paths instead of handling or propagating errors.</li>
+<li>Assuming file handles require manual close; RAII drops them at scope exit.</li>
+<li>Hand-building JSON without correct escaping; use serde_json in real projects.</li>
+</ol>
+<h3 id="activities"><a class="header" href="#activities">Activities</a></h3>
+<ol>
+<li>Run the worked example unchanged; trace each binding, expression, ownership transfer, and output line.</li>
+<li>Change the canonical inventory and CSV records and predict the result before running it.</li>
+<li>Add one boundary case and one invalid or missing-data case; state expected behavior before implementing the change.</li>
+<li>Refactor one part using the Rust feature named in this lesson (reading text files); run cargo check and explain the diagnostic output.</li>
+</ol>
+<h3 id="accessibility-practice"><a class="header" href="#accessibility-practice">Accessibility Practice</a></h3>
+<p>Use keyboard navigation to move between the lesson heading, code fence, compiler output, and terminal. With a screen reader, inspect punctuation in ownership and borrowing expressions (&amp;, &amp;mut, ::, -&gt;, ?). Do not rely on syntax highlighting or color to distinguish errors. Read prompts and validation messages in document order and verify that output is announced without unexpected focus movement.</p>
+<h3 id="skills-checklist"><a class="header" href="#skills-checklist">Skills Checklist</a></h3>
+<ul>
+<li><input disabled="" type="checkbox"> I can explain reading text files using Rust terminology.</li>
+<li><input disabled="" type="checkbox"> I can compile and run the example with cargo run.</li>
+<li><input disabled="" type="checkbox"> I can explain the ownership, borrowing, and type decisions used here.</li>
+<li><input disabled="" type="checkbox"> I can test a boundary case and an invalid-input or error case.</li>
+<li><input disabled="" type="checkbox"> I can navigate source, diagnostics, and output with my keyboard and assistive technology.</li>
+</ul>
+<h2 id="lesson-82-writing-and-appending-files"><a class="header" href="#lesson-82-writing-and-appending-files">Lesson 8.2: Writing and appending files</a></h2>
+<h3 id="reading-references-1"><a class="header" href="#reading-references-1">Reading References</a></h3>
+<ul>
+<li><a href="https://doc.rust-lang.org/book/">The Rust Programming Language</a></li>
+<li><a href="https://doc.rust-lang.org/std/">Rust standard library</a></li>
+<li><a href="https://doc.rust-lang.org/cargo/">Cargo Book</a></li>
+<li>Matching Python curriculum lesson for the shared problem context.</li>
+</ul>
+<h3 id="learning-objectives-1"><a class="header" href="#learning-objectives-1">Learning Objectives</a></h3>
+<ul>
+<li>Explain Writing and appending files using Rust’s types, ownership model, and standard-library conventions.</li>
+<li>Select an idiomatic Rust construct rather than transliterating Python syntax.</li>
+<li>Predict, compile, and verify the example’s behavior.</li>
+<li>Test a relevant boundary condition and explain a common failure.</li>
+</ul>
+<h3 id="concept-explanation-1"><a class="header" href="#concept-explanation-1">Concept Explanation</a></h3>
+<p>File APIs return Result. The ? operator propagates compatible failures. RAII releases resources when owners leave scope. Use a maintained parser/serializer such as serde_json for production JSON; the standard-library-only example illustrates the serialized record shape. This lesson retains the canonical course data so learners practice Rust rather than a new domain problem. Use cargo fmt, cargo check, and cargo test as routine development tools.</p>
+<h3 id="worked-example-1"><a class="header" href="#worked-example-1">Worked Example</a></h3>
+<pre class="playground"><code class="language-rust">use std::fs::OpenOptions;use std::io::Write;fn main(){let p=std::env::temp_dir().join("rust_append_demo.txt");{let mut f=OpenOptions::new().create(true).append(true).open(&amp;p).unwrap();writeln!(f,"Notebook,3").unwrap();}println!("appended inventory record");let _=std::fs::remove_file(p);}</code></pre>
+<p><strong>Expected behavior:</strong> Demonstrates a scoped file operation in the system temporary directory and removes its demonstration file.</p>
+<h3 id="common-mistakes-1"><a class="header" href="#common-mistakes-1">Common Mistakes</a></h3>
+<ol>
+<li>Using unwrap on production I/O paths instead of handling or propagating errors.</li>
+<li>Assuming file handles require manual close; RAII drops them at scope exit.</li>
+<li>Hand-building JSON without correct escaping; use serde_json in real projects.</li>
+</ol>
+<h3 id="activities-1"><a class="header" href="#activities-1">Activities</a></h3>
+<ol>
+<li>Run the worked example unchanged; trace each binding, expression, ownership transfer, and output line.</li>
+<li>Change the canonical inventory and CSV records and predict the result before running it.</li>
+<li>Add one boundary case and one invalid or missing-data case; state expected behavior before implementing the change.</li>
+<li>Refactor one part using the Rust feature named in this lesson (writing and appending files); run cargo check and explain the diagnostic output.</li>
+</ol>
+<h3 id="accessibility-practice-1"><a class="header" href="#accessibility-practice-1">Accessibility Practice</a></h3>
+<p>Use keyboard navigation to move between the lesson heading, code fence, compiler output, and terminal. With a screen reader, inspect punctuation in ownership and borrowing expressions (&amp;, &amp;mut, ::, -&gt;, ?). Do not rely on syntax highlighting or color to distinguish errors. Read prompts and validation messages in document order and verify that output is announced without unexpected focus movement.</p>
+<h3 id="skills-checklist-1"><a class="header" href="#skills-checklist-1">Skills Checklist</a></h3>
+<ul>
+<li><input disabled="" type="checkbox"> I can explain writing and appending files using Rust terminology.</li>
+<li><input disabled="" type="checkbox"> I can compile and run the example with cargo run.</li>
+<li><input disabled="" type="checkbox"> I can explain the ownership, borrowing, and type decisions used here.</li>
+<li><input disabled="" type="checkbox"> I can test a boundary case and an invalid-input or error case.</li>
+<li><input disabled="" type="checkbox"> I can navigate source, diagnostics, and output with my keyboard and assistive technology.</li>
+</ul>
+<h2 id="lesson-83-result-and-error-propagation"><a class="header" href="#lesson-83-result-and-error-propagation">Lesson 8.3: Result and error propagation</a></h2>
+<h3 id="reading-references-2"><a class="header" href="#reading-references-2">Reading References</a></h3>
+<ul>
+<li><a href="https://doc.rust-lang.org/book/ch09-02-recoverable-errors-with-result.html">The Rust Programming Language: Recoverable Errors with Result</a></li>
+<li><a href="https://doc.rust-lang.org/book/ch09-03-to-panic-or-not-to-panic.html">The Rust Programming Language: To panic! or Not to panic!</a></li>
+<li><a href="https://doc.rust-lang.org/std/">Rust standard library documentation</a></li>
+<li>Matching Python lesson: Lesson 8.3: Exceptions - Handling Errors</li>
+</ul>
+<h3 id="learning-objectives-2"><a class="header" href="#learning-objectives-2">Learning Objectives</a></h3>
+<ul>
+<li>Handle a <code>Result</code> with <code>match</code> and propagate it with <code>?</code>.</li>
+<li>Tell recoverable errors (<code>Result</code>) from panics.</li>
+<li>Use <code>Box&lt;dyn Error&gt;</code> to combine different error types.</li>
+</ul>
+<h3 id="concept-explanation-2"><a class="header" href="#concept-explanation-2">Concept Explanation</a></h3>
+<p>Rust has no exceptions. A function that can fail returns <code>Result&lt;T, E&gt;</code>, and the caller must handle it: <code>match</code> on <code>Ok</code> and <code>Err</code>, <code>unwrap_or</code> to supply a default, or <code>?</code> to return the error to <em>its</em> caller. The <code>?</code> operator also converts the error: with a return type of <code>Result&lt;T, Box&lt;dyn Error&gt;&gt;</code>, <code>?</code> accepts both an <code>io::Error</code> and a <code>ParseIntError</code>.</p>
+<p>A <strong>panic</strong> (<code>unwrap()</code> on an <code>Err</code>, an index out of range, integer division by zero) stops the program and is for bugs, not for expected problems like a missing file. <code>checked_div</code> returns an <code>Option</code> instead of panicking. The error kind of an I/O failure can be matched, for example <code>ErrorKind::NotFound</code>. Library error messages can depend on the operating system, so the example prints only messages that are the same everywhere.</p>
+<h3 id="worked-example-2"><a class="header" href="#worked-example-2">Worked Example</a></h3>
+<pre class="playground"><code class="language-rust">use std::error::Error;
+use std::fs;
+use std::io::ErrorKind;
+use std::num::ParseIntError;
+
+fn parse_score(text: &amp;str) -&gt; Result&lt;i32, ParseIntError&gt; {
+    let number = text.trim().parse::&lt;i32&gt;()?;
+    Ok(number)
+}
+
+fn read_first_number(path: &amp;str) -&gt; Result&lt;i32, Box&lt;dyn Error&gt;&gt; {
+    let text = fs::read_to_string(path)?;
+    let first = text.lines().next().unwrap_or("");
+    Ok(first.trim().parse::&lt;i32&gt;()?)
+}
+
+fn main() {
+    match fs::read_to_string("missing_notes.txt") {
+        Ok(_) =&gt; println!("The file was read."),
+        Err(error) if error.kind() == ErrorKind::NotFound =&gt; println!("Error: missing_notes.txt was not found."),
+        Err(_) =&gt; println!("Error: the file could not be read."),
+    }
+
+    match parse_score("abc") {
+        Ok(number) =&gt; println!("Score {number}"),
+        Err(error) =&gt; println!("Error: 'abc' is not a valid score ({error})"),
+    }
+    println!("{:?}", parse_score(" 88 "));
+
+    println!("{:?}", 10_i32.checked_div(0));
+    println!("{}", 10_i32.checked_div(0).unwrap_or(0));
+
+    match read_first_number("missing_notes.txt") {
+        Ok(number) =&gt; println!("First number: {number}"),
+        Err(_) =&gt; println!("Could not read a number from the file."),
+    }
+}</code></pre>
+<h3 id="expected-behavior-or-output"><a class="header" href="#expected-behavior-or-output">Expected Behavior or Output</a></h3>
+<p>The program prints:</p>
+<pre><code class="language-text">Error: missing_notes.txt was not found.
+Error: 'abc' is not a valid score (invalid digit found in string)
+Ok(88)
+None
+0
+Could not read a number from the file.
+</code></pre>
+<h3 id="common-mistakes-2"><a class="header" href="#common-mistakes-2">Common Mistakes</a></h3>
+<ol>
+<li>Calling <code>unwrap()</code> on a <code>Result</code> for expected failures, which turns them into panics.</li>
+<li>Using <code>?</code> in a function whose return type is not a <code>Result</code> or <code>Option</code>, which is a compile error.</li>
+<li>Printing an operating-system error message in an expected output, which differs between systems.</li>
+</ol>
+<h3 id="activities-2"><a class="header" href="#activities-2">Activities</a></h3>
+<ol>
+<li>Predict each printed line before running.</li>
+<li>Write a function that reads a file and returns the number of lines as a <code>Result</code>.</li>
+<li>Use <code>?</code> in a function that parses two numbers and adds them.</li>
+<li>Explain when to return a <code>Result</code> and when a panic is acceptable.</li>
+</ol>
+<h3 id="accessibility-practice-2"><a class="header" href="#accessibility-practice-2">Accessibility Practice</a></h3>
+<p>Write error messages as complete sentences that name the problem and the next step, such as ‘Enter a whole number from 0 to 100.’ When a panic message appears, read the line that names your own file first.</p>
+<h3 id="skills-checklist-2"><a class="header" href="#skills-checklist-2">Skills Checklist</a></h3>
+<ul>
+<li><input disabled="" type="checkbox"> I can handle a <code>Result</code> with <code>match</code>.</li>
+<li><input disabled="" type="checkbox"> I can use <code>?</code> to pass errors up.</li>
+<li><input disabled="" type="checkbox"> I can tell a <code>Result</code> from a panic.</li>
+<li><input disabled="" type="checkbox"> I can use <code>Box&lt;dyn Error&gt;</code>.</li>
+<li><input disabled="" type="checkbox"> I can write clear error messages.</li>
+</ul>
+<hr>
+<h2 id="lesson-84-resource-cleanup-and-raii"><a class="header" href="#lesson-84-resource-cleanup-and-raii">Lesson 8.4: Resource cleanup and RAII</a></h2>
+<h3 id="reading-references-3"><a class="header" href="#reading-references-3">Reading References</a></h3>
+<ul>
+<li><a href="https://doc.rust-lang.org/book/ch15-03-drop.html">The Rust Programming Language: Running Code on Cleanup with the Drop Trait</a></li>
+<li><a href="https://doc.rust-lang.org/std/">Rust standard library documentation</a></li>
+<li>Matching Python lesson: Lesson 8.4: The else and finally Blocks</li>
+</ul>
+<h3 id="learning-objectives-3"><a class="header" href="#learning-objectives-3">Learning Objectives</a></h3>
+<ul>
+<li>Explain that Rust releases resources when a value goes out of scope.</li>
+<li>Implement <code>Drop</code> to see when cleanup runs.</li>
+<li>Close a file by letting it go out of scope.</li>
+</ul>
+<h3 id="concept-explanation-3"><a class="header" href="#concept-explanation-3">Concept Explanation</a></h3>
+<p>Rust has no <code>finally</code>. Instead, every value is <em>dropped</em> (cleaned up) automatically when its owner goes out of scope, and values are dropped in <strong>reverse order of creation</strong>. This idea is called <strong>RAII</strong> (resource acquisition is initialization). A file handle closes itself when it is dropped, so a file cannot be left open by a forgotten call, even if the code returns early or a panic unwinds.</p>
+<p>A type can run its own cleanup by implementing the <code>Drop</code> trait, whose <code>drop</code> method is called automatically. <code>drop(value)</code> ends a value’s life early. A binding named <code>_name</code> stays alive until the end of its scope, but the bare pattern <code>_</code> drops the value immediately, which surprises many learners.</p>
+<p>The example shows the order of cleanup and writes a file inside a block so that it is closed before it is read back.</p>
+<h3 id="worked-example-3"><a class="header" href="#worked-example-3">Worked Example</a></h3>
+<pre class="playground"><code class="language-rust">use std::fs::{self, File};
+use std::io::Write;
+
+struct Guard(&amp;'static str);
+
+impl Drop for Guard {
+    fn drop(&amp;mut self) {
+        println!("Releasing {}", self.0);
+    }
+}
+
+fn main() {
+    let _outer = Guard("outer resource");
+    {
+        let _inner = Guard("inner resource");
+        println!("Using the inner resource");
+    }
+    println!("After the inner block");
+
+    let early = Guard("early resource");
+    drop(early);
+    println!("After the explicit drop");
+
+    {
+        let mut file = File::create("cleanup_demo.txt").expect("could not create the file");
+        file.write_all(b"Some data.\n").expect("could not write the file");
+    }
+    let text = fs::read_to_string("cleanup_demo.txt").expect("could not read the file");
+    println!("{}", text.trim());
+    println!("End of main");
+}</code></pre>
+<h3 id="expected-behavior-or-output-1"><a class="header" href="#expected-behavior-or-output-1">Expected Behavior or Output</a></h3>
+<p>The program prints:</p>
+<pre><code class="language-text">Using the inner resource
+Releasing inner resource
+After the inner block
+Releasing early resource
+After the explicit drop
+Some data.
+End of main
+Releasing outer resource
+</code></pre>
+<h3 id="common-mistakes-3"><a class="header" href="#common-mistakes-3">Common Mistakes</a></h3>
+<ol>
+<li>Writing <code>let _ = Guard(...)</code> and expecting it to live until the end of the scope. It is dropped at once.</li>
+<li>Expecting values to be dropped in the order they were created. The order is reversed.</li>
+<li>Reading a file before the handle that wrote it has gone out of scope, which can miss buffered data.</li>
+</ol>
+<h3 id="activities-3"><a class="header" href="#activities-3">Activities</a></h3>
+<ol>
+<li>Predict the eight printed lines, especially the order of the <code>Releasing</code> lines.</li>
+<li>Change <code>_outer</code> to <code>_</code> and describe what changes.</li>
+<li>Add a third guard and predict where its message appears.</li>
+<li>Explain why Rust does not need a <code>finally</code> block.</li>
+</ol>
+<h3 id="accessibility-practice-3"><a class="header" href="#accessibility-practice-3">Accessibility Practice</a></h3>
+<p>Print a short labelled line when each resource is released, so the screen reader announces the order of cleanup. Labelled lines make a rule that is normally invisible audible.</p>
+<h3 id="skills-checklist-3"><a class="header" href="#skills-checklist-3">Skills Checklist</a></h3>
+<ul>
+<li><input disabled="" type="checkbox"> I can explain scope-based cleanup.</li>
+<li><input disabled="" type="checkbox"> I can implement <code>Drop</code>.</li>
+<li><input disabled="" type="checkbox"> I know values drop in reverse order.</li>
+<li><input disabled="" type="checkbox"> I know a file closes when it is dropped.</li>
+<li><input disabled="" type="checkbox"> I know <code>_</code> and <code>_name</code> differ.</li>
+</ul>
+<hr>
+<h2 id="lesson-85-json-serialization-and-persistence"><a class="header" href="#lesson-85-json-serialization-and-persistence">Lesson 8.5: JSON serialization and persistence</a></h2>
+<h3 id="reading-references-4"><a class="header" href="#reading-references-4">Reading References</a></h3>
+<ul>
+<li><a href="https://doc.rust-lang.org/book/ch07-01-packages-and-crates.html">The Rust Programming Language: Packages and Crates</a></li>
+<li><a href="https://docs.rs/serde_json/">serde_json documentation</a></li>
+<li>JSON specification: https://www.json.org</li>
+<li>Matching Python lesson: Lesson 8.5: Storing Data with JSON</li>
+</ul>
+<h3 id="learning-objectives-4"><a class="header" href="#learning-objectives-4">Learning Objectives</a></h3>
+<ul>
+<li>Explain why this lesson includes a JSON helper.</li>
+<li>Encode and decode the shared task records.</li>
+<li>Handle a missing or malformed file.</li>
+</ul>
+<h3 id="concept-explanation-4"><a class="header" href="#concept-explanation-4">Concept Explanation</a></h3>
+<p>The Rust standard library has no JSON support. Real projects add the <code>serde</code> and <code>serde_json</code> crates through Cargo. To keep this course free of dependencies, the example includes a <em>teaching implementation</em>: an <code>enum Json</code> with an <code>encode</code> function and a <code>decode</code> function built from a small parser. It handles strings, numbers, booleans, <code>null</code>, lists, and objects, writes object keys in sorted order (a <code>BTreeMap</code>), and reports malformed text with a message that includes the position. It is not a replacement for a production library, and a decimal such as <code>2.0</code> is written as <code>2</code>, so it reads back as an integer.</p>
+<p>JSON text stores data in a standard format: <code>{ ... }</code> holds key-value pairs, <code>[ ... ]</code> holds ordered items, and text is in double quotation marks. Decoded data is a <code>Json</code> enum, so <code>match</code> forces you to handle every kind of value.</p>
+<p>The shared to-do record has the fields <code>id</code>, <code>title</code>, <code>description</code>, <code>done</code>, and <code>created_at</code>. The example saves two tasks, loads them back, and shows the message for a malformed file.</p>
+<p>The teaching helper decodes JSON <code>null</code> as <code>Json::Null</code> and whole numbers as <code>Json::Int</code>. It does not handle every number edge case that a full parser must.</p>
+<h3 id="worked-example-4"><a class="header" href="#worked-example-4">Worked Example</a></h3>
+<pre class="playground"><code class="language-rust">use std::collections::BTreeMap;
+
+#[derive(Debug, Clone, PartialEq)]
+enum Json {
+    Null,
+    Bool(bool),
+    Int(i64),
+    Float(f64),
+    Str(String),
+    List(Vec&lt;Json&gt;),
+    Object(BTreeMap&lt;String, Json&gt;),
+}
+
+fn quote(text: &amp;str) -&gt; String {
+    let mut out = String::from("\"");
+    for c in text.chars() {
+        match c {
+            '"' =&gt; out.push_str("\\\""),
+            '\\' =&gt; out.push_str("\\\\"),
+            '\n' =&gt; out.push_str("\\n"),
+            '\r' =&gt; out.push_str("\\r"),
+            '\t' =&gt; out.push_str("\\t"),
+            c if (c as u32) &lt; 0x20 =&gt; out.push_str(&amp;format!("\\u{:04x}", c as u32)),
+            c =&gt; out.push(c),
+        }
+    }
+    out.push('"');
+    out
+}
+
+fn encode(value: &amp;Json) -&gt; String {
+    match value {
+        Json::Null =&gt; "null".to_string(),
+        Json::Bool(flag) =&gt; flag.to_string(),
+        Json::Int(number) =&gt; number.to_string(),
+        Json::Float(number) =&gt; number.to_string(),
+        Json::Str(text) =&gt; quote(text),
+        Json::List(items) =&gt; {
+            let parts: Vec&lt;String&gt; = items.iter().map(encode).collect();
+            format!("[{}]", parts.join(","))
+        }
+        Json::Object(map) =&gt; {
+            let parts: Vec&lt;String&gt; = map.iter().map(|(key, item)| format!("{}:{}", quote(key), encode(item))).collect();
+            format!("{{{}}}", parts.join(","))
+        }
+    }
+}
+
+struct Parser {
+    chars: Vec&lt;char&gt;,
+    pos: usize,
+}
+
+impl Parser {
+    fn fail&lt;T&gt;(&amp;self, message: &amp;str) -&gt; Result&lt;T, String&gt; {
+        Err(format!("{message} at position {}", self.pos))
+    }
+
+    fn skip(&amp;mut self) {
+        while self.pos &lt; self.chars.len() &amp;&amp; self.chars[self.pos].is_whitespace() {
+            self.pos += 1;
+        }
+    }
+
+    fn peek(&amp;self) -&gt; Option&lt;char&gt; {
+        self.chars.get(self.pos).copied()
+    }
+
+    fn starts_with(&amp;self, word: &amp;str) -&gt; bool {
+        word.chars().enumerate().all(|(i, c)| self.chars.get(self.pos + i) == Some(&amp;c))
+    }
+
+    fn value(&amp;mut self) -&gt; Result&lt;Json, String&gt; {
+        self.skip();
+        match self.peek() {
+            None =&gt; self.fail("unexpected end of text"),
+            Some('{') =&gt; self.object(),
+            Some('[') =&gt; self.list(),
+            Some('"') =&gt; Ok(Json::Str(self.string()?)),
+            Some(c) if c == '-' || c.is_ascii_digit() =&gt; self.number(),
+            Some(_) if self.starts_with("true") =&gt; {
+                self.pos += 4;
+                Ok(Json::Bool(true))
+            }
+            Some(_) if self.starts_with("false") =&gt; {
+                self.pos += 5;
+                Ok(Json::Bool(false))
+            }
+            Some(_) if self.starts_with("null") =&gt; {
+                self.pos += 4;
+                Ok(Json::Null)
+            }
+            Some(_) =&gt; self.fail("unexpected character"),
+        }
+    }
+
+    fn number(&amp;mut self) -&gt; Result&lt;Json, String&gt; {
+        let start = self.pos;
+        if self.peek() == Some('-') {
+            self.pos += 1;
+        }
+        while let Some(c) = self.peek() {
+            if c.is_ascii_digit() || ".eE+-".contains(c) {
+                self.pos += 1;
+            } else {
+                break;
+            }
+        }
+        let token: String = self.chars[start..self.pos].iter().collect();
+        if let Ok(number) = token.parse::&lt;i64&gt;() {
+            return Ok(Json::Int(number));
+        }
+        match token.parse::&lt;f64&gt;() {
+            Ok(number) =&gt; Ok(Json::Float(number)),
+            Err(_) =&gt; self.fail("bad number"),
+        }
+    }
+
+    fn string(&amp;mut self) -&gt; Result&lt;String, String&gt; {
+        self.pos += 1;
+        let mut out = String::new();
+        loop {
+            let Some(c) = self.peek() else {
+                return self.fail("unterminated string");
+            };
+            self.pos += 1;
+            match c {
+                '"' =&gt; return Ok(out),
+                '\\' =&gt; {
+                    let Some(escape) = self.peek() else {
+                        return self.fail("bad escape");
+                    };
+                    self.pos += 1;
+                    match escape {
+                        'n' =&gt; out.push('\n'),
+                        't' =&gt; out.push('\t'),
+                        'r' =&gt; out.push('\r'),
+                        '"' =&gt; out.push('"'),
+                        '\\' =&gt; out.push('\\'),
+                        '/' =&gt; out.push('/'),
+                        'u' =&gt; {
+                            if self.pos + 4 &gt; self.chars.len() {
+                                return self.fail("bad escape");
+                            }
+                            let hex: String = self.chars[self.pos..self.pos + 4].iter().collect();
+                            let code = u32::from_str_radix(&amp;hex, 16).map_err(|_| "bad escape".to_string())?;
+                            out.push(char::from_u32(code).unwrap_or('?'));
+                            self.pos += 4;
+                        }
+                        _ =&gt; return self.fail("bad escape"),
+                    }
+                }
+                other =&gt; out.push(other),
+            }
+        }
+    }
+
+    fn object(&amp;mut self) -&gt; Result&lt;Json, String&gt; {
+        self.pos += 1;
+        let mut map = BTreeMap::new();
+        self.skip();
+        if self.peek() == Some('}') {
+            self.pos += 1;
+            return Ok(Json::Object(map));
+        }
+        loop {
+            self.skip();
+            if self.peek() != Some('"') {
+                return self.fail("expected a key");
+            }
+            let key = self.string()?;
+            self.skip();
+            if self.peek() != Some(':') {
+                return self.fail("expected ':'");
+            }
+            self.pos += 1;
+            let item = self.value()?;
+            map.insert(key, item);
+            self.skip();
+            match self.peek() {
+                None =&gt; return self.fail("unterminated object"),
+                Some('}') =&gt; {
+                    self.pos += 1;
+                    return Ok(Json::Object(map));
+                }
+                Some(',') =&gt; self.pos += 1,
+                Some(_) =&gt; return self.fail("expected ',' or '}'"),
+            }
+        }
+    }
+
+    fn list(&amp;mut self) -&gt; Result&lt;Json, String&gt; {
+        self.pos += 1;
+        let mut items = Vec::new();
+        self.skip();
+        if self.peek() == Some(']') {
+            self.pos += 1;
+            return Ok(Json::List(items));
+        }
+        loop {
+            items.push(self.value()?);
+            self.skip();
+            match self.peek() {
+                None =&gt; return self.fail("unterminated list"),
+                Some(']') =&gt; {
+                    self.pos += 1;
+                    return Ok(Json::List(items));
+                }
+                Some(',') =&gt; self.pos += 1,
+                Some(_) =&gt; return self.fail("expected ',' or ']'"),
+            }
+        }
+    }
+}
+
+fn decode(text: &amp;str) -&gt; Result&lt;Json, String&gt; {
+    let mut parser = Parser { chars: text.chars().collect(), pos: 0 };
+    let value = parser.value()?;
+    parser.skip();
+    if parser.pos &lt; parser.chars.len() {
+        return parser.fail("unexpected extra text");
+    }
+    Ok(value)
+}
+
+use std::fs;
+use std::io;
+
+fn task(id: i64, title: &amp;str, description: &amp;str, done: bool, created_at: &amp;str) -&gt; Json {
+    let mut map = BTreeMap::new();
+    map.insert("id".to_string(), Json::Int(id));
+    map.insert("title".to_string(), Json::Str(title.to_string()));
+    map.insert("description".to_string(), Json::Str(description.to_string()));
+    map.insert("done".to_string(), Json::Bool(done));
+    map.insert("created_at".to_string(), Json::Str(created_at.to_string()));
+    Json::Object(map)
+}
+
+fn main() -&gt; io::Result&lt;()&gt; {
+    let tasks = Json::List(vec![
+        task(1, "Study programming", "Finish Unit 8", false, "2026-01-15T09:00:00"),
+        task(2, "Review scores", "Check the four scores", true, "2026-01-15T09:30:00"),
+    ]);
+    fs::write("tasks.json", encode(&amp;tasks))?;
+
+    let text = match fs::read_to_string("tasks.json") {
+        Ok(text) =&gt; text,
+        Err(_) =&gt; {
+            println!("Tasks file not found.");
+            return Ok(());
+        }
+    };
+
+    match decode(&amp;text) {
+        Ok(Json::List(items)) =&gt; {
+            for item in &amp;items {
+                if let Json::Object(map) = item {
+                    let id = match map.get("id") {
+                        Some(Json::Int(number)) =&gt; *number,
+                        _ =&gt; 0,
+                    };
+                    let title = match map.get("title") {
+                        Some(Json::Str(text)) =&gt; text.as_str(),
+                        _ =&gt; "?",
+                    };
+                    let status = if map.get("done") == Some(&amp;Json::Bool(true)) { "done" } else { "not done" };
+                    println!("{id}: {title} ({status})");
+                }
+            }
+        }
+        Ok(_) =&gt; println!("Error: the tasks file must contain a list."),
+        Err(message) =&gt; println!("Error: could not decode tasks file: {message}"),
+    }
+
+    println!("{:?}", decode("[{\"id\": 1,"));
+    Ok(())
+}</code></pre>
+<h3 id="expected-behavior-or-output-2"><a class="header" href="#expected-behavior-or-output-2">Expected Behavior or Output</a></h3>
+<p>The program prints:</p>
+<pre><code class="language-text">1: Study programming (not done)
+2: Review scores (done)
+Err("expected a key at position 10")
+</code></pre>
+<h3 id="common-mistakes-4"><a class="header" href="#common-mistakes-4">Common Mistakes</a></h3>
+<ol>
+<li>Assuming Rust has built-in JSON support.</li>
+<li>Trusting decoded data without matching on the kind of each value.</li>
+<li>Overwriting a good data file with an empty list after a failed load.</li>
+</ol>
+<h3 id="activities-4"><a class="header" href="#activities-4">Activities</a></h3>
+<ol>
+<li>Run the program and read the saved JSON text from <code>tasks.json</code>.</li>
+<li>Edit <code>tasks.json</code> by hand to remove a closing bracket and run the loading part again. Read the message.</li>
+<li>Add a third task and confirm that it is saved and loaded.</li>
+<li>Explain why a production project should use <code>serde_json</code>.</li>
+</ol>
+<h3 id="accessibility-practice-4"><a class="header" href="#accessibility-practice-4">Accessibility Practice</a></h3>
+<p>Open <code>tasks.json</code> in the terminal and read it as text. JSON in a single line is difficult to navigate, so practise stepping through it by word or character.</p>
+<h3 id="skills-checklist-4"><a class="header" href="#skills-checklist-4">Skills Checklist</a></h3>
+<ul>
+<li><input disabled="" type="checkbox"> I know Rust has no built-in JSON.</li>
+<li><input disabled="" type="checkbox"> I can encode and decode records.</li>
+<li><input disabled="" type="checkbox"> I handle missing and malformed files.</li>
+<li><input disabled="" type="checkbox"> I match on decoded values.</li>
+<li><input disabled="" type="checkbox"> I know when to use a crate.</li>
+</ul>
+<hr>
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                            <a rel="prev" href="../RUST/unit07-data-modeling-and-traits.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M41.4 233.4c-12.5 12.5-12.5 32.8 0 45.3l160 160c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L109.3 256 246.6 118.6c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0l-160 160z"/></svg></span>
+                            </a>
+
+                            <a rel="next prefetch" href="../RUST/unit09-testing-and-data-analysis.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M278.6 233.4c12.5 12.5 12.5 32.8 0 45.3l-160 160c-12.5 12.5-32.8 12.5-45.3 0s-12.5-32.8 0-45.3L210.7 256 73.4 118.6c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0l160 160z"/></svg></span>
+                            </a>
+
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                    <a rel="prev" href="../RUST/unit07-data-modeling-and-traits.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M41.4 233.4c-12.5 12.5-12.5 32.8 0 45.3l160 160c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L109.3 256 246.6 118.6c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0l-160 160z"/></svg></span>
+                    </a>
+
+                    <a rel="next prefetch" href="../RUST/unit09-testing-and-data-analysis.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M278.6 233.4c12.5 12.5 12.5 32.8 0 45.3l-160 160c-12.5 12.5-32.8 12.5-45.3 0s-12.5-32.8 0-45.3L210.7 256 73.4 118.6c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0l160 160z"/></svg></span>
+                    </a>
+            </nav>
+
+        </div>
+
+        <template id=fa-eye><span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M288 32c-80.8 0-145.5 36.8-192.6 80.6C48.6 156 17.3 208 2.5 243.7c-3.3 7.9-3.3 16.7 0 24.6C17.3 304 48.6 356 95.4 399.4C142.5 443.2 207.2 480 288 480s145.5-36.8 192.6-80.6c46.8-43.5 78.1-95.4 93-131.1c3.3-7.9 3.3-16.7 0-24.6c-14.9-35.7-46.2-87.7-93-131.1C433.5 68.8 368.8 32 288 32zM432 256c0 79.5-64.5 144-144 144s-144-64.5-144-144s64.5-144 144-144s144 64.5 144 144zM288 192c0 35.3-28.7 64-64 64c-11.5 0-22.3-3-31.6-8.4c-.2 2.8-.4 5.5-.4 8.4c0 53 43 96 96 96s96-43 96-96s-43-96-96-96c-2.8 0-5.6 .1-8.4 .4c5.3 9.3 8.4 20.1 8.4 31.6z"/></svg></span></template>
+        <template id=fa-eye-slash><span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M38.8 5.1C28.4-3.1 13.3-1.2 5.1 9.2S-1.2 34.7 9.2 42.9l592 464c10.4 8.2 25.5 6.3 33.7-4.1s6.3-25.5-4.1-33.7L525.6 386.7c39.6-40.6 66.4-86.1 79.9-118.4c3.3-7.9 3.3-16.7 0-24.6c-14.9-35.7-46.2-87.7-93-131.1C465.5 68.8 400.8 32 320 32c-68.2 0-125 26.3-169.3 60.8L38.8 5.1zM223.1 149.5C248.6 126.2 282.7 112 320 112c79.5 0 144 64.5 144 144c0 24.9-6.3 48.3-17.4 68.7L408 294.5c5.2-11.8 8-24.8 8-38.5c0-53-43-96-96-96c-2.8 0-5.6 .1-8.4 .4c5.3 9.3 8.4 20.1 8.4 31.6c0 10.2-2.4 19.8-6.6 28.3l-90.3-70.8zm223.1 298L373 389.9c-16.4 6.5-34.3 10.1-53 10.1c-79.5 0-144-64.5-144-144c0-6.9 .5-13.6 1.4-20.2L83.1 161.5C60.3 191.2 44 220.8 34.5 243.7c-3.3 7.9-3.3 16.7 0 24.6c14.9 35.7 46.2 87.7 93 131.1C174.5 443.2 239.2 480 320 480c47.8 0 89.9-12.9 126.2-32.5z"/></svg></span></template>
+        <template id=fa-copy><span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M502.6 70.63l-61.25-61.25C435.4 3.371 427.2 0 418.7 0H255.1c-35.35 0-64 28.66-64 64l.0195 256C192 355.4 220.7 384 256 384h192c35.2 0 64-28.8 64-64V93.25C512 84.77 508.6 76.63 502.6 70.63zM464 320c0 8.836-7.164 16-16 16H255.1c-8.838 0-16-7.164-16-16L239.1 64.13c0-8.836 7.164-16 16-16h128L384 96c0 17.67 14.33 32 32 32h47.1V320zM272 448c0 8.836-7.164 16-16 16H63.1c-8.838 0-16-7.164-16-16L47.98 192.1c0-8.836 7.164-16 16-16H160V128H63.99c-35.35 0-64 28.65-64 64l.0098 256C.002 483.3 28.66 512 64 512h192c35.2 0 64-28.8 64-64v-32h-47.1L272 448z"/></svg></span></template>
+        <template id=fa-play><span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M73 39c-14.8-9.1-33.4-9.4-48.5-.9S0 62.6 0 80V432c0 17.4 9.4 33.4 24.5 41.9s33.7 8.1 48.5-.9L361 297c14.3-8.7 23-24.2 23-41s-8.7-32.2-23-41L73 39z"/></svg></span></template>
+        <template id=fa-clock-rotate-left><span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M75 75L41 41C25.9 25.9 0 36.6 0 57.9V168c0 13.3 10.7 24 24 24H134.1c21.4 0 32.1-25.9 17-41l-30.8-30.8C155 85.5 203 64 256 64c106 0 192 86 192 192s-86 192-192 192c-40.8 0-78.6-12.7-109.7-34.4c-14.5-10.1-34.4-6.6-44.6 7.9s-6.6 34.4 7.9 44.6C151.2 495 201.7 512 256 512c141.4 0 256-114.6 256-256S397.4 0 256 0C185.3 0 121.3 28.7 75 75zm181 53c-13.3 0-24 10.7-24 24V256c0 6.4 2.5 12.5 7 17l72 72c9.4 9.4 24.6 9.4 33.9 0s9.4-24.6 0-33.9l-65-65V152c0-13.3-10.7-24-24-24z"/></svg></span></template>
+
+
+
+        <script>
+            window.playground_copyable = true;
+        </script>
+
+
+        <script src="../elasticlunr-ef4e11c1.min.js"></script>
+        <script src="../mark-09e88c2c.min.js"></script>
+        <script src="../searcher-09f2665d.js"></script>
+
+        <script src="../clipboard-1626706a.min.js"></script>
+        <script src="../highlight-abc7f01d.js"></script>
+        <script src="../book-609e4cb8.js"></script>
+
+        <!-- Custom JS scripts -->
+
+
+
+    </div>
+    </body>
+</html>
