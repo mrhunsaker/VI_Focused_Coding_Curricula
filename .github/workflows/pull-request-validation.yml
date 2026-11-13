@@ -94,4 +94,6 @@ jobs:
 
       - name: Build mdBook
         working-directory: my-book
-        run: mdbook build --renderer html
+        run: |
+          export MDBOOK_OUTPUT="$(python3 -c 'import json, tomllib; print(json.dumps({"html": tomllib.load(open("book.toml", "rb"))["output"]["html"]}))')"
+          mdbook build --dest-dir docs/html
