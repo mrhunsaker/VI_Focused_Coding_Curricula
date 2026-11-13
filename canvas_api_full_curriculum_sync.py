@@ -312,7 +312,8 @@ def sync_to_canvas(source_root: Path, summary_path: Path) -> None:
             "'python -m pip install canvasapi python-dotenv'."
         ) from exc
 
-    load_dotenv(source_root / ".env")
+    project_root = Path(__file__).resolve().parent
+    load_dotenv(project_root / ".env")
     api_url = os.getenv("CANVAS_API_URL")
     api_key = os.getenv("CANVAS_API_KEY")
     course_id_raw = os.getenv("CANVAS_COURSE_ID")
@@ -368,18 +369,70 @@ def sync_to_canvas(source_root: Path, summary_path: Path) -> None:
                 })
     print("Canvas API curriculum sync completed.")
 
+def dry_run(source_root: Path, summary_path: Path) -> int:
+    """Validate curriculum structure without creating an IMSCC package or contacting Canvas."""
+
+    modules = parse_summary(summary_path, source_root)
+
+    page_count = 0
+    lesson_candidates = 0
+    missing = []
+
+    for module in modules:
+        for item in module["items"]:
+            page_count += 1
+
+            source_file = item["source_path"]
+
+            if not source_file.is_file():
+                missing.append(source_file)
+
+            if any(
+                word in str(item["source_relative"]).lower()
+                for word in ("unit", "lesson", "bash", "powershell")
+            ):
+                lesson_candidates += 1
+
+    print()
+    print("Curriculum Validation Summary")
+    print("=" * 32)
+    print(f"SUMMARY.md: {summary_path}")
+    print(f"Source Root: {source_root}")
+    print()
+    print(f"Modules: {len(modules)}")
+    print(f"Pages: {page_count}")
+    print(f"Assignment Candidates: {lesson_candidates}")
+    print()
+
+    if missing:
+        print("Validation: FAIL")
+        print()
+        print("Missing Files:")
+
+        for path in missing:
+            print(f"  {path}")
+
+        return 1
+
+    print("Validation: PASS")
+    return 0
+
+
 
 def main() -> int:
     parser = argparse.ArgumentParser(
         description="Export mdBook content as IMS Common Cartridge or sync to Canvas via API."
     )
+    
     parser.add_argument(
-        "--source-dir", type=Path, default=Path("."),
-        help="mdBook source directory (default: current directory)",
+    "--source-dir",
+    type=Path,
+    default=None,
     )
     parser.add_argument(
-        "--summary", type=Path, default=Path("SUMMARY.md"),
-        help="mdBook summary file relative to --source-dir (default: SUMMARY.md)",
+        "--summary",
+        type=Path,
+        default=None,
     )
     parser.add_argument(
         "--export-imscc", type=Path, metavar="OUTPUT.imscc",
@@ -389,10 +442,37 @@ def main() -> int:
         "--title", default="VI Focused Coding Curricula",
         help="course title stored in the Common Cartridge manifest",
     )
+    parser.add_argument(
+    "--dry-run",
+    action="store_true",
+    help=(
+    "Validate curriculum structure without creating "
+    "an IMSCC package or contacting Canvas."
+    ),
+    )
     args = parser.parse_args()
 
-    source_root = args.source_dir.resolve()
-    summary_path = args.summary if args.summary.is_absolute() else source_root / args.summary
+    from dotenv import load_dotenv
+
+    load_dotenv()
+
+    summary_env = os.getenv("SUMMARY_PATH")
+
+    if args.summary:
+        summary_path = args.summary.resolve()
+    elif summary_env:
+        summary_path = Path(summary_env).resolve()
+    else:
+        raise ValueError(
+            "Provide --summary or set SUMMARY_PATH in .env"
+        )
+
+    if args.source_dir:
+        source_root = args.source_dir.resolve()
+    else:
+        source_root = summary_path.parent.resolve()
+    if args.dry_run:
+        return dry_run(source_root, summary_path)
     if args.export_imscc:
         output = args.export_imscc
         if not output.is_absolute():

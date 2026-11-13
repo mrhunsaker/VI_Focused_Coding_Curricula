@@ -39,7 +39,7 @@ Every language in this course (Python, Java, JavaScript, TypeScript, Kotlin, C, 
 ## Lesson P.1: What a Computer Does
 
 ### Reading References
-- Zelle: Chapter 1, pages 1–7
+- Zelle: Chapter 1, pages 1-7
 - Matthes: Chapter 1
 - The "Foundations of Computing" lesson (Lesson 1.1) of your chosen language track revisits this material.
 
@@ -133,7 +133,7 @@ Open a terminal with your keyboard only. Type a short command such as `echo hell
 
 To read binary 1101: the places from the right are 1, 2, 4, 8. The digits from the right are 1, 0, 1, 1. Add the places that have a 1: 1 plus 4 plus 8 equals 13. So binary 1101 is decimal 13. A byte with all eight bits set to 1 is 128 plus 64 plus 32 plus 16 plus 8 plus 4 plus 2 plus 1, which is 255. The largest value in a byte is therefore 255, and the smallest is 0.
 
-**Hexadecimal** is a shorthand that uses 16 symbols (0–9 then A–F) so that one symbol stands for 4 bits. Two hexadecimal symbols describe one byte. You will see it in error messages and memory addresses.
+**Hexadecimal** is a shorthand that uses 16 symbols (0-9 then A-F) so that one symbol stands for 4 bits. Two hexadecimal symbols describe one byte. You will see it in error messages and memory addresses.
 
 **Text is numbers.** A character encoding is an agreed table that assigns a number to each character. In ASCII and Unicode, the capital letter "A" is the number 65, which in a byte is 01000001. The lowercase "a" is 97, which is 01100001. Unicode extends this idea to every writing system and to braille patterns. A **string** is a sequence of such characters. The text "Avery" has 5 characters; the first is "A" and the last is "y".
 
@@ -271,8 +271,8 @@ Write traces as numbered sentences rather than tables, so they read cleanly in a
 ## Lesson P.4: The Shared Vocabulary of Programming
 
 ### Reading References
-- Zelle: Chapters 2–3
-- Matthes: Chapters 2–4
+- Zelle: Chapters 2-3
+- Matthes: Chapters 2-4
 
 ### Learning Objectives
 - Define the core terms used in every language track.
@@ -477,7 +477,7 @@ Practise a keyboard-only workflow: open a terminal, move to your course folder, 
 - Unit 10: text-based projects (a text adventure and a command-line to-do tool).
 - Unit 11: a capstone personal data manager.
 
-Every Unit 1–11 lesson in a track uses the same sections: Reading References, Learning Objectives, Concept Explanation, Worked Example, Expected Behavior or Output, Common Mistakes, Activities, Accessibility Practice, and Skills Checklist.
+Every Unit 1-11 lesson in a track uses the same sections: Reading References, Learning Objectives, Concept Explanation, Worked Example, Expected Behavior or Output, Common Mistakes, Activities, Accessibility Practice, and Skills Checklist.
 
 **Working the accessible way, in every unit.**
 
