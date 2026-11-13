@@ -31,6 +31,7 @@ jobs:
           mdbook-version: latest
 
       - name: Build the book
+        working-directory: my-book
         run: mdbook build
 
       - name: Configure GitHub Pages
@@ -41,7 +42,7 @@ jobs:
       - name: Upload Pages artifact
         uses: actions/upload-pages-artifact@v3
         with:
-          path: ./book
+          path: ./my-book/docs/html
 
       - name: Deploy to GitHub Pages
         id: deployment
