@@ -1,4 +1,4 @@
-package.path = "LUA/capstone/?.lua;" .. package.path
+package.path = (arg[0]:match("^(.*[/\\])") or "./") .. "?.lua;" .. package.path
 local records = require("records")
 local function check(value, message) if not value then error(message) end end
 local function clock_sequence()
