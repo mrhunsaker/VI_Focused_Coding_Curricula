@@ -26,8 +26,8 @@ jobs:
       - uses: dtolnay/rust-toolchain@stable
       - name: Set up Kotlin compiler
         run: |
-          curl --fail --location --silent --show-error \\
-            https://github.com/JetBrains/kotlin/releases/download/v2.0.21/kotlin-compiler-2.0.21.zip \\
+          curl --fail --location --silent --show-error \
+            https://github.com/JetBrains/kotlin/releases/download/v2.0.21/kotlin-compiler-2.0.21.zip \
             --output "$RUNNER_TEMP/kotlin.zip"
           unzip -q "$RUNNER_TEMP/kotlin.zip" -d "$RUNNER_TEMP"
           echo "$RUNNER_TEMP/kotlinc/bin" >> "$GITHUB_PATH"
