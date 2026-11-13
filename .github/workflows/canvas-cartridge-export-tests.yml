@@ -25,7 +25,7 @@ jobs:
         with:
           python-version: "3.13"
       - name: Install export dependency
-        run: python -m pip install --upgrade pip markdown
+        run: python -m pip install --upgrade pip markdown python-dotenv
       - name: Compile script and tests
         run: python -m compileall -q canvas_api_full_curriculum_sync.py tests
       - name: Run Common Cartridge export tests
