@@ -22,13 +22,13 @@ jobs:
           sudo apt-get install --yes libjson-c-dev nlohmann-json3-dev pkg-config
       - name: Compile and test C core
         run: |
-          gcc -D_GNU_SOURCE -std=c17 -Wall -Wextra -Werror \\
-            my-book/src/C/capstone/records.c my-book/src/C/capstone/test_records.c \\
-            $(pkg-config --cflags --libs json-c) \\
+          gcc -D_GNU_SOURCE -std=c17 -Wall -Wextra -Werror \
+            my-book/src/C/capstone/records.c my-book/src/C/capstone/test_records.c \
+            $(pkg-config --cflags --libs json-c) \
             -o "$RUNNER_TEMP/c-capstone-tests"
           "$RUNNER_TEMP/c-capstone-tests"
       - name: Compile and test C++ core
         run: |
-          g++ -std=c++20 -Wall -Wextra -Werror -Imy-book/src/CPP/capstone \\
+          g++ -std=c++20 -Wall -Wextra -Werror -Imy-book/src/CPP/capstone \
             my-book/src/CPP/capstone/test_records.cpp -o "$RUNNER_TEMP/cpp-capstone-tests"
           "$RUNNER_TEMP/cpp-capstone-tests"
